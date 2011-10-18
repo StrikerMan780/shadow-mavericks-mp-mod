@@ -1,0 +1,338 @@
+// Terrain Defs For GBTW46
+// Defs By StrikerMan780
+
+//Splashes
+splash 	nukage
+{
+ smallclass 	NukageSplashBaseSmall
+ smallclip		0
+ smallsound	slimesmall
+
+ baseclass		sludgesplash
+ chunkclass	sludgechunk
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	6
+ chunkbasezvel	2
+ sound		slime
+ NoAlert
+}
+
+splash Slime
+{
+	smallclass		SlimeSplash
+	smallclip		6
+	smallsound		slimesmall
+
+	baseclass		SlimeSplash
+	chunkclass		SlimeChunk
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			slime
+	NoAlert
+}
+
+splash 	water
+{
+ smallclass 	watersplashbasesmall
+ smallclip		3
+ smallsound	watersmall
+
+ baseclass		watersplashbase
+ chunkclass	watersplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		water
+ NoAlert
+}
+
+splash 	greywater
+{
+ smallclass 	GreyWaterSplashBaseSmall
+ smallclip		3
+ smallsound	watersmall
+
+ baseclass		GreyWaterSplashBase
+ chunkclass	GreyWaterSplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		water
+ NoAlert
+}
+
+splash redwater
+{
+ smallclass 	bloodsplashbasesmall
+ smallclip		3
+ smallsound	bloodsmall
+
+ baseclass		bloodsplashbase
+ chunkclass	bloodsplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		water
+ NoAlert
+}
+
+splash 	blood
+{
+ smallclass 	bloodsplashbasesmall
+ smallclip		4
+ smallsound	bloodsmall
+
+ baseclass		bloodsplashbase
+ chunkclass	bloodsplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		blood
+ NoAlert
+}
+
+splash 	blueblood
+{
+ smallclass 	watersplashbasesmall
+ smallclip		4
+ smallsound	bloodsmall
+
+ baseclass		watersplashbase
+ chunkclass	watersplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		blood
+ NoAlert
+}
+
+splash 	lava
+{
+ smallclass 	lavasplash
+ smallclip		5
+ smallsound	burnsmall
+
+ baseclass		lavasplash
+ chunkclass	lavasmoke
+ chunkxvelshift	-1
+ chunkyvelshift	-1
+ chunkzvelshift	2
+ chunkbasezvel	1
+ sound		burn
+ NoAlert
+}
+
+splash 	rainwater
+{
+ smallclass 	RainWaterSplashBaseSmall
+ smallclip		4
+ smallsound	watersmall
+
+ baseclass		RainWaterSplashBase
+ chunkclass	RainWaterSplash
+ chunkxvelshift	10
+ chunkyvelshift	10
+ chunkzvelshift	10
+ chunkbasezvel	8
+ sound		rainsplash
+ NoAlert
+}
+
+splash 	sand
+{
+ smallclass 	SandPuff
+ smallclip		0
+ smallsound		Sand
+
+ baseclass		SandCloud
+ sound		Sand
+ NoAlert
+}
+
+splash 	quiksand
+{
+ sound		WaterSmall
+}
+
+//*************************************Terrain
+
+terrain	 nukage_t
+{
+ splash 	nukage
+ footclip	 10
+ liquid
+}
+
+terrain	water_t
+{
+ splash 	water
+ footclip	 8
+ liquid
+}
+
+terrain	redwater_t
+{
+ splash 	redwater
+ footclip	 8
+ liquid
+}
+
+terrain greywater_t
+{
+ splash		greywater
+ footclip	8
+ liquid
+}
+
+terrain	lava_t
+{
+ splash 	lava
+ footclip	 4
+}
+
+terrain	blood_t
+{
+ footclip	 12
+ liquid
+ splash 	blood
+}
+
+terrain	bblood_t
+{
+ footclip	 12
+ liquid
+ splash 	blueblood
+}
+
+terrain Slime
+{
+ footclip	 6
+ liquid
+ splash Slime
+}
+
+terrain	rain_t
+{
+ splash 	rainwater
+ footclip	 1
+}
+
+terrain	rainsolid_t
+{
+ splash 	rainwater
+ footclip	 0
+}
+
+terrain	grassblood_t
+{
+ footclip	 1
+ splash 	blood
+}
+
+terrain	sand_t
+{
+ footclip	 1
+ splash 	sand
+}
+
+terrain	quiksand_t
+{
+ footclip	 18
+ liquid
+ splash 	quiksand
+}
+
+terrain Ice
+{
+	// A friction > 1 is actually less friction
+	friction 1.70824008138
+
+	// Ice doesn't actually do any damage. This is just so that things
+	// that freeze to death take longer to melt on this terrain.
+	damagetype ice
+}
+
+//*********** Floors ************
+
+ifdoom
+
+floor NUKAGE1 nukage_t
+floor NUKAGE2 nukage_t
+floor NUKAGE3 nukage_t
+floor fwater1 water_t
+floor fwater2 water_t
+floor fwater3 water_t
+floor fwater4 water_t
+floor bwater1 nukage_t
+floor bwater2 nukage_t
+floor bwater3 nukage_t
+floor bwater4 nukage_t
+floor lava1 lava_t
+floor lava2 lava_t
+floor lava3 lava_t
+floor lava4 lava_t
+floor lava5 lava_t
+floor lava6 lava_t
+floor glava1 lava_t
+floor glava2 lava_t
+floor glava3 lava_t
+floor glava4 lava_t
+floor glava5 lava_t
+floor glava6 lava_t
+floor nlava1 lava_t
+floor blood1 blood_t
+floor blood2 blood_t
+floor blood3 blood_t
+floor wblood1 blood_t
+floor SLIME01 Slime
+floor SLIME02 Slime
+floor SLIME03 Slime
+floor SLIME04 Slime
+floor SLIME05 Slime
+floor SLIME06 Slime
+floor SLIME07 Slime
+floor SLIME08 Slime
+floor WSLIME01 Slime
+floor wfwater1 water_t
+floor WNUKAGE1 nukage_t
+floor RWATER1 water_t
+floor RWATER2 water_t
+floor RWATER3 water_t
+floor RWATER4 redwater_t
+floor RWATER5 redwater_t
+floor RWATER6 greywater_t
+floor RWATER7 greywater_t
+floor RWATER8 greywater_t
+floor RWATER9 greywater_t
+floor bkwater1 greywater_t
+floor bkwater2 greywater_t
+floor bkwater3 greywater_t
+floor bkwater4 greywater_t
+floor GRANUKE1 greywater_t
+floor GRANUKE2 greywater_t
+floor GRANUKE3 greywater_t
+floor blblood1 bblood_t
+floor blblood2 bblood_t
+floor blblood3 bblood_t
+floor WETGRASS rain_t
+floor WETBRIK rainsolid_t
+floor WATER0 rain_t
+floor WATER1 rain_t
+floor WATER2 rain_t
+floor WATER3 rain_t
+floor WATER4 rain_t
+floor WATER5 rain_t
+floor WATER6 rain_t
+floor WATER7 rain_t
+floor BLDGRAS grassblood_t
+floor sand sand_t
+floor quiksand quiksand_t
+endif

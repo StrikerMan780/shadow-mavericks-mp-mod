@@ -1,0 +1,3111 @@
+Model SoccerBall
+{
+   Path "models/soccer"
+   Model 0 "supersoccerball.md2"
+   Skin 0 "impball2.pcx"
+   Scale 2.0 2.0 2.0
+
+   Frame BALL A 0 "Frame1"
+}
+
+Model BulletCasing
+{
+   Path "Models/Brass"
+   Model 0 "shell.md3"
+   Skin 0 "shell.jpg"
+   Scale 3.8 3.8 3.8
+
+   FrameIndex PBUL A 0 1
+   FrameIndex PBUL B 0 2
+   FrameIndex PBUL C 0 3
+   FrameIndex PBUL D 0 4
+   FrameIndex PBUL E 0 5
+   FrameIndex PBUL F 0 6
+}
+
+Model SilverBulletCasing
+{
+   Path "Models/Brass"
+   Model 0 "shell.md3"
+   Skin 0 "silvershell.png"
+   Scale 3.8 3.8 3.8
+
+   FrameIndex MBUL A 0 1
+   FrameIndex MBUL B 0 2
+   FrameIndex MBUL C 0 3
+   FrameIndex MBUL D 0 4
+   FrameIndex MBUL E 0 5
+   FrameIndex MBUL F 0 6
+}
+
+Model RepeaterCasing
+{
+   Path "Models/Brass"
+   Model 0 "shell.md3"
+   Skin 0 "repeatershell.png"
+   Scale 3.8 3.8 3.8
+
+   FrameIndex MBUL A 0 1
+   FrameIndex MBUL B 0 2
+   FrameIndex MBUL C 0 3
+   FrameIndex MBUL D 0 4
+   FrameIndex MBUL E 0 5
+   FrameIndex MBUL F 0 6
+}
+
+Model ShellCasing
+{
+   Path "Models/Brass"
+   Model 0 "shell.md3"
+   Skin 0 "shell2.jpg"
+   Scale 3.8 3.8 3.8
+
+   FrameIndex 12CA A 0 1
+   FrameIndex 12CA B 0 2
+   FrameIndex 12CA C 0 3
+   FrameIndex 12CA D 0 4
+   FrameIndex 12CA E 0 5
+   FrameIndex 12CA F 0 6
+   FrameIndex 12CA G 0 7
+   FrameIndex 12CA H 0 8
+}
+
+Model SSGCasing
+{
+   Path "Models/Brass"
+   Model 0 "shell.md3"
+   Skin 0 "shell2.jpg"
+   Scale 3.8 3.8 3.8
+
+   FrameIndex 12CA A 0 1
+   FrameIndex 12CA B 0 2
+   FrameIndex 12CA C 0 3
+   FrameIndex 12CA D 0 4
+   FrameIndex 12CA E 0 5
+   FrameIndex 12CA F 0 6
+   FrameIndex 12CA G 0 7
+   FrameIndex 12CA H 0 8
+}
+
+Model ElementalCasing
+{
+   Path "Models/Brass"
+   Model 0 "shell.md3"
+   Skin 0 "shell3.jpg"
+   Scale 3.8 3.8 3.8
+
+   FrameIndex 12CA A 0 1
+   FrameIndex 12CA B 0 2
+   FrameIndex 12CA C 0 3
+   FrameIndex 12CA D 0 4
+   FrameIndex 12CA E 0 5
+   FrameIndex 12CA F 0 6
+   FrameIndex 12CA G 0 7
+   FrameIndex 12CA H 0 8
+}
+
+/*
+Model Marine
+{
+  Path "Models/players"
+  Model 0 "q2male.md2"
+  Skin 0 "grunt.png"
+  Model 1 "weapon.md2"
+  Skin 1 "weapon.pcx"
+  Scale 1.4 1.4 1.4
+  ZOffset 28.0
+
+  Frame Q2MM A 0 "run2"
+  Frame Q2MM A 1 "run2"
+  Frame Q2MM B 0 "run3"
+  Frame Q2MM B 1 "run3"
+  Frame Q2MM C 0 "run5"
+  Frame Q2MM C 1 "run5"
+  Frame Q2MM D 0 "run6"
+  Frame Q2MM D 1 "run6"
+
+  Frame Q2MM E 0 "attack1"
+  Frame Q2MM E 1 "attack1"
+  Frame Q2MM F 0 "attack2"
+  Frame Q2MM F 1 "attack2"
+
+  Frame Q2MM G 0 "pain101"
+  Frame Q2MM G 1 "pain1"
+
+  Frame Q2MM H 0 "death101"
+  Frame Q2MM H 1 "death1"
+  Frame Q2MM I 0 "death102"
+  Frame Q2MM I 1 "death1"
+  Frame Q2MM J 0 "death103"
+  Frame Q2MM J 1 "death1"
+  Frame Q2MM K 0 "death104"
+  Frame Q2MM K 1 "death1"
+  Frame Q2MM L 0 "death105"
+  Frame Q2MM L 1 "death1"
+  Frame Q2MM M 0 "death106"
+  Frame Q2MM M 1 "death1"
+  Frame Q2MM N 0 "death106"
+  Frame Q2MM N 1 "death1"
+}
+*/
+
+Model SM_ExplosiveBarrel
+{
+  Path "Models/Barrel"
+  Model 0 "barrel.md2"
+  Skin 0 "barrel.png"
+  Scale 0.9 0.9 0.9
+  Frame BAR1 A 0 "barrel"
+  Frame BAR1 B 0 "barrel"
+  Frame BEXP A 0 "barrel"
+}
+
+Model SM_ExplosiveBarrel
+{
+  Path "Models/Explosion"
+  Model 0 "explode.md2"
+  Skin 0 "explode.pcx"
+  Scale 1.5 1.5 1.5
+  Frame XPLO A 0 "explodc1"
+  Frame XPLO B 0 "explodc2"
+  Frame XPLO C 0 "explodc3"
+  Frame XPLO D 0 "explodc4"
+  Frame XPLO E 0 "explodc5"
+  Frame XPLO F 0 "explodc6"
+  Frame XPLO G 0 "explodc7"
+  Frame XPLO H 0 "explodc8"
+  Frame XPLO I 0 "explodc10"
+  Frame XPLO J 0 "explodc12"
+  Frame XPLO K 0 "explodc14"
+  Frame XPLO L 0 "explodc16"
+  Frame XPLO M 0 "explodc18"
+}
+
+Model NuclearBarrel
+{
+  Path "Models/Barrel"
+  Model 0 "barrel.md2"
+  Skin 0 "nukebarrel.png"
+  Scale 1.0 1.0 1.0
+  Frame BAR1 A 0 "barrel"
+  Frame BAR1 B 0 "barrel"
+  Frame BEXP A 0 "barrel"
+}
+
+
+Model Camaro
+{
+  Path "Models/car"
+  Model 0 "camaro.md3"
+  Skin 0 "cmro_tex.tga"
+  Scale 0.8 0.8 0.8
+//  ZOffset 10
+
+  FrameIndex CAMA A 0 0
+}
+
+
+Model AcousticGuitar
+{
+  Path "Models/Guitar"
+  Model 0 "acoust.md3"
+  Skin 0 "acoust.jpg"
+  Scale 4.0 4.0 4.0
+//  ZOffset 10
+
+  FrameIndex GUIT A 0 0
+}
+
+Model HellbenderPickup
+{
+  Path "Models/Flyer"
+  Model 0 "hellbender.md3"
+  Skin 0 "hellbender.png"
+  Scale 6.5 6.5 6.5
+  ZOffset 32
+
+  FrameIndex SHIP A 0 0
+}
+
+Model SpaceCraftInFlight
+{
+  Path "Models/Flyer"
+  Model 0 "hellbender.md3"
+  Skin 0 "hellbender.png"
+  Scale 6.5 6.5 6.5
+  ZOffset 20
+
+  FrameIndex SHI2 A 0 0
+}
+
+Model EnemyShip
+{
+  Path "Models/Flyer"
+  Model 0 "flyer.md3"
+  Skin 0 "flyer.jpg"
+  Scale 0.5 0.5 0.5
+  ZOffset 10
+
+  FrameIndex ENSH A 0 0
+}
+
+
+Model Striker_FlyingBloodTrail
+{
+  Path "Models/gibs"
+  Model 0 "bloodpool.md2"
+  Skin 0 "bloodsplat.png"
+  Scale 0.5 0.5 0.5
+  ZOffset 0.2
+
+  Frame BLUD E 0 "skin"
+}
+
+model Striker_BloodSpot
+{
+  Path "Models/gibs"
+  Model 0 "bloodpool.md2"
+  Skin 0 "bloodsplat.png"
+  Scale 1.5 1.5 1.5
+  ZOffset 0.2
+
+  Frame BLUD D 0 "skin"
+  Frame BLUD E 0 "skin"
+}
+
+model Fleshy_BloodSpot
+{
+  Path "Models/gibs"
+  Model 0 "bloodpool.md2"
+  Skin 0 "bloodsplat2.png"
+  Scale 1.4 1.4 1.4
+  ZOffset 0.2
+
+  Frame BLD2 E 0 "skin"
+}
+
+model GibBloodTrail
+{
+  Path "Models/gibs"
+  Model 0 "bloodpool.md2"
+  Skin 0 "bloodsplat3.png"
+  Scale 1.4 1.4 1.4
+  ZOffset 0.2
+
+  Frame BLUD D 0 "skin"
+}
+
+model GibBloodTrailSmall
+{
+  Path "Models/gibs"
+  Model 0 "bloodpool.md2"
+  Skin 0 "bloodsplat3.png"
+  Scale 1.4 1.4 1.4
+  ZOffset 0.2
+
+  Frame BLUD D 0 "skin"
+}
+
+// ****** BOTTLES ********
+
+model Booze1
+{
+  Path "Models/bottles"
+  Model 0 "1163_bottle6.md3"
+  Skin 0 "1163_bottle6.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE A 0 0
+}
+
+model Booze2
+{
+  Path "Models/bottles"
+  Model 0 "0956_bottle2.md3"
+  Skin 0 "1014_bottle9.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE B 0 0
+}
+
+model Booze3
+{
+  Path "Models/bottles"
+  Model 0 "1162_bottle5.md3"
+  Skin 0 "1162_bottle5.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE C 0 0
+}
+
+model Booze4
+{
+  Path "Models/bottles"
+  Model 0 "1160_bottle3.md3"
+  Skin 0 "1160_bottle3.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE D 0 0
+}
+
+model Booze5
+{
+  Path "Models/bottles"
+  Model 0 "1165_bottle8.md3"
+  Skin 0 "1165_bottle8.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE E 0 0
+}
+
+model Booze6
+{
+  Path "Models/bottles"
+  Model 0 "1161_bottle4.md3"
+  Skin 0 "1161_bottle4.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE F 0 0
+}
+
+model Booze7
+{
+  Path "Models/bottles"
+  Model 0 "0956_bottle2.md3"
+  Skin 0 "0956_bottle2.png"
+  Scale 2.4 2.4 2.4
+//  ZOffset 0.5
+
+  FrameIndex BOZE G 0 0
+}
+
+// ******* PROJECTILES *********
+
+model HellFireRocketHi
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model HellFireRocketHiLo
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model HellFireRocketMid
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model HellFireRocketMidLo
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model HellFireRocketLow
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model HellFireRocketLowLo
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model RevenantHellfire
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model RevenantHellfire2
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model RevenantHellfireFast
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.2 0.2 0.2
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  FrameIndex DEVM A 0 0
+}
+
+model DukeDevastatorRocket
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.25 0.25 0.25
+  PITCHFROMMOMENTUM
+
+  FrameIndex RPGM A 0 0
+}
+
+model DukeRocket
+{
+  Path "Models/projectiles"
+  Model 0 "2605_rocket.md2"
+  Skin 0 "2605_rocket.png"
+  Scale 0.25 0.25 0.25
+  ZOffset -4
+  PITCHFROMMOMENTUM
+
+  FrameIndex RPGM A 0 0
+}
+
+model BowSide
+{
+  Path "Models/projectiles"
+  Model 0 "SideBowBolt.md2"
+  Skin 0 "SideBowBolt.png"
+  Scale 1.5 1.5 1.5
+  PITCHFROMMOMENTUM
+//ZOffset 0.5
+
+  Frame FX03 A 0 "skin"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun1.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH A 0 "Idle1"
+   Frame LIGH B 0 "Pow01"
+   Frame LIGH C 0 "Pow02"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun2.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH D 0 "Pow03"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun2.png"
+   Model 1 "energy_flash.md2"
+   Skin 1 "energy_flash0.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH E 0 "Pow04"
+   Frame LIGH E 1 "Frame1"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun2.png"
+   Model 1 "energy_flash.md2"
+   Skin 1 "energy_flash1.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH F 0 "Pow05"
+   Frame LIGH F 1 "Frame2"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun2.png"
+   Model 1 "lgun_flash.md2"
+   Skin 1 "lgun_flash0.png"
+   Model 2 "energy_flash.md2"
+   Skin 2 "energy_flash2.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH G 0 "Pow06"
+   Frame LIGH G 1 "Flash1"
+   Frame LIGH G 2 "Frame3"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun2.png"
+   Model 1 "lgun_flash.md2"
+   Skin 1 "lgun_flash1.png"
+   Model 2 "energy_flash.md2"
+   Skin 2 "energy_flash1.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH H 0 "Pow07"
+   Frame LIGH H 1 "Flash1"
+   Frame LIGH H 2 "Frame4"
+}
+
+Model LightningGun
+{
+   Path "Models\HUD"
+   Model 0 "LightningGun.md2"
+   Skin 0 "LightningGun2.png"
+   Model 1 "lgun_flash.md2"
+   Skin 1 "lgun_flash0.png"
+   Scale -4.5 4.2 5
+
+   Frame LIGH I 0 "Pow08"
+   Frame LIGH I 1 "Flash1"
+}
+
+Model AutoShotgun
+{
+   Path "Models\HUD"
+   Model 0 "Shotgun.md3"
+   Skin 0 "shotgun.png"
+   Scale -4.5 4.2 5
+
+   FrameIndex Q3SG A 0 0
+   FrameIndex Q3SG B 0 1
+   FrameIndex Q3SG C 0 2
+   FrameIndex Q3SG D 0 3
+   FrameIndex Q3SG E 0 4
+   FrameIndex Q3SG F 0 5
+   FrameIndex Q3SG G 0 6
+}
+
+Model AutoShotgun
+{
+   Path "Models\HUD"
+   Model 0 "ShotgunFlash.Md2"
+   Skin 0 "ShotgunFlash.png"
+   Scale -4.5 4.2 5
+
+   FrameIndex Q3SF A 0 0
+   FrameIndex Q3SF B 0 1
+}
+
+Model LaserRifle1
+{
+   Path "Models\Pickups"
+   Model 0 "BlasterPickup.Md3"
+   Skin 0 "blaster_w.jpg"
+   Scale 2.5 2.5 2.5
+   ROTATING
+
+   FrameIndex LRIP A 0 0
+}
+
+Model LaserRifle1
+{
+   Path "Models\HUD"
+   Model 0 "BlasterRifle.Md3"
+   Skin 0 "NewBlaster.jpg"
+   Scale -4.5 4.2 5
+
+   FrameIndex PRFG A 0 0
+}
+
+Model LaserRifle1
+{
+   Path "Models\HUD"
+   Model 0 "BlasterRifle.Md3"
+   Skin 0 "NewBlaster.jpg"
+   Model 1 "BlasterRifleFlash.Md3"
+   Skin 1 "BlasterFlash.png"
+   Scale -4.5 4.2 5
+
+   FrameIndex PRFF A 0 1
+   FrameIndex PRFF A 1 0
+}
+
+Model LaserRifle1
+{
+   Path "Models\HUD"
+   Model 0 "BlasterRifle.Md3"
+   Skin 0 "NewBlasterOverHeat.jpg"
+   Scale -4.5 4.2 5
+
+   FrameIndex PRFG B 0 0
+   FrameIndex PRFG C 0 0
+   FrameIndex PRFG D 0 0
+}
+
+
+model CompanionCube
+{
+  Path "Models/cube"
+  Model 0 "companion.md3"
+  Skin 0 "companion.png"
+  Scale 5.0 5.0 5.0
+  ZOffset 84
+
+  FrameIndex COMC A 0 0
+}
+
+model ServoShot
+{
+  Path "Models/projectiles"
+  Model 0 "servolaser.md2"
+  Skin 0 "servolaser.png"
+  Scale 9.0 4.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex SERV A 0 0
+}
+
+model SledgeHammerRocket
+{
+  Path "Models/projectiles"
+  Model 0 "sledgehammer.md3"
+  Skin 0 "sledgehammer.png"
+  Scale 4.0 4.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex DEVM A 0 0
+}
+
+model ValkrieShot
+{
+  Path "Models/projectiles"
+  Model 0 "servolaser.md2"
+  Skin 0 "valkrieshot.png"
+  Scale 12.0 3.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex VALK A 0 0
+}
+
+model ValkrieShot
+{
+  Path "Models/projectiles"
+  Model 0 "servolaser.md2"
+  Skin 0 "valkrieshot2.png"
+  Scale 12.0 3.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex VALK B 0 0
+}
+
+model ValkrieTrail
+{
+  Path "Models/projectiles"
+  Model 0 "servolaser.md2"
+  skin 0 "empty.png"
+  Scale 12.0 3.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex VALK A 0 0
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40.md3"
+	Scale 5.0 3.5 5
+
+	FrameIndex MP40 A 0 0
+	FrameIndex MP40 D 0 5
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40.md3"
+	Model 1 "mp40flash.md3"
+	Skin 1 "f_mp40.png"
+	Scale 5.0 3.5 5
+
+	FrameIndex MP40 B 0 2
+	FrameIndex MP40 B 1 0
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40.md3"
+	Model 1 "mp40flash2.md3"
+	Skin 1 "f_mp40.png"
+	Scale 5.0 3.5 5
+
+	FrameIndex MP40 C 0 2
+	FrameIndex MP40 C 1 0
+}
+
+model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40pickup.md3"
+	scale 3.6 3.6 3.6
+	ROTATING
+
+	FrameIndex MP4P A 0 0
+}
+
+Model P90
+{
+   Path "Models\HUD\P90"
+   Model 0 "p90.md3"
+   Scale 5.0 4.0 5
+   ZOffset -1
+
+   FrameIndex P90G A 0 0
+}
+
+Model P90
+{
+   Path "Models\HUD\P90"
+   Model 0 "p90.md3"
+   Model 1 "p90flash.md3"
+   Skin 1	"f_p90.png"
+   Scale 5.0 4.0 5
+   ZOffset -1
+
+   FrameIndex P90G B 0 4
+   FrameIndex P90G B 1 0
+}
+
+Model P90
+{
+   Path "Models\HUD\P90"
+   Model 0 "p90.md3"
+   Model 1 "p90flash.md3"
+   Skin 1	"f_p902.png"
+   Scale 5.0 4.0 5
+   ZOffset -1
+
+   FrameIndex P90G C 0 6
+   FrameIndex P90G C 1 0
+}
+
+Model PlasmaCannon
+{
+  Path "Models\HUD\plasmarifle"
+  Model 0 "PlasmaRiflePickup.md3"
+  Scale 2.2 2.2 2.2
+  ROTATING
+
+  FrameIndex PLAS A 0 0
+}
+
+Model PlasmaCannon
+{
+   Path "Models\HUD\plasmarifle"
+   Model 0 "plasmarifle.md3"
+   Scale -5.0 4.2 5
+
+   FrameIndex PLSG A 0 0
+   FrameIndex PLSG B 0 0
+   FrameIndex PLSG C 0 0
+   FrameIndex PLSG D 0 0
+   FrameIndex PLSG H 0 0
+}
+
+Model PlasmaCannon
+{
+   Path "Models\HUD\plasmarifle"
+   Model 0 "plasmarifle.md3"
+   Model 1 "plasmarifleflash1.md3"
+   Skin 1 "pgun_flash0.png"
+   Scale -5.0 4.2 5
+
+   FrameIndex PLSG F 0 1
+}
+
+Model PlasmaCannon
+{
+   Path "Models\HUD\plasmarifle"
+   Model 0 "plasmarifle.md3"
+   Model 1 "plasmarifleflash1.md3"
+   Skin 1 "pgun_flash1.png"
+   Scale -5.0 4.2 5
+
+   FrameIndex PLSG G 0 2
+}
+
+Model Stinger
+{
+   Path "Models\HUD"
+   Model 0 "stinger.md3"
+   Skin 0 "body.png"
+   Scale -5.0 5.0 5
+
+   FrameIndex STNG A 0 0
+   FrameIndex STNG B 0 1
+   FrameIndex STNG C 0 2
+   FrameIndex STNG D 0 3
+   FrameIndex STNG E 0 4
+}
+
+model StingerShot
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam.png"
+	Scale 2.5 3.0 3.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex STPL A 0 0
+	FrameIndex STPL B 0 0
+}
+
+model StingTrail
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam.png"
+	Scale 0.0 0.0 0.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex STPL A 0 0
+}
+
+model Stinger
+{
+	Path "Models\Pickups"
+	Model 0 "stingerpickup.md3"
+	Skin 0 "body.png"
+	scale 2.5 2.5 2.5
+	ROTATING
+
+	FrameIndex STNW A 0 0
+}
+
+model P90
+{
+	Path "Models\HUD\P90"
+	Model 0 "P90pickup.md3"
+	scale 3.2 3.2 3.2
+	ROTATING
+
+	FrameIndex P90P A 0 0
+}
+
+model AutoShotgun
+{
+	Path "Models\Pickups"
+	Model 0 "ShotgunPickup.md3"
+	Skin 0 "shotgun.png"
+	scale 1.9 1.9 1.9
+	ROTATING
+
+	FrameIndex SHOT A 0 0
+}
+
+Model 454Casull
+{
+   Path "Models\HUD"
+   Model 0 "casull2.md3"
+   Skin 0 "casull2.jpg"
+   Scale 5.0 4.2 5
+   //ZOffset -4
+
+   FrameIndex CASL A 0 0
+   FrameIndex CASL C 0 5
+   FrameIndex CASL D 0 8
+   FrameIndex CASL E 0 11
+   FrameIndex CASL F 0 13
+   FrameIndex CASL G 0 15
+   FrameIndex CASL H 0 17
+   FrameIndex CASL I 0 19
+   FrameIndex CASL J 0 21
+   FrameIndex CASL K 0 23
+   FrameIndex CASL L 0 24
+}
+
+Model 454Casull
+{
+   Path "Models\HUD"
+   Model 0 "casull2.md3"
+   Skin 0 "casull2.jpg"
+   Model 1 "casullflash.md3"
+   Skin 1 "casullflash.png"
+   Scale 5.0 4.2 5
+   //ZOffset -4
+
+   FrameIndex CASL B 0 3
+   FrameIndex CASL B 1 0
+}
+
+Model 454Casull
+{
+   Path "Models\HUD"
+   Model 0 "casullreload2.md3"
+   Skin 0 "casull2.jpg"
+   Scale 5.0 4.2 5
+   //ZOffset -4
+
+   FrameIndex CASR A 0 0
+   FrameIndex CASR B 0 6
+   FrameIndex CASR C 0 9
+   FrameIndex CASR D 0 15
+   FrameIndex CASR E 0 16
+   FrameIndex CASR F 0 17
+   FrameIndex CASR G 0 18
+   FrameIndex CASR H 0 20
+   FrameIndex CASR I 0 25
+   FrameIndex CASR J 0 27
+   FrameIndex CASR K 0 30
+   FrameIndex CASR L 0 35
+   FrameIndex CASR M 0 41
+   FrameIndex CASR N 0 42
+   FrameIndex CASR O 0 43
+   FrameIndex CASR P 0 44
+   FrameIndex CASR Q 0 46
+   FrameIndex CASR R 0 48
+   FrameIndex CASR S 0 50
+   FrameIndex CASR T 0 52
+   FrameIndex CASR U 0 54
+   FrameIndex CASR V 0 62
+   FrameIndex CASR W 0 67
+   FrameIndex CASR X 0 69
+   FrameIndex CASR Y 0 73
+   FrameIndex CASR Z 0 84
+}
+
+Model NewPistol
+{
+   Path "Models\HUD\WaltherP99"
+   Model 0 "WaltherP99.md3"
+   Scale 5.0 4.5 5
+   ZOffset -1.2
+
+   FrameIndex PISG A 0 0
+   FrameIndex PISG B 0 4
+   FrameIndex PISG C 0 5
+}
+
+Model NewPistol
+{
+   Path "Models\HUD\WaltherP99"
+   Model 0 "WaltherP99Silenced.md3"
+   Scale 5.0 4.5 5
+   ZOffset -1.2
+
+   FrameIndex PISS A 0 0
+   FrameIndex PISS B 0 4
+   FrameIndex PISS C 0 5
+}
+
+Model NewPistol
+{
+   Path "Models\HUD\WaltherP99"
+   Model 0 "P99Flash.md3"
+   Skin 0 "pistolflash.png"
+   Scale 5.0 4.5 5
+   ZOffset -1.2
+
+   FrameIndex PISF A 0 0
+}
+
+Model NewPistol
+{
+   Path "Models\HUD\WaltherP99"
+   Model 0 "P99Flash2.md3"
+   Skin 0 "pistolflash.png"
+   Scale 5.0 4.5 5
+   ZOffset -1.2
+
+   FrameIndex PISF B 0 0
+}
+
+Model NewPistol
+{
+   Path "Models\HUD\WaltherP99"
+   Model 0 "WaltherP99Reload.md3"
+   Scale 5.0 4.5 5
+   ZOffset -1.2
+
+   FrameIndex PISG D 0 0
+   FrameIndex PISG E 0 7
+   FrameIndex PISG F 0 13
+   FrameIndex PISG G 0 15
+   FrameIndex PISG H 0 16
+   FrameIndex PISG I 0 25
+   FrameIndex PISG J 0 40
+   FrameIndex PISG K 0 44
+   FrameIndex PISG L 0 58
+   FrameIndex PISG M 0 62
+   FrameIndex PISG N 0 73
+   FrameIndex PISG O 0 76
+   FrameIndex PISG P 0 80
+   FrameIndex PISG Q 0 82
+   FrameIndex PISG R 0 84
+   FrameIndex PISG S 0 88
+   FrameIndex PISG T 0 90
+   FrameIndex PISG U 0 91
+   FrameIndex PISG V 0 92
+}
+
+Model NewPistol
+{
+   Path "Models\HUD\WaltherP99"
+   Model 0 "WaltherP99SilencedReload.md3"
+   Scale 5.0 4.5 5
+   ZOffset -1.2
+
+   FrameIndex PISS D 0 0
+   FrameIndex PISS E 0 7
+   FrameIndex PISS F 0 13
+   FrameIndex PISS G 0 15
+   FrameIndex PISS H 0 16
+   FrameIndex PISS I 0 25
+   FrameIndex PISS J 0 40
+   FrameIndex PISS K 0 44
+   FrameIndex PISS L 0 58
+   FrameIndex PISS M 0 62
+   FrameIndex PISS N 0 73
+   FrameIndex PISS O 0 76
+   FrameIndex PISS P 0 80
+   FrameIndex PISS Q 0 82
+   FrameIndex PISS R 0 84
+   FrameIndex PISS S 0 88
+   FrameIndex PISS T 0 90
+   FrameIndex PISS U 0 91
+   FrameIndex PISS V 0 92
+}
+
+model ForestTree1
+{
+   Path "Models\Trees"
+   Model 0 "ForestTree1.md3"
+   Scale 1.8 1.8 1.8
+
+   FrameIndex 1TRE A 0 0
+}
+
+model ForestTree1
+{
+   Path "Models\Trees"
+   Model 0 "ForestTree1.md3"
+   Scale 1.7 1.7 1.7
+
+   FrameIndex 1TRE B 0 0
+}
+
+model ForestTree2
+{
+   Path "Models\Trees"
+   Model 0 "ForestTree2.md3"
+   Scale 0.64 0.64 0.64
+
+   FrameIndex 2TRE A 0 0
+}
+
+model ForestTree2
+{
+   Path "Models\Trees"
+   Model 0 "ForestTree2.md3"
+   Scale 0.56 0.56 0.56
+
+   FrameIndex 2TRE B 0 0
+}
+
+model ForestTree3
+{
+   Path "Models\Trees"
+   Model 0 "ForestTree3.md3"
+   Scale 2.5 2.5 2.5
+
+   FrameIndex 3TRE A 0 0
+}
+
+model ForestTree3
+{
+   Path "Models\Trees"
+   Model 0 "ForestTree3.md3"
+   Scale 2.4 2.4 2.4
+
+   FrameIndex 3TRE B 0 0
+}
+
+model BigPalmTree
+{
+   Path "Models\Trees"
+   Model 0 "palmtree.md3"
+   Skin 0 "0908_tree1.png"
+   Scale 1.2 1.2 1.2
+
+   FrameIndex PALM A 0 0
+}
+
+model MiniPalmTree
+{
+   Path "Models\Trees"
+   Model 0 "palmtree.md3"
+   Skin 0 "0908_tree1.png"
+   Scale 1.2 1.2 1.2
+
+   FrameIndex PALM A 0 0
+}
+
+model BigPalm
+{
+   Path "Models\Trees"
+   Model 0 "palmtree.md3"
+   Skin 0 "0908_tree1.png"
+   Scale 1.0 1.0 0.8
+
+   FrameIndex PTRE A 0 0
+   FrameIndex PTRE B 0 0
+}
+
+model SmallPalm
+{
+   Path "Models\Trees"
+   Model 0 "palmtree.md3"
+   Skin 0 "0908_tree1.png"
+   Scale 1.0 1.0 0.8
+
+   FrameIndex PTRE A 0 0
+   FrameIndex PTRE B 0 0
+}
+
+model 454Casull
+{
+   Path "Models\Pickups"
+   Model 0 "casullpickup.md3"
+   Skin 0 "casullpickup.png"
+   Scale 12.8 12.8 12.8
+   ROTATING
+
+   FrameIndex CASP A 0 0
+}
+
+Model PlasmaCannon
+{
+   Path "Models\HUD"
+   Model 0 "HaloPlasma2.md3"
+   Skin 0 "HaloPlasma2.png"
+   Scale -5.0 5.0 5
+
+   FrameIndex HLOP A 0 0
+   FrameIndex HLOP B 0 2
+   FrameIndex HLOP C 0 3
+   FrameIndex HLOP D 0 4
+   FrameIndex HLOP E 0 5
+   FrameIndex HLOP F 0 6
+   FrameIndex HLOP G 0 7
+}
+
+model LaserShot
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam2.png"
+	Scale 3.0 3.0 3.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex LASR A 0 0
+}
+
+model LaserTrail
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam2.png"
+	Scale 0.0 0.0 0.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex LASR A 0 0
+}
+
+Model Magnum
+{
+   Path "Models\HUD\Magnum"
+   Model 0 "Magnum.md3"
+   Scale 5.0 4.5 5
+   ZOffset -1
+
+   FrameIndex REVG A 0 0
+   FrameIndex REVG C 0 6
+   FrameIndex REVG D 0 8
+   FrameIndex REVG E 0 10
+   FrameIndex REVG F 0 12
+   FrameIndex REVG H 0 0
+}
+
+Model Magnum
+{
+   Path "Models\HUD\Magnum"
+   Model 0 "Magnum.md3"
+   Model 1 "MagnumFlash.md3"
+   Skin 1 "muzzleflash2.png"
+   Scale 5.0 4.5 5
+   //ZOffset -1
+
+   FrameIndex REVG B 0 4
+   FrameIndex REVG B 1 0
+}
+
+model Magnum
+{
+   Path "Models\HUD\Magnum"
+   Model 0 "MagnumPickup.md3"
+   Scale 3.8 3.8 3.8
+   ROTATING
+
+   FrameIndex REVP A 0 0
+}
+
+/*model TorchTree
+{
+   Path "Models\Trees"
+   Model 0 "deadtree.md3"
+   Skin 0 "deadtree.png"
+   Scale 3.2 3.2 3.2
+
+   FrameIndex TRE1 A 0 0
+}*/
+
+Model Noisy_Cricket
+{
+   Path "Models\HUD"
+   Model 0 "NoisyCricket.md3"
+   Skin 0 "Cricket.jpg"
+   Scale 5.0 5.0 5
+
+   FrameIndex CRKG A 0 0
+   FrameIndex CRKG B 0 1
+   FrameIndex CRKG C 0 2
+   FrameIndex CRKG D 0 3
+   FrameIndex CRKG E 0 4
+   FrameIndex CRKG F 0 5
+}
+
+Model Noisy_Cricket
+{
+   Path "Models\HUD"
+   Model 0 "CricketFlash.md3"
+   Skin 0 "CricketFlash.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex CRKF A 0 0
+}
+
+Model Tails_TechPistol
+{
+   Path "Models\HUD\TechPistol"
+   Model 0 "TechPistol.md3"
+   Scale 5.0 5.0 5
+
+   FrameIndex TEKP A 0 0
+   FrameIndex TEKP C 0 1
+   FrameIndex TEKP D 0 2
+   FrameIndex TEKP E 0 3
+   FrameIndex TEKP F 0 4
+   FrameIndex TEKP G 0 5
+}
+
+Model Tails_TechPistol
+{
+   Path "Models\HUD\TechPistol"
+   Model 0 "TechPistol.md3"
+   Model 1 "TechFlash.md3"
+   Skin 1 "TechFlash.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex TEKP B 0 0
+}
+
+Model Tails_TechPistol
+{
+   Path "Models\HUD\TechPistol"
+   Model 0 "TechPistol_Rail.md3"
+   Scale 5.0 5.0 5
+
+   FrameIndex TEKR A 0 0
+   FrameIndex TEKR C 0 1
+   FrameIndex TEKR D 0 2
+   FrameIndex TEKR E 0 3
+   FrameIndex TEKR F 0 4
+   FrameIndex TEKR G 0 5
+}
+
+Model Tails_TechPistol
+{
+   Path "Models\HUD\TechPistol"
+   Model 0 "TechPistol_Rail.md3"
+   Model 1 "TechFlash.md3"
+   Skin 1 "TechFlash_Rail.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex TEKR B 0 0
+}
+
+Model Tails_TechPistol
+{
+   Path "Models\HUD\TechPistol"
+   Model 0 "TechPistol_Super.md3"
+   Scale 5.0 5.0 5
+
+   FrameIndex TEKS A 0 0
+   FrameIndex TEKS C 0 1
+   FrameIndex TEKS D 0 2
+   FrameIndex TEKS E 0 3
+   FrameIndex TEKS F 0 4
+   FrameIndex TEKS G 0 5
+}
+
+Model Tails_TechPistol
+{
+   Path "Models\HUD\TechPistol"
+   Model 0 "TechPistol_Super.md3"
+   Model 1 "TechFlash.md3"
+   Skin 1 "TechFlash_Super.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex TEKS B 0 0
+}
+
+Model Melee
+{
+   Path "Models\HUD"
+   Model 0 "Fists.md3"
+   Skin 0 "TailsHands.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex PUNT B 0 0
+   FrameIndex PUNT C 0 1
+   FrameIndex PUNT D 0 2
+   FrameIndex PUNT E 0 3
+   FrameIndex PUNT F 0 4
+   FrameIndex PUNT G 0 5
+   FrameIndex PUNT H 0 6
+}
+
+Model Melee
+{
+   Path "Models\HUD"
+   Model 0 "IdleHand.md3"
+   Skin 0 "TailsHands.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex PUNT A 0 0
+}
+
+Model Melee
+{
+   Path "Models\HUD"
+   Model 0 "IdleHand.md3"
+   Skin 0 "MarineHand.png"
+   Scale -5.0 5.0 5
+
+   FrameIndex PUNG A 0 0
+}
+
+Model Melee
+{
+   Path "Models\HUD"
+   Model 0 "Fists.md3"
+   Skin 0 "MarineHand.png"
+   Scale -5.0 5.0 5
+
+   FrameIndex PUNG B 0 0
+   FrameIndex PUNG C 0 1
+   FrameIndex PUNG D 0 3
+}
+
+Model Melee
+{
+   Path "Models\HUD"
+   Model 0 "Fists.md3"
+   Skin 0 "MarineHand.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex PUN2 A 0 0
+   FrameIndex PUN2 B 0 1
+   FrameIndex PUN2 C 0 2
+   FrameIndex PUN2 D 0 3
+   FrameIndex PUN2 E 0 4
+   FrameIndex PUN2 F 0 5
+   FrameIndex PUN2 G 0 6
+}
+
+
+Model Medikit
+{
+   Path "Models\Pickups"
+   Model 0 "MediKit.md3"
+   Skin 0 "MediKit.png"
+   Scale 1.4 1.4 1.4
+
+   FrameIndex MEDI A 0 0
+}
+
+Model StimPack2
+{
+   Path "Models\Pickups"
+   Model 0 "HealthVial.md3"
+   Skin 0 "HealthVial.png"
+   Scale 2.0 2.0 2.0
+   ZOffset 12
+   ROTATING
+
+   FrameIndex STIM A 0 0
+}
+
+Model ProtonAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "ProtonAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex ROCK A 0 0
+}
+
+Model ProtonCharge
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "ProtonAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex BROK A 0 0
+}
+
+Model MechAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "MechAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CLIP A 0 0
+}
+
+Model LargeMechAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "MechAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex AMMO A 0 0
+}
+
+Model CellAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "CellAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CELL A 0 0
+}
+
+Model LargeCellAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "CellAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CELP A 0 0
+}
+
+Model SpreadAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "SpreadAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex SHEL A 0 0
+}
+
+Model LargeSpreadAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "SpreadAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex SBOX A 0 0
+}
+
+Model GasPickup
+{
+   Path "Models\Pickups"
+   Model 0 "GasCan.md3"
+   Skin 0 "GasCan.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex GCAN A 0 0
+}
+
+model Noisy_Cricket
+{
+	Path "Models\Pickups"
+	Model 0 "CricketPickup.md3"
+	Skin 0 "CricketPickup.png"
+	scale 4.5 4.5 4.5
+	ROTATING
+
+	FrameIndex CRKK A 0 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion1.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 A 0 0
+	FrameIndex BON1 A 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion2.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 B 0 0
+	FrameIndex BON1 B 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion3.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 C 0 0
+	FrameIndex BON1 C 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion4.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 D 0 0
+	FrameIndex BON1 D 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion5.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 E 0 0
+	FrameIndex BON1 E 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion6.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 F 0 0
+	FrameIndex BON1 F 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion7.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 G 0 0
+	FrameIndex BON1 G 1 0
+}
+
+model HealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "Potion8.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON1 H 0 0
+	FrameIndex BON1 H 1 0
+}
+
+//******************************************************************************
+//******************************************************************************
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion1.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 A 0 0
+	FrameIndex BON3 A 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion2.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 B 0 0
+	FrameIndex BON3 B 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion3.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 C 0 0
+	FrameIndex BON3 C 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion4.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 D 0 0
+	FrameIndex BON3 D 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion5.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 E 0 0
+	FrameIndex BON3 E 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion6.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 F 0 0
+	FrameIndex BON3 F 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion7.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 G 0 0
+	FrameIndex BON3 G 1 0
+}
+
+model MaxHealthBonus2
+{
+	Path "Models\Pickups"
+	Model 0 "HealthJarBottom.md3"
+	Skin 0 "RedPotion8.png"
+	Model 1 "HealthJarCap.md3"
+	Skin 1 "PotionCap.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+
+	FrameIndex BON3 H 0 0
+	FrameIndex BON3 H 1 0
+}
+
+model MolotovCocktail
+{
+	Path "Models\Pickups"
+	Model 0 "Molotov.md3"
+	Skin 0 "Molotov.png"
+	Scale 3.5 3.5 3.5
+	ZOffset 70
+	ROTATING
+
+	FrameIndex MOGP A 0 0
+}
+
+model BottleX
+{
+	Path "Models\Pickups"
+	Model 0 "Molotov.md3"
+	Skin 0 "Molotov.png"
+	Scale 3.5 3.5 3.5
+	PITCHFROMMOMENTUM
+
+	FrameIndex MOGT A 0 0
+	FrameIndex MOGT B 0 0
+	FrameIndex MOGT C 0 0
+	FrameIndex MOGT D 0 0
+	FrameIndex MOGT E 0 0
+}
+
+Model SniperRifle
+{
+   Path "Models\HUD\SniperRifle"
+   Model 0 "SniperRifle.md3"
+   Scale 5.0 4.2 5
+   ZOffset -2
+
+   FrameIndex SINS A 0 0
+   FrameIndex SINS C 0 3
+   FrameIndex SINS D 0 4
+   FrameIndex SINS E 0 5
+   FrameIndex SINS F 0 6
+   FrameIndex SINS G 0 7
+   FrameIndex SINS H 0 8
+   FrameIndex SINC A 0 9
+   FrameIndex SINC B 0 11
+   FrameIndex SINC C 0 15
+   FrameIndex SINC D 0 18
+   FrameIndex SINC E 0 23
+   FrameIndex SINC F 0 32
+   FrameIndex SINC G 0 38
+}
+
+Model SniperRifle
+{
+   Path "Models\HUD\SniperRifle"
+   Model 0 "SniperRifle.md3"
+   Model 1 "SniperRifleFlash.md3"
+   Skin 1 "MuzzleFlash.png"
+   Scale 5.0 4.2 5
+   ZOffset -2
+
+   FrameIndex SINS B 0 2
+   FrameIndex SINS B 1 0
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD"
+   Model 0 "Repeater.md3"
+   Skin 0 "Repeater.png"
+   Scale 5.0 5.0 5
+   ZOffset -4
+
+   FrameIndex DAUT A 0 0
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD"
+   Model 0 "Repeater.md3"
+   Skin 0 "Repeater.png"
+   Model 1 "RepeaterFlash1.md3"
+   Skin 1 "RepeaterFlash.png"
+   Scale 5.0 5.0 5
+   ZOffset -4
+
+   FrameIndex DAUT B 0 1
+   FrameIndex DAUT B 1 0
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD"
+   Model 0 "Repeater.md3"
+   Skin 0 "Repeater.png"
+   Model 1 "RepeaterFlash2.md3"
+   Skin 1 "RepeaterFlash.png"
+   Scale 5.0 5.0 5
+   ZOffset -4
+
+   FrameIndex DAUT C 0 2
+   FrameIndex DAUT C 1 0
+}
+
+Model Duke64ExplosionShell
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionShell.md2"
+   Skin 0 "ExplosionShell.png"
+   Scale 4.0 4.0 4.0
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+   Frame NULL I 0 "Frame9"
+   Frame NULL J 0 "Frame10"
+   Frame NULL K 0 "Frame11"
+   Frame NULL L 0 "Frame12"
+}
+
+Model Duke64ExplosionRing
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionRing.md2"
+   Skin 0 "ExplosionRing.png"
+   Scale 4.0 4.0 4.0
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+}
+
+Model NukeExplosionRing
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionRing.md2"
+   Skin 0 "ExplosionRing.png"
+   Scale 4.0 4.0 4.0
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+}
+
+Model EnergyBallExplosionShellWeak
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionShell.md2"
+   Skin 0 "EnergyShell.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+   Frame NULL I 0 "Frame9"
+   Frame NULL J 0 "Frame10"
+   Frame NULL K 0 "Frame11"
+   Frame NULL L 0 "Frame12"
+}
+
+Model EnergyBallExplosionRingWeak
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionRing.md2"
+   Skin 0 "EnergyRing.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+}
+
+Model EnergyBallExplosionShellMid
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionShell.md2"
+   Skin 0 "EnergyShell.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+   Frame NULL I 0 "Frame9"
+   Frame NULL J 0 "Frame10"
+   Frame NULL K 0 "Frame11"
+   Frame NULL L 0 "Frame12"
+}
+
+Model EnergyBallExplosionRingMid
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionRing.md2"
+   Skin 0 "EnergyRing.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+}
+
+Model EnergyBallExplosionShellStrong
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionShell.md2"
+   Skin 0 "EnergyShell.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+   Frame NULL I 0 "Frame9"
+   Frame NULL J 0 "Frame10"
+   Frame NULL K 0 "Frame11"
+   Frame NULL L 0 "Frame12"
+}
+
+Model EnergyBallExplosionRingStrong
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionRing.md2"
+   Skin 0 "EnergyRing.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+}
+
+Model EnergyBallExplosionShellMega
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionShell.md2"
+   Skin 0 "EnergyShell.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+   Frame NULL I 0 "Frame9"
+   Frame NULL J 0 "Frame10"
+   Frame NULL K 0 "Frame11"
+   Frame NULL L 0 "Frame12"
+}
+
+Model EnergyBallExplosionRingMega
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionRing.md2"
+   Skin 0 "EnergyRing.png"
+   Scale 1.4 1.4 1.4
+
+   Frame NULL A 0 "Frame1"
+   Frame NULL B 0 "Frame2"
+   Frame NULL C 0 "Frame3"
+   Frame NULL D 0 "Frame4"
+   Frame NULL E 0 "Frame5"
+   Frame NULL F 0 "Frame6"
+   Frame NULL G 0 "Frame7"
+   Frame NULL H 0 "Frame8"
+}
+
+Model SmartRifle
+{
+   Path "Models\HUD"
+   Model 0 "SmartRifle.md3"
+   Skin 0 "SmartRifle.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex MORI A 0 0
+}
+
+Model SmartRifle
+{
+   Path "Models\HUD"
+   Model 0 "SmartRifle.md3"
+   Skin 0 "SmartRifle.png"
+   Model 1 "SmartRifleFlash1.md3"
+   Skin 1 "f_mp40.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex MRIT A 0 1
+   FrameIndex MRIT A 1 0
+}
+
+Model SmartRifle
+{
+   Path "Models\HUD"
+   Model 0 "SmartRifle.md3"
+   Skin 0 "SmartRifle.png"
+   Model 1 "SmartRifleFlash2.md3"
+   Skin 1 "f_mp40.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex MRIT B 0 2
+   FrameIndex MRIT B 1 0
+}
+
+Model SmartRifle
+{
+   Path "Models\HUD"
+   Model 0 "SmartRifle.md3"
+   Skin 0 "SmartRifle.png"
+   Model 1 "SmartRifleFlash1.md3"
+   Skin 1 "SmartRifleSGFlash.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex MORI B 0 3
+   FrameIndex MORI B 1 0
+}
+
+Model SmartRifle
+{
+   Path "Models\HUD"
+   Model 0 "SmartRifle.md3"
+   Skin 0 "SmartRifle.png"
+   Model 1 "SmartRifleFlash2.md3"
+   Skin 1 "SmartRifleSGFlash.png"
+   Scale 5.0 5.0 5
+
+   FrameIndex MORI C 0 2
+   FrameIndex MORI C 1 0
+}
+
+Model BFG_SMMP
+{
+   Path "Models\HUD"
+   Model 0 "BFG.md2"
+   Skin 0 "BFG.png"
+   Model 1 "BFG_Pipes.md2"
+   Skin 1 "BFG.png"
+   Model 2 "BFG_BnL.md2"
+   Skin 2 "BFG.png"
+   Scale -3 3 5
+   ZOffset -24
+
+   FrameIndex BFGG A 0 0
+   FrameIndex BFGG A 1 0
+   FrameIndex BFGG A 2 0
+   FrameIndex BFGG B 0 0
+   FrameIndex BFGG B 1 0
+   FrameIndex BFGG B 2 0
+   FrameIndex BFGG C 0 8
+   FrameIndex BFGG C 1 8
+   FrameIndex BFGG C 2 8
+}
+
+Model BFG_SMMP
+{
+	Path "Models\HUD"
+	Model 0 "BFG_MF.md2"
+	Skin 0 "BFG_MF.png"
+	Scale -30 3 26
+	ZOffset 18
+
+	FrameIndex BFGF A 0 0
+}
+
+Model BFG_SMMP
+{
+	Path "Models\HUD"
+	Model 0 "BFG_MF.md2"
+	Skin 0 "BFG_MF1.png"
+	Scale -30 3 26
+	ZOffset 18
+
+	FrameIndex BFGF B 0 0
+}
+
+model BFG_SMMP
+{
+	Path "Models\Pickups"
+	Model 0 "W-BFG.md2"
+	Skin 0 "W-BFG.png"
+	Scale 1.3 1.3 1.3
+	ROTATING
+
+	FrameIndex BFUG A 0 0
+}
+
+model RicochetSpark
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "spark.png"
+	Scale 1.0 0.3 0.3
+	PITCHFROMMOMENTUM
+
+	FrameIndex ORAN A 0 0
+}
+
+model LinkSwordSpark
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "spark.png"
+	Scale 1.0 0.3 0.3
+	PITCHFROMMOMENTUM
+
+	FrameIndex ORAN A 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlamethrowerPickup.md3"
+   Skin 0 "FlamethrowerPickup.png"
+   Scale 2.75 2.85 2.85
+   ROTATING
+
+   FrameIndex FLMT A 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower.png"
+   Model 1 "Pilotlight.md3"
+   Skin 1 "PilotLight1.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAM A 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower.png"
+   Model 1 "Pilotlight.md3"
+   Skin 1 "PilotLight2.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAM B 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower.png"
+   Model 1 "Pilotlight.md3"
+   Skin 1 "PilotLight3.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAM C 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower.png"
+   Model 1 "Pilotlight.md3"
+   Skin 1 "PilotLight4.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAM D 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAM E 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower2.png"
+   Model 1 "Pilotlight.md3"
+   Skin 1 "PilotLight5.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAF A 0 0
+}
+
+Model FlameThrowerWeap
+{
+   Path "Models\HUD\flamethrower"
+   Model 0 "FlameThrower.md3"
+   Skin 0 "flamethrower2.png"
+   Model 1 "Pilotlight.md3"
+   Skin 1 "PilotLight6.png"
+   Scale -10.0 5.0 10
+   ZOffset 25
+
+   FrameIndex FLAF B 0 0
+}
+
+Model GibRibs
+{
+   Path "Models\Gibs"
+   Model 0 "jib3_fly.md3"
+   Skin 0 "jib3.jpg"
+   Scale 0.86 0.86 0.86
+   ROTATING
+   //ZOffset 25
+
+   FrameIndex JIB3 A 0 0
+   FrameIndex JIB3 B 0 1
+   FrameIndex JIB3 C 0 2
+   FrameIndex JIB3 D 0 3
+}
+
+Model GibRibs
+{
+   Path "Models\Gibs"
+   Model 0 "jib3.md3"
+   Skin 0 "jib3.jpg"
+   Scale 0.8 0.8 0.8
+   //ZOffset 25
+
+   FrameIndex JIB3 E 0 0
+}
+
+Model GibEye
+{
+   Path "Models\Gibs"
+   Model 0 "jib2_fly.md3"
+   Skin 0 "jib2.jpg"
+   Scale 0.26 0.26 0.26
+   ROTATING
+   //ZOffset 25
+
+   FrameIndex JIB2 A 0 0
+   FrameIndex JIB2 B 0 1
+   FrameIndex JIB2 C 0 2
+   FrameIndex JIB2 D 0 3
+}
+
+Model GibEye
+{
+   Path "Models\Gibs"
+   Model 0 "jib2.md3"
+   Skin 0 "jib2.jpg"
+   Scale 0.26 0.26 0.26
+   //ZOffset 25
+
+   FrameIndex JIB2 E 0 0
+}
+
+Model GibHeart
+{
+   Path "Models\Gibs"
+   Model 0 "jib1.md2"
+   Skin 0 "jib1.jpg"
+   Scale 0.3 0.3 0.3
+   ROTATING
+   //ZOffset 25
+
+   Frame JIB1 A 0 "fly00"
+   Frame JIB1 B 0 "fly02"
+   Frame JIB1 C 0 "fly04"
+   Frame JIB1 D 0 "fly06"
+}
+
+Model GibHeart
+{
+   Path "Models\Gibs"
+   Model 0 "jib1.md2"
+   Skin 0 "jib1.jpg"
+   Scale 0.3 0.3 0.3
+   //ZOffset 25
+
+   Frame JIB1 E 0 "idle"
+}
+
+Model GibSpine
+{
+   Path "Models\Gibs"
+   Model 0 "jib4_fly.md3"
+   Skin 0 "jib4.jpg"
+   Scale 1.0 1.0 1.0
+   ROTATING
+   //ZOffset 25
+
+   FrameIndex JIB4 A 0 0
+   FrameIndex JIB4 B 0 1
+   FrameIndex JIB4 C 0 2
+   FrameIndex JIB4 D 0 3
+}
+
+Model GibSpine
+{
+   Path "Models\Gibs"
+   Model 0 "jib4.md3"
+   Skin 0 "jib4.jpg"
+   Scale 1.0 1.0 1.0
+   //ZOffset 25
+
+   FrameIndex JIB4 E 0 0
+}
+
+Model BouncingGib1
+{
+   Path "Models\Gibs"
+   Model 0 "gib1.md2"
+   Skin 0 "gib1.png"
+   Scale 1.5 1.5 1.5
+   ROTATING
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex GBRN A 0 0
+   FrameIndex GBRN B 0 1
+   FrameIndex GBRN C 0 2
+   FrameIndex GBRN D 0 3
+}
+
+Model BouncingGib2
+{
+   Path "Models\Gibs"
+   Model 0 "gib2.md2"
+   Skin 0 "gib2.png"
+   Scale 1.0 1.0 1.0
+   ROTATING
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex GBRN A 0 0
+   FrameIndex GBRN B 0 1
+   FrameIndex GBRN C 0 2
+   FrameIndex GBRN D 0 3
+}
+
+Model BouncingGib3
+{
+   Path "Models\Gibs"
+   Model 0 "gib3.md2"
+   Skin 0 "gib3.png"
+   Scale 0.7 0.7 0.7
+   ROTATING
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex GBRN A 0 0
+   FrameIndex GBRN B 0 1
+   FrameIndex GBRN C 0 2
+   FrameIndex GBRN D 0 3
+}
+
+Model SM_SuperShotgun
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgun.md3"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT2 A 0 0
+   FrameIndex SHT2 B 0 3
+   FrameIndex SHT2 C 0 5
+   FrameIndex SHT2 D 0 6
+   FrameIndex SHT2 E 0 7
+   FrameIndex SHT2 F 0 8
+}
+
+Model SM_SuperShotgun
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunReload.md3"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT2 G 0 3
+   FrameIndex SHT2 H 0 5
+   FrameIndex SHT2 I 0 7
+   FrameIndex SHT2 J 0 9
+   FrameIndex SHT2 K 0 10
+   FrameIndex SHT2 L 0 17
+   FrameIndex SHT2 M 0 28
+   FrameIndex SHT2 N 0 32
+   FrameIndex SHT2 O 0 44
+   FrameIndex SHT2 P 0 50
+   FrameIndex SHT2 Q 0 64
+   FrameIndex SHT2 R 0 69
+   FrameIndex SHT2 S 0 71
+}
+
+Model SM_SuperShotgun
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunFlash1.md3"
+   Skin 0 "muzzleflash2.png"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT2 T 0 0
+}
+
+Model SM_SuperShotgun
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunFlash2.md3"
+   Skin 0 "muzzleflash2.png"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT2 U 0 0
+}
+
+Model BioRifle
+{
+   Path "Models\HUD\BioRifle"
+   Model 0 "BioRifle.md3"
+   Scale -5.0 4.2 5
+
+   FrameIndex BIOG A 0 0
+   FrameIndex BIOG C 0 3
+   FrameIndex BIOG D 0 6
+   FrameIndex BIOG E 0 8
+   FrameIndex BIOG F 0 12
+   FrameIndex BIOG G 0 14
+   FrameIndex BIOG H 0 18
+}
+
+Model BioRifle
+{
+   Path "Models\HUD\BioRifle"
+   Model 0 "BioRifle.md3"
+   Model 1 "BioRifleFlash.md3"
+   Skin 1 "bio_flash.png"
+   Scale -5.0 4.2 5
+
+   FrameIndex BIOG B 0 1
+   FrameIndex BIOG B 1 0
+}
+
+model KeyPiece1
+{
+	Path "Models\Pickups"
+	Model 0 "KeyPiece.md3"
+	Skin 0 "KeyPiece1.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex SKEY A 0 0
+}
+
+model KeyPiece2
+{
+	Path "Models\Pickups"
+	Model 0 "KeyPiece.md3"
+	Skin 0 "KeyPiece2.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex SKEY A 0 0
+}
+
+model KeyPiece3
+{
+	Path "Models\Pickups"
+	Model 0 "KeyPiece.md3"
+	Skin 0 "KeyPiece3.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex SKEY A 0 0
+}
+
+model KeyPiece4
+{
+	Path "Models\Pickups"
+	Model 0 "KeyPiece.md3"
+	Skin 0 "KeyPiece4.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex SKEY A 0 0
+}
+
+model KeyPiece5
+{
+	Path "Models\Pickups"
+	Model 0 "KeyPiece.md3"
+	Skin 0 "KeyPiece5.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex SKEY A 0 0
+}
+
+model KeyPiece6
+{
+	Path "Models\Pickups"
+	Model 0 "KeyPiece.md3"
+	Skin 0 "KeyPiece6.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex SKEY A 0 0
+}
+
+model Flare
+{
+  Path "Models/projectiles"
+  Model 0 "flare.md3"
+  Skin 0 "flare.png"
+  Scale 8.0 8.0 8.0
+  //PITCHFROMMOMENTUM
+
+  FrameIndex YEMB A 0 0
+}
+
+Model GrenadeExplosionShell
+{
+   Path "Models\Explosion"
+   Model 0 "ExplosionShell.md2"
+   Skin 0 "ExplosionShellFire.png"
+   Scale 4.0 4.0 4.0
+
+   Frame NULL A 0 "Frame5"
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "ElementalShotgun_Fire.md3"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT4 A 0 0
+   FrameIndex SHT4 B 0 3
+   FrameIndex SHT4 C 0 5
+   FrameIndex SHT4 D 0 6
+   FrameIndex SHT4 E 0 7
+   FrameIndex SHT4 F 0 8
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "ElementalShotgunReload_Fire.md3"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT4 G 0 3
+   FrameIndex SHT4 H 0 5
+   FrameIndex SHT4 I 0 7
+   FrameIndex SHT4 J 0 9
+   FrameIndex SHT4 K 0 10
+   FrameIndex SHT4 L 0 17
+   FrameIndex SHT4 M 0 28
+   FrameIndex SHT4 N 0 32
+   FrameIndex SHT4 O 0 44
+   FrameIndex SHT4 P 0 50
+   FrameIndex SHT4 Q 0 64
+   FrameIndex SHT4 R 0 69
+   FrameIndex SHT4 S 0 71
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunFlash1.md3"
+   Skin 0 "fireflash.png"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT4 T 0 0
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunFlash2.md3"
+   Skin 0 "fireflash.png"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT4 U 0 0
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "ElementalShotgun_Ice.md3"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT5 A 0 0
+   FrameIndex SHT5 B 0 3
+   FrameIndex SHT5 C 0 5
+   FrameIndex SHT5 D 0 6
+   FrameIndex SHT5 E 0 7
+   FrameIndex SHT5 F 0 8
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "ElementalShotgunReload_Ice.md3"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT5 G 0 3
+   FrameIndex SHT5 H 0 5
+   FrameIndex SHT5 I 0 7
+   FrameIndex SHT5 J 0 9
+   FrameIndex SHT5 K 0 10
+   FrameIndex SHT5 L 0 17
+   FrameIndex SHT5 M 0 28
+   FrameIndex SHT5 N 0 32
+   FrameIndex SHT5 O 0 44
+   FrameIndex SHT5 P 0 50
+   FrameIndex SHT5 Q 0 64
+   FrameIndex SHT5 R 0 69
+   FrameIndex SHT5 S 0 71
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunFlash1.md3"
+   Skin 0 "iceflash.png"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT5 T 0 0
+}
+
+Model ElementalSSG
+{
+   Path "Models\HUD\SSG"
+   Model 0 "SuperShotgunFlash2.md3"
+   Skin 0 "iceflash.png"
+   Scale -5.0 2.8 5.0
+   ZOffset -1
+
+   FrameIndex SHT5 U 0 0
+}
+
+Model ElementalSSG
+{
+  Path "Models\HUD\SSG"
+  Model 0 "ElementalShotgunPickup_Fire.md3"
+  Scale 2.2 2.2 2.2
+  ROTATING
+
+  FrameIndex SGN4 A 0 0
+}
+
+model AdvancedMinigun
+{
+   Path "Models\HUD\minigun"
+   Model 0 "minigun.md3"
+   Scale -5.0 2.5 5.0
+   ZOffset 12
+
+   FrameIndex MNGG A 0 0
+   FrameIndex MNGG B 0 1
+   FrameIndex MNGG C 0 2
+   FrameIndex MNGG D 0 3
+   FrameIndex MNGG E 0 4
+   FrameIndex MNGG F 0 5
+   FrameIndex MNGG G 0 6
+   FrameIndex MNGG H 0 7
+   FrameIndex MNGG I 0 8
+   FrameIndex MNGG J 0 9
+   FrameIndex MNGG K 0 10
+   FrameIndex MNGG L 0 11
+   FrameIndex MNGG M 0 12
+   FrameIndex MNGG N 0 13
+   FrameIndex MNGG O 0 14
+   FrameIndex MNGG P 0 15
+}
+
+model AdvancedMinigun
+{
+   Path "Models\HUD\minigun"
+   Model 0 "MinigunFlash1.md3"
+   Skin 0 "muzzleflash.png"
+   Scale -5.0 2.5 5.0
+   ZOffset 12
+
+   FrameIndex MNGF A 0 0
+}
+
+model AdvancedMinigun
+{
+   Path "Models\HUD\minigun"
+   Model 0 "MinigunFlash2.md3"
+   Skin 0 "muzzleflash.png"
+   Scale -5.0 2.5 5.0
+   ZOffset 12
+
+   FrameIndex MNGF B 0 0
+}
+
+model AdvancedMinigun
+{
+   Path "Models\HUD\minigun"
+   Model 0 "MinigunFlash3.md3"
+   Skin 0 "muzzleflash.png"
+   Scale -5.0 2.5 5.0
+   ZOffset 12
+
+   FrameIndex MNGF C 0 0
+}
+
+model AdvancedMinigun
+{
+   Path "Models\HUD\minigun"
+   Model 0 "MinigunFlash4.md3"
+   Skin 0 "muzzleflash.png"
+   Scale -5.0 2.5 5.0
+   ZOffset 12
+
+   FrameIndex MNGF D 0 0
+}
+
+Model AdvancedMinigun
+{
+  Path "Models\HUD\minigun"
+  Model 0 "MinigunPickup.md3"
+  Scale 2.0 2.0 2.0
+  ROTATING
+
+  FrameIndex MNGN A 0 0
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD\Chaingun"
+   Model 0 "Chaingun.md3"
+   Scale -5.0 3.0 5
+   ZOffset 12
+
+   FrameIndex CHGG A 0 0
+   FrameIndex CHGG B 0 2
+   FrameIndex CHGG C 0 4
+   FrameIndex CHGG D 0 6
+   FrameIndex CHGG E 0 8
+   FrameIndex CHGG F 0 10
+   FrameIndex CHGG G 0 12
+   FrameIndex CHGG H 0 14
+   FrameIndex CHGG I 0 16
+   FrameIndex CHGG J 0 18
+   FrameIndex CHGG K 0 20
+   FrameIndex CHGG L 0 22
+   FrameIndex CHGG M 0 24
+   FrameIndex CHGG N 0 26
+   FrameIndex CHGG O 0 28
+   FrameIndex CHGG P 0 30
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD\Chaingun"
+   Model 0 "ChaingunFlash.md3"
+   Skin 0 "MuzFlash.png"
+   Scale -5.0 3.0 5
+   ZOffset 12
+
+   FrameIndex CHGF A 0 0
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD\Chaingun"
+   Model 0 "ChaingunFlash2.md3"
+   Skin 0 "MuzFlash.png"
+   Scale -5.0 3.0 5
+   ZOffset 12
+
+   FrameIndex CHGF B 0 0
+}
+
+Model SM_Chaingun
+{
+   Path "Models\HUD\Chaingun"
+   Model 0 "ChaingunPickup.md3"
+   Scale 0.52 0.52 0.52
+   ROTATING
+
+   FrameIndex MGUN A 0 0
+}
+
+
+Model FlakCannon
+{
+   Path "Models\HUD\FlakCannon"
+   Model 0 "FlakCannonUT3.md3"
+   Scale -5.0 3.0 5
+   ZOffset 6
+
+   FrameIndex FLAK A 0 0
+   FrameIndex FLAK B 0 1
+   FrameIndex FLAK C 0 4
+   FrameIndex FLAK D 0 8
+   FrameIndex FLAK E 0 10
+   FrameIndex FLAK F 0 14
+   FrameIndex FLAK G 0 16
+   FrameIndex FLAK H 0 18
+   FrameIndex FLAK I 0 20
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot1.png"
+	Scale 4.5 4.5 4.5
+	PITCHFROMMOMENTUM
+	ROTATING
+
+	FrameIndex METL A 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot2.png"
+	Scale 4.5 4.5 4.5
+	PITCHFROMMOMENTUM
+	ROTATING
+
+	FrameIndex METL B 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot3.png"
+	Scale 4.5 4.5 4.5
+	PITCHFROMMOMENTUM
+	ROTATING
+
+	FrameIndex METL C 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot4.png"
+	Scale 4.5 4.5 4.5
+	PITCHFROMMOMENTUM
+	ROTATING
+
+	FrameIndex METL D 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShard.png"
+	Scale 4.5 4.5 4.5
+	PITCHFROMMOMENTUM
+	ROTATING
+
+	FrameIndex METL E 0 0
+}
+
+Model ProtonGrenadeLauncher
+{
+   Path "Models\HUD\StickyBomb"
+   Model 0 "StickyBomb.md3"
+   Scale -5.0 4.0 5
+   //ZOffset -1
+
+   FrameIndex PUNT A 0 0
+}
+
+Model ProtonGrenadeLauncher
+{
+   Path "Models\HUD\StickyBomb"
+   Model 0 "StickyBomb.md3"
+   Scale -5.0 5.0 5
+   //ZOffset -1
+
+   FrameIndex PUNT B 0 5
+   FrameIndex PUNT C 0 9
+   FrameIndex PUNT D 0 12
+   FrameIndex PUNT E 0 14
+   FrameIndex PUNT F 0 15
+   FrameIndex PUNT G 0 17
+   FrameIndex PUNT H 0 19
+}
+
+//Model SM_Railgun
+//{
+//   Path "Models\HUD\Railgun"
+//   Model 0 "Railgun.md3"
+//   Scale 5.0 4.0 5
+
+//   FrameIndex RLGG A 0 0
+//   FrameIndex RLGG B 0 1
+//   FrameIndex RLGG C 0 2
+//   FrameIndex RLGG D 0 4
+//   FrameIndex RLGG E 0 5
+//   FrameIndex RLGG F 0 7
+//   FrameIndex RLGG G 0 9
+//   FrameIndex RLGG H 0 11
+/}

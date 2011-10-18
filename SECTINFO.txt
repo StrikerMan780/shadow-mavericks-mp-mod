@@ -1,0 +1,12 @@
+[HQ]
+// HQ Locations
+names = {
+		"HQ Reception" = { 1036-1044, 1080-1084, 1052-1054, 1045-1051, 79 },
+		"Outdoors (Near HQ)" = { 1862 },
+		"Hellbender Pad" = { 291, 249, 287, 284, 250, 288, 283, 286, 290 },
+		"In Front of HQ Entrance" = { 1274, 1272, 1735, 1271, 1270, 1273, 1275 },
+		"HQ Outer Hallway" = { 1055-1060, 138, 1422-1424 },
+		"East Exit Shaft" = { 1078-1079 },
+		"West Exit Shaft" = { 1291-1297 },
+		"Outdoors (Underwater)" = { 218 },
+		}

@@ -1,0 +1,9 @@
+// New Color Codes for GBTW HQ Wad
+
+Cyan
+{
+#00AAAA  #00FFFF
+Console:
+#004444 #00AAAA 0 127
+#00CDCD #00FFFF 128 256
+}

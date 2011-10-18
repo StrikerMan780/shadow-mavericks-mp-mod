@@ -1,0 +1,1232 @@
+//***********************************
+//Weapons - For SMMP
+//***********************************
+
+WeaponEmpty DSWEMPTY
+Empty DSEMPTY
+FlareThrow DSFLARE
+$limit FlareThrow 0
+FlareBurn DSFLRBRN
+$limit FlareBurn 0
+
+hellfire	dshellfi
+HellFly		dsmisfly
+$limit Hellfly 0
+
+laserhit dslhit
+mp40fire dsmp40
+$limit mp40fire 0
+
+pistol1 ds9mm1
+pistol2 ds9mm2
+pistol3 ds9mm3
+pistol4 ds9mm4
+$random weapons/pistol { pistol1 pistol2 pistol3 pistol4 }
+SilencedPistol dspsilen
+SilencerToggle DSSILENC
+
+misc/freeze			dsfreeze
+$limit misc/freeze 0
+$limit misc/icebreak 0
+
+// Pistol Reload
+9mmClipOut ds9mmout
+9mmClipIn ds9mmIn
+9mmSlide ds9mmsli
+
+$limit weapons/plasmaf 0
+
+phazonbeam dsphazon
+$limit phazonbeam 0
+
+firedeath dsfirdth
+disintegrate dsdisdth
+
+freezebolt dsbolfir
+freezehit dsbolhit
+kickswing dskicksw
+
+moritafire dsmorita
+moritashotgun dsmorits
+$limit moritafire 0
+
+p90fire dsp90
+$limit p90fire 0
+
+weapons/plasmax	dsplshit
+$volume weapons/plasmax 0.8
+
+bowshoot dsbowfir
+bowpull dsbowpul
+bowhit	dsarrwht
+instagibbow dsigbow
+
+IPodLaunch dsipodla
+IPodBounce dsipodbn
+IpodExplosion dsipodex
+
+// TechPistol
+techplasma dstlspis
+changemode dsmodech
+TechPlasmaSuper dstlssup
+TechPlasmaSuperBoom1 dssupbo1
+TechPlasmaSuperBoom2 dssupbo2
+TechPlasmaSuperBoom3 dssupbo3
+$random TechPlasmaSuperBoom { TechPlasmaSuperBoom1 TechPlasmaSuperBoom2 TechPlasmaSuperBoom3 }
+Upgrade DSUPGRAD
+TechRail DSTPRAIL
+TechBounce1 DSTPBNC1
+TechBounce2 DSTPBNC2
+TechBounce3 DSTPBNC3
+TechBounce4 DSTPBNC4
+TechPlasmaHit DSTPLHIT
+$limit TechPlasmaHit 0
+$random TechPlasmaBounce { TechBounce1 TechBounce2 TechBounce3 TechBounce4 }
+$limit TechPlasmaSuperBoom 0
+$limit weapons/plasmax 0
+
+// Upgrade Junk
+Junk1 DSJUNK1
+Junk2 DSJUNK2
+Junk3 DSJUNK3
+Junk4 DSJUNK4
+JunkSmack DSJUNKSM
+$random Junk { Junk1 Junk2 Junk3 Junk4 }
+
+// Flamethrower
+FlameThrower DSFLMTHR
+$limit FlameThrower 0
+FlameThrowerLoop DSFLMTLP
+FlameThrowerIdle DSFLMTID
+FlameThrowerRaise DSFLMTUP
+FlameThrowerCool dsflcool
+FlameThrowerIgnite DSIGNITE
+FlameThrowerVent DSVENT
+
+// Railgun Reload
+RailgunOut dsrailou
+RailGunIn dsrailin
+
+// Silver Bullet Gun
+SilverBulletFire dssbgfir
+SilverBulletLoad dssbgloa
+
+// Frost SSG
+iceshot dsicesht
+
+// Valkrie Cannons
+ValkrieFire dsvalkri
+SledgeHammerFire dssledge
+
+// Noisy Cricket
+CricketCharge DSCRICK
+CricketFire DSPLASMA
+CricketWave DSCRICKW
+BreakDamnThing DSBRKDAM
+
+// Ruin's SSG
+weapons/shottyfire			DSRSHTGN
+weapons/shotopen			DSRBOPN
+weapons/shotclose			DSRBCLS
+weapons/shotload			DSRBLOAD
+
+// Grapple
+loremaster/chain	dschain
+grapplespike dsspike
+$limit grapplespike 0
+
+// WeatherMaker
+weapons/hornrodpowshoot		dsweath
+weapons/hornrodpowhit		dswthhit
+weathermaker dsweath
+weatherbuzz dsbuzz
+misc/rain dswrain
+
+// Excalibat
+batswing DSBATSWN
+
+// Magnum
+magnum dsmagnm
+
+// Laser Rifle
+LaserRifle DSLASFIR
+OverHeated DSLASHEA
+
+// Biorifle
+BioRifle	BioRifle
+BioGoo1		BioGoo1
+BioGoo2		BioGoo2
+BioBurst1   BioBrst1
+BioBurst2   BioBrst2
+
+$RANDOM BioGoo { BioGoo1 BioGoo2 }
+$RANDOM BioBurst { BioBurst1 BioBurst2 }
+
+// Sniper Rifle
+sniper1 DSSNIPE1
+sniper2 DSSNIPE2
+sniper3 DSSNIPE3
+$random sniperfire { sniper1 sniper2 sniper3 }
+$limit sniperfire 0
+sniperbolt DSSNBOLT
+
+// Soccer
+BootHit	dspwhit2
+
+// Lightsaber
+saberup dssabup
+saberidle dssabidl
+saberswing1 dssabfl1
+saberswing2 dssabfl2
+saberswing3 dssabfl3
+saberswing4 dssabfl4
+saberswing5 dssabfl5
+$random saberswing { saberswing1 saberswing2 saberswing3 saberswing4 saberswing5 }
+saberhit1 dssabht1
+saberhit2 dssabht2
+saberhit3 dssabht3
+$random saberhit { saberhit1 saberhit2 saberhit3 }
+
+// Nuke
+NukeBeep DSNUKE
+NukeLaunch DSNUKELN
+NukeExplode DSNUKEEX
+$limit NukeExplode 0
+WTFBoom DSWTFBOO
+
+// Ricochets
+rico1	dsrico1
+rico2	dsrico2
+rico3	dsrico3
+rico4	dsrico4
+rico5	dsrico5
+rico6	dsrico6
+rico7	dsrico7
+rico8	dsrico8
+rico9	dsrico9
+rico10	dsrico10
+$random ricochet { rico1 rico2 rico3 rico4 rico5 rico6 rico7 rico8 rico9 rico10 }
+
+// Lightning gun
+MageLightningFire          dscelfir
+MageLightningContinuous    dscelcnt
+MageLightningReady         dscelgun
+MageLightningZap           dscelatk
+LightningGunClose		   dsligcls
+
+// Needler
+Needler1 dsneed1
+Needler2 dsneed2
+Needler3 dsneed3
+Needler4 dsneed4
+$random NeedlerFire { Needler1 Needler2 Needler3 Needler4 }
+
+NeedlerHit1 dsnhit1
+NeedlerHit2 dsnhit2
+NeedlerHit3 dsnhit3
+$random NeedlerHit { NeedlerHit1 NeedlerHit2 NeedlerHit3 }
+
+$limit NeedlerFire 0
+$limit NeedlerHit 8
+
+// Fart Grenade Joke weapon
+FartGrenade1 dsfartg1
+FartGrenade2 dsfartg2
+FartGrenade3 dsfartg3
+FartGrenade4 dsfartg4
+
+// Ethereal Crossbow
+weapons/bowshoot		dscrsbow
+weapons/bowhit			dscrshit
+
+// BFG10k
+BFG10kShot DSBFG10F
+
+// Chaos Flames
+ChaosReady DSCHSRDY
+ChaosFire DSCHSFIR
+ChaosDone DSCHSDON
+ChaosBanish DSCHSBAN
+
+// WrathoftheWickedSpirits
+WrathSpawn DSWRATH
+SpiritActive            spirt7
+SpiritAttack            spirt5
+SpiritDie               spirts1
+
+// Flesh Splats
+FleshySplat1 dsblud
+FleshySplat2 dsblud2
+FleshySplat3 dsblud3
+FleshySplat4 dsblud4
+
+$random FleshySplat { FleshySplat1 FleshySplat2 FleshySplat3 FleshySplat4 }
+$limit FleshySplay 0
+
+FleshImpact1 dsflesh1
+FleshImpact2 dsflesh2
+FleshImpact3 dsflesh3
+FleshImpact4 dsflesh4
+FleshImpact5 dsflesh5
+$random FleshImpact { FleshImpact1 FleshImpact2 FleshImpact3 FleshImpact4 FleshImpact5 }
+$limit FleshImpact 4
+
+FleshTear1 dsflesh6
+FleshTear2 dsflesh7
+FleshTear3 dsflesh8
+$random FleshTear { FleshTear1 FleshTear2 FleshTear3 }
+$limit FleshTear 4
+
+PlayerShipEngine DSSHPENG
+$limit PlayerShipEngine 0
+
+ServoFire DSSERVO
+
+MassiveExplosion1 DSHBEXP1
+MassiveExplosion2 DSHBEXP2
+MassiveExplosion3 DSHBEXP3
+$random MassiveExplosion { MassiveExplosion1 MassiveExplosion2 MassiveExplosion3 }
+$limit MassiveExplosion 0
+$limit MassiveExplosion1 0
+$limit MassiveExplosion2 0
+$limit MassiveExplosion3 0
+
+BlitzHit DSBLITZ
+
+// Tails Repeater
+TailsRepeater DSTRPEAT
+RepeaterCasing1 DSRCAS1
+RepeaterCasing2 DSRCAS2
+RepeaterCasing3 DSRCAS3
+$random RepeaterCasing { RepeaterCasing1 RepeaterCasing2 RepeaterCasing3 }
+$limit RepeaterCasing 0
+
+RepeaterHit1 DSTREXP1
+RepeaterHit2 DSTREXP2
+RepeaterHit3 DSTREXP3
+$random RepeaterHit { RepeaterHit1 RepeaterHit2 RepeaterHit3 }
+$limit RepeaterHit 0
+$volume RepeaterHit 0.25
+$volume RepeaterHit1 0.25
+$volume RepeaterHit2 0.25
+$volume RepeaterHit3 0.25
+
+// New Railgun
+NewRailgunFire1 DSRGFIR1
+NewRailgunFire2 DSRGFIR2
+NewRailgunFire3 DSRGFIR3
+$random NewRailgunFire { NewRailgunFire1 NewRailgunFire2 NewRailgunFire3 }
+NewRailgunStereo1 DSRGSTER
+NewRailgunStereo2 DSRGSTE2
+$random NewRailgunStereo { NewRailgunStereo1 NewRailgunStereo2 }
+
+// New Chaingun
+chaingun1 dschngn1
+chaingun2 dschngn2
+chaingun3 dschngn3
+chaingun4 dschngn4
+chaingun5 dschngn5
+$random weapons/chngun { chaingun1 chaingun2 chaingun3 chaingun4 chaingun5 }
+
+// Din's Fire
+DinExplode DSDINEX
+$limit DinExplode 0
+$volume DinExplode 0.2
+DinFly DSDINFLY
+$volume DinFly 0.6
+DinFire DSDINFIR
+
+// Fire Rod
+FireRod DSFIRERO
+
+// Ice Rod
+IceRod DSICEROD
+
+// Kamikaze Powerup
+KamikazeExpel DSEXPEL
+
+// Hellsing .454 Casull
+CasullFire DSCASULL
+
+// Halo Plasma Rifle
+HaloPlasmaRifle DSHALOPR
+HaloPlasmaHit	DSHALOPH
+$limit HaloPlasmaRifle 0
+
+// Proton Torpedoes
+ProtonExplosion DSPROEXP
+$limit ProtonExplosion 0
+
+// DUKE NUKEM 3D PISTOL
+DukeClipOut dsclpout
+DukeClipIn dsclpin
+DukePistol dsdukpis
+
+// DUKE NUKEM 3D SHOTGUN
+DukeShotgunFire DSDNSHTG
+DukeShotgunCock DSDNCOCK
+DukeShotgunRaise1 DSDNSGU1
+DukeShotgunRaise2 DSDNSGU2
+$random DukeShotgunRaise { DukeShotgunRaise1 DukeShotgunRaise2 }
+
+// DUKE NUKEM 64 PISTOL
+Duke64PistolFire 	DSDN64PS
+Duke64ClipLock 		DS64CLCK
+Duke64ClipIn		DS64CIN
+Duke64ClipOut		DS64COUT
+Duke64Slide			DS64SLID
+
+// DUKE NUKEM 64 SHOTGUN
+SlamshotFire DSSLMSHT
+SlamshotCock1 DSSLMCK1
+SlamshotCock2 DSSLMCK2
+
+// DUKE NUKEM 64 GRENADE LAUNCHER
+Duke64GrenadeLaunch 	DSDN64GL
+Duke64GrenadeBounce		DSDN64GB
+DukeExplosion			DSDNEXPL
+PlutoniumGrenadeExplode	DSPLUTEX
+$limit DukeExplosion 0
+
+// DUKE NUKEM 3D EXPANDER
+ExpanderFire	DSEXPAND
+DeepFry 		DSDEEPFR
+DukeGrow		DSGROW
+
+// DUKE NUKEM 3D RPG
+DukeRpg			DSRPG
+
+// DUKE NUKEM 3D RIPPER
+DukeRipper		DSRIPPER
+
+// DUKE NUKEM 64 ENERGY CANNON
+Duke64EnergyBall 			DSENGBAL
+Duke64EnergyBallHuge 		DSENGHUG
+Duke64EnergyBallExplode		DSENEREX
+Duke64EnergyBallExplodeHuge	DSENGHEX
+$limit Duke64EnergyBallExplode 0
+Duke64EnergyCharge			DSECHARG
+Duke64EnergyChargeHold		DSECHOLD
+
+// DUKE NUKEM 3D FREEZETHROWER
+FreezeThrower		DSFRETHR
+FreezeThrowerStart	DSFRETST
+FreezeThrowerEnd	DSFRETEN
+
+// DUKE NUKEM WEAPON SELECT
+DukeWeaponSelect DSDNWSEL
+
+// DUKE NUKEM 3D DEVASTATOR
+DevastatorRight DSDEVIRG
+DevastatorLeft	DSDEVILF
+$limit DevastatorRight 0
+$limit DevastatorLeft 0
+
+//************-MONSTERS-*************
+
+// Bishop
+
+BishopAttack            pop
+BishopMissileExplode    bshhit2
+BishopProjectile		dsbispro
+$limit BishopProjectile 0
+
+// Cacoshooper
+ShoopDaWhoop DSSHOOP
+ShoopDaWhoop2 DSSHOOP2
+
+// Trite
+tritedeath1 dstdth1
+tritedeath2 dstdth2
+tritedeath3 dstdth3
+$random tritedeath { tritedeath1 tritedeath2 tritedeath3 }
+TriteAttack1 dstatk1
+TriteAttack2 dstatk2
+TriteAttack3 dstatk3
+$random triteattack { TriteAttack1 TriteAttack2 TriteAttack3 }
+TriteBite1 dstbit1
+TriteBite2 dstbit2
+$random tritebite { tritebite1 tritebite2 }
+TriteSplat1 dstspl1
+TriteSplat2 dstspl2
+$random tritesplat { tritesplat1 tritesplat2 }
+TriteSee1 dstsit1
+TriteSee2 dstsit2
+TriteSee3 dstsit3
+TriteSee4 dstsit4
+$random TriteSee { tritesee1 tritesee2 tritesee3 tritesee4 }
+TritePain1 dstpn1
+TritePain2 dstpn2
+TritePain3 dstpn3
+TritePain4 dstpn4
+$random TritePain { tritepain1 tritepain2 tritepain3 tritepain4 }
+TriteStep1 dstst1
+TriteStep2 dstst2
+TriteStep3 dstst3
+TriteStep4 dstst4
+$random TriteStep { tritestep1 tritestep2 tritestep3 tritestep4 }
+$limit TriteStep 0
+
+// Turret
+TurretFire1 DSTURFIR
+TurretFire2 DSTURFI2
+TurretFire3 DSTURFI3
+$random TurretFire { TurretFire1 TurretFire2 TurretFire3 }
+$limit TurretFire 0
+TurretReady DSTURRDY
+
+//***********************************
+
+// ************ ITEMS ***********
+misc/k_pkup                dskeyup
+misc/w_pkup                dswpnup
+misc/health_pkup           dshealup
+misc/armor_pkup            dsarmup
+misc/ammo_pkup             dsammoup
+misc/keytry                dskeytry
+demonpowerpickup		   dsdempow
+cashpickup 				   dscash
+drinkpickup 			   dsgetdrk
+foodpickup 				   dseat
+healthbonus				   dshltbon
+largeammo				   dslrgamo
+// ******************************
+
+UltraInsanity dsinsane
+$limit UltraInsanity 0
+//*******
+//Terrain
+//*******
+slime				dsmuck
+slimesmall			dsmucksm
+water				dsgloop
+watersmall			dsfloush
+burn				dsburn
+burnsmall			dsburnsm
+blood1			dssplat1
+blood2			dssplat2
+$RANDOM blood { blood1 blood2 }
+bloodsmall1			dssplat3
+bloodsmall2			dssplat4
+$RANDOM bloodsmall { bloodsmall1 bloodsmall2 }
+rainsplash DSRAINSP
+sand dssand
+
+DrunkSong1 DSDICK
+DrunkSong2 DSFLOGGN
+DrunkSong3 DSDRNKFI
+$RANDOM DrunkSong { DrunkSong1 DrunkSong2 DrunkSong3 }
+
+// Ambience
+
+shipengine DSSHPENG
+shipinterior DSINSHIP
+tvoutbeep DSTVOUT
+jeanluc DSPICARD
+terminal dstermin
+raining dsrainfl
+WaterFallRush  DSWTRFAL
+SOAD DSSOAD
+CostaDelSol DSCOSTA
+OutDoors DSOUTDRS
+Crickets DSODCRIK
+NEDM DSNEDM
+TomSawyer DSTOMSAW
+MarioBrick DSBRICK
+Fail DSFAIL
+ArkanoidIntro DSARKINT
+ScreenON DSSCREEN
+Penis DSPENIS
+Doh DSDOH
+Flashlight DSFLASHL
+DrinkingFountain DSDRKFNT
+SMIntro SMIntro
+SMProduction SMProduc
+Fooby1 DSFOOB1
+Fooby2 DSFOOB2
+Fooby3 DSFOOB3
+PlaneGuy DSPLNGUY
+BillyMays DSBILLYM
+TitleHit DSTITLEH
+lolinternet DSLOLINT
+$ambient 4 WaterFallRush POINT CONTINUOUS 1.0
+$ambient 5 jeanluc POINT CONTINUOUS 0.9
+$ambient 6 tvoutbeep POINT CONTINUOUS 0.08
+$ambient 7 shipinterior POINT CONTINUOUS 1.4
+$ambient 8 shipengine POINT CONTINUOUS 2.0
+$ambient 9 Raining POINT CONTINUOUS 0.6
+$ambient 10 terminal POINT CONTINUOUS 2.0
+$ambient 11 SOAD Point CONTINUOUS 1.0
+$ambient 12 CostaDelSol Point CONTINUOUS 0.5
+$ambient 13 OutDoors SURROUND CONTINUOUS 1.4
+$ambient 14 OutDoors Point 0.3 CONTINUOUS 1.5
+$ambient 15 Crickets Point 0.4 CONTINUOUS 1.0
+$ambient 16 NEDM Point CONTINUOUS 2.0
+$ambient 17 Raining Point 0.3 CONTINUOUS 0.5
+$ambient 18 lolinternet POINT CONTINUOUS 1.0
+newplayer DSNEWPLY
+BurningFire DSBURNIN
+SmallBurningFire DSSMLBRN
+KnockedTheFuckOut DSKNKOUT
+
+thunder1 DSTHUND1
+thunder2 DSTHUND2
+thunder3 DSTHUND3
+thunder4 DSTHUND4
+thunder5 DSTHUND5
+thunder6 DSTHUND6
+thunder7 DSTHUND7
+world/thunder dsblank
+$random world/localthunder { thunder1 thunder2 thunder3 thunder4 thunder5 thunder6 thunder7 }
+$limit world/localthunder 0
+
+SparkHit1 DSSPRKH1
+SparkHit2 DSSPRKH2
+$random SparkHit { SparkHit1 SparkHit2 }
+
+zap dszot
+$limit zap 0
+
+// map stuff
+jumppad			dspad
+trap dstrap
+trap2 dstrap2
+trap3 dstrap3
+trap4 dstrap4
+vox1 dsvox1
+
+// Force
+ForcePull dsfpull
+
+
+// Molotov Cocktail
+weapons/bottle			dsbottle
+
+// Flying Magma
+
+MagmaFly dsmagfir
+MagmaHit dsmaghit
+
+// Stinger
+StingerFire dsstnfir
+StingerHit dsstnhit
+
+// Bullet Casing
+bulletcasing1 DSCASING
+bulletcasing2 DSCASIN2
+bulletcasing3 DSCASIN3
+bulletcasing4 DSCASIN4
+bulletcasing5 DSCASIN5
+$random bulletcasing { bulletcasing1 bulletcasing2 bulletcasing3 bulletcasing4 bulletcasing5 }
+$limit bulletcasing 0
+
+// Shell Casing
+shell1 dsshell1
+shell2 dsshell2
+shell3 dsshell3
+shell4 dsshell4
+
+$random shellcasing { shell1 shell2 shell3 shell4 }
+
+// Quad Shotgun
+Quadshotgun dsqshtgn
+
+// Minigun
+Minigun1 dsminign
+Minigun2 dsminig2
+$random weapons/minigun { Minigun1 Minigun2 }
+MinigunSpinUp DSMINIUP
+MinigunSpinDown DSMINIDN
+
+// Fire
+burningup dsburnup
+collapse dscollap
+
+// Gasoline Cans! =D
+gas1 dsslsh1
+gas2 dsslsh2
+gas3 dsslsh3
+gas4 dsslsh4
+$random Gasoline { gas1 gas2 gas3 gas4 }
+
+// Flak Cannon
+FlakCannon dsflakcn
+FlakShell	dsflaksh
+FlakBounce1 dsfkric1
+FlakBounce2 dsfkric2
+$random FlakBounce { FlakBounce1 FlakBounce2 }
+
+HeavyShot DSHEVMIS
+BigExp1 dsboom1
+BigExp2 dsboom2
+BigExp3 dsboom3
+BigExp4 dsboom4
+$random BigExplosion { BigExp1 BigExp2 BigExp3 BigExp4 }
+$random weapons/grenlx { BigExp2 BigExp3 }
+$limit weapons/grenlx 0
+$limit BigExp1 0
+$limit BigExp2 0
+$limit BigExp3 0
+$limit BigExp4 0
+
+// Stripper
+stripper dsstrip1
+
+// shotgun
+shotguncock dsshotco
+
+// Spaceship
+spaceshiphit DSSHPHIT
+$limit spaceshiphit 0
+
+// Force Thrust
+forcethrust dsthrust
+
+// Enemy Ship Thruster
+ShipThrust DSESTHRU
+ShipFly1 DSESFLY1
+ShipFly2 DSESFLY2
+ShipFly3 DSESFLY3
+ShipFly4 DSESFLY4
+$random EnemyShipEngine { ShipFly1 ShipFly2 ShipFly3 ShipFly4 }
+
+// Leeroy Zombie
+LeeroyRun DSKAMIKA
+LeeroyJenkins DSLEEROY
+
+// Rave Zombie
+Rave DSRAVE
+
+// Angry German Zombie
+AngryGermanZombie1 DSGERMA1
+
+Popcorn DSPOPCRN
+
+// ******************
+// * PLAYER CLASSES *
+// ******************
+
+// ** Marine **
+
+MarineTaunt1 DSTAUNT
+MarineTaunt2 DSTAUNT1
+$random MarineTaunts { MarineTaunt1 MarineTaunt2 }
+
+$playersound	player	male	*falling		dsfall
+$playeralias 	player	male	*taunt		MarineTaunts
+
+// ** TAILS **
+
+//dsplpain = DSTLSPAI
+//dspdiehi = DSTLSDHI
+//dsjump = DSTLSJMP
+//dsoof = DSTLSOOF
+//dspldeth = DSTLSDTH
+
+TailsTaunt1 dstlstn1
+TailsTaunt2 dstlstn2
+
+$random TailsTaunts { TailsTaunt1 TailsTaunt2 }
+
+$playersound	tails	male	*death		dstlsdth
+$playersound	tails	male	*xdeath		dstlsdhi
+$playersound	tails	male	*gibbed		dsslop
+$playersound	tails	male	*pain100	dstlspai
+$playersounddup	tails	male	*pain75		*pain100
+$playersounddup	tails	male	*pain50		*pain100
+$playersounddup	tails	male	*pain25		*pain100
+$playersound	tails	male	*grunt		dstlsoof
+$playersounddup	tails	male	*land		*grunt
+$playersound	tails	male	*jump		dstlsjmp
+$playersound	tails	male	*fist		dspunch
+$playersound	tails	male	*falling	dstlsfal
+$playersound	tails	male	*usefail	dstlsoof
+$playersound	tails	male	*taunt		dstaunt
+$playersound	tails	male	*dive		dssonwat
+$playersound	tails	male	*surface	dssonwat
+$playersound	tails	male	*gasp		dssongsp
+
+$playeralias 	tails	male	*taunt		tailstaunts
+
+tailsflying dstlsfly
+spindash dsspndsh
+
+SonicPain50-1 DSSONPAI
+SonicPain50-2 DSSONPA3
+$random SonicPain50 { SonicPain50-1 SonicPain50-2 }
+
+$playersound	sonic	male	*death		dssondth
+$playersound	sonic	male	*xdeath		dssondth
+$playersound	sonic	male	*pain100	dssonpa1
+$playersound	sonic	male	*pain75		dssonpa2
+$playeralias	sonic	male	*pain50		SonicPain50
+$playersound	sonic	male	*pain25		dssonpa4
+$playersound	sonic	male	*jump		dssonjmp
+$playersound	sonic	male	*taunt		dssontau
+$playersound	sonic	male	*falling	dssonfal
+$playersound	sonic	male	*grunt		dssonoof
+$playersound	sonic	male	*land		dsduklnd
+$playersound	sonic	male	*usefail	dssonoof
+$playersound	sonic	male	*dive		dssonwat
+$playersound	sonic	male	*surface	dssonwat
+$playersound	sonic	male	*gasp		dssongsp
+
+
+//{
+//name = "Link"
+//sprite = NWPS
+//dsplpain = dslinkp1
+//dsoof = dslinkoo
+//dsnoway = dslinkju
+//dspldeth = dslinkdi
+//dspdiehi = dslinkdi
+//dsouch = dslinkgs
+//dstaunt = dslinkb1
+//dsjump = dslinkju
+//dspunch = dssword
+//gender = male
+//scale = 1.24
+//}
+
+LinkTaunt1 dslinkb1
+LinkTaunt2 dslinkb2
+LinkTaunt3 dslinka3
+$random LinkTaunts { LinkTaunt1 LinkTaunt2 LinkTaunt3 }
+
+LinkJump1 DSLINKJU
+LinkJump2 DSLINKJ2
+$random LinkJump { LinkJump1 LinkJump2 }
+
+linkpain3 dslinkp3
+linkpain5 dslinkp5
+$random linkpain75 { linkpain3 linkpain5 }
+
+$playersound	Link	male	*death		dslinkdi
+$playersound	Link	male	*xdeath		dslinkdh
+$playersound	Link	male	*gibbed		dsslop
+$playersound	Link	male	*pain100	dslinkp4
+$playeralias	Link	male	*pain75		linkpain75
+$playersound	Link	male	*pain50		dslinkp1
+$playersound	Link	male	*pain25		dslinkp2
+$playersound	Link	male	*grunt		dslinkoo
+$playersound	Link	male	*land		dslinkoo
+$playeralias	Link	male	*jump		LinkJump
+$playersound	Link	male	*fist		dssword
+$playersound	Link	male	*falling	dslinkfl
+$playersound	Link	male	*usefail	dslinkju
+$playersound	Link	male	*gasp	    dslinkgs
+
+$playeralias 	Link	male	*taunt		linktaunts
+
+walljump DSWALJMP
+wallland DSWALLAN
+
+LinkSwordHit DSSWORD
+LinkSwordWall DSSWDWAL
+LinkSwordUp DSSWDUP
+
+LinkAttack1 DSLINKAT
+LinkAttack2 DSLINKA2
+LinkAttack3 DSLINKA3
+LinkAttackNull DSNULL
+
+$random LinkAttack { LinkAttack1 LinkAttack2 LinkAttack3 LinkAttackNull LinkAttackNull LinkAttackNull LinkAttackNull LinkAttackNull LinkAttackNull }
+
+LinkSwordSwing1 DSSWDSW1
+LinkSwordSwing2 DSSWDSW2
+LinkSwordSwing3 DSSWDSW3
+
+$random LinkSwordSwing { LinkSwordSwing1 LinkSwordSwing2 LinkSwordSwing3 }
+
+FaroresWind DSFWIND
+FaroreCharge DSFARORE
+
+// -=**** TOURETTES GUY ******=-
+tourettes/pain1 dstgpai1
+tourettes/pain2 dstgpai2
+tourettes/pain6 dstgpai6
+$random tourettes/pain { tourettes/pain1 tourettes/pain2 tourettes/pain6 }
+
+tourettes/death1       DSTGDTH1
+tourettes/death2       DSTGDTH2
+tourettes/death3       DSTGDTH3
+tourettes/death4       DSTGDTH4
+tourettes/death5       DSTGDTH5
+tourettes/death6       DSTGDTH6
+tourettes/death7       DSTGDTH7
+tourettes/death8       DSTGDTH8
+tourettes/death9	   DSTGDTH9
+tourettes/death10	   DSTGDT10
+tourettes/death11	   DSTGDT11
+tourettes/death12	   DSTGDT12
+tourettes/death13	   DSTGDT13
+tourettes/death14	   DSTGDT14
+tourettes/death15	   DSTGDT15
+tourettes/death16	   DSTGDT16
+tourettes/death17	   DSTGDT17
+tourettes/death18	   DSTGDT18
+tourettes/death19	   DSTGDT19
+tourettes/death20	   DSTGDT20
+tourettes/death21	   DSTGDT21
+tourettes/death22	   DSTGDT22
+tourettes/death23	   DSTGDT23
+tourettes/death24	   DSTGDT24
+tourettes/death25	   DSTGDT25
+tourettes/death26	   DSTGDT26
+tourettes/deathhigh    DSTGDIEH
+$random tourettes/death { tourettes/death1 tourettes/death2 tourettes/death3
+tourettes/death4 tourettes/death5 tourettes/death6 tourettes/death7 tourettes/death8
+tourettes/death9 tourettes/death10 tourettes/death11 tourettes/death12 tourettes/death13
+tourettes/death14 tourettes/death15 tourettes/death16 tourettes/death17 tourettes/death18
+tourettes/death19 tourettes/death20 tourettes/death21 tourettes/death22 tourettes/death23
+tourettes/death24 tourettes/death25 tourettes/death26 tourettes/deathhigh tourettes/pain2 }
+
+tourettes/taunt1       DSTGTN01
+tourettes/taunt2       DSTGTN02
+tourettes/taunt3       DSTGTN03
+tourettes/taunt4       DSTGTN04
+tourettes/taunt5       DSTGTN05
+tourettes/taunt6       DSTGTN06
+tourettes/taunt7       DSTGTN07
+tourettes/taunt8       DSTGTN08
+tourettes/taunt9       DSTGTN09
+tourettes/taunt10      DSTGTN10
+tourettes/taunt11      DSTGTN11
+tourettes/taunt12      DSTGTN12
+tourettes/taunt13      DSTGTN13
+tourettes/taunt14      DSTGTN14
+tourettes/taunt15      DSTGTN15
+tourettes/taunt16      DSTGTN16
+tourettes/taunt17      DSTGTN17
+tourettes/taunt18      DSTGTN18
+tourettes/taunt19      DSTGTN19
+tourettes/taunt20      DSTGTN20
+tourettes/taunt21      DSTGTN21
+tourettes/taunt22      DSTGTN22
+tourettes/taunt23      DSTGTN23
+$random tourettes/taunt { tourettes/taunt1 tourettes/taunt2 tourettes/taunt3 tourettes/taunt4 tourettes/taunt5 tourettes/taunt6 tourettes/taunt7 tourettes/taunt8 tourettes/taunt9 tourettes/taunt10 tourettes/taunt11 tourettes/taunt12 tourettes/taunt13 tourettes/taunt14 tourettes/taunt15 tourettes/taunt16 tourettes/taunt17 tourettes/taunt18 tourettes/taunt19 tourettes/taunt20 tourettes/taunt21 tourettes/taunt22 tourettes/taunt23 }
+
+tourettes/usefail1	DSTGNOWA
+tourettes/usefail2	DSTGTN14
+$random tourettes/usefail { tourettes/usefail1 tourettes/usefail2 }
+
+tourettes/grunt1	DSTGOOF
+tourettes/grunt2	DSTGNOWA
+$random tourettes/grunt { tourettes/grunt1 tourettes/grunt2 }
+
+$playeralias	Sgt.Tourette(SMMP)	male	*taunt		tourettes/taunt
+$playeralias	Sgt.Tourette(SMMP)	male	*death		tourettes/death
+$playersound    Sgt.Tourette(SMMP)  male    *xdeath     dstgdieh
+$playeralias	Sgt.Tourette(SMMP)	male	*pain100	tourettes/pain
+$playersound    Sgt.Tourette(SMMP)	male	*pain75		dstgpai3
+$playersound    Sgt.Tourette(SMMP)	male	*pain50		dstgpai4
+$playersound    Sgt.Tourette(SMMP)  male	*pain25		dstgpai5
+$playersound	Sgt.Tourette(SMMP)	male	*land		dsduklnd
+$playeralias	Sgt.Tourette(SMMP)	male	*grunt		tourettes/grunt
+$playeralias	Sgt.Tourette(SMMP)	male	*usefail	tourettes/usefail
+
+$random vamp/death     { vamp/death1 vamp/death2 vamp/death3 vamp/death4 }
+vamp/death1        	DSALUDTH
+vamp/death2        	DSALUDT2
+vamp/death3        	DSALTNT0
+vamp/death4	   		DSANOWAY
+
+$random vamp/taunt { Vamp/taunt1 Vamp/taunt2  Vamp/taunt3  Vamp/taunt4  Vamp/taunt5  Vamp/taunt6 vamp/taunt6 vamp/taunt7 vamp/taunt8 vamp/taunt9 vamp/taunt10 vamp/taunt11 vamp/taunt12 vamp/taunt13 }
+
+vamp/taunt1    DSALTNT1
+vamp/taunt2    DSALTNT2
+vamp/taunt3    DSALTNT3
+vamp/taunt4    DSALTNT4
+vamp/taunt5    DSALTNT5
+vamp/taunt6    DSALTNT6
+vamp/taunt7    DSALTNT7
+vamp/taunt8    DSALTNT8
+vamp/taunt9    DSALTNT9
+vamp/taunt10   DSALTN10
+vamp/taunt11   DSALTN11
+vamp/taunt12   DSALTN12
+vamp/taunt13   DSALTN13
+
+$playeralias	Alucard     male	*taunt		vamp/taunt
+$playeralias	Alucard     male	*death		vamp/death
+$playersound	Alucard		male	*pain100	dsalupa1
+$playersound	Alucard		male	*pain75		dsalupa2
+$playersound	Alucard		male	*pain50		dsalupa3
+$playersound	Alucard		male	*pain25		dsalupa3
+$playersound	Alucard		male	*land		dsaluoof
+$playersound	Alucard		male	*grunt		dsaluoof
+$playersound	Alucard		male	*usefail	dsanoway
+$playersound    Alucard     male    *xdeath     DSALUDHI
+$playersound	Alucard		male	*gibbed		DSALUDTH
+
+DukePain100-1 	DSDUKP01
+DukePain100-2 	DSDUKP02
+DukePain100-3 	DSDUKP03
+$random DukePain100 { DukePain100-1 DukePain100-2 DukePain100-3 }
+
+DukePain75-1	DSDUKP04
+DukePain75-2	DSDUKP05
+DukePain75-3	DSDUKP06
+DukePain75-4	DSDUKP07
+$random DukePain75 { DukePain75-1 DukePain75-2 DukePain75-3 DukePain75-4 }
+
+DukePain50-1	DSDUKP08
+DukePain50-2	DSDUKP09
+$random DukePain50 { DukePain50-1 DukePain50-2 }
+
+DukePain25-1	DSDUKP10
+DukePain25-2	DSDUKP11
+$random DukePain25 { DukePain25-1 DukePain25-2 }
+
+DukeUseFail-1 	DSDUKNW1
+DukeUseFail-2	DSDUKNW1
+DukeUseFail-3	DSDUKNW2
+$random DukeUseFail { DukeUseFail-1 DukeUseFail-2 DukeUseFail-3 }
+
+DukeDeath-1 	DSDUKDT1
+DukeDeath-2 	DSDUKDT2
+$random DukeDeath { DukeDeath-1 DukeDeath-2 }
+
+DukeTaunt-1		DSDUKTN1
+DukeTaunt-2		DSDUKTN2
+DukeTaunt-3		DSDUKTN3
+DukeTaunt-4		DSDUKTN4
+DukeTaunt-5		DSDUKTN5
+DukeTaunt-6		DSDUKTN6
+DukeTaunt-7		DSDUKTN7
+$random DukeTaunts { DukeTaunt-1 DukeTaunt-2 DukeTaunt-3 DukeTaunt-4 DukeTaunt-5 DukeTaunt-6 DukeTaunt-7 }
+
+DukeOneLiner-1	DSDNOL01
+DukeOneLiner-2	DSDNOL02
+DukeOneLiner-3	DSDNOL03
+DukeOneLiner-4	DSDNOL04
+DukeOneLiner-5	DSDNOL05
+DukeOneLiner-6	DSDNOL06
+DukeOneLiner-7	DSDNOL07
+DukeOneLiner-8	DSDNOL08
+DukeOneLiner-9	DSDNOL09
+DukeOneLiner-10	DSDNOL10
+DukeOneLiner-11	DSDNOL11
+DukeOneLiner-12	DSDNOL12
+DukeOneLiner-13	DSDNOL13
+DukeOneLiner-14	DSDNOL14
+DukeOneLiner-15	DSDNOL15
+DukeOneLiner-16	DSDNOL16
+DukeOneLiner-17	DSDNOL17
+DukeOneLiner-18	DSDNOL18
+DukeOneLiner-19	DSDNOL19
+DukeOneLiner-20	DSDNOL20
+DukeOneLiner-21	DSDNOL21
+DukeOneLiner-22	DSDNOL22
+DukeOneLiner-23	DSDNOL23
+DukeOneLiner-24	DSDNOL24
+DukeOneLiner-25	DSDNOL25
+DukeOneLiner-26	DSDNOL26
+DukeOneLiner-27	DSDNOL27
+DukeOneLiner-28	DSDNOL28
+DukeOneLiner-29	DSDNOL29
+DukeOneLiner-30	DSDNOL30
+DukeOneLiner-31	DSDNOL31
+DukeOneLiner-32	DSDNOL32
+DukeOneLiner-33	DSDNOL33
+DukeOneLiner-34	DSDNOL34
+DukeOneLiner-35	DSDNOL35
+DukeOneLiner-36	DSDNOL36
+DukeOneLiner-37	DSDNOL37
+DukeOneLiner-38	DSDNOL38
+DukeOneLiner-39	DSDNOL39
+DukeOneLiner-40	DSDNOL40
+DukeOneLiner-41	DSDNOL41
+DukeOneLiner-42	DSDNOL42
+DukeOneLiner-43	DSDNOL43
+DukeOneLiner-44	DSDNOL44
+DukeOneLiner-45	DSDNOL45
+DukeOneLiner-46	DSDNOL46
+DukeOneLiner-47	DSDNOL47
+DukeOneLiner-48	DSDNOL48
+DukeOneLiner-49	DSDNOL49
+DukeOneLiner-50	DSDNOL50
+DukeOneLiner-51	DSDNOL51
+DukeOneLiner-52	DSDNOL52
+DukeOneLiner-53	DSDNOL53
+DukeOneLiner-54	DSDNOL54
+DukeOneLiner-55	DSDNOL55
+DukeOneLiner-56	DSDNOL56
+
+$random DukeOneLiner {
+DukeOneLiner-1 DukeOneLiner-2 DukeOneLiner-3 DukeOneLiner-4
+DukeOneLiner-5 DukeOneLiner-6 DukeOneLiner-7 DukeOneLiner-8 DukeOneLiner-9
+DukeOneLiner-10 DukeOneLiner-11 DukeOneLiner-12 DukeOneLiner-13
+DukeOneLiner-14 DukeOneLiner-15 DukeOneLiner-16 DukeOneLiner-17
+DukeOneLiner-18 DukeOneLiner-19 DukeOneLiner-20 DukeOneLiner-21
+DukeOneLiner-22 DukeOneLiner-23 DukeOneLiner-24 DukeOneLiner-25
+DukeOneLiner-26 DukeOneLiner-27 DukeOneLiner-28 DukeOneLiner-29
+DukeOneLiner-30 DukeOneLiner-31 DukeOneLiner-32 DukeOneLiner-33
+DukeOneLiner-34 DukeOneLiner-35 DukeOneLiner-36 DukeOneLiner-37
+DukeOneLiner-38 DukeOneLiner-39 DukeOneLiner-40 DukeOneLiner-41
+DukeOneLiner-42 DukeOneLiner-43 DukeOneLiner-44 DukeOneLiner-45
+DukeOneLiner-46 DukeOneLiner-47 DukeOneLiner-48 DukeOneLiner-49
+DukeOneLiner-50 DukeOneLiner-51 DukeOneLiner-52 DukeOneLiner-53
+DukeOneLiner-54 DukeOneLiner-55 DukeOneLiner-56 }
+
+DukeRespawn-1	DSDNRS01
+DukeRespawn-2	DSDNRS02
+DukeRespawn-3	DSDNRS03
+DukeRespawn-4	DSDNRS04
+DukeRespawn-5	DSDNRS05
+DukeRespawn-6	DSDNRS06
+DukeRespawn-7	DSDNRS07
+DukeRespawn-8	DSDNRS08
+DukeRespawn-9	DSDNRS09
+DukeRespawn-10	DSDNRS10
+DukeRespawn-11	DSDNRS11
+DukeRespawn-12	DSDNRS12
+DukeRespawn-13	DSDNRS13
+DukeRespawn-14	DSDNRS14
+DukeRespawn-15	DSDNRS15
+DukeRespawn-16	DSDNRS16
+DukeRespawn-17	DSDNRS17
+DukeRespawn-18	DSDNRS18
+DukeRespawn-19	DSDNRS19
+DukeRespawn-20	DSDNRS20
+DukeRespawn-21	DSDNRS21
+DukeRespawn-22	DSDNRS22
+
+$random DukeRespawn {
+DukeRespawn-1 DukeRespawn-2 DukeRespawn-3 DukeRespawn-4
+DukeRespawn-5 DukeRespawn-6 DukeRespawn-7 DukeRespawn-8
+DukeRespawn-9 DukeRespawn-10 DukeRespawn-11 DukeRespawn-12
+DukeRespawn-13 DukeRespawn-14 DukeRespawn-15 DukeRespawn-16
+DukeRespawn-17 DukeRespawn-18 DukeRespawn-19 DukeRespawn-20
+DukeRespawn-21 DukeRespawn-22 }
+
+DukeEntry-1		DSDNEN01
+DukeEntry-2		DSDNEN02
+DukeEntry-3		DSDNEN03
+DukeEntry-4		DSDNEN04
+DukeEntry-5		DSDNEN05
+DukeEntry-6		DSDNEN06
+DukeEntry-7		DSDNEN07
+DukeEntry-8		DSDNEN08
+DukeEntry-9		DSDNEN09
+DukeEntry-10	DSDNEN10
+DukeEntry-11	DSDNEN11
+DukeEntry-12	DSDNEN12
+DukeEntry-13	DSDNEN13
+DukeEntry-14	DSDNEN14
+DukeEntry-15	DSDNEN15
+DukeEntry-16	DSDNEN16
+
+$random DukeEntry { DukeEntry-1 DukeEntry-2 DukeEntry-3 DukeEntry-4
+					DukeEntry-5 DukeEntry-6 DukeEntry-7 DukeEntry-8
+					DukeEntry-9 DukeEntry-10 DukeEntry-11 DukeEntry-12
+					DukeEntry-13 DukeEntry-14 DukeEntry-15 DukeEntry-16 }
+
+$playeralias	DukeNukem	male	*death		DukeDeath
+$playersound	DukeNukem	male	*xdeath		dsdukdt2
+$playersound	DukeNukem	male	*gibbed		dsdukgib
+$playeralias	DukeNukem	male	*pain100	DukePain100
+$playeralias	DukeNukem	male	*pain75		DukePain75
+$playeralias	DukeNukem	male	*pain50		DukePain50
+$playeralias	DukeNukem	male	*pain25		DukePain25
+$playersound	DukeNukem	male	*grunt		dsduklnd
+$playersound	DukeNukem	male	*land		dsduklnd
+$playersound	DukeNukem	male	*jump		dsdukjmp
+$playersound	DukeNukem	male	*fist		dsdukkik
+$playersound	DukeNukem	male	*falling	dsdukfal
+$playeralias	DukeNukem	male	*usefail	DukeUseFail
+$playersound	DukeNukem	male	*gasp	    dsdukgsp
+$playeralias 	DukeNukem	male	*taunt		DukeTaunts
+DukeKick	dsdukkik
+
+// ************************ MENU SOUNDS ************
+menu/activate		dsmnuok 	// Activate a new menu
+menu/backup			dsmnubak	// Backup to previous menu
+menu/prompt			dsmnuok 	// Activate a prompt "menu"
+menu/cursor			dsmnumov	// Move cursor up/down
+menu/change			dsmnusld	// Select new value for option
+menu/invalid		dsmnuno		// Menu not available
+menu/dismiss		dsmnudis	// Dismiss a prompt message
+menu/choose			dsmnuok 	// Choose a menu item
+menu/clear			dsmnudis	// Close top menu
+
+// ****** MONSTER SOUNDS *******
+$random monster/vulsit 		{ monster/vulsi1  monster/vulsi2 monster/vulsi3 }
+$random monster/vuldth 		{ monster/vuldt1  monster/vuldt2 }
+monster/vulsi1                  dsvulsi1
+monster/vulsi2                  dsvulsi2
+monster/vulsi3                  dsvulsi3
+monster/vulsi4                  dsvulsi4
+monster/vulact                  dsvulact
+monster/vulpai                  dsvulpai
+monster/vuldt1                  dsvuldt1
+monster/vuldt2                  dsvuldt2
+monster/vulswg                  dsvulswg
+monster/vulhit                  dsvulhit
+
+//NailBorg Sounds
+$random Monsters/NBSight { Monsters/NBSit1 Monsters/NBSit2 Monsters/NBSit3 }
+Monsters/NBSit1		DSNBSIT1
+Monsters/NBSit2		DSNBSIT2
+Monsters/NBSit3		DSNBSIT3
+
+$random Monsters/NBDeath { Monsters/NBDth1 Monsters/NBDth2 Monsters/NBDth3 }
+Monsters/NBDth1		DSNBDTH1
+Monsters/NBDth1		DSNBDTH2
+Monsters/NBDth1		DSNBDTH3
+
+Monsters/NBPain		DSNBPAIN
+Monsters/NBAct		DSNBSACT
+Monsters/NBWalk		DSNBWALK
+
+HeavyAct1	DSHVACT1
+HeavyAct2	DSHVACT2
+HeavyAct3	DSHVACT3
+HeavyAct4	DSHVACT4
+HeavyAct5	DSHVACT5
+HeavyAct6	DSHVACT6
+HeavyAct7	DSHVACT7
+HeavyAct8	DSHVACT8
+HeavyAct9	DSHVACT9
+HeavyAct10	DSHVAC10
+HeavyAct11	DSHVAC11
+HeavyAct12	DSHVAC12
+HeavyAct13	DSHVAC13
+HeavyAct14	DSHVAC14
+HeavyAct15	DSHVAC15
+HeavyAct16	DSHVAC16
+HeavyAct17	DSHVAC17
+$random HeavyAct { HeavyAct1 HeavyAct2 HeavyAct3 HeavyAct4 HeavyAct5 HeavyAct6 HeavyAct7 HeavyAct8 HeavyAct9 HeavyAct10 HeavyAct11 HeavyAct12 HeavyAct13 HeavyAct14 HeavyAct15 HeavyAct16 HeavyAct17 }
+
+HeavyDeath1	DSHVDT01
+HeavyDeath2	DSHVDT02
+HeavyDeath3	DSHVDT03
+HeavyDeath4	DSHVDT04
+HeavyDeath5	DSHVDT05
+HeavyDeath6	DSHVDT06
+HeavyDeath7	DSHVDT07
+HeavyDeath8	DSHVDT08
+$random HeavyDeath { HeavyDeath1 HeavyDeath2 HeavyDeath3 HeavyDeath4 HeavyDeath5 HeavyDeath6 HeavyDeath7 HeavyDeath8 }
+
+HeavyPain1	DSHVPAI1
+HeavyPain2	DSHVPAI2
+HeavyPain3	DSHVPAI3
+HeavyPain4	DSHVPAI4
+HeavyPain5	DSHVPAI5
+HeavyPain6	DSHVPAI6
+$random HeavyPain { HeavyPain1 HeavyPain2 HeavyPain3 HeavyPain4 HeavyPain5 HeavyPain6 }
+
+HeavySee1	DSHVSEE1
+HeavySee2	DSHVSEE2
+HeavySee3	DSHVSEE3
+HeavySee4	DSHVSEE4
+HeavySee5	DSHVSEE5
+HeavySee6	DSHVSEE6
+HeavySee7	DSHVSEE7
+HeavySee8	DSHVSEE8
+HeavySee9	DSHVSEE9
+HeavySee10	DSHVSE10
+HeavySee11	DSHVSE11
+HeavySee12	DSHVSE12
+HeavySee13	DSHVSE13
+$random HeavySee { HeavySee1 HeavySee2 HeavySee3 HeavySee4 HeavySee5 HeavySee6 HeavySee7 HeavySee8 HeavySee9 HeavySee10 HeavySee11 HeavySee12 HeavySee13 }

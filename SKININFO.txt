@@ -1,0 +1,129 @@
+{
+name = "Mario"
+sprite = maro
+dstaunt = mariorif
+dspldeth = death
+}
+
+{
+name = "Bowser"
+sprite = bows
+dstaunt = mariorif
+dspldeth = death
+hidden = true
+}
+
+{
+name = "Chuck Norris"
+sprite = chuk
+Scale = 0.72
+hidden = true
+}
+
+{
+name = "Luigi"
+sprite = MWLU
+dstaunt = nabtsot
+dspldeth = nabtsot
+}
+
+{
+name = "Pacman"
+sprite = pacm
+dstaunt = pmtant
+}
+
+// Sonic Sprite Credit goes to SSNTails and the SRB2 Team.
+{
+name = "Sonic"
+sprite = SONI
+crouchsprite = SNCC
+color = "00 3F FF"
+gender = male
+scale = 0.82
+}
+
+// Tails Sprite Credit goes to SSNTails and the SRB2 Team.
+//{
+//name = "Tails"
+//sprite = TAIL
+//color = "FF 50 00"
+//gender = male
+//scale = 0.82
+//dsplpain = DSTLSPAI
+//dspdiehi = DSTLSDHI
+//dsjump = DSTLSJMP
+//dsoof = DSTLSOOF
+//dspldeth = DSTLSDTH
+//}
+
+{
+name = "Shadow"
+sprite = SHDW
+color = "50 50 50"
+dspldeth = dsshddth
+dspdiehi = dsshddhi
+dsplpain = dsshdpai
+dsjump = dssonjmp
+dstaunt = dsshdtnt
+gender = male
+scale = 0.84
+}
+
+//{
+//name = "Link"
+//sprite = NWPS
+//dsplpain = dslinkp1
+//dsoof = dslinkoo
+//dsnoway = dslinkju
+//dspldeth = dslinkdi
+//dspdiehi = dslinkdi
+//dsouch = dslinkgs
+//dstaunt = dslinkb1
+//dsjump = dslinkju
+//dspunch = dssword
+//gender = male
+//scale = 1.24
+//}
+
+{
+name = "Quake Guy"
+sprite = qguy
+dsplpain = dsqpain
+dsoof = dsqoof
+dsnoway = dsqnoway
+dspldeth = dsqdeth
+dspdiehi = dsqdiehi
+dsouch = dsqouch
+dsjump = dsqjump
+dsslop = dsqslop
+gender = male
+}
+
+{
+name = "Quake 2 Male"
+sprite = q2mm
+dsplpain = dsqmpain
+dsoof = dsqmoof
+dsnoway = dsqmnowa
+dspldeth = dsqmdeth
+dspdiehi = dsqmdieh
+dsouch = dsqmouch
+dsjump = dsqmjump
+dsslop = dsqslop
+gender = male
+}
+
+{
+name = "Sgt.Tourette(SMMP)"
+gender = male
+sprite = TGUY
+}
+
+{
+name = "Alucard"
+Sprite = aluc
+gender = male
+scale = 0.88
+}
+

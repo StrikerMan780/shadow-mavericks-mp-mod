@@ -1,0 +1,263 @@
+sprite "DUKGA0", 45, 84
+{
+	offset 22, 82
+	XScale 0.95
+	YScale 0.95
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGB0", 45, 84
+{
+	offset 22, 82
+	XScale 0.9
+	YScale 0.9
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGC0", 45, 84
+{
+	offset 22, 82
+	XScale 0.85
+	YScale 0.85
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGD0", 45, 84
+{
+	offset 22, 82
+	XScale 0.8
+	YScale 0.8
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGE0", 45, 84
+{
+	offset 22, 82
+	XScale 0.75
+	YScale 0.75
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGF0", 45, 84
+{
+	offset 22, 82
+	XScale 0.7
+	YScale 0.7
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGG0", 45, 84
+{
+	offset 22, 82
+	XScale 0.65
+	YScale 0.65
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGH0", 45, 84
+{
+	offset 22, 82
+	XScale 0.6
+	YScale 0.6
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGI0", 45, 84
+{
+	offset 22, 82
+	XScale 0.55
+	YScale 0.55
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "DUKGJ0", 45, 84
+{
+	offset 22, 82
+	XScale 0.5
+	YScale 0.5
+	Patch "DUKEH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGA0", 20, 46
+{
+	offset 10, 44
+	XScale 0.95
+	YScale 0.95
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGB0", 20, 46
+{
+	offset 10, 44
+	XScale 0.9
+	YScale 0.9
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGC0", 20, 46
+{
+	offset 10, 44
+	XScale 0.85
+	YScale 0.85
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGD0", 20, 46
+{
+	offset 10, 44
+	XScale 0.8
+	YScale 0.8
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGE0", 20, 46
+{
+	offset 10, 44
+	XScale 0.75
+	YScale 0.75
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGF0", 20, 46
+{
+	offset 10, 44
+	XScale 0.7
+	YScale 0.7
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGG0", 20, 46
+{
+	offset 10, 44
+	XScale 0.65
+	YScale 0.65
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGH0", 20, 46
+{
+	offset 10, 44
+	XScale 0.60
+	YScale 0.60
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGI0", 20, 46
+{
+	offset 10, 44
+	XScale 0.55
+	YScale 0.55
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+sprite "LINGJ0", 20, 46
+{
+	offset 10, 44
+	XScale 0.50
+	YScale 0.50
+	Patch "NWPSH0", 0, 0
+	{
+	}
+}
+
+texture AFLAGF01, 132, 95
+{
+   Patch AFLAG01, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF02, 132, 95
+{
+   Patch AFLAG02, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF03, 132, 95
+{
+   Patch AFLAG03, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF04, 132, 95
+{
+   Patch AFLAG04, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF05, 132, 95
+{
+   Patch AFLAG05, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF06, 132, 95
+{
+   Patch AFLAG06, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF07, 132, 95
+{
+   Patch AFLAG07, 0, 0
+   {
+      FlipX
+   }
+}
+
+texture AFLAGF08, 132, 95
+{
+   Patch AFLAG08, 0, 0
+   {
+      FlipX
+   }
+}

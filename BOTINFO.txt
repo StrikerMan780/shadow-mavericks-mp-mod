@@ -1,0 +1,117 @@
+{
+name = "\cqGrunt"
+script = DFULTBOT
+gender = male
+color = "30 ef 80"
+railcolor = "blue"
+skin = "Quake 2 Male"
+class = "Marine"
+revealed = true
+favoriteweapon = "railgun"
+accuracy = 2
+intelect = 3
+evade = 2
+anticipation = 1
+reactiontime = 2
+perception = 3
+}
+
+{
+name = "\chSonic"
+script = HUMANBOT
+Chatlump = SNICCHAT
+gender = male
+color = "00 3F FF"
+railcolor = "blue"
+skin = "Sonic"
+class = "Marine"
+revealed = true
+accuracy = 4
+intelect = 4
+evade = 4
+anticipation = 4
+reactiontime = 4
+perception = 4
+chatfrequency = 50
+favoriteweapon = "supershotgun"
+}
+
+{
+name = "\cfT\ciails"
+script = HUMANBOT
+Chatlump = MILESCHT
+gender = male
+color = "FF 6F 00"
+railcolor = "orange"
+skin = "Base"
+class = "Tails"
+revealed = true
+accuracy = 4
+intelect = 4
+evade = 4
+anticipation = 4
+reactiontime = 4
+perception = 4
+chatfrequency = 42
+favoriteweapon = "Noisy_Cricket"
+}
+
+{
+name = "\cgAl\cruc\cmard"
+script = HUMANBOT
+Chatlump = ALCRDCHT
+gender = male
+color = "AA AA 00"
+railcolor = "red"
+skin = "Alucard"
+class = "Marine"
+revealed = true
+accuracy = 4
+intelect = 4
+evade = 4
+anticipation = 4
+reactiontime = 4
+perception = 4
+chatfrequency = 42
+favoriteweapon = "454Casull"
+}
+
+{
+Name           = "\cdSgt\cc. \chTourette"
+Script         = SAUSGBOT
+Chatlump       = "Tourette"
+Gender         = Male
+Color          = "00 00 00"
+Railcolor      = "Blue"
+Skin           = "Sgt.Tourette(SMMP)"
+Class          = "Marine"
+Revealed       = True
+Accuracy       = 4
+Intelect       = 4
+Evade          = 3
+Anticipation   = 3
+Reactiontime   = 3
+Perception     = 3
+Chatfrequency  = 25
+Favoriteweapon = "supershotgun"
+}
+
+{
+name = "\cfD\cku\cike \cfNu\ckk\ciem"
+script = HUMANBOT
+Chatlump = DUKECHAT
+gender = male
+color = "20 50 BF"
+railcolor = "green"
+skin = "Base"
+class = "Duke"
+revealed = true
+accuracy = 4
+intelect = 4
+evade = 4
+anticipation = 4
+reactiontime = 4
+perception = 4
+chatfrequency = 42
+favoriteweapon = "Stinger"
+}

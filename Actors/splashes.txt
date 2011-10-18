@@ -1,0 +1,326 @@
+actor GreyWaterSplash : WaterSplash
+{
+  alpha .4
+  States
+  {
+  Spawn:
+    GSPH A 8
+    GSPH B 8
+    GSPH C 8
+    GSPH D 8
+    Stop
+  Death:
+    GSPH D 1
+    Stop
+  }
+}
+
+actor GreyWaterSplashBase
+{
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .6
+  +NOCLIP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    GSPH E 3
+    GSPH F 3
+    GSPH G 3
+    GSPH H 3
+    GSPH I 3
+    GSPH J 3
+    GSPH K 3
+    Stop
+  }
+}
+
+actor GreyWaterSplashBaseSmall
+{
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .6
+  Scale 0.5
+  +NOCLIP
+  +DONTSPLASH
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    GSPH E 3
+    GSPH F 3 A_SpawnDebris("GreyWaterSplashDrop")
+    GSPH G 3
+    GSPH H 3
+    GSPH I 3
+    GSPH J 3
+    GSPH K 3
+    Stop
+  }
+}
+
+ACTOR GreyWaterSplashDrop
+{
+	renderstyle add
+	Radius 1
+    Height 1
+	alpha .5
+	Health 5
+	Mass 9
+	Scale	.4
+	projectile
+	- nogravity
+	+DONTSPLASH
+	+CORPSE
+        +EXPLODEONWATER
+	States
+	{
+		GSPH A 7
+		GSPH B 7
+		GSPH C 7
+		GSPH D 7
+		GSPH A 7
+		Stop
+	}
+}
+
+actor WaterSplashBaseSmall
+{
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .6
+  Scale 0.5
+  +DONTSPLASH
+  +NOGRAVITY
+  +NOCLIP
+  States
+  {
+  Spawn:
+    SPSH E 3
+    SPSH F 3 A_SpawnDebris("WaterSplashDrop")
+    SPSH G 3
+    SPSH H 3
+    SPSH I 3
+    SPSH J 3
+    SPSH K 3
+    Stop
+  }
+}
+
+ACTOR WaterSplashDrop
+{
+	renderstyle add
+	Radius 1
+    Height 1
+	alpha .5
+	Health 5
+	Mass 9
+	Scale	.4
+	projectile
+	- nogravity
+	+DONTSPLASH
+	+CORPSE
+        +EXPLODEONWATER
+	States
+	{
+		SPSH A 6
+		SPSH B 7
+		SPSH C 7
+		SPSH D 6
+		SPSH A 7
+		Stop
+	}
+}
+
+actor BloodSplashBaseSmall
+{
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .6
+  Scale 0.5
+  +NOCLIP
+  +DONTSPLASH
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    BSPH E 3
+    BSPH F 3 A_SpawnDebris("BloodSplashDrop")
+    BSPH G 3
+    BSPH H 3
+    BSPH I 3
+    BSPH J 3
+    BSPH K 3
+    Stop
+  }
+}
+
+ACTOR BloodSplashDrop
+{
+	renderstyle add
+	Radius 1
+	Height 1
+	alpha .5
+	Health 5
+	Mass 9
+	Scale	.4
+	projectile
+	- nogravity
+	+DONTSPLASH
+	+CORPSE
+        +EXPLODEONWATER
+	States
+	{
+		BSPH A 7
+		BSPH B 7
+		BSPH C 7
+		BSPH D 7
+		BSPH A 7
+		Stop
+	}
+}
+
+actor RainWaterSplash
+{
+  Radius 1
+  Height 1
+  renderstyle TRANSLUCENT
+  alpha .3
+  +DONTSPLASH
+  States
+  {
+  Spawn:
+    GSPH A 4
+    GSPH B 4
+    GSPH C 4
+    GSPH D 4
+    Stop
+  Death:
+    GSPH D 1
+    Stop
+  }
+}
+
+actor RainWaterSplashBase
+{
+  renderstyle TRANSLUCENT
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .3
+  +NOCLIP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    GSPH E 2
+    GSPH F 2
+    GSPH G 2
+    GSPH H 2
+    GSPH I 2
+    GSPH J 2
+    GSPH K 2
+    Stop
+  }
+}
+
+actor RainWaterSplashBaseSmall
+{
+  renderstyle TRANSLUCENT
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .3
+  +NOCLIP
+  +DONTSPLASH
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    GSPH E 2
+    GSPH F 2 A_SpawnDebris("RainWaterSplashDrop")
+    GSPH G 2
+    GSPH H 2
+    GSPH I 2
+    GSPH J 2
+    GSPH K 2
+    Stop
+  }
+}
+
+ACTOR RainWaterSplashDrop
+{
+	renderstyle TRANSLUCENT
+	alpha .3
+	Radius 1
+    Height 1
+	Health 5
+	Mass 9
+	Scale	.4
+	projectile
+	- nogravity
+	+DONTSPLASH
+	+CORPSE
+        +EXPLODEONWATER
+	States
+	{
+		GSPH A 7
+		GSPH B 7
+		GSPH C 7
+		GSPH D 7
+		GSPH A 7
+		Stop
+	}
+}
+
+actor NukageSplashBaseSmall
+{
+  Radius 1
+  Height 1
+  Mass 1
+  alpha .6
+  Scale 0.5
+  +NOCLIP
+  +DONTSPLASH
+  +NOGRAVITY
+  Renderstyle Add
+  States
+  {
+  Spawn:
+    SLDG E 3
+    SLDG F 3
+    SLDG G 3
+    SLDG H 3
+    Stop
+  }
+}
+
+ACTOR SandCloud
+{
+	renderstyle TRANSLUCENT
+	alpha .5
+    Scale 0.40
+    +DONTSPLASH
+	States
+	{
+	Spawn:
+		SAN2 ABCDEFGHIJ 3
+		Stop
+	}
+}
+
+ACTOR SandPuff
+{
+	renderstyle TRANSLUCENT
+	alpha .8
+	States
+	{
+	Spawn:
+		SAND ABCDE 4
+		Stop
+	}
+}
