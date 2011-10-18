@@ -1,0 +1,203 @@
+actor MechAmmo : Ammo Replaces Clip
+{
+	Inventory.PickupMessage "Mech Ammo (Small)"
+	Inventory.Amount 10
+	Inventory.MaxAmount 200
+	Ammo.BackpackAmount 10
+	Ammo.BackpackMaxAmount 400
+	inventory.icon "MEKAICON"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		CLIP A -1
+		Stop
+	}
+}
+
+actor LargeMechAmmo : MechAmmo Replaces ClipBox
+{
+	Inventory.PickupMessage "Mech Ammo (Large)"
+	Inventory.Amount 50
+	Inventory.PickupSound "LargeAmmo"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		AMMO A -1
+		Stop
+	}
+}
+
+ACTOR SpreadAmmo : Ammo Replaces Shell
+{
+	Inventory.PickupMessage "Spread Ammo (Small)"
+	Inventory.Amount 4
+	Inventory.MaxAmount 50
+	Ammo.BackpackAmount 4
+	Ammo.BackpackMaxAmount 100
+	Inventory.Icon "SPRAICON"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		SHEL A -1
+		Stop
+	}
+}
+
+ACTOR LargeSpreadAmmo : SpreadAmmo Replaces ShellBox
+{
+	Inventory.PickupMessage "Spread Ammo (Large)"
+	Inventory.Amount 20
+	Inventory.PickupSound "LargeAmmo"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		SBOX A -1
+		Stop
+	}
+}
+
+ACTOR ProtonAmmo : Ammo Replaces RocketAmmo
+{
+	Game Doom
+	SpawnID 140
+	Inventory.PickupMessage "Proton Ammo (Small)"
+	Inventory.Amount 1
+	Inventory.MaxAmount 50
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 100
+	Inventory.Icon "PRTNICON"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		ROCK A -1
+		Stop
+	}
+}
+
+ACTOR ProtonCharge : ProtonAmmo Replaces RocketBox
+{
+	Game Doom
+	SpawnID 141
+	Inventory.PickupMessage "Proton Ammo (Large)"
+	Inventory.Amount 5
+	Inventory.PickupSound "LargeAmmo"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		BROK A -1
+		Stop
+	}
+}
+
+ACTOR CellAmmo : Ammo Replaces Cell
+{
+	Inventory.PickupMessage "Cell Ammo (Small)"
+	Inventory.Amount 20
+	Inventory.MaxAmount 300
+	Ammo.BackpackAmount 20
+	Ammo.BackpackMaxAmount 600
+	Inventory.Icon "CELAICON"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		CELL A -1
+		Stop
+	}
+}
+
+ACTOR LargeCellAmmo : CellAmmo Replaces CellPack
+{
+	Inventory.PickupMessage "Cell Ammo (Large)"
+	Inventory.Amount 100
+	Inventory.PickupSound "LargeAmmo"
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		CELP A -1
+		Stop
+	}
+}
+
+Actor HellFireAmmo : Ammo 21003
+{
+   Scale 0.7
+   Radius 16
+   Height 8
+   inventory.pickupmessage "Picked up a box of HellFire Mini-Rockets"
+   inventory.icon "DEVAA0"
+   inventory.amount 16
+   inventory.maxamount 99
+   ammo.backpackamount 16
+   ammo.backpackmaxamount 198
+   States
+   {
+   Spawn:
+	  MMIS A -1
+	  Stop
+   }
+}
+
+Actor GasolineAmmo : Ammo
+{
+   Radius 16
+   Height 8
+   inventory.pickupmessage "Gasoline"
+   inventory.icon "ICONGAS"
+   inventory.amount 100
+   inventory.maxamount 300
+   ammo.backpackamount 150
+   ammo.backpackmaxamount 600
+   States
+   {
+   Spawn:
+	  GCAN A -1
+	  Stop
+   }
+}
+
+Actor CricketAmmo : Ammo 12311
+{
+   Radius 16
+   Height 8
+   inventory.pickupmessage "Picked up a Noisy Cricket Battery"
+   inventory.icon "BATTA0"
+   inventory.amount 1
+   inventory.maxamount 4
+   ammo.backpackamount 1
+   ammo.backpackmaxamount 8
+   States
+   {
+   Spawn:
+	  BATT A -1
+	  Stop
+   }
+}
+
+actor DemonicPower : Ammo 19652
+{
+ Radius 16
+ Height 8
+ Inventory.Icon "DEMPICON"
+ inventory.pickupmessage "Heart (Source of Demonic Power)"
+ inventory.pickupsound "demonpowerpickup"
+ inventory.amount 12
+ Inventory.maxamount 999
+ ammo.backpackamount 0
+ ammo.backpackmaxamount 999
+ +IGNORESKILL
+ States
+ {
+ Spawn:
+   DEMB A 16
+   DEMB B 10
+   loop
+ }
+}

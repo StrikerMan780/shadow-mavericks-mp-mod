@@ -1,0 +1,90 @@
+[IntroStrings]
+"FAGGOT"
+"Who the fuck are you?!"
+
+[IntermissionStrings]
+"Holy Shit!"
+"Good Fuckin' Game"
+
+[RoamingStrings]
+"Try to walk a mile in my shit!"
+"fuck you $player_random_notself"
+"Shut up $player_random_notself you're a faggot"
+"Let me tell you something about a porcipines balls! they're small, and they don't give a shit!"
+"Fuck salt!"
+"Fashion Bug"
+"Holy Shit!"
+"You can't do shit, without our balls!"
+"My grandpa died 15 years ago, and no one gave a shit"
+"Last time I gave a shit, I got fucked!"
+"That was a good shit..."
+"Holy Dumb Fuck"
+"THATS MY ASS!"
+"Where's my fuckin glasses!?"
+"Who wrinkled my randy travis poster? pissed on the seat and hid my keys?!"
+"Shut up kid you're a faggot"
+"Fat Ass!"
+"Dickhead!"
+"ASSHOLE!"
+"IMA SHOOT YOUR FAGGOT ASS"
+"Why don't you make like a banana, and SHIT!"
+"I'll throw a shoe at your Faggot ass!"
+"I'm gonna find $player_random_notself, and stick a broom up his ass!"
+"What do you mean a bird?!"
+
+[WinningRoamingStrings]
+"I'm kicking your faggot ass!"
+
+[LosingRoamingStrings]
+"Bullshit!"
+"BALLS!"
+"Don't get a big DICK!"
+"Calm Down, Don't Get a Big DICK!"
+
+[RareRoamingStrings]
+"DUMBASS"
+"Where's the Paper Towl?"
+
+[FragStrings]
+"hahahaha, holy shit!"
+
+[KilledStrings]
+"DAMMIT!"
+"Motherfucker hit me in the dick!"
+"WAIT A MINUTE YOU DICK"
+"ASSHOLE!"
+"You're lucky it wasn't hard! ... I mean this thing, not my Dick!"
+"BUTT FUCK!"
+"That's what happens when Alex Trebec has a picture of a giraffe in his ass during an earthquake."
+"Aw, FUCK! ... Damnit! Holy Shit."
+"Damnit! Suck my Dick! \cgOR COCK!"
+"I'm too pissed to give a shit!"
+"\cgASS\cc!"
+"Are you shitting me?!"
+
+[EnviroDeathStrings]
+"DAMN IT"
+"THIS IS BULLSHIT!"
+"Piece of Crap."
+"Fucking Enviro Traps! They Can't Do Shit, Without their Balls!"
+
+[SuicideStrings]
+"DAMN IT"
+"FUCK!"
+
+[FrustratedStrings]
+"this is bullshit!"
+"i ain't got time for this chicken shit bullshit!"
+
+[EnragedStrings]
+"fuck you, fuck you in the ass $player_random_notself!"
+
+[DemoralizedStrings]
+"Grrr"
+"Go Count your Dick!"
+
+[WinStrings]
+"You can suck my dick, or cock!"
+
+[LoseStrings]
+"BullShit!"

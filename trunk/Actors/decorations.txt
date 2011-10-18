@@ -1,0 +1,467 @@
+// ********** START OF PROPS **********
+
+actor 64LargeHangingLamp 11875
+{
+  Radius 10
+  Height 54
+  +NOGRAVITY
+  +SOLID
+  +SPAWNCEILING
+  States
+  {
+  Spawn:
+   64LH A -1 BRIGHT
+   stop
+  }
+}
+
+actor Clock 24542
+{
+  Scale 0.60
+  Radius 10
+  Height 16
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  CLOK A -1
+  loop
+  }
+}
+
+actor AmyRose 29000
+{
+ Radius 16
+ Height 56
+ Scale 0.2
+ Mass 9999999
+ +SOLID
+  states
+  {
+  Spawn:
+  AMYR A -1
+  loop
+  }
+}
+
+actor Spanner 8023
+{
+  radius 20
+  height 16
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  GDCR A -1
+  loop
+  }
+}
+
+actor Screwdriver 8024
+{
+  radius 20
+  height 16
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  GDCR B -1
+  loop
+  }
+}
+
+actor Oiler 8025
+{
+  radius 20
+  height 16
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  GDCR C -1
+  loop
+  }
+}
+
+actor Shovel 8026
+{
+  radius 16
+  height 56
+  +SOLID
+  States
+  {
+  Spawn:
+  GDCR D -1
+  loop
+  }
+}
+
+actor OilDrum 8027
+{
+  radius 20
+  height 46
+  Health 9999999999
+  Mass 290
+  +SOLID
+  +SHOOTABLE
+  +PUSHABLE
+  +NOBLOOD
+  +SLIDESONWALLS
+  +DROPOFF
+  +WINDTHRUST
+  +TELESTOMP
+  +NOBLOCKMONST
+  -DONTBLAST
+  +NOTARGET
+  +DONTMORPH
+  +DONTSQUASH
+  +CANPASS
+  +FIXMAPTHINGPOS
+  States
+  {
+  Spawn:
+  GDCR E -1
+  loop
+  }
+}
+
+actor OilDrum2 8028
+{
+  radius 20
+  height 46
+  Health 9999999999
+  Mass 290
+  +SOLID
+  +SHOOTABLE
+  +PUSHABLE
+  +NOBLOOD
+  +SLIDESONWALLS
+  +DROPOFF
+  +WINDTHRUST
+  +TELESTOMP
+  +NOBLOCKMONST
+  -DONTBLAST
+  +NOTARGET
+  +DONTMORPH
+  +DONTSQUASH
+  +CANPASS
+  +FIXMAPTHINGPOS
+  States
+  {
+  Spawn:
+  GDCR F -1
+  loop
+  }
+}
+
+actor ShopAirCompressor 8029
+{
+  radius 20
+  height 56
+  Scale 0.90
+  Mass 290
+  +SOLID
+  States
+  {
+  Spawn:
+  GDCR G -1
+  loop
+  }
+}
+
+actor CardboardBox 8031
+{
+  radius 10
+  height 28
+  Health 9999999999
+  Mass 60
+  +SOLID
+  +SHOOTABLE
+  +PUSHABLE
+  +NOBLOOD
+  +SLIDESONWALLS
+  +DROPOFF
+  +WINDTHRUST
+  +TELESTOMP
+  +NOBLOCKMONST
+  -DONTBLAST
+  +NOTARGET
+  +DONTMORPH
+  +DONTSQUASH
+  +CANPASS
+  +FIXMAPTHINGPOS
+  States
+  {
+  Death:
+  Spawn:
+  GDCR J -1
+  loop
+  }
+}
+
+actor BigCeilingLamp 8032
+{
+  radius 20
+  height 34
+  +SPAWNCEILING
+  +NOGRAVITY
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  GDCR K -1
+  loop
+  }
+}
+
+actor SpareTires 8034
+{
+  radius 20
+  height 16
+  Scale 0.90
+  +SOLID
+  States
+  {
+  Spawn:
+  GDCR M -1
+  loop
+  }
+}
+
+actor TailsSalute 25012
+{
+  radius 20
+  height 46
+  +SOLID
+  +SHOOTABLE
+  +NODAMAGE
+  +NOBLOODDECALS
+  Mass 999999
+  Scale 0.84
+  States
+  {
+  Spawn:
+  TSAL AABCDEDCBAAAA 5
+  loop
+  }
+}
+
+actor ForestTree1 11100
+{
+	height 128
+	radius 16
+	+SOLID
+	+ALLOWCLIENTSPAWN
+	States
+	{
+		Spawn:
+			1TRE A 0
+			1TRE A 0 A_Jump(127, "Spawn2")
+			1TRE A -1
+			loop
+		Spawn2:
+			1TRE B -1
+			loop
+	}
+}
+
+actor ForestTree2 11101
+{
+	height 128
+	radius 16
+	+SOLID
+	+ALLOWCLIENTSPAWN
+	States
+	{
+		Spawn:
+			2TRE A 0
+			2TRE A 0 A_Jump(127, "Spawn2")
+			2TRE A -1
+			loop
+		Spawn2:
+			2TRE B -1
+			loop
+	}
+}
+
+actor ForestTree3 11102
+{
+	height 128
+	radius 16
+	+SOLID
+	+ALLOWCLIENTSPAWN
+	States
+	{
+		Spawn:
+			3TRE A 0
+			3TRE A 0 A_Jump(127, "Spawn2")
+			3TRE A -1
+			loop
+		Spawn2:
+			3TRE B -1
+			loop
+	}
+}
+
+actor Doom64Lamp 18001
+{
+	Radius 6
+	Height 20
+	Speed 0
+	Mass 9999999
+	+SPAWNCEILING
+	+CORPSE
+	+NOGRAVITY
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		D64L A -1 BRIGHT
+		Loop
+	}
+}
+
+actor BlueDoom64Lamp 18002
+{
+	Radius 6
+	Height 20
+	Speed 0
+	Mass 9999999
+	+SPAWNCEILING
+	+CORPSE
+	+NOGRAVITY
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		64LB A -1 BRIGHT
+		Loop
+	}
+}
+
+actor CompanionCube 16521
+{
+  Radius 16
+  Height 32
+  Speed 0
+  Scale 0.2
+  +SOLID
+  +ALLOWCLIENTSPAWN
+  States
+  {
+  Spawn:
+	 COMC A -1
+	 loop
+  }
+}
+
+actor Striker 16522
+{
+  Radius 8
+  Height 56
+  Speed 0
+  XScale 0.26
+  YScale 0.22
+  Mass 99999999
+  +SOLID
+  +SHOOTABLE
+  +NODAMAGE
+  +NOBLOODDECALS
+  States
+  {
+  	Spawn:
+  		STRK A -1
+  		loop
+  }
+}
+
+actor Striker_Persona 16523
+{
+  Radius 8
+  Height 56
+  Speed 0
+  Scale 0.038
+  Mass 99999999
+  +SOLID
+  +SHOOTABLE
+  +NODAMAGE
+  +NOBLOODDECALS
+  States
+  {
+  	Spawn:
+  		SFUR A -1
+  		loop
+  }
+}
+
+actor DrinkingFountain : SwitchableDecoration 16541
+{
+  height 16
+  radius 12
+  XScale 0.70
+  YScale 0.75
+  +SOLID
+  +USESPECIAL
+  states
+  {
+  Spawn:
+  	FOUN A -1
+  	loop
+  Inactive:
+  Active:
+  	FOUN B 0 A_PlaySound("DrinkingFountain")
+    FOUN BCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCD 1
+    goto Spawn
+  }
+}
+
+actor TrollFace 15211
+{
+  Radius 8
+  Height 56
+  Mass 99999999
+  +SOLID
+  +SHOOTABLE
+  +NODAMAGE
+  +NOBLOODDECALS
+  States
+  {
+  	Spawn:
+  		TROL A -1
+  		loop
+  }
+}
+
+actor Camaro 10221
+{
+	Radius 46
+	Height 50
+	Mass 999999
+	Health 9999999
+	Scale 0.66
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	States
+	{
+ 		Spawn:
+			CAMA A -1
+			loop
+		Death:
+			MISL BCD 5 A_Explode(1000, 1000, 0)
+			stop
+	}
+}
+
+// ********** END OF PROPS ************

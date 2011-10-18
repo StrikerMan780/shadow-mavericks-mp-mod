@@ -1,0 +1,428 @@
+// base Doom;
+// Offset for 16:9 = -53
+// Offset for 16:10 = -32
+height 0;
+InterpolateHealth true, 12;
+InterpolateArmor true, 12;
+LowerHealthCap false;
+CreatePopup status, 32, 76, Fade, 1.0, 1.0;
+
+statusbar normal, forcescaled
+{
+}
+
+statusbar PopupStatus, forcescaled
+{
+	AspectRatio "4:3"
+	{
+	// Money
+	drawnumber 4, SMALLFONT, green, GBTWMoney, 43, 115;
+	drawstring SMALLFONT, green, "$", 11, 115;
+
+	// Ammo Indicators
+	drawstring SMALLFONT, gray, "MECH", 33, 57;
+	drawstring SMALLFONT, red, "SPRD", 31, 65;
+	drawstring SMALLFONT, orange, "PROT", 32, 73;
+	drawstring SMALLFONT, lightblue, "CELL", 32, 81;
+	drawstring SMALLFONT, blue, "BATT", 32, 89;
+	drawstring SMALLFONT, darkgreen, "HELL", 32, 97;
+	drawstring SMALLFONT, gold, "GASO", 31, 105;
+
+	drawstring SMALLFONT, darkgray, "/", 68, 57;
+	drawstring SMALLFONT, darkgray, "/", 68, 65;
+	drawstring SMALLFONT, darkgray, "/", 68, 73;
+	drawstring SMALLFONT, darkgray, "/", 68, 81;
+	drawstring SMALLFONT, darkgray, "/", 68, 89;
+	drawstring SMALLFONT, darkgray, "/", 68, 97;
+	drawstring SMALLFONT, darkgray, "/", 68, 105;
+
+	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 60, 57;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 93, 57;
+	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 60, 65;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 93, 65;
+	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 60, 73;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 93, 73;
+	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 60, 81;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 93, 81;
+	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 60, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 93, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 60, 97;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 93, 97;
+	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 60, 105;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 93, 105;
+	}
+
+	AspectRatio "16:9"
+	{
+	// Money
+	drawnumber 4, SMALLFONT, green, GBTWMoney, -10, 115;
+	drawstring SMALLFONT, green, "$", -42, 115;
+
+	// Ammo Indicators
+	drawstring SMALLFONT, gray, "MECH", -20, 57;
+	drawstring SMALLFONT, red, "SPRD", -22, 65;
+	drawstring SMALLFONT, orange, "PROT", -21, 73;
+	drawstring SMALLFONT, lightblue, "CELL", -21, 81;
+	drawstring SMALLFONT, blue, "BATT", -21, 89;
+	drawstring SMALLFONT, darkgreen, "HELL", -21, 97;
+	drawstring SMALLFONT, gold, "GASO", -22, 105;
+
+	drawstring SMALLFONT, darkgray, "/", 15, 57;
+	drawstring SMALLFONT, darkgray, "/", 15, 65;
+	drawstring SMALLFONT, darkgray, "/", 15, 73;
+	drawstring SMALLFONT, darkgray, "/", 15, 81;
+	drawstring SMALLFONT, darkgray, "/", 15, 89;
+	drawstring SMALLFONT, darkgray, "/", 15, 97;
+	drawstring SMALLFONT, darkgray, "/", 15, 105;
+
+	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 7, 57;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 40, 57;
+	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 7, 65;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 40, 65;
+	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 7, 73;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 40, 73;
+	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 7, 81;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 40, 81;
+	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 7, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 40, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 7, 97;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 40, 97;
+	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 7, 105;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 40, 105;
+	}
+
+	AspectRatio "16:10"
+	{
+	// Money
+	drawnumber 4, SMALLFONT, green, GBTWMoney, 11, 115;
+	drawstring SMALLFONT, green, "$", -21, 115;
+
+	// Ammo Indicators
+	drawstring SMALLFONT, gray, "MECH", 1, 57;
+	drawstring SMALLFONT, red, "SPRD", -1, 65;
+	drawstring SMALLFONT, orange, "PROT", 0, 73;
+	drawstring SMALLFONT, lightblue, "CELL", 0, 81;
+	drawstring SMALLFONT, blue, "BATT", 0, 89;
+	drawstring SMALLFONT, darkgreen, "HELL", 0, 97;
+	drawstring SMALLFONT, gold, "GASO", -1, 105;
+
+	drawstring SMALLFONT, darkgray, "/", 36, 57;
+	drawstring SMALLFONT, darkgray, "/", 36, 65;
+	drawstring SMALLFONT, darkgray, "/", 36, 73;
+	drawstring SMALLFONT, darkgray, "/", 36, 81;
+	drawstring SMALLFONT, darkgray, "/", 36, 89;
+	drawstring SMALLFONT, darkgray, "/", 36, 97;
+	drawstring SMALLFONT, darkgray, "/", 36, 105;
+
+	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 28, 57;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 61, 57;
+	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 28, 65;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 61, 65;
+	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 28, 73;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 61, 73;
+	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 28, 81;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 61, 81;
+	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 28, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 61, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 28, 97;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 61, 97;
+	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 28, 105;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 61, 105;
+	}
+}
+
+
+// ***** FULLSCREEN HUD *******
+
+statusbar fullscreen, forcescaled
+{
+
+	IsSelected LaserRifle1, FlameThrowerWeap
+	{
+		DrawBar "HEATLEFT", "HEATLBAK", LaserHeat, vertical, 142, 89;
+		DrawBar "HEATRGHT", "HEATRBAK", LaserHeat, vertical, 170, 89;
+	}
+
+	InInventory PowerTargeter, 1
+	{
+		drawimage "HITCROSS", 154, 95;
+	}
+
+AspectRatio "4:3"
+{
+	// DP Area -
+	drawimage "DPTAB", 233, 0;
+	DrawBar "DPBAR", "DPBARBK", DemonicPower, horizontal, 245, 3;
+	drawnumber 3, INDEXFONT, orange, ammo DemonicPower, 313, 3;
+
+	// Ammo Counters -
+	drawimage ammoicon1, 308, 186, center;
+	drawnumber 3, BIGFONT, red, ammo1, 295, 180;
+	drawimage ammoicon2, 308, 162, center;
+	drawnumber 3, BIGFONT, red, ammo2, 295, 156;
+
+	// Selected Item -
+	DrawSelectedInventory SMALLFONT, 288, 122, 316, 112, green, 0;
+
+	// Collected Flags -
+	DrawSwitchableImage BlueFlag, "nullimage","BLUFICON", 298, 42;
+	DrawSwitchableImage RedFlag, "nullimage","REDFICON", 298, 42;
+	DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 298, 42;
+
+	// Deathmatch -
+	gamemode deathmatch, teamgame, ctf
+  	{
+   		drawnumber 4, BIGFONT, blue, frags, 315, 27;
+  	}
+
+  	// Cooperative -
+  	gamemode singleplayer
+  	{
+   		drawnumber 4, BIGFONT, blue, kills, 315, 27;
+  	}
+
+  	// Rune Display -
+  	DrawImage runeicon, 24, 145, center;
+
+  	// Player Icon -
+	DrawImage playericon, 256, 11;
+
+	// Health and Armor Display -
+	DrawImage "HLTHTAB", 0, 178;
+	DrawBar "HLTHBAR", "HLTHBACK", health, horizontal, 3, 182;
+	DrawBar "ARMRBAR", "ARMRBACK", armor, horizontal, 3, 191;
+	drawnumber 3, INDEXFONT, red, health, 124, 182;
+	drawnumber 3, INDEXFONT, green, armor, 124, 191;
+	Drawimage "HEALTH", 106, 182;
+
+	// Kamikaze Artifact -
+	DrawSwitchableImage Kamikaze, "nullimage","KAMIKAZE", 105, 181;
+
+	// Keys -
+	DrawSwitchableImage BlueCard, "nullimage","BKEYICON", 1, 169;
+	DrawSwitchableImage RedCard, "nullimage","RKEYICON", 9, 169;
+	DrawSwitchableImage YellowCard, "nullimage","YKEYICON", 17, 169;
+	DrawSwitchableImage BlueSkull, "nullimage","BSKUICON", 25, 169;
+	DrawSwitchableImage RedSkull, "nullimage","RSKUICON", 33, 169;
+	DrawSwitchableImage YellowSkull, "nullimage","YSKUICON", 41, 169;
+
+	// ST Skulls -
+	DrawSwitchableImage BlueSkullST, "nullimage","BLUSTICO", 298, 49;
+	DrawSwitchableImage RedSkullST, "nullimage","REDSTICO", 298, 49;
+
+	// HQ Keys -
+	DrawSwitchableImage KeyPiece1, "nullimage","KEYHUD1", 49, 168;
+	DrawSwitchableImage KeyPiece2, "nullimage","KEYHUD2", 61, 168;
+	DrawSwitchableImage KeyPiece3, "nullimage","KEYHUD3", 73, 168;
+	DrawSwitchableImage KeyPiece4, "nullimage","KEYHUD4", 85, 168;
+	DrawSwitchableImage KeyPiece5, "nullimage","KEYHUD5", 97, 168;
+	DrawSwitchableImage KeyPiece6, "nullimage","KEYHUD6", 109, 168;
+
+	// Tails Ability Bars -
+	playerclass Tails
+  	{
+  		// Flight Time Bar
+  		DrawBar "FLYBAR", "FLYBACK", PowerupTime TailsFlight, horizontal, 270, 11;
+  		// Recovery Bar
+  		DrawBar "RECVBAR", "RECVBACK", TailsFlightCheck, horizontal, 270, 18;
+	}
+
+	// Marine Bars -
+	playerclass Marine
+  	{
+  		// Flare Bar
+  		DrawBar "FLAREBAR", "FLAREBCK", FlareCheck, horizontal, 270, 11;
+  		// Accuracy Bar
+  		DrawBar "ACCUBAR", "ACCUBACK", PistolAccuracy, horizontal, 270, 18;
+  	}
+}
+
+AspectRatio "16:9"
+{
+	// DP Area
+	drawimage "DPTAB", 286, 0;
+	DrawBar "DPBAR", "DPBARBK", DemonicPower, horizontal, 298, 3;
+	drawnumber 3, INDEXFONT, orange, ammo DemonicPower, 366, 3;
+
+	// Ammo Counters
+	drawimage ammoicon1, 361, 186, center;
+	drawnumber 3, BIGFONT, red, ammo1, 348, 180;
+	drawimage ammoicon2, 361, 162, center;
+	drawnumber 3, BIGFONT, red, ammo2, 348, 156;
+
+	// Selected Item
+	DrawSelectedInventory SMALLFONT, 341, 122, 369, 112, green, 0;
+
+	// Collected Flags
+	DrawSwitchableImage BlueFlag, "nullimage","BLUFICON", 351, 42;
+	DrawSwitchableImage RedFlag, "nullimage","REDFICON", 351, 42;
+	DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 351, 42;
+
+	// Deathmatch
+	gamemode deathmatch, teamgame, ctf
+  	{
+   		drawnumber 4, BIGFONT, blue, frags, 368, 27;
+  	}
+
+  	// Cooperative
+  	gamemode singleplayer
+  	{
+   		drawnumber 4, BIGFONT, blue, kills, 368, 27;
+  	}
+
+  	// Rune Display
+  	DrawImage runeicon, -29, 145, center;
+
+  	// Player Icon
+	DrawImage playericon, 309, 11;
+
+	// Health and Armor Display
+	DrawImage "HLTHTAB", -53, 178;
+	DrawBar "HLTHBAR", "HLTHBACK", health, horizontal, -50, 182;
+	DrawBar "ARMRBAR", "ARMRBACK", armor, horizontal, -50, 191;
+	drawnumber 3, INDEXFONT, red, health, 71, 182;
+	drawnumber 3, INDEXFONT, green, armor, 71, 191;
+	Drawimage "HEALTH", 53, 182;
+
+	// Kamikaze Artifact
+	DrawSwitchableImage Kamikaze, "nullimage","KAMIKAZE", 52, 181;
+
+	// Keys
+	DrawSwitchableImage BlueCard, "nullimage","BKEYICON", -52, 169;
+	DrawSwitchableImage RedCard, "nullimage","RKEYICON", -44, 169;
+	DrawSwitchableImage YellowCard, "nullimage","YKEYICON", -36, 169;
+	DrawSwitchableImage BlueSkull, "nullimage","BSKUICON", -28, 169;
+	DrawSwitchableImage RedSkull, "nullimage","RSKUICON", -20, 169;
+	DrawSwitchableImage YellowSkull, "nullimage","YSKUICON", -12, 169;
+
+	// ST Skulls
+	DrawSwitchableImage BlueSkullST, "nullimage","BLUSTICO", 351, 49;
+	DrawSwitchableImage RedSkullST, "nullimage","REDSTICO", 351, 49;
+
+	// HQ Keys
+	DrawSwitchableImage KeyPiece1, "nullimage","KEYHUD1", -4, 168;
+	DrawSwitchableImage KeyPiece2, "nullimage","KEYHUD2", 8, 168;
+	DrawSwitchableImage KeyPiece3, "nullimage","KEYHUD3", 20, 168;
+	DrawSwitchableImage KeyPiece4, "nullimage","KEYHUD4", 32, 168;
+	DrawSwitchableImage KeyPiece5, "nullimage","KEYHUD5", 44, 168;
+	DrawSwitchableImage KeyPiece6, "nullimage","KEYHUD6", 56, 168;
+
+	// Tails Ability Bars
+	playerclass Tails
+  	{
+  		// Flight Time Bar
+  		DrawBar "FLYBAR", "FLYBACK", PowerupTime TailsFlight, horizontal, 323, 11;
+  		// Recovery Bar
+  		DrawBar "RECVBAR", "RECVBACK", TailsFlightCheck, horizontal, 323, 18;
+	}
+
+	// Marine Bars
+	playerclass Marine
+  	{
+  		// Flare Bar
+  		DrawBar "FLAREBAR", "FLAREBCK", FlareCheck, horizontal, 323, 11;
+  		// Accuracy Bar
+  		DrawBar "ACCUBAR", "ACCUBACK", PistolAccuracy, horizontal, 323, 18;
+  	}
+}
+
+AspectRatio "16:10"
+{
+	// DP Area =
+	drawimage "DPTAB", 265, 0;
+	DrawBar "DPBAR", "DPBARBK", DemonicPower, horizontal, 277, 3;
+	drawnumber 3, INDEXFONT, orange, ammo DemonicPower, 345, 3;
+
+	// Ammo Counters =
+	drawimage ammoicon1, 340, 186, center;
+	drawnumber 3, BIGFONT, red, ammo1, 327, 180;
+	drawimage ammoicon2, 340, 162, center;
+	drawnumber 3, BIGFONT, red, ammo2, 327, 156;
+
+	// Selected Item =
+	DrawSelectedInventory SMALLFONT, 320, 122, 348, 112, green, 0;
+
+	// Collected Flags =
+	DrawSwitchableImage BlueFlag, "nullimage","BLUFICON", 330, 42;
+	DrawSwitchableImage RedFlag, "nullimage","REDFICON", 330, 42;
+	DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 330, 42;
+
+	// Deathmatch =
+	gamemode deathmatch, teamgame, ctf
+  	{
+   		drawnumber 4, BIGFONT, blue, frags, 347, 27;
+  	}
+
+  	// Cooperative =
+  	gamemode singleplayer
+  	{
+   		drawnumber 4, BIGFONT, blue, kills, 347, 27;
+  	}
+
+  	// Rune Display =
+  	DrawImage runeicon, -8, 145, center;
+
+  	// Player Icon =
+	DrawImage playericon, 288, 11;
+
+	// Health and Armor Display =
+	DrawImage "HLTHTAB", -32, 178;
+	DrawBar "HLTHBAR", "HLTHBACK", health, horizontal, -29, 182;
+	DrawBar "ARMRBAR", "ARMRBACK", armor, horizontal, -29, 191;
+	drawnumber 3, INDEXFONT, red, health, 92, 182;
+	drawnumber 3, INDEXFONT, green, armor, 92, 191;
+	Drawimage "HEALTH", 74, 182;
+
+	// Kamikaze Artifact =
+	DrawSwitchableImage Kamikaze, "nullimage","KAMIKAZE", 73, 181;
+
+	// Keys =
+	DrawSwitchableImage BlueCard, "nullimage","BKEYICON", -31, 169;
+	DrawSwitchableImage RedCard, "nullimage","RKEYICON", -23, 169;
+	DrawSwitchableImage YellowCard, "nullimage","YKEYICON", -15, 169;
+	DrawSwitchableImage BlueSkull, "nullimage","BSKUICON", -7, 169;
+	DrawSwitchableImage RedSkull, "nullimage","RSKUICON", 1, 169;
+	DrawSwitchableImage YellowSkull, "nullimage","YSKUICON", 9, 169;
+
+	// ST Skulls =
+	DrawSwitchableImage BlueSkullST, "nullimage","BLUSTICO", 330, 49;
+	DrawSwitchableImage RedSkullST, "nullimage","REDSTICO", 330, 49;
+
+	// HQ Keys =
+	DrawSwitchableImage KeyPiece1, "nullimage","KEYHUD1", 17, 168;
+	DrawSwitchableImage KeyPiece2, "nullimage","KEYHUD2", 29, 168;
+	DrawSwitchableImage KeyPiece3, "nullimage","KEYHUD3", 41, 168;
+	DrawSwitchableImage KeyPiece4, "nullimage","KEYHUD4", 53, 168;
+	DrawSwitchableImage KeyPiece5, "nullimage","KEYHUD5", 65, 168;
+	DrawSwitchableImage KeyPiece6, "nullimage","KEYHUD6", 77, 168;
+
+	// Tails Ability Bars =
+	playerclass Tails
+  	{
+  		// Flight Time Bar
+  		DrawBar "FLYBAR", "FLYBACK", PowerupTime TailsFlight, horizontal, 302, 11;
+  		// Recovery Bar
+  		DrawBar "RECVBAR", "RECVBACK", TailsFlightCheck, horizontal, 302, 18;
+	}
+
+	// Marine Bars =
+	playerclass Marine
+  	{
+  		// Flare Bar
+  		DrawBar "FLAREBAR", "FLAREBCK", FlareCheck, horizontal, 302, 11;
+  		// Accuracy Bar
+  		DrawBar "ACCUBAR", "ACCUBACK", PistolAccuracy, horizontal, 302, 18;
+  	}
+}
+
+}
+
+statusbar inventory
+{
+	drawinventorybar Doom, 7, INDEXFONT, 50, 141;
+}
+
+statusbar inventoryfullscreen
+{
+	drawinventorybar Doom, noartibox, 7, INDEXFONT, 50, 141;
+}
