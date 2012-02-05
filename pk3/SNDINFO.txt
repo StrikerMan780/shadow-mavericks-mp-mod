@@ -725,8 +725,9 @@ $playeralias 	player	male	*taunt		MarineTaunts
 
 TailsTaunt1 dstlstn1
 TailsTaunt2 dstlstn2
+TailsTaunt3 dstlstn3
 
-$random TailsTaunts { TailsTaunt1 TailsTaunt2 }
+$random TailsTaunts { TailsTaunt1 TailsTaunt2 TailsTaunt3 }
 
 $playersound	tails	male	*death		dstlsdth
 $playersound	tails	male	*xdeath		dstlsdhi
