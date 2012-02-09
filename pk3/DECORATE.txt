@@ -3237,7 +3237,7 @@ actor SpaceCraftInFlight : PlayerPawn
 	Player.HealRadiusType "Health"
 	Player.Hexenarmor 5, 5, 15, 10, 25
 	Player.ForwardMove 2
-	Player.SideMove 1
+	Player.SideMove 0
 	player.morphweapon "ValkrieCannons"
 	player.runhealth 35
 	States
