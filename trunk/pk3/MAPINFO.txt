@@ -198,7 +198,7 @@ next MPCTF02
 cluster 1
 
 map MPCTF02 "Inferno CTF - Ruin"
-music D_UNKNOW
+music D_SHIVA
 sky1 DONNITE 0.0
 next MPCTF03
 clipmidtextures
@@ -266,7 +266,7 @@ Map COOP01 "Canyon Facility"
 Next COOP02
 clipmidtextures
 Sky1 Sky1 0.1
-Music "D_KMOD"
+Music "D_RAGE"
 cluster 20
 
 Map COOP02 "SkyNet Satellite Base"
