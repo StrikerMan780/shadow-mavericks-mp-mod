@@ -3243,20 +3243,24 @@ actor SpaceCraftInFlight : PlayerPawn
 	States
 	{
 		Spawn:
-			SHI2 A 4
+			SHI2 A 0
 			SHI2 A 0 A_PlaySoundEx("PlayerShipEngine", auto, 0)
+			SHI2 A 1 A_CustomBulletAttack(0,0,1,0,"HeadLight", 2048, 1)
 			loop
 		See:
-			SHI2 A 4
+			SHI2 A 0
 			SHI2 A 0 A_PlaySoundEx("PlayerShipEngine", auto, 0)
+			SHI2 A 1 A_CustomBulletAttack(0,0,1,0,"HeadLight", 2048, 1)
 			loop
 		Missile:
-			SHI2 A 4
+			SHI2 A 0
 			SHI2 A 0 A_PlaySoundEx("PlayerShipEngine", auto, 0)
+			SHI2 A 1 A_CustomBulletAttack(0,0,1,0,"HeadLight", 2048, 1)
 			Goto See
 		Melee:
-			SHI2 A 4 BRIGHT
+			SHI2 A 0
 			SHI2 A 0 A_PlaySoundEx("PlayerShipEngine", auto, 0)
+			SHI2 A 1 A_CustomBulletAttack(0,0,1,0,"HeadLight", 2048, 1)
 			Goto See
 		XDeath:
 		Death:
@@ -8399,7 +8403,6 @@ actor ValkrieCannons : Weapon
   loop
 
   Ready:
-  HBCP A 0 A_FireBullets(0,0,1,0,"HeadLight", 0)
   HBCP A 1 A_WeaponReady
   loop
 

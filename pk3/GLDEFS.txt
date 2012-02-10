@@ -2202,7 +2202,7 @@ pointlight Headlight
 
 object HeadLight
 {
-	frame NULL { light HeadLight }
+	frame NULL { light Headlight }
 }
 
 flickerlight FireRodShot1
