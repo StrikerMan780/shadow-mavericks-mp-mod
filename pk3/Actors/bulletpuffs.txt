@@ -341,8 +341,25 @@ actor BootHit
 	}
 }
 
+ACTOR HeadLight
+{
+   +PUFFONACTORS
+   +NOBLOCKMAP
+   +BLOODLESSIMPACT
+   +DROPOFF
+   -BLOODSPLATTER
+   States
+   {
+   Spawn:
+	  NULL A 1 BRIGHT
+	  loop
+   }
+}
+
 ACTOR SaberPuff
 {
+   +NOBLOCKMAP
+   +DROPOFF
    +LOWGRAVITY
    +THRUGHOST
    +GHOST
@@ -352,12 +369,13 @@ ACTOR SaberPuff
    {
    Spawn:
 	  SPRK A 0
-	  SPRK A 0 A_Jump(100, 5)
+	  SPRK A 0 A_Jump(100, "SparkSound")
 	  SPRK A 4 BRIGHT
 	  SPRK B 4 BRIGHT
 	  SPRK C 4 BRIGHT
 	  SPRK D 4 BRIGHT
 	  Stop
+   SparkSound:
 	  SPRK A 0 BRIGHT A_PlaySoundEX("saberhit", AUTO, 0)
 	  goto Spawn+2
    }
