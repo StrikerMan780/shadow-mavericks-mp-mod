@@ -8399,6 +8399,7 @@ actor ValkrieCannons : Weapon
   loop
 
   Ready:
+  HBCP A 0 A_FireBullets(0,0,1,0,"HeadLight", 0)
   HBCP A 1 A_WeaponReady
   loop
 
