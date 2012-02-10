@@ -352,7 +352,7 @@ ACTOR HeadLight
    {
    Spawn:
 	  NULL A 1 BRIGHT
-	  loop
+	  stop
    }
 }
 
