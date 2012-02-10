@@ -351,7 +351,7 @@ ACTOR HeadLight
    States
    {
    Spawn:
-	  NULL A 1 BRIGHT
+	  NULL A 2 BRIGHT
 	  stop
    }
 }

@@ -2194,9 +2194,15 @@ object FlareSpark2
 	frame REMB { light Flare2 }
 }
 
+pointlight Headlight
+{
+    color 1.0 0.9 0.75
+    size 200
+}
+
 object HeadLight
 {
-	frame NULL { light Flare }
+	frame NULL { light HeadLight }
 }
 
 flickerlight FireRodShot1
