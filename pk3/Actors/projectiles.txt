@@ -1,3 +1,26 @@
+actor BulletTracer : FastProjectile
+{
+	Projectile
+	Radius 2
+	Height 2
+	Speed 232
+	RenderStyle Add
+	Alpha 1.0
+	+NOGRAVITY
+	+THRUGHOST
+	States
+	{
+		Spawn:
+			PUFF A 1 BRIGHT
+			loop
+		Crash:
+		Death:
+			TNT1 A 0
+			TNT1 A 1
+			stop
+	}
+}
+
 actor NeedlerCrystal
 {
   Decal Needler

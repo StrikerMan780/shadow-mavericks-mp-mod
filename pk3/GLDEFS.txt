@@ -2428,3 +2428,28 @@ brightmap texture FIYAH
 {
 	map "Brightmaps/fiyah.png"
 }
+
+brightmap texture XPORTAL2
+{
+	map "Brightmaps/XPORTAL2.png"
+}
+
+brightmap texture XPORTAL3
+{
+	map "Brightmaps/XPORTAL3.png"
+}
+
+brightmap texture XPORTAL4
+{
+	map "Brightmaps/XPORTAL4.png"
+}
+
+brightmap texture XPORTAL5
+{
+	map "Brightmaps/XPORTAL5.png"
+}
+
+brightmap texture XPORTAL6
+{
+	map "Brightmaps/XPORTAL6.png"
+}
