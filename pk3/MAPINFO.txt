@@ -178,10 +178,17 @@ cluster 1
 map MPDUEL08 "Forgotten Base - Ruin"
 sky1 cloudyst 0.0
 music D_MM9WS2
-next MPDUEL01
+next MPDUEL09
 evenlighting
 allowcrouch
 cluster 1
+
+map MPDUEL09 "Duel-a-tron 5000 - Ruin"
+sky1 CLOUDYST 0.1
+music D_ELADAR
+next map01
+cluster 1
+
 
 // **************** DUEL END ************
 
