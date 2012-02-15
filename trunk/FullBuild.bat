@@ -21,7 +21,7 @@ move /Y .\pk3\Maps\*.dbs .\backups >nul 2>&1
 ECHO.
 
 cd pk3
-..\7za a -y -tzip -mx=9 -x!.svn ..\SMMP-r%REVISIONNUMBER%.pk3 .\
+..\Tools\7za a -y -tzip -mx=9 -x!.svn ..\SMMP-r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto Leave
