@@ -1580,8 +1580,17 @@ flickerlight2 TAILATK
     offset 0 40 0
 }
 
+pointlight PLAYERSHADOW
+{
+    color 0.3 0.3 0.3
+    size 14
+    subtractive 1
+    dontlightself 1
+}
+
 object Marine
 {
+	frame PLAY { light PLAYERSHADOW }
     frame PLAYF { light MARINEATK }
 }
 
