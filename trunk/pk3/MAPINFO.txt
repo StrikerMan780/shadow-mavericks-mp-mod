@@ -69,7 +69,7 @@ music D_SEPHIR
 sky1 BKSKY1 0.1
 
 map MPDM04 "Forsaken Graveyard - Alucard"
-music D_DOOMMT
+music D_WDS
 sky1 SKY1 0.0
 evenlighting
 next MPDM05
