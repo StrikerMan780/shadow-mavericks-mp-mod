@@ -67,23 +67,17 @@ actor SM_Demon : Demon //Replaces Demon
 	Scale 0.79
 	States
 	{
-	// XDeath:
-		// SARG O 0 A_GiveToTarget("DemonicPower", 2)
-		// SARG O 6 A_XScream
-		// SARG O 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		// SARG P 4 A_Fall
-		// SARG QRSTUV 3
-		// SARG W -1
-		// stop
-
 	Death:
 		SARG I 0 A_GiveToTarget("DemonicPower", 2)
 		SARG I 8
 		SARG J 8 A_Scream
 		SARG K 4 A_Fall
 		SARG LM 4
-		SARG N -1
-		Stop
+		SARG N 10500
+		goto Fade
+	Fade:
+		SARG N 1 A_FadeOut(0.05)
+		loop
 
 	Disabled:
 		TNT1 A 0
@@ -138,8 +132,11 @@ actor SM_BloodDemon : BloodDemon Replaces BloodDemon
 			SRG2 J 8 A_Scream
 			SRG2 K 4 A_Fall
 			SRG2 LM 4
-			SRG2 N -1
-			Stop
+			SRG2 N 10500
+			goto Fade
+		Fade:
+			SRG2 N 1 A_FadeOut(0.05)
+			loop
 	}
 }
 
@@ -183,8 +180,11 @@ ACTOR NightmareDemon : SM_Demon
 		SAR2 J 8 A_Scream
 		SAR2 K 4 A_Fall
 		SAR2 LM 4
-		SAR2 N -1
-		Stop
+		SAR2 N 10500
+		goto Fade
+	Fade:
+		SAR2 N 1 A_FadeOut(0.05)
+		loop
 	Raise:
 		SAR2 NMLKJI 5
 		Goto See
@@ -312,8 +312,11 @@ actor GBTWCacodemon : Cacodemon
 		HEAD K 2 A_NoBlocking
 		HEAD K 1 A_UnsetSolid
 		HEAD K 1 A_UnSetShootable
-		HEAD L -1 A_SetFloorClip
-		stop
+		HEAD L 10500 A_SetFloorClip
+		goto Fade
+	Fade:
+		HEAD L 1 A_FadeOut(0.05)
+		loop
 	Raise:
 		HEAD L 8 A_UnSetFloorClip
 		HEAD KJIHG 8
@@ -436,7 +439,7 @@ actor GBTWShotgunGuy : ShotgunGuy //Replaces ShotgunGuy
 		DISR A 0 A_UnSetSolid
 		DISR A 0 A_UnSetShootable
 		DISR ABCDEFGHIJ 6
-		NULL A -1
+		TNT1 A 5
 		stop
 	Death:
 		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
@@ -522,7 +525,7 @@ actor GBTWZombieMan : Zombieman //Replaces Zombieman
 		DISR A 0 A_UnSetSolid
 		DISR A 0 A_UnSetShootable
 		DISR ABCDEFGHIJ 6
-		NULL A -1
+		TNT1 A 5
 		stop
 	XDeath.Obliterate:
 	Death.Obliterate:
@@ -693,8 +696,11 @@ actor AngryGermanZombie : GBTWZombieman
 		POSS N 1 A_XScream
 		POSS O 1 A_NoBlocking
 		POSS PQRST 1
-		POSS U -1
-		stop
+		POSS U 10500
+		goto XFade
+	XFade:
+		POSS U 1 A_FadeOut(0.05)
+		loop
 	}
 }
 
