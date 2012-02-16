@@ -263,34 +263,35 @@ ACTOR FreezerZombie : ZombieMan 20248
 	Translation "128:143=192:207"
 	States
 	{
-	   Missile:
-	   POSS E 6 A_FaceTarget
-	   POSS F 3 A_CustomMissile("Freezershot", 32, 0, 0)
-	   POSS E 3 A_FaceTarget
-	   POSS F 3 A_CustomMissile("Freezershot", 32, 0, 0)
-	   POSS E 3 A_FaceTarget
-	   POSS F 3 A_CustomMissile("Freezershot", 32, 0, 0)
-	   Goto See
-	   Death:
-	   TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-	   POSS H 5
-	   POSS I 5 A_Scream
-	   POSS J 0 A_UnSetShootable
-	   POSS J 5 A_UnSetSolid
-	   POSS K 5
-	   POSS L 30
-	   TNT1 A 1 A_IceGuyDie
-	   stop
-	   Pain:
-	   POSS GG 1
-	   goto See
-	   XDeath:
-	   TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-	   POSS M 1
-	   POSS N 1 A_XScream
-	   TNT1 AA 0
-	   TNT1 A 1 A_IceGuyDie
-	   stop
+		Missile:
+			POSS E 6 A_FaceTarget
+			POSS F 3 A_CustomMissile("Freezershot", 32, 0, 0)
+			POSS E 3 A_FaceTarget
+			POSS F 3 A_CustomMissile("Freezershot", 32, 0, 0)
+			POSS E 3 A_FaceTarget
+			POSS F 3 A_CustomMissile("Freezershot", 32, 0, 0)
+			Goto See
+
+		Death:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			POSS H 5
+			POSS I 5 A_Scream
+			POSS J 0 A_UnSetShootable
+			POSS J 5 A_UnSetSolid
+			POSS K 5
+			POSS L 30
+			TNT1 A 1 A_IceGuyDie
+			stop
+		Pain:
+			POSS GG 1
+			goto See
+		XDeath:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			POSS M 1
+			POSS N 1 A_XScream
+			TNT1 AA 0
+			TNT1 A 1 A_IceGuyDie
+			stop
 	}
 }
 
@@ -447,8 +448,13 @@ actor GBTWShotgunGuy : ShotgunGuy //Replaces ShotgunGuy
 		SPOS I 5 A_Scream
 		SPOS J 5 A_NoBlocking
 		SPOS K 5
-		SPOS L -1
-		stop
+		SPOS L 10500
+		goto Fade
+
+	Fade:
+		SPOS L 1 A_FadeOut(0.05)
+		loop
+
 	XDeath.Obliterate:
 	Death.Obliterate:
 		SPOS M 0 A_GiveToTarget("DemonicPower", 1)
@@ -465,8 +471,12 @@ actor GBTWShotgunGuy : ShotgunGuy //Replaces ShotgunGuy
 		SPOS N 5 A_XScream
 		SPOS O 5 A_NoBlocking
 		SPOS PQRST 5
-		SPOS U -1
-		stop
+		SPOS U 10500
+		goto XFade
+
+	XFade:
+		SPOS U 1 A_FadeOut(0.05)
+		loop
 	}
 }
 
@@ -535,8 +545,8 @@ actor GBTWZombieMan : Zombieman //Replaces Zombieman
 		POSS N 2 A_XScream
 		POSS O 2 A_NoBlocking
 		POSS PQRST 2
-		POSS U -1
-		stop
+		POSS U 10500
+		goto XFade
 	Death:
 		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 		TNT1 A 0 A_Jump(4, "RaveDeath")
@@ -544,8 +554,11 @@ actor GBTWZombieMan : Zombieman //Replaces Zombieman
 		POSS I 5 A_Scream
 		POSS J 5 A_NoBlocking
 		POSS K 5
-		POSS L -1
-		stop
+		POSS L 10500
+		goto Fade
+	Fade:
+		POSS L 1 A_FadeOut(0.05)
+		loop
 	RaveDeath:
 		RAVP A 0 A_PlaySoundEx("Rave", "auto", 0, 1)
 		RAVP ACEGIKMOQACEGIKMOQACEGIKMOQACEGIKMOQACEGIKMOQACEGIKMOQACEGIKMOQACEGIKMOQ 1 BRIGHT A_Wander
@@ -560,8 +573,11 @@ actor GBTWZombieMan : Zombieman //Replaces Zombieman
 		POSS N 5 A_XScream
 		POSS O 5 A_NoBlocking
 		POSS PQRST 5
-		POSS U -1
-		stop
+		POSS U 10500
+		goto XFade
+	XFade:
+		POSS U 1 A_FadeOut(0.05)
+		loop
   }
 }
 
@@ -602,60 +618,66 @@ actor TourettesShotgunZombie : GBTWShotgunGuy 10213
 
 actor MagnumZombie : GBTWZombieman
 {
-  Dropitem "Magnum"
-  Dropitem "454Casull", 1
-  Dropitem "MechAmmo", 10
-  Speed 10
-  Health 40
-  attacksound "magnum"
-  Obituary "%o's head was split open by a Magnum Zombie's Bullet"
-  States
-  {
-  Spawn:
-	POSM AB 10 A_Look
-	loop
-  See:
-	POSM AABBCCDD 4 A_Chase
-	loop
-  Missile:
-	POSM E 8 A_FaceTarget
-	POSM F 4 A_CustomBulletAttack (10, 9, 1, 15, "NewBulletPuff")
-	POSM E 8
-	goto See
-  Pain:
-	POSM G 3
-	POSM G 3 A_Pain
-	goto See
-  Death:
-	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-	POSM H 5
-	POSS I 5 A_Scream
-	POSS J 5 A_NoBlocking
-	POSS K 5
-	POSS L -1
-	stop
-   XDeath.Obliterate:
-   Death.Obliterate:
-	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-	POSM M 2 A_SpawnItemEx("ObliterateGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-	POSS N 2 A_XScream
-	POSS O 2 A_NoBlocking
-	POSS PQRST 2
-	POSS U -1
-	stop
-	XDeath:
-	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-	TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
-	POSM M 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-	POSS N 5 A_XScream
-	POSS O 5 A_NoBlocking
-	POSS PQRST 5
-	POSS U -1
-	stop
-	Raise:
-	POSS KJI 5
-	POSM H 5
-	goto See
+	Dropitem "Magnum"
+	Dropitem "454Casull", 1
+	Dropitem "MechAmmo", 10
+	Speed 10
+	Health 40
+	attacksound "magnum"
+	Obituary "%o's head was split open by a Magnum Zombie."
+	States
+	{
+		Spawn:
+			POSM AB 10 A_Look
+			loop
+		See:
+			POSM AABBCCDD 4 A_Chase
+			loop
+		Missile:
+			POSM E 8 A_FaceTarget
+			POSM F 4 A_CustomBulletAttack (10, 9, 1, 15, "NewBulletPuff")
+			POSM E 8
+			goto See
+		Pain:
+			POSM G 3
+			POSM G 3 A_Pain
+			goto See
+		Death:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			POSM H 5
+			POSS I 5 A_Scream
+			POSS J 5 A_NoBlocking
+			POSS K 5
+			POSS L 10500
+			goto Fade
+		Fade:
+			POSS L 1 A_FadeOut(0.05)
+			loop
+		XDeath.Obliterate:
+		Death.Obliterate:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			POSM M 2 A_SpawnItemEx("ObliterateGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			POSS N 2 A_XScream
+			POSS O 2 A_NoBlocking
+			POSS PQRST 2
+			POSS U 10500
+			goto XFade
+		XDeath:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
+			POSM M 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			POSS N 5 A_XScream
+			POSS O 5 A_NoBlocking
+			POSS PQRST 5
+			POSS U 10500
+			goto XFade
+		XFade:
+			POSS U 1 A_FadeOut(0.05)
+			loop
+		Raise:
+			POSS KJI 5
+			POSM H 5
+			goto See
   }
 }
 
@@ -669,38 +691,38 @@ actor AngryGermanZombie : GBTWZombieman
 	+AMBUSH
 	States
 	{
-	See:
-		POSS A 1 A_Wander
-		POSS AA 0 A_Wander
-		POSS A 0 A_GiveInventory("GenericTimer", 1)
-		POSS B 1 A_Wander
-		POSS BB 0 A_Wander
-		POSS C 1 A_Wander
-		POSS CC 0 A_Wander
-		POSS D 1 A_Wander
-		POSS DD 0 A_Wander
-		POSS D 0 A_JumpIfInventory("GenericTimer", 96, "Kill")
-		loop
-	Kill:
-		POSS A 1 A_Die
-		stop
-	XDeath:
-	Death:
-		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-		TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
-		TNT1 A 0 A_PlaySoundEx("TechPlasmaSuperBoom", "auto", 0)
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("HellfireRocketFire", Random(-32,32), Random(-32,32), Random(0,56), Random(-10,10), Random(-10,10), Random(-10,10), random(-360,360), 128, 0)
-		TNT1 A 0 radius_quake(2, 10, 0, 3, 0)
-		TNT1 A 0 A_Explode
-		POSM M 1 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		POSS N 1 A_XScream
-		POSS O 1 A_NoBlocking
-		POSS PQRST 1
-		POSS U 10500
-		goto XFade
-	XFade:
-		POSS U 1 A_FadeOut(0.05)
-		loop
+		See:
+			POSS A 1 A_Wander
+			POSS AA 0 A_Wander
+			POSS A 0 A_GiveInventory("GenericTimer", 1)
+			POSS B 1 A_Wander
+			POSS BB 0 A_Wander
+			POSS C 1 A_Wander
+			POSS CC 0 A_Wander
+			POSS D 1 A_Wander
+			POSS DD 0 A_Wander
+			POSS D 0 A_JumpIfInventory("GenericTimer", 96, "Kill")
+			loop
+		Kill:
+			POSS A 1 A_Die
+			stop
+		XDeath:
+		Death:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
+			TNT1 A 0 A_PlaySoundEx("TechPlasmaSuperBoom", "auto", 0)
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("HellfireRocketFire", Random(-32,32), Random(-32,32), Random(0,56), Random(-10,10), Random(-10,10), Random(-10,10), random(-360,360), 128, 0)
+			TNT1 A 0 radius_quake(2, 10, 0, 3, 0)
+			TNT1 A 0 A_Explode
+			POSM M 1 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			POSS N 1 A_XScream
+			POSS O 1 A_NoBlocking
+			POSS PQRST 1
+			POSS U 10500
+			goto XFade
+		XFade:
+			POSS U 1 A_FadeOut(0.05)
+			loop
 	}
 }
 
@@ -734,8 +756,11 @@ actor GBTWChaingunGuy : ChainGunGuy //Replaces ChainGunGuy
 		CPOS P 5 A_XScream
 		CPOS Q 5 A_NoBlocking
 		CPOS RS 5
-		CPOS T -1
-		stop
+		CPOS T 10500
+		goto XFade
+	XFade:
+		CPOS T 1 A_FadeOut(0.05)
+		loop
   }
 }
 
