@@ -10837,30 +10837,6 @@ actor RepeaterPuff
 	}
 }
 
-Actor SuperChaingunHit
-{
-	Scale 0.4
-	Alpha 0.9
-	RenderStyle Add
-	Mass 100
-	Decal BulletChip
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
-	+PUFFGETSOWNER
-	+FORCEXYBILLBOARD
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-		goto Crash
-	Crash:
-		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
-		stop
-	}
-}
-
 ACTOR RipperShotCount : Inventory
 {
    Inventory.Amount 1
