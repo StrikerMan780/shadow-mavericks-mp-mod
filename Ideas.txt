@@ -1,0 +1,6 @@
+Make marine class unskinnable, put Tourettes Guy in as another class.
+Make the Tourettes Guy's Demonic Power ability him screaming "FUUUUUUUUUUUUCK!" and every monster on screen blowing up.
+FUUUUCK attack would only do 1/4 damage to players in DM, for balance.
+Explosions from FUUUUUCK attack would not harm the Tourettes Guy himself to prevent accidental suicides.
+In order to prevent spam of the attack, Tourettes guy would have a "Rage" meter. It raises by 1 unit when he takes damage.
+once the rage meter is full, he can use the attack at the cost of 100dp.
