@@ -395,8 +395,8 @@ actor ProtonTorpedo : Rocket Replaces Rocket
 			goto Death
 		Death:
 			64P1 A 0 bright A_Explode
-			64P1 A 0 bright radius_quake(2, 10, 0, 3, 0)
-			64P1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), 128, 0)
+			64P1 A 0 bright radius_quake(3, 16, 0, 3, 0)
+			64P1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
 			64P1 AA 0 A_SpawnItemEX("RocketFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-4, 4), Random(-4, 4), Random(-4, 4), Random(-360, 360), 128, 0)
 			64P1 ABCDEFGHIJK 1 BRIGHT A_SpawnItemEX("RocketFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-3, 3), Random(-3, 3), Random(-3, 3), Random(-360, 360), 128, 0)
 			64P1 LMNOPQRSTUVWXYZ 1 bright
@@ -7939,7 +7939,7 @@ actor ProtonGrenadeLauncher : Weapon Replaces GrenadeLauncher
   	PUNT A 2
   	PUNT B 0 A_PlaySoundEx("skeleton/swing", "auto", 0)
   	PUNT BC 1
-  	PUNT D 1 A_FireCustomMissile("GBTWGrenadeLob", 0, 1, -5, 0)
+  	PUNT D 1 A_FireCustomMissile("StickyBomb", 0, 1, -5, 0)
   	PUNT EFGH 1
   	TNT1 A 15
   	TNT1 A 0 A_Refire
@@ -8050,6 +8050,8 @@ actor GrenadeCloud
 	+NOBLOCKMAP
 	+DONTSPLASH
 	+NOTELEPORT
+	+NOINTERACTION
+	+DROPOFF
 	States
 	{
 	Spawn:
@@ -8077,6 +8079,95 @@ actor GrenadeExplosionShell
 	NULL AA 1 BRIGHT
 	stop
   }
+}
+
+actor StickyBombExplosion
+{
+	Radius 1
+	Height 1
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.8
+	+NOBLOCKMAP
+	+DONTSPLASH
+	+NOTELEPORT
+	+NOINTERACTION
+	+DROPOFF
+	States
+	{
+	Spawn:
+		STKE ABCDEFGHIJKLMNOP 1 BRIGHT
+		stop
+	}
+}
+
+actor StickyBomb
+{
+	Radius 4
+	Height 8
+	Projectile
+	-LOWGRAVITY
+	-NOGRAVITY
+	+EXPLODEONWATER
+	+EXTREMEDEATH
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	+SEEKERMISSILE
+	obituary "%o was stuck by %k."
+	Speed 26
+	Damage 1
+	Gravity 0.7
+	Scale 0.4
+	States
+	{
+		Spawn:
+			STIK A 0
+			STIK A 0 ThrustThingZ(0, 28, 0, 1)
+			STIK AB 4
+			goto Spawn+2
+
+ 		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_PlaySoundEx("StickyLatchedOn", "Auto", 0)
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			STIK DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 1 A_Fire
+			goto Explode2
+
+		Crash:
+			TNT1 A 0
+			TNT1 A 0 A_PlaySoundEx("StickyHitWall", "Auto", 0)
+			TNT1 A 0
+			STIK C 40
+			goto Explode1
+
+		Death:
+			TNT1 A 0
+			TNT1 A 0 A_PlaySoundEx("StickyHitWall", "Auto", 0)
+			TNT1 A 0 A_NoGravity
+			STIK C 40
+			goto Explode1
+
+		Explode1:
+			TNT1 A 0 A_SpawnItemEX("GrenadeExplosionShell", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 0 A_SpawnItemEX("StickyBombExplosion", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
+			goto ExplodeEnd
+
+		Explode2:
+			TNT1 A 0 A_SpawnItemEX("GrenadeExplosionShell", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 0 A_SpawnItemEX("StickyBombExplosion", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 32, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
+			goto ExplodeEnd
+
+		ExplodeEnd:
+			TNT1 A 0 radius_quake(3, 16, 0, 3, 0)
+			TNT1 A 0 A_Explode
+			TNT1 A 0 A_NoGravity
+			TNT1 A 0 A_SetTranslucent(0.9, 1)
+			TNT1 A 0 A_PlaySoundEx("TechPlasmaSuperBoom", "Auto", 0)
+			TNT1 A 2
+			stop
+	}
 }
 
 actor GBTWGrenade Replaces Grenade
@@ -12055,7 +12146,7 @@ actor DukeRocket : ProtonTorpedo
 			goto Death
 		Death:
 			NULL A 0
-			NULL A 0 radius_quake(2, 10, 0, 4, 0)
+			NULL A 0 radius_quake(3, 16, 0, 4, 0)
 			NULL A 0 A_PlaySoundEx ("DukeExplosion", "Auto", 0, 0.4)
 			NULL A 0 A_Explode(116, 132)
 			NULL AAAA 0 A_SpawnItemEX("Duke64ExplosionSmoke", Random(-48,48), Random(-32,48), Random(-28, 36), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
