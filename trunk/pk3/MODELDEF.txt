@@ -210,7 +210,7 @@ Model Camaro
   Model 0 "camaro.md3"
   Skin 0 "cmro_tex.tga"
   Scale 0.8 0.8 0.8
-//  ZOffset 10
+//	ZOffset 10
 
   FrameIndex CAMA A 0 0
 }
@@ -222,7 +222,7 @@ Model AcousticGuitar
   Model 0 "acoust.md3"
   Skin 0 "acoust.jpg"
   Scale 4.0 4.0 4.0
-//  ZOffset 10
+//	ZOffset 10
 
   FrameIndex GUIT A 0 0
 }
@@ -325,7 +325,7 @@ model Booze1
   Model 0 "1163_bottle6.md3"
   Skin 0 "1163_bottle6.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE A 0 0
 }
@@ -336,7 +336,7 @@ model Booze2
   Model 0 "0956_bottle2.md3"
   Skin 0 "1014_bottle9.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE B 0 0
 }
@@ -347,7 +347,7 @@ model Booze3
   Model 0 "1162_bottle5.md3"
   Skin 0 "1162_bottle5.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE C 0 0
 }
@@ -358,7 +358,7 @@ model Booze4
   Model 0 "1160_bottle3.md3"
   Skin 0 "1160_bottle3.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE D 0 0
 }
@@ -369,7 +369,7 @@ model Booze5
   Model 0 "1165_bottle8.md3"
   Skin 0 "1165_bottle8.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE E 0 0
 }
@@ -380,7 +380,7 @@ model Booze6
   Model 0 "1161_bottle4.md3"
   Skin 0 "1161_bottle4.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE F 0 0
 }
@@ -391,7 +391,7 @@ model Booze7
   Model 0 "0956_bottle2.md3"
   Skin 0 "0956_bottle2.png"
   Scale 2.4 2.4 2.4
-//  ZOffset 0.5
+//	ZOffset 0.5
 
   FrameIndex BOZE G 0 0
 }
@@ -3089,6 +3089,43 @@ Model ProtonGrenadeLauncher
    FrameIndex PUNT A 0 0
 }
 
+Model StickyBomb
+{
+   Path "Models\HUD\StickyBomb"
+   Model 0 "StickyBombProjectile.md3"
+   Skin 0 "StickyBomb.png"
+   Scale 12.0 12.0 12.0
+
+   Rotating
+   Rotation-Speed 10
+   Rotation-Vector 1 0 0
+   PitchFromMomentum
+
+   FrameIndex STIK A 0 0
+   FrameIndex STIK B 0 0
+}
+
+Model StickyBomb
+{
+   Path "Models\HUD\StickyBomb"
+   Model 0 "StickyBombProjectile.md3"
+   Skin 0 "StickyBomb.png"
+   Scale 12.0 12.0 12.0
+
+   FrameIndex STIK C 0 0
+}
+
+Model StickyBomb
+{
+   Path "Models\HUD\StickyBomb"
+   Model 0 "StickyBombProjectile.md3"
+   Skin 0 "StickyBomb.png"
+   Scale 12.0 12.0 12.0
+   ZOffset 56
+
+   FrameIndex STIK D 0 0
+}
+
 Model ProtonGrenadeLauncher
 {
    Path "Models\HUD\StickyBomb"
@@ -3107,16 +3144,16 @@ Model ProtonGrenadeLauncher
 
 //Model SM_Railgun
 //{
-//   Path "Models\HUD\Railgun"
-//   Model 0 "Railgun.md3"
-//   Scale 5.0 4.0 5
+//	 Path "Models\HUD\Railgun"
+//	 Model 0 "Railgun.md3"
+//	 Scale 5.0 4.0 5
 
-//   FrameIndex RLGG A 0 0
-//   FrameIndex RLGG B 0 1
-//   FrameIndex RLGG C 0 2
-//   FrameIndex RLGG D 0 4
-//   FrameIndex RLGG E 0 5
-//   FrameIndex RLGG F 0 7
-//   FrameIndex RLGG G 0 9
-//   FrameIndex RLGG H 0 11
+//	 FrameIndex RLGG A 0 0
+//	 FrameIndex RLGG B 0 1
+//	 FrameIndex RLGG C 0 2
+//	 FrameIndex RLGG D 0 4
+//	 FrameIndex RLGG E 0 5
+//	 FrameIndex RLGG F 0 7
+//	 FrameIndex RLGG G 0 9
+//	 FrameIndex RLGG H 0 11
 /}

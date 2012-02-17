@@ -422,6 +422,10 @@ DevastatorLeft	DSDEVILF
 $limit DevastatorRight 0
 $limit DevastatorLeft 0
 
+// Sticky Bomb
+StickyLatchedOn DSSTICK
+StickyHitWall DSSTICKW
+
 //************-MONSTERS-*************
 
 // Bishop
