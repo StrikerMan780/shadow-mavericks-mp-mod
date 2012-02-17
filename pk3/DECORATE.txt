@@ -3589,7 +3589,7 @@ actor Drink : PowerupGiver 20324
  Height 8
  Radius 8
  inventory.pickupmessage "Drank some Orange Soda! (+8 Seconds of Invul)"
- powerup.color "FF A0 00", 0.3
+ powerup.color "FF A0 00", 0.1
  powerup.duration 280
  inventory.respawntics 420
  inventory.maxamount 4
@@ -6827,6 +6827,7 @@ ACTOR MolotovCocktail : CustomInventory 25121
    Obituary "%o can't handle %k's cocktail."
    +FLOATBOB
    +INVBAR
+   +INVENTORY.KEEPDEPLETED
    States
    {
    Spawn:
