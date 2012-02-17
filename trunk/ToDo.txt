@@ -6,7 +6,6 @@ StrikerMan780
 -------------
 
 -=HQ=-
-* Add SetActivator(-1) to Ruin's house trap switch.
 * Re-Add the Cacoshooper Spawn.
 * Add mountains bordering the Island.
 * Delete Mountain Midtexture in Skybox.
