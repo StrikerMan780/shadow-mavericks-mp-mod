@@ -1590,13 +1590,24 @@ pointlight PLAYERSHADOW
 
 object Marine
 {
-	frame PLAY { light PLAYERSHADOW }
+	frame PLAYA { light PLAYERSHADOW }
+	frame PLAYB { light PLAYERSHADOW }
+	frame PLAYC { light PLAYERSHADOW }
+	frame PLAYD { light PLAYERSHADOW }
+	frame PLAYE { light PLAYERSHADOW }
     frame PLAYF { light MARINEATK }
+    frame PLAYG { light PLAYERSHADOW }
 }
 
 object Tails
 {
+	frame TAILA { light PLAYERSHADOW }
+	frame TAILB { light PLAYERSHADOW }
+	frame TAILC { light PLAYERSHADOW }
+	frame TAILD { light PLAYERSHADOW }
+	frame TAILE { light PLAYERSHADOW }
     frame TAILF { light TAILATK }
+    frame TAILG { light PLAYERSHADOW }
 }
 
 Pointlight Laser
