@@ -9515,7 +9515,7 @@ actor TechPlasma
 	Spawn:
 		TPLA A 0 BRIGHT
 		TPLA A 0 BRIGHT A_StopSound
-		TPLA A 1 BRIGHT A_SpawnItemEX("TechPlasmaTrail", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), random(-360,360), 128, 0)
+		TPLA A 1 BRIGHT A_SpawnItemEX("TechPlasmaTrail", 0, 0, 0, MOMX/2+Random(-1,1), MOMY/2+Random(-1,1), MOMZ/2+Random(-1,1), random(-360,360), SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		goto Spawn+2
 	XDeath:
 		TNT1 A 0
