@@ -9642,9 +9642,11 @@ actor Tails_TechPistol : MageWeapon
 	TEKP A 0 A_JumpIfInventory("RailGunCoreInstagib", 1, "RailModeDeselect")
 	TEKP A 0 A_JumpIfInventory("TechUpgraded", 1, "PowerDeselect")
 	TEKP A 1 A_Lower
+	TEKP A 0 A_Lower
 	goto Deselect+3
   RailModeDeselect:
 	TEKR A 1 A_Lower
+	TEKR A 0 A_Lower
 	loop
   PowerDeselect:
 	TEKS A 1 A_Lower
@@ -9654,9 +9656,11 @@ actor Tails_TechPistol : MageWeapon
 	TEKP A 0 A_JumpIfInventory("RailGunCoreInstagib", 1, "RailModeSelect")
 	TEKP A 0 A_JumpIfInventory("TechUpgraded", 1, "PowerSelect")
 	TEKP A 1 A_Raise
+	TEKP A 0 A_Raise
 	goto Select+3
   RailModeSelect:
 	TEKR A 1 A_Raise
+	TEKR A 0 A_Raise
 	loop
   PowerSelect:
 	TEKS A 1 A_Raise
