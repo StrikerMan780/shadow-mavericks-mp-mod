@@ -186,9 +186,16 @@ cluster 1
 map MPDUEL09 "Duel-a-tron 5000 - Ruin"
 sky1 CLOUDYST 0.1
 music D_ELADAR
-next map01
+next MPDUEL10
 cluster 1
 
+map MPDUEL10 "Skies of Ruin - StrikerMan780"
+music D_PSOEND
+sky1 EVILSKY3 0.0
+next MPDUEL01
+clipmidtextures
+allowcrouch
+cluster 1
 
 // **************** DUEL END ************
 

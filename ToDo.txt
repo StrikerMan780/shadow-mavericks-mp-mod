@@ -14,6 +14,10 @@ StrikerMan780
 * Add Dr. Foxy's room behind mine, connecting the two via 3D Floor tunnel.
 * Create the underground sewer system.... eventually.
 
+-=DECORATE CODE=-
+Make Tails' Sticky Bombs only cause Gibbing on explosion, rather than impact
+Make the sticky bombs not alert monsters until they explode
+
 ===========================================
 
 Kunai

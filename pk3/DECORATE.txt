@@ -1699,6 +1699,7 @@ ACTOR DisintegratingPlayer
 
 actor Marine : DoomPlayer Replaces DoomPlayer
 {
+	Species "Player"
 	-CANNOTPUSH
 	+FORCERADIUSDMG
 	Player.ScoreIcon "MARNICON"
@@ -1716,7 +1717,12 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	player.startitem "FlareCheck", 100
 	States
 	{
-		Burn:
+	COOPMode:
+		NULL A 0
+		NULL A 0 A_ChangeFlag("THRUSPECIES", 1)
+		goto Spawn
+
+	Burn:
 		 BURN A 0 A_GiveToTarget("DemonicPower", 20)
 		 BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		 BURN A 0 A_Playsound("firedeath")
@@ -1950,13 +1956,13 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 // Still only using 1 ammo per shot, making him an efficient
 // Attacker in long maps.
 
-// During the demonic attacks on mobius,
-// The arch viles were constantly reviving defeated demons, so
+// During the demon attacks on mobius,
+// Arch viles were constantly reviving defeated demons, so
 // Tails developed a serum, called Vile's Bane, which could
 // Kill an archvile instantly, without need of brute force.
 // Tails starts with 5 of these at the beginning of each map
 // Or, online, at each respawn. Throw them at an arch vile
-// to kill them instantly. The syringes cause no damage to
+// to kill them instantly. The syringes cause little damage to
 // Other monsters.
 
 // Sprites thanks to SSNTails, and the SRB2 Development Team.
@@ -2027,6 +2033,7 @@ actor DashDamager
 
 actor Tails : MagePlayer Replaces MagePlayer
 {
+	Species "Player"
 	Health 100
 	ReactionTime 0
 	PainChance 255
@@ -2066,6 +2073,10 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Player.SideMove 1
 	States
 	{
+	COOPMode:
+		NULL A 0
+		NULL A 0 A_ChangeFlag("THRUSPECIES", 1)
+		goto Spawn
 	Spawn:
 		TAIL A 0
 		TAIL A 0 ACS_ExecuteAlways(965, 0)
@@ -2522,6 +2533,7 @@ actor Walljumpcheck2 : CustomInventory
 
 actor Link : FighterPlayer Replaces FighterPlayer
 {
+	Species "Player"
 	Health 100
 	ReactionTime 0
 	PainChance 255
@@ -2556,6 +2568,10 @@ actor Link : FighterPlayer Replaces FighterPlayer
 	Player.SideMove 1
 	States
 	{
+	COOPMode:
+		NULL A 0
+		NULL A 0 A_ChangeFlag("THRUSPECIES", 1)
+		goto Spawn
 	Spawn:
 		NWPS AA 5
 		loop
@@ -2913,6 +2929,7 @@ actor DukeExplode
 
 actor DukeNukem : Link
 {
+	Species "Player"
 	Scale 0.69
 	Player.DisplayName "Duke"
 	Player.SoundClass "DukeNukem"
@@ -2928,6 +2945,10 @@ actor DukeNukem : Link
 	player.startitem "DukeClassCheck", 1
 	States
 	{
+	COOPMode:
+		NULL A 0
+		NULL A 0 A_ChangeFlag("THRUSPECIES", 1)
+		goto Spawn
 	Spawn:
 		DUKE E 2
 		DUKE E 0 A_JumpIf(waterlevel == 3, "SwimStand")
@@ -8110,7 +8131,6 @@ actor StickyBomb
 	-LOWGRAVITY
 	-NOGRAVITY
 	+EXPLODEONWATER
-	+EXTREMEDEATH
 	+FORCEXYBILLBOARD
 	+FORCERADIUSDMG
 	+SEEKERMISSILE
@@ -8161,6 +8181,7 @@ actor StickyBomb
 			goto ExplodeEnd
 
 		ExplodeEnd:
+			TNT1 A 0 A_ChangeFlag("EXTREMEDEATH", 1)
 			TNT1 A 0 radius_quake(3, 16, 0, 3, 0)
 			TNT1 A 0 A_Explode
 			TNT1 A 0 A_NoGravity
