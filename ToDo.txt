@@ -6,7 +6,6 @@ StrikerMan780
 -------------
 
 -=HQ=-
-* Re-Add the Cacoshooper Spawn.
 * Add mountains bordering the Island.
 * Delete Mountain Midtexture in Skybox.
 * Make Skybox Larger, with Google Maps aerial shots for skybox bottom.
@@ -15,8 +14,10 @@ StrikerMan780
 * Create the underground sewer system.... eventually.
 
 -=DECORATE CODE=-
-Make Tails' Sticky Bombs only cause Gibbing on explosion, rather than impact
 Make the sticky bombs not alert monsters until they explode
+
+-=MODELS=-
+Re-do the Hellbender using Per-Surface Textures
 
 ===========================================
 

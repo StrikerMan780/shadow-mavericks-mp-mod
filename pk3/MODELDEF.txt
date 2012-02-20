@@ -232,7 +232,7 @@ Model HellbenderPickup
   Path "Models/Flyer"
   Model 0 "hellbender.md3"
   Skin 0 "hellbender.png"
-  Scale 6.5 6.5 6.5
+  Scale 8.0 8.0 8.0
   ZOffset 32
 
   FrameIndex SHIP A 0 0
@@ -243,7 +243,27 @@ Model SpaceCraftInFlight
   Path "Models/Flyer"
   Model 0 "hellbender.md3"
   Skin 0 "hellbender.png"
-  Scale 6.5 6.5 6.5
+  Scale 8.0 8.0 8.0
+  ZOffset 20
+
+  FrameIndex SHI2 A 0 0
+}
+
+Model DeathbringerPickup
+{
+  Path "Models/Flyer"
+  Model 0 "Deathbringer.md3"
+  Scale 14.0 14.0 14.0
+  ZOffset 32
+
+  FrameIndex SHIP A 0 0
+}
+
+Model Flying_Deathbringer
+{
+  Path "Models/Flyer"
+  Model 0 "Deathbringer.md3"
+  Scale 14.0 14.0 14.0
   ZOffset 20
 
   FrameIndex SHI2 A 0 0
@@ -719,12 +739,35 @@ model CompanionCube
   FrameIndex COMC A 0 0
 }
 
+model RFLShot
+{
+  Path "Models/projectiles"
+  Model 0 "servolaser.md2"
+  Skin 0 "RFL20.png"
+  Scale 12.0 4.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex SERV A 0 0
+}
+
+
 model ServoShot
 {
   Path "Models/projectiles"
   Model 0 "servolaser.md2"
   Skin 0 "servolaser.png"
-  Scale 9.0 4.0 4.0
+  Scale 12.0 4.0 4.0
+  PITCHFROMMOMENTUM
+
+  FrameIndex SERV A 0 0
+}
+
+model DeathbringerServoShot
+{
+  Path "Models/projectiles"
+  Model 0 "servolaser.md2"
+  Skin 0 "servolaser2.png"
+  Scale 12.0 4.0 4.0
   PITCHFROMMOMENTUM
 
   FrameIndex SERV A 0 0

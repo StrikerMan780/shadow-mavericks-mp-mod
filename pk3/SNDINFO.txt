@@ -281,6 +281,7 @@ PlayerShipEngine DSSHPENG
 $limit PlayerShipEngine 0
 
 ServoFire DSSERVO
+DeathbringerServoFire DSSERVO2
 
 MassiveExplosion1 DSHBEXP1
 MassiveExplosion2 DSHBEXP2

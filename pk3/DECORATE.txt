@@ -17,7 +17,7 @@
 // | I want to keep this Mod's status as being unique, and it doesn't help		|
 // | it when everyone and their grandmother's fuckin shitty HQ wads have my 	|
 // | stuff poorly shoehorned in by lazy inconsiterate bastards. 				|
-// | Ruins the novelty and experience, and steals my thunder.					|
+// | Ruins the novelty and experience, in my honest opinion.					|
 // ******************************************************************************
 
 #include "actors/checksandtriggers.txt"
@@ -3235,7 +3235,7 @@ actor DukeNukem : Link
 
 actor SpaceCraftInFlight : PlayerPawn
 {
-	Health 500
+	Health 100
 	ReactionTime 0
 	PainChance 255
 	Radius 56
@@ -3243,8 +3243,9 @@ actor SpaceCraftInFlight : PlayerPawn
 	Scale 1.0
 	Mass 800
 	Gravity 0.1
-	DamageFactor "ServoLaser", 0.4
-	DamageFactor "Electric", 2.0
+	DamageFactor "Normal", 0.1
+	DamageFactor "ServoLaser", 0.25
+	DamageFactor "Electric", 1.5
 	+NOSKIN
 	+NOTELEPORT
 	+NOBLOOD
@@ -3311,6 +3312,11 @@ actor SpaceCraftInFlight : PlayerPawn
 			SHI2 A 4
 			goto See
 	}
+}
+
+actor Flying_Deathbringer : SpaceCraftInFlight
+{
+	player.morphweapon "DeathbringerCannons"
 }
 
 actor ZBishopFX : BishopFX Replaces BishopFX
@@ -4419,16 +4425,46 @@ ACTOR HellbenderPickup : CustomInventory 20525
 	Inventory.PickupMessage "Hellbender!"
 	inventory.respawntics 999999
 	+INVENTORY.INTERHUBSTRIP
+	+INVENTORY.UNDROPPABLE
 	-SOLID
-	+AUTOACTIVATE
 	States
 	{
 	Spawn:
 		SHIP A -1
 		Loop
-	Use:
+	Pickup:
+		SHIP A 0
+		SHIP A 0 A_JumpIfInventory("DeathbringerCannons", 1, "ShipFail")
+		SHIP A 0
+		goto ShipUse
+	ShipUse:
 		SHIP A 0
 		SHIP A 0 ACS_Execute(500, 0)
+		stop
+	ShipFail:
+		SHIP A 0
+		SHIP A 0
+		stop
+	}
+}
+
+Actor DeathbringerPickup : HellbenderPickup 26173
+{
+	Inventory.PickupMessage "Deathbringer!"
+	States
+	{
+	Pickup:
+		SHIP A 0
+		SHIP A 0 A_JumpIfInventory("ValkrieCannons", 1, "ShipFail")
+		SHIP A 0
+		goto ShipUse
+	ShipUse:
+		SHIP A 0
+		SHIP A 0 ACS_Execute(501, 0)
+		stop
+	ShipFail:
+		SHIP A 0
+		SHIP A 0
 		stop
 	}
 }
@@ -6467,7 +6503,7 @@ actor Nuke
 			NEXP A 0 A_BFGSpray("NukeEXTRA", 25, 1)
 			NEXP A 0 A_SpawnItemEx("NukeHuge", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 			NEXP A 0 A_SpawnItemEx("NukeExplosionRing", 0, 0, 70, 0, 0, 0, 0, 128, 0)
-			FIRE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 BRIGHT A_SpawnItemEx("NukedAreaFlames", 0, 0, Random(0, 56), Random(-12,12), Random(-12,12), Random(0,16), 0, 0, 0)
+			FIRE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 BRIGHT A_SpawnItemEx("NukedAreaFlames", 0, 0, Random(0, 56), Random(-12,12), Random(-12,12), Random(0,16), 0, 0, 76)
 			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,15+Random(-10,10))
 			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,35+Random(-10,10))
 			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,55+Random(-10,10))
@@ -8507,85 +8543,109 @@ actor ValkrieCannons : Weapon
   States
   {
   Select:
-  HBCP A 1 A_Raise
-  HBCP AAAAAAAAAAAA 0 BRIGHT A_Raise
+  TNT1 A 1 A_Raise
+  TNT1 AAAAAAAAAAAA 0 BRIGHT A_Raise
   loop
 
   Deselect:
-  NULL A 1 A_Lower
-  NULL AAAAAAAAAAAA 0 A_Lower
+  TNT1 A 1 A_Lower
+  TNT1 AAAAAAAAAAAA 0 A_Lower
   loop
 
   Ready:
-  HBCP A 1 A_WeaponReady
+  TNT1 A 1 A_WeaponReady
   loop
 
   Fire:
-  HBCP A 0 A_JumpIfInventory("SledgeHammerMode", 1, "SledgeHammerFire")
-  HBCP A 0 A_JumpIfInventory("ServoKineticMode", 1, "ServoKineticFire")
-  HBCP A 0 A_PlayWeaponSound("ValkrieFire")
-  HBCP A 1 A_FireCustomMissile("ValkrieShot", 0, 0, 40, -18)
-  HBCP A 5
-  HBCP A 0 A_PlayWeaponSound("ValkrieFire")
-  HBCP A 1 A_FireCustomMissile("ValkrieShot", 0, 0, -40, -18)
-  HBCP A 5
-  HBCP A 0 A_Refire
+  TNT1 A 0 A_JumpIfInventory("SledgeHammerMode", 1, "SledgeHammerFire")
+  TNT1 A 0 A_JumpIfInventory("ServoKineticMode", 1, "ServoKineticFire")
+  TNT1 A 0 A_PlayWeaponSound("ValkrieFire")
+  TNT1 A 1 A_FireCustomMissile("ValkrieShot", 0, 0, 45, -18)
+  TNT1 A 5
+  TNT1 A 0 A_PlayWeaponSound("ValkrieFire")
+  TNT1 A 1 A_FireCustomMissile("ValkrieShot", 0, 0, -45, -18)
+  TNT1 A 5
+  TNT1 A 0 A_Refire
   goto Ready
 
   AltFire:
-  HBCP A 0 A_JumpIfInventory("SledgeHammerMode", 1, "ValkrieMode")
-  HBCP A 0 A_JumpIfInventory("ServoKineticMode", 1, "SledgeHammerMode")
-  HBCP A 0
+  TNT1 A 0 A_JumpIfInventory("SledgeHammerMode", 1, "ValkrieMode")
+  TNT1 A 0 A_JumpIfInventory("ServoKineticMode", 1, "SledgeHammerMode")
+  TNT1 A 0
   goto ServoKineticMode
   ServoKineticMode:
-  HBCP A 0 A_GiveInventory("ServoKineticMode", 1)
-  HBCP A 0 A_TakeInventory("SledgeHammerMode", 1)
-  HBCP A 0 A_TakeInventory("ValkrieMode", 1)
-  HBCP A 10 A_PlayWeaponSound("ChangeMode")
+  TNT1 A 0 A_GiveInventory("ServoKineticMode", 1)
+  TNT1 A 0 A_TakeInventory("SledgeHammerMode", 1)
+  TNT1 A 0 A_TakeInventory("ValkrieMode", 1)
+  TNT1 A 10 A_PlayWeaponSound("ChangeMode")
   goto Ready
   SledgeHammerMode:
-  HBCP A 0 A_GiveInventory("SledgeHammerMode", 1)
-  HBCP A 0 A_TakeInventory("ServoKineticMode", 1)
-  HBCP A 0 A_TakeInventory("ValkrieMode", 1)
-  HBCP A 10 A_PlayWeaponSound("ChangeMode")
+  TNT1 A 0 A_GiveInventory("SledgeHammerMode", 1)
+  TNT1 A 0 A_TakeInventory("ServoKineticMode", 1)
+  TNT1 A 0 A_TakeInventory("ValkrieMode", 1)
+  TNT1 A 10 A_PlayWeaponSound("ChangeMode")
   goto Ready
   ValkrieMode:
-  HBCP A 0 A_TakeInventory("SledgeHammerMode", 1)
-  HBCP A 0 A_TakeInventory("ServoKineticMode", 1)
-  HBCP A 0 A_GiveInventory("ValkrieMode", 1)
-  HBCP A 10 A_PlayWeaponSound("ChangeMode")
+  TNT1 A 0 A_TakeInventory("SledgeHammerMode", 1)
+  TNT1 A 0 A_TakeInventory("ServoKineticMode", 1)
+  TNT1 A 0 A_GiveInventory("ValkrieMode", 1)
+  TNT1 A 10 A_PlayWeaponSound("ChangeMode")
   goto Ready
 
   SledgeHammerFire:
-  HBCP A 0 A_JumpIfInventory("ProtonAmmo", 2, "SledgeFireLeft")
-  HBCP A 10
+  TNT1 A 0 A_JumpIfInventory("ProtonAmmo", 2, "SledgeFireLeft")
+  TNT1 A 10
   goto Ready
   SledgeFireLeft:
-  HBCP A 0
-  HBCP A 0 A_JumpIfInventory("SledgeSelector", 1, "SledgeFireRight")
-  HBCP A 0 A_FireCustomMissile("SledgeHammerRocket", 0, 2, -40, -16)
-  HBCP A 0 A_TakeInventory("ProtonAmmo", 2)
-  HBCP A 0 A_GiveInventory("SledgeSelector", 1)
-  HBCP A 2
-  HBCP A 10
-  HBCP A 0 A_Refire
+  TNT1 A 0
+  TNT1 A 0 A_JumpIfInventory("SledgeSelector", 1, "SledgeFireRight")
+  TNT1 A 0 A_FireCustomMissile("SledgeHammerRocket", 0, 2, -40, -16)
+  TNT1 A 0 A_TakeInventory("ProtonAmmo", 2)
+  TNT1 A 0 A_GiveInventory("SledgeSelector", 1)
+  TNT1 A 2
+  TNT1 A 10
+  TNT1 A 0 A_Refire
   goto Ready
   SledgeFireRight:
-  HBCP A 0
-  HBCP A 0 A_FireCustomMissile("SledgeHammerRocket", 0, 2, 40, -16)
-  HBCP A 0 A_TakeInventory("ProtonAmmo", 2)
-  HBCP A 0 A_TakeInventory("SledgeSelector", 1)
-  HBCP A 2
-  HBCP A 10
-  HBCP A 0 A_Refire
+  TNT1 A 0
+  TNT1 A 0 A_FireCustomMissile("SledgeHammerRocket", 0, 2, 40, -16)
+  TNT1 A 0 A_TakeInventory("ProtonAmmo", 2)
+  TNT1 A 0 A_TakeInventory("SledgeSelector", 1)
+  TNT1 A 2
+  TNT1 A 10
+  TNT1 A 0 A_Refire
   goto Ready
   ServoKineticFire:
-  HBCP A 0 A_FireCustomMissile("ServoShot", 0, 0, 60, -16)
-  HBCP A 0 A_FireCustomMissile("ServoShot", 0, 0, -60, -16)
-  HBCP A 5
-  HBCP A 0 A_Refire
+  TNT1 A 0 A_FireCustomMissile("ServoShot", 0, 0, 60, -16)
+  TNT1 A 0 A_FireCustomMissile("ServoShot", 0, 0, -60, -16)
+  TNT1 A 6
+  TNT1 A 0 A_Refire
   goto Ready
   }
+}
+
+actor DeathbringerCannons : ValkrieCannons
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("SledgeHammerMode", 1, "SledgeHammerFire")
+		TNT1 A 0 A_JumpIfInventory("ServoKineticMode", 1, "ServoKineticFire")
+		TNT1 A 0 A_PlayWeaponSound("ServoFire")
+		TNT1 A 1 A_FireCustomMissile("RFLShot", 0, 0, 45, -18)
+		TNT1 A 5
+		TNT1 A 0 A_PlayWeaponSound("ServoFire")
+		TNT1 A 1 A_FireCustomMissile("RFLShot", 0, 0, -45, -18)
+		TNT1 A 5
+		TNT1 A 0 A_Refire
+		goto Ready
+	ServoKineticFire:
+		TNT1 A 0 A_FireCustomMissile("DeathbringerServoShot", 0, 0, 60, -16)
+		TNT1 A 0 A_FireCustomMissile("DeathbringerServoShot", 0, 0, -60, -16)
+		TNT1 A 6
+		TNT1 A 0 A_Refire
+		goto Ready
+	}
 }
 
 Actor ValkrieTrail
@@ -8658,6 +8718,30 @@ actor ValkrieShot : FastProjectile
 	}
 }
 
+actor RFLShot : FastProjectile
+{
+	Radius 12
+	Height 12
+	Projectile
+	+EXTREMEDEATH
+	+FORCEXYBILLBOARD
+	obituary "%o was wiped from existence by %k's RFLs."
+	Speed 225
+	SeeSound "ServoFire"
+	Damage 12
+	States
+	{
+	Spawn:
+		SERV A 1 BRIGHT
+		loop
+
+	Death:
+		TNT1 A 0 A_SpawnItemEx("ServoHit", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		TNT1 A 1
+		stop
+	}
+}
+
 Actor ServoHit
 {
 	Radius 1
@@ -8710,6 +8794,11 @@ actor ServoShot : FastProjectile
  TNT1 A 1
  stop
  }
+}
+
+actor DeathbringerServoShot : ServoShot
+{
+	SeeSound "DeathbringerServoFire"
 }
 
 Actor SledgeHammerTrail

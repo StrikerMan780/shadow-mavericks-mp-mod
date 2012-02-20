@@ -1312,13 +1312,37 @@ object SuperTechPlasma
 pointlight ServoLight
 {
  Color 0.0 1.0 0.0
- size 76
+ size 96
+}
+
+pointlight ServoLight2
+{
+ Color 1.0 0.3 0.0
+ size 96
 }
 
 object ServoShot
 {
     frame SERV { light ServoLight }
 }
+
+object DeathbringerServoShot
+{
+    frame SERV { light ServoLight2 }
+}
+
+
+pointlight RFLLight
+{
+ Color 0.25 0.15 1.0
+ size 128
+}
+
+object RFLShot
+{
+    frame SERV { light RFLLight }
+}
+
 
 pointlight ValkrieLight
 {
@@ -2217,7 +2241,7 @@ object FlareSpark2
 pointlight Headlight
 {
     color 1.0 0.9 0.75
-    size 200
+    size 256
 }
 
 object HeadLight
