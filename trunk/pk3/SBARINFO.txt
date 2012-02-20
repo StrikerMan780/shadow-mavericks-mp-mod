@@ -148,6 +148,25 @@ statusbar fullscreen, forcescaled
 		drawimage "HITCROSS", 154, 95;
 	}
 
+	IsSelected ValkrieCannons, DeathbringerCannons
+	{
+		DrawImage "PILLARBX", -66, 0;
+		DrawImage "PILLARBX", 320, 0;
+	}
+
+	IsSelected ValkrieCannons
+	{
+		DrawImage "HBCOKPIT", 0, 0;
+	}
+
+	IsSelected DeathbringerCannons
+	{
+		DrawImage "DETHBHUD", 0, 0;
+		DrawBar "DBSHIELD", "DBBARBCK", health, vertical, 17, 6;
+	}
+
+IsSelected not ValkrieCannons, DeathbringerCannons
+{ // Start
 AspectRatio "4:3"
 {
 	// DP Area -
@@ -414,6 +433,7 @@ AspectRatio "16:10"
   		DrawBar "ACCUBAR", "ACCUBACK", PistolAccuracy, horizontal, 302, 18;
   	}
 }
+} //End
 
 }
 
