@@ -3244,8 +3244,8 @@ actor SpaceCraftInFlight : PlayerPawn
 	Mass 800
 	Gravity 0.1
 	DamageFactor "Normal", 0.1
-	DamageFactor "ServoLaser", 0.25
-	DamageFactor "Electric", 1.5
+	DamageFactor "ServoLaser", 0.15
+	DamageFactor "Electric", 1.25
 	+NOSKIN
 	+NOTELEPORT
 	+NOBLOOD
