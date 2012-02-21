@@ -157,6 +157,7 @@ statusbar fullscreen, forcescaled
 	IsSelected ValkrieCannons
 	{
 		DrawImage "HBCOKPIT", 0, 0;
+		DrawBar "HBSHIELD", "HBBARBCK", health, vertical, 11, 156;
 	}
 
 	IsSelected DeathbringerCannons
