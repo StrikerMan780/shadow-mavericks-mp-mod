@@ -17,9 +17,11 @@ StrikerMan780
 Make the sticky bombs not alert monsters until they explode
 Make Tails Recover his Vile's Bane after 50 monster kills.
 
+-=MPDM04=-
+Find other ways to speed up rendering...
+
 -=MODELS=-
 Re-do the Hellbender using Per-Surface Textures
-Make Pentagram Model for Kunai's Map, MPDM04
 
 ===========================================
 
