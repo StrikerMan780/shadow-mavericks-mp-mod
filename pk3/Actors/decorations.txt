@@ -15,6 +15,24 @@ actor 64LargeHangingLamp 11875
   }
 }
 
+actor BigPentagram 15230
+{
+  Radius 16
+  Height 16
+  RenderStyle Add
+  Alpha 1.0
+  -SOLID
+  +NOINTERACTION
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+   NULL A 0
+   NULL A -1 BRIGHT
+   loop
+  }
+}
+
 actor Clock 24542
 {
   Scale 0.60

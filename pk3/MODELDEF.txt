@@ -3185,6 +3185,17 @@ Model ProtonGrenadeLauncher
    FrameIndex PUNT H 0 19
 }
 
+model BigPentagram
+{
+  Path "Models/FloorDecals"
+  Model 0 "CeilingDecal.md2"
+  Skin 0 "pentastic1.png"
+  Scale 3.5 3.5 3.5
+  ROTATING
+
+  Frame NULL A 0 "skin"
+}
+
 //Model SM_Railgun
 //{
 //	 Path "Models\HUD\Railgun"

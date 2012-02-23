@@ -1,292 +1,370 @@
-//clearepisodes
+//clearepisodes
 episode HQ
-	name "[SM] HQ"
+{
+	name = "[SM] HQ"
 	noskillmenu
+}
 
 episode COOP01
-	name "[SM] Campaign"
+{
+	name = "[SM] Campaign"
+}
 
 episode MPDM01
-	name "[SM] Deathmatch"
+{
+	name = "[SM] Deathmatch"
+}
 
 episode MPDUEL01
-	name "[SM] Duel"
+{
+	name = "[SM] Duel"
+}
 
-clusterdef 8
-	flat WFWATER1
+cluster 8
+{
+	flat = WFWATER1
+}
 
 map TITLEMAP "WTF IS THIS SHIT?!"
-sky1 bsky2 0.08
-music ""
-smoothlighting
-forcenoskystretch
-NOBOTNODES
-cluster 999
+{
+	sky1 = bsky2, 0.08
+	music = ""
+	smoothlighting
+	forcenoskystretch
+	NOBOTNODES
+	cluster = 999
+}
 
 map HQ "[SM] HQ"
-sky1 bsky2 0.01
-skyrotate 0 1 1
-levelnum 1
-music ""
-smoothlighting
-forcenoskystretch
-clipmidtextures
-allowcrouch
-NOBOTNODES
-next PRISON
-cluster 8
+{
+	sky1 = bsky2, 0.01
+	levelnum = 1
+	music = ""
+	smoothlighting
+	forcenoskystretch
+	clipmidtextures
+	allowcrouch
+	NOBOTNODES
+	next = PRISON
+	cluster = 8
+}
 
 map PRISON "[SM] PRISON"
-sky1 sky1 0.0
-music D_SHAWN
-levelnum 2
-next HQ
-cluster 8
+{
+	sky1 = sky1, 0.0
+	music = D_SHAWN
+	levelnum = 2
+	next = HQ
+	cluster = 8
+}
 
 // **************** DEATHMATCH MAPS ******************
 
 map MPDM01 "In The Bushes"
-sky1 bsky1 0.0
-music ""
-levelnum 10
-clipmidtextures
-next MPDM02
-allowcrouch
-cluster 1
+{
+	sky1 = bsky1, 0.0
+	music = ""
+	levelnum = 10
+	clipmidtextures
+	next = MPDM02
+	allowcrouch
+	cluster = 1
+}
 
 map MPDM02 "Spaceship Cargo Platform - StrikerMan780"
-next MPDM03
-music D_FORTUN
-sky1 bsky1 0.1
-allowcrouch
-clipmidtextures
-forcenoskystretch
+{
+	next = MPDM03
+	music = D_FORTUN
+	sky1 = bsky1, 0.1
+	allowcrouch
+	clipmidtextures
+	forcenoskystretch
+}
 
 map MPDM03 "Altar Of Death - StrikerMan780"
-next MPDM04
-lightning
-music D_SEPHIR
-sky1 BKSKY1 0.1
+{
+	next = MPDM04
+	lightning
+	music = D_SEPHIR
+	sky1 = BKSKY1, 0.1
+}
 
 map MPDM04 "Forsaken Graveyard - Alucard"
-music D_WDS
-sky1 SKY1 0.0
-evenlighting
-next MPDM05
-clipmidtextures
-cluster 1
+{
+	music = D_WDS
+	sky1 = SKY1, 0.0
+	evenlighting
+	next = MPDM05
+	clipmidtextures
+	cluster = 1
+}
 
-Map MPDM05 "Lost Caverns - Ryuichi Kaoin"
-Next MPDM06
-Sky1 STSKY7 0.2
-Music D_CAVE
-clipmidtextures
-allowcrouch
-cluster 1
+map MPDM05 "Lost Caverns - Ryuichi Kaoin"
+{
+	Next = MPDM06
+	Sky1 = STSKY7, 0.2
+	Music = D_CAVE
+	clipmidtextures
+	allowcrouch
+	cluster = 1
+}
 
 map MPDM06 "Tainted Blood - Ruin and StrikerMan780"
-sky1 BKSKY1 0.1
-lightning
-allowcrouch
-clipmidtextures
-music D_DARKSI
-next MPDM07
+{
+	sky1 = BKSKY1, 0.1
+	lightning
+	allowcrouch
+	clipmidtextures
+	music = D_DARKSI
+	next = MPDM07
+}
 
 map MPDM07 "Ravage - StrikerMan780"
-music d_l24d
-sky1 DONNITE 0
-next MPDM08
-cluster 1
+{
+	music = d_l24d
+	sky1 = DONNITE, 0
+	next = MPDM08
+	cluster = 1
+}
 
 map MPDM08 "CityScape - StrikerMan780"
-sky1 bsky1 0.1
-music D_CITYSC
-forcenoskystretch
-allowcrouch
-clipmidtextures
-next MPDM09
-cluster 1
+{
+	sky1 = bsky1, 0.1
+	music = D_CITYSC
+	forcenoskystretch
+	allowcrouch
+	clipmidtextures
+	next = MPDM09
+	cluster = 1
+}
 
 map MPDM09 "Cruelty Tech - StrikerMan780 And Kunai"
-sky1 STSKY1 0.0
-music D_ABANDN
-next MPDM10
-clipmidtextures
-par 300
+{
+	sky1 = STSKY1, 0.0
+	music = D_ABANDN
+	next = MPDM10
+	clipmidtextures
+	par = 300
+}
 
 map MPDM10 "House Blueprint - StrikerMan780"
-sky1 DONNITE 0.0
-music D_DRENAL
-next MPDM01
-clipmidtextures
-par 300
+{
+	sky1 = DONNITE, 0.0
+	music = D_DRENAL
+	next = MPDM01
+	clipmidtextures
+	par = 300
+}
 
 // *************** DUEL START **********
 
 map MPDUEL01 "Magma Caves - StrikerMan780"
-sky1 sky3 0.0
-music D_JBDAMN
-next MPDUEL02
-cluster 1
+{
+	sky1 = sky3, 0.0
+	music = D_JBDAMN
+	next = MPDUEL02
+	cluster = 1
+}
 
 map MPDUEL02 "Testament - Ruin"
-sky1 BKSKY1 0.0
-music D_TESTAM
-next MPDUEL03
-clipmidtextures
-par 300
+{
+	sky1 = BKSKY1, 0.0
+	music = D_TESTAM
+	next = MPDUEL03
+	clipmidtextures
+	par = 300
+}
 
 map MPDUEL03 "Space Enigma - StrikerMan780"
-next MPDUEL04
-music D_ENIGMA
-clipmidtextures
-allowcrouch
-forcenoskystretch
-sky1 DOENITE 0.0
+{
+	next = MPDUEL04
+	music = D_ENIGMA
+	clipmidtextures
+	allowcrouch
+	forcenoskystretch
+	sky1 = DOENITE, 0.0
+}
 
 map MPDUEL04 "Digital Duel - Ruin and Kunai"
-sky1 DONNITE 0.0
-music D_UNOWEN
-next MPDUEL05
-clipmidtextures
-par 300
+{
+	sky1 = DONNITE, 0.0
+	music = D_UNOWEN
+	next = MPDUEL05
+	clipmidtextures
+	par = 300
+}
 
 map MPDUEL05 "[SM] Training Dojo - Ruin"
-sky1 DONNITE 0.0
-music D_OGRE
-next MPDUEL06
-clipmidtextures
-par 300
+{
+	sky1 = DONNITE, 0.0
+	music = D_OGRE
+	next = MPDUEL06
+	clipmidtextures
+	par = 300
+}
 
 map MPDUEL06 "BioTech - Ruin"
-sky1 S_CITY 0.0
-music D_UNDER
-next MPDUEL07
-clipmidtextures
-par 300
+{
+	sky1 = S_CITY, 0.0
+	music = D_UNDER
+	next = MPDUEL07
+	clipmidtextures
+	par = 300
+}
 
 map MPDUEL07 "GunZ: Hallway - Ruin"
-music D_SHINRA
-sky1 DONNITE 0.0
-next MPDUEL08
-clipmidtextures
-allowcrouch
-cluster 1
+{
+	music = D_SHINRA
+	sky1 = DONNITE, 0.0
+	next = MPDUEL08
+	clipmidtextures
+	allowcrouch
+	cluster = 1
+}
 
 //Forgotten Base designed by Tyler Bell a.k.a. Ruin.  Don't be a dick and steal the particle
 //and text mid-textures, its not hard, make your own.
+
 map MPDUEL08 "Forgotten Base - Ruin"
-sky1 cloudyst 0.0
-music D_MM9WS2
-next MPDUEL09
-evenlighting
-allowcrouch
-cluster 1
+{
+	sky1 = cloudyst, 0.0
+	music = D_MM9WS2
+	next = MPDUEL09
+	evenlighting
+	allowcrouch
+	cluster = 1
+}
 
 map MPDUEL09 "Duel-a-tron 5000 - Ruin"
-sky1 CLOUDYST 0.1
-music D_ELADAR
-next MPDUEL10
-cluster 1
+{
+	sky1 = CLOUDYST, 0.1
+	music = D_ELADAR
+	next = MPDUEL10
+	cluster = 1
+}
 
 map MPDUEL10 "Skies of Ruin - StrikerMan780"
-music D_PSOEND
-sky1 EVILSKY3 0.0
-next MPDUEL01
-clipmidtextures
-allowcrouch
-cluster 1
+{
+	music = D_PSOEND
+	sky1 = EVILSKY3, 0.0
+	next = MPDUEL01
+	clipmidtextures
+	allowcrouch
+	cluster = 1
+}
 
 // **************** DUEL END ************
 
 // **************** CTF MAPS *********************
 
 map MPCTF01 "Doom Gulch - StrikerMan780"
-music d_FF7BO
-sky1 bsky1 0.1
-forcenoskystretch
-evenlighting
-allowcrouch
-clipmidtextures
-next MPCTF02
-cluster 1
+{
+	music = d_FF7BO
+	sky1 = bsky1, 0.1
+	forcenoskystretch
+	evenlighting
+	allowcrouch
+	clipmidtextures
+	next = MPCTF02
+	cluster = 1
+}
 
 map MPCTF02 "Inferno CTF - Ruin"
-music D_SHIVA
-sky1 DONNITE 0.0
-next MPCTF03
-clipmidtextures
-allowcrouch
-cluster 1
+{
+	music = D_SHIVA
+	sky1 = DONNITE, 0.0
+	next = MPCTF03
+	clipmidtextures
+	allowcrouch
+	cluster = 1
+}
 
 map MPCTF03 "Station Sector B - Ruin"
-music D_SUN
-sky1 SPACESKY 0.0
-next MPCTF04
-clipmidtextures
-allowcrouch
-cluster 1
+{
+	music = D_SUN
+	sky1 = SPACESKY, 0.0
+	next = MPCTF04
+	clipmidtextures
+	allowcrouch
+	cluster = 1
+}
 
 map MPCTF04 "Costa Del [GBTW] - Ruin"
-sky1 BSKY1 0.1
-music D_COSTA
-forcenoskystretch
-allowcrouch
-clipmidtextures
-next MPCTF05
-cluster 1
+{
+	sky1 = BSKY1, 0.1
+	music = D_COSTA
+	forcenoskystretch
+	allowcrouch
+	clipmidtextures
+	next = MPCTF05
+	cluster = 1
+}
 
 map MPCTF05 "Cosmic Chaos - Kunai"
-sky1 bsky1 0.1
-music D_Cosmic
-forcenoskystretch
-allowcrouch
-clipmidtextures
-next MPCTF06
-cluster 1
+{
+	sky1 = bsky1, 0.1
+	music = D_Cosmic
+	forcenoskystretch
+	allowcrouch
+	clipmidtextures
+	next = MPCTF06
+	cluster = 1
+}
 
 map MPCTF06 "Tron CTF - Ruin and SM780"
-next SOCCER
-music D_ROFCAT
-clipmidtextures
-sky1 STARSKY1 0.0
+{
+	next = SOCCER
+	music = D_ROFCAT
+	clipmidtextures
+	sky1 = STARSKY1, 0.0
+}
 
 map SOCCER "[GBTW] Floating Soccer Arena - StrikerMan780"
-sky1 bsky1 0.1
-music D_FIREEM
-next MPCTF07
-cluster 1
+{
+	sky1 = bsky1, 0.1
+	music = D_FIREEM
+	next = MPCTF07
+	cluster = 1
+}
 
 map MPCTF07 "DE_Dust CTF - Ruin and Kunai"
-sky1 BSKY1 0.1
-music D_LAUNCH
-next MPCTF01
-cluster 1
+{
+	sky1 = BSKY1, 0.1
+	music = D_LAUNCH
+	next = MPCTF01
+	cluster = 1
+}
 
 // ************** CTF END *************
 
 // ************** LMS MAPS ************
 
+
 map MPLMS01 "The Gas Chamber - Ruin"
-sky1 DONNITE 0.0
-music D_MAKO
-next MPLMS01
-cluster 1
+{
+	sky1 = DONNITE, 0.0
+	music = D_MAKO
+	next = MPLMS01
+	cluster = 1
+}
 
 // ************** LMS END *************
 
-//Mapinfo for (What was once going to be) CDoom64: Map 58
-Map COOP01 "Canyon Facility"
-Next COOP02
-clipmidtextures
-Sky1 Sky1 0.1
-Music "D_RAGE"
-cluster 20
+map COOP01 "Canyon Facility"
+{
+	Next = COOP02
+	clipmidtextures
+	Sky1 = Sky1, 0.1
+	Music = "D_RAGE"
+	cluster = 20
+}
 
-Map COOP02 "SkyNet Satellite Base"
-Next COOP03
-clipmidtextures
-Sky1 REDSKY1 0.15
-Music "D_FURY3F"
-cluster 20
+map COOP02 "SkyNet Satellite Base"
+{
+	Next = COOP03
+	clipmidtextures
+	Sky1 = REDSKY1, 0.15
+	Music = "D_FURY3F"
+	cluster = 20
+}
 
