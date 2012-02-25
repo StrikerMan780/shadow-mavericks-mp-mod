@@ -7743,6 +7743,7 @@ Actor FlakTrail
 	Height 1
 	RenderStyle Add
 	Alpha 0.6
+	Scale 1.25
 	+DONTSPLASH
 	+NOGRAVITY
 	+CLIENTSIDEONLY
@@ -7804,7 +7805,7 @@ actor FlakShard
 		goto Fall
 	Fall:
 		METL C 0 A_Gravity
-		METL CCCCDDDD 1 BRIGHT A_SpawnItemEX("FlakTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		METL CCCCDDDD 1 BRIGHT A_SpawnItemEX("FlakTrail", 0, 0, 0, MOMX/2, MOMY/2, MOMZ/2, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		goto Cooled
 	Cooled:
 		METL EEEEEEEE 1 A_SpawnItemEX("FlakPuff", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
