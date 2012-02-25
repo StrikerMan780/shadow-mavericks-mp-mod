@@ -22,7 +22,7 @@ pic  3  tics 8
 pic  4  tics 8
 pic  5  tics 8
 
-texture water0
+flat water0
 pic 1 tics 2
 pic 2 tics 2
 pic 3 tics 2
@@ -173,7 +173,7 @@ flat NUKAGE3
 	pic	NUKAGE11 tics 2
 	pic	NUKAGE12 tics 2
 
-texture SNUKE1
+flat SNUKE1
 	pic	SNUKE1 tics 2
 	pic	SNUKE2 tics 2
 	pic	SNUKE3 tics 2
@@ -187,7 +187,7 @@ texture SNUKE1
 	pic	SNUKE11 tics 2
 	pic	SNUKE12 tics 2
 
-texture SNUKE2
+flat SNUKE2
 	pic	SNUKE1 tics 2
 	pic	SNUKE2 tics 2
 	pic	SNUKE3 tics 2
@@ -201,7 +201,7 @@ texture SNUKE2
 	pic	SNUKE11 tics 2
 	pic	SNUKE12 tics 2
 
-texture SNUKE3
+flat SNUKE3
 	pic	SNUKE1 tics 2
 	pic	SNUKE2 tics 2
 	pic	SNUKE3 tics 2
