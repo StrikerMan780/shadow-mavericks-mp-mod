@@ -32,30 +32,34 @@ map TITLEMAP "WTF IS THIS SHIT?!"
 	smoothlighting
 	forcenoskystretch
 	NOBOTNODES
-	cluster = 999
 }
 
 map HQ "[SM] HQ"
 {
 	sky1 = bsky2, 0.01
-	levelnum = 1
 	music = ""
 	smoothlighting
 	forcenoskystretch
 	clipmidtextures
 	allowcrouch
 	NOBOTNODES
-	next = PRISON
-	cluster = 8
+}
+
+map OLDHQ "[GBTW] HQ - Circa 2007"
+{
+	sky1 = bsky1, 0.0
+	music = "D_STAIRS"
+	smoothlighting
+	forcenoskystretch
+	clipmidtextures
+	allowcrouch
+	NOBOTNODES
 }
 
 map PRISON "[SM] PRISON"
 {
 	sky1 = sky1, 0.0
 	music = D_SHAWN
-	levelnum = 2
-	next = HQ
-	cluster = 8
 }
 
 // **************** DEATHMATCH MAPS ******************
@@ -68,7 +72,6 @@ map MPDM01 "In The Bushes"
 	clipmidtextures
 	next = MPDM02
 	allowcrouch
-	cluster = 1
 }
 
 map MPDM02 "Spaceship Cargo Platform - StrikerMan780"
@@ -96,7 +99,6 @@ map MPDM04 "Forsaken Graveyard - Alucard"
 	evenlighting
 	next = MPDM05
 	clipmidtextures
-	cluster = 1
 }
 
 map MPDM05 "Lost Caverns - Ryuichi Kaoin"
@@ -106,7 +108,6 @@ map MPDM05 "Lost Caverns - Ryuichi Kaoin"
 	Music = D_CAVE
 	clipmidtextures
 	allowcrouch
-	cluster = 1
 }
 
 map MPDM06 "Tainted Blood - Ruin and StrikerMan780"
@@ -124,7 +125,6 @@ map MPDM07 "Ravage - StrikerMan780"
 	music = d_l24d
 	sky1 = DONNITE, 0
 	next = MPDM08
-	cluster = 1
 }
 
 map MPDM08 "CityScape - StrikerMan780"
@@ -135,7 +135,6 @@ map MPDM08 "CityScape - StrikerMan780"
 	allowcrouch
 	clipmidtextures
 	next = MPDM09
-	cluster = 1
 }
 
 map MPDM09 "Cruelty Tech - StrikerMan780 And Kunai"
@@ -163,7 +162,6 @@ map MPDUEL01 "Magma Caves - StrikerMan780"
 	sky1 = sky3, 0.0
 	music = D_JBDAMN
 	next = MPDUEL02
-	cluster = 1
 }
 
 map MPDUEL02 "Testament - Ruin"
@@ -219,7 +217,6 @@ map MPDUEL07 "GunZ: Hallway - Ruin"
 	next = MPDUEL08
 	clipmidtextures
 	allowcrouch
-	cluster = 1
 }
 
 //Forgotten Base designed by Tyler Bell a.k.a. Ruin.  Don't be a dick and steal the particle
@@ -232,7 +229,6 @@ map MPDUEL08 "Forgotten Base - Ruin"
 	next = MPDUEL09
 	evenlighting
 	allowcrouch
-	cluster = 1
 }
 
 map MPDUEL09 "Duel-a-tron 5000 - Ruin"
@@ -240,7 +236,6 @@ map MPDUEL09 "Duel-a-tron 5000 - Ruin"
 	sky1 = CLOUDYST, 0.1
 	music = D_ELADAR
 	next = MPDUEL10
-	cluster = 1
 }
 
 map MPDUEL10 "Skies of Ruin - StrikerMan780"
@@ -250,7 +245,6 @@ map MPDUEL10 "Skies of Ruin - StrikerMan780"
 	next = MPDUEL01
 	clipmidtextures
 	allowcrouch
-	cluster = 1
 }
 
 // **************** DUEL END ************
@@ -266,7 +260,6 @@ map MPCTF01 "Doom Gulch - StrikerMan780"
 	allowcrouch
 	clipmidtextures
 	next = MPCTF02
-	cluster = 1
 }
 
 map MPCTF02 "Inferno CTF - Ruin"
@@ -276,7 +269,6 @@ map MPCTF02 "Inferno CTF - Ruin"
 	next = MPCTF03
 	clipmidtextures
 	allowcrouch
-	cluster = 1
 }
 
 map MPCTF03 "Station Sector B - Ruin"
@@ -286,7 +278,6 @@ map MPCTF03 "Station Sector B - Ruin"
 	next = MPCTF04
 	clipmidtextures
 	allowcrouch
-	cluster = 1
 }
 
 map MPCTF04 "Costa Del [GBTW] - Ruin"
@@ -297,7 +288,6 @@ map MPCTF04 "Costa Del [GBTW] - Ruin"
 	allowcrouch
 	clipmidtextures
 	next = MPCTF05
-	cluster = 1
 }
 
 map MPCTF05 "Cosmic Chaos - Kunai"
@@ -308,7 +298,6 @@ map MPCTF05 "Cosmic Chaos - Kunai"
 	allowcrouch
 	clipmidtextures
 	next = MPCTF06
-	cluster = 1
 }
 
 map MPCTF06 "Tron CTF - Ruin and SM780"
@@ -324,7 +313,6 @@ map SOCCER "[GBTW] Floating Soccer Arena - StrikerMan780"
 	sky1 = bsky1, 0.1
 	music = D_FIREEM
 	next = MPCTF07
-	cluster = 1
 }
 
 map MPCTF07 "DE_Dust CTF - Ruin and Kunai"
@@ -332,7 +320,6 @@ map MPCTF07 "DE_Dust CTF - Ruin and Kunai"
 	sky1 = BSKY1, 0.1
 	music = D_LAUNCH
 	next = MPCTF01
-	cluster = 1
 }
 
 // ************** CTF END *************
@@ -345,7 +332,6 @@ map MPLMS01 "The Gas Chamber - Ruin"
 	sky1 = DONNITE, 0.0
 	music = D_MAKO
 	next = MPLMS01
-	cluster = 1
 }
 
 // ************** LMS END *************
@@ -356,7 +342,6 @@ map COOP01 "Canyon Facility"
 	clipmidtextures
 	Sky1 = Sky1, 0.1
 	Music = "D_RAGE"
-	cluster = 20
 }
 
 map COOP02 "SkyNet Satellite Base"
@@ -365,6 +350,5 @@ map COOP02 "SkyNet Satellite Base"
 	clipmidtextures
 	Sky1 = REDSKY1, 0.15
 	Music = "D_FURY3F"
-	cluster = 20
 }
 

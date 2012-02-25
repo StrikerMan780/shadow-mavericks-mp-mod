@@ -1,3 +1,8 @@
+ACTOR FloatBobSkyViewpoint : SkyViewpoint 11482
+{
+	+FLOATBOB
+}
+
 actor RocketFire
 {
  Height 2

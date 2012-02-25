@@ -7,9 +7,7 @@ StrikerMan780
 
 -=HQ=-
 * Add mountains bordering the Island.
-* Delete Mountain Midtexture in Skybox.
 * Make Skybox Larger, with Google Maps aerial shots for skybox bottom.
-* Fix 3D Floors above bubble tubes on Nightclub.
 * Add Dr. Foxy's room behind mine, connecting the two via 3D Floor tunnel.
 * Create the underground sewer system.... eventually.
 

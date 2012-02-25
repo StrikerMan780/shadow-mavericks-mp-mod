@@ -3210,4 +3210,196 @@ model BigPentagram
 //	 FrameIndex RLGG F 0 7
 //	 FrameIndex RLGG G 0 9
 //	 FrameIndex RLGG H 0 11
-/}
+//}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktex.png"
+ Model 1 "bfg10kBeam.md3"
+ Skin 1 "10ktex.png"
+ Model 2 "bfg10kplasma.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+	NoInterpolation
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G E 0 0	 FrameIndex BG2G E 1 4	 FrameIndex BG2G E 2 0
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexF2.png"
+ Model 2 "bfg10kplasma.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+	InterpolateDoubleFrames
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G F 0 0	 FrameIndex BG2G F 2 1
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexf3.png"
+ Model 2 "bfg10kplasma.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+	InterpolateDoubleFrames
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G G 0 0	 FrameIndex BG2G G 2 2
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexf4.png"
+ Model 2 "bfg10kplasma.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+	InterpolateDoubleFrames
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G H 0 0	 FrameIndex BG2G H 2 3
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexf5.png"
+ Model 2 "bfg10kplasma.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+	InterpolateDoubleFrames
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G I 0 0	 FrameIndex BG2G I 2 4
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexf.png"
+ Model 2 "bfg10kplasma.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+	InterpolateDoubleFrames
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G J 0 0	 FrameIndex BG2G J 2 5
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktex.png"
+ Model 1 "bfg10kBeam.md3"
+ Skin 1 "10ktex.png"
+
+	InterpolateDoubleFrames
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G A 0 0	 FrameIndex BG2G A 1 0
+ FrameIndex BG2G B 0 0	 FrameIndex BG2G B 1 1
+ FrameIndex BG2G C 0 0	 FrameIndex BG2G C 1 2
+ FrameIndex BG2G D 0 0	 FrameIndex BG2G D 1 3
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexF3.png"
+ Model 1 "bfg10kFlash.md3"
+ Skin 1 "energy_flash0.png"
+ Model 2 "bfg10kplasma2.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+ scale -1.0 1.0 1.0
+ FrameIndex BG2G K 0 1	FrameIndex BG2G K 1 1	FrameIndex BG2G K 2 1
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexF4.png"
+ Model 1 "bfg10kFlash.md3"
+ Skin 1 "energy_flash1.png"
+ Model 2 "bfg10kplasma2.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G L 0 2	FrameIndex BG2G L 1 2	FrameIndex BG2G L 2 2
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexF5.png"
+ Model 1 "bfg10kFlash.md3"
+ Skin 1 "energy_flash2.png"
+ Model 2 "bfg10kplasma2.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G M 0 3	FrameIndex BG2G M 1 3	FrameIndex BG2G M 2 3
+ FrameIndex BG2G N 0 4	FrameIndex BG2G N 1 4	FrameIndex BG2G N 2 4
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexF5.png"
+ Model 1 "bfg10kFlash.md3"
+ Skin 1 "energy_flash2.png"
+ Model 2 "bfg10kplasma2.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+ scale -1.0 1.0 1.0
+
+ FrameIndex BG2G N 0 4	FrameIndex BG2G N 1 4	FrameIndex BG2G N 2 4
+}
+
+Model SM_BFG10K
+{
+ Path "Models/Hud/BFG10k"
+
+ Model 0 "bfg10khud.md3"
+ skin 0 "10ktexf.png"
+ Model 1 "bfg10kFlash.md3"
+ Skin 1 "energy_flash2.png"
+ Model 2 "bfg10kplasma2.md3"
+ Skin 2 "Green_plasma_skin.png"
+
+ scale -1.0 1.0 1.0
+
+NoInterpolation
+
+ FrameIndex BG2G O 0 0	FrameIndex BG2G O 1 0	FrameIndex BG2G O 2 999
+}
