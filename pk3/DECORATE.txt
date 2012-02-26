@@ -6713,24 +6713,6 @@ actor Raining32 16000
 	}
 }
 
-actor CandleChandleir 18000
-{
-	Radius 16
-	Height 36
-	Scale 0.88
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+SOLID
-	+NOGRAVITY
-	States
-	{
-	Spawn:
-		CHND ABC 6 BRIGHT
-		Loop
-	}
-}
-
 actor SaberColor : CustomInventory 10592
 {
   inventory.pickupmessage "Lightsaber Color Changer (Use inventory Bar to activate)"
@@ -7749,8 +7731,9 @@ Actor FlakTrail
 	+CLIENTSIDEONLY
 	+FORCEXYBILLBOARD
 	+NOBLOCKMAP
-	+NOINTERACTION
+	+MISSILE
 	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
 	States
 	{
 	Spawn:

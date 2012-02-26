@@ -2263,6 +2263,32 @@ object FireRodShot
 	frame RODF { light FireRodShot1 }
 }
 
+// Red Candle Stick
+pointlight RedCandleStick
+{
+    color 1.0 0.0 0.0
+    size 16
+    offset 0 16 0
+}
+
+object RedCandleStick
+{
+    frame CANR { light RedCandleStick }
+}
+
+// Blue Candle Stick
+pointlight BlueCandleStick
+{
+    color 0.0 0.1 1.0
+    size 16
+    offset 0 16 0
+}
+
+object BlueCandleStick
+{
+    frame CANB { light BlueCandleStick }
+}
+
 skybox ORBIT fliptop
 {
 	ORBIT270
