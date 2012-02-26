@@ -1,6 +1,6 @@
 // Note from Striker - I do not claim ownership or credit for any of the models listed in here.
 // I've only recieved permission to use them, that is all.
-// The people to credit here are DaniJ, Recurracy, and Sitters.
+// The people to credit here are DaniJ, Recurracy, -=Dark-Assassin=-, and Sitters.
 // If I've missed anyone to credit, email me at mossj32@gmail.com ...
 
 //**************************
@@ -531,4 +531,216 @@ Model RedCandlestick
    scale 0.5 0.5 0.5
 
    FrameIndex CANR A 0 0	   FrameIndex CANR A 1 0
+}
+
+model CandleChandelier
+{
+	Path "Models/Decoration/Lights"
+	model 0 "chandelr.md2"
+	skin 0 "chandelr.png"
+	scale 1.0 1.0 1.0
+	ZOffset -8
+
+	FrameIndex CHND A 0 0
+}
+
+Model BigTree
+{
+   Path "Models\decoration\tree"
+   model 0 "Bigtree.md3"
+   skin 0 "Bigtree.Png"
+   scale 1.25 1.25 2.0
+
+   FrameIndex TRE2 A 0 0
+}
+
+Model Stalagtite
+{
+   Path "Models\decoration\tree"
+   model 0 "Stalag.md2"
+   skin 0 "Stalag.png"
+   scale 1.6 1.6 1.6
+
+   FrameIndex SMIT A 0 0
+}
+
+Model tallgreencolumn
+{
+   Path "Models\decoration\pillar"
+   model 0 "Tallpillar.md2"
+   skin 0 "greenStone2.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL1 A 0 0
+}
+
+Model tallredcolumn
+{
+   Path "Models\decoration\pillar"
+   model 0 "Tallpillar.md2"
+   skin 0 "RedStone2.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL3 A 0 0
+}
+
+Model shortredcolumn
+{
+   Path "Models\decoration\pillar"
+   model 0 "stonepillar.md2"
+   skin 0 "redstonepillar.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL4 A 0 0
+}
+Model shortgreencolumn
+{
+   Path "Models\decoration\pillar"
+   model 0 "stonepillar.md2"
+   skin 0 "greenstonepillar.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL2 A 0 0
+}
+
+Model SKULLcolumn
+{
+   Path "Models\decoration\pillar"
+   model 0 "Stonepillar.md2"
+   model 1 "Skull.md3"
+   skin 0 "greenstonepillar.png"
+   skin 1 "SKULL.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL6 A 0 0   FrameIndex COL6 A 1 0
+}
+
+Model HEARTcolumn
+{
+   Path "Models\decoration\pillar"
+   model 0 "Stonepillar.md2"
+   model 1 "heart.md3"
+   skin 0 "heartpillar.png"
+   skin 1 "heart.png"
+   scale 1.0 1.0 1.25
+   FrameIndex COL5 A 0 0	   FrameIndex COL5 A 1 0
+   FrameIndex COL5 B 0 0	   FrameIndex COL5 B 1 1
+}
+
+Model FloatingSkull
+{
+   Path "Models\Decoration\Misc"
+   model 0 "floatskull.md3"
+   skin 0 "floatskull.png"
+   scale 1.0 1.0 1.0
+   Rotating
+
+   FrameIndex FSKU A 0 0
+   FrameIndex FSKU B 0 0
+   FrameIndex FSKU C 0 0
+}
+
+Model TorchTree
+{
+   Path "Models\Decoration\Tree"
+   model 0 "TREE.md3"
+   skin 0 "Tree.png"
+   scale 0.5 0.5 0.5
+
+   FrameIndex TRE1 A 0 0
+}
+
+Model RedTechLamp
+{
+   Path "Models/Decoration/Lights/BigTechLamp"
+   Model 0 "Biglamp.md2"
+   Model 1 "biglamp_glass.md2"
+   Skin 0 "BiglampR.png"
+   Skin 1 "biglampR.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex TLP3 A 0 0
+   FrameIndex TLP3 B 0 0
+   FrameIndex TLP3 C 0 0
+   FrameIndex TLP3 D 0 0
+}
+
+Model RedTechLamp2
+{
+   Path "Models/Decoration/Lights/TechLamp"
+   Model 0 "Mediumlamp.md2"
+   Model 1 "MediumLamp_Glass.md2"
+   Model 2 "MediumLamp_Disc.md2"
+   Skin 0 "MediumlampR.png"
+   Skin 1 "MediumlampR.png"
+   Skin 2 "MediumLamp_Disc.tga"
+   Scale 0.175 0.175 0.175
+
+   FrameIndex TLP4 A 0 0
+   FrameIndex TLP4 B 0 0
+   FrameIndex TLP4 C 0 0
+   FrameIndex TLP4 D 0 0
+}
+
+Model Stalagmite
+{
+   Path "Models/decoration/tree"
+   model 0 "Stalag.md2"
+   skin 0 "StalagGrey.png"
+   scale 1.0 1.0 1.5
+
+   FrameIndex SMT2 A 0 0
+}
+Model TallGothicColumn
+{
+   Path "Models/decoration/pillar"
+   model 0 "Tallpillar.md2"
+   skin 0 "greyStone2.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex GCOL A 0 0
+}
+Model tallGreycolumn
+{
+   Path "Models/decoration/pillar"
+   model 0 "Tallpillar.md2"
+   skin 0 "greyStone2.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL7 A 0 0
+}
+
+Model Greycolumn
+{
+   Path "Models/decoration/pillar"
+   model 0 "stonepillar.md2"
+   skin 0 "Greystonepillar.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL8 A 0 0
+}
+Model GreyHEARTcolumn
+{
+   Path "Models/decoration/pillar"
+   model 0 "stonepillar.md2"
+   model 1 "heart.md3"
+   skin 0 "Greyheartpillar.png"
+   skin 1 "heart.png"
+   scale 1.0 1.0 1.25
+
+   FrameIndex COL9 A 0 0	   FrameIndex COL9 A 1 0
+   FrameIndex COL9 B 0 0	   FrameIndex COL9 B 1 1
+}
+
+Model FloatingBobbingSkull
+{
+   Path "Models/Decoration/misc"
+   model 0 "floatskull.md3"
+   skin 0 "floatskull.png"
+   scale 1.0 1.0 1.0
+   Rotating
+
+   FrameIndex FSKU A 0 0
+   FrameIndex FSKU B 0 0
+   FrameIndex FSKU C 0 0
 }

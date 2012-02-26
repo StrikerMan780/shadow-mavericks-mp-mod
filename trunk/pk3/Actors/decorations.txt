@@ -1,5 +1,47 @@
 // ********** START OF PROPS **********
 
+actor CandleChandelier 18000
+{
+	Radius 16
+	Height 36
+	Scale 0.88
+	Speed 0
+	Mass 9999999
+	+SPAWNCEILING
+	+SOLID
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", 0, 26, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 0)
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", 0, -26, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 0)
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", 26, 0, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 0)
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", -26, 0, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 0)
+		CHND A 1
+		Loop
+	}
+}
+
+actor ChandelierFlames
+{
+  Radius 4
+  Height 4
+  RenderStyle Add
+  Alpha 1.0
+  YScale 0.15
+  XScale 0.12
+  -SOLID
+  +NOGRAVITY
+  +CLIENTSIDEONLY
+  +ALLOWCLIENTSPAWN
+  States
+  {
+  Spawn:
+  FORA ABCD 1 BRIGHT A_Fadeout
+  loop
+  }
+}
+
 actor 64LargeHangingLamp 11875
 {
   Radius 10
