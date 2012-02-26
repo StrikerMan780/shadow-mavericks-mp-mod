@@ -2567,13 +2567,16 @@ Model BouncingGib1
    Model 0 "gib1.md2"
    Skin 0 "gib1.png"
    Scale 1.5 1.5 1.5
-   ROTATING
-   INTERPOLATEDOUBLEDFRAMES
+
+   Rotating
+   Rotation-Speed 10
+   Rotation-Vector 1 0 0
+   PitchFromMomentum
 
    FrameIndex GBRN A 0 0
-   FrameIndex GBRN B 0 1
-   FrameIndex GBRN C 0 2
-   FrameIndex GBRN D 0 3
+   FrameIndex GBRN B 0 0
+   FrameIndex GBRN C 0 0
+   FrameIndex GBRN D 0 0
 }
 
 Model BouncingGib2
@@ -2582,13 +2585,16 @@ Model BouncingGib2
    Model 0 "gib2.md2"
    Skin 0 "gib2.png"
    Scale 1.0 1.0 1.0
-   ROTATING
-   INTERPOLATEDOUBLEDFRAMES
+
+   Rotating
+   Rotation-Speed 10
+   Rotation-Vector 1 0 0
+   PitchFromMomentum
 
    FrameIndex GBRN A 0 0
-   FrameIndex GBRN B 0 1
-   FrameIndex GBRN C 0 2
-   FrameIndex GBRN D 0 3
+   FrameIndex GBRN B 0 0
+   FrameIndex GBRN C 0 0
+   FrameIndex GBRN D 0 0
 }
 
 Model BouncingGib3
@@ -2597,13 +2603,16 @@ Model BouncingGib3
    Model 0 "gib3.md2"
    Skin 0 "gib3.png"
    Scale 0.7 0.7 0.7
-   ROTATING
-   INTERPOLATEDOUBLEDFRAMES
+
+   Rotating
+   Rotation-Speed 10
+   Rotation-Vector 1 0 0
+   PitchFromMomentum
 
    FrameIndex GBRN A 0 0
-   FrameIndex GBRN B 0 1
-   FrameIndex GBRN C 0 2
-   FrameIndex GBRN D 0 3
+   FrameIndex GBRN B 0 0
+   FrameIndex GBRN C 0 0
+   FrameIndex GBRN D 0 0
 }
 
 Model SM_SuperShotgun
