@@ -331,7 +331,14 @@ map MPLMS01 "The Gas Chamber - Ruin"
 {
 	sky1 = DONNITE, 0.0
 	music = D_MAKO
-	next = MPLMS01
+	next = MPLMS02
+}
+
+map MPLMS02 "Fall of Ragnarok - Kunai"
+{
+	sky1 = SPACESKY, 0.4
+	music = D_FALLIN
+	next = MPLMS02
 }
 
 // ************** LMS END *************
