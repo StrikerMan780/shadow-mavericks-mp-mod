@@ -12,14 +12,17 @@ StrikerMan780
 * Create the underground sewer system.... eventually.
 
 -=DECORATE CODE=-
-Make the sticky bombs not alert monsters until they explode
 Make Tails Recover his Vile's Bane after 50 monster kills.
+Improve Randomized Lightning Effect
 
 -=MPDM04=-
 Find other ways to speed up rendering...
 
 -=MODELS=-
 Re-do the Hellbender using Per-Surface Textures
+
+-=CLASSES=-
+Give Duke a jetpack double-jump as his special move
 
 ===========================================
 
