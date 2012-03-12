@@ -3205,6 +3205,16 @@ model BigPentagram
   Frame NULL A 0 "skin"
 }
 
+model Dildo
+{
+	Path "Models/Decoration"
+	Model 0 "Dildo.md3"
+	Skin 0 "Dildo.jpg"
+	Scale 1.25 1.25 1.25
+
+	FrameIndex GDCR A 0 0
+}
+
 //Model SM_Railgun
 //{
 //	 Path "Models\HUD\Railgun"

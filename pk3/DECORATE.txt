@@ -14390,7 +14390,7 @@ ACTOR ImprovedRedTorch : RedTorch Replaces RedTorch
 		TRED A 0 BRIGHT
 		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		TRED A 0 BRIGHT A_SpawnItemEx("RedEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TRED A 1 BRIGHT A_SpawnItemEx("MidRedFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidRedFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14410,7 +14410,7 @@ ACTOR ImprovedBlueTorch : BlueTorch Replaces BlueTorch
 		TBLU A 0 BRIGHT
 		TBLU A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		TBLU A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TBLU A 1 BRIGHT A_SpawnItemEx("MidBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		TBLU A 1 BRIGHT A_SpawnItemEx("MidBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14430,7 +14430,7 @@ ACTOR ImprovedGreenTorch : GreenTorch Replaces GreenTorch
 		TGRN A 0 BRIGHT
 		TGRN A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		TGRN A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TGRN A 1 BRIGHT A_SpawnItemEx("MidGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		TGRN A 1 BRIGHT A_SpawnItemEx("MidGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14450,7 +14450,7 @@ ACTOR ImprovedYellowTorch : YellowTorch Replaces YellowTorch
 		TRED A 0 BRIGHT
 		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		TRED A 0 BRIGHT A_SpawnItemEx("YellowEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TRED A 1 BRIGHT A_SpawnItemEx("MidYellowFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidYellowFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14470,7 +14470,7 @@ ACTOR ImprovedWhiteTorch : WhiteTorch Replaces WhiteTorch
 		TRED A 0 BRIGHT
 		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		TRED A 0 BRIGHT A_SpawnItemEx("SilverEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TRED A 1 BRIGHT A_SpawnItemEx("MidWhiteFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidWhiteFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14565,7 +14565,7 @@ ACTOR ImprovedShortRedTorch : ShortRedTorch Replaces ShortRedTorch
 		SMRT A 0 BRIGHT
 		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		SMRT A 0 BRIGHT A_SpawnItemEx("RedEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMRT A 1 BRIGHT A_SpawnItemEx("SmallRedFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		SMRT A 1 BRIGHT A_SpawnItemEx("SmallRedFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14585,7 +14585,7 @@ ACTOR ImprovedShortBlueTorch : ShortBlueTorch Replaces ShortBlueTorch
 		SMBT A 0 BRIGHT
 		SMBT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		SMBT A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMBT A 1 BRIGHT A_SpawnItemEx("SmallBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		SMBT A 1 BRIGHT A_SpawnItemEx("SmallBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14605,7 +14605,7 @@ ACTOR ImprovedShortGreenTorch : ShortGreenTorch Replaces ShortGreenTorch
 		SMGT A 0 BRIGHT
 		SMGT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		SMGT A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMGT A 1 BRIGHT A_SpawnItemEx("SmallGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		SMGT A 1 BRIGHT A_SpawnItemEx("SmallGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14625,7 +14625,7 @@ ACTOR ImprovedShortYellowTorch : ShortYellowTorch Replaces ShortYellowTorch
 		SMRT A 0 BRIGHT
 		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		SMRT A 0 BRIGHT A_SpawnItemEx("YellowEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMRT A 1 BRIGHT A_SpawnItemEx("SmallYellowFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		SMRT A 1 BRIGHT A_SpawnItemEx("SmallYellowFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
@@ -14645,7 +14645,7 @@ ACTOR ImprovedShortWhiteTorch : ShortWhiteTorch Replaces ShortWhiteTorch
 		SMRT A 0 BRIGHT
 		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
 		SMRT A 0 BRIGHT A_SpawnItemEx("SilverEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMRT A 1 BRIGHT A_SpawnItemEx("SmallWhiteFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 0)
+		SMRT A 1 BRIGHT A_SpawnItemEx("SmallWhiteFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }

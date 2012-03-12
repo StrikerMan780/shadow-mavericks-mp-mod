@@ -106,6 +106,21 @@ actor AmyRose 29000
   }
 }
 
+actor Dildo 18813
+{
+  radius 20
+  height 16
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  GDCR A -1
+  loop
+  }
+}
+
 actor Spanner 8023
 {
   radius 20
