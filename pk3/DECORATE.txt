@@ -11393,9 +11393,9 @@ actor SM_Fatso : Fatso Replaces Fatso
 
 actor RevenantHellFire
 {
-  radius 4
-  height 4
-  speed 16
+  radius 6
+  height 6
+  speed 15
   health 1
   damage 6
   Scale 0.45
@@ -11463,8 +11463,8 @@ actor RevenantHellfireFast : RevenantHellfire
 	obituary "%o couldn't dodge a Revenant's fast shot"
 	Radius 8
 	Height 8
-	Damage 8
-	Speed 20
+	Damage 6
+	Speed 18
 	-SEEKERMISSILE
 	States
 	{
