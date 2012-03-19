@@ -617,12 +617,13 @@ StingerFire dsstnfir
 StingerHit dsstnhit
 
 // Bullet Casing
-bulletcasing1 DSCASING
+bulletcasing1 DSCASIN1
 bulletcasing2 DSCASIN2
 bulletcasing3 DSCASIN3
 bulletcasing4 DSCASIN4
 bulletcasing5 DSCASIN5
-$random bulletcasing { bulletcasing1 bulletcasing2 bulletcasing3 bulletcasing4 bulletcasing5 }
+bulletcasing6 DSCASIN6
+$random bulletcasing { bulletcasing1 bulletcasing2 bulletcasing3 bulletcasing4 bulletcasing5 bulletcasing6 }
 $limit bulletcasing 0
 
 // Shell Casing
