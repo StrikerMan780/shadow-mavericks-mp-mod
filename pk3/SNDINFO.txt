@@ -625,6 +625,7 @@ bulletcasing5 DSCASIN5
 bulletcasing6 DSCASIN6
 $random bulletcasing { bulletcasing1 bulletcasing2 bulletcasing3 bulletcasing4 bulletcasing5 bulletcasing6 }
 $limit bulletcasing 0
+$volume bulletcasing 0.1
 
 // Shell Casing
 shell1 dsshell1
