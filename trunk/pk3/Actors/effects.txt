@@ -72,7 +72,7 @@ actor ElectricArc
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_SpawnItemEx("ArcTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 A 0 A_Jump(128, "ArcInstant2", "ArcInstant3", "ArcInstant4", "ArcInstant5", "ArcInstant6", "ArcInstant7", "ArcInstant8", "ArcInstant9", "ArcInstant10", "ArcInstant11", "ArcInstant12", "ArcInstant13", "ArcInstant14", "ArcInstant15", "ArcInstant16", "ArcDelayed1", "ArcDelayed2")
+			TNT1 A 0 A_Jump(128, "ArcInstant2", "ArcInstant3", "ArcInstant4", "ArcInstant5", "ArcInstant6", "ArcInstant7", "ArcInstant8", "ArcInstant9", "ArcInstant10", "ArcInstant11", "ArcInstant12", "ArcInstant13", "ArcInstant14", "ArcInstant15", "ArcInstant16", "ArcInstant17", "ArcInstant18", "ArcDelayed1", "ArcDelayed2")
 			goto ArcInstant1
 		ArcInstant1:
 			TNT1 A 0 A_SpawnItemEx("ElectricArc", 2, 0, 0, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
@@ -121,6 +121,12 @@ actor ElectricArc
 			stop
 		ArcInstant16:
 			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, 1, 1, 0, random(-72, 72), SXF_CLIENTSIDE, 2)
+			stop
+		ArcInstant17:
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 3, 1, 1, 0, random(-80, 80), SXF_CLIENTSIDE, 2)
+			stop
+		ArcInstant18:
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -3, 1, 1, 0, random(-80, 80), SXF_CLIENTSIDE, 2)
 			stop
 		ArcDelayed1:
 			TNT1 A 1
