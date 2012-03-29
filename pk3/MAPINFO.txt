@@ -38,7 +38,7 @@ map HQ "[SM] HQ"
 {
 	sky1 = bsky2, 0.01
 	music = ""
-	smoothlighting
+	evenlighting
 	forcenoskystretch
 	clipmidtextures
 	allowcrouch
