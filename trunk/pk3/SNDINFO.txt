@@ -554,6 +554,7 @@ PlaneGuy DSPLNGUY
 BillyMays DSBILLYM
 TitleHit DSTITLEH
 lolinternet DSLOLINT
+KefkaLaugh DSKEFKA
 $ambient 4 WaterFallRush POINT CONTINUOUS 1.0
 $ambient 5 jeanluc POINT CONTINUOUS 0.9
 $ambient 6 tvoutbeep POINT CONTINUOUS 0.08
