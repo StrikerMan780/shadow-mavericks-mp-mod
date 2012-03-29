@@ -82,6 +82,10 @@ pic 6 tics 4
 pic 7 tics 4
 pic 8 tics 4
 
+texture KEFKALF1
+	pic	KEFKALF1 tics 3
+	pic	KEFKALF2 tics 3
+
 texture LOL
 	pic	LOL tics 2
 	pic	LOL1 tics 2
