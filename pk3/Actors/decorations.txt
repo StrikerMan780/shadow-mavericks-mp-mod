@@ -121,6 +121,36 @@ actor Dildo 18813
   }
 }
 
+actor Condom1 18814
+{
+  radius 4
+  height 4
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  NULL A -1
+  loop
+  }
+}
+
+actor Condom2 18815
+{
+  radius 4
+  height 4
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  NULL A -1
+  loop
+  }
+}
+
 actor Spanner 8023
 {
   radius 20
@@ -466,7 +496,8 @@ actor Striker_Persona 16523
   Radius 8
   Height 56
   Speed 0
-  Scale 0.038
+  YScale 0.038
+  XScale 0.040
   Mass 99999999
   +SOLID
   +SHOOTABLE

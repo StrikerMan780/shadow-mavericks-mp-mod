@@ -163,7 +163,21 @@ statusbar fullscreen, forcescaled
 	IsSelected DeathbringerCannons
 	{
 		DrawImage "DETHBHUD", 0, 0;
+		drawimage "FURY3DES", 86, 2;
 		DrawBar "DBSHIELD", "DBBARBCK", health, vertical, 17, 6;
+		InInventory ServoKineticMode, 1
+		{
+			drawimage "FURY3SKL", 104, 16, center;
+		}
+		InInventory SledgeHammerMode, 1
+		{
+			drawimage "FURY3DOM", 104, 16, center;
+			drawnumber 3, FURY3NUM, green, ammo ProtonAmmo, fillzeros, 182, 13, 1;
+		}
+		InInventory NOT SledgeHammerMode, 1 || ServoKineticMode, 1
+		{
+			drawimage "FURY3RFL", 104, 16, center;
+		}
 	}
 
 IsSelected not ValkrieCannons, DeathbringerCannons
