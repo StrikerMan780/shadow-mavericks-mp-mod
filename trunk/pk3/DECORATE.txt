@@ -26,6 +26,7 @@
 #include "actors/gore.txt"
 #include "actors/effects.txt"
 #include "actors/health.txt"
+#include "actors/powerups.txt"
 #include "actors/bulletpuffs.txt"
 #include "actors/decorations.txt"
 #include "actors/splashes.txt"
