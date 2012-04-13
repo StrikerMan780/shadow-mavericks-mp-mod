@@ -102,6 +102,18 @@ texture AFLAG01
 	pic	AFLAG07 tics 3
 	pic	AFLAG08 tics 3
 
+texture ANIM_A01
+	pic	ANIM_A01 tics 3
+	pic	ANIM_A02 tics 3
+	pic	ANIM_A03 tics 3
+	pic	ANIM_A04 tics 3
+	pic	ANIM_A05 tics 3
+	pic	ANIM_A06 tics 3
+	pic	ANIM_A07 tics 3
+	pic	ANIM_A08 tics 3
+	pic	ANIM_A09 tics 3
+	pic	ANIM_A10 tics 3
+
 texture AFLAGF01
 	pic	AFLAGF01 tics 3
 	pic	AFLAGF02 tics 3
