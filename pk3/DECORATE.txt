@@ -4816,24 +4816,24 @@ actor SmartRifle : ClericWeapon 23501
 	MRIT A 0 A_PlaysoundEX("MoritaFire", Weapon, 0)
 	MRIT A 0 A_FireBullets (2, 1, 1, 10, "NewBulletPuff")
 	MRIT A 0 radius_quake(1, 2, 0, 1, 0)
-	MRIT AAAAAA 0 A_FireCustomMissile("GunSpark", Random(-6,6), 0, 3, 3)
-	MRIT A 0 A_FireCustomMissile("RifleSmoke", 0, 0, 6, 2)
-	MRIT A 1 BRIGHT A_Gunflash
-	MRIT A 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,1,6)
+	MRIT AAAAAA 0 A_FireCustomMissile("GunSpark", Random(-6,6), 0, 8, 3)
+	MRIT A 0 A_FireCustomMissile("RifleSmoke", 0, 0, 12, 2)
+	MRIT A 2 BRIGHT A_Gunflash
+	MRIT B 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,1,6)
 	MRIT B 1 BRIGHT
-	MORI A 3
+	MORI A 2
 	MORI A 0 A_ReFire
 	goto Ready
   Hold:
 	MRIT A 0 A_PlaysoundEX("MoritaFire", Weapon, 0)
 	MRIT A 0 A_FireBullets (2, 1, 1, 9, "NewBulletPuff")
 	MRIT A 0 radius_quake(1, 2, 0, 1, 0)
-	MRIT AAAAAA 0 A_FireCustomMissile("GunSpark", Random(-6,6), 0, 3, 3)
-	MRIT A 0 A_FireCustomMissile("RifleSmoke", 0, 0, 6, 2)
-	MRIT A 1 BRIGHT A_Gunflash
-	MRIT A 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,1,6)
+	MRIT AAAAAA 0 A_FireCustomMissile("GunSpark", Random(-6,6), 0, 8, 3)
+	MRIT A 0 A_FireCustomMissile("RifleSmoke", 0, 0, 12, 2)
+	MRIT A 2 BRIGHT A_Gunflash
+	MRIT B 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,1,6)
 	MRIT B 1 BRIGHT
-	MORI A 3
+	MORI A 2
 	MORI A 0 A_ReFire
 	goto Ready
   AltFire:
@@ -4843,23 +4843,24 @@ actor SmartRifle : ClericWeapon 23501
 	MORI C 1 BRIGHT
 	MORI A 12
 	MORI A 0 A_FireCustomMissile("ShellCasingSpawnerLeft",45+random(-8,8),0,1,6)
-	MORI A 1 Offset (-2, 40)
-	MORI A 1 Offset (-4, 45)
-	MORI A 1 Offset (-6, 50)
-	MORI A 1 Offset (-8, 55)
-	MORI A 1 Offset (-10, 60)
-	MORI A 1 Offset (-12, 65)
-	MORI A 1 Offset (-14, 70)
-	MORI A 1 Offset (-16, 80)
-	MORI A 1 Offset (-18, 90)
-	MORI A 1 Offset (-20, 92)
-	MORI A 1 Offset (-18, 80)
-	MORI A 1 Offset (-16, 70)
-	MORI A 1 Offset (-12, 60)
-	MORI A 1 Offset (-8, 50)
-	MORI A 1 Offset (-4, 40)
-	MORI A 1 Offset (-2, 30)
-	MORI A 5 Offset (-1, 32)
+	MORI A 0 A_PlaySoundEx("MoritaPump", "Auto", 0)
+	MORI A 1 Offset (2, 40)
+	MORI A 1 Offset (4, 45)
+	MORI A 1 Offset (6, 50)
+	MORI A 1 Offset (8, 55)
+	MORI A 1 Offset (10, 60)
+	MORI A 1 Offset (12, 65)
+	MORI A 1 Offset (14, 70)
+	MORI A 1 Offset (16, 80)
+	MORI A 1 Offset (18, 90)
+	MORI A 1 Offset (20, 92)
+	MORI A 1 Offset (18, 80)
+	MORI A 1 Offset (16, 70)
+	MORI A 1 Offset (12, 60)
+	MORI A 1 Offset (8, 50)
+	MORI A 1 Offset (4, 40)
+	MORI A 1 Offset (2, 30)
+	MORI A 5 Offset (1, 32)
 	MORI A 7
 	MORI A 0 A_Refire
 	goto Ready
