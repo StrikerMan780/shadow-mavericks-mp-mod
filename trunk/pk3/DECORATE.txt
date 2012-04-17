@@ -9006,8 +9006,7 @@ actor Noisy_Cricket : Weapon 12345
 	CRKG A 1
 	CRKG B 0 Radius_Quake(4, 6, 0, 1, 0)
 	CRKG B 0 A_PlaySoundEx("CricketWave", "auto", 0)
-	CRKG B 0 A_FireBullets (5.6, 0, 1, 1000, "CricketBlast")
-	CRKG B 0 A_FireCustomMissile("CricketWave", 0, 0, 0, 0)
+	CRKG B 0 A_FireCustomMissile("CricketBeam", 0, 1, 8, 0)
 	CRKG B 2 A_GunFlash
 	CRKG C 2
 	CRKG D 2
@@ -9018,8 +9017,8 @@ actor Noisy_Cricket : Weapon 12345
 	goto Ready
   SWCFire:
 	SWCG A 15 A_PlaySound("RailgunIn")
-	SWCG B 0 A_FireCustomMissile("CricketWave", 0, 0, 2, 0)
-	SWCG B 2 A_FireBullets (5.6, 0, 1, 1000, "CricketBlast")
+	SWCG B 0 A_FireCustomMissile("SonicWave", 0, 0, 2, 0)
+	SWCG B 2 A_FireBullets (5.6, 0, 1, 1000, "SonicWaveBlast")
 	SWCG B 0 A_Recoil (50)
 	SWCG CDEF 3
 	SWCG A 17
@@ -9034,7 +9033,7 @@ actor Noisy_Cricket : Weapon 12345
   }
 }
 
-Actor CricketTrail
+Actor SonicWaveTrail
 {
 	RenderStyle Add
 	Radius 1
@@ -9058,7 +9057,7 @@ Actor CricketTrail
 	}
 }
 
-actor CricketWave : FastProjectile
+actor SonicWave : FastProjectile
 {
   RenderStyle Add
   radius 2
@@ -9067,18 +9066,43 @@ actor CricketWave : FastProjectile
   damage 0
   ReactionTime 10
   SeeSound "CricketWave"
-  obituary "%o was vaporized by %k's noisy cricket"
+  obituary "%o was disintegrated by %k's sonic wave cannon"
   +FORCEXYBILLBOARD
   PROJECTILE
   +RIPPER
   states
   {
   Spawn:
-	CRTL ABCB 1 bright A_SpawnItemEX("CricketTrail", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+	CRTL ABCB 1 bright A_SpawnItemEX("SonicWaveTrail", 0, 0, 0, 0, 0, 0, 0, 128, 0)
 	CRTL A 0 A_CountDown
 	loop
   Death:
 	TNT1 AAA 1
+	stop
+  }
+}
+
+actor CricketBeam : FastProjectile
+{
+  RenderStyle Add
+  Alpha 1.0
+  radius 2
+  height 2
+  speed 200
+  damage 1000
+  SeeSound "CricketWave"
+  obituary "%o was vaporized by %k's noisy cricket"
+  +FORCEXYBILLBOARD
+  PROJECTILE
+  states
+  {
+  Spawn:
+	SERV A 1 bright
+	loop
+  Death:
+	TNT1 A 0
+	TNT1 A 1 A_SpawnItemEx("SonicWaveBlast", 0, 0, 0, 0, 0, 0, random(-180, 180), 0, 0)
+	TNT1 A 1
 	stop
   }
 }

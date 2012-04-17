@@ -1331,6 +1331,16 @@ object DeathbringerServoShot
     frame SERV { light ServoLight2 }
 }
 
+pointlight CricketBeamLight
+{
+ Color 0.1 1.0 0.0
+ size 128
+}
+
+object CricketBeam
+{
+    frame SERV { light CricketBeamLight }
+}
 
 pointlight RFLLight
 {
