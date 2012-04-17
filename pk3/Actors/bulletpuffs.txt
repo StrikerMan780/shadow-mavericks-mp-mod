@@ -545,7 +545,7 @@ actor FrostPuff
  }
 }
 
-actor CricketBlast
+actor SonicWaveBlast
 {
   renderstyle add
   +PUFFONACTORS
@@ -555,7 +555,7 @@ actor CricketBlast
   +PUFFGETSOWNER
 //	+FORCERADIUSDMG
   +FORCEXYBILLBOARD
-  obituary "%o was reduced to nothing by %k's noisy cricket."
+  obituary "%o was blasted to bits by %k's sonic wave cannon."
   DamageType "Obliterate"
   alpha 0.9
   Scale 1.4
@@ -565,14 +565,14 @@ actor CricketBlast
 	CEXP A 0
 	CEXP A 0 A_PlaySound("weapons/grenlx")
 	CEXP A 0 A_Explode(500, 200)
-	CEXP AAAAAAA 0 A_SpawnItemEX("CricketFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-5, 5), Random(-5, 5), Random(-5, 5), Random(-360, 360), 128, 0)
-	CEXP AAAAAAA 0 A_SpawnItemEX("CricketMist", 0, 0, 0, Random(-12, 12), Random(-12, 12), Random(-12, 12), Random(-360, 360), 128, 0)
-	CEXP ABC 3 bright A_SpawnItemEX("CricketFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-7, 7), Random(-7, 7), Random(-7, 7), Random(-360, 360), 128, 0)
+	CEXP AAAAAAA 0 A_SpawnItemEX("SonicWaveFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-5, 5), Random(-5, 5), Random(-5, 5), Random(-360, 360), 128, 0)
+	CEXP AAAAAAA 0 A_SpawnItemEX("SonicWaveMist", 0, 0, 0, Random(-12, 12), Random(-12, 12), Random(-12, 12), Random(-360, 360), 128, 0)
+	CEXP ABC 3 bright A_SpawnItemEX("SonicWaveFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-7, 7), Random(-7, 7), Random(-7, 7), Random(-360, 360), 128, 0)
 	stop
   }
 }
 
-actor CricketFire
+actor SonicWaveFire
 {
  Height 1
  Radius 1
@@ -589,7 +589,7 @@ actor CricketFire
  }
 }
 
-actor CricketMist
+actor SonicWaveMist
 {
 	Projectile
 	Radius 1
