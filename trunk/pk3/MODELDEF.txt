@@ -1379,25 +1379,25 @@ model Magnum
 
 Model Noisy_Cricket
 {
-   Path "Models\HUD"
-   Model 0 "NoisyCricket.md3"
-   Skin 0 "Cricket.jpg"
-   Scale 5.0 5.0 5
+   Path "Models\HUD\Noisy_Cricket"
+   Model 0 "Noisy_Cricket.md3"
+   Scale 5.0 4.2 5
+   ZOffset -2
 
    FrameIndex CRKG A 0 0
-   FrameIndex CRKG B 0 1
-   FrameIndex CRKG C 0 2
-   FrameIndex CRKG D 0 3
-   FrameIndex CRKG E 0 4
-   FrameIndex CRKG F 0 5
+   FrameIndex CRKG B 0 3
+   FrameIndex CRKG C 0 5
+   FrameIndex CRKG D 0 10
+   FrameIndex CRKG E 0 18
+   FrameIndex CRKG F 0 20
 }
 
 Model Noisy_Cricket
 {
-   Path "Models\HUD"
+   Path "Models\HUD\Noisy_Cricket"
    Model 0 "CricketFlash.md3"
    Skin 0 "CricketFlash.png"
-   Scale 5.0 5.0 5
+   Scale 5.0 4.2 5
 
    FrameIndex CRKF A 0 0
 }
@@ -2219,48 +2219,48 @@ Model EnergyBallExplosionRingMega
 
 Model SmartRifle
 {
-   Path "Models\HUD"
+   Path "Models\HUD\SmartRifle"
    Model 0 "SmartRifle.md3"
-   Skin 0 "SmartRifle.png"
-   Scale 5.0 5.0 5
+   Scale -5.0 3.0 5
+   ZOffset 2
 
-   FrameIndex MORI A 0 0
+   FrameIndex MORI A 0 32
 }
 
 Model SmartRifle
 {
-   Path "Models\HUD"
+   Path "Models\HUD\SmartRifle"
    Model 0 "SmartRifle.md3"
-   Skin 0 "SmartRifle.png"
-   Model 1 "SmartRifleFlash1.md3"
-   Skin 1 "f_mp40.png"
-   Scale 5.0 5.0 5
+   Model 1 "SmartRifleFlash.md3"
+   Skin 1 "muzzleflashx.png"
+   Scale -5.0 3.0 5
+   ZOffset 2
 
-   FrameIndex MRIT A 0 1
+   FrameIndex MRIT A 0 0
    FrameIndex MRIT A 1 0
 }
 
 Model SmartRifle
 {
-   Path "Models\HUD"
+   Path "Models\HUD\SmartRifle"
    Model 0 "SmartRifle.md3"
-   Skin 0 "SmartRifle.png"
    Model 1 "SmartRifleFlash2.md3"
-   Skin 1 "f_mp40.png"
-   Scale 5.0 5.0 5
+   Skin 1 "muzzleflashx2.png"
+   Scale -5.0 3.0 5
+   ZOffset 2
 
-   FrameIndex MRIT B 0 2
+   FrameIndex MRIT B 0 5
    FrameIndex MRIT B 1 0
 }
 
 Model SmartRifle
 {
-   Path "Models\HUD"
+   Path "Models\HUD\SmartRifle"
    Model 0 "SmartRifle.md3"
-   Skin 0 "SmartRifle.png"
-   Model 1 "SmartRifleFlash1.md3"
+   Model 1 "SmartRifleSGFlash.md3"
    Skin 1 "SmartRifleSGFlash.png"
-   Scale 5.0 5.0 5
+   Scale -5.0 3.0 5
+   ZOffset 2
 
    FrameIndex MORI B 0 3
    FrameIndex MORI B 1 0
@@ -2268,12 +2268,12 @@ Model SmartRifle
 
 Model SmartRifle
 {
-   Path "Models\HUD"
+   Path "Models\HUD\SmartRifle"
    Model 0 "SmartRifle.md3"
-   Skin 0 "SmartRifle.png"
-   Model 1 "SmartRifleFlash2.md3"
+   Model 1 "SmartRifleSGFlash2.md3"
    Skin 1 "SmartRifleSGFlash.png"
-   Scale 5.0 5.0 5
+   Scale -5.0 3.0 5
+   ZOffset 2
 
    FrameIndex MORI C 0 2
    FrameIndex MORI C 1 0

@@ -48,6 +48,7 @@ kickswing dskicksw
 
 moritafire dsmorita
 moritashotgun dsmorits
+moritapump dsmspump
 $limit moritafire 0
 
 p90fire dsp90
