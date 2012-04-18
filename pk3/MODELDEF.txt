@@ -2290,6 +2290,47 @@ Model SmartRifle
    FrameIndex MORI C 1 0
 }
 
+Model SmartRifle
+{
+   Path "Models\HUD\SmartRifle"
+   Model 0 "SmartRifleReload.md3"
+   Scale -5.0 3.0 5
+   ZOffset 2
+
+   FrameIndex MORR A 0 4
+   FrameIndex MORR B 0 7
+   FrameIndex MORR C 0 10
+   FrameIndex MORR D 0 14
+   FrameIndex MORR E 0 17
+   FrameIndex MORR F 0 19
+   FrameIndex MORR G 0 20
+   FrameIndex MORR H 0 22
+   FrameIndex MORR I 0 23
+   FrameIndex MORR J 0 24
+   FrameIndex MORR K 0 25
+   FrameIndex MORR L 0 32
+   FrameIndex MORR M 0 34
+   FrameIndex MORR N 0 36
+   FrameIndex MORR O 0 38
+   FrameIndex MORR P 0 45
+   FrameIndex MORR Q 0 48
+   FrameIndex MORR R 0 50
+   FrameIndex MORR S 0 55
+   FrameIndex MORR T 0 58
+   FrameIndex MORR U 0 60
+   FrameIndex MORR V 0 62
+   FrameIndex MORR W 0 64
+   FrameIndex MORR X 0 67
+   FrameIndex MORR Y 0 69
+   FrameIndex MORR Z 0 74
+   FrameIndex MOR2 A 0 76
+   FrameIndex MOR2 B 0 78
+   FrameIndex MOR2 C 0 80
+   FrameIndex MOR2 D 0 82
+   FrameIndex MOR2 E 0 84
+   FrameIndex MOR2 F 0 86
+}
+
 Model BFG_SMMP
 {
    Path "Models\HUD"
