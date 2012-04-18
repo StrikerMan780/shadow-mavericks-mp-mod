@@ -195,6 +195,12 @@ AspectRatio "4:3"
 	drawimage ammoicon2, 308, 162, center;
 	drawnumber 3, BIGFONT, red, ammo2, 295, 156;
 
+	IsSelected SmartRifle
+	{
+		drawimage "SPRAICON", 258, 186, center;
+		drawnumber 3, BIGFONT, red, SpreadAmmo, 245, 180;
+	}
+
 	// Selected Item -
 	DrawSelectedInventory SMALLFONT, 288, 122, 316, 112, green, 0;
 
@@ -284,6 +290,12 @@ AspectRatio "16:9"
 	drawimage ammoicon2, 361, 162, center;
 	drawnumber 3, BIGFONT, red, ammo2, 348, 156;
 
+	IsSelected SmartRifle
+	{
+		drawimage "SPRAICON", 311, 186, center;
+		drawnumber 3, BIGFONT, red, SpreadAmmo, 298, 180;
+	}
+
 	// Selected Item
 	DrawSelectedInventory SMALLFONT, 341, 122, 369, 112, green, 0;
 
@@ -372,6 +384,12 @@ AspectRatio "16:10"
 	drawnumber 3, BIGFONT, red, ammo1, 327, 180;
 	drawimage ammoicon2, 340, 162, center;
 	drawnumber 3, BIGFONT, red, ammo2, 327, 156;
+
+	IsSelected SmartRifle
+	{
+		drawimage "SPRAICON", 290, 186, center;
+		drawnumber 3, BIGFONT, red, SpreadAmmo, 277, 180;
+	}
 
 	// Selected Item =
 	DrawSelectedInventory SMALLFONT, 320, 122, 348, 112, green, 0;

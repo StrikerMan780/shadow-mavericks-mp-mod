@@ -4783,6 +4783,15 @@ actor RifleSmoke
 	}
 }
 
+ACTOR MoritaClip : Ammo
+{
+	Inventory.MaxAmount 60 // size of the clip
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 60 //MUST be the same as Inventory.MaxAmmount
+	Inventory.Icon "MAGICON2"
+	+IGNORESKILL
+}
+
 actor SmartRifle : ClericWeapon 23501
 {
   decal BulletChip
@@ -4791,12 +4800,13 @@ actor SmartRifle : ClericWeapon 23501
   Inventory.PickupMessage "Got A SmartRifle!"
   weapon.selectionorder 120
   weapon.kickback 100
-  Weapon.AmmoType1 "MechAmmo"
-  Weapon.AmmoGive 50
+  Weapon.AmmoType1 "MoritaClip"
+  Weapon.AmmoGive 60
   Weapon.AmmoUse1 1
-  Weapon.AmmoType2 "SpreadAmmo"
-  Weapon.AmmoUse2 1
-  Weapon.AmmoGive2 20
+  Weapon.AmmoType2 "MechAmmo"
+  Weapon.AmmoUse2 0
+  Weapon.AmmoGive2 60
+  +WEAPON.AMMO_OPTIONAL
   Scale 0.45
   states
   {
@@ -4804,8 +4814,10 @@ actor SmartRifle : ClericWeapon 23501
    MRIP A -1
    loop
   Ready:
+  	MORI A 0 A_WeaponReady
+  	goto ReloadCheck
 	MORI A 1 A_WeaponReady
-	loop
+	goto Ready+1
   Deselect:
 	MORI A 1 A_Lower
 	loop
@@ -4813,6 +4825,7 @@ actor SmartRifle : ClericWeapon 23501
 	MORI A 1 A_Raise
 	loop
   Fire:
+    MRIT A 0 A_JumpIfNoAmmo("ReloadCheck")
 	MRIT A 0 A_PlaysoundEX("MoritaFire", Weapon, 0)
 	MRIT A 0 A_FireBullets (2, 1, 1, 10, "NewBulletPuff")
 	MRIT A 0 radius_quake(1, 2, 0, 1, 0)
@@ -4823,8 +4836,9 @@ actor SmartRifle : ClericWeapon 23501
 	MRIT B 1 BRIGHT
 	MORI A 2
 	MORI A 0 A_ReFire
-	goto Ready
+	goto Ready+1
   Hold:
+  	MRIT A 0 A_JumpIfNoAmmo("ReloadCheck")
 	MRIT A 0 A_PlaysoundEX("MoritaFire", Weapon, 0)
 	MRIT A 0 A_FireBullets (2, 1, 1, 9, "NewBulletPuff")
 	MRIT A 0 radius_quake(1, 2, 0, 1, 0)
@@ -4835,10 +4849,15 @@ actor SmartRifle : ClericWeapon 23501
 	MRIT B 1 BRIGHT
 	MORI A 2
 	MORI A 0 A_ReFire
-	goto Ready
+	goto Ready+1
   AltFire:
+  	MORI A 0 A_JumpIfInventory("SpreadAmmo", 1, "ShotgunFire")
+  	MORI A 0
+  	goto Ready+1
+  ShotgunFire:
 	MORI A 0 A_PlaysoundEX("MoritaShotgun", Weapon, 0)
 	MORI A 0 radius_quake(6, 3, 0, 1, 0)
+	MORI A 0 A_TakeInventory("SpreadAmmo", 1)
 	MORI B 1 BRIGHT A_FireBullets (4, 4, 20, 3, "NewBulletPuff")
 	MORI C 1 BRIGHT
 	MORI A 12
@@ -4863,7 +4882,36 @@ actor SmartRifle : ClericWeapon 23501
 	MORI A 5 Offset (1, 32)
 	MORI A 7
 	MORI A 0 A_Refire
-	goto Ready
+	goto Ready+1
+
+  ReloadCheck:
+	MORR A 0 A_JumpIfInventory("MoritaClip",60,2)
+	MORR A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
+	MORR A 0
+	goto Ready+1
+
+  ReloadStart:
+	MORR A 2 A_PlaySound("MoritaClipOut")
+	MORR B 2
+	MORR CDEFGHIJK 3
+	goto ReloadAmmo
+
+  ReloadAmmo:
+	TNT1 A 0 A_TakeInventory("MechAmmo",1)
+	TNT1 A 0 A_GiveInventory("MoritaClip",1)
+	TNT1 A 0 A_JumpIfInventory("MoritaClip",60,"ReloadDone")
+	TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+	goto ReloadDone
+
+  ReloadDone:
+	MORR L 3 A_PlaySound("MoritaClipIn")
+	MORR MNOPQR 3
+	MORR STUVW 2
+	MORR X 0 A_PlaySoundEx("MoritaBolt", "Auto", 0)
+	MORR XYZ 2
+	MOR2 ABCDEF 2
+	goto Ready+1
+
   Flash:
 	TNT1 A 1 bright A_Light1
 	TNT1 A 0 bright A_Light0
