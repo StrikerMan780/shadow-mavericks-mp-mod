@@ -9092,6 +9092,7 @@ actor CricketBeam : FastProjectile
   damage 1000
   SeeSound "CricketWave"
   obituary "%o was vaporized by %k's noisy cricket"
+  DamageType "Obliterate"
   +FORCEXYBILLBOARD
   PROJECTILE
   states
@@ -9101,7 +9102,7 @@ actor CricketBeam : FastProjectile
 	loop
   Death:
 	TNT1 A 0
-	TNT1 A 1 A_SpawnItemEx("SonicWaveBlast", 0, 0, 0, 0, 0, 0, random(-180, 180), 0, 0)
+	TNT1 A 1 A_SpawnItemEx("CricketBlast", 0, 0, 0, 0, 0, 0, random(-180, 180), 0, 0)
 	TNT1 A 1
 	stop
   }

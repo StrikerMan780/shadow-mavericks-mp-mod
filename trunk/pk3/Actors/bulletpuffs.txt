@@ -616,6 +616,52 @@ actor SonicWaveMist
 	}
 }
 
+actor CricketFire
+{
+ Height 1
+ Radius 1
+ Speed 3
+ Scale 0.5
+ RenderStyle Add
+ Alpha 0.9
+ +NOGRAVITY
+ +FORCEXYBILLBOARD
+ States
+ {
+ Spawn:
+ CKTE ABCDEFGHIJKLMNOP 1 BRIGHT A_FadeOut(0.05)
+ stop
+ }
+}
+
+actor CricketBlast
+{
+  renderstyle add
+  +PUFFONACTORS
+  +FIXMAPTHINGPOS
+  +NOGRAVITY
+  +EXTREMEDEATH
+  +PUFFGETSOWNER
+//	+FORCERADIUSDMG
+  +FORCEXYBILLBOARD
+  obituary "%o was vaporized by %k's noisy cricket."
+  DamageType "Obliterate"
+  alpha 0.9
+  Scale 0.8
+  states
+  {
+  Spawn:
+	CKTE A 0
+	CKTE A 0 A_PlaySound("weapons/grenlx")
+	CKTE A 0 A_Explode(500, 200)
+	CKTE AAAAAAA 0 A_SpawnItemEX("CricketFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-5, 5), Random(-5, 5), Random(-5, 5), Random(-360, 360), 128, 0)
+	CKTE AAAAAAA 0 A_SpawnItemEX("SonicWaveMist", 0, 0, 0, Random(-12, 12), Random(-12, 12), Random(-12, 12), Random(-360, 360), 128, 0)
+	CKTE ABCDEFGH 1 bright A_SpawnItemEX("CricketFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-7, 7), Random(-7, 7), Random(-7, 7), Random(-360, 360), 128, 0)
+	CKTE IJKLMNOP 1 bright
+	stop
+  }
+}
+
 actor WolfPuff : NewBulletPuff
 {
 	DamageType "Wolf"
