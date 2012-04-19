@@ -2299,6 +2299,17 @@ object BlueCandleStick
     frame CANB { light BlueCandleStick }
 }
 
+pointlight ChandelierFlame
+{
+    color 1.0 0.5 0.0
+    size 18
+}
+
+object ChandelierFlames
+{
+	frame FORA { light ChandelierFlame }
+}
+
 skybox ORBIT fliptop
 {
 	ORBIT270
