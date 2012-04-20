@@ -101,13 +101,13 @@ map MPDM04 "Forsaken Graveyard - Alucard"
 	clipmidtextures
 }
 
-map MPDM05 "Lost Caverns - Dark Pit"
+map MPDM05 "Digital Deathmatch - Ruin and Kunai"
 {
-	Next = MPDM06
-	Sky1 = STSKY7, 0.2
-	Music = D_CAVE
+	sky1 = DONNITE, 0.0
+	music = D_UNOWEN
+	next = MPDM06
 	clipmidtextures
-	allowcrouch
+	par = 300
 }
 
 map MPDM06 "Tainted Blood - Ruin and StrikerMan780"
@@ -192,10 +192,10 @@ map MPDUEL03 "Space Enigma - StrikerMan780"
 	sky1 = DOENITE, 0.0
 }
 
-map MPDUEL04 "Digital Duel - Ruin and Kunai"
+map MPDUEL04 "Fragston Tower - Ruin"
 {
-	sky1 = DONNITE, 0.0
-	music = D_UNOWEN
+	sky1 = STSKY8, 0.05
+	music = D_FALLIN
 	next = MPDUEL05
 	clipmidtextures
 	par = 300
@@ -348,6 +348,15 @@ map MPLMS02 "Fall of Ragnarok - Kunai"
 	sky1 = SPACESKY, 0.4
 	music = D_FALLIN
 	next = MPLMS02
+}
+
+map MPLMS03 "Lost Caverns - Dark Pit"
+{
+	Next = MPLMS01
+	Sky1 = STSKY7, 0.2
+	Music = D_CAVE
+	clipmidtextures
+	allowcrouch
 }
 
 // ************** LMS END *************
