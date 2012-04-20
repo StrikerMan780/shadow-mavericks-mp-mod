@@ -7,13 +7,12 @@ StrikerMan780
 
 -=HQ=-
 * Add mountains bordering the Island.
-* Make Skybox Larger, with Google Maps aerial shots for skybox bottom.
-* Add Dr. Foxy's room behind mine, connecting the two via 3D Floor tunnel.
 * Create the underground sewer system.... eventually.
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
-Improve Randomized Lightning Effect
+Make fading inventory items for monster drops.
+Make more monsters fade away on death.
 
 -=MPDM04=-
 Find other ways to speed up rendering...
@@ -44,8 +43,8 @@ Kyo
 ---
 
 -=COOP02=-
-*Finish detail and several new additions, 
-Cargo Area Landing Pad, Cargo Area converyer belts to Distribution Rooms, 
+*Finish detail and several new additions,
+Cargo Area Landing Pad, Cargo Area converyer belts to Distribution Rooms,
 Mess Hall, Cargo Area Server Room, Landing Pad Lookout (similar to what Doom 3 had at the beginning)
 
 -=MPDM05=-
