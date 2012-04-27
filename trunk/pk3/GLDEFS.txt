@@ -2310,6 +2310,17 @@ object ChandelierFlames
 	frame FORA { light ChandelierFlame }
 }
 
+pointlight WhiteLight
+{
+    color 0.9 0.9 0.9
+    size 80
+}
+
+object WhiteToggleLight
+{
+	frame NULLB { light WhiteLight }
+}
+
 skybox ORBIT fliptop
 {
 	ORBIT270

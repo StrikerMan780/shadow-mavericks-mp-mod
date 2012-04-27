@@ -570,4 +570,21 @@ actor Camaro 10221
 	}
 }
 
+actor WhiteToggleLight 18346
+{
+	Radius 4
+	Height 8
+	+NOGRAVITY
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		NULL A -1 BRIGHT
+		loop
+	LightOn:
+		NULL B -1 BRIGHT
+		loop
+	}
+}
+
 // ********** END OF PROPS ************
