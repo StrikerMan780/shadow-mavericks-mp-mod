@@ -219,16 +219,17 @@ map MPDUEL06 "BioTech - Ruin"
 	par = 300
 }
 
-map MPDUEL07 "GunZ: Hallway - Ruin"
+map MPDUEL07 "Jungle Fever - Ruin"
 {
-	music = D_SHINRA
-	sky1 = DONNITE, 0.0
+	music = D_Jungle
+	sky1 = Bsky1, 0.1
 	next = MPDUEL08
+        forcenoskystretch
 	clipmidtextures
 	allowcrouch
 }
 
-//Forgotten Base designed by Tyler Bell a.k.a. Ruin.  Don't be a dick and steal the particle
+//Forgotten Base, Fragston Tower, Testament, Duel-a-tron 5000, [SM] Training Dojo, designed by Tyler Bell a.k.a. Ruin.  Don't be a dick and steal the particle
 //and text mid-textures, its not hard, make your own.
 
 map MPDUEL08 "Forgotten Base - Ruin"
@@ -256,6 +257,14 @@ map MPDUEL10 "Skies of Ruin - StrikerMan780"
 	allowcrouch
 }
 
+map MPDUEL11 "Gunz:Hallway - Ruin"
+{
+	music = D_SHINRA
+	sky1 = DONNITE, 0.0
+	next = MPDUEL08
+	clipmidtextures
+	allowcrouch
+}
 // **************** DUEL END ************
 
 // **************** CTF MAPS *********************
