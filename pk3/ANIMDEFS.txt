@@ -275,6 +275,21 @@ texture ANIM_C01
 	pic	ANIM_C63 tics 2
 	pic	ANIM_C64 tics 2
 
+texture ANIM_D01
+	pic	ANIM_D01 tics 3
+	pic	ANIM_D02 tics 3
+	pic	ANIM_D03 tics 3
+	pic	ANIM_D04 tics 3
+	pic	ANIM_D05 tics 3
+	pic	ANIM_D06 tics 3
+	pic	ANIM_D07 tics 3
+	pic	ANIM_D08 tics 3
+	pic	ANIM_D09 tics 3
+	pic	ANIM_D10 tics 3
+	pic	ANIM_D11 tics 3
+	pic	ANIM_D12 tics 3
+	pic	ANIM_D13 tics 3
+
 texture AFLAGF01
 	pic	AFLAGF01 tics 3
 	pic	AFLAGF02 tics 3

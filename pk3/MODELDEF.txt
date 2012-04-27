@@ -3289,6 +3289,16 @@ model Dildo
 	FrameIndex GDCR A 0 0
 }
 
+model Clock
+{
+	Path "Models/Decoration"
+	Model 0 "Clock.md3"
+	Skin 0 "Clock.jpg"
+	Scale 2.5 2.5 2.5
+
+	FrameIndex CLOK A 0 0
+}
+
 //Model SM_Railgun
 //{
 //	 Path "Models\HUD\Railgun"
