@@ -3279,6 +3279,17 @@ Model Condom2
   Frame NULL A 0 "skin"
 }
 
+Model Condom_BlueShell
+{
+  Path "Models/FloorDecals"
+  Model 0 "FloorDecal.md2"
+  Skin 0 "BlueShell.png"
+  Scale 0.1 0.1 0.1
+  ZOffset 0.2
+
+  Frame NULL A 0 "skin"
+}
+
 model Dildo
 {
 	Path "Models/Decoration"
