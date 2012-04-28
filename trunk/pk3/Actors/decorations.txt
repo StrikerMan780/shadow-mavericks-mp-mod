@@ -151,6 +151,21 @@ actor Condom2 18815
   }
 }
 
+actor Condom_BlueShell 18816
+{
+  radius 4
+  height 4
+  -SOLID
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  NULL A -1
+  loop
+  }
+}
+
 actor Spanner 8023
 {
   radius 20
