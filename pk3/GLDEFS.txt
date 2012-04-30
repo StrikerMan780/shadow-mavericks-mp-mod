@@ -2331,6 +2331,16 @@ skybox ORBIT fliptop
 	ORBITBOT
 }
 
+skybox CITYSKY fliptop
+{
+	LA_FRONT
+	LA_RIGHT
+	LA_BACK
+	LA_LEFT
+	LA_TOP
+	LA_DOWN
+}
+
 Glow
 {
 	Flats
