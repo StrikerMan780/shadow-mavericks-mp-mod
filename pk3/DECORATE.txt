@@ -5405,20 +5405,6 @@ ACTOR LaserRifle1 : Weapon 13422
    }
 }
 
-actor Flower 25013
-{
-  radius 8
-  height 16
-  Scale 0.90
-  +FORCEYBILLBOARD
-  States
-  {
-  Spawn:
-  FLOW A -1
-  stop
-  }
-}
-
 ACTOR BioBurstDrop
 {
 	renderstyle add
