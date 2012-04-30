@@ -3290,6 +3290,43 @@ Model Condom_BlueShell
   Frame NULL A 0 "skin"
 }
 
+model Rose
+{
+	Path "Models/Decoration/Rose"
+	Model 0 "Rose.md3"
+	Scale 0.5 0.5 0.5
+	ZOffset 2
+
+	FrameIndex NULL A 0 0
+}
+
+model Flower
+{
+	Path "Models/Decoration/Flower"
+	Model 0 "Flower.md3"
+	Scale 2.75 2.75 2.75
+
+	FrameIndex FLOW A 0 0
+}
+
+model Flower
+{
+	Path "Models/Decoration/Flower"
+	Model 0 "Flower2.md3"
+	Scale 2.25 2.25 2.25
+
+	FrameIndex FLOW B 0 0
+}
+
+model Flower
+{
+	Path "Models/Decoration/Flower"
+	Model 0 "Flower3.md3"
+	Scale 3.0 3.0 3.0
+
+	FrameIndex FLOW C 0 0
+}
+
 model Dildo
 {
 	Path "Models/Decoration"
