@@ -1378,11 +1378,15 @@ actor Grell
 		GREL J 4 A_PlaySound("grell/thud", CHAN_AUTO)
 		GREL K 4
 		GREL LM 4 A_SetFloorClip
-		GREL N -1
+		GREL N 10500
 		Stop
+	Fade:
+		GREL N 1 A_FadeOut(0.05)
+		loop
 	Raise:
 		GREL M 5 A_UnSetFloorClip
 		GREL LKJIH 5
+		GREL H 0 A_ChangeFlag("FLOATBOB", 1)
 		Goto See
 	}
 }
