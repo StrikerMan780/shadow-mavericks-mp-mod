@@ -355,7 +355,7 @@ map MPLMS01 "The Gas Chamber - Ruin"
 map MPLMS02 "Fall of Ragnarok - Kunai"
 {
 	sky1 = SPACESKY, 0.4
-	music = D_FALLIN
+	music = D_FALLI2
 	next = MPLMS02
 }
 

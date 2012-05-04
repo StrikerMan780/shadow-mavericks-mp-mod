@@ -10,7 +10,7 @@ ECHO.
 del SMMP-DEV.pk3
 
 cd pk3
-..\Tools\7za a -y -tzip -mx=0 -x!.svn ..\SMMP-DEV.pk3 .\
+..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP-DEV.pk3 .\
 
 pause
 goto Leave
