@@ -716,6 +716,14 @@ Rave DSRAVE
 // Angry German Zombie
 AngryGermanZombie1 DSGERMA1
 
+// Grell
+grell/sight     dsgresit
+grell/active    dsgreact
+grell/attack    dsgreatk
+grell/pain      dsgrepai
+grell/death     dsgredth
+grell/thud      dsgrethd
+
 Popcorn DSPOPCRN
 
 // ******************
