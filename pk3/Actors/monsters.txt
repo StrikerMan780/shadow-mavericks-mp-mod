@@ -61,6 +61,7 @@ actor RandomCacodemonSpawner : RandomSpawner Replaces Cacodemon
 	Height 56
 	+ISMONSTER
 	DropItem "GBTWCacodemon", 255 100
+	DropItem "Fleshspawn_Spawner", 255 32
 	DropItem "CacoShooper", 255 1
 }
 
@@ -254,7 +255,7 @@ actor GBTWDarkImp : DarkImp Replaces DarkImp
 			stop
 		Death:
 			TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
-   			DIMP I 8
+			DIMP I 8
 			DIMP J 8 A_Scream
 			DIMP K 6
 			DIMP L 6 A_NoBlocking
@@ -352,6 +353,148 @@ actor StealthGBTWCacodemon : GBTWCacodemon Replaces StealthCacodemon
 	Alpha 0.0
 }
 
+actor ShooperBlast
+{
+	Projectile
+	Radius 11
+	Height 8
+	Speed 40
+	Damage 3
+	RenderStyle Add
+	Alpha 0.8
+	Scale 0.88
+	Obituary "%o was pwned by a cacoshoooper's lazor."
+	+FORCERADIUSDMG
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			ENGY ABCD 1 BRIGHT
+			loop
+		Death:
+			ENGY A 0 A_PlaySound("Duke64EnergyBallExplode")
+			ENGY A 0 BRIGHT A_Explode(24, 46)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionWeak", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionShellWeak", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionRingWeak", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor CacoShooper : GBTWCacodemon 12123
+{
+  obituary "%o was pwned by a cacoshoooper's lazor."
+  health 350
+  mass 400
+  speed 4
+  painchance 0
+  Translation "112:127=192:207", "192:207=112:127"
+  BloodColor "00 FF 00"
+  MONSTER
+  +FLOAT
+  +NOGRAVITY
+  +DONTHURTSPECIES
+  states
+  {
+  See:
+	HEAD AAAABBBB 3 A_Chase
+	loop
+  Missile:
+	HEAD A 0 A_Jump(96, "InstaShoop")
+	HEAD A 0 A_PlaySoundEx("ShoopDaWhoop", "Auto", 0, 0.99)
+	HEAD BCBABCBABCBABCBABCBABCBABCBABCBA 1 A_FaceTarget
+	HEAD BCBA 2 A_FaceTarget
+	goto Shoop
+  InstaShoop:
+	HEAD A 0 A_PlaySoundEx("ShoopDaWhoop2", "Auto", 0, 0.99)
+  Shoop:
+	WOOP A 0 Radius_Quake (9, 40, 0, 8, 0)
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	WOOP A 0 bright A_FaceTarget
+	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
+	goto See
+
+	Cinematic:
+		HEAD A 0
+		goto InstaShoop
+  }
+}
+
 actor GBTWHellknight : HellKnight Replaces HellKnight
 {
 	BloodColor "00 AE 00"
@@ -362,10 +505,10 @@ actor GBTWHellknight : HellKnight Replaces HellKnight
 	{
 		Death:
 			TNT1 A 0 A_GiveToTarget("DemonicPower", 8)
-			BOS2 I  8
-			BOS2 J  8 A_Scream
-			BOS2 K  8
-			BOS2 L  8 A_NoBlocking
+			BOS2 I	8
+			BOS2 J	8 A_Scream
+			BOS2 K	8
+			BOS2 L	8 A_NoBlocking
 			BOS2 MN 8
 			BOS2 O -1
 			Stop
@@ -1071,7 +1214,7 @@ actor Vulgar : GBTWDoomImp 30127
 	VULG H 2 A_Pain
 	goto See
   Death:
-  	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 	VULG I 6
 	VULG J 6 A_Scream
 	VULG KL 6
@@ -1079,7 +1222,7 @@ actor Vulgar : GBTWDoomImp 30127
 	VULG N -1
 	stop
   XDeath:
-  	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 	TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
 	VULG O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 	VULG P 5 A_XScream
@@ -1287,47 +1430,47 @@ ACTOR SM_SuperShotgunGuy : SuperShotgunGuy replaces SuperShotgunGuy
    DropItem "SM_SuperShotgun"
    States
    {
-      Spawn:
-         GPOS AB 10 A_Look
-         Loop
-      See:
-         GPOS AABBCCDD 4 A_Chase
-         Loop
-      Missile:
-         GPOS E 10 A_FaceTarget
-         GPOS F 8 Bright A_CustomBulletAttack(8, 7, 7, 5, "BulletPuff")
-         GPOS E 8
-         GPOS A 0 A_PlaySoundEx("weapons/sshoto", "auto", 0)
-         GPOS AA 5 A_Wander
-         GPOS B 0 A_PlaySoundEx("weapons/sshotl", "auto", 0)
-         GPOS BB 5 A_Wander
-         GPOS C 0 A_PlaySoundEx("weapons/sshotc", "auto", 0)
-         GPOS CCDD 5 A_Wander
-         Goto See
-      Pain:
-         GPOS G 3
-         GPOS G 3 A_Pain
-         Goto See
-      Death:
-      	 TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
-         GPOS H 5
-         GPOS I 5 A_Scream
-         GPOS J 5 A_NoBlocking
-         GPOS KLM 5
-         GPOS N -1
-         Stop
-      XDeath:
-      	 TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
+	  Spawn:
+		 GPOS AB 10 A_Look
+		 Loop
+	  See:
+		 GPOS AABBCCDD 4 A_Chase
+		 Loop
+	  Missile:
+		 GPOS E 10 A_FaceTarget
+		 GPOS F 8 Bright A_CustomBulletAttack(8, 7, 7, 5, "BulletPuff")
+		 GPOS E 8
+		 GPOS A 0 A_PlaySoundEx("weapons/sshoto", "auto", 0)
+		 GPOS AA 5 A_Wander
+		 GPOS B 0 A_PlaySoundEx("weapons/sshotl", "auto", 0)
+		 GPOS BB 5 A_Wander
+		 GPOS C 0 A_PlaySoundEx("weapons/sshotc", "auto", 0)
+		 GPOS CCDD 5 A_Wander
+		 Goto See
+	  Pain:
+		 GPOS G 3
+		 GPOS G 3 A_Pain
+		 Goto See
+	  Death:
+		 TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
+		 GPOS H 5
+		 GPOS I 5 A_Scream
+		 GPOS J 5 A_NoBlocking
+		 GPOS KLM 5
+		 GPOS N -1
+		 Stop
+	  XDeath:
+		 TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
 		 TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
-         GPOS O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-         GPOS P 5 A_XScream
-         GPOS Q 5 A_NoBlocking
-         GPOS RS 5
-         GPOS T -1
-         Stop
-      Raise:
-         GPOS LKJIH 5
-         Goto See
+		 GPOS O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		 GPOS P 5 A_XScream
+		 GPOS Q 5 A_NoBlocking
+		 GPOS RS 5
+		 GPOS T -1
+		 Stop
+	  Raise:
+		 GPOS LKJIH 5
+		 Goto See
    }
 }
 
@@ -1371,8 +1514,7 @@ actor Grell
 		Goto See
 	Death:
 		GREL H 0 A_ChangeFlag("FLOATBOB", 0)
-		GREL H 5
-		GREL I 0 A_NoBlocking
+		GREL H 5 A_NoBlocking
 		GREL I -1 A_Scream
 	Crash:
 		GREL J 4 A_PlaySound("grell/thud", CHAN_AUTO)
@@ -1388,5 +1530,349 @@ actor Grell
 		GREL LKJIH 5
 		GREL H 0 A_ChangeFlag("FLOATBOB", 1)
 		Goto See
+	}
+}
+
+ACTOR Fleshspawn
+{
+	Obituary "%o was burned by a FleshSpawn."
+	HitObituary "%o was devoured by a FleshSpawn."
+	health 50
+	radius 14
+	height 28
+	mass 80
+	speed 8
+	damage 2
+	painchance 224
+	missiletype "Fleshspawnball"
+	bloodcolor "blue"
+	attacksound "flesh/melee"
+	seesound "flesh/sight"
+	painsound "flesh/pain"
+	deathsound "flesh/death"
+	activesound "flesh/active"
+	MONSTER
+	+FLOAT
+	+NOGRAVITY
+	+DONTHURTSPECIES
+	+NOINFIGHTING
+	+NOTARGET
+	States
+	{
+	Spawn:
+		FLSP AB 8 A_Look
+		loop
+	See:
+		FLSP AABB 2 A_Chase
+		loop
+	Missile:
+		FLSP C 0 A_Jump(128,"Charge")
+		FLSP C 8 A_FaceTarget
+		FLSP G 4 A_FaceTarget
+		FLSP H 4 Bright A_CustomMissile("Fleshspawnball", 12, 0, 0)
+		goto See
+	Charge:
+		FLSP C 0 A_Jump(96, 6)
+		FLSP C 8 A_FaceTarget
+		FLSP D 4 A_FaceTarget
+		FLSP E 4 A_SkullAttack
+		FLSP FE 4
+		Goto Charge+4
+		FLSP C 8 A_FaceTarget
+		FLSP D 4 A_FaceTarget
+		FLSP E 4 A_SkullAttack
+		FLSP FEFE 4
+		FLSP C 6 A_FaceTarget
+		FLSP D 4 A_FaceTarget
+		FLSP E 4 A_SkullAttack
+		FLSP FE 4
+		Goto Charge+4
+	Pain:
+		FLSP I 3
+		FLSP I 3 A_Pain
+		Goto See
+	Death:
+		FLSP I 5
+		FLSP J 5 A_Scream
+		FLSP K 5
+		FLSP L 5 A_NoBlocking
+		FLSP MN 5 A_SetFloorClip
+		FLSP O 10500
+		goto Fade
+	Fade:
+		FLSP O 1 A_FadeOut(0.05)
+		loop
+	XDeath:
+		FLSP P 3
+		FLSP Q 0 A_FaceTarget
+		FLSP Q 0 A_SpawnItemEx("FleshSpawnGibs", 0, 0, 0, 0, 0, 0, 0, 128)
+		FLSP Q 0 A_CustomMissile("Fleshspawngib1", 14, 0, random(-180,180), 2, random(10,40))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib2", 6, 2, random(-180,180), 2, random(0,25))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib2B", 10, -2, random(-180,180), 2, random(0,25))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib3", 8, 0, random(-180,180), 2, random(0,35))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib4", 12, 5, random(-180,180), 2, random(-5,40))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib4B", 5, -5, random(-180,180), 2, random(0,30))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib5", 6, 3, random(-180,180), 2, random(10,60))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib5", 8, 0, random(-180,180), 2, random(-10,55))
+		FLSP Q 0 A_CustomMissile("Fleshspawngib6", 12, 0, 0, 2, 0)
+		FLSP Q 3 A_XScream
+		FLSP R 3 A_NoBlocking
+		FLSP STU 3
+		Stop
+	Raise:
+		FLSP O 5 A_UnSetFloorClip
+		FLSP NMLKJI 5
+		Goto See
+	}
+}
+
+Actor FleshSpawnGibs
+{
+	+NoClip
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_CustomMissile("Fleshspawngib1", 14, 0, random(-180,180), 2, random(10,40))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib2", 6, 2, random(-180,180), 2, random(0,25))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib2B", 10, -2, random(-180,180), 2, random(0,25))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib3", 8, 0, random(-180,180), 2, random(0,35))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib4", 12, 5, random(-180,180), 2, random(-5,40))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib4B", 5, -5, random(-180,180), 2, random(0,30))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib5", 6, 3, random(-180,180), 2, random(10,60))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib5", 8, 0, random(-180,180), 2, random(-10,55))
+		TNT1 A 0 A_CustomMissile("Fleshspawngib6", 12, 0, 0, 2, 0)
+		Stop
+	}
+}
+
+actor Fleshspawnball
+{
+	Damage 2
+	Speed 10
+	Radius 3
+	Height 5
+	SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+	RenderStyle Add
+	Alpha 0.9
+	Projectile
+	states
+	{
+	Spawn:
+		FLBL ABCBABCBABCBABCBIJKLM 4 Bright
+		Stop
+	Death:
+		FLBL DEFGH 4 Bright
+		Stop
+	}
+}
+
+ACTOR Fleshspawngib1
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB1 ABCD 4
+		loop
+	Death:
+		FGB1 E 4200
+		goto Fade
+	Fade:
+		FGB1 E 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+ACTOR Fleshspawngib2
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB2 ABCD 4
+		loop
+	Death:
+		FGB2 I 4200
+		goto Fade
+	Fade:
+		FGB2 I 1 A_FadeOut(0.05)
+		loop
+   }
+}
+
+ACTOR Fleshspawngib2B
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB2 EFGH 4
+		loop
+	Death:
+		FGB2 J 4200
+		goto Fade
+	Fade:
+		FGB2 J 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+ACTOR Fleshspawngib3
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB3 ABCD 4
+		loop
+	Death:
+		FGB3 E 4200
+		goto Fade
+	Fade:
+		FGB3 E 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+ACTOR Fleshspawngib4
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB4 ABCD 4
+		loop
+	Death:
+		FGB4 I 4200
+		goto Fade
+	Fade:
+		FGB4 I 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+ACTOR Fleshspawngib4B
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	Scale 0.8
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB4 EFGH 4
+		loop
+	Death:
+		FGB4 J 4200
+		goto Fade
+	Fade:
+		FGB4 J 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+ACTOR Fleshspawngib5
+{
+	Speed 8
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB5 ABCD 4
+		loop
+	Death:
+		FGB5 E 4200
+		goto Fade
+	Fade:
+		FGB5 E 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+ACTOR Fleshspawngib6
+{
+	Speed 0
+	Mass 100
+	Radius 2
+	Height 2
+	PROJECTILE
+	-NOGRAVITY
+	+DROPOFF
+	States
+	{
+	Spawn:
+		FGB6 A 4
+		loop
+	Death:
+		FGB6 BC 4
+		FGB6 D 4200
+		goto Fade
+	Fade:
+		FGB6 D 1 A_FadeOut(0.05)
+		loop
+   }
+}
+
+actor Fleshspawn_Spawner
+{
+	radius 14
+	height 28
+	+ISMONSTER
+	-SOLID
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", 14, 14, 0, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", 14, -14, 0, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", -14, 14, 0, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", -14, -14, 0, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", 14, 14, 28, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", 14, -14, 28, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", -14, 14, 28, 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Fleshspawn", -14, -14, 28, 0, 0, 0, 0, 0, 0)
+			TNT1 A 1
+			stop
 	}
 }
