@@ -188,10 +188,10 @@ actor DemonicPower : Ammo 19652
  Inventory.Icon "DEMPICON"
  inventory.pickupmessage "Heart (Source of Demonic Power)"
  inventory.pickupsound "demonpowerpickup"
- inventory.amount 12
- Inventory.maxamount 999
+ inventory.amount 10
+ Inventory.maxamount 100
  ammo.backpackamount 0
- ammo.backpackmaxamount 999
+ ammo.backpackmaxamount 100
  +IGNORESKILL
  States
  {
