@@ -13,7 +13,7 @@ CALL "setenv.bat"
 DEL /F /Q "setenv.bat"
 
 ECHO.
-ECHO Quick Compiling SMMP Build Rev#: %REVISIONNUMBER%...
+ECHO Full Compiling SMMP Build Rev#: %REVISIONNUMBER%...
 ECHO.
 
 move /Y .\pk3\Maps\*.backup* .\backups >nul 2>&1
@@ -22,7 +22,7 @@ move /Y .\pk3\Maps\*.bak .\backups >nul 2>&1
 ECHO.
 
 cd pk3
-..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP-r%REVISIONNUMBER%.pk3 .\
+..\Tools\7za a -y -t7z -mx=9 -ms=on -mmt -x!.svn ..\SMMP-r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto Leave
