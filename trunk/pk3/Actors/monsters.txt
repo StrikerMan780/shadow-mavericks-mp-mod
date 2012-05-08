@@ -172,7 +172,7 @@ ACTOR NightmareDemon : SM_Demon
 	Melee:
 		SAR2 E 4 BRIGHT A_FaceTarget
 		SAR2 F 4 BRIGHT A_FaceTarget
-		SAR2 G 4 BRIGHT A_SargAttack
+		SAR2 G 5 BRIGHT A_SargAttack
 		Goto See
 	Pain:
 		SAR2 H 4 BRIGHT A_Pain
@@ -1875,4 +1875,130 @@ actor Fleshspawn_Spawner
 			TNT1 A 1
 			stop
 	}
+}
+
+actor LeeroyZombie : GBTWZombieMan 17291
+{
+  obituary "%o was Kamikaze'd by a Leeroy Zombie."
+  health 100
+  speed 12
+  painchance 40
+  SpawnId 240
+  DamageType "Leeroy"
+  DamageFactor "Leeroy", 0.0
+  seesound "LeeroySee"
+  Translation "128:151=112:127"
+  MONSTER
+  DropItem "MechAmmo", 255
+  DropItem "MolotovCocktail", 36
+  +FLOORCLIP
+  +DONTHURTSPECIES
+  +LOOKALLAROUND
+  +NORADIUSDMG
+  states
+  {
+  Spawn:
+	POSS AA 5 A_Look
+	loop
+  See:
+	POSS A 0 A_StopSoundEx("SoundSlot6")
+	POSS AABBCCDD 3 A_Chase
+	loop
+  Missile:
+	POSS E 10 A_FaceTarget
+	POSR A 0 A_PlaySoundEx("LeeroyJenkins", "Auto", 0, 0.99)
+	POSR A 0 A_PlaySoundEx("LeeroyRun", "SoundSlot6", 1, -1)
+	POSR A 0 A_AlertMonsters
+	POSR A 0 A_JumpIfCloser(120, "Detonate")
+	POSR A 0 A_FaceTarget
+	POSR A 2 A_Recoil(-4)
+	POSR A 0 A_FaceTarget
+	POSR A 2 A_Recoil(-3)
+	POSR B 0 A_FaceTarget
+	POSR B 0 A_CustomBulletAttack(40, 20, 1, 5, "LeeroyBulletPuff", 2048, 1)
+	POSR B 0 A_JumpIfCloser(120, "Detonate")
+	POSR B 2 BRIGHT A_Recoil(-3)
+	POSR B 0 A_FaceTarget
+	POSR B 2 BRIGHT A_Recoil(-3)
+	POSR C 0 A_JumpIfCloser(120, "Detonate")
+	POSR C 0 A_CPosRefire
+	POSR C 0 A_FaceTarget
+	POSR C 2 A_Recoil(-3)
+	POSR C 0 A_FaceTarget
+	POSR C 2 A_Recoil(-3)
+	POSR D 0 A_JumpIfCloser(120, "Detonate")
+	POSR D 0 A_FaceTarget
+	POSR D 0 A_CustomBulletAttack(40, 20, 1, 5, "LeeroyBulletPuff", 2048, 1)
+	POSR D 2 BRIGHT A_Recoil(-3)
+	POSR D 0 A_FaceTarget
+	POSR D 2 BRIGHT A_Recoil(-3)
+	POSR D 0 A_JumpIf(momx+momy+momz == 0, "See")
+	POSR A 0 A_CPosRefire
+	goto Missile+3
+  Pain:
+	POSS G 3 A_StopSoundEx("SoundSlot6")
+	POSS G 3 A_Pain
+	goto See
+  Burn:
+  Disintegrate:
+  Ethereal:
+  XDeath:
+  Detonate:
+	POSS M 1 A_Die
+  Death:
+	POSS M 4 A_StopSoundEx("SoundSlot6")
+	POSS M 0 bright A_PlaySound("MassiveExplosion")
+	POSS M 0 bright A_Explode(136, 136, 1)
+	POSS M 0 bright A_SpawnItemEx("SledgeHammerExplosionLarge", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+	POSS MMMMMM 0 bright A_SpawnItemEx("SledgeHammerExplosionSmall", Random(-48, 48), Random(-48, 48), Random(-48, 48), 0, 0, 0, 0, 128, 0)
+	POSS M 1 A_StopSoundEx("SoundSlot6")
+	POSS NNNNNN 0 bright A_SpawnItemEx("SledgeHammerExplosionSmall", Random(-48, 48), Random(-48, 48), Random(-48, 48), 0, 0, 0, 0, 128, 0)
+	POSS N 5 A_XScream
+	POSS OOOO 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, Random(5, 10), Random(5,10), Random(2, 20), Random(-255, 255), 128, 0)
+	POSS OOOOOO 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, random(-2, 2), random(-2, 2), random(1, 14), Random(-180, 180), 128, 0)
+	POSS O 5 A_NoBlocking
+	POSS PQRST 5
+	POSS U -1
+	stop
+  Raise:
+	POSS UTSRQPONM 4
+	POSS M 0 A_StopSoundEx("SoundSlot6")
+	goto See
+   XDeath.Obliterate:
+   Death.Obliterate:
+	TNT1 A 0 A_StopSoundEx("SoundSlot6")
+	TNT1 A 0 A_GiveToTarget("DemonicPower", 8)
+	POSS M 2 A_SpawnItemEx("ObliterateGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+	POSS N 2 A_XScream
+	POSS O 2 A_NoBlocking
+	POSS O 0 A_StopSoundEx("SoundSlot6")
+	POSS PQRST 2
+	POSS U -1
+	stop
+
+	Cinematic:
+	POSS E 4 A_FaceTarget
+	POSR A 0 A_PlaySoundEx("LeeroyJenkins", "Auto", 0, 0.99)
+	POSR A 0 A_PlaySoundEx("LeeroyRun", "SoundSlot6", 1, -1)
+	POSR A 0 A_AlertMonsters
+	POSR A 2 A_Recoil(-3.5)
+	POSR A 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR A 2 A_Recoil(-3)
+	POSR B 0 A_CustomBulletAttack(20, 20, 1, 0, "LeeroyBulletPuff", 2048, 1)
+	POSR B 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR B 2 BRIGHT A_Recoil(-3)
+	POSR B 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR B 2 BRIGHT A_Recoil(-3)
+	POSR C 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR C 2 A_Recoil(-3)
+	POSR C 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR C 2 A_Recoil(-3)
+	POSR D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR D 0 A_CustomBulletAttack(20, 20, 1, 0, "LeeroyBulletPuff", 2048, 1)
+	POSR D 2 BRIGHT A_Recoil(-3)
+	POSR D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	POSR D 2 BRIGHT A_Recoil(-3)
+	POSR D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
+	goto Cinematic+3
+  }
 }

@@ -732,3 +732,10 @@ Actor SuperChaingunHit
 		stop
 	}
 }
+
+actor LeeroyBulletPuff : NewBulletPuff
+{
+	DamageType "Leeroy"
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+}
