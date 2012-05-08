@@ -187,7 +187,6 @@ actor Flower 25013
 	height 16
 	Scale 0.90
 	+FORCEYBILLBOARD
-	+ALLOWCLIENTSPAWN
 	States
 	{
 		Spawn:
@@ -418,7 +417,6 @@ actor ForestTree1 11100
 	height 128
 	radius 16
 	+SOLID
-	+ALLOWCLIENTSPAWN
 	States
 	{
 		Spawn:
@@ -437,7 +435,6 @@ actor ForestTree2 11101
 	height 128
 	radius 16
 	+SOLID
-	+ALLOWCLIENTSPAWN
 	States
 	{
 		Spawn:
@@ -456,7 +453,6 @@ actor ForestTree3 11102
 	height 128
 	radius 16
 	+SOLID
-	+ALLOWCLIENTSPAWN
 	States
 	{
 		Spawn:
