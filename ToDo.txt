@@ -8,6 +8,7 @@ StrikerMan780
 -=HQ=-
 * Add mountains bordering the Island.
 * Create the underground sewer system.... eventually.
+* Allow Night Enemies to Respawn over time
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
@@ -19,6 +20,8 @@ Find other ways to speed up rendering...
 
 -=MODELS=-
 Re-do the Hellbender using Per-Surface Textures
+Re-do the molotov and gas can models
+Get Link a Master Sword Model
 
 -=CLASSES=-
 Give Duke a jetpack double-jump as his special move
