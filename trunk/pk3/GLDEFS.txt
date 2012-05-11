@@ -823,18 +823,6 @@ object Bottlex
     frame MOGT { light ROCKET    }
 }
 
-
-sectorlight OrangeSectorLight
-{
-    color 1.0 0.5 0.0
-    Scale 0.5
-}
-
-object OrangeLightSec
-{
-    Frame NULL { light OrangeSectorLight }
-}
-
 // Doom64 Pod Lamp
 pointlight DOOM64Light
 {

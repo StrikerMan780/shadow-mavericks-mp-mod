@@ -467,6 +467,7 @@ actor SpecialMove : CustomInventory
 	TNT1 A 0 A_JumpIfInventory("CannotSpin", 1, "DontUse")
 	TNT1 A 0 A_JumpIfInventory("PowerPossessionArtifact", 1, "DontUse")
 	TNT1 A 0 A_JumpIfInventory("ValkrieCannons", 1, "DontUse")
+	TNT1 A 0 A_JumpIfInventory("DeathbringerCannons", 1, "DontUse")
 	TNT1 A 0 A_JumpIfInventory("PowerFlight", 1, "DontUse")
 	TNT1 A 0 A_JumpIfInventory("RedFlag", 1, "DontUse")
 	TNT1 A 0 A_JumpIfInventory("BlueFlag", 1, "DontUse")
