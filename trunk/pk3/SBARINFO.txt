@@ -143,11 +143,6 @@ statusbar fullscreen, forcescaled
 		DrawBar "HEATRGHT", "HEATRBAK", LaserHeat, vertical, 170, 89;
 	}
 
-	InInventory PowerTargeter, 1
-	{
-		drawimage "HITCROSS", 154, 95;
-	}
-
 	IsSelected ValkrieCannons, DeathbringerCannons
 	{
 		DrawImage "PILLARBX", -66, 0;

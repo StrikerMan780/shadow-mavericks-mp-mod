@@ -2,6 +2,9 @@
 //Weapons - For SMMP
 //***********************************
 
+hitsound dshitsnd
+$limit hitsound 0
+
 WeaponEmpty DSWEMPTY
 Empty DSEMPTY
 FlareThrow DSFLARE
