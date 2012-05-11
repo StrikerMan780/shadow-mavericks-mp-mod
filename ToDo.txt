@@ -18,10 +18,15 @@ Make more monsters fade away on death.
 -=MPDM04=-
 Find other ways to speed up rendering...
 
+-=MPCTF05=-
+Add 3D Bridges between bases, also, add more Team-Specific color to bases.
+
 -=MODELS=-
 Re-do the Hellbender using Per-Surface Textures
 Re-do the molotov and gas can models
 Get Link a Master Sword Model
+Add a model for the water fountain
+Add a model for the hanging lamps
 
 -=CLASSES=-
 Give Duke a jetpack double-jump as his special move
