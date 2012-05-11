@@ -99,20 +99,21 @@ actor LinkClassCheck : Inventory
   }
 }
 
-actor HitConfirmation : PowerUpGiver
+actor HitConfirmation : CustomInventory
 {
-	Powerup.Duration 5
-	Powerup.Type "Targeter"
-	inventory.defmaxamount
-  	inventory.maxamount 0
-  	+INVENTORY.AUTOACTIVATE
-  	+INVENTORY.ALWAYSPICKUP
-  	states
-  	{
-  	Spawn:
-    	TNT1 A 3
-    	loop
-  	}
+ inventory.maxamount 1
+ -INVENTORY.INVBAR
+ +INVENTORY.AUTOACTIVATE
+ +INVENTORY.ALWAYSPICKUP
+ States
+ {
+ 	Spawn:
+ 		TNT1 A -1
+ 		stop
+ 	Use:
+ 		TNT1 A 1 ACS_ExecuteAlways(966, 0)
+ 		stop
+ }
 }
 
 actor GenericTimer : Inventory
