@@ -3290,6 +3290,37 @@ Model Condom_BlueShell
   Frame NULL A 0 "skin"
 }
 
+model DrinkingFountain
+{
+	Path "Models/Decoration"
+	Model 0 "0563_drinkfount.md3"
+	Skin 0 "0563_drinkfount.png"
+	Scale 0.64 0.8 0.5
+
+	FrameIndex FOUN A 0 0
+}
+
+model DrinkingFountain
+{
+	Path "Models/Decoration"
+	Model 0 "0565_drinkfount.md3"
+	Skin 0 "0563_drinkfount.png"
+	Scale 0.64 0.8 0.5
+
+	FrameIndex FOUN B 0 0
+}
+
+model DrinkingFountain
+{
+	Path "Models/Decoration"
+	Model 0 "0566_drinkfount.md3"
+	Skin 0 "0563_drinkfount.png"
+	Scale 0.64 0.8 0.5
+
+	FrameIndex FOUN C 0 0
+	FrameIndex FOUN D 0 0
+}
+
 model Rose
 {
 	Path "Models/Decoration/Rose"
