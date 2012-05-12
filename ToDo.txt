@@ -8,13 +8,17 @@ StrikerMan780
 -=HQ=-
 * Add mountains bordering the Island.
 * Create the underground sewer system.... eventually.
-* Allow Night Enemies to Respawn over time
+* Allow Night Enemies to Respawn over time.
+* Update Foxy's Spy Portrait to Colored Version
+* Add Hentai GIF to Kunai's Room
+* Fix Texture Issues near Ruin's learning center
+* Add street lights by road in front of HQ.
+* Make stone structure in front of HQ bridge over road.
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.
 Make more monsters fade away on death.
-Upgrade to Super UDM3's Hit Cross
 
 -=MPDM04=-
 Find other ways to speed up rendering...
@@ -49,9 +53,9 @@ Ruin
 -=HQ=-
 -Make myself a scrolling banner for the second TV in my house.
 
--Make the brainwashing room similar 
-open the door, walk in.  It's all bright, the tv is off, no sound.  
-There will be a switch on the inside.  Hit it, the door locks, 
+-Make the brainwashing room similar
+open the door, walk in.  It's all bright, the tv is off, no sound.
+There will be a switch on the inside.  Hit it, the door locks,
 lights go full dark and the TV pops on with the sound.
 Hit it again, room unlocks and the lights come back on, tv shuts off.
 
