@@ -9,7 +9,6 @@ StrikerMan780
 * Add mountains bordering the Island.
 * Create the underground sewer system.... eventually.
 * Allow Night Enemies to Respawn over time.
-* Update Foxy's Spy Portrait to Colored Version
 * Add Hentai GIF to Kunai's Room
 * Add street lights by road in front of HQ.
 
