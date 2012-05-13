@@ -10,7 +10,6 @@ StrikerMan780
 * Create the underground sewer system.... eventually.
 * Allow Night Enemies to Respawn over time.
 * Add Hentai GIF to Kunai's Room
-* Add street lights by road in front of HQ.
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
@@ -27,7 +26,6 @@ Add 3D Bridges between bases, also, add more Team-Specific color to bases.
 Re-do the Hellbender using Per-Surface Textures
 Re-do the molotov and gas can models
 Get Link a Master Sword Model
-Add a model for the hanging lamps
 
 -=CLASSES=-
 Give Duke a jetpack double-jump as his special move

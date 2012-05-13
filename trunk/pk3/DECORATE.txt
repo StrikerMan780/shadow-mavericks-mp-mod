@@ -7547,6 +7547,7 @@ actor Gasoline
 	DamageFactor "Ice", 0
 	DamageFactor "IceRod", 0
 	DamageFactor "Fist", 0
+	Species "Gasoline"
 	obituary "%o was purified by %k's cleansing flame."
 	RenderStyle Translucent
 	Mass 9999999999
@@ -7557,6 +7558,7 @@ actor Gasoline
 	+NODAMAGETHRUST
 	+FORCERADIUSDMG
 	+FORCEXYBILLBOARD
+	+THRUSPECIES
 	-NOGRAVITY
 	-NOBLOCKMAP
 	+CORPSE
@@ -7595,7 +7597,7 @@ actor GasolineCan : Weapon
   weapon.ammogive 100
   +WEAPON.NOALERT
   +WEAPON.WIMPY_WEAPON
-  //+WEAPON.NOAUTOAIM
+  +WEAPON.NOAUTOAIM
   States
   {
   Select:
