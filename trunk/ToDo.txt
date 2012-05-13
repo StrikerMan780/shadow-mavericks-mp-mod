@@ -11,9 +11,7 @@ StrikerMan780
 * Allow Night Enemies to Respawn over time.
 * Update Foxy's Spy Portrait to Colored Version
 * Add Hentai GIF to Kunai's Room
-* Fix Texture Issues near Ruin's learning center
 * Add street lights by road in front of HQ.
-* Make stone structure in front of HQ bridge over road.
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
@@ -30,7 +28,6 @@ Add 3D Bridges between bases, also, add more Team-Specific color to bases.
 Re-do the Hellbender using Per-Surface Textures
 Re-do the molotov and gas can models
 Get Link a Master Sword Model
-Add a model for the water fountain
 Add a model for the hanging lamps
 
 -=CLASSES=-
