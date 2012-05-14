@@ -10,6 +10,7 @@ StrikerMan780
 * Create the underground sewer system.... eventually.
 * Allow Night Enemies to Respawn over time.
 * Add Hentai GIF to Kunai's Room
+* Fix Rendering Bug in Water by Rock Structure
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
