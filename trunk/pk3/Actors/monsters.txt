@@ -201,6 +201,38 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 	DropItem "ForcePull", 2
 	States
 	{
+		Death:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+			TNT1 A 0 A_Jump(128, "AltDeath", "AltDeath2")
+			TROO I 8
+			TROO J 8 A_Scream
+			TROO K 6
+			TROO L 6 A_NoBlocking
+			TROO M 10500
+			goto Fade
+		Fade:
+			TROO M 1 A_FadeOut(0.05)
+			loop
+		AltDeath:
+			TROO V 8
+			TROO W 8 A_Scream
+			TROO X 6
+			TROO Y 6 A_NoBlocking
+			TROO Z 10500
+			goto AltFade
+		AltFade:
+			TROO Z 1 A_FadeOut(0.05)
+			loop
+		AltDeath2:
+			TROD I 8
+			TROD J 8 A_Scream
+			TROD K 6
+			TROD L 6 A_NoBlocking
+			TROD M 10500
+			goto AltFade2
+		AltFade2:
+			TROD M 1 A_FadeOut(0.05)
+			loop
 		Burn:
 			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TNT1 A 0 A_NoBlocking
@@ -259,8 +291,21 @@ actor GBTWDarkImp : DarkImp Replaces DarkImp
 			DIMP J 8 A_Scream
 			DIMP K 6
 			DIMP L 6 A_NoBlocking
-			DIMP M -1
-			stop
+			DIMP M 10500
+			goto Fade
+		Fade:
+			DIMP M 1 A_FadeOut(0.05)
+			loop
+		AltDeath:
+			DRKI V 8
+			DRKI W 8 A_Scream
+			DRKI X 6
+			DRKI Y 6 A_NoBlocking
+			DRKI Z 10500
+			goto AltFade
+		AltFade:
+			DRKI Z 1 A_FadeOut(0.05)
+			loop
 		XDeath:
 			TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
 			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
@@ -1011,6 +1056,7 @@ ACTOR MoritaZombie
 		Goto See
 	Death:
 		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+		TNT1 A 0 A_Jump(128, "AltDeath")
 		RFTR H 5
 		RFTR I 5 A_Scream
 		RFTR J 5 A_Fall
@@ -1019,6 +1065,16 @@ ACTOR MoritaZombie
 		goto Fade
 	Fade:
 		RFTR L 1 A_FadeOut(0.05)
+		loop
+	AltDeath:
+		RFTR V 5
+		RFTR W 5 A_Scream
+		RFTR X 5 A_Fall
+		RFTR Y 5
+		RFTR Z 10500
+		goto AltFade
+	AltFade:
+		RFTR Z 1 A_FadeOut(0.05)
 		loop
 	XDeath:
 		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
