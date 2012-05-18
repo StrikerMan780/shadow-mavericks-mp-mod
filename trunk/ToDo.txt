@@ -17,6 +17,8 @@ Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.
 Make more monsters fade away on death.
 
+-=Graphics=-
+
 -=MPDM04=-
 Find other ways to speed up rendering...
 
