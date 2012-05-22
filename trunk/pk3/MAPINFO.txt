@@ -175,7 +175,7 @@ map MPDUEL01 "Magma Caves - StrikerMan780"
 
 map MPDUEL02 "Testament - Ruin"
 {
-	sky1 = BKSKY1, 0.0
+	sky1 = cloudyst, 0.1
 	music = D_TESTAM
 	next = MPDUEL03
 	clipmidtextures
