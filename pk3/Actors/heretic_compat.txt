@@ -1,0 +1,52 @@
+actor RandomMummy : RandomSpawner Replaces Mummy
+{
+	Radius 22
+	Height 62
+	+ISMONSTER
+	DropItem "SM_Mummy", 255 100
+	DropItem "MoritaZombie", 255 50
+	DropItem "NeedlerTroop", 255 48
+	DropItem "MinigunGuy", 255 32
+	DropItem "Vulgar", 255 25
+}
+
+actor SM_Mummy : Mummy
+{
+}
+
+actor RandomHereticImp : RandomSpawner Replaces HereticImp
+{
+	Radius 22
+	Height 62
+	+ISMONSTER
+	DropItem "SM_HereticImp", 255 100
+	DropItem "Float_Fleshspawn", 255 50
+}
+
+actor SM_HereticImp : HereticImp
+{
+}
+
+actor Float_Fleshspawn : Fleshspawn
+{
+	+SPAWNFLOAT
+}
+
+actor Heretic_MechAmmo : MechAmmo replaces GoldWandAmmo
+{
+}
+
+actor Heretic_LargeMechAmmo : LargeMechAmmo replaces GoldWandHefty
+{
+}
+
+actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
+{
+	Radius 12
+	Height 54
+	DropItem "ImprovedShortRedTorch", 255 100
+	DropItem "ImprovedShortBlueTorch", 255 100
+	DropItem "ImprovedShortGreenTorch", 255 100
+	DropItem "ImprovedShortYellowTorch", 255 100
+	DropItem "ImprovedShortWhiteTorch", 255 100
+}

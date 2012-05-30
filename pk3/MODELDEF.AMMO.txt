@@ -1,0 +1,121 @@
+Model ProtonAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "ProtonAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex ROCK A 0 0
+}
+
+Model ProtonCharge
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "ProtonAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex BROK A 0 0
+}
+
+Model MechAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "MechAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CLIP A 0 0
+}
+
+Model LargeMechAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "MechAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex AMMO A 0 0
+}
+
+Model CellAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "CellAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CELL A 0 0
+}
+
+Model LargeCellAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "CellAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CELP A 0 0
+}
+
+Model SpreadAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "SpreadAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex SHEL A 0 0
+}
+
+Model LargeSpreadAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "SpreadAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex SBOX A 0 0
+}
+
+// Heretic Variants
+
+Model Heretic_MechAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "MechAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex CLIP A 0 0
+}
+
+Model Heretic_LargeMechAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "MechAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex AMMO A 0 0
+}
