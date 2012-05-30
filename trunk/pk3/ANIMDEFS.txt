@@ -497,6 +497,25 @@ flat GLAVA1
 	pic	GLAVA5 tics 6
 	pic	GLAVA6 tics 6
 
+flat FLTWAWA1
+	pic	FWATER1 tics 2
+	pic	FWATER2 tics 2
+	pic	FWATER3 tics 2
+	pic	FWATER4 tics 2
+	pic	FWATER5 tics 2
+	pic	FWATER6 tics 2
+	pic	FWATER7 tics 2
+	pic	FWATER8 tics 2
+	pic	FWATER9 tics 2
+	pic	FWATER10 tics 2
+	pic	FWATER11 tics 2
+	pic	FWATER12 tics 2
+	pic	FWATER13 tics 2
+	pic	FWATER14 tics 2
+	pic	FWATER15 tics 2
+	pic	FWATER16 tics 2
+
+
 flat FWATER1
 	pic	FWATER1 tics 2
 	pic	FWATER2 tics 2
