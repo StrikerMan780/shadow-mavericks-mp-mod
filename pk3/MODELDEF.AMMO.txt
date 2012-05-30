@@ -119,3 +119,27 @@ Model Heretic_LargeMechAmmo
 
    FrameIndex AMMO A 0 0
 }
+
+Model Heretic_SpreadAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "MiniItem.md3"
+   Skin 0 "SpreadAmmo.png"
+   Scale 0.9 0.9 0.9
+   ZOffset 12
+   ROTATING
+
+   FrameIndex SHEL A 0 0
+}
+
+Model Heretic_LargeSpreadAmmo
+{
+   Path "Models\Pickups"
+   Model 0 "ItemContainer.md3"
+   Skin 0 "SpreadAmmo.png"
+   Scale 3.5 3.5 3.5
+   ZOffset 12
+   ROTATING
+
+   FrameIndex SBOX A 0 0
+}

@@ -40,6 +40,14 @@ actor Heretic_LargeMechAmmo : LargeMechAmmo replaces GoldWandHefty
 {
 }
 
+actor Heretic_SpreadAmmo : SpreadAmmo replaces CrossbowAmmo
+{
+}
+
+actor Heretic_LargeSpreadAmmo : LargeSpreadAmmo replaces CrossbowHefty
+{
+}
+
 actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
 {
 	Radius 12
@@ -49,4 +57,15 @@ actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
 	DropItem "ImprovedShortGreenTorch", 255 100
 	DropItem "ImprovedShortYellowTorch", 255 100
 	DropItem "ImprovedShortWhiteTorch", 255 100
+}
+
+actor Heretic_SM_BurningBarrel : SM_BurningBarrel replaces FireBrazier
+{
+}
+
+actor RandomCrystalVial : RandomSpawner Replaces CrystalVial
+{
+	DropItem "Stimpack2", 255 100
+	DropItem "HealthBonus2", 255 100
+	DropItem "MaxHealthBonus2", 255 100
 }

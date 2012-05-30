@@ -128,6 +128,7 @@ actor Melee : Weapon
   +WEAPON.ALLOW_WITH_RESPAWN_INVUL
   +WEAPON.CHEATNOTWEAPON
   +WEAPON.NOALERT
+  +WEAPON.AMMO_OPTIONAL
   states
   {
   Ready:
@@ -14083,28 +14084,6 @@ actor HangingSpaceMarine : CommanderKeen Replaces CommanderKeen
 			KEEN K	4 A_KeenDie
 			KEEN L	 -1
 			Stop
-	}
-}
-
-ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
-{
-	inventory.pickupsound "HealthBonus"
-	States
-	{
-	Spawn:
-		BON3 ABCDEFGH 4
-		Loop
-	}
-}
-
-ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
-{
-	inventory.pickupsound "HealthBonus"
-	States
-	{
-	Spawn:
-		BON1 ABCDEFGH 4
-		Loop
 	}
 }
 

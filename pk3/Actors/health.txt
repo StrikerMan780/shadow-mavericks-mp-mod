@@ -135,3 +135,25 @@ ACTOR Popcorn : Health
 		stop
 	}
 }
+
+ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
+{
+	inventory.pickupsound "HealthBonus"
+	States
+	{
+	Spawn:
+		BON3 ABCDEFGH 4
+		Loop
+	}
+}
+
+ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
+{
+	inventory.pickupsound "HealthBonus"
+	States
+	{
+	Spawn:
+		BON1 ABCDEFGH 4
+		Loop
+	}
+}
