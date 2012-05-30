@@ -1092,3 +1092,19 @@ ACTOR ImprovedShortWhiteTorch : ShortWhiteTorch Replaces ShortWhiteTorch
 		goto Spawn+2
 	}
 }
+
+actor FireCanFlame : RocketFire
+{
+	+NOINTERACTION
+	Scale 0.2
+}
+
+actor SM_BurningBarrel : BurningBarrel Replaces BurningBarrel
+{
+	States
+	{
+		Spawn:
+			FCAN ABC 1 BRIGHT A_SpawnItemEx("FireCanFlame", random(-8,8), random(-8,8), random(20, 32), 0, 0, 1, 0, SXF_CLIENTSIDE, 80)
+			Loop
+	}
+}
