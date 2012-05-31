@@ -2,6 +2,7 @@
 //Weapons - For SMMP
 //***********************************
 
+misc/gibbed			dsslop
 hitsound dshitsnd
 $limit hitsound 0
 
@@ -11,6 +12,18 @@ FlareThrow DSFLARE
 $limit FlareThrow 0
 FlareBurn DSFLRBRN
 $limit FlareBurn 0
+
+weapons/shotgf			dsshotgn
+weapons/shotgr			dssgcock
+weapons/sshotf			dsdshtgn
+weapons/sshoto			dsdbopn
+weapons/sshotc			dsdbcls
+weapons/sshotl			dsdbload
+weapons/bfgf			dsbfg
+weapons/plasmaf			dsplasma
+weapons/plasmax			dsplshit
+$volume weapons/plasmax 0.8
+$limit weapons/plasmaf 0
 
 hellfire	dshellfi
 HellFly		dsmisfly
@@ -37,8 +50,6 @@ $limit misc/icebreak 0
 9mmClipIn ds9mmIn
 9mmSlide ds9mmsli
 
-$limit weapons/plasmaf 0
-
 phazonbeam dsphazon
 $limit phazonbeam 0
 
@@ -59,9 +70,6 @@ $limit moritafire 0
 
 p90fire dsp90
 $limit p90fire 0
-
-weapons/plasmax	dsplshit
-$volume weapons/plasmax 0.8
 
 bowshoot dsbowfir
 bowpull dsbowpul
@@ -735,6 +743,34 @@ flesh/melee		flspnatk
 flesh/pain		flspnhit
 flesh/death		flspndth
 flesh/active	flspnact
+
+// Zombie man
+
+$random grunt/sight 		{ grunt/sight1  grunt/sight2  grunt/sight3 }
+$random grunt/death		{ grunt/death1  grunt/death2  grunt/death3 }
+grunt/sight1			dsposit1
+grunt/sight2			dsposit2
+grunt/sight3			dsposit3
+grunt/active			dsposact
+grunt/pain			dspopain
+grunt/death1			dspodth1
+grunt/death2			dspodth2
+grunt/death3			dspodth3
+grunt/attack			dspistol
+
+// Shotgun guy
+
+$random shotguy/sight		{ shotguy/sight1  shotguy/sight2  shotguy/sight3 }
+$random shotguy/death		{ shotguy/death1  shotguy/death2  shotguy/death3 }
+shotguy/sight1			dsposit1
+shotguy/sight2			dsposit2
+shotguy/sight3			dsposit3
+shotguy/active			dsposact
+shotguy/pain			dspopain
+shotguy/death1			dspodth1
+shotguy/death2			dspodth2
+shotguy/death3			dspodth3
+shotguy/attack			dsshotgn
 
 
 Popcorn DSPOPCRN

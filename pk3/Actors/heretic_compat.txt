@@ -69,3 +69,10 @@ actor RandomCrystalVial : RandomSpawner Replaces CrystalVial
 	DropItem "HealthBonus2", 255 100
 	DropItem "MaxHealthBonus2", 255 100
 }
+
+actor RandomSkullHang60 : RandomSpawner Replaces SkullHang60
+{
+	DropItem "HangTNoBrain", 255 100
+	DropItem "HangTSkull", 255 100
+	DropItem "HangTLookingUp", 255 100
+}
