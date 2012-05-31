@@ -76,3 +76,13 @@ actor RandomSkullHang60 : RandomSpawner Replaces SkullHang60
 	DropItem "HangTSkull", 255 100
 	DropItem "HangTLookingUp", 255 100
 }
+
+actor RandomSkullHang70 : RandomSpawner Replaces SkullHang70
+{
+	DropItem "NonsolidTwitch", 255 100
+	DropItem "NonsolidMeat2", 255 100
+	DropItem "NonsolidMeat3", 255 100
+	DropItem "NonsolidMeat4", 255 100
+	DropItem "HangBNoBrain", 255 100
+	DropItem "HangNoGuts", 255 100
+}
