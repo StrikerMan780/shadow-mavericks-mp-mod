@@ -9,6 +9,7 @@ move /Y .\pk3\Maps\*.bak .\backups >nul 2>&1
 ECHO.
 
 cd pk3
+del smmp-dev.pk3.tmp
 ..\Tools\7za u -y -tzip -mx=0 -mmt -x!.svn ..\SMMP-DEV.pk3 .\
 
 pause
