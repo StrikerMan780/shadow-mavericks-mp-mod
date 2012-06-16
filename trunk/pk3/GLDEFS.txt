@@ -2582,6 +2582,11 @@ brightmap texture PWMISC3
 	map "Brightmaps/pwmisc3.png"
 }
 
+brightmap texture PWMISC4
+{
+	map "Brightmaps/pwmisc3.png"
+}
+
 brightmap texture CLUBMAVK
 {
 	map "Brightmaps/CLUBMAVK.png"
