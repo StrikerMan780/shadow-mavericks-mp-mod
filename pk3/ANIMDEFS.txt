@@ -731,6 +731,10 @@ warp2 flat water6
 warp2 flat water7
 warp2 texture NLAVA1
 warp flat quiksand
+warp texture e1sky1
+warp texture e3sky1
+warp texture warpface
+warp texture wqlava
 /*
 warp texture DOWNITE
 warp texture DOENITE
