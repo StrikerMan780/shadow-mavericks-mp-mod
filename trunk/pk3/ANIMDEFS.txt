@@ -742,11 +742,14 @@ warp texture DONNITE
 warp texture DOSNITE
 */
 
-cameratexture CAMTEX3 200 200 fit 128 128
-cameratexture CAMTEX4 184 104 fit 184 104
-cameratexture CAMTEX5 320 200 fit 96 64
-cameratexture CAMTEX6 128 192 fit 64 96
-cameratexture CAMTEX7 128 192 fit 64 96
+cameratexture CAMTX64	384 384 fit	64 64
+cameratexture CAMTX128	384 384 fit	128 128
+cameratexture CAMTEX1	640 480 fit 128 72
+cameratexture CAMTEX3	200 200 fit 128 128
+cameratexture CAMTEX4	184 104 fit 184 104
+cameratexture CAMTEX5	320 200 fit 96 64
+cameratexture CAMTEX6	128 192 fit 64 96
+cameratexture CAMTEX7	128 192 fit 64 96
 
 switch doom 1 LIGHT1 on pic LIGHT2 tics 0
 
