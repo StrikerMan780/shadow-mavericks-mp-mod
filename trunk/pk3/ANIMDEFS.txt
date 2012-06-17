@@ -760,6 +760,7 @@ warp2 texture PSOFLR20
 warp texture PSOWAL39
 warp texture EVILSKY2
 warp texture EVILSKY3
+warp texture WSKSNAK2
 
 switch doom 1 SWITCH1 on pic SWITCH2 tics 0
 SWITCH SW2_D642 on pic SW1_D642 tics 0 sound switches/doom64
