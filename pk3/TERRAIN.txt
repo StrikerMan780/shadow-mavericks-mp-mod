@@ -336,3 +336,5 @@ floor BLDGRAS grassblood_t
 floor sand sand_t
 floor quiksand quiksand_t
 endif
+
+floor fltslud1 blood_t

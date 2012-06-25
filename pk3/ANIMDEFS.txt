@@ -397,6 +397,46 @@ texture RWHOLE01
 	pic	RWHOLE02 tics 8
 	pic	RWHOLE03 tics 8
 
+flat FLTSLUD1
+	pic BLOOD1 tics 8
+	pic BLOOD1 tics 8
+
+flat BLOOD1
+	pic BLOOD1 tics 8
+	pic BLOOD1 tics 8
+
+flat BLOOD2
+	pic BLOOD1 tics 8
+	pic BLOOD1 tics 8
+
+flat BLOOD3
+	pic BLOOD1 tics 8
+	pic BLOOD1 tics 8
+
+flat BLBLOOD1
+	pic BLBLOOD1 tics 8
+	pic BLBLOOD1 tics 8
+
+flat BLBLOOD2
+	pic BLBLOOD1 tics 8
+	pic BLBLOOD1 tics 8
+
+flat BLBLOOD3
+	pic BLBLOOD1 tics 8
+	pic BLBLOOD1 tics 8
+
+flat GRANUKE1
+	pic GRANUKE1 tics 8
+	pic GRANUKE1 tics 8
+
+flat GRANUKE2
+	pic GRANUKE1 tics 8
+	pic GRANUKE1 tics 8
+
+flat GRANUKE3
+	pic GRANUKE1 tics 8
+	pic GRANUKE1 tics 8
+
 flat LAVA1
 	pic	LAVA1 tics 6
 	pic	LAVA2 tics 6
@@ -729,7 +769,11 @@ warp2 flat water4
 warp2 flat water5
 warp2 flat water6
 warp2 flat water7
+warp2 flat blood1
+warp2 flat blblood1
+warp2 flat granuke1
 warp2 texture NLAVA1
+warp flat wfwater1
 warp flat quiksand
 warp texture e1sky1
 warp texture e3sky1
