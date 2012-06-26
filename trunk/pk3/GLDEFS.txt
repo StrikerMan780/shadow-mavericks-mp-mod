@@ -2622,6 +2622,26 @@ brightmap texture FIYAH
 	map "Brightmaps/fiyah.png"
 }
 
+brightmap texture N_MTST07
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture N_MTST08
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture N_MTST09
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture N_MTST10
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
 brightmap texture XPORTAL2
 {
 	map "Brightmaps/XPORTAL2.png"
