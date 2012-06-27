@@ -779,12 +779,36 @@ warp texture e1sky1
 warp texture e3sky1
 warp texture warpface
 warp texture wqlava
-/*
-warp texture DOWNITE
-warp texture DOENITE
-warp texture DONNITE
-warp texture DOSNITE
-*/
+
+warp flat PSOLAV01
+warp flat PSOLAV02
+warp flat PSOLAV03
+warp flat PSOLAV04
+warp flat PSOLAV05
+warp flat PSOLAV06
+warp flat PSOLAV07
+warp flat PSOLAV08
+warp flat PSOLAV09
+warp flat PSOLAV10
+warp flat PSOLAV11
+warp flat PSOLAV12
+warp flat PSOLAV13
+warp flat PSOLAV14
+warp flat PSOLAV15
+warp flat PSOLAV16
+warp flat PSOLAV17
+warp flat PSOLAV18
+warp flat PSOLAV19
+warp flat PSOLAV20
+warp flat PSOLAV21
+warp flat PSOLAV22
+warp flat PSOLAV23
+warp flat PSOLAV24
+warp flat PSOLAV25
+warp flat PSOLAV26
+warp flat PSOLAV27
+warp flat PSOLAV28
+warp flat PSOLAV29
 
 cameratexture CAMTX64	384 384 fit	64 64
 cameratexture CAMTX128	384 384 fit	128 128
@@ -799,13 +823,18 @@ switch doom 1 LIGHT1 on pic LIGHT2 tics 0
 
 // SWITCH SW2_D642 on pic SW1_D642 tics 0 sound switches/doom64
 
-warp texture WARPLAVA
 warp2 texture PSOFLR20
+warp2 texture HYWATER
+warp2 texture HYNUKE
+warp texture WARPLAVA
 warp texture PSOWAL39
 warp texture EVILSKY2
 warp texture EVILSKY3
 warp texture WSKSNAK2
 
+switch SW1STNE1 on pic SW2STNE1 tics 0
+switch SW1STNE2 on pic SW2STNE2 tics 0
+switch SW1SKUL2 on pic SW2SKUL2 tics 0
 switch doom 1 SWITCH1 on pic SWITCH2 tics 0
 SWITCH SW2_D642 on pic SW1_D642 tics 0 sound switches/doom64
 
