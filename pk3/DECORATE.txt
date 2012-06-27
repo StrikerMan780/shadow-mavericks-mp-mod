@@ -5464,7 +5464,7 @@ ACTOR BioBall
 	{
 	Spawn:
 	  SBS3 A 0
-	  SBS3 A 0 BRIGHT ThrustThingZ(0, 14, 0, 1)
+	  SBS3 A 0 BRIGHT ThrustThingZ(0, random(12, 16), 0, 1)
 	  SBS3 A 1 BRIGHT A_NoGravity
 	  SBS3 BC 1 BRIGHT
 	  SBS3 A 0 BRIGHT A_Gravity
@@ -5589,7 +5589,7 @@ ACTOR BioRifle : Weapon 19982
 	  BIOG A 1 A_Raise
 	  Loop
    Fire:
-	  BIOG B 2 BRIGHT A_FireCustomMissile("BioBall",0,2,6,0)
+	  BIOG B 2 BRIGHT A_FireCustomMissile("BioBall",random(-1,1),2,6,0)
 	  BIOG C 1 BRIGHT
 	  BIOG D 1 BRIGHT
 	  BIOG E 1 BRIGHT
@@ -7887,7 +7887,7 @@ Actor FlakSmoke
 	States
 	{
 	Spawn:
-		TNT1 A 1
+		TNT1 A 2
 		RSMK ABCDE 3 Bright A_Fadeout
 		stop
 	Death:
