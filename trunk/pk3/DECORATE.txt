@@ -11414,32 +11414,6 @@ actor HangingTurret 16093
  }
 }
 
-actor SM_Archvile : Archvile Replaces Archvile
-{
-  Dropitem "ElementalSSG", 100
-  Dropitem "MolotovCocktail", 90
-  DropItem "ForceThrust", 80
-  DropItem "BioRifle", 50
-  DropItem "WeatherMaker", 76
-  DropItem "GasPickup", 36
-  DropItem "DemonicPower", 200, 64
-  DamageFactor "Ice", 1.2
-  DamageFactor "Fire", 0.8
-  DamageFactor "Holy", 5.0
-  DamageFactor "VilesBane", 1000
-}
-
-actor SM_Fatso : Fatso Replaces Fatso
-{
-  dropitem "FlameThrowerWeap", 40
-  DropItem "GasPickup", 40
-  DropItem "FartBombs", 20
-  DropItem "FartBombs", 1
-  DropItem "IpodLauncher", 1
-  DropItem "WeatherMaker", 2
-}
-
-
 actor RevenantHellFire
 {
   radius 6
@@ -13922,11 +13896,6 @@ actor ScreamingKamikazeSoul
 		KAMA F 1 BRIGHT A_FadeOut(0.04)
 		goto Spawn+2
 	}
-}
-
-actor SMCacolantern : Cacolantern Replaces Cacolantern
-{
-	bloodcolor "00 00 FF"
 }
 
 actor PopCornMachine 17771
