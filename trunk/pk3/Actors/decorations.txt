@@ -827,6 +827,7 @@ ACTOR ImprovedRedTorch : RedTorch Replaces RedTorch
 	YScale 0.78
 	+SOLID
 	+USESPECIAL
+	+FORCEYBILLBOARD
 	States
 	{
 	Spawn:
@@ -838,55 +839,34 @@ ACTOR ImprovedRedTorch : RedTorch Replaces RedTorch
 	}
 }
 
-ACTOR ImprovedBlueTorch : BlueTorch Replaces BlueTorch
+ACTOR ImprovedBlueTorch : ImprovedRedTorch Replaces BlueTorch
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
-		TBLU A 0 BRIGHT
-		TBLU A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-		TBLU A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TBLU A 1 BRIGHT A_SpawnItemEx("MidBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
 
-ACTOR ImprovedGreenTorch : GreenTorch Replaces GreenTorch
+ACTOR ImprovedGreenTorch : ImprovedRedTorch Replaces GreenTorch
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
-		TGRN A 0 BRIGHT
-		TGRN A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-		TGRN A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
-		TGRN A 1 BRIGHT A_SpawnItemEx("MidGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 56, 0, 0, 1, Random(-360,360), 128, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(43, 45), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
 
-ACTOR ImprovedYellowTorch : YellowTorch Replaces YellowTorch
+ACTOR ImprovedYellowTorch : ImprovedRedTorch 5152
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
@@ -898,15 +878,8 @@ ACTOR ImprovedYellowTorch : YellowTorch Replaces YellowTorch
 	}
 }
 
-ACTOR ImprovedWhiteTorch : WhiteTorch Replaces WhiteTorch
+ACTOR ImprovedWhiteTorch : ImprovedRedTorch 5150
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
@@ -1002,6 +975,7 @@ ACTOR ImprovedShortRedTorch : ShortRedTorch Replaces ShortRedTorch
 	YScale 0.78
 	+SOLID
 	+USESPECIAL
+	+FORCEYBILLBOARD
 	States
 	{
 	Spawn:
@@ -1013,55 +987,34 @@ ACTOR ImprovedShortRedTorch : ShortRedTorch Replaces ShortRedTorch
 	}
 }
 
-ACTOR ImprovedShortBlueTorch : ShortBlueTorch Replaces ShortBlueTorch
+ACTOR ImprovedShortBlueTorch : ImprovedShortRedTorch Replaces ShortBlueTorch
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
-		SMBT A 0 BRIGHT
-		SMBT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-		SMBT A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMBT A 1 BRIGHT A_SpawnItemEx("SmallBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 1 BRIGHT A_SpawnItemEx("SmallBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
 
-ACTOR ImprovedShortGreenTorch : ShortGreenTorch Replaces ShortGreenTorch
+ACTOR ImprovedShortGreenTorch : ImprovedShortRedTorch Replaces ShortGreenTorch
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
-		SMGT A 0 BRIGHT
-		SMGT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-		SMGT A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
-		SMGT A 1 BRIGHT A_SpawnItemEx("SmallGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 1 BRIGHT A_SpawnItemEx("SmallGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 64)
 		goto Spawn+2
 	}
 }
 
-ACTOR ImprovedShortYellowTorch : ShortYellowTorch Replaces ShortYellowTorch
+ACTOR ImprovedShortYellowTorch : ImprovedShortRedTorch 5153
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
@@ -1073,15 +1026,8 @@ ACTOR ImprovedShortYellowTorch : ShortYellowTorch Replaces ShortYellowTorch
 	}
 }
 
-ACTOR ImprovedShortWhiteTorch : ShortWhiteTorch Replaces ShortWhiteTorch
+ACTOR ImprovedShortWhiteTorch : ImprovedShortRedTorch 5151
 {
-	Game Doom
-	Radius 16
-	Height 68
-	XScale 0.88
-	YScale 0.78
-	+SOLID
-	+USESPECIAL
 	States
 	{
 	Spawn:
