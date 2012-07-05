@@ -1054,3 +1054,309 @@ actor SM_BurningBarrel : BurningBarrel Replaces BurningBarrel
 			Loop
 	}
 }
+
+ACTOR RedColumn 5158
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 48
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		RCOL A -1
+		Stop
+	}
+}
+
+ACTOR BlueColumn 5159
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 48
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		BCOL A -1
+		Stop
+	}
+}
+
+ACTOR Impse 5058
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 20
+	Height 48
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		IMPS ABC 4
+		Loop
+	}
+}
+
+ACTOR FloatingBobbingSkull : FloatingSkull 5009
+{
+	+FLOATBOB
+}
+
+ACTOR RedEvilEye 5059
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 54
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		CEYR ABCB 6 BRIGHT
+		Loop
+	}
+}
+
+ACTOR BlueEvilEye 5060
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 54
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		CEYB ABCB 6 BRIGHT
+		Loop
+	}
+}
+
+ACTOR RedCandleStick 5156
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 20
+	Height 14
+	States
+	{
+	Spawn:
+		CANR A -1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR BlueCandleStick 5157
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 20
+	Height 14
+	States
+	{
+	Spawn:
+		CANB A -1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR RedTechLamp 5154
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 80
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		TLP3 ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR RedTechLamp2 5155
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 60
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		TLP4 ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR ImpalingSpike4 5320
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 56
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLA A -1
+		Stop
+	}
+}
+
+ACTOR ImpalingSpike5 5321
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 64
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLB A -1
+		Stop
+	}
+}
+
+ACTOR ImpalingSpike6 5322
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 45
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLC A -1
+		Stop
+	}
+}
+
+ACTOR ImpalingSpike7 5323
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 54
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLD A -1
+		Stop
+	}
+}
+
+ACTOR ImpalingSpike8 5324
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 54
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLE A -1
+		Stop
+	}
+}
+
+ACTOR ImpalingSpike9 5325
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 64
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLF A 6
+		POLF B 8
+		Loop
+	}
+}
+
+ACTOR ImpalingSpike10 5326
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 64
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLG A -1
+		Stop
+	}
+}
+
+ACTOR ImpalingSpike11 5327
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 64
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POLH A -1
+		Stop
+	}
+}
+
+ACTOR MarineHelmetGibs 5328
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 64
+	States
+	{
+	Spawn:
+		GIB1 A -1
+		Stop
+	}
+}
