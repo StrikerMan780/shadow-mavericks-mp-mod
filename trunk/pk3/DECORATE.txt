@@ -7259,7 +7259,7 @@ actor QuadShotgun : ClericWeapon 12843
   }
 }
 
-actor AdvancedMinigun : ClericWeapon 5014
+actor Minigun : ClericWeapon 5014
 {
 	Weapon.AmmoType "MechAmmo"
 	Weapon.AmmoGive 20
@@ -10558,7 +10558,7 @@ actor RailGunCoreInstagib : PuzzleItem
   }
 }
 
-ACTOR SM_RailGun : ClericWeapon Replaces Railgun
+ACTOR Railgun : ClericWeapon 5012
 {
 	Decal RailScorch
 	SpawnID 164
@@ -10570,7 +10570,7 @@ ACTOR SM_RailGun : ClericWeapon Replaces Railgun
 	Weapon.AmmoType "RailClip"
 	Weapon.AmmoType2 "CellAmmo"
 	Attacksound "NewRailgunFire"
-	Inventory.PickupMessage "You Got the Railgun! It's now Reloadable, YAY!"
+	Inventory.PickupMessage "You got the Railgun!"
 	Obituary "%o was surgically removed by %k's rail."
 	States
 	{
@@ -14090,7 +14090,7 @@ actor BFG10kShot
 	}
 }
 
-ACTOR SM_BFG10K : Weapon 5013
+ACTOR BFG10K : Weapon 5013
 {
 	Game Doom
 	SpawnID 165
@@ -14133,7 +14133,7 @@ ACTOR SM_BFG10K : Weapon 5013
 		goto Hold
 	Hold:
 		BG2G K 2 A_GunFlash
-		BG2G L 0 Radius_Quake(
+		BG2G L 0 Radius_Quake(5,3,0,1,0)
 		BG2G L 2 A_FireBullets(0,0,1,0,"BFG10kShot")
 		BG2G M 2
 		BG2G N 0 A_ReFire
