@@ -256,6 +256,11 @@ weapons/bowhit			dscrshit
 
 // BFG10k
 BFG10kShot DSBFG10F
+weapons/bfg10kf			dsbfg10k
+weapons/bfg10kx			dsbarexp
+weapons/bfg10kcool		ds10kcdn
+weapons/bfg10kidle		ds10kidl
+$limit weapons/bfg10kx 0
 
 // Chaos Flames
 ChaosReady DSCHSRDY
