@@ -1360,3 +1360,183 @@ ACTOR MarineHelmetGibs 5328
 		Stop
 	}
 }
+
+ACTOR TallGothicColumn 5054
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 52
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		GCOL A -1
+		Stop
+	}
+}
+
+ACTOR GreyHeartColumn 5053
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 40
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		COL9 AB 14
+		Loop
+	}
+}
+
+ACTOR RevenantHand 5055
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 16
+	+SOLID
+	States
+	{
+	Spawn:
+		SGRB AB 14
+		loop
+	}
+}
+
+ACTOR GreyColumn 5051
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 40
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		COL8 A -1
+		Stop
+	}
+}
+
+ACTOR TallGreyColumn 5052
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 52
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		COL7 A -1
+		Stop
+	}
+}
+
+ACTOR Hissy 5057
+{
+	Game Doom
+	Radius 20
+	Height 26
+	+SOLID
+	States
+	{
+	Spawn:
+		HISY B 1 A_FaceConsolePlayer(5)
+		wait
+		HISY A 1 A_FaceConsolePlayer(5)
+		Wait
+	}
+}
+
+ACTOR ImpStatue 5110
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 20
+	Height 56
+	+SOLID
+	States
+	{
+	Spawn:
+		STA1 A -1
+		Stop
+	}
+}
+
+ACTOR DemonStatue 5111
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 30
+	Height 56
+	+SOLID
+	States
+	{
+	Spawn:
+		STA2 A -1
+		Stop
+	}
+}
+
+ACTOR ArchvileStatue 5112
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 20
+	Height 56
+	+SOLID
+	States
+	{
+	Spawn:
+		STA3 A -1
+		Stop
+	}
+}
+
+ACTOR BaronStatue 5113
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 24
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STA4 A -1
+		Stop
+	}
+}
+
+ACTOR CyberdemonStatue 5114
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 40
+	Height 110
+	+SOLID
+	States
+	{
+	Spawn:
+		STA5 A -1
+		Stop
+	}
+}
