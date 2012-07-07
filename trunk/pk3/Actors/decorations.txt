@@ -1209,6 +1209,23 @@ ACTOR RedTechLamp2 5155
 	}
 }
 
+ACTOR ImpalingSpike3 5122
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	Radius 16
+	Height 56
+	+SOLID
+	+USESPECIAL
+	States
+	{
+	Spawn:
+		POL9 A -1
+		Stop
+	}
+}
+
 ACTOR ImpalingSpike4 5320
 {
 	Game Doom
