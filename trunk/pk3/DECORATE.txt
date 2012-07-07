@@ -7923,7 +7923,8 @@ actor FlakShell
  TNT1 AAAAAAAA 0 A_SpawnItemEx("HellfireRocketFire", Random(-10,10), Random(-10,10), Random(-10,10), Random(-16,16), Random(-16,16), Random(-16,16), random(-360,360), SXF_CLIENTSIDE, 0)
  TNT1 AAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-12,12), Random(-12,12), Random(-12,12), 0, SXF_CLIENTSIDE, 0)
  TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile("FlakShard",17,0,Random(-360,360), 2, random(-360, 360))
- EXPL ABCDEFGHIJKLMNOPQRSTU 1 BRIGHT
+ TNT1 A 0 A_SetTranslucent(1.0, 1)
+ EXPL ABCDEFGHIJKLMNOPQRST 1 BRIGHT
  stop
  }
 }
@@ -11364,7 +11365,7 @@ actor TurretExplosion : RocketFire
 	States
 	{
 		Spawn:
-			EXPL ABCDEFGHIJKLMNOPQRSTU 1 BRIGHT
+			EXPL ABCDEFGHIJKLMNOPQRST 1 BRIGHT
 			stop
 	}
 }
@@ -11409,7 +11410,7 @@ actor HangingTurret 16093
  TNT1 A 0 A_Fall
  TNT1 A 0 A_Explode
  TNT1 A 0 A_NoGravity
- EXPL ABCDEFGHIJKLMNOPQRSTU 2 BRIGHT A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, 128, 0)
+ EXPL ABCDEFGHIJKLMNOPQRST 2 BRIGHT A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, 128, 0)
  stop
  }
 }
