@@ -751,6 +751,12 @@ texture PSOLAV01
 	pic	PSOLAV28 tics 1
 	pic	PSOLAV29 tics 1
 
+texture fan1
+	pic fan1 tics 1
+	pic fan2 tics 1
+	pic fan3 tics 1
+	pic fan4 tics 1
+
 warp2 flat WNUKAGE1
 warp2 flat RWATER1
 warp2 flat RWATER2
