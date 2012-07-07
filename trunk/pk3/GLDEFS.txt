@@ -52,75 +52,6 @@ object TeleportFog
 }
 
 // ------------------
-// -- Skulltag Effects --
-// ------------------
-
-// ------------------
-// -- Lights --
-// ------------------
-
-
-// Small white torch
-flickerlight2 SMALLWHITETORCH
-{
-    color 1.0 1.0 1.0
-    size 48
-    secondarySize 54
-    interval 0.1
-    offset 0 35 0
-}
-
-object ShortWhiteTorch
-{
-    frame SMWT { light SMALLWHITETORCH }
-}
-
-// Small yellow torch
-flickerlight2 SMALLYELLOWTORCH
-{
-    color 1.0 1.0 0.0
-    size 48
-    secondarySize 54
-    interval 0.1
-    offset 0 35 0
-}
-
-object ShortYellowTorch
-{
-    frame SMYT { light SMALLYELLOWTORCH }
-}
-
-// Tall white torch
-flickerlight2 BIGWHITETORCH
-{
-    color 1.0 1.0 1.0
-    size 64
-    secondarySize 72
-    interval 0.1
-    offset 0 60 0
-}
-
-object WhiteTorch
-{
-    frame TWHI { light BIGWHITETORCH }
-}
-
-// Tall yellow torch
-flickerlight2 BIGYELLOWTORCH
-{
-    color 1.0 1.0 0.0
-    size 64
-    secondarySize 72
-    interval 0.1
-    offset 0 60 0
-}
-
-object YellowTorch
-{
-    frame TYEL { light BIGYELLOWTORCH }
-}
-
-// ------------------
 // -- Spheres --
 // ------------------
 
@@ -1709,7 +1640,7 @@ flickerlight2 BIGGREENTORCH
 
 object ImprovedGreenTorch
 {
-    frame TGRN { light BIGGREENTORCH }
+    frame TRED { light BIGGREENTORCH }
 }
 
 flickerlight2 BIGBLUETORCH
@@ -1723,7 +1654,7 @@ flickerlight2 BIGBLUETORCH
 
 object ImprovedBlueTorch
 {
-    frame TBLU { light BIGBLUETORCH }
+    frame TRED { light BIGBLUETORCH }
 }
 
 flickerlight2 BIGYELLOWTORCH
@@ -1779,7 +1710,7 @@ flickerlight2 SMALLGREENTORCH
 
 object ImprovedShortGreenTorch
 {
-    frame SMGT { light SMALLGREENTORCH }
+    frame SMRT { light SMALLGREENTORCH }
 }
 
 flickerlight2 SMALLBLUETORCH
@@ -1793,7 +1724,7 @@ flickerlight2 SMALLBLUETORCH
 
 object ImprovedShortBlueTorch
 {
-    frame SMBT { light SMALLBLUETORCH }
+    frame SMRT { light SMALLBLUETORCH }
 }
 
 flickerlight2 SMALLYELLOWTORCH
