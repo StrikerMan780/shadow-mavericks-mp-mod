@@ -1471,10 +1471,11 @@ ACTOR Hissy 5057
 	States
 	{
 	Spawn:
-		HISY B 1 A_FaceConsolePlayer(5)
+		HISY B 10 A_Look
 		wait
-		HISY A 1 A_FaceConsolePlayer(5)
-		Wait
+	See:
+		HISY A 10 A_FaceTarget
+		loop
 	}
 }
 
