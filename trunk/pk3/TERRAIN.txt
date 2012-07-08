@@ -271,10 +271,6 @@ floor fwater1 water_t
 floor fwater2 water_t
 floor fwater3 water_t
 floor fwater4 water_t
-floor bwater1 nukage_t
-floor bwater2 nukage_t
-floor bwater3 nukage_t
-floor bwater4 nukage_t
 floor lava1 lava_t
 floor lava2 lava_t
 floor lava3 lava_t
