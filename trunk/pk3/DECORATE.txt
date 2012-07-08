@@ -7227,7 +7227,7 @@ actor QuadShotgun : ClericWeapon 12843
   Fire:
 	SHT3 A 3
 	SHT3 A 0 A_Recoil(12)
-	SHT3 A 0 A_FireBullets (13.6, 7.1, 40, 5, "QuadPuff")
+	SHT3 A 0 A_FireBullets (12.2, 7.1, 40, 5, "QuadPuff")
 	SHT3 A 1 A_GunFlash
 	SHT3 B 0 radius_quake(6, 6, 0, 1, 0)
 	SHT3 BCDE 1
