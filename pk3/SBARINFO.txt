@@ -205,7 +205,7 @@ AspectRatio "4:3"
 	DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 298, 42;
 
 	// Deathmatch -
-	gamemode deathmatch, teamgame, ctf
+	gamemode deathmatch, teamgame
   	{
    		drawnumber 4, BIGFONT, blue, frags, 315, 27;
   	}
@@ -300,7 +300,7 @@ AspectRatio "16:9"
 	DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 351, 42;
 
 	// Deathmatch
-	gamemode deathmatch, teamgame, ctf
+	gamemode deathmatch, teamgame
   	{
    		drawnumber 4, BIGFONT, blue, frags, 368, 27;
   	}
@@ -395,7 +395,7 @@ AspectRatio "16:10"
 	DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 330, 42;
 
 	// Deathmatch =
-	gamemode deathmatch, teamgame, ctf
+	gamemode deathmatch, teamgame
   	{
    		drawnumber 4, BIGFONT, blue, frags, 347, 27;
   	}
