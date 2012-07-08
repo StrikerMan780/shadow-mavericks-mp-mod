@@ -7226,32 +7226,28 @@ actor QuadShotgun : ClericWeapon 12843
 	loop
   Fire:
 	SHT3 A 3
-	SHT3 A 0 A_FireBullets (15.6, 7.1, 40, 5, "QuadPuff")
-	SHT3 A 4 A_GunFlash
-	SHT3 A 0 radius_quake(6, 6, 0, 1, 0)
-	SHT3 A 3
-	SHT3 B 5 A_CheckReload
-	SHT3 C 6 A_SpawnItemEx ("ShellCasing", 6, 4, 36, Random(5, 8), Random(0, 1), 0, 50+Random(-8, 8), 128, 0)
-	SHT3 D 2 A_PlaySoundEx ("weapons/sshotl", "auto", 0)
-	SHT3 C 7 A_SpawnItemEx ("ShellCasing", 6, 4, 36, Random(5, 8), Random(0, 1), 0, 50+Random(-8, 8), 128, 0)
-	SHT3 D 2 A_PlaySoundEx ("weapons/sshotl", "auto", 0)
-	SHT3 C 7 A_SpawnItemEx ("ShellCasing", 6, 4, 36, Random(5, 8), Random(0, 1), 0, 50+Random(-8, 8), 128, 0)
-	SHT3 D 2 A_PlaySoundEx ("weapons/sshotl", "auto", 0)
-	SHT3 C 7 A_SpawnItemEx ("ShellCasing", 6, 4, 36, Random(5, 8), Random(0, 1), 0, 50+Random(-8, 8), 128, 0)
-	SHT3 D 2 A_PlaySoundEx ("weapons/sshotl", "auto", 0)
-	SHT3 C 8
-	SHT3 E 6 A_PlaySoundEx ("weapons/sshotc", "auto", 0)
-	SHT3 C 8
-	SHT3 B 6
-	SHT3 A 3
-	SHT3 A 0 A_ReFire
+	SHT3 A 0 A_Recoil(12)
+	SHT3 A 0 A_FireBullets (13.6, 7.1, 40, 5, "QuadPuff")
+	SHT3 A 1 A_GunFlash
+	SHT3 B 0 radius_quake(6, 6, 0, 1, 0)
+	SHT3 BCDE 1
+	SHT3 FGH 2
+	SHT3 A 6 A_CheckReload
+	SH3R A 0 A_PlaySoundEx("QuadOpen", "auto", 0)
+	SH3R ABCDEFGHIJKLMNOP 2
+	SH3R Q 2 A_PlaySoundEx("QuadLoad", "auto", 0)
+	SH3R RSTUVW 2
+	SH3R X 2 A_PlaySoundEx("QuadLoad", "auto", 0)
+	SH3R YZ 2
+	SH32 ABCDEFGH 2
+	SH32 I 2 A_PlaySoundEx("QuadClose", "auto", 0)
+	SH32 JKLMN 2
 	SHT3 A 5 A_ReFire
 	goto Ready
   Flash:
-	SHT3 F 3 bright A_Light1
-	SHT3 F 0 bright A_Recoil(12)
-	SHT3 G 3 bright A_Light2
-	SHT3 H 0 bright A_Light0
+	SH3F A 2 bright A_Light1
+	SH3F B 1 bright A_Light2
+	SH3F B 0 bright A_Light0
 	stop
   Spawn:
 	SGN3 A -1
