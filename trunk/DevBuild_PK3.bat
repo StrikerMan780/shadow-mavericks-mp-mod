@@ -7,10 +7,10 @@ move /Y .\pk3\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3\Maps\*.bak .\backups >nul 2>&1
 ECHO.
+del SMMP-DEV.pk3
 
 cd pk3
-del smmp-dev.pk3.tmp
-..\Tools\7za u -y -tzip -mx=0 -mmt -x!.svn ..\SMMP-DEV.pk3 .\
+..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP-DEV.pk3 .\
 
 pause
 goto Leave
