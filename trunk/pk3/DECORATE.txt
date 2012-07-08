@@ -2500,7 +2500,7 @@ actor Walljumpcheck
 	+LOOKALLAROUND
 	+NOGRAVITY
 	+MISSILE
-	//+SERVERSIDEONLY
+	+SERVERSIDEONLY
 	renderstyle none
 	Damage 0
 	speed 20
