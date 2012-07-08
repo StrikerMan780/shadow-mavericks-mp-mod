@@ -664,6 +664,11 @@ $random shellcasing { shell1 shell2 shell3 shell4 }
 
 // Quad Shotgun
 Quadshotgun dsqshtgn
+QuadOpen dsqbopn
+QuadClose dsqbcls
+QuadLoad1 dsqbloa1
+QuadLoad2 dsqbloa2
+$random QuadLoad { QuadLoad1 QuadLoad2 }
 
 // Minigun
 Minigun1 dsminign

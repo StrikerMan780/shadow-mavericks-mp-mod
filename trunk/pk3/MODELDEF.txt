@@ -3308,3 +3308,67 @@ model Clock
 //	 FrameIndex RLGG G 0 9
 //	 FrameIndex RLGG H 0 11
 //}
+
+Model QuadShotgun
+{
+   Path "Models\HUD\quadshotgun"
+   Model 0 "quadshotgun.md3"
+   Scale 5.0 4.0 5.0
+
+   FrameIndex SHT3 A 0 0
+   FrameIndex SHT3 B 0 1
+   FrameIndex SHT3 C 0 2
+   FrameIndex SHT3 D 0 3
+   FrameIndex SHT3 E 0 5
+   FrameIndex SHT3 F 0 8
+   FrameIndex SHT3 G 0 14
+   FrameIndex SHT3 H 0 28
+}
+
+Model QuadShotgun
+{
+   Path "Models\HUD\quadshotgun"
+   Model 0 "quadshotgun_reload.md3"
+   Scale 5.0 4.0 5.0
+
+   FrameIndex SH3R A 0 0
+   FrameIndex SH3R B 0 2
+   FrameIndex SH3R C 0 4
+   FrameIndex SH3R D 0 6
+   FrameIndex SH3R E 0 8
+   FrameIndex SH3R F 0 10
+   FrameIndex SH3R G 0 12
+   FrameIndex SH3R H 0 14
+   FrameIndex SH3R I 0 16
+   FrameIndex SH3R J 0 17
+   FrameIndex SH3R K 0 18
+   FrameIndex SH3R L 0 20
+   FrameIndex SH3R M 0 22
+   FrameIndex SH3R N 0 25
+   FrameIndex SH3R O 0 28
+   FrameIndex SH3R P 0 32
+   FrameIndex SH3R Q 0 36
+   FrameIndex SH3R R 0 38
+   FrameIndex SH3R S 0 40
+   FrameIndex SH3R T 0 42
+   FrameIndex SH3R U 0 44
+   FrameIndex SH3R V 0 50
+   FrameIndex SH3R W 0 54
+   FrameIndex SH3R X 0 56
+   FrameIndex SH3R Y 0 58
+   FrameIndex SH3R Z 0 60
+   FrameIndex SH32 A 0 62
+   FrameIndex SH32 B 0 64
+   FrameIndex SH32 C 0 66
+   FrameIndex SH32 D 0 68
+   FrameIndex SH32 E 0 70
+   FrameIndex SH32 F 0 72
+   FrameIndex SH32 G 0 74
+   FrameIndex SH32 H 0 76
+   FrameIndex SH32 I 0 78
+   FrameIndex SH32 J 0 80
+   FrameIndex SH32 K 0 82
+   FrameIndex SH32 L 0 84
+   FrameIndex SH32 M 0 86
+   FrameIndex SH32 N 0 90
+}
