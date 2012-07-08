@@ -546,7 +546,7 @@ actor Striker_Persona 16523
   Height 56
   Speed 0
   YScale 0.038
-  XScale 0.040
+  XScale 0.042
   Mass 99999999
   +SOLID
   +SHOOTABLE
