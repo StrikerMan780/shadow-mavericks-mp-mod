@@ -2242,97 +2242,187 @@ object WhiteToggleLight
 
 Pointlight Fleshspawnball1
 {
-Color 0.6 0.2 0.4
-Size 32
+	Color 0.6 0.2 0.4
+	Size 32
 }
 
 Pointlight Fleshspawnball2
 {
-Color 0.6 0.2 0.4
-Size 24
+	Color 0.6 0.2 0.4
+	Size 24
 }
 
 Pointlight Fleshspawnball3
 {
-Color 0.6 0.2 0.4
-Size 28
+	Color 0.6 0.2 0.4
+	Size 28
 }
 
 Pointlight Fleshspawnball4
 {
-Color 0.6 0.2 0.4
-Size 40
+	Color 0.6 0.2 0.4
+	Size 40
 }
 
 Pointlight Fleshspawnball5
 {
-Color 0.8 0.4 0.3
-Size 36
+	Color 0.8 0.4 0.3
+	Size 36
 }
 
 Pointlight Fleshspawnball6
 {
-Color 0.8 0.3 0.2
-Size 32
+	Color 0.8 0.3 0.2
+	Size 32
 }
 
 Pointlight Fleshspawnball7
 {
-Color 0.6 0.2 0.0
-Size 32
+	Color 0.6 0.2 0.0
+	Size 32
 }
 
 Pointlight Fleshspawnball8
 {
-Color 0.4 0.1 0.0
-Size 32
+	Color 0.4 0.1 0.0
+	Size 32
 }
 
 Pointlight Fleshspawnball9
 {
-Color 0.6 0.2 0.4
-Size 32
+	Color 0.6 0.2 0.4
+	Size 32
 }
 
 Pointlight Fleshspawnball10
 {
-Color 0.5 0.2 0.3
-Size 32
+	Color 0.5 0.2 0.3
+	Size 32
 }
 
 Pointlight Fleshspawnball11
 {
-Color 0.4 0.1 0.2
-Size 32
+	Color 0.4 0.1 0.2
+	Size 32
 }
 
 Pointlight Fleshspawnball12
 {
-Color 0.3 0.1 0.1
-Size 32
+	Color 0.3 0.1 0.1
+	Size 32
 }
 
 Pointlight Fleshspawnball13
 {
-Color 0.2 0.0 0.0
-Size 32
+	Color 0.2 0.0 0.0
+	Size 32
 }
 
 Object Fleshspawnball
 {
-Frame FLBLA { Light Fleshspawnball1 }
-Frame FLBLB { Light Fleshspawnball2 }
-Frame FLBLC { Light Fleshspawnball3 }
-Frame FLBLD { Light Fleshspawnball4 }
-Frame FLBLE { Light Fleshspawnball5 }
-Frame FLBLF { Light Fleshspawnball6 }
-Frame FLBLG { Light Fleshspawnball7 }
-Frame FLBLH { Light Fleshspawnball8 }
-Frame FLBLI { Light Fleshspawnball9 }
-Frame FLBLJ { Light Fleshspawnball10 }
-Frame FLBLK { Light Fleshspawnball11 }
-Frame FLBLL { Light Fleshspawnball12 }
-Frame FLBLM { Light Fleshspawnball13 }
+	Frame FLBLA { Light Fleshspawnball1 }
+	Frame FLBLB { Light Fleshspawnball2 }
+	Frame FLBLC { Light Fleshspawnball3 }
+	Frame FLBLD { Light Fleshspawnball4 }
+	Frame FLBLE { Light Fleshspawnball5 }
+	Frame FLBLF { Light Fleshspawnball6 }
+	Frame FLBLG { Light Fleshspawnball7 }
+	Frame FLBLH { Light Fleshspawnball8 }
+	Frame FLBLI { Light Fleshspawnball9 }
+	Frame FLBLJ { Light Fleshspawnball10 }
+	Frame FLBLK { Light Fleshspawnball11 }
+	Frame FLBLL { Light Fleshspawnball12 }
+	Frame FLBLM { Light Fleshspawnball13 }
+}
+
+// Evil Eye Blue
+flickerlight2 BlueEvilEye
+{
+    color 0.0 0.0 1.0
+    size 30
+    secondarySize 50
+    interval 0.1
+    offset 0 60 0
+}
+
+object BlueEvilEye
+{
+    frame CEYB { light BlueEvilEye }
+}
+
+// Evil Eye Red
+flickerlight2 RedEvilEye
+{
+    color 1.0 0.0 0.0
+    size 30
+    secondarySize 50
+    interval 0.1
+    offset 0 60 0
+}
+
+object RedEvilEye
+{
+    frame CEYR { light RedEvilEye }
+}
+
+// Red Tech Lamp
+flickerlight2 RedTechLamp
+{
+    color 1.0 0.0 0.0
+    size 48
+    secondarySize 64
+    interval 0.1
+    offset 0 60 0
+}
+
+object RedTechLamp
+{
+    frame TLP3 { light RedTechLamp }
+}
+
+// Red Tech Lamp 2
+flickerlight2 RedTechLamp2
+{
+    color 1.0 0.0 0.0
+    size 48
+    secondarySize 64
+    interval 0.1
+    offset 0 60 0
+}
+
+object RedTechLamp2
+{
+    frame TLP4 { light RedTechLamp2 }
+}
+
+// Red Column
+flickerlight2 RedColumn
+{
+    color 1.0 0.0 0.0
+    size 48
+    secondarySize 64
+    interval 0.1
+    offset 0 60 0
+}
+
+object RedColumn
+{
+    frame RCOL { light RedColumn }
+}
+
+// Blue Column
+flickerlight2 BlueColumn
+{
+    color 0.0 0.0 1.0
+    size 48
+    secondarySize 64
+    interval 0.1
+    offset 0 60 0
+}
+
+object BlueColumn
+{
+    frame BCOL { light BlueColumn }
 }
 
 skybox ORBIT fliptop
