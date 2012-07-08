@@ -490,6 +490,10 @@ TriteStep2 dstst2
 TriteStep3 dstst3
 TriteStep4 dstst4
 $random TriteStep { tritestep1 tritestep2 tritestep3 tritestep4 }
+$limit TriteStep1 0
+$limit TriteStep2 0
+$limit TriteStep3 0
+$limit TriteStep4 0
 $limit TriteStep 0
 
 // Turret
