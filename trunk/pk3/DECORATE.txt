@@ -10724,46 +10724,6 @@ actor DinFireballExplosion
 	}
 }
 
-actor GoldPuff
-{
-	Radius 1
-	Height 1
-	Scale 0.4
-	Gravity 0.06
-	+NOBLOCKMAP
-	+FORCEXYBILLBOARD
-	-ACTIVATEPCROSS
-	-ACTIVATEIMPACT
-	+DONTSPLASH
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		SGLD ABABABCBCBCDCDCDCDCD 1 BRIGHT
-		stop
-	}
-}
-
-actor GoldSpray
-{
-	Projectile
-	Radius 1
-	Height 1
-	Speed 30
-	+CLIENTSIDEONLY
-	-ACTIVATEPCROSS
-	-ACTIVATEIMPACT
-	+DONTSPLASH
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 0 ThrustThingZ(0, random(0, 26), random(0,1), 1)
-		TNT1 AAAAA 1 A_SpawnItemEx("GoldPuff", Random(-8,8), Random(-8,8), Random(-8,8), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		stop
-	}
-}
-
 actor SlamshotBulletPuff : NewBulletPuff
 {
 	obituary "%o was violated by %k's Slamshot."
