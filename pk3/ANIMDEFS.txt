@@ -537,14 +537,6 @@ flat SNUKE3
 	pic	SNUKE11 tics 2
 	pic	SNUKE12 tics 2
 
-flat GLAVA1
-	pic	GLAVA1 tics 6
-	pic	GLAVA2 tics 6
-	pic	GLAVA3 tics 6
-	pic	GLAVA4 tics 6
-	pic	GLAVA5 tics 6
-	pic	GLAVA6 tics 6
-
 flat FLTWAWA1
 	pic	FWATER1 tics 2
 	pic	FWATER2 tics 2
@@ -790,6 +782,7 @@ warp2 texture NLAVA1
 warp flat wblood1
 warp flat wfwater1
 warp flat quiksand
+warp flat glava1
 warp flat lava1
 warp flat lava2
 warp flat lava3
