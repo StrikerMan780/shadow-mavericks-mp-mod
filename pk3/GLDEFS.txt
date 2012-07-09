@@ -2678,6 +2678,7 @@ brightmap texture XPORTAL6
 	map "Brightmaps/XPORTAL6.png"
 }
 
+/*
 brightmap texture LAVFALL1
 {
 	map "Brightmaps/LAVFALL1.png"
@@ -2717,3 +2718,4 @@ brightmap texture LAVFALL8
 {
 	map "Brightmaps/LAVFALL1.png"
 }
+*/
