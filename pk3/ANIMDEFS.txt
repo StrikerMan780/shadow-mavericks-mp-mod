@@ -438,12 +438,20 @@ flat GRANUKE3
 	pic GRANUKE1 tics 8
 
 flat LAVA1
-	pic	LAVA1 tics 6
-	pic	LAVA2 tics 6
-	pic	LAVA3 tics 6
-	pic	LAVA4 tics 6
-	pic	LAVA5 tics 6
-	pic	LAVA6 tics 6
+	pic	LAVA1 tics 8
+	pic	LAVA1 tics 8
+
+flat LAVA2
+	pic	LAVA1 tics 8
+	pic	LAVA1 tics 8
+
+flat LAVA3
+	pic	LAVA1 tics 8
+	pic	LAVA1 tics 8
+
+flat LAVA4
+	pic	LAVA1 tics 8
+	pic	LAVA1 tics 8
 
 flat NUKAGE1
 	pic	NUKAGE1 tics 2
@@ -782,6 +790,10 @@ warp2 texture NLAVA1
 warp flat wblood1
 warp flat wfwater1
 warp flat quiksand
+warp flat lava1
+warp flat lava2
+warp flat lava3
+warp flat lava4
 warp texture e1sky1
 warp texture e3sky1
 warp texture warpface
