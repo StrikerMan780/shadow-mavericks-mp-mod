@@ -275,14 +275,7 @@ floor lava1 lava_t
 floor lava2 lava_t
 floor lava3 lava_t
 floor lava4 lava_t
-floor lava5 lava_t
-floor lava6 lava_t
 floor glava1 lava_t
-floor glava2 lava_t
-floor glava3 lava_t
-floor glava4 lava_t
-floor glava5 lava_t
-floor glava6 lava_t
 floor nlava1 lava_t
 floor blood1 blood_t
 floor blood2 blood_t
