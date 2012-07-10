@@ -32,6 +32,17 @@ pic 6 tics 2
 pic 7 tics 2
 pic 8 tics 2
 
+texture telr1
+	pic telr1 tics 5
+	pic telr2 tics 5
+	pic telr3 tics 5
+	pic telr4 tics 5
+	pic telr5 tics 5
+	pic telr6 tics 5
+	pic telr7 tics 5
+	pic telr8 tics 5
+	pic telr9 tics 5
+
 texture BURGKI01
 pic 1 tics 4
 pic 2 tics 4

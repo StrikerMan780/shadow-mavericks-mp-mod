@@ -1558,3 +1558,15 @@ ACTOR CyberdemonStatue 5114
 		Stop
 	}
 }
+
+actor DeadCyberdemon : Cyberdemon 5070
+{
+	Skip_Super
+	Game Doom
+	DropItem None
+	States
+	{
+	Spawn:
+		Goto Super::Death+9
+	}
+}
