@@ -7,7 +7,7 @@ setslot 5 HellFireCannon ProtonGrenadeLauncher ProtonTorpedoLauncher
 setslot 6 LaserRifle1 PlasmaCannon Railgun Beamer Stinger LightningGun
 setslot 7 BFG_SMMP BFG10k SniperRifle NukeLauncher Noisy_Cricket
 setslot 8 FreezeBolt BioRifle Needler FlakCannon
-setslot 9 BishopPendant WeatherMaker EtherealCrossbow ChaosFlames WrathoftheWickedSpirits FaroresWind
+setslot 9 BishopStaff WeatherMaker EtherealCrossbow ChaosFlames WrathoftheWickedSpirits FaroresWind
 setslot 0 SoccerKick E_Peen_Joke IPodLauncher GrapplerShot GasolineCan FlameThrowerWeap
 
 addkeysection "SMMP Class Abilities" SMMPClassAbilities
