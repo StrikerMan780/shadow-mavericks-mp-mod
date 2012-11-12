@@ -290,12 +290,24 @@ FleshImpact4 dsflesh4
 FleshImpact5 dsflesh5
 $random FleshImpact { FleshImpact1 FleshImpact2 FleshImpact3 FleshImpact4 FleshImpact5 }
 $limit FleshImpact 4
+$volume FleshImpact 0.5
+$volume FleshImpact1 0.5
+$volume FleshImpact2 0.5
+$volume FleshImpact3 0.5
+$volume FleshImpact4 0.5
+$volume FleshImpact5 0.5
 
 FleshTear1 dsflesh6
 FleshTear2 dsflesh7
 FleshTear3 dsflesh8
-$random FleshTear { FleshTear1 FleshTear2 FleshTear3 }
+FleshTear4 dsflesh9
+$random FleshTear { FleshTear1 FleshTear2 FleshTear3 FleshTear4 }
 $limit FleshTear 4
+$volume FleshTear 0.5
+$volume FleshTear1 0.5
+$volume FleshTear2 0.5
+$volume FleshTear3 0.5
+$volume FleshTear4 0.5
 
 PlayerShipEngine DSSHPENG
 $limit PlayerShipEngine 0
@@ -367,7 +379,11 @@ IceRod DSICEROD
 KamikazeExpel DSEXPEL
 
 // Hellsing .454 Casull
-CasullFire DSCASULL
+Casull1 DSCASUL1
+Casull2 DSCASUL2
+Casull3 DSCASUL3
+Casull4 DSCASUL4
+$random CasullFire { Casull1 Casull2 Casull3 Casull4 }
 
 // Halo Plasma Rifle
 HaloPlasmaRifle DSHALOPR
