@@ -1024,9 +1024,8 @@ model AutoShotgun
 
 Model 454Casull
 {
-   Path "Models\HUD"
-   Model 0 "casull2.md3"
-   Skin 0 "casull2.jpg"
+   Path "Models\HUD\Casull"
+   Model 0 "casull.md3"
    Scale 5.0 4.2 5
    //ZOffset -4
 
@@ -1045,9 +1044,8 @@ Model 454Casull
 
 Model 454Casull
 {
-   Path "Models\HUD"
-   Model 0 "casull2.md3"
-   Skin 0 "casull2.jpg"
+   Path "Models\HUD\Casull"
+   Model 0 "casull.md3"
    Model 1 "casullflash.md3"
    Skin 1 "casullflash.png"
    Scale 5.0 4.2 5
@@ -1059,9 +1057,8 @@ Model 454Casull
 
 Model 454Casull
 {
-   Path "Models\HUD"
-   Model 0 "casullreload2.md3"
-   Skin 0 "casull2.jpg"
+   Path "Models\HUD\Casull"
+   Model 0 "casullreload.md3"
    Scale 5.0 4.2 5
    //ZOffset -4
 
@@ -1293,9 +1290,8 @@ model SmallPalm
 
 model 454Casull
 {
-   Path "Models\Pickups"
+   Path "Models\HUD\Casull"
    Model 0 "casullpickup.md3"
-   Skin 0 "casullpickup.png"
    Scale 12.8 12.8 12.8
    ROTATING
 
