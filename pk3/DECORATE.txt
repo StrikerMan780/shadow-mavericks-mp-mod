@@ -12292,15 +12292,12 @@ actor ProtonTorpedoLauncher : Weapon Replaces RocketLauncher
 	MISG A 1 A_Raise
 	goto Select+1
   Fire:
-	MISG B 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-	MISG B 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkFire")
-	MISG B 3 BRIGHT A_GunFlash
-	MISF A 3 BRIGHT
-	MISF B 2 BRIGHT
-	MISF C 0 BRIGHT radius_quake(2, 3, 0, 1, 0)
-	MISF C 2 BRIGHT A_FireCustomMissile("ProtonTorpedo")
-	MISF D 2 BRIGHT
-	MISG A 8
+	MISG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
+	MISG A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkFire")
+	MISG A 0 BRIGHT A_GunFlash
+	MISG A 0 BRIGHT radius_quake(2, 3, 0, 1, 0)
+	MISG B 2 BRIGHT A_FireCustomMissile("ProtonTorpedo", 0, 1, 8, 0)
+	MISG CDEFGHIJK 2 BRIGHT
 	MISG B 0 A_ReFire
 	goto Ready
   Flash:

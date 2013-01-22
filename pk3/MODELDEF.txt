@@ -3389,3 +3389,22 @@ Model QuadShotgun
    FrameIndex SH32 M 0 86
    FrameIndex SH32 N 0 90
 }
+
+Model ProtonTorpedoLauncher
+{
+   Path "Models\HUD\ProtonTorpedoLauncher"
+   Model 0 "ProtonTorpedoLauncher.md3"
+   Scale 5.0 4.0 5.0
+
+   FrameIndex MISG A 0 0
+   FrameIndex MISG B 0 5
+   FrameIndex MISG C 0 8
+   FrameIndex MISG D 0 12
+   FrameIndex MISG E 0 16
+   FrameIndex MISG F 0 18
+   FrameIndex MISG G 0 30
+   FrameIndex MISG H 0 40
+   FrameIndex MISG I 0 44
+   FrameIndex MISG J 0 48
+   FrameIndex MISG K 0 50
+}
