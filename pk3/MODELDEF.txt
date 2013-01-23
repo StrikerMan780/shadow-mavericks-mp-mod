@@ -3408,3 +3408,29 @@ Model ProtonTorpedoLauncher
    FrameIndex MISG J 0 48
    FrameIndex MISG K 0 50
 }
+
+Model FreezeBolt
+{
+   Path "Models\HUD\FreezeBolt"
+   Model 0 "freezebolt.md3"
+   Scale -5.0 4.0 5.0
+   ZOffset -10
+
+   FrameIndex HLXG A 0 0
+   FrameIndex HLXG B 0 1
+   FrameIndex HLXG C 0 2
+   FrameIndex HLXG D 0 3
+   FrameIndex HLXG E 0 4
+   FrameIndex HLXG F 0 5
+   FrameIndex HLXG G 0 6
+   FrameIndex HLXG H 0 7
+   FrameIndex HLXG I 0 8
+   FrameIndex HLXG J 0 9
+   FrameIndex HLXG K 0 10
+   FrameIndex HLXG L 0 11
+   FrameIndex HLXG M 0 12
+   FrameIndex HLXG N 0 13
+   FrameIndex HLXG O 0 14
+   FrameIndex HLXG P 0 15
+   FrameIndex HLXG Q 0 16
+}

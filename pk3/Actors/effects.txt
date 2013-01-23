@@ -54,7 +54,7 @@ actor ArcTrail
 	States
 	{
 		Spawn:
-			BEMB A 1 A_FadeOut(0.08)
+			BEMB A 1 BRIGHT A_FadeOut(0.08)
 			loop
 	}
 }
@@ -235,7 +235,7 @@ actor TeleportParticle
 	States
 	{
 		Spawn:
-			BEMB A 1 A_FadeOut(0.04)
+			BEMB A 1 BRIGHT A_FadeOut(0.04)
 			loop
 		Death:
 			TNT1 AA 1
@@ -367,5 +367,58 @@ actor FountainParticleSpawner 17521
 			TNT1 A 0 A_SpawnItemEx("FountainParticle", 0, 0, random(0, 8), random(-1,1), random(-1,1), random(3,6), random(-180,180), 128, 0)
 			TNT1 A 1 A_SpawnItemEx("FountainParticle", 0, 0, random(0, 24), random(-1,1), random(-1,1), random(3,6), random(-180,180), 128, 0)
 			loop
+	}
+}
+
+actor FreezeBoltMuzzleSpark
+{
+	Radius 4
+	Height 4
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.04
+	Speed 20
+	BounceFactor 0.75
+	BounceType Hexen
+	-NOGRAVITY
+	+NOBLOCKMAP
+	+MISSILE
+	+DONTSPLASH
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			BEMB A 1 BRIGHT A_FadeOut(0.08)
+			loop
+		Death:
+			TNT1 AA 1
+			stop
+	}
+}
+
+actor FreezeBoltMuzzleSparkSpawner
+{
+	Radius 4
+	Height 4
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.08
+	Speed 20
+	BounceFactor 0.75
+	BounceType Hexen
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+MISSILE
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 AAAA 0 A_SpawnItemEx("FreezeBoltMuzzleSpark", 0, 0, 0, random(-4,4), random(-4,4), random(0, 8), random(-180, 180), SXF_CLIENTSIDE, 0)
+			TNT1 A 1
+			stop
+		Death:
+			TNT1 AA 1
+			stop
 	}
 }
