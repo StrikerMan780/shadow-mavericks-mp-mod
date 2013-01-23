@@ -889,7 +889,7 @@ actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
 
 actor GBTWShotgunGuy : ShotgunGuy //Replaces ShotgunGuy
 {
-	Dropitem "AutoShotgun"
+	Dropitem "NewShotgun"
 	Dropitem "GBTWMoney", 64
 	Dropitem "QuadShotgun", 4
 	WoundHealth 10
