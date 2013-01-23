@@ -665,33 +665,6 @@ Model LightningGun
    Frame LIGH I 1 "Flash1"
 }
 
-Model AutoShotgun
-{
-   Path "Models\HUD"
-   Model 0 "Shotgun.md3"
-   Skin 0 "shotgun.png"
-   Scale -4.5 4.2 5
-
-   FrameIndex Q3SG A 0 0
-   FrameIndex Q3SG B 0 1
-   FrameIndex Q3SG C 0 2
-   FrameIndex Q3SG D 0 3
-   FrameIndex Q3SG E 0 4
-   FrameIndex Q3SG F 0 5
-   FrameIndex Q3SG G 0 6
-}
-
-Model AutoShotgun
-{
-   Path "Models\HUD"
-   Model 0 "ShotgunFlash.Md2"
-   Skin 0 "ShotgunFlash.png"
-   Scale -4.5 4.2 5
-
-   FrameIndex Q3SF A 0 0
-   FrameIndex Q3SF B 0 1
-}
-
 Model LaserRifle1
 {
    Path "Models\Pickups"
@@ -1009,17 +982,6 @@ model P90
 	ROTATING
 
 	FrameIndex P90P A 0 0
-}
-
-model AutoShotgun
-{
-	Path "Models\Pickups"
-	Model 0 "ShotgunPickup.md3"
-	Skin 0 "shotgun.png"
-	scale 1.9 1.9 1.9
-	ROTATING
-
-	FrameIndex SHOT A 0 0
 }
 
 Model 454Casull
@@ -3433,4 +3395,60 @@ Model FreezeBolt
    FrameIndex HLXG O 0 14
    FrameIndex HLXG P 0 15
    FrameIndex HLXG Q 0 16
+}
+
+Model FreezeBolt
+{
+   Path "Models\HUD"
+   Model 0 "marineleg.md3"
+   Skin 0 "marineleg.png"
+   Scale 5.0 4.0 5.0
+  
+   FrameIndex HLXK A 0 1
+   FrameIndex HLXK B 0 2
+   FrameIndex HLXK C 0 3
+   FrameIndex HLXK D 0 4
+   FrameIndex HLXK E 0 5
+   FrameIndex HLXK F 0 6
+   FrameIndex HLXK G 0 7
+   FrameIndex HLXK H 0 8
+   FrameIndex HLXK I 0 9
+   FrameIndex HLXK J 0 10
+}
+
+Model NewShotgun
+{
+   Path "Models\HUD\Shotgun"
+   Model 0 "shotgun.md3"
+   Scale 5.0 3.0 5.0
+
+   FrameIndex SHTG A 0 0
+   FrameIndex SHTG B 0 2
+   FrameIndex SHTG C 0 3
+   FrameIndex SHTG D 0 4
+   FrameIndex SHTG E 0 6
+   FrameIndex SHTG F 0 8
+   FrameIndex SHTG G 0 10
+   FrameIndex SHTG H 0 12
+   FrameIndex SHTG I 0 14
+   FrameIndex SHTG J 0 15
+   FrameIndex SHTG K 0 16
+   FrameIndex SHTG L 0 18
+   FrameIndex SHTG M 0 19
+   FrameIndex SHTG N 0 20
+   FrameIndex SHTG O 0 22
+   FrameIndex SHTG P 0 24
+   FrameIndex SHTG Q 0 26
+   FrameIndex SHTG R 0 28
+   FrameIndex SHTG S 0 30
+}
+
+Model NewShotgun
+{
+   Path "Models\HUD\Shotgun"
+   Model 0 "shotgunflash.md3"
+   Skin 0 "shotgunflash.png"
+   Scale 5.0 3.0 5.0
+
+   FrameIndex SHTF A 0 0
 }

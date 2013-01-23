@@ -4554,9 +4554,9 @@ ACTOR FreezeBolt : ClericWeapon 20993
 	 HLXG A 4 A_Refire
 	 Goto Ready
   Altfire:
-	 HLXK A 3 A_Playsound("Kickswing")
-	 HLXK B 6 A_Punch
-	 HLXK A 2
+	 HLXK A 2 A_Playsound("Kickswing")
+	 HLXK BBB 0 A_Punch
+	 HLXK BCDEFGHIJ 2
 	 HLXG A 10
 	 HLXG A 0 A_Refire
 	 goto Ready
@@ -9491,14 +9491,7 @@ actor RageRune2 : RageRune Replaces RageRune
   }
 }
 
-Actor ShotgunCheck : PuzzleItem
-{
-   -INVBAR
-   Inventory.MaxAmount 1
-   Inventory.Icon TNT1A0
-}
-
-actor AutoShotgun : Weapon Replaces Shotgun
+actor NewShotgun : Weapon Replaces Shotgun
 {
   Decal BulletChip
   spawnid 27
@@ -9514,53 +9507,34 @@ actor AutoShotgun : Weapon Replaces Shotgun
   states
   {
   Ready:
-	Q3SG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
-	Q3SG A 1 A_WeaponReady
+	SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
+	SHTG A 1 A_WeaponReady
 	goto Ready+1
   Deselect:
-	Q3SG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
-	Q3SG A 1 A_Lower
-	Q3SG A 0 A_TakeInventory("ShotgunCheck", 2)
+	SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
+	SHTG A 1 A_Lower
 	goto Deselect+1
   Select:
-	Q3SG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
-	Q3SG A 1 A_Raise
+	SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
+	SHTG A 1 A_Raise
 	goto Select+1
   Fire:
-	Q3SF A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-	Q3SF A 0 A_JumpIfInventory("ShotgunCheck", 1, "Fire.Right")
-	Q3SF A 0 A_FireCustomMissile("ShotgunSmoke", random(-1, 1), 0, 1, 8)
-	TNT1 A 0 A_GunFlash
-	TNT1 A 0 Radius_Quake(2, 3, 0, 1, 0)
-	Q3SG B 0 bright A_PlayWeaponSound("weapons/shotgf")
-	Q3SG B 2 Bright A_FireBullets (5.6, 1.5, 6, 5, "NewBulletPuff")
-	Q3SG BC 3
-	Q3SG DEFG 2
-	Q3SG A 1
-	Q3SG A 0 A_GiveInventory("ShotgunCheck", 1)
-	Q3SG A 0 A_Refire
-	goto Ready
-  Fire.Right:
-	TNT1 A 0 A_GunFlash
-	TNT1 A 0 Radius_Quake(2, 3, 0, 1, 0)
-	Q3SF A 0 A_TakeInventory("ShotgunCheck", 2)
-	Q3SF A 0 A_FireCustomMissile("ShotgunSmoke", random(-1, 1), 0, 1, 8)
-	Q3SG B 0 bright A_PlayWeaponSound("weapons/shotgf")
-	Q3SG B 2 Bright A_FireBullets (5.6, 1.5, 6, 5, "NewBulletPuff")
-	Q3SG BC 3
-	Q3SG DEFG 2
-	Q3SG A 14 A_PlaySound("ShotgunCock")
-	Q3SG A 0 A_Refire
+	SHTG B 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
+	SHTG B 0 A_FireCustomMissile("ShotgunSmoke", random(-1, 1), 0, 4, 8)
+	SHTG B 0 A_GunFlash
+	SHTG B 0 Radius_Quake(2, 3, 0, 1, 0)
+	SHTG B 0 bright A_PlayWeaponSound("weapons/shotgf")
+	SHTG B 1 Bright A_FireBullets (5.6, 3.5, 10, 5, "NewBulletPuff")
+	SHTG CDEF 1
+	SHTG G 3
+	SHTG H 2 A_PlaySoundEx("ShotgunCock", "auto", 0)
+	SHTG IJKLMNOPQRS 2
+	SHTG A 0 A_Refire
 	goto Ready
   Flash:
-	Q3SF A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFlash")
-	Q3SF A 0 Bright A_JumpIfInventory("ShotgunCheck", 1, "Flash.Right")
-	Q3SF A 2 Bright A_Light1
-	Q3SF A 0 Bright A_Light0
-	stop
-  Flash.Right:
-	Q3SF B 2 Bright A_Light1
-	Q3SF B 0 Bright A_Light0
+	SHTF A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFlash")
+	SHTF A 2 Bright A_Light1
+	SHTF A 0 Bright A_Light0
 	stop
 
   DukeReady:
@@ -12313,8 +12287,8 @@ actor ProtonTorpedoLauncher : Weapon Replaces RocketLauncher
 	MISG A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkFire")
 	MISG A 0 BRIGHT A_GunFlash
 	MISG A 0 BRIGHT radius_quake(2, 3, 0, 1, 0)
-	MISG B 2 BRIGHT A_FireCustomMissile("ProtonTorpedo", 0, 1, 10, 0)
-	MISG CDEFGHIJK 2 BRIGHT
+	MISG B 2 BRIGHT A_FireCustomMissile("ProtonTorpedo", 0, 1, 9, 0)
+	MISG CDEFGHIJK 2 
 	MISG B 0 A_ReFire
 	goto Ready
   Flash:
