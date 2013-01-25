@@ -4950,6 +4950,15 @@ actor SmartRifle : ClericWeapon 23501
   }
 }
 
+ACTOR P90Clip : Ammo
+{
+	Inventory.MaxAmount 80 // size of the clip
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 80 //MUST be the same as Inventory.MaxAmmount
+	Inventory.Icon "MAGICON2"
+	+IGNORESKILL
+}
+
 actor P90 : ClericWeapon 24302
 {
   decal BulletChip
@@ -4958,10 +4967,12 @@ actor P90 : ClericWeapon 24302
   Inventory.PickupMessage "Oooh, A P90! (AKA. Lead Flinger!)"
   weapon.selectionorder 900
   weapon.kickback 80
-  Weapon.AmmoType1 "MechAmmo"
-  Weapon.AmmoGive 120
+  Weapon.AmmoType1 "P90Clip"
+  Weapon.AmmoType2 "MechAmmo"
+  Weapon.AmmoGive2 80
   Weapon.AmmoUse1 1
   attacksound "p90fire"
+  +WEAPON.AMMO_OPTIONAL
   Scale 0.68
   states
   {
@@ -4969,8 +4980,10 @@ actor P90 : ClericWeapon 24302
    P90P A -1
    loop
   Ready:
+	P90G A 0 A_WeaponReady
+  	goto ReloadCheck
 	P90G A 1 A_WeaponReady
-	loop
+	goto Ready+1
   Deselect:
 	P90G A 1 A_Lower
 	loop
@@ -4978,18 +4991,55 @@ actor P90 : ClericWeapon 24302
 	P90G A 1 A_Raise
 	loop
   Fire:
+	P90G B 0 A_JumpIfNoAmmo("ReloadCheck")
 	P90G B 0 BRIGHT radius_quake(1, 2, 0, 1, 0)
-	P90G B 0 BRIGHT //A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,5)
-	P90G B 1 BRIGHT A_FireBullets (5.2, 5, -1, 4, "NewBulletPuff")
-	P90G B 0 BRIGHT //A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,5)
-	P90G C 1 BRIGHT A_FireBullets (5.2, 5, -1, 3, "NewBulletPuff")
+	P90G B 0 BRIGHT A_GunFlash
+	P90G B 1 BRIGHT A_FireBullets (5, 5, -1, 4, "NewBulletPuff")
+	P90G B 0 BRIGHT
+	P90G C 1 BRIGHT A_FireBullets (5, 5, -1, 4, "NewBulletPuff")
 	P90G A 1
 	P90G D 0 A_ReFire
-	P90G A 10
-	goto Ready
+	goto Ready+1
   Flash:
-	P90F A 0
+	P90F A 2
+	P90F B 1
 	stop
+  AltFire:
+  	P90G A 0
+  	goto ReloadCheck
+	
+  ReloadCheck:
+	P9R1 A 0 A_JumpIfInventory("P90Clip",80,2)
+	P9R1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
+	P9R1 A 0
+	goto Ready+1
+
+  ReloadStart:
+	P9R1 ABCDE 2
+	P9R1 F 0 A_PlaySoundEx("P90Unlock", "auto", 0)
+	P9R1 FGH 2
+	P9R1 I 0 A_PlaySoundEx("P90ClipOut", "auto", 0)
+	P9R1 IJKLMNOP 2
+	P9R1 Q 4
+	P9R1 RS 2
+	P9R1 T 0 A_PlaySoundEx("P90ClipIn", "auto", 0)
+	P9R1 TUVWXYZ 2
+	P9R2 ABC 2
+	goto ReloadAmmo
+
+  ReloadAmmo:
+	TNT1 A 0 A_TakeInventory("MechAmmo",1)
+	TNT1 A 0 A_GiveInventory("P90Clip",1)
+	TNT1 A 0 A_JumpIfInventory("P90Clip",80,"ReloadDone")
+	TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+	goto ReloadDone
+
+  ReloadDone:
+	P9R3 ABC 2
+	P9R3 D 0 A_PlaySoundEx("P90Cock", "auto", 0)
+	P9R3 DEFGHIJK 2
+	P9R3 LMNOPQRSTU 1
+	goto Ready+1
   }
 }
 
@@ -13747,75 +13797,6 @@ actor VolumetricFogSprite
 	Spawn:
 		FOG1 A -1
 		loop
-	}
-}
-
-ACTOR P90Troop : GBTWChaingunGuy
-{
-	Health 100
-	Painchance 120
-	Mass 5000
-	Obituary "%o was riddled with a hail of bullets from a P90 Troop."
-	attacksound "P90Fire"
-	DropItem "P90"
-	DropItem "MechAmmo", 128
-	States
-	{
-	Spawn:
-		P9TR AB 10 A_Look
-		Loop
-	See:
-		P9TR AABBCCDD 3 A_Chase
-		Loop
-	Missile:
-		P9TR E 10 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 0
-		Goto See
-	Pain:
-		P9TR G 3
-		P9TR G 3 A_Pain
-		Goto See
-	Death:
-		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-		P9TR H 5
-		P9TR I 5 A_Scream
-		P9TR J 5 A_Fall
-		P9TR KLM 5
-		P9TR N -1 A_BossDeath
-		Stop
-	XDeath:
-		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-		TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
-		P9TR O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		P9TR P 5 A_XScream
-		P9TR Q 5 A_Fall
-		P9TR RSTU 5
-		P9TR V -1
-		Stop
-	Raise:
-		P9TR P 5
-		P9TR NMLKJIH 5
-		Goto See
 	}
 }
 

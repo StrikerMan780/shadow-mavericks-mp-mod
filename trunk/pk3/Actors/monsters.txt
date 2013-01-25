@@ -2479,3 +2479,72 @@ ACTOR HectShot : FatShot
       Stop
    }
 }
+
+ACTOR P90Troop : GBTWChaingunGuy
+{
+	Health 100
+	Painchance 120
+	Mass 5000
+	Obituary "%o was riddled with a hail of bullets from a P90 Troop."
+	attacksound "P90Fire"
+	DropItem "P90"
+	DropItem "MechAmmo", 128
+	States
+	{
+	Spawn:
+		P9TR AB 10 A_Look
+		Loop
+	See:
+		P9TR AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		P9TR E 10 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 1 BRIGHT A_CPosAttack
+		P9TR E 1 A_FaceTarget
+		P9TR F 0
+		Goto See
+	Pain:
+		P9TR G 3
+		P9TR G 3 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+		P9TR H 5
+		P9TR I 5 A_Scream
+		P9TR J 5 A_Fall
+		P9TR KLM 5
+		P9TR N -1 A_BossDeath
+		Stop
+	XDeath:
+		TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
+		TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
+		P9TR O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		P9TR P 5 A_XScream
+		P9TR Q 5 A_Fall
+		P9TR RSTU 5
+		P9TR V -1
+		Stop
+	Raise:
+		P9TR P 5
+		P9TR NMLKJIH 5
+		Goto See
+	}
+}
