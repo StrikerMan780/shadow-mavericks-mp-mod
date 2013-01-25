@@ -70,6 +70,10 @@ $limit moritafire 0
 
 p90fire dsp90
 $limit p90fire 0
+p90unlock dsp90ulk
+p90clipout dsp90out
+p90clipin dsp90in
+p90cock dsp90cok
 
 bowshoot dsbowfir
 bowpull dsbowpul

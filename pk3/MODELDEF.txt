@@ -849,36 +849,91 @@ Model P90
 {
    Path "Models\HUD\P90"
    Model 0 "p90.md3"
-   Scale 5.0 4.0 5
-   ZOffset -1
+   Scale 5.0 3.5 5
 
    FrameIndex P90G A 0 0
-}
-
-Model P90
-{
-   Path "Models\HUD\P90"
-   Model 0 "p90.md3"
-   Model 1 "p90flash.md3"
-   Skin 1	"f_p90.png"
-   Scale 5.0 4.0 5
-   ZOffset -1
-
    FrameIndex P90G B 0 4
-   FrameIndex P90G B 1 0
+   FrameIndex P90G C 0 6
 }
 
 Model P90
 {
    Path "Models\HUD\P90"
-   Model 0 "p90.md3"
-   Model 1 "p90flash.md3"
-   Skin 1	"f_p902.png"
-   Scale 5.0 4.0 5
-   ZOffset -1
+   Model 0 "p90flash.md3"
+   Skin 0	"f_p90.png"
+   Scale 5.0 3.5 5
 
-   FrameIndex P90G C 0 6
-   FrameIndex P90G C 1 0
+   FrameIndex P90F A 0 0
+}
+
+Model P90
+{
+   Path "Models\HUD\P90"
+   Model 0 "p90flash.md3"
+   Skin 0	"f_p902.png"
+   Scale 5.0 3.5 5
+
+   FrameIndex P90F B 1 0
+}
+
+Model P90
+{
+   Path "Models\HUD\P90"
+   Model 0 "P90Reload.md3"
+   Scale 5.0 3.5 5
+
+   FrameIndex P9R1 A 0 1
+   FrameIndex P9R1 B 0 3
+   FrameIndex P9R1 C 0 5
+   FrameIndex P9R1 D 0 6
+   FrameIndex P9R1 E 0 8
+   FrameIndex P9R1 F 0 10
+   FrameIndex P9R1 G 0 12
+   FrameIndex P9R1 H 0 14
+   FrameIndex P9R1 I 0 16
+   FrameIndex P9R1 J 0 18
+   FrameIndex P9R1 K 0 20
+   FrameIndex P9R1 L 0 22
+   FrameIndex P9R1 M 0 24
+   FrameIndex P9R1 N 0 26
+   FrameIndex P9R1 O 0 28
+   FrameIndex P9R1 P 0 30
+   FrameIndex P9R1 Q 0 32
+   FrameIndex P9R1 R 0 34
+   FrameIndex P9R1 S 0 36
+   FrameIndex P9R1 T 0 38
+   FrameIndex P9R1 U 0 40
+   FrameIndex P9R1 V 0 42
+   FrameIndex P9R1 W 0 44
+   FrameIndex P9R1 X 0 46
+   FrameIndex P9R1 Y 0 48
+   FrameIndex P9R1 Z 0 50
+   
+   FrameIndex P9R2 A 0 52
+   FrameIndex P9R2 B 0 54
+   FrameIndex P9R2 C 0 56
+   
+   FrameIndex P9R3 A 0 58
+   FrameIndex P9R3 B 0 60
+   FrameIndex P9R3 C 0 62
+   FrameIndex P9R3 D 0 64
+   FrameIndex P9R3 E 0 66
+   FrameIndex P9R3 F 0 68
+   FrameIndex P9R3 G 0 70
+   FrameIndex P9R3 H 0 72
+   FrameIndex P9R3 I 0 74
+   FrameIndex P9R3 J 0 76
+   FrameIndex P9R3 K 0 78
+   FrameIndex P9R3 L 0 80
+   FrameIndex P9R3 M 0 82
+   FrameIndex P9R3 N 0 84
+   FrameIndex P9R3 O 0 86
+   FrameIndex P9R3 P 0 88
+   FrameIndex P9R3 Q 0 90
+   FrameIndex P9R3 R 0 92
+   FrameIndex P9R3 S 0 94
+   FrameIndex P9R3 T 0 96
+   FrameIndex P9R3 U 0 98
 }
 
 Model PlasmaCannon
