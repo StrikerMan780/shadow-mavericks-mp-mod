@@ -10660,8 +10660,7 @@ ACTOR Railgun : ClericWeapon 5012
 
 	ReloadStart:
 		RLGR A 0 A_PlayWeaponSound("RailGunOut")
-		RLGR AB 2
-		RLGR C 3
+		RLGR ABC 3
 		RLGR DEFGHIJ 3
 		goto ReloadAmmo
 
