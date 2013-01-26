@@ -3306,21 +3306,45 @@ model Clock
 	FrameIndex CLOK A 0 0
 }
 
-//Model SM_Railgun
-//{
-//	 Path "Models\HUD\Railgun"
-//	 Model 0 "Railgun.md3"
-//	 Scale 5.0 4.0 5
+Model Railgun
+{
+	 Path "Models\HUD\Railgun"
+	 Model 0 "Railgun.md3"
+	 Scale 5.0 3.0 5
 
-//	 FrameIndex RLGG A 0 0
-//	 FrameIndex RLGG B 0 1
-//	 FrameIndex RLGG C 0 2
-//	 FrameIndex RLGG D 0 4
-//	 FrameIndex RLGG E 0 5
-//	 FrameIndex RLGG F 0 7
-//	 FrameIndex RLGG G 0 9
-//	 FrameIndex RLGG H 0 11
-//}
+	 FrameIndex RLGG A 0 0
+	 FrameIndex RLGG B 0 3
+	 FrameIndex RLGG C 0 5
+	 FrameIndex RLGG D 0 6
+	 FrameIndex RLGG E 0 8
+	 FrameIndex RLGG F 0 10
+	 FrameIndex RLGG G 0 12
+	 FrameIndex RLGG H 0 14
+}
+
+Model Railgun
+{
+	 Path "Models\HUD\Railgun"
+	 Model 0 "RailgunReload.md3"
+	 Scale 5.0 3.0 5
+
+	 FrameIndex RLGR A 0 1
+	 FrameIndex RLGR B 0 7
+	 FrameIndex RLGR C 0 8
+	 FrameIndex RLGR D 0 9
+	 FrameIndex RLGR E 0 10
+	 FrameIndex RLGR F 0 11
+	 FrameIndex RLGR G 0 12
+	 FrameIndex RLGR H 0 14
+	 FrameIndex RLGR I 0 16
+	 FrameIndex RLGR J 0 18
+	 
+	 FrameIndex RLGR K 0 20
+	 FrameIndex RLGR L 0 21
+	 FrameIndex RLGR M 0 22
+	 FrameIndex RLGR N 0 28
+	 FrameIndex RLGR O 0 30
+}
 
 
 Model QuadShotgun
