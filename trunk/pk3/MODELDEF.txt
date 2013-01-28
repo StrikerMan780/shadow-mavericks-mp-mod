@@ -14,7 +14,7 @@ model PIPS_Shot
    Path "models/Projectiles"
    Model 0 "Tracer.md3"
    Skin 0 "GreenTracer.png"
-   Scale 20.0 7.0 7.0
+   Scale 24.0 7.0 7.0
    PITCHFROMMOMENTUM
 
    FrameIndex PIPH A 0 0
