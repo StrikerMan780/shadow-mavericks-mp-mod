@@ -425,18 +425,19 @@ ACTOR FreezeShock
 {
 	Radius 16
 	Height 8
-	Speed 0
 	Scale 0.82
 	Alpha 0.75
-	Projectile
 	Renderstyle Add
 	obituary "%o suffered from cold shock due to %k's freezebolt!"
 	+PUFFONACTORS
 	+FIXMAPTHINGPOS
 	+BLOODLESSIMPACT
 	+PUFFGETSOWNER
-	-BLOODSPLATTER
+	+FIXMAPTHINGPOS
+	+NOGRAVITY
+	+NOBLOCKMAP
 	+FORCEXYBILLBOARD
+	-BLOODSPLATTER
 	DamageType "Ice"
 	States
 	{
@@ -498,12 +499,12 @@ ACTOR BlitzShock
 	Speed 0
 	Scale 0.5
 	Alpha 0.9
-	Projectile
 	Renderstyle Add
 	obituary "%o was zapped by %k's blitz ssg!"
 	+PUFFONACTORS
 	+PUFFGETSOWNER
-	+FIXMAPTHINGPOS
+	+NOGRAVITY
+	+NOBLOCKMAP
 	+FORCEXYBILLBOARD
 	DamageType "Electric"
 	States
@@ -738,4 +739,65 @@ actor LeeroyBulletPuff : NewBulletPuff
 	DamageType "Leeroy"
 	-BLOODSPLATTER
 	+BLOODLESSIMPACT
+}
+
+actor RepeaterSpark
+{
+	Height 1
+	Radius 1
+	Projectile
+	-NOGRAVITY
+	+DONTSPLASH
+	+FORCEXYBILLBOARD
+	RenderStyle Add
+	Scale 0.08
+	Alpha 0.9
+	Speed 0
+	Damage 0
+	States
+	{
+		Spawn:
+		RPUF ABCDABCD 1 BRIGHT
+		RPUF ABCD 1 BRIGHT A_FadeOut(0.1)
+		goto Spawn+8
+
+		Death:
+		TNT1 A 1
+		stop
+	}
+}
+
+actor RepeaterPuff
+{
+	Radius 11
+	Height 8
+	Scale 0.4
+	Alpha 1
+	RenderStyle Add
+	Mass 100
+	Decal RepeaterScorch
+	AttackSound "RepeaterHit"
+	SeeSound "Empty"
+	Obituary "%o was riddled by %k's Dual Micro-Repeaters"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	+PUFFGETSOWNER
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+		goto Crash
+		Crash:
+		RPUF A 0 BRIGHT
+		RPUF AAAAAA 0 BRIGHT A_SpawnItemEx("RepeaterSpark", 0, 0, 0, Random(-2,2), Random(-2,2), Random(2,8), 0, 128, 16)
+		RPUF A 0 BRIGHT A_Jump(128, "Spawn2")
+		RPUF AB 1 BRIGHT
+		stop
+		Spawn2:
+		RPUF CD 1 BRIGHT
+		stop
+	}
 }

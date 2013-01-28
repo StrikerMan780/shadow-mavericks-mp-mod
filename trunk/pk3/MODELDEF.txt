@@ -9,6 +9,17 @@ model BulletTracer
    FrameIndex PUFF A 0 0
 }
 
+model PIPS_Shot
+{
+   Path "models/Projectiles"
+   Model 0 "Tracer.md3"
+   Skin 0 "GreenTracer.png"
+   Scale 20.0 7.0 7.0
+   PITCHFROMMOMENTUM
+
+   FrameIndex PIPH A 0 0
+}
+
 model CricketBeam
 {
    Path "models/Projectiles"
@@ -3530,4 +3541,27 @@ Model NewShotgun
    Scale 5.0 3.0 5.0
 
    FrameIndex SHTF A 0 0
+}
+
+Model NewShotgun
+{
+   Path "Models\HUD\PIPS"
+   Model 0 "PlasmaShotgun.md3"
+   Scale -5.0 4.0 5.0
+  
+   FrameIndex PIPS A 0 0
+   FrameIndex PIPS B 0 2
+   FrameIndex PIPS C 0 3
+   FrameIndex PIPS D 0 4
+   FrameIndex PIPS E 0 5
+}
+
+Model NewShotgun
+{
+   Path "Models\HUD\PIPS"
+   Model 0 "PlasmaShotgun_Flash.md3"
+   Skin 0 "PlasmaShotgun_Flash.png"
+   Scale -5.0 4.0 5.0
+  
+   FrameIndex PIPF A 0 0
 }

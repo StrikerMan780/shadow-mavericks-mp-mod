@@ -104,6 +104,8 @@ $random TechPlasmaBounce { TechBounce1 TechBounce2 TechBounce3 TechBounce4 }
 $limit TechPlasmaSuperBoom 0
 $limit weapons/plasmax 0
 
+PIPS dspips
+
 // Upgrade Junk
 Junk1 DSJUNK1
 Junk2 DSJUNK2

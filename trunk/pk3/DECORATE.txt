@@ -9544,10 +9544,10 @@ actor NewShotgun : Weapon Replaces Shotgun
 {
   Decal BulletChip
   spawnid 27
-  obituary "%o chewed on %k's hi-tech boomstick."
+  obituary "%o chewed on %k's boomstick."
   radius 20
   height 16
-  inventory.pickupmessage "You got the auto shotgun!"
+  inventory.pickupmessage "You got the shotgun!"
   weapon.selectionorder 1300
   weapon.kickback 100
   Weapon.AmmoType "SpreadAmmo"
@@ -9556,20 +9556,24 @@ actor NewShotgun : Weapon Replaces Shotgun
   states
   {
   Ready:
+	SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
 	SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
 	SHTG A 1 A_WeaponReady
-	goto Ready+1
+	goto Ready+2
   Deselect:
+	SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
 	SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
 	SHTG A 1 A_Lower
-	goto Deselect+1
+	goto Deselect+2
   Select:
+	SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
 	SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
 	SHTG A 1 A_Raise
-	goto Select+1
+	goto Select+2
   Fire:
+	SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
 	SHTG B 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-	SHTG B 0 A_FireCustomMissile("ShotgunSmoke", random(-1, 1), 0, 4, 8)
+	SHTG B 0 A_FireCustomMissile("ShotgunSmoke", random(-1, 1), 0, 3, 7)
 	SHTG B 0 A_GunFlash
 	SHTG B 0 Radius_Quake(2, 3, 0, 1, 0)
 	SHTG B 0 bright A_PlayWeaponSound("weapons/shotgf")
@@ -9583,6 +9587,7 @@ actor NewShotgun : Weapon Replaces Shotgun
 	SHTG A 0 A_Refire
 	goto Ready
   Flash:
+	SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFlash")
 	SHTF A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFlash")
 	SHTF A 2 Bright A_Light1
 	SHTF A 0 Bright A_Light0
@@ -9621,7 +9626,31 @@ actor NewShotgun : Weapon Replaces Shotgun
 	DHTF B 2 bright A_Light2
 	DHTF B 0 bright A_Light0
 	stop
-
+	
+  TailsSelect:
+	PIPS A 1 A_Raise
+	loop
+  TailsDeselect:
+    PIPS A 1 A_Lower
+	loop
+  TailsReady:
+    PIPS A 1 A_WeaponReady
+	loop
+  TailsFire:
+	PIPS B 0 Radius_Quake(2, 3, 0, 1, 0)
+	PIPS B 0 A_PlayWeaponSound("PIPS")
+	PIPS B 0 A_GunFlash
+	PIPS BBBBB 0 A_FireCustomMissile("PIPS_Shot",random(-4,4),0,10,0,0,random(-2,2))
+	PIPS B 1 A_FireCustomMissile("PIPS_Shot",random(-4,4),1,10,0,0,random(-2,2))
+	PIPS C 1
+	PIPS DE 2
+	PIPS A 8
+    PIPS A 0 A_Refire
+	goto TailsReady
+  TailsFlash:
+	PIPF A 2 A_Light2
+	TNT1 A 0 A_Light0
+	stop
   Spawn:
 	SHOT A -1
 	stop
@@ -11034,67 +11063,6 @@ actor SM_ExplosiveBarrel : ExplosiveBarrel Replaces ExplosiveBarrel
 	TNT1 A 5 A_Respawn
 	wait
   }
-}
-
-actor RepeaterSpark
-{
-	Height 1
-	Radius 1
-	Projectile
-	-NOGRAVITY
-	+DONTSPLASH
-	+FORCEXYBILLBOARD
-	RenderStyle Add
-	Scale 0.08
-	Alpha 0.9
-	Speed 0
-	Damage 0
-	States
-	{
-		Spawn:
-		RPUF ABCDABCD 1 BRIGHT
-		RPUF ABCD 1 BRIGHT A_FadeOut(0.1)
-		goto Spawn+8
-
-		Death:
-		TNT1 A 1
-		stop
-	}
-}
-
-actor RepeaterPuff
-{
-	Radius 11
-	Height 8
-	Scale 0.4
-	Alpha 1
-	RenderStyle Add
-	Mass 100
-	Decal RepeaterScorch
-	AttackSound "RepeaterHit"
-	SeeSound "Empty"
-	Obituary "%o was riddled by %k's Dual Micro-Repeaters"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
-	+PUFFGETSOWNER
-	+FORCEXYBILLBOARD
-	States
-	{
-		Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-		goto Crash
-		Crash:
-		RPUF A 0 BRIGHT
-		RPUF AAAAAA 0 BRIGHT A_SpawnItemEx("RepeaterSpark", 0, 0, 0, Random(-2,2), Random(-2,2), Random(2,8), 0, 128, 16)
-		RPUF A 0 BRIGHT A_Jump(128, "Spawn2")
-		RPUF AB 1 BRIGHT
-		stop
-		Spawn2:
-		RPUF CD 1 BRIGHT
-		stop
-	}
 }
 
 ACTOR RipperShotCount : Inventory
