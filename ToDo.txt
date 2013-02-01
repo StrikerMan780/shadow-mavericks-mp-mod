@@ -12,10 +12,19 @@ StrikerMan780
 * Add Hentai GIF to Kunai's Room
 * Fix Rendering Bug in Water by Rock Structure
 
+* Make Leeroy Zombies die in Water, also, kill the leeroy zombies if they are alive too long. (15 minutes).
+* Turn the demon/pinky spawner into a random spawn during day/night cycle. Add new monsters to it as well.
+* Add another monster spawner
+* Add more view-obscuring geometry
+* Add Vipes' Room
+* Fix the fucking JFC Picture script! Same with the one in my Vault
+
+* Start working on the Hub Script
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.
 Make more monsters fade away on death.
+Reduce fire particle spawn rate further
 
 -=Graphics=-
 
@@ -31,7 +40,7 @@ Re-do the molotov and gas can models
 Get Link a Master Sword Model
 
 -=CLASSES=-
-Give Duke a jetpack double-jump as his special move
+Give Duke Steroids as his special move
 
 ===========================================
 
