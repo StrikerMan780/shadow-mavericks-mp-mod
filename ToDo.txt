@@ -10,16 +10,12 @@ StrikerMan780
 * Create the underground sewer system.... eventually.
 * Allow Night Enemies to Respawn over time.
 * Add Hentai GIF to Kunai's Room
-* Fix Rendering Bug in Water by Rock Structure
 
-* Make Leeroy Zombies die in Water, also, kill the leeroy zombies if they are alive too long. (15 minutes).
-* Turn the demon/pinky spawner into a random spawn during day/night cycle. Add new monsters to it as well.
-* Add another monster spawner
-* Add more view-obscuring geometry
-* Add Vipes' Room
-* Fix the fucking JFC Picture script! Same with the one in my Vault
+* kill the leeroy zombies if they are alive too long. (15 minutes).
+* Add another monster spawner switch
 
 * Start working on the Hub Script
+
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.
