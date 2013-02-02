@@ -175,3 +175,135 @@ actor EnemyNeedlerCrystal : NeedlerCrystal
 	Damage 2
 	+FORCEXYBILLBOARD
 }
+
+ACTOR BioBall
+{
+	Radius 8
+	Height 1
+	Health 1
+	Damage 8
+	PoisonDamage 50
+	Speed 38
+	Renderstyle Add
+	Alpha 0.9
+	SeeSound "BioRifle"
+	DeathSound "BioGoo"
+	Projectile
+	+RIPPER
+	+CORPSE
+	+NODAMAGETHRUST
+	+DONTSPLASH
+	+FORCERADIUSDMG
+	-NOGRAVITY
+	States
+	{
+		Spawn:
+			SBS3 A 0
+			SBS3 A 0 BRIGHT ThrustThingZ(0, random(12, 16), 0, 1)
+			SBS3 A 1 BRIGHT A_NoGravity
+			SBS3 BC 1 BRIGHT
+			SBS3 A 0 BRIGHT A_Gravity
+			SBS3 AABBCC 1 BRIGHT
+			goto Spawn+5
+		Death:
+			SBS3 A 0 A_NoGravity
+			SBS3 A 0 A_Jump(127, 6)
+			SBS3 ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC 2 BRIGHT
+			SLDG EEEEEEEE 0 A_SpawnItemEx("BioBurstDrop", 0, 0, 0, Random(-2, 2), Random(-2, 2), Random(2, 8), 0, 0, 0)
+			SLDG E 0 A_PlaySound("BioBurst")
+			SLDG E 0 A_Explode(112, 100, 1)
+			SLDG EFGH 2 BRIGHT
+			Stop
+		Crash:
+			SBS4 A 0 A_Jump(127, 6)
+			SBS4 A 0 A_Jump(80, 10)
+			SBS4 ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC 2 BRIGHT A_Explode(2, 14, 0)
+			SLDG EEEEEEEE 0 A_SpawnItemEx("BioBurstDrop", 0, 0, 0, Random(-2, 2), Random(-2, 2), Random(2, 8), 0, 0, 0)
+			SLDG E 0 A_PlaySound("BioBurst")
+			SLDG E 0 A_Explode(90, 80, 1)
+			SLDG EFGH 2 BRIGHT
+			Stop
+	}
+}
+
+ACTOR SlowBioBall : Bioball
+{
+	Radius 2
+	Height 1
+	Health 1
+	Damage 8
+	PoisonDamage 50
+	Decal BioRifle
+	Speed 10
+	-NOGRAVITY
+	States
+	{
+		Spawn:
+			SBS3 ABC 1 BRIGHT
+			loop
+	}
+}
+
+actor Enemy_BioBall : BioBall
+{
+	DamageType "EnemyPoison"
+	Damage 3
+	PoisonDamage 25
+	States
+	{
+		Spawn:
+			SBS3 AABBCC 1 BRIGHT
+			loop
+	}
+}
+
+ACTOR GiantBioBall
+{
+	Decal BioRifle
+	Radius 8
+	Height 1
+	Damage 14
+	PoisonDamage 50
+	Speed 38
+	Scale 2.0
+	Renderstyle Add
+	Alpha 0.9
+	SeeSound "BioRifle"
+	DeathSound "BioGoo"
+	Projectile
+	+RIPPER
+	+CORPSE
+	+NODAMAGETHRUST
+	+DONTSPLASH
+	+FORCERADIUSDMG
+	-NOGRAVITY
+	States
+	{
+		Spawn:
+			SBS3 A 0
+			SBS3 A 0 BRIGHT ThrustThingZ(0, 14, 0, 1)
+			SBS3 A 1 BRIGHT A_NoGravity
+			SBS3 BC 1 BRIGHT
+			SBS3 A 0 BRIGHT A_Gravity
+			SBS3 AABBCC 1 BRIGHT
+			goto Spawn+5
+		Death:
+			SBS3 A 0 A_NoGravity
+			SBS3 A 0 A_Jump(127, 6)
+			SBS3 ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC 2 BRIGHT
+			SLDG EEEEEEEE 0 A_CustomMissile("SlowBioBall",17,0,Random(-360,360), 6, random(-360, 360))
+			SLDG E 0 A_PlaySound("BioBurst")
+			SLDG E 0 A_Explode(140, 134, 1)
+			SLDG EFGH 2 BRIGHT
+			Stop
+		Crash:
+			SBS4 A 0 A_Jump(127, 6)
+			SBS4 A 0 A_Jump(80, 10)
+			SBS4 ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC 2 BRIGHT A_Explode(5, 24, 0)
+			SLDG EEEEEEEE 0 A_CustomMissile("SlowBioBall",17,0,Random(-360,360), 6, random(0, 180))
+			SLDG E 0 A_PlaySound("BioBurst")
+			SLDG E 0 A_Explode(128, 128, 1)
+			SLDG EFGH 2 BRIGHT
+			Stop
+	}
+}

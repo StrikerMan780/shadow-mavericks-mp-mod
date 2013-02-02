@@ -1,0 +1,45 @@
+// Molotov Cocktail
+
+ACTOR MolotovCocktail : CustomInventory 25121
+{
+	Scale 0.25
+	inventory.pickupmessage "Molotov Cocktail"
+	inventory.pickupsound "misc/p_pkup"
+	inventory.icon ARTIMOLO
+	inventory.amount 1
+	inventory.maxamount 12
+	Obituary "%o can't handle %k's cocktail."
+	+FLOATBOB
+	+INVBAR
+	+INVENTORY.KEEPDEPLETED
+	States
+	{
+		Spawn:
+			MOGP A -1
+			Loop
+		Use:
+			TNT1 A 1 A_FireCustomMissile("Bottlex", 0, 0, 0, 0)
+			stop
+	}
+}
+
+ACTOR MolotovCocktail_Dropped : MolotovCocktail
+{
+	inventory.amount 1
+	inventory.maxamount 0
+	-INVBAR
+	-INVENTORY.KEEPDEPLETED
+	+INVENTORY.AUTOACTIVATE
+	States
+	{
+		Spawn:
+			MOGP A 15000
+			goto Fade
+		Fade:
+			MOGP A 1 A_FadeOut(0.01)
+			loop
+		Use:
+			TNT1 A 1 A_GiveInventory("MolotovCocktail", 1)
+			stop
+	}
+}
