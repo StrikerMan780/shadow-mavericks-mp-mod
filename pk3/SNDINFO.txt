@@ -1289,6 +1289,27 @@ Monsters/NBPain		DSNBPAIN
 Monsters/NBAct		DSNBSACT
 Monsters/NBWalk		DSNBWALK
 
+//BioZombie Sounds
+PNZombie/See1	pnzsee1
+PNZombie/See2	pnzsee2
+PNZombie/See3	pnzsee3
+$Random PNZombie/See	{ PNZombie/See1 PNZombie/See2 PNZombie/See3 }
+
+PNZombie/Act1	pnzAct1
+PNZombie/Act2	pnzAct2
+PNZombie/Act3	pnzAct3
+$Random PNZombie/Act	{ PNZombie/Act1 PNZombie/Act2 PNZombie/Act3 }
+
+PNZombie/Pain1	pnzPain1
+PNZombie/Pain2	pnzPain2
+PNZombie/Pain3	pnzPain3
+$Random PNZombie/Pain	{ PNZombie/Pain1 PNZombie/Pain2 PNZombie/Pain3 }
+
+PNZombie/Die1	pnzDie1
+PNZombie/Die2	pnzDie2
+PNZombie/Die3	pnzDie3
+$Random PNZombie/Die	{ PNZombie/Die1 PNZombie/Die2 PNZombie/Die3 }
+
 HeavyAct1	DSHVACT1
 HeavyAct2	DSHVACT2
 HeavyAct3	DSHVACT3
