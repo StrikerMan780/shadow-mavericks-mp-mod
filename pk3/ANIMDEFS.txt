@@ -383,6 +383,59 @@ texture ANIM_E01
 	pic	ANIM_E19 tics 3
 	pic	ANIM_E20 tics 3
 
+texture ANIM_F00
+	pic ANIM_F00 tics 1
+	pic	ANIM_F01 tics 1
+	pic	ANIM_F02 tics 1
+	pic	ANIM_F03 tics 1
+	pic	ANIM_F04 tics 1
+	pic	ANIM_F05 tics 1
+	pic	ANIM_F06 tics 1
+	pic	ANIM_F07 tics 1
+	pic	ANIM_F08 tics 1
+	pic	ANIM_F09 tics 1
+	pic	ANIM_F10 tics 1
+	pic	ANIM_F11 tics 1
+	pic	ANIM_F12 tics 1
+	pic	ANIM_F13 tics 1
+	pic	ANIM_F14 tics 1
+	pic	ANIM_F15 tics 1
+	pic	ANIM_F16 tics 1
+	pic	ANIM_F17 tics 1
+	pic	ANIM_F18 tics 1
+	pic	ANIM_F19 tics 1
+	pic	ANIM_F20 tics 1
+	pic	ANIM_F21 tics 1
+	pic	ANIM_F22 tics 1
+	pic	ANIM_F23 tics 1
+	pic	ANIM_F24 tics 1
+	pic	ANIM_F25 tics 1
+	pic	ANIM_F26 tics 1
+	pic	ANIM_F27 tics 1
+	pic	ANIM_F28 tics 1
+	pic	ANIM_F29 tics 1
+	pic	ANIM_F30 tics 1
+	pic	ANIM_F31 tics 1
+	pic	ANIM_F32 tics 1
+	pic	ANIM_F33 tics 1
+	pic	ANIM_F34 tics 1
+	pic	ANIM_F35 tics 1
+	pic	ANIM_F36 tics 1
+	pic	ANIM_F37 tics 1
+	pic	ANIM_F38 tics 1
+	pic	ANIM_F39 tics 1
+	pic	ANIM_F40 tics 1
+	pic	ANIM_F41 tics 1
+	pic	ANIM_F42 tics 1
+	pic	ANIM_F43 tics 1
+	pic	ANIM_F44 tics 1
+	pic	ANIM_F45 tics 1
+	pic	ANIM_F46 tics 1
+	pic	ANIM_F47 tics 1
+	pic	ANIM_F48 tics 1
+	pic	ANIM_F49 tics 1
+	pic	ANIM_F50 tics 1
+
 texture AFLAGF01
 	pic	AFLAGF01 tics 3
 	pic	AFLAGF02 tics 3
@@ -841,6 +894,7 @@ cameratexture CAMTEX4	184 104 fit 184 104
 cameratexture CAMTEX5	320 200 fit 96 64
 cameratexture CAMTEX6	128 192 fit 64 96
 cameratexture CAMTEX7	128 192 fit 64 96
+cameratexture MISSION	640	640 fit 64 64
 
 switch doom 1 LIGHT1 on pic LIGHT2 tics 0
 

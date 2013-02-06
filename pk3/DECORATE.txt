@@ -10285,7 +10285,7 @@ ACTOR Railgun : ClericWeapon 5012
 		RLGG A 1 A_Raise
 		loop
 	Fire:
-		RLGG A 0 A_FireCustomMissile("RailSmoke", random(-1, 1), 0, 0, 7)
+		RLGG A 0 A_FireCustomMissile("RailSmoke", random(-1, 1), 0, 3, 7)
 		RLGG A 0 A_PlaySoundEx("NewRailgunStereo", Auto, 0)
 		RLGG B 2 BRIGHT A_RailAttack(100, 6, 1, "00 00 FF", "FF FF FF")
 		RLGG CDEF 2
