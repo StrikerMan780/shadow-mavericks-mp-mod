@@ -1295,7 +1295,7 @@ ACTOR MoritaZombie
 		RFTR AB 10 A_Look
 		Loop
 	See:
-		RFTR AABBCCDD 4 A_Chase
+		RFTR AABBCCDD 3 A_Chase
 		Loop
 	Missile:
 		RFTR E 10 A_FaceTarget
