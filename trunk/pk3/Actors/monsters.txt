@@ -2585,20 +2585,20 @@ ACTOR BioZombie
   Missile:
     TNT1 A 0 A_JumpIfCloser(512, "CloseFire")
     PNGZ E 10 A_FaceTarget
-    PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(10, 16))
+    PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(8, 12))
     PNGZ E 10 A_FaceTarget
-	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(10, 16))
+	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(8, 12))
     PNGZ E 10 A_FaceTarget
-	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(10, 16))
+	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(8, 12))
     PNGZ E 10 A_FaceTarget
-	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(10, 16))
+	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-8,8), CMF_AIMDIRECTION, pitch+random(8, 12))
     PNGZ E 10 A_FaceTarget
     Goto See
   CloseFire:
     PNGZ E 10 A_FaceTarget
-    PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(1, 4))
+    PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(4, 6))
     PNGZ E 10 A_FaceTarget
-	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(1, 4))
+	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(4, 6))
     PNGZ E 10 A_FaceTarget
     Goto See
   Pain:
