@@ -28,8 +28,8 @@ actor RandomSuperZombieSpawner : RandomSpawner Replaces ShotgunGuy
 	+ISMONSTER
 	DropItem "GBTWShotgunGuy", 255 100
 	DropItem "TourettesShotgunZombie", 255 32
-	DropItem "MoritaZombie", 255 16
-	DropItem "BioZombie", 255 8
+	DropItem "MoritaZombie", 255 8
+	DropItem "BioZombie", 255 6
 	DropItem "SuperShotgunGuy", 255 6
 	DropItem "FreezerZombie", 255 5
 }
@@ -2568,6 +2568,7 @@ ACTOR BioZombie
   Mass 100
   MONSTER 
   +FLOORCLIP
+  +MISSILEMORE
   SeeSound "PNZombie/See"
   PainSound "PNZombie/Pain"
   DeathSound "PNZombie/Die"
@@ -2580,7 +2581,7 @@ ACTOR BioZombie
     PNGZ AB 10 A_Look
     Loop
   See:
-    PNGZ AABBCCDD 4 A_Chase
+    PNGZ AABBCCDD 3 A_Chase
     Loop
   Missile:
     TNT1 A 0 A_JumpIfCloser(512, "CloseFire")
@@ -2597,9 +2598,9 @@ ACTOR BioZombie
   CloseFire:
     PNGZ E 10 A_FaceTarget
     PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(4, 6))
-    PNGZ E 10 A_FaceTarget
+    PNGZ E 8 A_FaceTarget
 	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(4, 6))
-    PNGZ E 10 A_FaceTarget
+    PNGZ E 8 A_FaceTarget
     Goto See
   Pain:
     PNGZ G 3
