@@ -2574,7 +2574,7 @@ ACTOR BioZombie
   DeathSound "PNZombie/Die"
   ActiveSound "PNZombie/Act"
   Obituary "%o got corroded by a biorifle zombie."
-  DropItem "BioRifle"
+  DropItem "BioRifle", 64
   States
   {
   Spawn:
