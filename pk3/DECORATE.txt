@@ -8638,7 +8638,7 @@ actor SledgeHammerRocket
 {
 radius 14
 height 14
-speed 50
+speed 1
 damage 36
 Scale 1.5
 SeeSound "SledgeHammerFire"
@@ -8651,6 +8651,7 @@ states
 {
 Spawn:
 	DEVM A 1 bright A_SpawnItemEx("SledgeHammerTrail", -32, Random(-2, 2), Random(-2, 2), Random(0,-6), 0, 0, 0, 128, 0)
+	DEVM A 0 bright A_ScaleVelocity(1.25)
 	DEVM AAAAAA 0 bright A_SpawnItemEx("SledgeHammerTrail", -32, Random(-2, 2), Random(-2, 2), Random(0, -6), 0, 0, 0, 128, 0)
 	loop
 Death:
@@ -8921,8 +8922,12 @@ actor Raining512HQ 18424
 		TNT1 A -1
 		loop
 	Raining:
-		TNT1 A 3 A_SpawnItemEX("Rain", Random(-256,256), Random(-256,256), 0, 0, 0, 0, 0, 128, 128)
+		TNT1 A 0 A_CheckSight("NoSpawn")
+		TNT1 A 3 A_SpawnItemEX("Rain", Random(-256,256), Random(-256,256), 0, 0, 0, 0, 0, 128, 64)
 		loop
+	NoSpawn:
+		TNT1 A 1
+		goto Raining
 	}
 }
 
@@ -8941,8 +8946,12 @@ actor Raining1024HQ 18425
 		TNT1 A -1
 		loop
 	Raining:
-		TNT1 A 2 A_SpawnItemEX("Rain", Random(-512,512), Random(-512,512), 0, 0, 0, 0, 0, 128, 128)
+		TNT1 A 0 A_CheckSight("NoSpawn")
+		TNT1 A 2 A_SpawnItemEX("Rain", Random(-512,512), Random(-512,512), 0, 0, 0, 0, 0, 128, 96)
 		loop
+	NoSpawn:
+		TNT1 A 1
+		goto Raining
 	}
 }
 
@@ -8961,7 +8970,31 @@ actor Raining2048HQ 18426
 		TNT1 A -1
 		loop
 	Raining:
+		TNT1 A 0 A_CheckSight("NoSpawn")
 		TNT1 A 1 A_SpawnItemEX("Rain", Random(-1024,1024), Random(-1024,1024), 0, 0, 0, 0, 0, 128, 128)
+		loop
+	NoSpawn:
+		TNT1 A 1
+		goto Raining
+	}
+}
+
+actor Raining1024Skybox 18427
+{
+	Radius 512
+	Height 1
+	Speed 0
+	Mass 9999999
+	+SPAWNCEILING
+	+NOGRAVITY
+	+CORPSE
+	States
+	{
+	Spawn:
+		TNT1 A -1
+		loop
+	Raining:
+		TNT1 A 2 A_SpawnItemEX("Rain", Random(-512,512), Random(-512,512), 0, 0, 0, 0, 0, 128, 96)
 		loop
 	}
 }
