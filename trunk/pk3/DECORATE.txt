@@ -13695,12 +13695,12 @@ loop
 
 actor FlareSpark2 : FlareSpark
 {
-States
-{
-Spawn:
-REMB A 1 BRIGHT A_FadeOut(0.1)
-loop
-}
+	States
+	{
+		Spawn:
+			REMB A 1 BRIGHT A_FadeOut(0.1)
+			loop
+	}
 }
 
 actor FlareSmoke : Duke64GrenadeSmoke
