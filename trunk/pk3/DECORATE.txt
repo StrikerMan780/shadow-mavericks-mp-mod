@@ -7075,7 +7075,7 @@ ACTOR BurnDeath1
 	+FIREDAMAGE
 	+FLOORCLIP
 	+LOOKALLAROUND
-	Obituary "%o was near someone in flames."
+	Obituary "%o was too close to a burning zombie."
 	SeeSound "burningup"
 	RenderStyle Add
 	Alpha 0.9
@@ -7191,8 +7191,11 @@ ACTOR BurnDeath2
 		2BRN A 0 A_PlaySound("Collapse")
 		2BRN OPQRSTUVW 2
 		2BRN W 0 A_UnsetSolid
-		2BRN W -1
-		Stop
+		2BRN W 10500
+		goto Fade
+	Fade:
+		2BRN W 1 A_FadeOut(0.01)
+		loop
 	}
 }
 
@@ -7208,8 +7211,11 @@ ACTOR BurnedSkeleton1
 	Spawn:
 		2BRN OPQRSTUVW 2
 		2BRN W 0 A_UnSetSolid
-		2BRN W -1
-		Stop
+		2BRN W 10500
+		goto Fade
+	Fade:
+		2BRN W 1 A_FadeOut(0.01)
+		loop
 	}
 }
 
@@ -7219,7 +7225,7 @@ actor IgnitedGas : IgnitedSurface
 	{
 	Spawn:
 		TFIR A 0 A_CountDown
-		TNT1 A 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-8,8), Random(-8,8), 0, 0, 0, Random(1, 2), 0, 128, 128)
+		TNT1 A 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-8,8), Random(-8,8), 0, 0, 0, Random(1, 2), 0, SXF_CLIENTSIDE, 128)
 		TNT1 A 2 A_Explode(5, 20, 1)
 		TNT1 A 0 A_JumpIf(waterlevel == 3, "Disappear")
 		loop
