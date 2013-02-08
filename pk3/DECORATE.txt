@@ -1213,6 +1213,8 @@ Weapon.AmmoGive1 0
 Weapon.AmmoGive2 0
 Weapon.AmmoUse1 1
 weapon.selectionorder 1900
+//Weapon.BobSpeed 1.5
+//Weapon.BobStyle "InverseSmooth"
 +WEAPON.WIMPY_WEAPON
 +WEAPON.NOAUTOFIRE
 +WEAPON.AMMO_OPTIONAL

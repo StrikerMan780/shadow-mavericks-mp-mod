@@ -2597,9 +2597,9 @@ ACTOR BioZombie
     Goto See
   CloseFire:
     PNGZ E 10 A_FaceTarget
-    PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(4, 6))
+    PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), CMF_AIMDIRECTION, pitch+random(4, 6))
     PNGZ E 8 A_FaceTarget
-	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), 0, pitch+random(4, 6))
+	PNGZ F 2 Bright A_CustomMissile("Enemy_Bioball",34,0,random(-4,4), CMF_AIMDIRECTION, pitch+random(4, 6))
     PNGZ E 8 A_FaceTarget
     Goto See
   Pain:
