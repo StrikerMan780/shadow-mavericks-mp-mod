@@ -105,6 +105,9 @@ actor StartButton : DifficultyHeader 13660
 		Spawn:
 			STRT A -1 BRIGHT
 			loop
+		Selected:
+			TNT1 A -1
+			loop
 	}
 }
 
