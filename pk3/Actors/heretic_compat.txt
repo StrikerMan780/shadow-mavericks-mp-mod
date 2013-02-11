@@ -10,10 +10,6 @@ actor RandomMummy : RandomSpawner Replaces Mummy
 	DropItem "Vulgar", 255 25
 }
 
-actor SM_Mummy : Mummy
-{
-}
-
 actor RandomHereticImp : RandomSpawner Replaces HereticImp
 {
 	Radius 22
@@ -21,15 +17,6 @@ actor RandomHereticImp : RandomSpawner Replaces HereticImp
 	+ISMONSTER
 	DropItem "SM_HereticImp", 255 100
 	DropItem "Float_Fleshspawn", 255 50
-}
-
-actor SM_HereticImp : HereticImp
-{
-}
-
-actor Float_Fleshspawn : Fleshspawn
-{
-	+SPAWNFLOAT
 }
 
 actor Heretic_MechAmmo : MechAmmo replaces GoldWandAmmo

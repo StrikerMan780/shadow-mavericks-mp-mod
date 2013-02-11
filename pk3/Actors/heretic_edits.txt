@@ -1,0 +1,121 @@
+ACTOR SMMP_HereticImpBall : HereticImpBall replaces HereticImpBall
+{
+	Speed 30
+	FastSpeed 50
+	Damage 3
+	Alpha 1.0
+	RenderStyle Add
+	States
+	{
+	Spawn:
+		FX10 AABBCC 1 Bright A_SpawnItemEx("HereticImpBallTrail", 0, 0, 0, random(-1,1), random(-1,1), random(-1,1), random(-180,180), SXF_CLIENTSIDE, 0)
+		Loop
+	Death:
+		FX10 DEFG 5 Bright
+		Stop
+	}
+}
+
+actor HereticImpBallTrail
+{
+	Radius 2
+	Height 2
+	Alpha 1.0
+	Renderstyle Add
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			FX10 DEFG 1 Bright
+			stop
+	}
+}
+
+actor SM_HereticImp : HereticImp
+{
+	+FLOATBOB
+	States
+	{
+		Melee:
+			IMPX DE 4 A_FaceTarget
+			IMPX F 6 A_CustomMeleeAttack(random[ImpMeAttack](5,12), "himp/attack", "himp/attack")
+			Goto See
+		Missile:
+			IMPX A 0 A_Jump(75, "Throw")
+			IMPX A 8 A_FaceTarget
+			IMPX B 6 A_SkullAttack(12)
+			IMPX CBAB 6
+			Goto Missile+3
+		Throw:
+			IMPX DE 4 A_FaceTarget
+			IMPX F 6 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			Goto See
+		Death:
+			IMPX S 0 A_ChangeFlag("FLOATBOB", 0)
+			IMPX G 4 A_ImpDeath
+			IMPX H 5
+			Wait
+		XDeath:
+			IMPX S 0 A_ChangeFlag("FLOATBOB", 0)
+			IMPX S 5 A_ImpXDeath1
+			IMPX TU 5
+			IMPX V 5 A_Gravity
+			IMPX W 5 
+			Wait
+	}
+}
+
+actor SM_HereticImpLeader : SM_HereticImp replaces HereticImpLeader
+{
+	Health 80
+	PainChance 128
+	Speed 12
+	-MISSILEMORE
+	+MISSILEEVENMORE
+	+FLOATBOB
+	AttackSound "himp/attack"
+	States
+	{
+		Melee:
+			IMPX DE 3 A_FaceTarget
+			IMPX F 5 A_CustomMeleeAttack(random[ImpMeAttack](5,12), "himp/attack", "himp/attack")
+			Goto See
+		Missile:
+			IMPX A 0 A_Jump(132, "Throw")
+			IMPX A 6 A_FaceTarget
+			IMPX B 6 A_SkullAttack(12)
+			IMPX CBAB 6
+			Goto Missile+3
+		Throw:
+			IMPX DE 3 A_FaceTarget
+			IMPX F 5 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			IMPX DE 3 A_FaceTarget
+			IMPX F 5 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			IMPX DE 3 A_FaceTarget
+			IMPX F 5 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			Goto See
+	}
+}
+
+actor Float_Fleshspawn : Fleshspawn
+{
+	+SPAWNFLOAT
+}
+
+actor SM_Mummy : Mummy
+{
+	PainChance 96
+	States
+	{
+		See:
+			MUMM AABBCCDD 2 A_Chase
+			Loop
+		Melee:
+			MUMM E 5 A_FaceTarget
+			MUMM F 5 A_CustomMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack")
+			MUMM G 5
+			Goto See
+	}
+}
