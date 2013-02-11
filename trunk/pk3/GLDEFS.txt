@@ -1601,6 +1601,17 @@ object LaserShot
     frame LASRG { light LaserHit }
 }
 
+Pointlight PIPSShot
+{
+	Color 0.0 1.0 0.0
+	Size 56
+}
+
+object PIPS_Shot
+{
+    frame PIPH { light PIPSShot }
+}
+
 // Health Potion
 pulselight HEALTHPOTION
 {

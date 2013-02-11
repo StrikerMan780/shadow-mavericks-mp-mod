@@ -33,6 +33,7 @@
 #include "actors/splashes.txt"
 #include "actors/monsters.txt"
 #include "actors/heretic_compat.txt"
+#include "actors/heretic_edits.txt"
 
 #include "actors/classes/marine.txt"
 
@@ -6061,64 +6062,50 @@ Fire:
 }
 }
 
-actor NukeEXTRA
+actor NukeRandom
 {
-renderstyle Add
-Damage 0
-alpha 0.75
-+NOBLOCKMAP
-+NOGRAVITY
-+EXTREMEDEATH
-states
-{
-Spawn:
-	NEXP A 0
-	TNT1 A 28 A_PlaySoundEx("WTFBoom", "auto", 0)
-	NEXP A 0 A_Playsound("NukeExplode")
-	NEXP A 0 A_Explode(600, 256)
-	NEXP ABCDEFGHIJKLMNOPQRSTU 4 bright A_SpawnItemEx("NukeRandom2", 0, 0, 0, random(-2,2), random(-2,2), random(0,2), 0, 128, 0)
-	stop
-}
-}
-
-actor NukeRandom : NukeEXTRA
-{
-Scale 1.5
-states
-{
-Spawn:
-	NEXP A 0
-	NEXP A 0 A_Playsound("NukeExplode")
-	NEXP A 0 A_Explode(400, 400)
-	NEXP ABCDEFGHIJKLMNOPQRSTU 3 bright
-	stop
-}
+	renderstyle Add
+	Damage 0
+	alpha 0.75
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+EXTREMEDEATH
+	Scale 1.5
+	states
+	{
+		Spawn:
+			NEXP A 0
+			NEXP A 0 A_Playsound("NukeExplode")
+			NEXP A 0 A_Explode(400, 400)
+			NEXP ABCDEFGHIJKLMNOPQRSTU 3 bright
+			stop
+	}
 }
 
-actor NukeRandom2 : NukeEXTRA
+actor NukeRandom2 : NukeRandom
 {
-states
-{
-Spawn:
-	NEXP ABCDEFGHIJKLMNOPQRSTU 1 bright
-	stop
-}
+	states
+	{
+		Spawn:
+			NEXP ABCDEFGHIJKLMNOPQRSTU 1 bright
+			stop
+	}
 }
 
 actor NukeHuge : NukeRandom
 {
-Scale 2.0
-states
-{
-Spawn:
-	NEXP ABCDEFGHIJKLMNOPQRSTU 4 bright
-	stop
-}
+	Scale 2.0
+	states
+	{
+		Spawn:
+			NEXP ABCDEFGHIJKLMNOPQRSTU 4 bright
+			stop
+	}
 }
 
 actor NukeHarmless : NukeHuge
 {
-Scale 1.2
+	Scale 1.2
 }
 
 actor NukedAreaFlames : IgnitedSurface
@@ -6259,27 +6246,13 @@ actor Nuke
 			NUKE B 2 BRIGHT A_Playsound("NukeBeep")
 			NUKE A 2
 			NUKE B 2 BRIGHT A_Playsound("NukeBeep")
+			NUKE A 28 A_PlaySoundEx("WTFBoom", "auto", 0)
 			NEXP A 0 Radius_Quake(6, 68, 0, 20, 0)
 			NEXP A 0 A_PlaySoundEx ("NukeExplode", "Auto", 0, 0.6)
-			NEXP A 0 A_BFGSpray("NukeEXTRA", 25, 1)
 			NEXP A 0 A_SpawnItemEx("NukeHuge", 0, 0, 0, 0, 0, 0, 0, 0, 0)
-			NEXP A 0 A_SpawnItemEx("NukeExplosionRing", 0, 0, 70, 0, 0, 0, 0, 128, 0)
+			NEXP A 0 A_SpawnItemEx("NukeExplosionRing", 0, 0, 70, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			FIRE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 BRIGHT A_SpawnItemEx("NukedAreaFlames", 0, 0, Random(0, 56), Random(-12,12), Random(-12,12), Random(0,16), 0, 0, 76)
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,15+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,35+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,55+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,105+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,125+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,145+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,175+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,195+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,215+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,235+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,255+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,275+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,295+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,315+Random(-10,10))
-			NEXP A 0 Bright A_CustomMissile("Gascloud1",32,0,335+Random(-10,10))
+			NEXP AAAAAAAAAAAAAAAAAAAAAA 0 Bright A_CustomMissile("Gascloud1",32,0,Random(-180,180), CMF_AIMDIRECTION, random(0, 90))
 			TNT1 AAAAA 0 A_SpawnItemEx("NukeRandom", Random(-128, 128), Random(-128, 128), Random(0, 128), 0, 0, 0, 0, 0, 0)
 			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("NukeHarmless", Random(-192, 192), Random(-192, 192), Random(128, 256), 0, 0, 0, 0, 128, 0)
 			TNT1 AAAAAAAAAAAA 0 A_SpawnItemEx("NukeRandom", Random(-192, 192), Random(-192, 192), Random(128, 256), 0, 0, 0, 0, 0, 0)
@@ -6290,26 +6263,25 @@ actor Nuke
 	}
 }
 
-Actor Gascloud1
+Actor GasCloud1
 {
-		+NoDamageThrust
 		Projectile
-		Radius 9
-		Height 7
-		Speed 1
-		Damage 12
-		PoisonDamage 150
+		Radius 8
+		Height 8
+		Speed 20
 		explosionradius 45
 		explosiondamage 10
-		Scale 0.6
-		RenderStyle TransLucent
+		RenderStyle Add
 		Alpha 0.4
-		DeathSound ""
-		obituary "%o sucks radioactive gas."
-		Reactiontime 18
+		obituary "%o sucks %k's radioactive gas."
+		Reactiontime 64
+		+NOGRAVITY
+		+NODAMAGETHRUST
 		+HEXENBOUNCE
 		+FORCERADIUSDMG
 		+FORCEXYBILLBOARD
+		+SKYEXPLODE
+		+FLOATBOB
 		States
 		{
 		Spawn:
@@ -6317,8 +6289,8 @@ Actor Gascloud1
 			PSNE A 0 A_Countdown
 			Goto Spawn+3
 		Death:
-			TNT1 A 1
-			Stop
+			PSNE ABCDEFG 4 A_Fadeout
+			loop
 		}
 }
 
@@ -9236,8 +9208,12 @@ Fire:
 	SHTG B 0 A_GunFlash
 	SHTG B 0 Radius_Quake(2, 3, 0, 1, 0)
 	SHTG B 0 bright A_PlayWeaponSound("weapons/shotgf")
-	SHTG B 1 Bright A_FireBullets (5.6, 3.5, 10, 5, "NewBulletPuff")
-	SHTG CDEF 1
+	SHTG B 0 Bright A_FireBullets (5.6, 3.5, 10, 5, "NewBulletPuff")
+	SHTG B 1 Bright A_SetPitch (pitch-2)
+	SHTG C 1 A_SetPitch(pitch+0.8)
+	SHTG D 1 A_SetPitch(pitch+0.6)
+	SHTG E 1 A_SetPitch(pitch+0.4)
+	SHTG F 1 A_SetPitch(pitch+0.2)
 	SHTG G 3
 	SHTG H 2 A_PlaySoundEx("ShotgunCock", "auto", 0)
 	SHTG IJKL 2
@@ -13021,8 +12997,11 @@ inventory.maxamount 2
 States
 {
 Spawn:
-	UJUN A -1
-	Loop
+	UJUN A 10500
+	goto Fade
+Fade:
+	UJUN A 1 A_FadeOut(0.1)
+	loop
 Use:
 	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
 	TNT1 A 10 A_FireCustomMissile("ThrownDebris1", 0, 0, 0, 1)
@@ -13041,8 +13020,11 @@ inventory.maxamount 2
 States
 {
 Spawn:
-	UJUN B -1
-	Loop
+	UJUN B 10500
+	goto Fade
+Fade:
+	UJUN B 1 A_FadeOut(0.1)
+	loop
 Use:
 	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
 	TNT1 A 10 A_FireCustomMissile("ThrownDebris2", 0, 0, 0, 1)
@@ -13061,8 +13043,11 @@ inventory.maxamount 2
 States
 {
 Spawn:
-	UJUN C -1
-	Loop
+	UJUN C 10500
+	goto Fade
+Fade:
+	UJUN C 1 A_FadeOut(0.1)
+	loop
 Use:
 	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
 	TNT1 A 10 A_FireCustomMissile("ThrownDebris3", 0, 0, 0, 1)
