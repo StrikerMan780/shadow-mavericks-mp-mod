@@ -4,8 +4,9 @@ actor RandomMummy : RandomSpawner Replaces Mummy
 	Height 62
 	+ISMONSTER
 	DropItem "SM_Mummy", 255 100
+	DropItem "MagnumZombie", 255, 64
 	DropItem "MoritaZombie", 255 50
-	DropItem "NeedlerTroop", 255 48
+	DropItem "NeedlerTroop", 255 32
 	DropItem "MinigunGuy", 255 32
 	DropItem "Vulgar", 255 25
 }
@@ -19,20 +20,55 @@ actor RandomHereticImp : RandomSpawner Replaces HereticImp
 	DropItem "Float_Fleshspawn", 255 50
 }
 
-actor Heretic_MechAmmo : MechAmmo replaces GoldWandAmmo
+actor Heretic_RandomShotgun : RandomSpawner Replaces Crossbow
 {
+	DropItem "NewShotgun", 255 100
+	DropItem "SM_SuperShotgun", 255 32
+	DropItem "QuadShotgun", 255 1
 }
 
-actor Heretic_LargeMechAmmo : LargeMechAmmo replaces GoldWandHefty
+actor Heretic_Chandelier : RandomSpawner Replaces Chandelier
 {
+	DropItem "CandleChandelier", 255 100
 }
 
-actor Heretic_SpreadAmmo : SpreadAmmo replaces CrossbowAmmo
+actor Heretic_BurningBarrel : RandomSpawner replaces FireBrazier
 {
+	DropItem "SM_BurningBarrel", 255 100
 }
 
-actor Heretic_LargeSpreadAmmo : LargeSpreadAmmo replaces CrossbowHefty
+actor Heretic_MechAmmo : RandomSpawner replaces GoldWandAmmo
 {
+	DropItem "MechAmmo", 255 100
+}
+
+actor Heretic_LargeMechAmmo : RandomSpawner replaces GoldWandHefty
+{
+	DropItem "LargeMechAmmo", 255 100
+}
+
+actor Heretic_SpreadAmmo : RandomSpawner replaces CrossbowAmmo
+{
+	DropItem "SpreadAmmo", 255 100
+}
+
+actor Heretic_LargeSpreadAmmo : RandomSpawner replaces CrossbowHefty
+{
+	DropItem "LargeSpreadAmmo", 255 100
+}
+
+actor Heretic_RandomSmallAmmo : RandomSpawner replaces BlasterAmmo
+{
+	DropItem "MechAmmo", 255 100
+	DropItem "CellAmmo", 255 100
+	DropItem "SpreadAmmo", 255 100
+}
+
+actor Heretic_RandomSmallAmmo : RandomSpawner replaces BlasterHefty
+{
+	DropItem "LargeMechAmmo", 255 100
+	DropItem "LargeCellAmmo", 255 100
+	DropItem "LargeSpreadAmmo", 255 100
 }
 
 actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
@@ -46,15 +82,17 @@ actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
 	DropItem "ImprovedShortWhiteTorch", 255 100
 }
 
-actor Heretic_SM_BurningBarrel : SM_BurningBarrel replaces FireBrazier
-{
-}
-
 actor RandomCrystalVial : RandomSpawner Replaces CrystalVial
 {
 	DropItem "Stimpack2", 255 100
 	DropItem "HealthBonus2", 255 100
 	DropItem "MaxHealthBonus2", 255 100
+}
+
+actor RandomSkullHang45 : RandomSpawner Replaces SkullHang45
+{
+	DropItem "Hangman", 255 100
+	DropItem "NonsolidMeat5", 255 50
 }
 
 actor RandomSkullHang60 : RandomSpawner Replaces SkullHang60
