@@ -307,3 +307,81 @@ ACTOR GiantBioBall
 			Stop
 	}
 }
+
+ACTOR VulgarShot
+{
+   Radius 8
+   Height 11
+   Speed 14
+   Damage 4
+   PoisonDamage 20
+   SeeSound "BioRifle"
+   RENDERSTYLE ADD
+   ALPHA 0.67
+   PROJECTILE
+   +THRUGHOST
+   +FORCEXYBILLBOARD
+   DeathSound "FleshySplat"
+   States
+   {
+   Spawn:
+	  FVUL AAABBB 1 Bright A_SpawnItemEx("BarbTrail",Random(-8,8),Random(-8,8),Random(-8,8),0,0,0,0,128,0)
+	  loop
+   Death:
+	  FVUL CDEF 4 Bright
+	  stop
+   }
+}
+
+ACTOR Barbtrail
+{
+   Radius 0
+   Height 1
+   PROJECTILE
+   RENDERSTYLE ADD
+   ALPHA 0.75
+   +FORCEXYBILLBOARD
+   States
+   {
+   Spawn:
+	  NULL A 1 Bright
+	  SSFX ABCDEFG 2 Bright
+	  Stop
+   }
+}
+
+actor HangerTrail : BarbTrail
+{
+	Translation "112:127=162:167"
+}
+
+actor HangerBall
+{
+  Radius 4
+  Height 6
+  Speed 10
+  FastSpeed 15
+  Damage 4
+  SeeSound "hanger/attack"
+  DeathSound "slimeball/splat"
+  Scale 0.5
+  Translation "112:127=162:167"
+  RenderStyle Add
+  Alpha 1.0
+  Projectile
+  +RANDOMIZE
+  -NOGRAVITY
+  +LOWGRAVITY
+  +SPAWNSOUNDSOURCE
+  states
+  {
+  Spawn:
+    FVUL AAA 1 A_SpawnItemEx("HangerTrail", random (-2,2), random (-2,2), random (-2,2), random (-1,1), random (-1,1), random (-1,1), random (-180,180), SXF_CLIENTSIDE, 0)
+	FVUL BBB 1 A_SpawnItemEx("HangerTrail", random (-2,2), random (-2,2), random (-2,2), random (-1,1), random (-1,1), random (-1,1), random (-180,180), SXF_CLIENTSIDE, 0)
+    loop
+  Death:
+    FVUL C 0 A_ChangeFlag("NOGRAVITY", 1)
+    FVUL CDEF 3
+    stop
+  }
+}

@@ -1642,48 +1642,6 @@ actor Vulgar : GBTWDoomImp 30127
   }
 }
 
-ACTOR VulgarShot
-{
-   Radius 8
-   Height 11
-   Speed 14
-   Damage 4
-   PoisonDamage 20
-   SeeSound "BioRifle"
-   RENDERSTYLE ADD
-   ALPHA 0.67
-   PROJECTILE
-   +THRUGHOST
-   +FORCEXYBILLBOARD
-   DeathSound "FleshySplat"
-   States
-   {
-   Spawn:
-	  FVUL AAABBB 1 Bright A_SpawnItemEx("BarbTrail",Random(-8,8),Random(-8,8),Random(-8,8),0,0,0,0,128,0)
-	  loop
-   Death:
-	  FVUL CDEF 4 Bright
-	  stop
-   }
-}
-
-ACTOR Barbtrail
-{
-   Radius 0
-   Height 1
-   PROJECTILE
-   RENDERSTYLE ADD
-   ALPHA 0.75
-   +FORCEXYBILLBOARD
-   States
-   {
-   Spawn:
-	  NULL A 1 Bright
-	  SSFX ABCDEFG 2 Bright
-	  Stop
-   }
-}
-
 Actor NeedlerTroop : GBTWChaingunGuy 27800
 {
 	OBITUARY "%o was spiked by a Needler Troop."
@@ -2642,5 +2600,123 @@ ACTOR BioZombie
     TNT1 A 0
     PNGZ MLKJIH 5
     Goto See
+  }
+}
+
+actor TurretExplosion : RocketFire
+{
+	Scale 1.0
+	Alpha 1.0
+	RenderStyle Add
+	States
+	{
+		Spawn:
+			EXPL ABCDEFGHIJKLMNOPQRST 1 BRIGHT
+			stop
+	}
+}
+
+actor HangingTurret 16093
+{
+	Monster
+	Decal Bulletchip
+	height 33
+	radius 12
+	Scale 0.8
+	health 250
+	Mass 0x7fffffff
+	AttackSound "TurretFire"
+	DeathSound "BigExplosion"
+	+NOBLOOD
+	+SPAWNCEILING
+	+NOGRAVITY
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		TURR A 12 A_LookEx(LOF_NOSOUNDCHECK, 0, 0, 0, 360, "See")
+		loop
+	See:
+		TURR A 4 A_FaceTarget
+		TURR A 0 A_Chase
+		loop
+	Missile:
+		TURR A 0 A_PlaySound("TurretReady")
+		TURR AAAAAAA 7 A_FaceTarget
+		TURR A 0
+		TURR A 0 A_SpawnItemEx ("BulletCasing", 12, 0, 6, Random(5, 8), Random(0, 1), 0, -56+Random(-8, 8), SXF_CLIENTSIDE, 0)
+		TURR B 2 A_CustomBulletAttack(16, 7, 1, 5, "NewBulletPuff")
+		TURR A 0 A_SpawnItemEx ("BulletCasing", 12, 0, 6, Random(5, 8), Random(0, 1), 0, -56+Random(-8, 8), SXF_CLIENTSIDE, 0)
+		TURR C 2 A_CustomBulletAttack(16, 7, 1, 5, "NewBulletPuff")
+		TURR C 0 A_FaceTarget
+		TURR C 0 A_CposRefire
+		goto Missile+8
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Explode
+		TNT1 A 0 A_NoGravity
+		EXPL ABCDEFGHIJKLMNOPQRST 2 BRIGHT A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, SXF_CLIENTSIDE, 0)
+		stop
+	}
+}
+
+actor Hangman 32123
+{
+  obituary "%o was ambushed by a hangman."
+  health 150
+  radius 20
+  height 56
+  mass 0x7fffffff
+  speed 0
+  painchance 75
+  seesound "hanger/sight"
+  painsound "hanger/pain"
+  deathsound "hanger/death"
+  activesound "hanger/active"
+  DropItem "HealthBonus2", 128
+  DropItem "MaxHealthBonus2", 128
+  DropItem "Stimpack2", 128
+  MONSTER
+  +FLOORCLIP
+  +NOGRAVITY
+  +SPAWNCEILING
+  +CEILINGHUGGER
+  +DONTFALL
+  states
+  {
+  Spawn:
+    HANG B 10 A_Look
+    loop
+  See:
+    HANG B 1 A_FaceTarget
+    HANG B 0 A_Chase
+    loop
+  Melee:
+  Missile:
+    HANG B 8 A_FaceTarget
+    HANG A 6 A_CustomMissile("HangerBall", 32, 0, 0, 0)
+	HANG AA 0 A_SpawnItemEx("BloodRain", random(-8,8), random(-8,8), random(0, 4), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+    goto See
+  Pain:
+    HANG B 2
+    HANG A 2 A_Pain
+    goto See
+  Death:
+    HANG A 30 A_Scream
+    HANG A 10 A_ChangeFlag("noclip", 1)
+    HANG C 0 A_NoBlocking
+	HANG C 0 A_XScream
+	HANG C 0 A_Explode
+	HANG C 0 radius_quake(3, 16, 0, 3, 0)
+	HANG C 0 A_PlaySoundEx("BigExplosion", "auto")
+	HANG C 0 A_SpawnItemEx("XDeathGibs", 0, 0, 0, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+    HANG CCCCCC 0 A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, SXF_CLIENTSIDE, 0)
+	goto DeathDrip
+  DeathDrip:
+	HANG C 0 A_SpawnItemEx("BloodRain", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+    HANG C 256 A_SpawnItemEx("BloodRain", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+    loop
   }
 }

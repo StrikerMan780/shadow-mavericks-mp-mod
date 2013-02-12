@@ -342,19 +342,6 @@ Model SM_BurningBarrel
    FrameIndex FCAN C 0 0
 }
 
-Model Heretic_SM_BurningBarrel
-{
-   Path "Models\decoration\Lights\Flaming"
-   model 0 "FIRECAN.md2"
-   skin 0 "FIRECAN.PNG"
-   scale 1.0 1.0 1.0
-
-   FrameIndex FCAN A 0 0
-   FrameIndex FCAN B 0 0
-   FrameIndex FCAN C 0 0
-}
-
-
 Model HEADCANDLES
 {
    Path "Models\Decoration\Lights\Flaming"

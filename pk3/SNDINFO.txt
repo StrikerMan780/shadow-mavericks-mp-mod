@@ -526,6 +526,21 @@ $random TurretFire { TurretFire1 TurretFire2 TurretFire3 }
 $limit TurretFire 0
 TurretReady DSTURRDY
 
+// Hangman
+Hanger/Sight	GK_SGHT1
+
+GK_ATCK1	GK_ATCK1
+GK_ATCK2	GK_ATCK2
+GK_ATCK3	GK_ATCK3
+$random Hanger/Attack	{ GK_ATCK1 GK_ATCK2 GK_ATCK3 }
+
+Hanger/Active	GK_IDLE
+Hanger/Pain	GK_PAIN1
+Hanger/Death	GK_DETH1
+
+SlimeBall/Splat	DSSICKEX
+$limit SlimeBall/Splat 0
+
 //***********************************
 
 // ************ ITEMS ***********
@@ -722,11 +737,17 @@ FlakBounce2 dsfkric2
 $random FlakBounce { FlakBounce1 FlakBounce2 }
 
 HeavyShot DSHEVMIS
+
 BigExp1 dsboom1
 BigExp2 dsboom2
 BigExp3 dsboom3
 BigExp4 dsboom4
 $random BigExplosion { BigExp1 BigExp2 BigExp3 BigExp4 }
+$rolloff BigExp1 400 2400 
+$rolloff BigExp2 400 2400 
+$rolloff BigExp3 400 2400 
+$rolloff BigExp4 400 2400 
+
 $random weapons/grenlx { BigExp2 BigExp3 }
 $limit weapons/grenlx 0
 $limit BigExp1 0
@@ -822,6 +843,7 @@ MarineTaunt2 DSTAUNT1
 $random MarineTaunts { MarineTaunt1 MarineTaunt2 }
 
 $playersound	player	male	*falling		dsfall
+$playersound	player	male	*fist			dspunch
 $playeralias 	player	male	*taunt		MarineTaunts
 
 // ** TAILS **

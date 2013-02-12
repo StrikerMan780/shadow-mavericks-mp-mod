@@ -139,6 +139,7 @@ ACTOR Popcorn : Health
 ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
 {
 	inventory.pickupsound "HealthBonus"
+	Inventory.Amount 2
 	States
 	{
 	Spawn:
@@ -150,6 +151,7 @@ ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
 ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
 {
 	inventory.pickupsound "HealthBonus"
+	Inventory.Amount 2
 	States
 	{
 	Spawn:
