@@ -22,8 +22,10 @@ weapons/sshotl			dsdbload
 weapons/bfgf			dsbfg
 weapons/plasmaf			dsplasma
 weapons/plasmax			dsplshit
+weapons/rocklf			dsrlaunc
 $volume weapons/plasmax 0.8
 $limit weapons/plasmaf 0
+$limit weapons/rocklf 0
 
 hellfire	dshellfi
 HellFly		dsmisfly
@@ -540,6 +542,22 @@ Hanger/Death	GK_DETH1
 
 SlimeBall/Splat	DSSICKEX
 $limit SlimeBall/Splat 0
+
+// Mummy
+mummy/sight			mumsit
+mummy/attack1			mumat1
+mummy/attack2			mumat2
+mummy/pain			mumpai
+mummy/death			mumdth
+mummy/active			mumsit
+
+// Heretic Imp
+himp/sight			impsit
+himp/attack			impat1
+himp/pain			imppai
+himp/death			impdth
+himp/active			impsit
+himp/leaderattack		impat2
 
 //***********************************
 
