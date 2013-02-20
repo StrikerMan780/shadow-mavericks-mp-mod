@@ -5,7 +5,7 @@ acs : cstyle {
 	keyword_link = "http://zdoom.org/wiki/Special:Search/%s";
 	constant_link = "http://zdoom.org/wiki/Special:Search/%s";
 	function_link = "http://zdoom.org/wiki/%s";
-	blocks = "Script";
+	blocks = "Script", "function";
 
 	keywords = {
 		open, restart, script, special, str, suspend, terminate, world, 

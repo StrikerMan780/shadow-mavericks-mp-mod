@@ -7,12 +7,9 @@ StrikerMan780
 
 -=HQ=-
 * Add mountains bordering the Island.
-* Create the underground sewer system.... eventually.
-* Allow Night Enemies to Respawn over time.
+* Finish work on underground sewer system
 
-* Add another monster spawner switch
-
-* Start working on the Hub Script
+* Make giygas invade after first nightfall of his release.
 
 -=DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
@@ -21,14 +18,13 @@ Make fading inventory items for monster drops.
 -=Graphics=-
 
 -=MPDM04=-
-Find other ways to speed up rendering...
+Find other ways to speed up rendering if it's even possible...
 
 -=MPCTF05=-
 Add 3D Bridges between bases, also, add more Team-Specific color to bases.
 
 -=MODELS=-
 Re-do the Hellbender using Per-Surface Textures
-Re-do the molotov and gas can models
 Get Link a Master Sword Model
 
 -=CLASSES=-
