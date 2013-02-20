@@ -64,7 +64,7 @@ actor Heretic_RandomSmallAmmo : RandomSpawner replaces BlasterAmmo
 	DropItem "SpreadAmmo", 255 100
 }
 
-actor Heretic_RandomSmallAmmo : RandomSpawner replaces BlasterHefty
+actor Heretic_RandomLargeAmmo : RandomSpawner replaces BlasterHefty
 {
 	DropItem "LargeMechAmmo", 255 100
 	DropItem "LargeCellAmmo", 255 100
