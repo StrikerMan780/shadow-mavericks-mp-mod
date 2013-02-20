@@ -138,6 +138,41 @@ actor MapSelect_COOP01 : DifficultyHeader 13649
 	}
 }
 
+actor MolotovGlass
+{
+  Projectile
+  Height 2
+  Radius 2
+  Scale 0.5
+  BounceType Hexen
+  BounceFactor 0.8
+  BounceCount 6
+  RenderStyle Translucent
+  ReactionTime 500
+  Alpha 0.75
+  +FORCEXYBILLBOARD
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  -NOGRAVITY
+  States
+  {
+  Spawn:
+	MGLS A 0
+	MGLS A 0 A_Jump(127, "Spawn2", "Spawn3")
+	MGLS A 1 A_CountDown
+	goto Spawn+2
+  Spawn2:
+	MGLS B 1 A_CountDown
+	loop
+  Spawn3:
+	MGLS C 1 A_CountDown
+	loop
+  Death:
+	TNT1 A 1
+	stop
+  }
+}
+
 actor RocketFire
 {
  Height 2

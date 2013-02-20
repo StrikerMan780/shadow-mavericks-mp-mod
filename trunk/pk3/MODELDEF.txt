@@ -1601,9 +1601,8 @@ Model StimPack2
 
 Model GasPickup
 {
-   Path "Models\Pickups"
-   Model 0 "GasCan.md3"
-   Skin 0 "GasCan.png"
+   Path "Models\HUD\Gascan"
+   Model 0 "gaspickup.md3"
    Scale 1.0 1.0 1.0
 
    FrameIndex GCAN A 0 0
@@ -1849,9 +1848,19 @@ model MaxHealthBonus2
 
 model MolotovCocktail
 {
-	Path "Models\Pickups"
-	Model 0 "Molotov.md3"
-	Skin 0 "Molotov.png"
+	Path "Models\Molotov"
+	Model 0 "molotov.md3"
+	Scale 3.5 3.5 3.5
+	ZOffset 70
+	ROTATING
+
+	FrameIndex MOGP A 0 0
+}
+
+model MolotovCocktail_Dropped
+{
+	Path "Models\Molotov"
+	Model 0 "molotov.md3"
 	Scale 3.5 3.5 3.5
 	ZOffset 70
 	ROTATING
@@ -1861,9 +1870,8 @@ model MolotovCocktail
 
 model BottleX
 {
-	Path "Models\Pickups"
-	Model 0 "Molotov.md3"
-	Skin 0 "Molotov.png"
+	Path "Models\Molotov"
+	Model 0 "molotov.md3"
 	Scale 3.5 3.5 3.5
 	PITCHFROMMOMENTUM
 
@@ -3564,4 +3572,41 @@ Model NewShotgun
    Scale -5.0 4.0 5.0
   
    FrameIndex PIPF A 0 0
+}
+
+Model GasolineCan
+{
+   Path "Models\HUD\Gascan"
+   Model 0 "Gascan.md3"
+   Scale -5.0 4.0 5.0
+   ZOffset -32
+  
+   FrameIndex GASG A 0 0
+   FrameIndex GASG B 0 3
+   FrameIndex GASG C 0 6
+   FrameIndex GASG D 0 8
+   FrameIndex GASG E 0 12
+   FrameIndex GASG F 0 16
+   FrameIndex GASG G 0 20
+   
+   FrameIndex GASG H 0 26
+   FrameIndex GASG I 0 28
+   FrameIndex GASG J 0 30
+   FrameIndex GASG K 0 32
+   FrameIndex GASG L 0 34
+   FrameIndex GASG M 0 36
+   FrameIndex GASG N 0 38
+   FrameIndex GASG O 0 40
+   FrameIndex GASG P 0 42
+   FrameIndex GASG Q 0 44
+   
+   FrameIndex GASG R 0 48
+   FrameIndex GASG S 0 50
+   FrameIndex GASG T 0 52
+   FrameIndex GASG U 0 56
+   FrameIndex GASG V 0 58
+   FrameIndex GASG W 0 60
+   FrameIndex GASG X 0 64
+   FrameIndex GASG Y 0 68
+   FrameIndex GASG Z 0 70
 }
