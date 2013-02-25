@@ -1,0 +1,140 @@
+//Ruin's first weapon attempt
+//coded by Ruin
+
+Actor ElementalSSG : Weapon 12346
+{
+spawnid 33
+inventory.pickupmessage "You got the \cgElem\chent\cfal SSG! \ccWreak some Havok!"
+obituary "%o was Torched by %k's Blaze SSG."
+radius 20
+height 16
+attacksound "weapons/shottyfire"
+weapon.kickback 300
+Weapon.AmmoType "SpreadAmmo"
+weapon.ammouse 2
+weapon.ammogive 8
+States
+{
+Ready:
+	SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEReady")
+	SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzReady")
+	SHT4 A 1 A_WeaponReady
+	LOOP
+ICEReady:
+	SHT5 A 1 A_WeaponReady
+	LOOP
+BlitzReady:
+	SHT6 A 1 A_WeaponReady
+	LOOP
+Deselect:
+	SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEDeselect")
+	SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzDeselect")
+	SHT4 A 1 A_lower
+	LOOP
+ICEDeselect:
+	SHT5 A 1 A_lower
+	LOOP
+BlitzDeselect:
+	SHT6 A 1 A_lower
+	LOOP
+Select:
+	SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICESelect")
+	SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzSelect")
+	SHT4 A 1 A_Raise
+	LOOP
+ICESelect:
+	SHT5 A 1 A_Raise
+	LOOP
+BlitzSelect:
+	SHT6 A 1 A_Raise
+	LOOP
+Fire:
+	SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEFire")
+	SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzFire")
+	SHT4 A 3
+	SHT4 A 0 radius_quake(4, 3, 0, 1, 0)
+	SHT4 A 0 A_FireBullets (7, 5, 7, 15, "BlazePuff")
+	SHT4 A 2 A_GunFlash
+	SHT4 B 1 A_Recoil(7)
+	SHT4 CDEF 1
+	SHT4 A 4
+	SHT4 GH 2
+	SHT4 I 3 A_CheckReload
+	SHT4 J 3
+	SHT4 K 3 A_PlaySoundEx("weapons/shotopen", "auto", 0)
+	SHT4 LL 0 A_FireCustomMissile("ElementalCasing", Random(-14,8),0,2,0)
+	SHT4 L 3
+	SHT4 M 3
+	SHT4 N 3
+	SHT4 O 3 A_PlaySoundEx("weapons/shotload", "auto", 0)
+	SHT4 P 3
+	SHT4 Q 3
+	SHT4 R 3
+	SHT4 S 0 A_PlaySoundEx("weapons/shotclose", "auto", 0)
+	SHT4 S 7
+	SHT4 A 7 A_ReFire
+	goto Ready
+ICEFire:
+	SHT5 A 3
+	SHT5 A 0 radius_quake(4, 3, 0, 1, 0)
+	SHT5 A 0 A_FireBullets (7, 5, 7, 15, "FrostPuff")
+	SHT5 A 2 A_GunFlash
+	SHT5 B 1 A_Recoil(7)
+	SHT5 CDEF 1
+	SHT5 A 4
+	SHT5 GH 2
+	SHT5 I 3 A_CheckReload
+	SHT5 J 3
+	SHT5 K 3 A_PlaySoundEx("weapons/shotopen", "auto", 0)
+	SHT5 LL 0 A_FireCustomMissile("ElementalCasing", Random(-14,8),0,2,0)
+	SHT5 L 3
+	SHT5 M 3
+	SHT5 N 3
+	SHT5 O 3 A_PlaySoundEx("weapons/shotload", "auto", 0)
+	SHT5 P 3
+	SHT5 Q 3
+	SHT5 R 3
+	SHT5 S 0 A_PlaySoundEx("weapons/shotclose", "auto", 0)
+	SHT5 S 7
+	SHT5 A 7 A_ReFire
+	goto Ready
+BlitzFire:
+	SHT6 A 3
+	SHT6 A 0 Radius_Quake(1, 2, 0, 1, 0)
+	SHT6 A 0 A_FireBullets (7, 5, 7, 15, "BlitzShock")
+	SHT6 A 7 A_GunFlash
+	SHT6 B 3 A_Recoil(7)
+	SHT6 C 3 A_CheckReload
+	SHT6 D 3
+	TNT1 A 7 A_PlayWeaponSound ("weapons/shotopen")
+	TNT1 A 7
+	TNT1 A 7 A_PlayWeaponSound ("weapons/shotload")
+	TNT1 A 6
+	TNT1 A 0 A_PlayWeaponSound ("weapons/shotclose")
+	SHT6 DCB 3
+	SHT6 A 3
+	SHT6 A 3 A_ReFire
+	SHT6 A 5 A_ReFire
+	goto ready
+Flash:
+	SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEFlash")
+	SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzFlash")
+	SHT4 T 2 bright A_Light1
+	SHT4 U 1 bright A_Light2
+	SHT4 U 0 bright A_Light0
+	stop
+ICEFlash:
+	SHT5 T 2 bright A_Light1
+	SHT5 U 1 bright A_Light2
+	SHT5 U 0 bright A_Light0
+	stop
+BlitzFlash:
+	SHT6 E 0 bright A_Light1
+	SHT6 F 3 bright A_Light2
+	SHT6 F 0 bright A_Light0
+	stop
+Spawn:
+	SGN4 A -1
+	stop
+}
+}

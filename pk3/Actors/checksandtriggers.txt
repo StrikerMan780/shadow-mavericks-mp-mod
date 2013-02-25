@@ -517,3 +517,27 @@ actor SpecialMove : CustomInventory
 	stop
   }
 }
+
+actor SaberGreen : Puzzleitem
+{
+	inventory.amount 1
+	inventory.maxamount 1
+	-INVBAR
+	+INVENTORY.UNDROPPABLE
+}
+
+actor SaberBlue : Puzzleitem
+{
+	inventory.amount 1
+	inventory.maxamount 1
+	-INVBAR
+	+INVENTORY.UNDROPPABLE
+}
+
+actor SaberRed : Puzzleitem
+{
+	inventory.amount 1
+	inventory.maxamount 1
+	-INVBAR
+	+INVENTORY.UNDROPPABLE
+}
