@@ -385,3 +385,60 @@ actor HangerBall
     stop
   }
 }
+
+ACTOR SliceProjectile
+{
+	Health 5
+	Height 35
+	Radius 14
+	Speed 22
+	PainSound "saberhit"
+	DeathSound "saberhit"
+	RENDERSTYLE NONE
+	+NOBLOCKMONST
+	+DONTSPLASH
+	+SHOOTABLE
+	+NOBLOOD
+	+NOGRAVITY
+	+NOCLIP
+	+GHOST
+	+THRUGHOST
+	States
+	{
+		Spawn:
+			TNT1 AA 1
+			Stop
+		Pain:
+			TNT1 A 1 A_SpawnItemEX("SaberPuff",  0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1 A_Pain
+			Stop
+		Death:
+			TNT1 A 1 A_SpawnItemEX("SaberPuff",  0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1 A_Scream
+			Stop
+	}
+}
+
+ACTOR ReflectProjectile : SliceProjectile
+{
+	PainChance 255
+	PainSound "saberhit"
+	DeathSound "saberhit"
+	+REFLECTIVE
+	+THRUGHOST
+	+GHOST
+	States
+	{
+		Spawn:
+			TNT1 AA 1
+			Stop
+		Pain:
+			TNT1 A 1
+			TNT1 A 1 A_Pain
+			Stop
+		Death:
+			TNT1 A 1
+			TNT1 A 1 A_Scream
+			Stop
+	}
+}

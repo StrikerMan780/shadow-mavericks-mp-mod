@@ -1,6 +1,4 @@
-//***********************************
-//Weapons - For SMMP
-//***********************************
+// SNDINFO for [SM] Multi-Purpose Mod.
 
 misc/gibbed			dsslop
 hitsound dshitsnd

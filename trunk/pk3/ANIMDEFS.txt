@@ -460,6 +460,74 @@ texture RWHOLE01
 	pic	RWHOLE01 tics 8
 	pic	RWHOLE02 tics 8
 	pic	RWHOLE03 tics 8
+	
+texture FIREBLU1
+	pic	FIREBL01 tics 2
+	pic	FIREBL02 tics 2
+	pic	FIREBL03 tics 2
+	pic	FIREBL04 tics 2
+	pic	FIREBL05 tics 2
+	pic	FIREBL06 tics 2
+	pic	FIREBL07 tics 2
+	pic	FIREBL08 tics 2
+	pic	FIREBL09 tics 2
+	pic	FIREBL10 tics 2
+	pic	FIREBL11 tics 2
+	pic	FIREBL12 tics 2
+	pic	FIREBL13 tics 2
+	pic	FIREBL14 tics 2
+	pic	FIREBL15 tics 2
+	pic	FIREBL16 tics 2
+	pic	FIREBL17 tics 2
+	pic	FIREBL18 tics 2
+	pic	FIREBL19 tics 2
+	pic	FIREBL20 tics 2
+	pic	FIREBL21 tics 2
+	pic	FIREBL22 tics 2
+	pic	FIREBL23 tics 2
+	pic	FIREBL24 tics 2
+	pic	FIREBL25 tics 2
+	pic	FIREBL26 tics 2
+	pic	FIREBL27 tics 2
+	pic	FIREBL28 tics 2
+	pic	FIREBL29 tics 2
+	pic	FIREBL30 tics 2
+	pic	FIREBL31 tics 2
+	pic	FIREBL32 tics 2
+	
+texture FIREBLU2
+	pic	FIREBL01 tics 2
+	pic	FIREBL02 tics 2
+	pic	FIREBL03 tics 2
+	pic	FIREBL04 tics 2
+	pic	FIREBL05 tics 2
+	pic	FIREBL06 tics 2
+	pic	FIREBL07 tics 2
+	pic	FIREBL08 tics 2
+	pic	FIREBL09 tics 2
+	pic	FIREBL10 tics 2
+	pic	FIREBL11 tics 2
+	pic	FIREBL12 tics 2
+	pic	FIREBL13 tics 2
+	pic	FIREBL14 tics 2
+	pic	FIREBL15 tics 2
+	pic	FIREBL16 tics 2
+	pic	FIREBL17 tics 2
+	pic	FIREBL18 tics 2
+	pic	FIREBL19 tics 2
+	pic	FIREBL20 tics 2
+	pic	FIREBL21 tics 2
+	pic	FIREBL22 tics 2
+	pic	FIREBL23 tics 2
+	pic	FIREBL24 tics 2
+	pic	FIREBL25 tics 2
+	pic	FIREBL26 tics 2
+	pic	FIREBL27 tics 2
+	pic	FIREBL28 tics 2
+	pic	FIREBL29 tics 2
+	pic	FIREBL30 tics 2
+	pic	FIREBL31 tics 2
+	pic	FIREBL32 tics 2
 
 flat FLTSLUD1
 	pic BLOOD1 tics 8
@@ -855,6 +923,7 @@ warp texture e1sky1
 warp texture e3sky1
 warp texture warpface
 warp texture wqlava
+warp texture giygsky
 
 warp flat PSOLAV01
 warp flat PSOLAV02

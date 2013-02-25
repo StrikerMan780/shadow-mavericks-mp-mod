@@ -1,0 +1,107 @@
+ACTOR LightSaber : ClericWeapon 25004
+{
+	Inventory.PickupMessage "You Found the weapon of the Jedi, the Lightsaber!."
+	Obituary "%k gave %o a little taste of the force."
+	weapon.upsound "saberup"
+	Weapon.AmmoUse 0
+	attacksound "Saberhit"
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOALERT
+	+AXEBLOOD
+	+THRUGHOST
+	+NODAMAGETHRUST
+	Scale 0.8
+	States
+	{
+		Spawn:
+			SABP A -1
+			Loop
+		Ready:
+			//TNT1 A 0 A_JumpIfInventory("SaberBlue", 1, "ReadyBlue")
+			//TNT1 A 0 A_JumpIfInventory("SaberRed", 1, "ReadyOrange")
+			LSAB A 0 BRIGHT A_PlaySoundEX("saberidle", "SoundSlot6", 1)
+			LSAB AAAABBBB 1 BRIGHT A_WeaponReady
+			loop
+		Deselect:
+			//TNT1 A 0 A_JumpIfInventory("SaberBlue", 1, "DeselectBlue")
+			//TNT1 A 0 A_JumpIfInventory("SaberRed", 1, "DeselectOrange")
+			LSAB A 0 BRIGHT A_StopSoundEx("SoundSlot6")
+			LSAB AAAABBBB 1 BRIGHT A_Lower
+			Wait
+		Select:
+			//TNT1 A 0 A_JumpIfInventory("SaberBlue", 1, "SelectBlue")
+			//TNT1 A 0 A_JumpIfInventory("SaberRed", 1, "SelectOrange")
+			LSAB AAAABBBB 1 BRIGHT A_Raise
+			Wait
+		Fire:
+			//TNT1 A 0 A_JumpIfInventory("SaberBlue", 1, "FireBlue")
+			//TNT1 A 0 A_JumpIfInventory("SaberRed", 1, "FireOrange")
+			LSAB C 0 BRIGHT A_Jump(128, "Fire2")
+			LSAB C 1 BRIGHT 
+			LSAB D 1 BRIGHT
+			LSAB E 1 BRIGHT A_Playsound("saberswing")
+			LSAB F 1 BRIGHT
+			LSAB G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
+			LSAB H 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB H 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
+			LSAB I 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB I 1 BRIGHT A_CustomPunch(28, 1, 0, "SaberPuff",70)
+			LSAB J 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB J 1 BRIGHT A_CustomPunch(24, 1, 0, "SaberPuff",70)
+			LSAB K 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB K 1 BRIGHT A_CustomPunch(20, 1, 0, "SaberPuff",70)
+			LSAB L 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB L 1 BRIGHT A_CustomPunch(16, 1, 0, "SaberPuff",70)
+			LSAB M 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB M 1 BRIGHT A_CustomPunch(8, 1, 0, "SaberPuff",70)
+			LSAB N 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB N 1 BRIGHT A_CustomPunch(6, 1, 0, "SaberPuff",70)
+			LSAB O 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB O 1 BRIGHT A_CustomPunch(4, 1, 0, "SaberPuff",70)
+			LSAB P 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSAB P 1 BRIGHT A_CustomPunch(4, 1, 0, "SaberPuff",70)
+			LSAB QRSTUVWXYZ 1 BRIGHT
+			LSAB A 1 BRIGHT
+			LSAB C 0 BRIGHT A_Refire
+			goto Ready
+		Fire2:
+			LSA2 C 1 BRIGHT 
+			LSA2 D 1 BRIGHT
+			LSA2 E 1 BRIGHT A_Playsound("saberswing")
+			LSA2 F 1 BRIGHT
+			LSA2 G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
+			LSA2 H 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 H 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
+			LSA2 I 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 I 1 BRIGHT A_CustomPunch(28, 1, 0, "SaberPuff",70)
+			LSA2 J 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 J 1 BRIGHT A_CustomPunch(24, 1, 0, "SaberPuff",70)
+			LSA2 K 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 K 1 BRIGHT A_CustomPunch(20, 1, 0, "SaberPuff",70)
+			LSA2 L 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 L 1 BRIGHT A_CustomPunch(16, 1, 0, "SaberPuff",70)
+			LSA2 M 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 M 1 BRIGHT A_CustomPunch(8, 1, 0, "SaberPuff",70)
+			LSA2 N 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 N 1 BRIGHT A_CustomPunch(6, 1, 0, "SaberPuff",70)
+			LSA2 O 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 O 1 BRIGHT A_CustomPunch(4, 1, 0, "SaberPuff",70)
+			LSA2 P 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
+			LSA2 P 1 BRIGHT A_CustomPunch(4, 1, 0, "SaberPuff",70)
+			LSA2 QRSTUVWXYZ 1 BRIGHT
+			LSAB A 1 BRIGHT
+			LSA2 C 0 BRIGHT A_Refire
+			goto Ready
+		AltFire:
+			//TNT1 A 0 A_JumpIfInventory("SaberBlue", 1, "AltFireBlue")
+			//TNT1 A 0 A_JumpIfInventory("SaberRed", 1, "AltFireOrange")
+			LSA2 C 0 A_SetReflectiveInvulnerable
+			LSA2 CC 1 BRIGHT A_FireCustomMissile("ReflectProjectile", 0, 0, 0, 0)
+			LSA2 C 0 A_UnSetReflectiveInvulnerable
+			LSA2 CC 1 BRIGHT A_FireCustomMissile("ReflectProjectile", 0, 0, 0, 0)
+			LSA2 C 0 BRIGHT A_Refire
+			Goto Ready
+	}
+}

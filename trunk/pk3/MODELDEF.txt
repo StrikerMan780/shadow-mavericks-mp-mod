@@ -3610,3 +3610,74 @@ Model GasolineCan
    FrameIndex GASG Y 0 68
    FrameIndex GASG Z 0 70
 }
+
+Model LightSaber
+{
+   Path "Models\HUD\Lightsaber"
+   Model 0 "SaberSwing1_Green.md3"
+   Scale -5.0 4.0 5.0
+  
+   FrameIndex LSAB A 0 0
+   FrameIndex LSAB B 0 0
+   
+   FrameIndex LSAB C 0 2
+   FrameIndex LSAB D 0 3
+   FrameIndex LSAB E 0 5
+   FrameIndex LSAB F 0 8
+   
+   FrameIndex LSAB G 0 10
+   FrameIndex LSAB H 0 11
+   FrameIndex LSAB I 0 12
+   FrameIndex LSAB J 0 14
+   FrameIndex LSAB K 0 16
+   FrameIndex LSAB L 0 18
+   FrameIndex LSAB M 0 20
+   FrameIndex LSAB N 0 22
+   FrameIndex LSAB O 0 24
+   FrameIndex LSAB P 0 25
+   
+   FrameIndex LSAB Q 0 28
+   FrameIndex LSAB R 0 30
+   FrameIndex LSAB S 0 32
+   FrameIndex LSAB T 0 34
+   FrameIndex LSAB U 0 36
+   FrameIndex LSAB V 0 38
+   FrameIndex LSAB W 0 40
+   FrameIndex LSAB X 0 42
+   FrameIndex LSAB Y 0 46
+   FrameIndex LSAB Z 0 48
+}
+
+Model LightSaber
+{
+   Path "Models\HUD\Lightsaber"
+   Model 0 "SaberSwing2_Green.md3"
+   Scale -5.0 4.0 5.0
+   
+   FrameIndex LSA2 C 0 2
+   FrameIndex LSA2 D 0 3
+   FrameIndex LSA2 E 0 4
+   FrameIndex LSA2 F 0 5
+   
+   FrameIndex LSA2 G 0 6
+   FrameIndex LSA2 H 0 8
+   FrameIndex LSA2 I 0 10
+   FrameIndex LSA2 J 0 12
+   FrameIndex LSA2 K 0 14
+   FrameIndex LSA2 L 0 16
+   FrameIndex LSA2 M 0 18
+   FrameIndex LSA2 N 0 20
+   FrameIndex LSA2 O 0 22
+   FrameIndex LSA2 P 0 24
+   
+   FrameIndex LSA2 Q 0 25
+   FrameIndex LSA2 R 0 26
+   FrameIndex LSA2 S 0 27
+   FrameIndex LSA2 T 0 28
+   FrameIndex LSA2 U 0 29
+   FrameIndex LSA2 V 0 30
+   FrameIndex LSA2 W 0 31
+   FrameIndex LSA2 X 0 32
+   FrameIndex LSA2 Y 0 33
+   FrameIndex LSA2 Z 0 34
+}
