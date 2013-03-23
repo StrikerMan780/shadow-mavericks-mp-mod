@@ -64,6 +64,23 @@ actor SM_HereticImp : HereticImp
 			IMPX V 5 A_Gravity
 			IMPX W 5 
 			Wait
+		Crash:
+			IMPX I 7 A_ImpExplode
+			IMPX J 7 A_Scream
+			IMPX K 7
+			IMPX L 10500
+			goto Fade
+		Fade:
+			IMPX L 1 A_FadeOut(0.05)
+			loop
+		XCrash:
+			IMPX X 7
+			IMPX Y 7
+			IMPX Z 10500
+			goto XFade
+		XFade:
+			IMPX Z 1 A_FadeOut(0.05)
+			loop
 	}
 }
 
@@ -117,6 +134,18 @@ actor SM_Mummy : Mummy
 			MUMM F 5 A_CustomMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack")
 			MUMM G 5
 			Goto See
+		Death:
+			MUMM I 5
+			MUMM J 5 A_Scream
+			MUMM K 5 A_SpawnItemEx("MummySoul", 0,0,10, 0,0,1)
+			MUMM L 5
+			MUMM M 5 A_NoBlocking
+			MUMM NO 5
+			MUMM P 10500
+			goto Fade
+		Fade:
+			MUMM P 1 A_FadeOut(0.05)
+			loop
 	}
 }
 

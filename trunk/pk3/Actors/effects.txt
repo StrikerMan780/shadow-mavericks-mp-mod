@@ -237,6 +237,7 @@ actor ElectricArc
 	height 4
 	+BLOODLESSIMPACT
 	+RIPPER
+	+PAINLESS
 	states
 	{
 		Spawn:
@@ -245,66 +246,66 @@ actor ElectricArc
 			TNT1 A 0 A_Jump(128, "ArcInstant2", "ArcInstant3", "ArcInstant4", "ArcInstant5", "ArcInstant6", "ArcInstant7", "ArcInstant8", "ArcInstant9", "ArcInstant10", "ArcInstant11", "ArcInstant12", "ArcInstant13", "ArcInstant14", "ArcInstant15", "ArcInstant16", "ArcInstant17", "ArcInstant18", "ArcDelayed1", "ArcDelayed2")
 			goto ArcInstant1
 		ArcInstant1:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 2, 0, 0, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 2, 0, 0, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 3)
 			stop
 		ArcInstant2:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 2, 0, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 2, 0, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 3)
 			stop
 		ArcInstant3:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant4:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant5:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 3, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 3, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant6:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -3, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -3, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant7:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 2, 2, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 2, 2, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 3)
 			stop
 		ArcInstant8:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 2, 0, 2, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 2, 0, 2, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 3)
 			stop
 		ArcInstant9:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, -2, -2, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, -2, -2, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 3)
 			stop
 		ArcInstant10:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", -2, 0, -2, 1, 1, 0, random(-16, 16), SXF_CLIENTSIDE, 3)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", -2, 0, -2, random(-1,1), random(-1,1), 0, random(-16, 16), SXF_CLIENTSIDE, 3)
 			stop
 		ArcInstant11:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, 1, 1, 0, random(-32, 32), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, random(-1,1), random(-1,1), 0, random(-32, 32), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant12:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, 1, 1, 0, random(-32, 32), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, random(-1,1), random(-1,1), 0, random(-32, 32), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant13:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, 1, 1, 0, random(-64, 64), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, random(-1,1), random(-1,1), 0, random(-64, 64), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant14:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, 1, 1, 0, random(-64, 64), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, random(-1,1), random(-1,1), 0, random(-64, 64), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant15:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, 1, 1, 0, random(-72, 72), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, random(-1,1), random(-1,1), 0, random(-72, 72), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant16:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, 1, 1, 0, random(-72, 72), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, random(-1,1), random(-1,1), 0, random(-72, 72), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant17:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 3, 1, 1, 0, random(-80, 80), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 3, random(-1,1), random(-1,1), 0, random(-80, 80), SXF_CLIENTSIDE, 2)
 			stop
 		ArcInstant18:
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -3, 1, 1, 0, random(-80, 80), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -3, random(-1,1), random(-1,1), 0, random(-80, 80), SXF_CLIENTSIDE, 2)
 			stop
 		ArcDelayed1:
 			TNT1 A 1
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, 1, 1, 0, random(-72, 72), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, 2, random(-1,1), random(-1,1), 0, random(-72, 72), SXF_CLIENTSIDE, 2)
 			stop
 		ArcDelayed2:
 			TNT1 A 1
-			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, 1, 1, 0, random(-72, 72), SXF_CLIENTSIDE, 2)
+			TNT1 A 0 A_SpawnItemEx("ElectricArc", 0, 0, -2, random(-1,1), random(-1,1), 0, random(-72, 72), SXF_CLIENTSIDE, 2)
 			stop
 		Death:
 			TNT1 AA 1
@@ -402,6 +403,7 @@ actor TeleportParticle
 	+BLOODLESSIMPACT
 	+FORCEXYBILLBOARD
 	+RIPPER
+	+PAINLESS
 	States
 	{
 		Spawn:
@@ -420,7 +422,7 @@ actor NewTeleportFog : TeleportFog replaces TeleportFog
 	{
 		Spawn:
 			TFOG A 0
-			TFOG AAAAA 0 A_SpawnItemEx("ElectricArc", 0, 0, 36, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 0)
+			TFOG AAAAA 0 A_SpawnItemEx("ElectricArc", 0, 0, 36, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 4)
 			TFOG ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT A_SpawnItemEx("TeleportParticle", 0, 0, 36, random(-2,2), random(-2,2), random(-2,2), random(-180,180), SXF_CLIENTSIDE, 0)
 			TFO2 ABCDEFGHIJKL 1 BRIGHT
 			TFO2 KJIHGFEDCBA 1 BRIGHT

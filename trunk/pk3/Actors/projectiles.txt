@@ -421,12 +421,13 @@ ACTOR SliceProjectile
 
 ACTOR ReflectProjectile : SliceProjectile
 {
+	Species "SaberReflect"
 	PainChance 255
 	PainSound "saberhit"
 	DeathSound "saberhit"
 	+REFLECTIVE
-	+THRUGHOST
-	+GHOST
+	+NOBLOOD
+	+THRUSPECIES
 	States
 	{
 		Spawn:

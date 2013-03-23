@@ -3,6 +3,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	Species "Player"
 	-CANNOTPUSH
 	+FORCERADIUSDMG
+	+NOSKIN
 	Player.ScoreIcon "MARNICON"
 	DamageFactor "Demonic", 0.5
 	DamageFactor "Holy", 1.5
@@ -18,35 +19,86 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	player.startitem "FlareCheck", 100
 	States
 	{
-	Burn:
-		BURN A 0 A_GiveToTarget("DemonicPower", 20)
-		BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
-		BURN A 0 A_Playsound("firedeath")
-		BURN A 0 A_Fall
-		BURN A 0 A_UnSetSolid
-		BURN A 0 A_UnSetShootable
-		BURN ABCDEFGHIJKLMNOPQRSTUV 4 BRIGHT
-		BURN V -1
-		stop
-	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 20)
-		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
-		NULL A 0 A_Playsound("disintegrate")
-		NULL A 0 A_NoBlocking
-		NULL A 0 A_SpawnItemEx("DisintegratingPlayer", 0, 0, 0, 0, 0, 0, 0, 128, 0)
-		NULL A 3
-		NULL A -1
-		stop
+	Spawn:
+		PLAY A 0 A_JumpIfInventory("UsingSaber", 1, "SaberSpawn")
+		PLAY A 6
+		Loop
+	SaberSpawn:
+		PSAG A 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "SaberSpawn_Blue")
+		PSAG A 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "SaberSpawn_Red")
+		PSAG A 1 BRIGHT A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SaberSee")
+		goto Spawn
+	SaberSpawn_Blue:
+		PSAB A 1 BRIGHT A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SaberSee_Blue")
+		goto Spawn
+	SaberSpawn_Red:
+		PSAR A 1 BRIGHT A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SaberSee_Red")
+		goto Spawn
+	See:
+		PLAY A 0 A_JumpIfInventory("UsingSaber", 1, "SaberSpawn")
+		PLAY ABCD 4
+		Loop
+	SaberSee:
+		PSAG ABCD 4 BRIGHT
+		PSAG A 0 BRIGHT A_JumpIf(momx < 2 && momy < 2 && momx > -2 && momy > -2, "SaberSpawn")
+		goto Spawn
+	SaberSee_Blue:
+		PSAB ABCD 4 BRIGHT
+		PSAB A 0 BRIGHT A_JumpIf(momx < 2 && momy < 2 && momx > -2 && momy > -2, "SaberSpawn")
+		goto Spawn
+	SaberSee_Red:
+		PSAR ABCD 4 BRIGHT
+		PSAR A 0 BRIGHT A_JumpIf(momx < 2 && momy < 2 && momx > -2 && momy > -2, "SaberSpawn")
+		goto Spawn
 	Missile:
+		PLAY E 0 A_JumpIfInventory("SaberGuard", 1, "Guarding")
+		PLAY E 0 A_JumpIfInventory("UsingSaber", 1, "SaberSwing")
 		PLAY E 12
 		Goto Spawn
 	Melee:
 		PLAY F 3 BRIGHT
 		Goto Missile
+	Guarding:
+		PSAG E 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "Guarding_Blue")
+		PSAG E 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "Guarding_Red")
+		PSAG E 8 BRIGHT
+		goto Spawn
+	Guarding_Blue:
+		PSAB E 8 BRIGHT
+		goto Spawn
+	Guarding_Red:
+		PSAR E 8 BRIGHT
+		goto Spawn
+	SaberSwing:
+		PSAG F 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "SaberSwing_Blue")
+		PSAG F 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "SaberSwing_Red")
+		PSAG FGHIJ 3 BRIGHT
+		goto Spawn
+	SaberSwing_Blue:
+		PSAB FGHIJ 3 BRIGHT
+		goto Spawn
+	SaberSwing_Red:
+		PSAR FGHIJ 3 BRIGHT
+		goto Spawn
 	Pain:
+		PLAY G 0 A_JumpIfInventory("UsingSaber", 1, "SaberPain")
 		PLAY G 4
 		PLAY G 4 A_Pain
 		Goto Spawn
+	SaberPain:
+		PSAG K 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "SaberPain_Blue")
+		PSAG K 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "SaberPain_Red")
+		PSAG K 4 BRIGHT
+		PSAG K 4 BRIGHT A_Pain
+		goto Spawn
+	SaberPain_Blue:
+		PSAB K 4 BRIGHT
+		PSAB K 4 BRIGHT A_Pain
+		goto Spawn
+	SaberPain_Red:
+		PSAR K 4 BRIGHT
+		PSAR K 4 BRIGHT A_Pain
+		goto Spawn
 	Death.Fist:
 		PLAY H 0 A_GiveToTarget("KnockoutTrigger", 1)
 		goto Death
@@ -83,6 +135,22 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLAY RSTUV 2
 		PLAY W -1
 		stop
+	XDeath.Suicide:
+	Death.Suicide:
+		PLAK A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
+		PLAK A 0 A_JumpIfInventory("NewShotgun", 1, "DoSuicide")
+		goto XDeath
+	DoSuicide:
+		PLAK A 35 A_PlaySoundEx("shotguncock", "Auto", 0)
+		PLAK B 0 A_PlaySoundEx("weapons/shotgf", "Weapon", 0)
+		PLAK BBBBBB 0 A_SpawnItemEx("Striker_FlyingBlood", 0, 0, 50, random(-2,2), random(-2,2), random(8, 16), random(-180,180), SXF_CLIENTSIDE, 0)
+		PLAK BBB 0 A_SpawnItemEx("GibBrain", 0, 0, 50, random(-2,2), random(-2,2), random(8, 10), random(-180,180), SXF_CLIENTSIDE, 0)
+		PLAK B 5 A_XScream
+		PLAK CD 5
+		PLAK E 7 A_NoBlocking
+		PLAK FGHI 7
+		PLAK J -1
+		Stop
 	Death.ChaosFire:
 		PLAY GG 0 A_Stop
 		PLAY G 0 A_GiveToTarget("DemonicPower", 20)
@@ -230,6 +298,25 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLAY R 5 A_NoBlocking
 		PLAY STUV 5
 		PLAY W -1
+		stop
+	Burn:
+		BURN A 0 A_GiveToTarget("DemonicPower", 20)
+		BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
+		BURN A 0 A_Playsound("firedeath")
+		BURN A 0 A_Fall
+		BURN A 0 A_UnSetSolid
+		BURN A 0 A_UnSetShootable
+		BURN ABCDEFGHIJKLMNOPQRSTUV 4 BRIGHT
+		BURN V -1
+		stop
+	Disintegrate:
+		NULL A 0 A_GiveToTarget("DemonicPower", 20)
+		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
+		NULL A 0 A_Playsound("disintegrate")
+		NULL A 0 A_NoBlocking
+		NULL A 0 A_SpawnItemEx("DisintegratingPlayer", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+		NULL A 3
+		NULL A -1
 		stop
 	}
 }

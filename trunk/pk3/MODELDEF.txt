@@ -3681,3 +3681,145 @@ Model LightSaber
    FrameIndex LSA2 Y 0 33
    FrameIndex LSA2 Z 0 34
 }
+
+Model LightSaber
+{
+   Path "Models\HUD\Lightsaber"
+   Model 0 "SaberSwing1_Red.md3"
+   Scale -5.0 4.0 5.0
+  
+   FrameIndex LSRB A 0 0
+   FrameIndex LSRB B 0 0
+   
+   FrameIndex LSRB C 0 2
+   FrameIndex LSRB D 0 3
+   FrameIndex LSRB E 0 5
+   FrameIndex LSRB F 0 8
+   
+   FrameIndex LSRB G 0 10
+   FrameIndex LSRB H 0 11
+   FrameIndex LSRB I 0 12
+   FrameIndex LSRB J 0 14
+   FrameIndex LSRB K 0 16
+   FrameIndex LSRB L 0 18
+   FrameIndex LSRB M 0 20
+   FrameIndex LSRB N 0 22
+   FrameIndex LSRB O 0 24
+   FrameIndex LSRB P 0 25
+   
+   FrameIndex LSRB Q 0 28
+   FrameIndex LSRB R 0 30
+   FrameIndex LSRB S 0 32
+   FrameIndex LSRB T 0 34
+   FrameIndex LSRB U 0 36
+   FrameIndex LSRB V 0 38
+   FrameIndex LSRB W 0 40
+   FrameIndex LSRB X 0 42
+   FrameIndex LSRB Y 0 46
+   FrameIndex LSRB Z 0 48
+}
+
+Model LightSaber
+{
+   Path "Models\HUD\Lightsaber"
+   Model 0 "SaberSwing2_Red.md3"
+   Scale -5.0 4.0 5.0
+   
+   FrameIndex LSR2 C 0 2
+   FrameIndex LSR2 D 0 3
+   FrameIndex LSR2 E 0 4
+   FrameIndex LSR2 F 0 5
+   
+   FrameIndex LSR2 G 0 6
+   FrameIndex LSR2 H 0 8
+   FrameIndex LSR2 I 0 10
+   FrameIndex LSR2 J 0 12
+   FrameIndex LSR2 K 0 14
+   FrameIndex LSR2 L 0 16
+   FrameIndex LSR2 M 0 18
+   FrameIndex LSR2 N 0 20
+   FrameIndex LSR2 O 0 22
+   FrameIndex LSR2 P 0 24
+   
+   FrameIndex LSR2 Q 0 25
+   FrameIndex LSR2 R 0 26
+   FrameIndex LSR2 S 0 27
+   FrameIndex LSR2 T 0 28
+   FrameIndex LSR2 U 0 29
+   FrameIndex LSR2 V 0 30
+   FrameIndex LSR2 W 0 31
+   FrameIndex LSR2 X 0 32
+   FrameIndex LSR2 Y 0 33
+   FrameIndex LSR2 Z 0 34
+}
+
+Model LightSaber
+{
+   Path "Models\HUD\Lightsaber"
+   Model 0 "SaberSwing1_Blue.md3"
+   Scale -5.0 4.0 5.0
+  
+   FrameIndex LSBB A 0 0
+   FrameIndex LSBB B 0 0
+   
+   FrameIndex LSBB C 0 2
+   FrameIndex LSBB D 0 3
+   FrameIndex LSBB E 0 5
+   FrameIndex LSBB F 0 8
+   
+   FrameIndex LSBB G 0 10
+   FrameIndex LSBB H 0 11
+   FrameIndex LSBB I 0 12
+   FrameIndex LSBB J 0 14
+   FrameIndex LSBB K 0 16
+   FrameIndex LSBB L 0 18
+   FrameIndex LSBB M 0 20
+   FrameIndex LSBB N 0 22
+   FrameIndex LSBB O 0 24
+   FrameIndex LSBB P 0 25
+   
+   FrameIndex LSBB Q 0 28
+   FrameIndex LSBB R 0 30
+   FrameIndex LSBB S 0 32
+   FrameIndex LSBB T 0 34
+   FrameIndex LSBB U 0 36
+   FrameIndex LSBB V 0 38
+   FrameIndex LSBB W 0 40
+   FrameIndex LSBB X 0 42
+   FrameIndex LSBB Y 0 46
+   FrameIndex LSBB Z 0 48
+}
+
+Model LightSaber
+{
+   Path "Models\HUD\Lightsaber"
+   Model 0 "SaberSwing2_Blue.md3"
+   Scale -5.0 4.0 5.0
+   
+   FrameIndex LSB2 C 0 2
+   FrameIndex LSB2 D 0 3
+   FrameIndex LSB2 E 0 4
+   FrameIndex LSB2 F 0 5
+   
+   FrameIndex LSB2 G 0 6
+   FrameIndex LSB2 H 0 8
+   FrameIndex LSB2 I 0 10
+   FrameIndex LSB2 J 0 12
+   FrameIndex LSB2 K 0 14
+   FrameIndex LSB2 L 0 16
+   FrameIndex LSB2 M 0 18
+   FrameIndex LSB2 N 0 20
+   FrameIndex LSB2 O 0 22
+   FrameIndex LSB2 P 0 24
+   
+   FrameIndex LSB2 Q 0 25
+   FrameIndex LSB2 R 0 26
+   FrameIndex LSB2 S 0 27
+   FrameIndex LSB2 T 0 28
+   FrameIndex LSB2 U 0 29
+   FrameIndex LSB2 V 0 30
+   FrameIndex LSB2 W 0 31
+   FrameIndex LSB2 X 0 32
+   FrameIndex LSB2 Y 0 33
+   FrameIndex LSB2 Z 0 34
+}
