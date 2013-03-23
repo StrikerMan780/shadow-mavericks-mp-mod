@@ -1073,40 +1073,6 @@ $playersound	Sgt.Tourette(SMMP)	male	*land		dsduklnd
 $playeralias	Sgt.Tourette(SMMP)	male	*grunt		tourettes/grunt
 $playeralias	Sgt.Tourette(SMMP)	male	*usefail	tourettes/usefail
 
-$random vamp/death     { vamp/death1 vamp/death2 vamp/death3 vamp/death4 }
-vamp/death1        	DSALUDTH
-vamp/death2        	DSALUDT2
-vamp/death3        	DSALTNT0
-vamp/death4	   		DSANOWAY
-
-$random vamp/taunt { Vamp/taunt1 Vamp/taunt2  Vamp/taunt3  Vamp/taunt4  Vamp/taunt5  Vamp/taunt6 vamp/taunt6 vamp/taunt7 vamp/taunt8 vamp/taunt9 vamp/taunt10 vamp/taunt11 vamp/taunt12 vamp/taunt13 }
-
-vamp/taunt1    DSALTNT1
-vamp/taunt2    DSALTNT2
-vamp/taunt3    DSALTNT3
-vamp/taunt4    DSALTNT4
-vamp/taunt5    DSALTNT5
-vamp/taunt6    DSALTNT6
-vamp/taunt7    DSALTNT7
-vamp/taunt8    DSALTNT8
-vamp/taunt9    DSALTNT9
-vamp/taunt10   DSALTN10
-vamp/taunt11   DSALTN11
-vamp/taunt12   DSALTN12
-vamp/taunt13   DSALTN13
-
-$playeralias	Alucard     male	*taunt		vamp/taunt
-$playeralias	Alucard     male	*death		vamp/death
-$playersound	Alucard		male	*pain100	dsalupa1
-$playersound	Alucard		male	*pain75		dsalupa2
-$playersound	Alucard		male	*pain50		dsalupa3
-$playersound	Alucard		male	*pain25		dsalupa3
-$playersound	Alucard		male	*land		dsaluoof
-$playersound	Alucard		male	*grunt		dsaluoof
-$playersound	Alucard		male	*usefail	dsanoway
-$playersound    Alucard     male    *xdeath     DSALUDHI
-$playersound	Alucard		male	*gibbed		DSALUDTH
-
 DukePain100-1 	DSDUKP01
 DukePain100-2 	DSDUKP02
 DukePain100-3 	DSDUKP03

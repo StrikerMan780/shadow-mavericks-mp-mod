@@ -519,12 +519,12 @@ Fire:
 	HELG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
 	HELG A 0 A_Playsound("Hellfire")
 	HELG A 12
-	HELG B 1 BRIGHT A_FireCustomMissile("HellFireRocketHi",20, 1, 0, -3)
-	HELG B 1 BRIGHT A_FireCustomMissile("HellFireRocketHiLo",12, 1, 0, -3)
-	HELG C 1 BRIGHT A_FireCustomMissile("HellFireRocketMid",5, 1, 0, -3)
-	HELG C 1 BRIGHT A_FireCustomMissile("HellFireRocketMidLo",-5, 1, 0, -3)
-	HELG D 1 BRIGHT A_FireCustomMissile("HellFireRocketLow",-12, 1, 0, -3)
-	HELG D 1 BRIGHT A_FireCustomMissile("HellFireRocketLowLo",-20, 1, 0, -3)
+	HELG B 2 BRIGHT A_FireCustomMissile("HellFireRocketHi",0, 1, -3, -3)
+	HELG B 2 BRIGHT A_FireCustomMissile("HellFireRocketHiLo",0, 1, 3, -3)
+	HELG C 2 BRIGHT A_FireCustomMissile("HellFireRocketMid",0, 1, -3, -3)
+	HELG C 2 BRIGHT A_FireCustomMissile("HellFireRocketMidLo",0, 1, 3, -3)
+	HELG D 2 BRIGHT A_FireCustomMissile("HellFireRocketLow",0, 1, -3, -3)
+	HELG D 2 BRIGHT A_FireCustomMissile("HellFireRocketLowLo",0, 1, 3, -3)
 	HELG A 18
 	HELG A 4 A_Refire
 	Goto Ready
@@ -579,57 +579,56 @@ stop
 
 actor HellFireRocketHi
 {
-radius 11
-height 8
-speed 17
-damage 4
-Scale 0.5
-Seesound "IpodLaunch"
-deathsound "TechPlasmaSuperBoom"
-Obituary "%o couldn't hide from %k's hellfire mini-rockets!"
-PROJECTILE
-+SEEKERMISSILE
-+RANDOMIZE
-+FORCEXYBILLBOARD
-states
-{
-Spawn:
-	DEVM A 0
-	DEVM A 0 ThrustThingZ(0, random(0,6), random(0,1), 1)
-	DEVM A 10 Bright A_PlaySoundEx("HellFly", SoundSlot7, 1)
-	DEVM A 0 Bright A_PlaySoundEx("HellFly", SoundSlot7, 1)
-	DEVM AAAAAAAAAAAAAAAAAAAAAAA 2 bright A_Tracer2
-	goto Spawn+3
-XDeath:
-	TNT1 A 0
-	TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-	goto Death
-Death:
-	MISL B 0 A_StopSoundEx("SoundSlot7")
-	MISL B 0 A_SetTranslucent(0.9, 1)
-	MISL BBBBBBBB 0 A_SpawnItemEx("HellfireRocketFire", Random(-10,10), Random(-10,10), Random(-10,10), Random(-6,6), Random(-6,6), Random(-6,6), random(-360,360), 128, 0)
-	MISL B 1 bright A_Explode(4,64,1)
-	MISL C 1 bright
-	MISL D 1 bright
-	stop
-}
+	projectile
+	radius 11
+	height 8
+	speed 17
+	damage 4
+	Scale 0.5
+	Seesound "IpodLaunch"
+	deathsound "TechPlasmaSuperBoom"
+	Obituary "%o couldn't hide from %k's hellfire mini-rockets!"
+	DamageType "Hellfire"
+	+FORCEXYBILLBOARD
+	+EXTREMEDEATH
+	states
+	{
+	Spawn:
+		DEVM A 0
+		DEVM A 10 bright A_PlaySoundEx("HellFly", SoundSlot7, 1)
+		DEVM A 2 bright A_Tracer2
+		DEVM A 0 bright A_CStaffMissileSlither
+		goto Spawn+2
+	XDeath:
+		TNT1 A 0
+		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+		goto Death
+	Death:
+		MISL B 0 A_StopSoundEx("SoundSlot7")
+		MISL B 0 A_SetTranslucent(0.9, 1)
+		MISL BBBBBBBB 0 A_SpawnItemEx("HellfireRocketFire", Random(-10,10), Random(-10,10), Random(-10,10), Random(-6,6), Random(-6,6), Random(-6,6), random(-360,360), 128, 0)
+		MISL B 1 bright A_Explode(4,64,1)
+		MISL C 1 bright
+		MISL D 1 bright
+		stop
+	}
 }
 
 actor HellFireRocketHiLo : HellfireRocketHi
 {
-speed 16
-damage 5
-states
-{
-Death:
-	MISL B 0 A_StopSoundEx("SoundSlot7")
-	MISL B 0 A_SetTranslucent(0.9, 1)
-	MISL BBBBBBBB 0 A_SpawnItemEx("HellfireRocketFire", Random(-10,10), Random(-10,10), Random(-10,10), Random(-6,6), Random(-6,6), Random(-6,6), random(-360,360), 128, 0)
-	MISL B 1 bright A_Explode(5,64,1)
-	MISL C 1 bright
-	MISL D 1 bright
-	stop
-}
+	speed 16
+	damage 5
+	states
+	{
+	Death:
+		MISL B 0 A_StopSoundEx("SoundSlot7")
+		MISL B 0 A_SetTranslucent(0.9, 1)
+		MISL BBBBBBBB 0 A_SpawnItemEx("HellfireRocketFire", Random(-10,10), Random(-10,10), Random(-10,10), Random(-6,6), Random(-6,6), Random(-6,6), random(-360,360), 128, 0)
+		MISL B 1 bright A_Explode(5,64,1)
+		MISL C 1 bright
+		MISL D 1 bright
+		stop
+	}
 }
 
 
@@ -2519,7 +2518,7 @@ actor DukeNukem : Link
 	SwimStand:
 		DUKS D 2
 		DUKS D 0 A_JumpIf(waterlevel <= 1, "Spawn")
-		DUKS D 0 A_JumpIf(momx+momy+momz > 2 | momx+momy+momz < -2, "SwimSee")
+		DUKS D 0 A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SwimSee")
 		loop
 	See:
 		DUKE A 4
@@ -2542,7 +2541,7 @@ actor DukeNukem : Link
 		DUKS C 0 A_JumpIf(waterlevel <= 1, "See")
 		DUKS D 5
 		DUKS D 0 A_JumpIf(waterlevel <= 1, "See")
-		DUKS D 0 A_JumpIf(momx+momy+momz < 2 | momx+momy+momz > -2, "SwimStand")
+		DUKS D 0 A_JumpIf(momx < 2 && momy < 2 && momx > -2 && momy > -2, "SwimStand")
 		loop
 	Missile:
 		DUKE E 0 A_JumpIf(waterlevel == 3, "SwimMissile")
@@ -4190,43 +4189,41 @@ actor FlameStreamTrail : RocketFire
 
 actor FlameStream
 {
-projectile
-Radius 4
-Height 20
-obituary "%o was burned up by %k"
-speed 20
-damage 3
-alpha 0.7
-seesound "vile/firestrt"
-renderstyle add
-DamageType "Fire"
-+RIPPER
--BLOODSPLATTER
-+BLOODLESSIMPACT
-+NODAMAGETHRUST
-+CANNOTPUSH
-States
-{
-Spawn:
-NULL A 0
-NULL AAAA 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-1,1)+MOMX, Random(-1,1)+MOMY, Random(-1,1)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
-NULL A 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-2,2)+MOMX, Random(-2,2)+MOMY, Random(-2,2)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
-NULL A 0 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-3,3)+MOMX, Random(-3,3)+MOMY, Random(-3,3)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
-NULL A 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-3,3)+MOMX, Random(-3,3)+MOMY, Random(-3,3)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
-NULL A 0 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-3,3)+MOMX, Random(-3,3)+MOMY, Random(-3,3)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
-NULL A 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-4,4)+MOMX, Random(-4,4)+MOMY, Random(-4,4)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
-NULL A 18 BRIGHT
-stop
-Death:
-TNT1 A 0
-TNT1 A 0 A_Jump(32, "NoIgnite")
-TNT1 A 1 A_CustomMissile("IgnitedSurface", random(5,15), random(-15, 15), 0, 0)
-stop
-NoIgnite:
-TNT1 A 0
-TNT1 A 1
-stop
-}
+	projectile
+	Radius 4
+	Height 20
+	obituary "%o was burned up by %k"
+	speed 20
+	damage 3
+	seesound "vile/firestrt"
+	DamageType "Fire"
+	+RIPPER
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+	+NODAMAGETHRUST
+	+CANNOTPUSH
+	States
+	{
+		Spawn:
+			NULL A 0
+			NULL AAAA 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-1,1)+MOMX, Random(-1,1)+MOMY, Random(-1,1)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
+			NULL A 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-2,2)+MOMX, Random(-2,2)+MOMY, Random(-2,2)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
+			NULL A 0 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-3,3)+MOMX, Random(-3,3)+MOMY, Random(-3,3)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
+			NULL A 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-3,3)+MOMX, Random(-3,3)+MOMY, Random(-3,3)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
+			NULL A 0 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-3,3)+MOMX, Random(-3,3)+MOMY, Random(-3,3)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
+			NULL A 1 BRIGHT A_SpawnItemEx("FlameStreamTrail", 0, 0, 0, Random(-4,4)+MOMX, Random(-4,4)+MOMY, Random(-4,4)+MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 32)
+			NULL A 18 BRIGHT
+			stop
+		Death:
+			TNT1 A 0
+			TNT1 A 0 A_Jump(64, "NoIgnite")
+			TNT1 A 1 A_CustomMissile("IgnitedSurface", random(5,15), random(-15, 15), 0, 0)
+			stop
+		NoIgnite:
+			TNT1 A 0
+			TNT1 A 1
+			stop
+	}
 }
 
 actor FlameStreamStart : FlameStream
@@ -6090,56 +6087,58 @@ actor StingerShot
 
 actor QuadShotgun : ClericWeapon 12843
 {
-decal Bulletchip
-obituary "%o was fuckin' obliterated by %k's quad-barreled shotgun."
-radius 20
-height 16
-attacksound "Quadshotgun"
-inventory.pickupmessage "You got the quad-barreled shotgun!"
-weapon.selectionorder 300
-weapon.kickback 300
-Weapon.AmmoType "SpreadAmmo"
-weapon.ammouse 4
-weapon.ammogive 8
-states
-{
-Ready:
-	SHT3 A 1 A_WeaponReady
-	loop
-Deselect:
-	SHT3 A 1 A_Lower
-	loop
-Select:
-	SHT3 A 1 A_Raise
-	loop
-Fire:
-	SHT3 A 3
-	SHT3 A 0 A_Recoil(12)
-	SHT3 A 0 A_FireBullets (12.2, 7.1, 40, 5, "QuadPuff")
-	SHT3 A 1 A_GunFlash
-	SHT3 B 0 radius_quake(6, 6, 0, 1, 0)
-	SHT3 BCDE 1
-	SHT3 FGH 2
-	SHT3 A 6 A_CheckReload
-	SH3R A 0 A_PlaySoundEx("QuadOpen", "auto", 0)
-	SH3R ABCDEFGHIJKLMNOP 2
-	SH3R Q 2 A_PlaySoundEx("QuadLoad", "auto", 0)
-	SH3R RSTUVW 2
-	SH3R X 2 A_PlaySoundEx("QuadLoad", "auto", 0)
-	SH3R YZ 2
-	SH32 ABCDEFGH 2
-	SH32 I 2 A_PlaySoundEx("QuadClose", "auto", 0)
-	SH32 JKLMN 2
-	SHT3 A 5 A_ReFire
-	goto Ready
-Flash:
-	SH3F A 2 bright A_Light1
-	SH3F B 1 bright A_Light2
-	SH3F B 0 bright A_Light0
-	stop
-Spawn:
-	SGN3 A -1
-	stop
+	decal Bulletchip
+	obituary "%o was fuckin' obliterated by %k's quad-barreled shotgun."
+	radius 20
+	height 16
+	attacksound "Quadshotgun"
+	inventory.pickupmessage "You got the quad-barreled shotgun!"
+	weapon.selectionorder 300
+	weapon.kickback 300
+	Weapon.AmmoType "SpreadAmmo"
+	weapon.ammouse 4
+	weapon.ammogive 8
+	states
+	{
+		Ready:
+			SHT3 A 1 A_WeaponReady
+			loop
+		Deselect:
+			SHT3 A 1 A_Lower
+			loop
+		Select:
+			SHT3 A 1 A_Raise
+			loop
+		Fire:
+			SHT3 A 3
+			SHT3 A 0 A_Recoil(12)
+			SHT3 A 0 A_FireBullets (12.2, 7.1, 40, 5, "QuadPuff")
+			SHT3 A 1 A_GunFlash
+			SHT3 A 0 A_SetPitch(pitch-6)
+			SHT3 B 0 radius_quake(6, 6, 0, 1, 0)
+			SHT3 BCDE 1 A_SetPitch(pitch+1)
+			SHT3 FG 2 A_SetPitch(pitch+1)
+			SHT3 H 2
+			SHT3 A 3 A_CheckReload
+			SH3R A 0 A_PlaySoundEx("QuadOpen", "auto", 0)
+			SH3R ABCDEFGHIJKLMNOP 2
+			SH3R Q 2 A_PlaySoundEx("QuadLoad", "auto", 0)
+			SH3R RSTUVW 2
+			SH3R X 2 A_PlaySoundEx("QuadLoad", "auto", 0)
+			SH3R YZ 2
+			SH32 ABCDEFGH 2
+			SH32 I 2 A_PlaySoundEx("QuadClose", "auto", 0)
+			SH32 JKLMN 2
+			SHT3 A 5 A_ReFire
+			goto Ready
+		Flash:
+			SH3F A 2 bright A_Light1
+			SH3F B 1 bright A_Light2
+			SH3F B 0 bright A_Light0
+			stop
+		Spawn:
+			SGN3 A -1
+			stop
 }
 }
 
@@ -9687,7 +9686,8 @@ Fire:
 	// ----------- SHT2 AAAA 0 A_FireCustomMissile("GoldSpray",Random(-20,20),0,0,0)
 	SHT2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "NewBulletPuff")
 	SHT2 A 2 A_GunFlash
-	SHT2 BCDEF 1
+	SHT2 B 0 A_SetPitch(pitch-4)
+	SHT2 BCDEF 1 A_SetPitch(pitch+0.8)
 	SHT2 AA 1
 	SHT2 GH 2
 	SHT2 I 3 A_CheckReload
