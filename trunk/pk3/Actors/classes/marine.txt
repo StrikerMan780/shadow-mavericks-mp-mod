@@ -8,6 +8,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	DamageFactor "Demonic", 0.5
 	DamageFactor "Holy", 1.5
 	DamageFactor "SpinDash", 2.25
+	DamageFactor "Tourettes", 0.0
 	player.startitem "NewPistol"
 	player.startitem "Melee"
 	player.startitem "MechAmmo", 56

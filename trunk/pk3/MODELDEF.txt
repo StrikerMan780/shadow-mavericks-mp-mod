@@ -3325,6 +3325,15 @@ model Clock
 	FrameIndex CLOK A 0 0
 }
 
+model Macintosh
+{
+	Path "Models/Decoration/Mac"
+	Model 0 "macintosh.md3"
+	Scale 4.25 4.25 4.25
+
+	FrameIndex MACI A 0 0
+}
+
 Model Railgun
 {
 	 Path "Models\HUD\Railgun"

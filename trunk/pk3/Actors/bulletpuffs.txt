@@ -259,6 +259,11 @@ actor NewBulletPuff : BulletPuff Replaces BulletPuff
 	}
 }
 
+actor Tourettes_BulletPuff : NewBulletPuff
+{
+	DamageType "Tourettes"
+}
+
 actor SilverBulletPuff : NewBulletPuff
 {
 	states
