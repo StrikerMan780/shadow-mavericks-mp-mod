@@ -28,6 +28,21 @@ actor SaberGuard : Inventory
   }
 }
 
+actor Firing : Inventory
+{
+  inventory.amount 1
+  inventory.maxamount 1
+  inventory.icon "STTPRCNT"
+  -INVBAR
+  +INVENTORY.UNDROPPABLE
+  states
+  {
+  Spawn:
+	TNT1 A 1
+	loop
+  }
+}
+
 actor ActivationPrevention : Inventory
 {
   inventory.amount 1

@@ -4,6 +4,9 @@ misc/gibbed			dsslop
 hitsound dshitsnd
 $limit hitsound 0
 
+FuckingWindows98 DSFWIN98
+$rolloff FuckingWindows98 400 2400
+
 WeaponEmpty DSWEMPTY
 Empty DSEMPTY
 FlareThrow DSFLARE
