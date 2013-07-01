@@ -16,118 +16,118 @@ statusbar PopupStatus, forcescaled
 	AspectRatio "4:3"
 	{
 	// Money
-	drawnumber 4, SMALLFONT, green, GBTWMoney, 43, 115;
-	drawstring SMALLFONT, green, "$", 11, 115;
+	drawnumber 4, SMALLFONT, green, GBTWMoney, 47, 115;
+	drawstring SMALLFONT, green, "$", 15, 115;
 
 	// Ammo Indicators
-	drawstring SMALLFONT, gray, "MECH", 33, 57;
-	drawstring SMALLFONT, red, "SPRD", 31, 65;
-	drawstring SMALLFONT, orange, "PROT", 32, 73;
-	drawstring SMALLFONT, lightblue, "CELL", 32, 81;
-	drawstring SMALLFONT, blue, "BATT", 32, 89;
-	drawstring SMALLFONT, darkgreen, "HELL", 32, 97;
-	drawstring SMALLFONT, gold, "GASO", 31, 105;
+	drawstring SMALLFONT, gray, "MECH", 37, 57;
+	drawstring SMALLFONT, red, "SPRD", 37, 65;
+	drawstring SMALLFONT, orange, "PROT", 37, 73;
+	drawstring SMALLFONT, lightblue, "CELL", 37, 81;
+	drawstring SMALLFONT, blue, "BATT", 37, 89;
+	drawstring SMALLFONT, darkgreen, "HELL", 37, 97;
+	drawstring SMALLFONT, gold, "GASO", 37, 105;
 
-	drawstring SMALLFONT, darkgray, "/", 68, 57;
-	drawstring SMALLFONT, darkgray, "/", 68, 65;
-	drawstring SMALLFONT, darkgray, "/", 68, 73;
-	drawstring SMALLFONT, darkgray, "/", 68, 81;
-	drawstring SMALLFONT, darkgray, "/", 68, 89;
-	drawstring SMALLFONT, darkgray, "/", 68, 97;
-	drawstring SMALLFONT, darkgray, "/", 68, 105;
+	drawstring SMALLFONT, darkgray, "/", 74, 57;
+	drawstring SMALLFONT, darkgray, "/", 74, 65;
+	drawstring SMALLFONT, darkgray, "/", 74, 73;
+	drawstring SMALLFONT, darkgray, "/", 74, 81;
+	drawstring SMALLFONT, darkgray, "/", 74, 89;
+	drawstring SMALLFONT, darkgray, "/", 74, 97;
+	drawstring SMALLFONT, darkgray, "/", 74, 105;
 
-	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 60, 57;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 93, 57;
-	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 60, 65;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 93, 65;
-	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 60, 73;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 93, 73;
-	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 60, 81;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 93, 81;
-	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 60, 89;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 93, 89;
-	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 60, 97;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 93, 97;
-	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 60, 105;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 93, 105;
+	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 65, 57;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 102, 57;
+	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 65, 65;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 102, 65;
+	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 65, 73;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 102, 73;
+	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 65, 81;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 102, 81;
+	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 65, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 102, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 65, 97;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 102, 97;
+	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 65, 105;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 102, 105;
 	}
 
 	AspectRatio "16:9"
 	{
 	// Money
-	drawnumber 4, SMALLFONT, green, GBTWMoney, -10, 115;
-	drawstring SMALLFONT, green, "$", -42, 115;
+	drawnumber 4, SMALLFONT, green, GBTWMoney, -6, 115;
+	drawstring SMALLFONT, green, "$", -38, 115;
 
 	// Ammo Indicators
-	drawstring SMALLFONT, gray, "MECH", -20, 57;
-	drawstring SMALLFONT, red, "SPRD", -22, 65;
-	drawstring SMALLFONT, orange, "PROT", -21, 73;
-	drawstring SMALLFONT, lightblue, "CELL", -21, 81;
-	drawstring SMALLFONT, blue, "BATT", -21, 89;
-	drawstring SMALLFONT, darkgreen, "HELL", -21, 97;
-	drawstring SMALLFONT, gold, "GASO", -22, 105;
+	drawstring SMALLFONT, gray, "MECH", -16, 57;
+	drawstring SMALLFONT, red, "SPRD", -16, 65;
+	drawstring SMALLFONT, orange, "PROT", -16, 73;
+	drawstring SMALLFONT, lightblue, "CELL", -16, 81;
+	drawstring SMALLFONT, blue, "BATT", -16, 89;
+	drawstring SMALLFONT, darkgreen, "HELL", -16, 97;
+	drawstring SMALLFONT, gold, "GASO", -16, 105;
 
-	drawstring SMALLFONT, darkgray, "/", 15, 57;
-	drawstring SMALLFONT, darkgray, "/", 15, 65;
-	drawstring SMALLFONT, darkgray, "/", 15, 73;
-	drawstring SMALLFONT, darkgray, "/", 15, 81;
-	drawstring SMALLFONT, darkgray, "/", 15, 89;
-	drawstring SMALLFONT, darkgray, "/", 15, 97;
-	drawstring SMALLFONT, darkgray, "/", 15, 105;
+	drawstring SMALLFONT, darkgray, "/", 21, 57;
+	drawstring SMALLFONT, darkgray, "/", 21, 65;
+	drawstring SMALLFONT, darkgray, "/", 21, 73;
+	drawstring SMALLFONT, darkgray, "/", 21, 81;
+	drawstring SMALLFONT, darkgray, "/", 21, 89;
+	drawstring SMALLFONT, darkgray, "/", 21, 97;
+	drawstring SMALLFONT, darkgray, "/", 21, 105;
 
-	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 7, 57;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 40, 57;
-	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 7, 65;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 40, 65;
-	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 7, 73;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 40, 73;
-	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 7, 81;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 40, 81;
-	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 7, 89;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 40, 89;
-	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 7, 97;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 40, 97;
-	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 7, 105;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 40, 105;
+	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 12, 57;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 49, 57;
+	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 12, 65;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 49, 65;
+	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 12, 73;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 49, 73;
+	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 12, 81;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 49, 81;
+	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 12, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 49, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 12, 97;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 49, 97;
+	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 12, 105;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 49, 105;
 	}
 
 	AspectRatio "16:10"
 	{
 	// Money
-	drawnumber 4, SMALLFONT, green, GBTWMoney, 11, 115;
-	drawstring SMALLFONT, green, "$", -21, 115;
+	drawnumber 4, SMALLFONT, green, GBTWMoney, 15, 115;
+	drawstring SMALLFONT, green, "$", -17, 115;
 
 	// Ammo Indicators
-	drawstring SMALLFONT, gray, "MECH", 1, 57;
-	drawstring SMALLFONT, red, "SPRD", -1, 65;
-	drawstring SMALLFONT, orange, "PROT", 0, 73;
-	drawstring SMALLFONT, lightblue, "CELL", 0, 81;
-	drawstring SMALLFONT, blue, "BATT", 0, 89;
-	drawstring SMALLFONT, darkgreen, "HELL", 0, 97;
-	drawstring SMALLFONT, gold, "GASO", -1, 105;
+	drawstring SMALLFONT, gray, "MECH", 5, 57;
+	drawstring SMALLFONT, red, "SPRD", 5, 65;
+	drawstring SMALLFONT, orange, "PROT", 5, 73;
+	drawstring SMALLFONT, lightblue, "CELL", 5, 81;
+	drawstring SMALLFONT, blue, "BATT", 5, 89;
+	drawstring SMALLFONT, darkgreen, "HELL", 5, 97;
+	drawstring SMALLFONT, gold, "GASO", 5, 105;
 
-	drawstring SMALLFONT, darkgray, "/", 36, 57;
-	drawstring SMALLFONT, darkgray, "/", 36, 65;
-	drawstring SMALLFONT, darkgray, "/", 36, 73;
-	drawstring SMALLFONT, darkgray, "/", 36, 81;
-	drawstring SMALLFONT, darkgray, "/", 36, 89;
-	drawstring SMALLFONT, darkgray, "/", 36, 97;
-	drawstring SMALLFONT, darkgray, "/", 36, 105;
+	drawstring SMALLFONT, darkgray, "/", 42, 57;
+	drawstring SMALLFONT, darkgray, "/", 42, 65;
+	drawstring SMALLFONT, darkgray, "/", 42, 73;
+	drawstring SMALLFONT, darkgray, "/", 42, 81;
+	drawstring SMALLFONT, darkgray, "/", 42, 89;
+	drawstring SMALLFONT, darkgray, "/", 42, 97;
+	drawstring SMALLFONT, darkgray, "/", 42, 105;
 
-	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 28, 57;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 61, 57;
-	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 28, 65;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 61, 65;
-	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 28, 73;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 61, 73;
-	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 28, 81;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 61, 81;
-	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 28, 89;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 61, 89;
-	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 28, 97;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 61, 97;
-	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 28, 105;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 61, 105;
+	drawnumber 3, SMALLFONT, yellow, ammo MechAmmo, 33, 57;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity MechAmmo, 70, 57;
+	drawnumber 3, SMALLFONT, yellow, ammo SpreadAmmo, 33, 65;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity SpreadAmmo, 70, 65;
+	drawnumber 3, SMALLFONT, yellow, ammo ProtonAmmo, 33, 73;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, 70, 73;
+	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, 33, 81;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, 70, 81;
+	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, 33, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, 70, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, 33, 97;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, 70, 97;
+	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, 33, 105;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity GasolineAmmo, 70, 105;
 	}
 }
 
@@ -186,14 +186,14 @@ AspectRatio "4:3"
 
 	// Ammo Counters -
 	drawimage ammoicon1, 308, 186, center;
-	drawnumber 3, BIGFONT, red, ammo1, 295, 180;
+	drawnumber 3, BIGFONT, red, ammo1, 295, 177;
 	drawimage ammoicon2, 308, 162, center;
-	drawnumber 3, BIGFONT, red, ammo2, 295, 156;
+	drawnumber 3, BIGFONT, red, ammo2, 295, 153;
 
 	IsSelected SmartRifle
 	{
-		drawimage "SPRAICON", 258, 186, center;
-		drawnumber 3, BIGFONT, red, SpreadAmmo, 245, 180;
+		drawimage "SPRAICON", 252, 186, center;
+		drawnumber 3, BIGFONT, red, SpreadAmmo, 239, 177;
 	}
 
 	// Selected Item -
@@ -281,14 +281,14 @@ AspectRatio "16:9"
 
 	// Ammo Counters
 	drawimage ammoicon1, 361, 186, center;
-	drawnumber 3, BIGFONT, red, ammo1, 348, 180;
+	drawnumber 3, BIGFONT, red, ammo1, 348, 177;
 	drawimage ammoicon2, 361, 162, center;
-	drawnumber 3, BIGFONT, red, ammo2, 348, 156;
+	drawnumber 3, BIGFONT, red, ammo2, 348, 153;
 
 	IsSelected SmartRifle
 	{
-		drawimage "SPRAICON", 311, 186, center;
-		drawnumber 3, BIGFONT, red, SpreadAmmo, 298, 180;
+		drawimage "SPRAICON", 305, 186, center;
+		drawnumber 3, BIGFONT, red, SpreadAmmo, 292, 177;
 	}
 
 	// Selected Item
@@ -376,14 +376,14 @@ AspectRatio "16:10"
 
 	// Ammo Counters =
 	drawimage ammoicon1, 340, 186, center;
-	drawnumber 3, BIGFONT, red, ammo1, 327, 180;
+	drawnumber 3, BIGFONT, red, ammo1, 327, 177;
 	drawimage ammoicon2, 340, 162, center;
-	drawnumber 3, BIGFONT, red, ammo2, 327, 156;
+	drawnumber 3, BIGFONT, red, ammo2, 327, 153;
 
 	IsSelected SmartRifle
 	{
-		drawimage "SPRAICON", 290, 186, center;
-		drawnumber 3, BIGFONT, red, SpreadAmmo, 277, 180;
+		drawimage "SPRAICON", 284, 186, center;
+		drawnumber 3, BIGFONT, red, SpreadAmmo, 271, 177;
 	}
 
 	// Selected Item =
