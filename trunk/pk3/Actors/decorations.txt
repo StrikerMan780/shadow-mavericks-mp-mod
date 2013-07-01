@@ -109,6 +109,7 @@ actor Macintosh 20523
 {
 	Health 100
 	Height 32
+	DeathHeight 32
 	Radius 16
 	Scale 0.6
 	Mass 0x7fffffff
@@ -125,9 +126,9 @@ actor Macintosh 20523
 			MACI A 5 A_PlaySoundEx("FuckingWindows98", "Auto", 0)
 			TNT1 A 0 A_Explode
 			TNT1 AAAAAAAA 0 A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, SXF_CLIENTSIDE, 0)
-			TNT1 A 1050 A_BarrelDestroy
-			TNT1 A 5 A_Respawn
-			wait
+			TNT1 A 1050
+			TNT1 A 0 A_SpawnItemEx("TeleportFog", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_NOCHECKPOSITION, 0)
+			goto Spawn
 	}
 }
 

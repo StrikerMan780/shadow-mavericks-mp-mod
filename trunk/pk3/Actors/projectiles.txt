@@ -389,8 +389,8 @@ actor HangerBall
 ACTOR SliceProjectile
 {
 	Health 5
-	Height 35
-	Radius 14
+	Height 40
+	Radius 16
 	Speed 22
 	PainSound "saberhit"
 	DeathSound "saberhit"
@@ -409,11 +409,11 @@ ACTOR SliceProjectile
 			TNT1 AA 1
 			Stop
 		Pain:
-			TNT1 A 1 A_SpawnItemEX("SaberPuff",  0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1 A_SpawnItemEX("SaberPuff",  0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			TNT1 A 1 A_Pain
 			Stop
 		Death:
-			TNT1 A 1 A_SpawnItemEX("SaberPuff",  0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1 A_SpawnItemEX("SaberPuff",  0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			TNT1 A 1 A_Scream
 			Stop
 	}

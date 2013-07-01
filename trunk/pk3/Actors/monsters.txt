@@ -2812,7 +2812,7 @@ ACTOR Danny_Tourettes_Guard 19632
    +DONTGIB
    +NEVERFAST
    -COUNTKILL
-   Translation "112:127=16:47"
+   Translation "112:127=176:191"
    States
    {
 	  Spawn:
@@ -2996,7 +2996,7 @@ ACTOR Danny_Tourettes_Guard 19632
 		 TGUY N 150 A_PlaySoundEx("tourettes/death", "Auto", 0)
 		 TGUY MLKJIH 5
 		 TGUY A 50 A_PlaySoundEx("tourettes/taunt", "Auto", 0)
-		 TGUY A 0 A_SpawnItemEx("TeleportFog", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		 TGUY A 1 A_SpawnItemEx("TeleportFog", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_NOCHECKPOSITION, 0)
 		 TGUY A 0 A_Respawn
 		 Stop
 	  Raise:
