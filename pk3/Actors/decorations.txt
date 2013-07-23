@@ -90,6 +90,20 @@ actor Clock 24542
   }
 }
 
+actor XBox360 24543
+{
+  Radius 16
+  Height 16
+  +ALLOWCLIENTSPAWN
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+  NULL A -1
+  loop
+  }
+}
+
 actor AmyRose 29000
 {
  Radius 16
@@ -194,17 +208,17 @@ actor Condom2 18815
 
 actor Condom_BlueShell 18816
 {
-  radius 4
-  height 4
-  -SOLID
-  +ALLOWCLIENTSPAWN
-  +NOINTERACTION
-  States
-  {
-  Spawn:
-  NULL A -1
-  loop
-  }
+	radius 4
+	height 4
+	-SOLID
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
 }
 
 actor Rose 18817

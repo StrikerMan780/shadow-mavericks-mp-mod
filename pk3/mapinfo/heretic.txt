@@ -42,28 +42,28 @@ skill baby
 	DamageFactor = 0.5
 	EasyBossBrain
 	SpawnFilter = Baby
-	Name = "$MNU_WETNURSE"
+	Name = "Tiny Baby Man"
 }
 
 skill easy
 {
 	DoubleAmmoFactor = 1.5
 	SpawnFilter = Easy
-	Name = "$MNU_YELLOWBELLIES"
+	Name = "Hunter"
 }
 
 skill normal
 {
 	DoubleAmmoFactor = 1.5
 	SpawnFilter = Normal
-	Name = "$MNU_BRINGEST"
+	Name = "Maverick"
 }
 
 skill hard
 {
 	DoubleAmmoFactor = 1.5
 	SpawnFilter = Hard
-	Name = "$MNU_SMITE"
+	Name = "Shadow Maverick"
 }
 
 skill nightmare
@@ -73,7 +73,7 @@ skill nightmare
 	FastMonsters
 	DisableCheats
 	SpawnFilter = Nightmare
-	Name = "$MNU_BLACKPLAGUE"
+	Name = "Fallen One"
 }
 
 clearepisodes
