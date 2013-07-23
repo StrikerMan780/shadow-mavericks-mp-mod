@@ -3226,6 +3226,17 @@ Model Condom_BlueShell
   Frame NULL A 0 "skin"
 }
 
+model XBox360
+{
+	Path "Models/Decoration"
+	Model 0 "XBox360.md3"
+	Skin 0 "XBox360.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+
 model BigCeilingLamp
 {
 	Path "Models/Decoration"
