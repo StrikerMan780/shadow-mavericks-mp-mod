@@ -10,12 +10,36 @@ StrikerMan780
 * Finish work on underground sewer system
 
 * Make giygas invade after first nightfall of his release.
+* Make it so flesh growth takes over some areas of the map during giygas invasion
+* Add more areas to access with Keys
+* Add George Carlin Fear of Germs rant.
+* Fix horizontal speed changing of ball in Doomanoid
+* Get rid of coward killing time
+* Update my Persona Sprite Again
+* Add Danny-cam
+* Make use of SONICEXE Texture
+* Make use of SCARE1 Graphic on broken music plays for Giygas Event
+* Finish Espio's Room
+* Finish Heretic's Room
 
--=DECORATE CODE=-
+-=ACS/DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.
+Add fire death for tourettes zombies, and make them capable of throwing molotovs.
+Re-do all fire deaths
+* Fix iMac Respawn and Explosion
+* Reduce Action Sound Frequency for Danny.
+* Add alternate saber impact sounds
+* Shrink OpenGL Warning
+* Fix Grenade Launcher Sound
+* Make Bishop Staff work like a ripper boomerang.
+* Make Magnum Revolver Semi-Auto with Reload.
 
 -=Graphics=-
+Add high-res Molotov inventory icon
+
+-=COOP01=-
+Really update the fuck out of this map. Fix the end battle as well.
 
 -=MPDM04=-
 Find other ways to speed up rendering if it's even possible...
