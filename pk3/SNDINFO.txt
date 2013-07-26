@@ -298,13 +298,13 @@ FleshImpact3 dsflesh3
 FleshImpact4 dsflesh4
 FleshImpact5 dsflesh5
 $random FleshImpact { FleshImpact1 FleshImpact2 FleshImpact3 FleshImpact4 FleshImpact5 }
-$limit FleshImpact 4
-$volume FleshImpact 0.5
-$volume FleshImpact1 0.5
-$volume FleshImpact2 0.5
-$volume FleshImpact3 0.5
-$volume FleshImpact4 0.5
-$volume FleshImpact5 0.5
+$limit FleshImpact 5
+$volume FleshImpact 0.25
+$volume FleshImpact1 0.25
+$volume FleshImpact2 0.25
+$volume FleshImpact3 0.25
+$volume FleshImpact4 0.25
+$volume FleshImpact5 0.25
 
 FleshTear1 dsflesh6
 FleshTear2 dsflesh7
