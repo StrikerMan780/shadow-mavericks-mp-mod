@@ -271,6 +271,18 @@ weapons/bfg10kcool		ds10kcdn
 weapons/bfg10kidle		ds10kidl
 $limit weapons/bfg10kx 0
 
+// Grenade Launcher
+weapons/grenlf DSGLAUNC
+
+GrenadeBounce1 DSGBNCE1
+GrenadeBounce2 DSGBNCE2
+GrenadeBounce3 DSGBNCE3
+$random weapons/grbnce { GrenadeBounce1 GrenadeBounce2 GrenadeBounce3 }
+$limit weapons/grbnce 0
+$limit GrenadeBounce1 0
+$limit GrenadeBounce2 0
+$limit GrenadeBounce3 0
+
 // Chaos Flames
 ChaosReady DSCHSRDY
 ChaosFire DSCHSFIR
@@ -471,6 +483,9 @@ $limit DevastatorLeft 0
 // Sticky Bomb
 StickyLatchedOn DSSTICK
 StickyHitWall DSSTICKW
+
+SonicEXE DSSONEXE
+Giygas1 DSGIYG01
 
 //************-MONSTERS-*************
 
@@ -756,6 +771,7 @@ FlakBounce2 dsfkric2
 $random FlakBounce { FlakBounce1 FlakBounce2 }
 
 HeavyShot DSHEVMIS
+$volume HeavyShot 0.5
 
 BigExp1 dsboom1
 BigExp2 dsboom2
