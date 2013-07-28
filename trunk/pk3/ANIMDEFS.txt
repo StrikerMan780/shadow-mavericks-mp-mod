@@ -924,6 +924,8 @@ warp texture e3sky1
 warp texture warpface
 warp texture wqlava
 warp texture giygsky
+warp texture giygas1
+warp2 texture giygas2
 
 warp flat PSOLAV01
 warp flat PSOLAV02
