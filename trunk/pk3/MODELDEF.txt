@@ -1372,24 +1372,17 @@ Model Magnum
    ZOffset -1
 
    FrameIndex REVG A 0 0
+   FrameIndex REVG B 0 4
    FrameIndex REVG C 0 6
    FrameIndex REVG D 0 8
    FrameIndex REVG E 0 10
    FrameIndex REVG F 0 12
-   FrameIndex REVG H 0 0
-}
-
-Model Magnum
-{
-   Path "Models\HUD\Magnum"
-   Model 0 "Magnum.md3"
-   Model 1 "MagnumFlash.md3"
-   Skin 1 "muzzleflash2.png"
-   Scale 5.0 4.5 5
-   //ZOffset -1
-
-   FrameIndex REVG B 0 4
-   FrameIndex REVG B 1 0
+   FrameIndex REVG G 0 14
+   FrameIndex REVG H 0 16
+   FrameIndex REVG I 0 18
+   FrameIndex REVG J 0 20
+   FrameIndex REVG K 0 22
+   FrameIndex REVG L 0 24
 }
 
 model Magnum
