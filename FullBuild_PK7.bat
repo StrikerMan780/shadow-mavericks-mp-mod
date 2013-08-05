@@ -5,7 +5,7 @@ ECHO.
 ECHO Looking up current repository revision numbers...
 ECHO.
 IF EXIST "setenv.bat" DEL /F /Q "setenv.bat" > NUL
-VersionFromSVN.exe "PK3\DECORATE.TXT" "PK3\MAPINFO.TXT" -O "setenv.bat"
+VersionFromSVN.exe "PK3\VERSION.TXT" -O "setenv.bat"
 IF %ERRORLEVEL% NEQ 0 GOTO ERRORFAIL
 IF NOT EXIST "setenv.bat" GOTO FILEFAIL
 
