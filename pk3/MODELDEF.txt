@@ -1385,6 +1385,70 @@ Model Magnum
    FrameIndex REVG L 0 24
 }
 
+Model Magnum
+{
+   Path "Models\HUD\Magnum"
+   Model 0 "Magnum_Reload.md3"
+   Scale 5.0 4.5 5
+   ZOffset -1
+
+   FrameIndex REVR A 0 2
+   FrameIndex REVR B 0 6
+   FrameIndex REVR C 0 8
+   FrameIndex REVR D 0 10
+   FrameIndex REVR E 0 12
+   FrameIndex REVR F 0 16
+   FrameIndex REVR G 0 18
+   FrameIndex REVR H 0 20
+   FrameIndex REVR I 0 22
+   FrameIndex REVR J 0 28
+   FrameIndex REVR K 0 30
+   FrameIndex REVR L 0 32
+   FrameIndex REVR M 0 34
+   FrameIndex REVR N 0 36
+   FrameIndex REVR O 0 38
+   FrameIndex REVR P 0 40
+   FrameIndex REVR Q 0 42
+   FrameIndex REVR R 0 44
+   FrameIndex REVR S 0 46
+   FrameIndex REVR T 0 48
+   FrameIndex REVR U 0 50
+   FrameIndex REVR V 0 52
+   FrameIndex REVR W 0 54
+   FrameIndex REVR X 0 56
+   FrameIndex REVR Y 0 58
+   FrameIndex REVR Z 0 60 
+   
+   FrameIndex RVR2 A 0 62
+   FrameIndex RVR2 B 0 64
+   FrameIndex RVR2 C 0 66
+   FrameIndex RVR2 D 0 68
+   FrameIndex RVR2 E 0 70
+   FrameIndex RVR2 F 0 72
+   FrameIndex RVR2 G 0 74
+   FrameIndex RVR2 H 0 76
+   FrameIndex RVR2 I 0 78
+   FrameIndex RVR2 J 0 80
+   FrameIndex RVR2 K 0 82
+   FrameIndex RVR2 L 0 84
+   FrameIndex RVR2 M 0 86
+   FrameIndex RVR2 N 0 88
+   FrameIndex RVR2 O 0 90
+   FrameIndex RVR2 P 0 92
+   FrameIndex RVR2 Q 0 94
+}
+
+Model Magnum
+{
+   Path "Models\HUD\Magnum"
+   Model 0 "MagnumFlash.md3"
+   Skin 0 "muzzleflash2.png"
+   Scale 5.0 4.5 5
+   ZOffset -1
+
+   FrameIndex REVF A 0 0
+}
+
 model Magnum
 {
    Path "Models\HUD\Magnum"

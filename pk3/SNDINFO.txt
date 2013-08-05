@@ -171,6 +171,11 @@ batswing DSBATSWN
 
 // Magnum
 magnum dsmagnm
+MagnumOpen dsmgnopn
+MagnumOut dsmgnout
+MagnumIn dsmgnin
+MagnumClose dsmgncls
+MagnumSpin dsmgnspn
 
 // Laser Rifle
 LaserRifle DSLASFIR
