@@ -1158,24 +1158,24 @@ actor NewPistol : ClericWeapon Replaces Pistol
 		FireDone:
 			PISG C 0 A_GiveInventory("PistolAccuracy", 1)
 			PISG C 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,4,7)
-			PISG C 2 BRIGHT
-			PISG A 3 A_WeaponReady
+			PISG C 2 BRIGHT A_WeaponReady(WRF_NOBOB)
+			PISG A 3 A_WeaponReady(WRF_NOBOB)
 			PISG A 0 A_TakeInventory("PistolAccuracy", 1)
-			PISG A 3 A_WeaponReady
+			PISG A 3 A_WeaponReady(WRF_NOBOB)
 			PISG A 0 A_TakeInventory("PistolAccuracy", 1)
-			PISG A 3 A_WeaponReady
+			PISG A 3 A_WeaponReady(WRF_NOBOB)
 			PISG A 0 A_TakeInventory("PistolAccuracy", 2)
 			PISG A 0 A_Refire
 			goto Ready+1
 		SilFireDone:
 			PISS C 0 A_GiveInventory("PistolAccuracy", 1)
 			PISS C 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,4,7)
-			PISS C 2 BRIGHT
-			PISS A 3 A_WeaponReady
+			PISS C 2 BRIGHT A_WeaponReady(WRF_NOBOB)
+			PISS A 3 A_WeaponReady(WRF_NOBOB)
 			PISS A 0 A_TakeInventory("PistolAccuracy", 1)
-			PISS A 3 A_WeaponReady
+			PISS A 3 A_WeaponReady(WRF_NOBOB)
 			PISS A 0 A_TakeInventory("PistolAccuracy", 1)
-			PISS A 3 A_WeaponReady
+			PISS A 3 A_WeaponReady(WRF_NOBOB)
 			PISS A 0 A_TakeInventory("PistolAccuracy", 2)
 			PISS A 0 A_Refire
 			goto Ready+1
@@ -4867,6 +4867,15 @@ Pickup:
 }
 }
 
+ACTOR MagnumClip : Ammo
+{
+	Inventory.MaxAmount 6 // size of the clip
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 6 //MUST be the same as Inventory.MaxAmmount
+	Inventory.Icon "MAGICON2"
+	+IGNORESKILL
+}
+
 actor Magnum : ClericWeapon 10493
 {
 	decal BulletChip
@@ -4876,8 +4885,10 @@ actor Magnum : ClericWeapon 10493
 	attacksound "magnum"
 	weapon.selectionorder 500
 	weapon.kickback 125
-	Weapon.AmmoType1 "MechAmmo"
-	Weapon.AmmoGive 20
+	Weapon.AmmoType1 "MagnumClip"
+	Weapon.AmmoType2 "MechAmmo"
+	Weapon.AmmoGive1 0
+	Weapon.AmmoGive2 18
 	Weapon.AmmoUse1 1
 	scale 0.78
 	+WEAPON.AMMO_OPTIONAL
@@ -4888,9 +4899,11 @@ actor Magnum : ClericWeapon 10493
 			REVP A -1
 			loop
 		Ready:
+			REVG A 0
+			goto ReloadCheck
 			REVG AAAA 1 A_WeaponReady
 			REVG A 0 A_TakeInventory("PistolAccuracy", 1)
-			loop
+			goto Ready+1
 		Deselect:
 			REVG A 1 A_Lower
 			loop
@@ -4898,61 +4911,64 @@ actor Magnum : ClericWeapon 10493
 			REVG A 1 A_Raise
 			loop
 		Fire:
+			REVG A 0 A_JumpIfNoAmmo("ReloadCheck")
 			REVG A 3
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 8, "FireAccuracy8")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 7, "FireAccuracy7")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 6, "FireAccuracy6")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 5, "FireAccuracy5")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 4, "FireAccuracy4")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 3, "FireAccuracy3")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 2, "FireAccuracy2")
-			REVG B 0 A_JumpIfInventory("PistolAccuracy", 1, "FireAccuracy1")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 8, "FireAccuracy8")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 7, "FireAccuracy7")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 6, "FireAccuracy6")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 5, "FireAccuracy5")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 4, "FireAccuracy4")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 3, "FireAccuracy3")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 2, "FireAccuracy2")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 1, "FireAccuracy1")
 			goto FireAccuracy0
 		
 		FireAccuracy0:
-			REVG B 0 A_FireBullets (1.5, 1.25, -1, 15, "NewBulletPuff")
+			REVG A 0 A_FireBullets (1.5, 1.25, -1, 15, "NewBulletPuff")
 			goto FireDone
 		
 		FireAccuracy1:
-			REVG B 0 A_FireBullets (2, 1.5, -1, 14, "NewBulletPuff")
+			REVG A 0 A_FireBullets (2, 1.5, -1, 14, "NewBulletPuff")
 			goto FireDone
 			
 		FireAccuracy2:
-			REVG B 0 A_FireBullets (2.5, 1.75, -1, 12, "NewBulletPuff")
+			REVG A 0 A_FireBullets (2.5, 1.75, -1, 14, "NewBulletPuff")
 			goto FireDone
 		
 		FireAccuracy3:
-			REVG B 0 A_FireBullets (2.75, 2, -1, 12, "NewBulletPuff")
+			REVG A 0 A_FireBullets (2.75, 2, -1, 14, "NewBulletPuff")
 			goto FireDone
 		
 		FireAccuracy4:
-			REVG B 0 A_FireBullets (3, 2.25, -1, 12, "NewBulletPuff")
+			REVG A 0 A_FireBullets (3, 2.25, -1, 14, "NewBulletPuff")
 			goto FireDone
 			
 		FireAccuracy5:
-			REVG B 0 A_FireBullets (3.25, 2.5, -1, 10, "NewBulletPuff")
+			REVG A 0 A_FireBullets (3.25, 2.5, -1, 14, "NewBulletPuff")
 			goto FireDone
 			
 		FireAccuracy6:
-			REVG B 0 A_FireBullets (3.5, 2.75, -1, 10, "NewBulletPuff")
+			REVG A 0 A_FireBullets (3.5, 2.75, -1, 14, "NewBulletPuff")
 			goto FireDone
 			
 		FireAccuracy7:
-			REVG B 0 A_FireBullets (4, 3.25, -1, 10, "NewBulletPuff")
+			REVG A 0 A_FireBullets (4, 3.25, -1, 14, "NewBulletPuff")
 			goto FireDone
 		
 		FireAccuracy8:
-			REVG B 0 A_FireBullets (5, 3.75, -1, 10, "NewBulletPuff")
+			REVG A 0 A_FireBullets (5, 3.75, -1, 14, "NewBulletPuff")
 			goto FireDone
 			
 		FireDone:
-			REVG B 0 A_GiveInventory("PistolAccuracy", 2)
-			REVG B 0 A_GunFlash
-			REVG B 0 Radius_Quake(3, 2, 0, 1, 0)
-			REVG B 1 BRIGHT A_SetPitch(pitch-2)
+			REVG A 0 A_GiveInventory("PistolAccuracy", 2)
+			REVG A 0 A_GunFlash
+			REVG A 0 Radius_Quake(3, 3, 0, 1, 0)
+			REVG A 1 BRIGHT A_SetPitch(pitch-2)
+			REVG B 0 A_SetPitch(pitch+1)
+			REVG B 2 A_WeaponReady(WRF_NOBOB)
 			REVG C 0 A_SetPitch(pitch+1)
 			REVG C 2 A_WeaponReady(WRF_NOBOB)
-			REVG D 0 A_SetPitch(pitch+1)
+			REVG D 0 A_TakeInventory("PistolAccuracy", 1)
 			REVG D 2 A_WeaponReady(WRF_NOBOB)
 			REVG E 0 A_TakeInventory("PistolAccuracy", 1)
 			REVG E 2 A_WeaponReady(WRF_NOBOB)
@@ -4961,15 +4977,49 @@ actor Magnum : ClericWeapon 10493
 			REVG G 0 A_TakeInventory("PistolAccuracy", 1)
 			REVG G 2 A_WeaponReady(WRF_NOBOB)
 			REVG H 0 A_TakeInventory("PistolAccuracy", 1)
-			REVG H 2 A_WeaponReady(WRF_NOBOB)
-			REVG I 0 A_TakeInventory("PistolAccuracy", 1)
-			REVG IJKL 2 A_WeaponReady(WRF_NOBOB)
+			REVG HIJKL 2 A_WeaponReady(WRF_NOBOB)
 			REVG A 3 A_ReFire
-			goto Ready
+			goto Ready+1
 		Flash:
-			TNT1 A 2 A_Light1
+			REVF A 2 BRIGHT A_Light1
 			TNT1 A 1 A_Light0
 			stop
+		
+		Altfire:
+			REVR A 0
+			goto ReloadCheck		
+		
+		ReloadCheck:
+			REVR A 0 A_JumpIfInventory("MagnumClip",6,2)
+			REVR A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
+			REVR A 0
+			goto Ready+1
+
+		ReloadStart:
+			REVR A 2 A_PlaySoundEx("MagnumOpen", "Auto", 0)
+			REVR B 2
+			REVR CDEFG 2
+			REVR H 2 A_PlaySoundEx("MagnumOut", "Auto", 0)
+			REVR IJKLMNOPQRST 2
+			REVR U 2 A_PlaySoundEx("MagnumIn", "Auto", 0)
+			REVR VW 2
+			goto ReloadAmmo
+
+		ReloadAmmo:
+			TNT1 A 0 A_TakeInventory("MechAmmo",1)
+			TNT1 A 0 A_GiveInventory("MagnumClip",1)
+			TNT1 A 0 A_JumpIfInventory("MagnumClip",6,"ReloadDone")
+			TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+			goto ReloadDone
+
+		ReloadDone:
+			REVR XYZ 2
+			RVR2 AB 2
+			RVR2 C 2 A_PlaySoundEx("MagnumClose", "Auto", 0)
+			RVR2 DE 2
+			RVR2 F 2 A_PlaySoundEx("MagnumSpin", "Auto", 0)
+			RVR2 GHIJKLMNOPQ 2
+			goto Ready+1
 	}
 }
 
@@ -7267,27 +7317,25 @@ Spawn:
 
 actor Duke64GrenadeSmoke
 {
-Height 1
-Radius 1
-Speed 0
-Damage 0
-RenderStyle Add
-Alpha 0.7
-Scale 0.2
-+NOGRAVITY
-+NOBLOCKMAP
-+CLIENTSIDEONLY
-+FORCEXYBILLBOARD
-+DONTSPLASH
-+NOCLIP
-States
-{
-Death:
-Spawn:
-	SMK1 A 1
-	SMK1 A 1 A_FadeOut(0.04)
-	goto Spawn+1
-}
+	Projectile
+	Height 2
+	Radius 2
+	RenderStyle Add
+	Alpha 0.7
+	Scale 0.2
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	States
+	{
+		Spawn:
+			SMK1 A 1
+			SMK1 A 1 A_FadeOut(0.04)
+			goto Spawn+1
+		Death:
+			TNT1 AA 1
+			stop
+	}
 }
 
 actor Duke64Grenade
@@ -10957,12 +11005,11 @@ actor RPGSmoke : Duke64GrenadeSmoke
 	Scale 0.3
 	States
 	{
-	Death:
-	Spawn:
-	TNT1 A 2
-	SMK1 A 1
-	SMK1 A 1 A_FadeOut(0.04)
-	goto Spawn+2
+		Spawn:
+			TNT1 A 2
+			SMK1 A 1
+			SMK1 A 1 A_FadeOut(0.04)
+			goto Spawn+2
 	}
 }
 
@@ -10980,7 +11027,7 @@ actor RPGSpark : GunSpark
 
 actor DukeRocket : ProtonTorpedo
 {
-	Speed 35
+	Speed 40
 	Damage 30
 	obituary "%o challenged %k to a rocket eating contest and won."
 	SeeSound ""
@@ -10993,8 +11040,8 @@ actor DukeRocket : ProtonTorpedo
 	States
 	{
 		Spawn:
-			RPGM A 0 BRIGHT A_SpawnItemEx("RPGSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
-			RPGM A 1 BRIGHT A_SpawnItemEx("RPGSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			RPGM A 0 BRIGHT A_SpawnItemEx("RPGSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), random(-180, 180), SXF_CLIENTSIDE, 0)
+			RPGM A 1 BRIGHT A_SpawnItemEx("RPGSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), random(-180, 180), SXF_CLIENTSIDE, 0)
 			loop
 		XDeath:
 			TNT1 A 0
