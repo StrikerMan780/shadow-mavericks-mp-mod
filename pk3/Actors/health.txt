@@ -181,3 +181,17 @@ ACTOR RedArmor : BasicArmorPickup 5040
 		goto Spawn
 	}
 }
+
+ACTOR HealingSerum : ArtiHealth replaces ArtiHealth
+{
+  Inventory.Icon ARTIPTN2
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "Healing Serum"
+  HealthPickup.AutoUse 0
+  States
+  {
+	Spawn:
+		PTN2 ABC 4
+		Loop
+  }
+}

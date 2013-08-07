@@ -1666,3 +1666,48 @@ actor DeadCyberdemon : Cyberdemon 5070
 		Goto Super::Death+9
 	}
 }
+
+actor HangMarineHead55 11432
+{
+	Radius 16
+	Height 55
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+		Spawn:
+			HMHE A 0
+			HMHE A 0 A_Jump(128, "Spawn2", "Spawn3")
+			goto Spawn1
+		Spawn1:
+			HMHE A -1
+			loop
+		Spawn2:
+			HMHE B -1
+			loop
+		Spawn3:
+			HMHE C -1
+			loop
+	}
+}
+
+actor HangMarineHead36 : HangMarineHead55 11433
+{
+	Height 36
+	States
+	{
+		Spawn:
+			HMH2 A 0
+			HMH2 A 0 A_Jump(128, "Spawn2", "Spawn3")
+			goto Spawn1
+		Spawn1:
+			HMH2 A -1
+			loop
+		Spawn2:
+			HMH2 B -1
+			loop
+		Spawn3:
+			HMH2 C -1
+			loop
+	}
+}

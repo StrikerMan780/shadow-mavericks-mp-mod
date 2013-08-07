@@ -1656,6 +1656,20 @@ Model StimPack2
    FrameIndex STIM A 0 0
 }
 
+Model HealingSerum
+{
+   Path "Models\Pickups"
+   Model 0 "HealthVial.md3"
+   Skin 0 "HealthVial_Portable.png"
+   Scale 2.0 2.0 2.0
+   ZOffset 12
+   ROTATING
+
+   FrameIndex PTN2 A 0 0
+   FrameIndex PTN2 B 0 0
+   FrameIndex PTN2 C 0 0
+}
+
 Model GasPickup
 {
    Path "Models\HUD\Gascan"

@@ -1322,7 +1322,8 @@ ACTOR MoritaZombie
 	+FLOORCLIP
 	DropItem "MechAmmo", 64
 	DropItem "SpreadAmmo", 64
-	DropItem "SmartRifle", 64
+	DropItem "SmartRifle", 32
+	DropItem "HealingSerum", 16
 	SeeSound "grunt/sight"
 	PainSound "grunt/pain"
 	DeathSound "grunt/death"
@@ -2744,6 +2745,7 @@ actor Hangman 32123
   DropItem "HealthBonus2", 128
   DropItem "MaxHealthBonus2", 128
   DropItem "Stimpack2", 128
+  DropItem "HealingSerum", 32
   MONSTER
   +FLOORCLIP
   +NOGRAVITY

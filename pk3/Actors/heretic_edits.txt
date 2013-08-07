@@ -123,6 +123,7 @@ actor Float_Fleshspawn : Fleshspawn
 
 actor SM_Mummy : Mummy
 {
+	obituary "%o was beaten down by a flesh golem"
 	PainChance 96
 	States
 	{
