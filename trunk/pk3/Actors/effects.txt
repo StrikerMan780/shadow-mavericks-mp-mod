@@ -420,6 +420,8 @@ actor NewTeleportFog : TeleportFog replaces TeleportFog
 	Scale 0.32
 	States
 	{
+		Strife:
+		Raven:
 		Spawn:
 			TFOG A 0
 			TFOG AAAAA 0 A_SpawnItemEx("ElectricArc", 0, 0, 36, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 4)

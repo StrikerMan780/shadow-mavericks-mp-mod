@@ -20,11 +20,25 @@ actor RandomHereticImp : RandomSpawner Replaces HereticImp
 	DropItem "Float_Fleshspawn", 255 50
 }
 
+actor Heretic_RandomMelee : RandomSpawner Replaces Gauntlets
+{
+	DropItem "BloodyChainsaw", 255 100
+}
+
 actor Heretic_RandomShotgun : RandomSpawner Replaces Crossbow
 {
 	DropItem "NewShotgun", 255 100
 	DropItem "SM_SuperShotgun", 255 32
 	DropItem "QuadShotgun", 255 1
+}
+
+actor Heretic_RandomMachinegun : RandomSpawner Replaces Blaster
+{
+	DropItem "SM_Chaingun", 255 100
+	DropItem "Minigun", 255 48
+	DropItem "P90", 255 32
+	DropItem "Mp40", 255 2
+	DropItem "SmartRifle", 255 1
 }
 
 actor Heretic_Chandelier : RandomSpawner Replaces Chandelier
@@ -87,6 +101,13 @@ actor RandomCrystalVial : RandomSpawner Replaces CrystalVial
 	DropItem "Stimpack2", 255 100
 	DropItem "HealthBonus2", 255 100
 	DropItem "MaxHealthBonus2", 255 100
+	DropItem "Medikit", 255 25
+}
+
+actor RandomSkullHang35 : RandomSpawner Replaces SkullHang35
+{
+	DropItem "HangMarineHead36", 255 100
+	DropItem "Hangman", 255 50
 }
 
 actor RandomSkullHang45 : RandomSpawner Replaces SkullHang45
@@ -100,6 +121,7 @@ actor RandomSkullHang60 : RandomSpawner Replaces SkullHang60
 	DropItem "HangTNoBrain", 255 100
 	DropItem "HangTSkull", 255 100
 	DropItem "HangTLookingUp", 255 100
+	DropItem "HangMarineHead55", 255 100
 }
 
 actor RandomSkullHang70 : RandomSpawner Replaces SkullHang70
@@ -110,4 +132,29 @@ actor RandomSkullHang70 : RandomSpawner Replaces SkullHang70
 	DropItem "NonsolidMeat4", 255 100
 	DropItem "HangBNoBrain", 255 100
 	DropItem "HangNoGuts", 255 100
+}
+
+actor Heretic_Backpack : RandomSpawner Replaces BagOfHolding
+{
+	DropItem "Backpack", 255 100
+}
+
+actor Heretic_GreenArmor : RandomSpawner Replaces SilverShield
+{
+	DropItem "GreenArmor", 255 100
+}
+
+actor Heretic_BlueArmor : RandomSpawner Replaces EnchantedShield
+{
+	DropItem "BlueArmor", 255 100
+}
+
+actor Heretic_BlurSphere : RandomSpawner Replaces ArtiInvisibility
+{
+	DropItem "BlurSphere", 255 100
+}
+
+actor Heretic_Allmap : RandomSpawner Replaces SuperMap
+{
+	DropItem "Allmap", 255 100
 }
