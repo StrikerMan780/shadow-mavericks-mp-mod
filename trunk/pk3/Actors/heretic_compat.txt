@@ -71,6 +71,16 @@ actor Heretic_LargeSpreadAmmo : RandomSpawner replaces CrossbowHefty
 	DropItem "LargeSpreadAmmo", 255 100
 }
 
+actor Heretic_CellAmmo : RandomSpawner replaces SkullRodAmmo
+{
+	DropItem "CellAmmo", 255 100
+}
+
+actor Heretic_LargeCellAmmo : RandomSpawner replaces SkullRodHefty
+{
+	DropItem "LargeCellAmmo", 255 100
+}
+
 actor Heretic_RandomSmallAmmo : RandomSpawner replaces BlasterAmmo
 {
 	DropItem "MechAmmo", 255 100
@@ -132,6 +142,11 @@ actor RandomSkullHang70 : RandomSpawner Replaces SkullHang70
 	DropItem "NonsolidMeat4", 255 100
 	DropItem "HangBNoBrain", 255 100
 	DropItem "HangNoGuts", 255 100
+}
+
+actor Heretic_Molotov : RandomSpawner Replaces ArtiTimeBomb
+{
+	DropItem "MolotovCocktail", 255 100
 }
 
 actor Heretic_Backpack : RandomSpawner Replaces BagOfHolding
