@@ -658,6 +658,7 @@ KefkaLaugh DSKEFKA
 CatGroove DSCATGRV
 DOG DSDOG
 SWAG DSSWAG
+UnclePhil DSUNPHIL
 $ambient 4 WaterFallRush POINT CONTINUOUS 1.0
 $ambient 5 jeanluc POINT CONTINUOUS 0.9
 $ambient 6 tvoutbeep POINT CONTINUOUS 0.08
@@ -676,6 +677,7 @@ $ambient 18 lolinternet POINT CONTINUOUS 1.0
 $ambient 19 CatGroove POINT CONTINUOUS 1.0
 $ambient 20 DOG POINT CONTINUOUS 1.0
 $ambient 21 SWAG POINT 1.5 CONTINUOUS 1.0
+$ambient 22 UnclePhil POINT 1.0 CONTINUOUS 1.0
 newplayer DSNEWPLY
 BurningFire DSBURNIN
 SmallBurningFire DSSMLBRN

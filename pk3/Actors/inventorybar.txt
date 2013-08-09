@@ -43,3 +43,17 @@ ACTOR MolotovCocktail_Dropped : MolotovCocktail
 			stop
 	}
 }
+
+ACTOR HealingSerum : ArtiHealth replaces ArtiHealth
+{
+  Inventory.Icon ARTIHSER
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "Healing Serum"
+  HealthPickup.AutoUse 0
+  States
+  {
+	Spawn:
+		PTN2 ABC 4
+		Loop
+  }
+}
