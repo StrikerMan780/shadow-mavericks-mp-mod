@@ -123,7 +123,8 @@ actor Float_Fleshspawn : Fleshspawn
 
 actor SM_Mummy : Mummy
 {
-	obituary "%o was beaten down by a flesh golem"
+	hitobituary "%o was beaten down by a flesh golem"
+	obituary "%o was flayed by a flesh golem"
 	PainChance 96
 	States
 	{
@@ -147,6 +148,23 @@ actor SM_Mummy : Mummy
 		Fade:
 			MUMM P 1 A_FadeOut(0.05)
 			loop
+	}
+}
+
+actor SM_MummyLeader : SM_Mummy 
+{
+	Health 125
+	PainChance 64
+	States
+	{
+		Missile:
+			MUMM X 5 A_FaceTarget
+			MUMM Y 5 Bright A_FaceTarget
+			MUMM X 5 A_FaceTarget
+			MUMM Y 5 Bright A_FaceTarget
+			MUMM X 5 A_FaceTarget
+			MUMM Y 5 Bright A_CustomComboAttack("MummyFX1", 32, random[MummyAttack2](1,8)*2, "mummy/attack2")
+			Goto See
 	}
 }
 

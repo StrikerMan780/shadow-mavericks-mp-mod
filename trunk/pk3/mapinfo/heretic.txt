@@ -134,7 +134,7 @@ map E1M3 lookup "HHUSTR_E1M3"
 {
 	next = "E1M4"
 	secretnext = "E1M9"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	music = "MUS_E1M3"
 }
@@ -143,7 +143,7 @@ map E1M4 lookup "HHUSTR_E1M4"
 {
 	next = "E1M5"
 	secretnext = "E1M9"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	music = "MUS_E1M4"
 }
@@ -152,7 +152,7 @@ map E1M5 lookup "HHUSTR_E1M5"
 {
 	next = "E1M6"
 	secretnext = "E1M9"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	music = "MUS_E1M5"
 }
@@ -161,7 +161,7 @@ map E1M6 lookup "HHUSTR_E1M6"
 {
 	next = "E1M7"
 	secretnext = "E1M9"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	music = "MUS_E1M6"
 }
@@ -170,7 +170,7 @@ map E1M7 lookup "HHUSTR_E1M7"
 {
 	next = "E1M8"
 	secretnext = "E1M9"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	music = "MUS_E1M7"
 }
@@ -179,7 +179,7 @@ map E1M8 lookup "HHUSTR_E1M8"
 {
 	next = "EndGame1"
 	secretnext = "E1M9"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	nointermission
 	ironlichspecial
@@ -191,7 +191,7 @@ map E1M9 lookup "HHUSTR_E1M9"
 {
 	next = "E1M7"
 	secretnext = "E1M7"
-	sky1 = "SKY1"
+	sky1 = "STSKY1"
 	cluster = 1
 	music = "MUS_E1M9"
 }
