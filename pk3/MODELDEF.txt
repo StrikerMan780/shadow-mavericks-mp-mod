@@ -1690,17 +1690,6 @@ model Noisy_Cricket
 	FrameIndex CRKK A 0 0
 }
 
-model ArmorBonus2
-{
-	Path "Models\Pickups\ArmorBonus"
-	Model 0 "ArmorBonus.md3"
-	scale 0.4 0.4 0.4
-	ROTATING
-	ZOffset 8
-
-	FrameIndex BON2 A 0 0
-}
-
 model HealthBonus2
 {
 	Path "Models\Pickups"

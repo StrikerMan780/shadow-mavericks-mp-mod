@@ -166,10 +166,27 @@ ACTOR ArmorBonus2 : ArmorBonus Replaces ArmorBonus
 	Armor.SaveAmount 2
 	RenderStyle Add
 	Alpha 1.0
+	+FLOATBOB
 	States
 	{
 	Spawn:
-		BON2 A -1 BRIGHT
+		BON2 ABCDEFGHIJKLMNOP 1 BRIGHT
+		Loop
+	}
+}
+
+ACTOR MaxArmorBonus2 : MaxArmorBonus Replaces MaxArmorBonus
+{
+	inventory.pickupsound "ArmorBonus"
+	Armor.SaveAmount 2
+	Armor.MaxBonus 2
+	RenderStyle Add
+	Alpha 1.0
+	+FLOATBOB
+	States
+	{
+	Spawn:
+		BON4 ABCDEFGHIJKLMNOP 1 BRIGHT
 		Loop
 	}
 }
