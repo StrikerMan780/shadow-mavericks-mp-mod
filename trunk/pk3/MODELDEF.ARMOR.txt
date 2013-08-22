@@ -1,0 +1,479 @@
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green1.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 A 0 0
+	FrameIndex BON2 A 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green2.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 B 0 0
+	FrameIndex BON2 B 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green3.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 C 0 0
+	FrameIndex BON2 C 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green4.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 D 0 0
+	FrameIndex BON2 D 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green5.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 E 0 0
+	FrameIndex BON2 E 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green6.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 F 0 0
+	FrameIndex BON2 F 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green7.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 G 0 0
+	FrameIndex BON2 G 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green8.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 H 0 0
+	FrameIndex BON2 H 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green9.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 I 0 0
+	FrameIndex BON2 I 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green10.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 J 0 0
+	FrameIndex BON2 J 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green11.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 K 0 0
+	FrameIndex BON2 K 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green12.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 L 0 0
+	FrameIndex BON2 L 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green13.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 M 0 0
+	FrameIndex BON2 M 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green14.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 N 0 0
+	FrameIndex BON2 N 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green15.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 O 0 0
+	FrameIndex BON2 O 1 0
+}
+
+model ArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Green16.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON2 P 0 0
+	FrameIndex BON2 P 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue1.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 A 0 0
+	FrameIndex BON4 A 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue2.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 B 0 0
+	FrameIndex BON4 B 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue3.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 C 0 0
+	FrameIndex BON4 C 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue4.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 D 0 0
+	FrameIndex BON4 D 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue5.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 E 0 0
+	FrameIndex BON4 E 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue6.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 F 0 0
+	FrameIndex BON4 F 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue7.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 G 0 0
+	FrameIndex BON4 G 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue8.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 H 0 0
+	FrameIndex BON4 H 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue9.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 I 0 0
+	FrameIndex BON4 I 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue10.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 J 0 0
+	FrameIndex BON4 J 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue11.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 K 0 0
+	FrameIndex BON4 K 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue12.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 L 0 0
+	FrameIndex BON4 L 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue13.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 M 0 0
+	FrameIndex BON4 M 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue14.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 N 0 0
+	FrameIndex BON4 N 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue15.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 O 0 0
+	FrameIndex BON4 O 1 0
+}
+
+model MaxArmorBonus2
+{
+	Path "Models\Pickups\Armor"
+	Model 0 "ArmorBonus_Inner.md3"
+	Skin 0 "Shield_Blue16.png"
+	Model 1 "ArmorBonus_Outer.md3"
+	Skin 1 "Shield_Glass.png"
+	scale 0.4 0.4 0.4
+	ROTATING
+	ZOffset 16
+
+	FrameIndex BON4 P 0 0
+	FrameIndex BON4 P 1 0
+}

@@ -409,20 +409,6 @@ object MaxHealthBonus2
     frame BON3 { light MAXHEALTHPOTION }
 }
 
-// Max Armour Helmet
-pulselight MAXARMORBONUS
-{
-    color 0.0 0.0 1.0
-    size 16
-    secondarySize 14
-    interval 1.0
-}
-
-object MaxArmorBonus
-{
-    frame BON4 { light MAXARMORBONUS }
-}
-
 // Red armour
 pointlight REDARMOR1
 {
@@ -1653,11 +1639,26 @@ pulselight ARMORBONUS
     size 16
     secondarySize 18
     interval 2.0
+	offset 0 16 0
 }
 
 object ArmorBonus2
 {
     frame BON2 { light ARMORBONUS }
+}
+
+pulselight MAXARMORBONUS
+{
+    color 0.0 0.25 1.0
+    size 16
+    secondarySize 18
+    interval 2.0
+	offset 0 16 0
+}
+
+object MaxArmorBonus2
+{
+    frame BON4 { light MAXARMORBONUS }
 }
 
 flickerlight2 BIGREDTORCH
