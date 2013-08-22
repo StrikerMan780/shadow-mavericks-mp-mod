@@ -580,6 +580,19 @@ himp/death			impdth
 himp/active			impsit
 himp/leaderattack		impat2
 
+
+// Heretic Knight 
+hknight/sight			kgtsit
+hknight/attack			kgtatk
+hknight/superattack		kgtsupr
+hknight/melee			kgtat2
+hknight/pain			kgtpai
+hknight/death			kgtdth
+hknight/active			kgtsit
+hknight/hit				hrnhit
+hknight/axewhoosh		kgtatk
+$limit hknight/axewhoosh 0
+
 //***********************************
 
 // ************ ITEMS ***********
@@ -594,6 +607,7 @@ cashpickup 				   dscash
 drinkpickup 			   dsgetdrk
 foodpickup 				   dseat
 healthbonus				   dshltbon
+armorbonus				   dsarmbon
 largeammo				   dslrgamo
 // ******************************
 

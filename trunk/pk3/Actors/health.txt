@@ -143,7 +143,7 @@ ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
 	States
 	{
 	Spawn:
-		BON3 ABCDEFGH 4
+		BON3 ABCDEFGH 4 BRIGHT
 		Loop
 	}
 }
@@ -155,7 +155,21 @@ ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
 	States
 	{
 	Spawn:
-		BON1 ABCDEFGH 4
+		BON1 ABCDEFGH 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR ArmorBonus2 : ArmorBonus Replaces ArmorBonus
+{
+	inventory.pickupsound "ArmorBonus"
+	Armor.SaveAmount 2
+	RenderStyle Add
+	Alpha 1.0
+	States
+	{
+	Spawn:
+		BON2 A -1 BRIGHT
 		Loop
 	}
 }

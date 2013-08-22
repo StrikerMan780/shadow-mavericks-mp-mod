@@ -29,9 +29,9 @@ actor RandomSuperZombieSpawner : RandomSpawner Replaces ShotgunGuy
 	DropItem "GBTWShotgunGuy", 255 100
 	DropItem "TourettesShotgunZombie", 255 32
 	DropItem "MoritaZombie", 255 8
-	DropItem "BioZombie", 255 6
 	DropItem "SuperShotgunGuy", 255 6
 	DropItem "FreezerZombie", 255 5
+	DropItem "BioZombie", 255 3
 }
 
 actor RandomImpSpawner : RandomSpawner Replaces DoomImp
@@ -1208,7 +1208,7 @@ actor MagnumZombie : GBTWZombieman
 			loop
 		Missile:
 			POSM E 8 A_FaceTarget
-			POSM F 4 A_CustomBulletAttack (10, 9, 1, 14, "NewBulletPuff")
+			POSM F 4 A_CustomBulletAttack (10, 9, 1, 10, "NewBulletPuff")
 			POSM E 8
 			goto See
 		Pain:
@@ -2545,25 +2545,17 @@ ACTOR P90Troop : GBTWChaingunGuy
 	Missile:
 		P9TR E 10 A_FaceTarget
 		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
+		P9TR E 2 A_FaceTarget
 		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
+		P9TR E 2 A_FaceTarget
 		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
+		P9TR E 2 A_FaceTarget
 		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
+		P9TR E 2 A_FaceTarget
 		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
+		P9TR E 2 A_FaceTarget
 		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
-		P9TR F 1 BRIGHT A_CPosAttack
-		P9TR E 1 A_FaceTarget
+		P9TR E 2 A_FaceTarget
 		P9TR F 0
 		Goto See
 	Pain:
@@ -2597,7 +2589,7 @@ ACTOR P90Troop : GBTWChaingunGuy
 ACTOR BioZombie
 {
   DamageFactor "EnemyPoison", 0.0
-  Health 200
+  Health 150
   Radius 20
   Height 56
   Speed 8
