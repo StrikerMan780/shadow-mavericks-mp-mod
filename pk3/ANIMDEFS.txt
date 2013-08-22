@@ -435,6 +435,37 @@ texture ANIM_F00
 	pic	ANIM_F48 tics 1
 	pic	ANIM_F49 tics 1
 	pic	ANIM_F50 tics 1
+	
+texture ANIM_G00
+	pic ANIM_G00 tics 2
+	pic	ANIM_G01 tics 2
+	pic	ANIM_G02 tics 2
+	pic	ANIM_G03 tics 2
+	pic	ANIM_G04 tics 2
+	pic	ANIM_G05 tics 2
+	pic	ANIM_G06 tics 2
+	pic	ANIM_G07 tics 2
+	pic	ANIM_G08 tics 2
+	pic	ANIM_G09 tics 2
+	pic	ANIM_G10 tics 2
+	pic	ANIM_G11 tics 2
+	pic	ANIM_G12 tics 2
+	pic	ANIM_G13 tics 2
+	pic	ANIM_G14 tics 2
+	pic	ANIM_G15 tics 2
+	pic	ANIM_G16 tics 2
+	pic	ANIM_G17 tics 2
+	pic	ANIM_G18 tics 2
+	pic	ANIM_G19 tics 2
+	pic	ANIM_G20 tics 2
+	pic	ANIM_G21 tics 2
+	pic	ANIM_G22 tics 2
+	pic	ANIM_G23 tics 2
+	pic	ANIM_G24 tics 2
+	pic	ANIM_G25 tics 2
+	pic	ANIM_G26 tics 2
+	pic	ANIM_G27 tics 2
+	pic	ANIM_G28 tics 2
 
 texture AFLAGF01
 	pic	AFLAGF01 tics 3

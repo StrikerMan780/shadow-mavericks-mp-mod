@@ -30,6 +30,15 @@ actor RandomHereticImp : RandomSpawner Replaces HereticImp
 	DropItem "Float_Fleshspawn", 255 50
 }
 
+actor RandomKnight : RandomSpawner Replaces Knight
+{
+	Radius 22
+	Height 62
+	+ISMONSTER
+	DropItem "SM_Knight", 255 100
+	DropItem "BioZombie", 255 16
+}
+
 actor Heretic_RandomMelee : RandomSpawner Replaces Gauntlets
 {
 	DropItem "BloodyChainsaw", 255 100

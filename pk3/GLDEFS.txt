@@ -398,7 +398,7 @@ object BelphegorBall
 // Max Health Potion
 pulselight MAXHEALTHPOTION
 {
-    color 0.6 0.0 0.0
+    color 1.0 0.0 0.0
     size 16
     secondarySize 18
     interval 2.0
@@ -412,7 +412,7 @@ object MaxHealthBonus2
 // Max Armour Helmet
 pulselight MAXARMORBONUS
 {
-    color 0.0 0.0 0.8
+    color 0.0 0.0 1.0
     size 16
     secondarySize 14
     interval 1.0
@@ -1636,7 +1636,7 @@ object PIPS_Shot
 // Health Potion
 pulselight HEALTHPOTION
 {
-    color 0.0 0.0 0.6
+    color 0.0 0.0 1.0
     size 16
     secondarySize 18
     interval 2.0
@@ -1645,6 +1645,19 @@ pulselight HEALTHPOTION
 object HealthBonus2
 {
     frame BON1 { light HEALTHPOTION }
+}
+
+pulselight ARMORBONUS
+{
+    color 0.25 1.0 0.0
+    size 16
+    secondarySize 18
+    interval 2.0
+}
+
+object ArmorBonus2
+{
+    frame BON2 { light ARMORBONUS }
 }
 
 flickerlight2 BIGREDTORCH

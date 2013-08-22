@@ -1,0 +1,134 @@
+actor Cursor 13642
+{
+	Height 8
+	Radius 4
+	+NOGRAVITY
+	States
+	{
+		Spawn:
+			CURS A -1 BRIGHT
+			loop
+		Click:
+			CURS BB 1 BRIGHT
+			goto Spawn
+	}
+}
+
+actor DifficultyHeader 13643
+{
+	Height 8
+	Radius 4
+	Scale 0.5
+	+NOGRAVITY
+	States
+	{
+		Spawn:
+			DIFF A -1 BRIGHT
+			loop
+	}
+}
+
+actor DifficultyEasy : DifficultyHeader 13644
+{
+	States
+	{
+		Spawn:
+			DIF1 A -1 BRIGHT
+			loop
+		Selected:
+			DIF1 B -1 BRIGHT
+			loop
+	}
+}
+
+actor DifficultyMedium : DifficultyHeader 13645
+{
+	States
+	{
+		Spawn:
+			DIF2 A -1 BRIGHT
+			loop
+		Selected:
+			DIF2 B -1 BRIGHT
+			loop
+	}
+}
+
+actor DifficultyHard : DifficultyHeader 13646
+{
+	States
+	{
+		Spawn:
+			DIF3 A -1 BRIGHT
+			loop
+		Selected:
+			DIF3 B -1 BRIGHT
+			loop
+	}
+}
+
+actor DifficultyVeryHard : DifficultyHeader 13647
+{
+	States
+	{
+		Spawn:
+			DIF4 A -1 BRIGHT
+			loop
+		Selected:
+			DIF4 B -1 BRIGHT
+			loop
+	}
+}
+
+actor DifficultyNightmare : DifficultyHeader 13648
+{
+	States
+	{
+		Spawn:
+			DIF5 A -1 BRIGHT
+			loop
+		Selected:
+			DIF5 B -1 BRIGHT
+			loop
+	}
+}
+
+actor StartButton : DifficultyHeader 13660
+{
+	States
+	{
+		Spawn:
+			STRT A -1 BRIGHT
+			loop
+		Selected:
+			TNT1 A -1
+			loop
+	}
+}
+
+actor ResetButton : DifficultyHeader 13661
+{
+	States
+	{
+		Spawn:
+			RSET A -1 BRIGHT
+			loop
+		Selected:
+			RSET B -1 BRIGHT
+			loop
+	}
+}
+
+actor MapSelect_COOP01 : DifficultyHeader 13649
+{
+	Scale 0.25
+	States
+	{
+		Spawn:
+			MAP1 A -1 BRIGHT
+			loop
+		Selected:
+			MAP1 B -1 BRIGHT
+			loop
+	}
+}

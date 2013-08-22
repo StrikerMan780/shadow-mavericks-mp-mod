@@ -1,140 +1,75 @@
-ACTOR FloatBobSkyViewpoint : SkyViewpoint 11482
+actor BaseEffect
 {
-	+FLOATBOB
-}
-
-actor Cursor 13642
-{
-	Height 8
-	Radius 4
+	Radius 2
+	Height 2
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
 	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOINTERACTION
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+NOTELEPORT
+	+CANNOTPUSH
+	+BLOODLESSIMPACT
 	States
 	{
 		Spawn:
-			CURS A -1 BRIGHT
-			loop
-		Click:
-			CURS BB 1 BRIGHT
-			goto Spawn
+			TNT1 AA 1
+			stop
+		Death:
+			TNT1 AA 1
+			stop
 	}
 }
 
-actor DifficultyHeader 13643
+actor CrusaderAxeBurst : BaseEffect
 {
-	Height 8
-	Radius 4
-	Scale 0.5
-	+NOGRAVITY
+	RenderStyle Translucent
+	Alpha 0.75
 	States
 	{
 		Spawn:
-			DIFF A -1 BRIGHT
-			loop
+			SPAX DEF 2
+			stop
 	}
 }
 
-actor DifficultyEasy : DifficultyHeader 13644
+actor RocketFire : BaseEffect
 {
+	RenderStyle Add
+	Alpha 0.9
+	Scale 0.75
 	States
 	{
-		Spawn:
-			DIF1 A -1 BRIGHT
-			loop
-		Selected:
-			DIF1 B -1 BRIGHT
-			loop
+	Spawn:
+		64P1 A 0
+		64P1 A 0 A_Jump(127, "Spawn2", "Spawn3")
+		64P1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+		stop
+	Spawn2:
+		64P2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+		stop
+	Spawn3:
+		64P3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+		stop
 	}
 }
 
-actor DifficultyMedium : DifficultyHeader 13645
+actor GhostFire : BaseEffect
 {
+	VSpeed 2
+	RenderStyle Add
+	XScale 0.90
+	YScale 0.75
+	Alpha 0.25
 	States
 	{
 		Spawn:
-			DIF2 A -1 BRIGHT
-			loop
-		Selected:
-			DIF2 B -1 BRIGHT
-			loop
-	}
-}
-
-actor DifficultyHard : DifficultyHeader 13646
-{
-	States
-	{
-		Spawn:
-			DIF3 A -1 BRIGHT
-			loop
-		Selected:
-			DIF3 B -1 BRIGHT
-			loop
-	}
-}
-
-actor DifficultyVeryHard : DifficultyHeader 13647
-{
-	States
-	{
-		Spawn:
-			DIF4 A -1 BRIGHT
-			loop
-		Selected:
-			DIF4 B -1 BRIGHT
-			loop
-	}
-}
-
-actor DifficultyNightmare : DifficultyHeader 13648
-{
-	States
-	{
-		Spawn:
-			DIF5 A -1 BRIGHT
-			loop
-		Selected:
-			DIF5 B -1 BRIGHT
-			loop
-	}
-}
-
-actor StartButton : DifficultyHeader 13660
-{
-	States
-	{
-		Spawn:
-			STRT A -1 BRIGHT
-			loop
-		Selected:
-			TNT1 A -1
-			loop
-	}
-}
-
-actor ResetButton : DifficultyHeader 13661
-{
-	States
-	{
-		Spawn:
-			RSET A -1 BRIGHT
-			loop
-		Selected:
-			RSET B -1 BRIGHT
-			loop
-	}
-}
-
-actor MapSelect_COOP01 : DifficultyHeader 13649
-{
-	Scale 0.25
-	States
-	{
-		Spawn:
-			MAP1 A -1 BRIGHT
-			loop
-		Selected:
-			MAP1 B -1 BRIGHT
-			loop
+			GHOF ABCD 1
+			GHOF ABCD 1
+			GHOF ABCD 1 A_Fadeout
+			goto Spawn+8
 	}
 }
 
@@ -173,41 +108,6 @@ actor MolotovGlass
   }
 }
 
-actor RocketFire
-{
- Height 2
- Radius 2
- Speed 3
- RenderStyle Add
- Alpha 0.9
- Scale 0.75
- +NOGRAVITY
- +FORCEXYBILLBOARD
- +DONTSPLASH
- +NOTELEPORT
- +NOBLOCKMAP
- +RIPPER
- +BLOODLESSIMPACT
- +CANNOTPUSH
- -BLOODSPLATTER
- -ACTIVATEPCROSS
- -ACTIVATEIMPACT
- -NOCLIP
- States
- {
- Spawn:
- 	64P1 A 0
- 	64P1 A 0 A_Jump(127, "Spawn2", "Spawn3")
- 	64P1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
- 	stop
- Spawn2:
- 	64P2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
- 	stop
- Spawn3:
- 	64P3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
- 	stop
- }
-}
 
 actor ArcTrail
 {
@@ -391,27 +291,17 @@ actor ItemEffectSpawner
 	}
 }
 
-actor TeleportParticle
+actor TeleportParticle : BaseEffect
 {
-	Projectile
-	Radius 2
-	Height 2
-	Damage 0
 	RenderStyle Add
 	Alpha 1.0
 	Scale 0.04
-	+BLOODLESSIMPACT
-	+FORCEXYBILLBOARD
-	+RIPPER
-	+PAINLESS
+	+NOCLIP
 	States
 	{
 		Spawn:
 			BEMB A 1 BRIGHT A_FadeOut(0.04)
 			loop
-		Death:
-			TNT1 AA 1
-			stop
 	}
 }
 
@@ -537,7 +427,7 @@ actor FountainParticleSpawner 17521
 	+NOINTERACTION
 	states
 	{
-		spawn:
+		Spawn:
 			TNT1 A 0 A_SpawnItemEx("FountainParticle", 0, 0, random(0, 8), random(-1,1), random(-1,1), random(3,6), random(-180,180), 128, 0)
 			TNT1 A 1 A_SpawnItemEx("FountainParticle", 0, 0, random(0, 24), random(-1,1), random(-1,1), random(3,6), random(-180,180), 128, 0)
 			loop
@@ -599,137 +489,128 @@ actor FreezeBoltMuzzleSparkSpawner
 
 ACTOR BulletCasing
 {
-+NOTELEPORT
-+DONTSPLASH
--NOBLOCKMAP
-Height 12
-Radius 9
-Speed 5
-Gravity 0.6
-Scale 0.08
-Reactiontime 600
-BounceCount 4
-+DOOMBOUNCE
-+MISSILE
--NOGRAVITY
--NOLIFTDROP
--ACTIVATEPCROSS
--ACTIVATEIMPACT
-+FORCEXYBILLBOARD
-SeeSound "BulletCasing"
-States
-{
-Spawn:
-	TNT1 A 0
-	TNT1 A 0 A_StopSound
-	PBUL A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
-	PBUL ABCDEF 1 A_CountDown
-	Goto Spawn+3
-Death:
-	PBUL A 0 A_Jump(32,8)
-	PBUL A 0 A_Jump(37,8)
-	PBUL A 0 A_Jump(43,8)
-	PBUL A 0 A_Jump(51,8)
-	PBUL A 0 A_Jump(64,8)
-	PBUL A 0 A_Jump(85,8)
-	PBUL A 0 A_Jump(128,8)
-	PBUL A 110
-	Stop
-	PBUL B 160
-	Stop
-	PBUL D 100
-	Stop
-	PBUL B 320
-	Stop
-	PBUL D 128
-	Stop
-	PBUL D 100
-	Stop
-	PBUL D 200
-	Stop
-	PBUL B 300
-	Stop
-}
+	+NOTELEPORT
+	+DONTSPLASH
+	-NOBLOCKMAP
+	Height 12
+	Radius 9
+	Speed 5
+	Gravity 0.6
+	Scale 0.08
+	Reactiontime 600
+	BounceCount 4
+	+DOOMBOUNCE
+	+MISSILE
+	-NOGRAVITY
+	-NOLIFTDROP
+	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
+	+FORCEXYBILLBOARD
+	SeeSound "BulletCasing"
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_StopSound
+			PBUL A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
+			PBUL ABCDEF 1 A_CountDown
+			Goto Spawn+3
+		Death:
+			PBUL A 0 A_Jump(32,8)
+			PBUL A 0 A_Jump(37,8)
+			PBUL A 0 A_Jump(43,8)
+			PBUL A 0 A_Jump(51,8)
+			PBUL A 0 A_Jump(64,8)
+			PBUL A 0 A_Jump(85,8)
+			PBUL A 0 A_Jump(128,8)
+			PBUL A 110
+			Stop
+			PBUL B 160
+			Stop
+			PBUL D 100
+			Stop
+			PBUL B 320
+			Stop
+			PBUL D 128
+			Stop
+			PBUL D 100
+			Stop
+			PBUL D 200
+			Stop
+			PBUL B 300
+			Stop
+	}
 }
 
 ACTOR SilverBulletCasing
 {
-+NOTELEPORT
-+DONTSPLASH
--NOBLOCKMAP
-Height 12
-Radius 9
-Speed 5
-Gravity 0.6
-Scale 0.08
-Reactiontime 600
-BounceCount 4
-+DOOMBOUNCE
-+MISSILE
--NOGRAVITY
--NOLIFTDROP
--ACTIVATEPCROSS
--ACTIVATEIMPACT
-+FORCEXYBILLBOARD
-SeeSound "BulletCasing"
-States
-{
-Spawn:
-	TNT1 A 0
-	TNT1 A 0 A_StopSound
-	MBUL A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
-	MBUL ABCDEF 1 A_CountDown
-	Goto Spawn+3
-Death:
-	MBUL A 0 A_Jump(32,8)
-	MBUL A 0 A_Jump(37,8)
-	MBUL A 0 A_Jump(43,8)
-	MBUL A 0 A_Jump(51,8)
-	MBUL A 0 A_Jump(64,8)
-	MBUL A 0 A_Jump(85,8)
-	MBUL A 0 A_Jump(128,8)
-	MBUL A 110
-	Stop
-	MBUL B 160
-	Stop
-	MBUL D 100
-	Stop
-	MBUL B 320
-	Stop
-	MBUL D 128
-	Stop
-	MBUL D 100
-	Stop
-	MBUL D 200
-	Stop
-	MBUL B 300
-	Stop
+	+NOTELEPORT
+	+DONTSPLASH
+	-NOBLOCKMAP
+	Height 12
+	Radius 9
+	Speed 5
+	Gravity 0.6
+	Scale 0.08
+	Reactiontime 600
+	BounceCount 4
+	+DOOMBOUNCE
+	+MISSILE
+	-NOGRAVITY
+	-NOLIFTDROP
+	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
+	+FORCEXYBILLBOARD
+	SeeSound "BulletCasing"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_StopSound
+		MBUL A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
+		MBUL ABCDEF 1 A_CountDown
+		Goto Spawn+3
+	Death:
+		MBUL A 0 A_Jump(32,8)
+		MBUL A 0 A_Jump(37,8)
+		MBUL A 0 A_Jump(43,8)
+		MBUL A 0 A_Jump(51,8)
+		MBUL A 0 A_Jump(64,8)
+		MBUL A 0 A_Jump(85,8)
+		MBUL A 0 A_Jump(128,8)
+		MBUL A 110
+		Stop
+		MBUL B 160
+		Stop
+		MBUL D 100
+		Stop
+		MBUL B 320
+		Stop
+		MBUL D 128
+		Stop
+		MBUL D 100
+		Stop
+		MBUL D 200
+		Stop
+		MBUL B 300
+		Stop
 }
 }
 
-actor RepeaterCasingSmoke
+actor RepeaterCasingSmoke : BaseEffect
 {
-Height 1
-Radius 1
-Speed 0
-Damage 0
-RenderStyle Add
-Alpha 0.7
-Scale 0.2
-+NOGRAVITY
-+NOBLOCKMAP
-+CLIENTSIDEONLY
-+FORCEXYBILLBOARD
-+DONTSPLASH
-+NOCLIP
-States
-{
-Death:
-Spawn:
-	SMK2 A 1 BRIGHT
-	SMK2 A 1 BRIGHT A_FadeOut(0.04)
-	goto Spawn+1
-}
+	RenderStyle Add
+	Alpha 0.7
+	Scale 0.2
+	+NOCLIP
+	States
+	{
+		Death:
+		Spawn:
+			SMK2 A 1 BRIGHT
+			SMK2 A 1 BRIGHT A_FadeOut(0.04)
+			goto Spawn+1
+	}
 }
 
 actor RepeaterCasing : SilverBulletCasing
@@ -741,57 +622,57 @@ actor RepeaterCasing : SilverBulletCasing
 	States
 	{
 	Spawn:
-	TNT1 A 0
-	MBUL A 0 ThrustThingZ(0, Random(6, 20), 0, 1)
-	MBUL ABCDEF 1 BRIGHT
-	Goto Spawn+2
-Death:
-	TNT1 AAAAA 0 A_SpawnItemEx("RepeaterCasingSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
-	TNT1 A 1
-	stop
+		TNT1 A 0
+		MBUL A 0 ThrustThingZ(0, Random(6, 20), 0, 1)
+		MBUL ABCDEF 1 BRIGHT
+		Goto Spawn+2
+	Death:
+		TNT1 AAAAA 0 A_SpawnItemEx("RepeaterCasingSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+		TNT1 A 1
+		stop
 	}
 }
 
 ACTOR ShellCasing
 {
-+NOTELEPORT
-+DONTSPLASH
--NOBLOCKMAP
-Height 12
-Radius 9
-Speed 4
-Gravity 0.5
-Scale 0.20
-BounceCount 4
-SeeSound "ShellCasing"
-PROJECTILE
-ReactionTime 25
-+DOOMBOUNCE
-+CLIENTSIDEONLY
--NOGRAVITY
--NOLIFTDROP
--ACTIVATEPCROSS
--ACTIVATEIMPACT
-+FORCEXYBILLBOARD
-States
-{
-Spawn:
-	12CA A 0
-	12CA A 1 A_StopSound
-	12CA A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
-	12CA A 3 A_CountDown
-	12CA ABCDEFGH 1
-	Goto Spawn+4
-Death:
-	12CA A 0 A_Jump(50,3)
-	12CA A 0 A_Jump(50,3)
-	12CA A 100
-	Stop
-	12CA G 200
-	Stop
-	12CA E 200
-	Stop
-}
+	+NOTELEPORT
+	+DONTSPLASH
+	-NOBLOCKMAP
+	Height 12
+	Radius 9
+	Speed 4
+	Gravity 0.5
+	Scale 0.20
+	BounceCount 4
+	SeeSound "ShellCasing"
+	PROJECTILE
+	ReactionTime 25
+	+DOOMBOUNCE
+	+CLIENTSIDEONLY
+	-NOGRAVITY
+	-NOLIFTDROP
+	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		12CA A 0
+		12CA A 1 A_StopSound
+		12CA A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
+		12CA A 3 A_CountDown
+		12CA ABCDEFGH 1
+		Goto Spawn+4
+	Death:
+		12CA A 0 A_Jump(50,3)
+		12CA A 0 A_Jump(50,3)
+		12CA A 100
+		Stop
+		12CA G 200
+		Stop
+		12CA E 200
+		Stop
+	}
 }
 
 actor SSGCasing : ShellCasing
@@ -813,25 +694,12 @@ actor ElementalCasing : SSGCasing
 {
 }
 
-actor GiygasEnergy
+actor GiygasEnergy : BaseEffect
 {
-	Height 1
-	Radius 1
 	RenderStyle Add
 	Alpha 0.75
 	Scale 0.125
-	+NOGRAVITY
-	+FORCEXYBILLBOARD
-	+DONTSPLASH
-	+NOTELEPORT
-	+NOBLOCKMAP
-	+RIPPER
-	+BLOODLESSIMPACT
-	+CANNOTPUSH
 	+NOCLIP
-	-BLOODSPLATTER
-	-ACTIVATEPCROSS
-	-ACTIVATEIMPACT
 	States
 	{
 	Spawn:
@@ -867,4 +735,9 @@ actor GiygasEnergySpawner
 			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_SpawnItemEx("GiygasEnergy", (random(-1600,1600)/100.0), (random(-1600,1600)/100.0), (random(-1600,1600)/100.0), random(4, 8), (random(-150,150)/100.0), (random(-150,150)/100.0), 0, SXF_CLIENTSIDE, 0)
 			stop
 	}
+}
+
+ACTOR FloatBobSkyViewpoint : SkyViewpoint 11482
+{
+	+FLOATBOB
 }
