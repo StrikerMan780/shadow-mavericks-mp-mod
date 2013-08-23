@@ -1,0 +1,28 @@
+Note that this list of credits is a work in progress, and I'll be sure to cover all bases in due time.
+If you see something of yours that is in SMMP but hasn't been properly credited, let me know.
+I can be reached at mossj32@gmail.com
+
+Knowing how old (2006), and how large this project is (300mb), and considering how many people have contributed,
+It's been difficult to keep track of what content belongs to who. Apologies to anyone I've missed.
+
+Sprites:
+Zombieman Alt-Deaths - ItsNatureToDie, Minigunner
+Shotgun Guy Alt-Deaths - Kinsie, Phi108, Minigunner
+Fireborn - Raven Software, StrikerMan780
+Fallen Crusader - Raven Software, StrikerMan780
+Lightsaber-Wielding DoomGuy - DoomJedi
+
+Sounds:
+
+Maps:
+All maps are by [SM] Clan members - StrikerMan780, Ruin, ChrisR91, KunaiKitsune.
+
+Models:
+Health Bonus Vials - Epic Games, StrikerMan780(Texture edits)
+Armor Items - Epic Games, StrikerMan780(Texture edits)
+Super Shotgun - Z3R0, Unkn0wn
+Quad-Barreled Shotgun - Valve, IAHGames, Game Zombie(CSS Hand Rig)
+
+Textures:
+Doom 2 Recolored Textures - DefconRazor32
+Assorted Textures from Skulltag_Data.pk3 - ???
