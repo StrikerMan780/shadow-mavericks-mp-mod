@@ -402,6 +402,7 @@ pulselight MAXHEALTHPOTION
     size 16
     secondarySize 18
     interval 2.0
+	offset 0 10 0
 }
 
 object MaxHealthBonus2
@@ -1626,6 +1627,7 @@ pulselight HEALTHPOTION
     size 16
     secondarySize 18
     interval 2.0
+	offset 0 10 0
 }
 
 object HealthBonus2
