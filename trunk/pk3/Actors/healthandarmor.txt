@@ -140,6 +140,7 @@ ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
 {
 	inventory.pickupsound "HealthBonus"
 	Inventory.Amount 2
+	+FLOATBOB
 	States
 	{
 	Spawn:
@@ -152,6 +153,7 @@ ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
 {
 	inventory.pickupsound "HealthBonus"
 	Inventory.Amount 2
+	+FLOATBOB
 	States
 	{
 	Spawn:
@@ -191,24 +193,52 @@ ACTOR MaxArmorBonus2 : MaxArmorBonus Replaces MaxArmorBonus
 	}
 }
 
+actor GreenArmor2 : GreenArmor replaces GreenArmor
+{
+	RenderStyle Add
+	Alpha 1.0
+	+FLOATBOB
+	States
+	{
+		Spawn:
+			ARM1 ABCDEFGHIJKLMNOP 1 BRIGHT
+			Loop
+	}
+}
+
+actor BlueArmor2 : BlueArmor replaces BlueArmor
+{
+	RenderStyle Add
+	Alpha 1.0
+	+FLOATBOB
+	States
+	{
+		Spawn:
+			ARM2 ABCDEFGHIJKLMNOP 1 BRIGHT
+			Loop
+	}
+}
+
 ACTOR RedArmor : BasicArmorPickup 5040
 {
 	Game Doom
 	SpawnID 168
 	Radius 20
 	Height 16
+	RenderStyle Add
+	Alpha 1.0
 	Armor.Savepercent 66.66666
 	Armor.Saveamount 200
 	Inventory.Icon "ARM3A0"
-	Inventory.Pickupmessage "$PICKUP_REDARMOR"
+	Inventory.Pickupmessage "You Picked up the Fire Armor!"
 	DamageFactor "Fire", 0.125
-	DamageFactor "Rocket", 0.125
-	DamageFactor "Grenade", 0.125
+	DamageFactor "Rocket", 0.5
+	DamageFactor "Grenade", 0.5
+	+FLOATBOB
 	States
 	{
 	Spawn:
-		ARM3 A 6
-		ARM3 B 6 bright
-		goto Spawn
+		ARM3 ABCDEFGHIJKLMNOP 1 BRIGHT
+		Loop
 	}
 }

@@ -26,7 +26,7 @@
 #include "actors/projectiles.txt"
 #include "actors/gore.txt"
 #include "actors/effects.txt"
-#include "actors/health.txt"
+#include "actors/healthandarmor.txt"
 #include "actors/powerups.txt"
 #include "actors/inventorybar.txt"
 #include "actors/bulletpuffs.txt"

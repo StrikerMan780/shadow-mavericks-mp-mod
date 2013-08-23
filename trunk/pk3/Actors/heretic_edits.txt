@@ -177,8 +177,10 @@ ACTOR SM_Knight : Knight
   Scale 0.88
   Obituary "%o was slain by a fallen crusader."
   HitObituary "%o was hacked to pieces by a fallen crusader."
-  DropItem "MaxHealthBonus2", 64
-
+  DropItem "HealthBonus2", 64
+  DropItem "ArmorBonus2", 64
+  DropItem "MaxHealthBonus2", 48
+  DropItem "MaxArmorBonus2", 48
   States
   {
   Spawn:
