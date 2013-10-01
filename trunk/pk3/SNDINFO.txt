@@ -631,48 +631,58 @@ $RANDOM bloodsmall { bloodsmall1 bloodsmall2 }
 rainsplash DSRAINSP
 sand dssand
 
+
+// Misc Shit
+
 DrunkSong1 DSDICK
 DrunkSong2 DSFLOGGN
 DrunkSong3 DSDRNKFI
 $RANDOM DrunkSong { DrunkSong1 DrunkSong2 DrunkSong3 }
 
+newplayer DSNEWPLY
+BurningFire DSBURNIN
+SmallBurningFire DSSMLBRN
+KnockedTheFuckOut DSKNKOUT
+
+KefkaLaugh DSKEFKA
+Doh DSDOH
+Penis DSPENIS
+Flashlight DSFLASHL
+ArkanoidIntro DSARKINT
+Fail DSFAIL
+TomSawyer DSTOMSAW
+SMIntro SMIntro
+SMProduction SMProduc
+TitleHit DSTITLEH
+BillyMays DSBILLYM
+MarioBrick DSBRICK
+Fooby1 DSFOOB1
+Fooby2 DSFOOB2
+Fooby3 DSFOOB3
+PlaneGuy DSPLNGUY
+DrinkingFountain DSDRKFNT
+ScreenON DSSCREEN
+
 // Ambience
 
-shipengine DSSHPENG
-shipinterior DSINSHIP
-tvoutbeep DSTVOUT
-jeanluc DSPICARD
-terminal dstermin
-raining dsrainfl
 WaterFallRush  DSWTRFAL
+jeanluc DSPICARD
+tvoutbeep DSTVOUT
+shipinterior DSINSHIP
+shipengine DSSHPENG
+raining dsrainfl
+terminal dstermin
 SOAD DSSOAD
 CostaDelSol DSCOSTA
 OutDoors DSOUTDRS
 Crickets DSODCRIK
 NEDM DSNEDM
-TomSawyer DSTOMSAW
-MarioBrick DSBRICK
-Fail DSFAIL
-ArkanoidIntro DSARKINT
-ScreenON DSSCREEN
-Penis DSPENIS
-Doh DSDOH
-Flashlight DSFLASHL
-DrinkingFountain DSDRKFNT
-SMIntro SMIntro
-SMProduction SMProduc
-Fooby1 DSFOOB1
-Fooby2 DSFOOB2
-Fooby3 DSFOOB3
-PlaneGuy DSPLNGUY
-BillyMays DSBILLYM
-TitleHit DSTITLEH
 lolinternet DSLOLINT
-KefkaLaugh DSKEFKA
 CatGroove DSCATGRV
 DOG DSDOG
 SWAG DSSWAG
 UnclePhil DSUNPHIL
+
 $ambient 4 WaterFallRush POINT CONTINUOUS 1.0
 $ambient 5 jeanluc POINT CONTINUOUS 0.9
 $ambient 6 tvoutbeep POINT CONTINUOUS 0.08
@@ -692,10 +702,6 @@ $ambient 19 CatGroove POINT CONTINUOUS 1.0
 $ambient 20 DOG POINT CONTINUOUS 1.0
 $ambient 21 SWAG POINT 1.5 CONTINUOUS 1.0
 $ambient 22 UnclePhil POINT 1.0 CONTINUOUS 1.0
-newplayer DSNEWPLY
-BurningFire DSBURNIN
-SmallBurningFire DSSMLBRN
-KnockedTheFuckOut DSKNKOUT
 
 thunder1 DSTHUND1
 thunder2 DSTHUND2
