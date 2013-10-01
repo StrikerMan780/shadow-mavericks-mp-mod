@@ -229,7 +229,7 @@ actor Bloodspray
 		TNT1 AAAAAAAAA 1 A_SpawnItemEx("BloodSprayParticle", 0, 0, 0, random(-2,2), random(-2,2), random(-2,2), random(-180,180), 129, 24)
 		Stop
 	Spawn2:
-		SPRY ABCDEFGHIJKLMNO 1
+		SPRY ABCDEFGHIJKLMNO 1 A_Fadeout(0.04)
 		stop
 	Spawn3:
 		TNT1 AAAAAAAAA 1 A_SpawnItemEx("BloodSprayParticleSmall", 0, 0, 0, random(-2,2), random(-2,2), random(4,14), random(-180,180), 129, 24)
@@ -251,10 +251,10 @@ actor BloodSprayParticle : BloodSpray
 		Spawn:
 			SPRY A 0
 			SPRY A 0 A_Jump(127, "Spawn2")
-			SPRY ABCDEFGHIJKLMNO 1
+			SPRY ABCDEFGHIJKLMNO 1 A_Fadeout(0.04)
 			stop
 		Spawn2:
-			SPR2 ABCDEFGHIJKLMNO 1
+			SPR2 ABCDEFGHIJKLMNO 1 A_Fadeout(0.04)
 			stop
 	}
 }
@@ -269,38 +269,38 @@ actor BloodSprayParticleSmall : BloodSprayParticle
 		Spawn:
 			SPRY A 0
 			SPRY A 0 A_Jump(127, "Spawn2")
-			SPRY ABCDEF 2
-			SPRY GHIJKLMNO 1
+			SPRY ABCDEF 2 A_Fadeout(0.04)
+			SPRY GHIJKLMNO 1 A_Fadeout(0.04)
 			stop
 		Spawn2:
-			SPR2 ABCDEF 2
-			SPR2 GHIJKLMNO 1
+			SPR2 ABCDEF 2 A_Fadeout(0.04)
+			SPR2 GHIJKLMNO 1 A_Fadeout(0.04)
 			stop
 	}
 }
 
-actor Bloodmist
+actor Bloodmist : BaseEffect
 {
-	Radius 1
-	Height 1
-	Speed 2
 	Scale 0.4
 	RenderStyle Translucent
 	Alpha 0.25
-	PROJECTILE
-	+NOBLOCKMAP
-	+FORCEXYBILLBOARD
-	+CORPSE
-	+NOINTERACTION
 	States
 	{
 	Spawn:
 		PUF4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
 		PUF5 A 1
 		Stop
-	Death:
-		NULL A 1
-		Stop
+	}
+}
+
+actor GoreSmear : BaseEffect
+{
+	States
+	{
+		Spawn:
+			SMEA ABCDEFGH 1
+			SMEA IJKLMNO 1 A_FadeOut(0.12)
+			stop
 	}
 }
 
@@ -355,123 +355,7 @@ actor BouncingGib3 : BouncingGib1
 	BounceFactor 0.78
 }
 
-ACTOR GibHeart
-{
-	Radius 4
-	Height 4
-	Health 1
-//	Speed 10
-	Mass 9
-	Scale .8
-	BounceFactor 0.6
-	BounceCount 7
-	Projectile
-	-nogravity
-	+HEXENBOUNCE
-	+DONTSPLASH
-	+CORPSE
-	-ACTIVATEPCROSS
-	-ACTIVATEIMPACT
-	States
-	{
-	Spawn:
-		JIB1 ABCD 4 A_SpawnItemEX("GibBloodTrail", 0, 0, 0, 0, 0, 0, 0, 129, 0)
-		loop
-	Death:
-		JIB1 E 1000
-		JIB1 E 3 A_FadeOut
-		goto Death+1
-	}
-}
-
-ACTOR GibEye
-{
-	Radius 4
-	Height 4
-	Health 1
-//	Speed 10
-	Mass 9
-	Scale .6
-	BounceFactor 0.7
-	BounceCount 4
-	Projectile
-	+HEXENBOUNCE
-	-nogravity
-	+DONTSPLASH
-	+CORPSE
-	-ACTIVATEPCROSS
-	-ACTIVATEIMPACT
-	States
-	{
-	Spawn:
-		JIB2 ABCD 4 A_SpawnItemEX("GibBloodTrailSmall", 0, 0, 0, 0, 0, 0, 0, 129, 0)
-		loop
-	Death:
-		JIB2 E 1000
-		JIB2 E 3 A_FadeOut
-		goto Death+1
-	}
-}
-
-ACTOR GibRibs
-{
-	Radius 4
-	Height 4
-	Health 1
-//	Speed 10
-	Mass 9
-	Scale .7
-	BounceFactor 0.5
-	BounceCount 4
-	Projectile
-	-nogravity
-	+HEXENBOUNCE
-	+DONTSPLASH
-	+CORPSE
-	-ACTIVATEPCROSS
-	-ACTIVATEIMPACT
-	States
-	{
-	Spawn:
-		JIB3 ABCD 4 A_SpawnItemEX("GibBloodTrail", 0, 0, 0, 0, 0, 0, 0, 129, 0)
-		loop
-	Death:
-		JIB3 E 1000
-		JIB3 E 3 A_FadeOut
-		goto Death+1
-	}
-}
-
-ACTOR GibSpine
-{
-	Radius 4
-	Height 4
-	Health 1
-//	Speed 10
-	Mass 9
-	Scale .7
-	BounceFactor 0.5
-	BounceCount 2
-	Projectile
-	+HEXENBOUNCE
-	-nogravity
-	+DONTSPLASH
-	+CORPSE
-	-ACTIVATEPCROSS
-    -ACTIVATEIMPACT
-	States
-	{
-	Spawn:
-		JIB4 ABCD 4 A_SpawnItemEX("GibBloodTrailSmall", 0, 0, 0, 0, 0, 0, 0, 129, 0)
-		loop
-	Death:
-		JIB4 E 1000
-		JIB4 E 3 A_FadeOut
-		goto Death+1
-	}
-}
-
-ACTOR GibBrain
+ACTOR GibMeat
 {
 	Radius 4
 	Height 4
@@ -490,6 +374,26 @@ ACTOR GibBrain
 	-ACTIVATEPCROSS
     -ACTIVATEIMPACT
     Decal BloodSplat
+	States
+	{
+	Death:
+	Spawn:
+		GMEA A 0
+		GMEA A 0 A_Jump(128, "Spawn2")
+		GMEA A -1
+		loop
+	Spawn2:
+		GMEA B -1
+		loop
+	Crash:
+		GBRN A 0 A_PlaySound("FleshySplat")
+		GBRN EFGHIJK 3
+		stop
+	}
+}
+
+ACTOR GibBrain : GibMeat
+{
 	States
 	{
 	Death:
@@ -503,24 +407,8 @@ ACTOR GibBrain
 	}
 }
 
-ACTOR GibLimb
+ACTOR GibLimb : GibMeat
 {
-	Radius 4
-	Height 4
-	Health 1
-	Speed 10
-	Mass 9
-	Gravity 0.8
-	+MISSILE
-	-NOGRAVITY
-	+DONTSPLASH
-	+CORPSE
-	+NOBLOCKMAP
- 	+NOBLOCKMONST
- 	+FORCEXYBILLBOARD
-	-ACTIVATEPCROSS
-    -ACTIVATEIMPACT
-    Decal BloodSplat
 	States
 	{
 	Death:
@@ -534,25 +422,8 @@ ACTOR GibLimb
 	}
 }
 
-ACTOR GibOrgan
+ACTOR GibOrgan : GibMeat
 {
-	Radius 4
-	Height 4
-	Health 1
-	Speed 10
-	Mass 9
-	Scale .8
-	Gravity 0.8
-	+MISSILE
-	-NOGRAVITY
-	+DONTSPLASH
-	+CORPSE
-	+NOBLOCKMAP
- 	+NOBLOCKMONST
- 	+FORCEXYBILLBOARD
-	-ACTIVATEPCROSS
-    -ACTIVATEIMPACT
-    Decal BloodSplat
 	States
 	{
 	Death:
@@ -565,71 +436,13 @@ ACTOR GibOrgan
 	}
 }
 
-actor GibBloodTrail
-{
- Game Doom
- Scale 0.7
- Height 1
- Radius 1
- Mass 1
- RenderStyle Translucent
- -NOGRAVITY
- +NOTELEPORT
- +NOBLOCKMAP
- +CORPSE
- +DONTSPLASH
- +FORCEXYBILLBOARD
- -ACTIVATEIMPACT
- -ACTIVATEPCROSS
- States
- {
-  Spawn:
-  BLUD CCCCBBBBAAA 2
-  stop
-  Crash:
-  BLUD D 0 A_SetTranslucent(0.6,0)
-  BLUD D 550
-  BLUD D 1 A_FadeOut
-  goto Crash+2
- }
-}
-
-actor GibBloodTrailSmall
-{
- Game Doom
- Scale 0.5
- Height 1
- Radius 1
- Mass 1
- RenderStyle Translucent
- -NOGRAVITY
- +NOTELEPORT
- +NOBLOCKMAP
- +CORPSE
- +DONTSPLASH
- +FORCEXYBILLBOARD
- -ACTIVATEIMPACT
- -ACTIVATEPCROSS
- States
- {
-  Spawn:
-  BLUD CCCCBBBB 2
-  stop
-  Crash:
-  BLUD D 0 A_SetTranslucent(0.6,0)
-  BLUD D 550
-  BLUD D 1 A_FadeOut
-  goto Crash+2
- }
-}
-
-actor ObliterateGibs
+actor XDeathGibs
 {
 	Radius 16
 	Height 56
 	Mass 100
 	Speed 1
-	Health 1000
+	Health 100
 	PainChance 255
 	+SLIDESONWALLS
 	+DROPOFF
@@ -641,52 +454,33 @@ actor ObliterateGibs
 	+GHOST
 	States
 	{
-		Spawn:
-			TNT1 AAA 0 A_SpawnItemEx("BouncingGib1", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
-			TNT1 AAAA 0 A_SpawnItemEx("BouncingGib2", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
-			TNT1 AAAA 0 A_SpawnItemEx("BouncingGib3", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
-			TNT1 AAAA 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-3, 3), MOMY+Random(-3,3), MOMZ+Random(4, 10), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAA 0 A_SpawnItemEx ("GibOrgan", 0, 0, 25, MOMX+Random(-6, 6), MOMY+Random(-6,6), MOMZ+Random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAAAAA 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAA 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAA 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-6, 6), MOMY+Random(-6,6), MOMZ+Random(6, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAA 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AA 1 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-6, 6), MOMY+Random(5,6), MOMZ+Random(6, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 A 1 A_SpawnItemEx ("GibHeart", 0, 0, 25, MOMX+Random(-5, 5), MOMY+Random(-5,5), MOMZ+Random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 A 1 A_SpawnItemEx ("GibSpine", 0, 0, 25, MOMX+Random(-4, 4), MOMY+Random(-4,4), MOMZ+Random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAA 0 A_SpawnItemEx ("GibLimb", 0, 0, 25, MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(2, 15), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AA 0 A_SpawnItemEx ("GibEye", 0, 0, 25, MOMX+Random(-6, 6), MOMY+Random(-6,6), MOMZ+Random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AA 1 A_SpawnItemEx ("GibBrain", 0, 0, 25, MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(2, 15), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AA 0 A_SpawnItemEx ("GibRibs", 0, 0, 25, MOMX+Random(-4, 4), MOMY+Random(-4,4), MOMZ+Random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAAAA 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-10, 10), MOMY+Random(5,10), MOMZ+Random(2, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 AAAA 1 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-10, 10), MOMY+Random(5,10), MOMZ+Random(2, 15), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			TNT1 A 0
-			stop
-	}
-}
-
-actor XDeathGibs : ObliterateGibs
-{
-	States
-	{
 	Spawn:
-		TNT1 AAA 0 A_SpawnItemEx("BouncingGib1", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
-		TNT1 AAAA 0 A_SpawnItemEx("BouncingGib2", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
-		TNT1 AAAA 0 A_SpawnItemEx("BouncingGib3", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 14), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
-		TNT1 AAAAAAAAA 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-10, 10), MOMY+Random(-10,10), MOMZ+Random(2, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		TNT1 AA 0 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		TNT1 AAAA 0 A_SpawnItemEx("GibLimb", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 AAAAAAAAAAA 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(1, 14), Random(-180, 180), SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
-		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-2, 2), MOMY+random(-2, 2), MOMZ+random(2, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("GoreSmear", 0, 0, 26, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		TNT1 AAA 0 A_SpawnItemEx("BouncingGib1", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
+		TNT1 AAA 0 A_SpawnItemEx("BouncingGib2", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
+		TNT1 AAA 0 A_SpawnItemEx("BouncingGib3", random(-16,16), random(-16,16), random(16, 46), MOMX+Random(-8, 8), MOMY+Random(-8,8), MOMZ+Random(8, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 48)
+		
+		TNT1 AAAA 1 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-10, 10), MOMY+Random(-10,10), MOMZ+Random(6, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 8)
+		TNT1 AAAA 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 14), Random(-180, 180), SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 AAAA 1 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, MOMX+Random(-10, 10), MOMY+Random(-10,10), MOMZ+Random(6, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 8)
+		TNT1 AAAA 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 14), Random(-180, 180), SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		
+		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		TNT1 AA 1 A_SpawnItemEx("GibLimb", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		TNT1 AA 1 A_SpawnItemEx("GibLimb", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 16), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		
+		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibBrain", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibMeat", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibMeat", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibMeat", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
+		TNT1 A 1 A_SpawnItemEx("GibOrgan", 0, 0, 32, MOMX+random(-4, 4), MOMY+random(-4, 4), MOMZ+random(6, 12), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 16)
 		Stop
 	}
 }

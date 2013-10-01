@@ -198,6 +198,169 @@ sprite "LINGJ0", 20, 46
 	}
 }
 
+Sprite SMEAA0, 128, 128
+{
+	XScale 4.0
+	YScale 4.0
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAB0, 128, 128
+{
+	XScale 3.5
+	YScale 3.5
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAC0, 128, 128
+{
+	XScale 3.0
+	YScale 3.0
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAD0, 128, 128
+{
+	XScale 2.5
+	YScale 2.5
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAE0, 128, 128
+{
+	XScale 2.0
+	YScale 2.0
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAF0, 128, 128
+{
+	XScale 1.8
+	YScale 1.8
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAG0, 128, 128
+{
+	XScale 1.6
+	YScale 1.6
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAH0, 128, 128
+{
+	XScale 1.5
+	YScale 1.5
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAI0, 128, 128
+{
+	XScale 1.4
+	YScale 1.4
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAJ0, 128, 128
+{
+	XScale 1.3
+	YScale 1.3
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAK0, 128, 128
+{
+	XScale 1.2
+	YScale 1.2
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAL0, 128, 128
+{
+	XScale 1.1
+	YScale 1.1
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAM0, 128, 128
+{
+	XScale 1.05
+	YScale 1.05
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAN0, 128, 128
+{
+	XScale 1.025
+	YScale 1.025
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
+Sprite SMEAO0, 128, 128
+{
+	Offset 64, 64
+	Patch BP_GIB_O, 0, 0
+	{
+		Style CopyAlpha
+	}
+}
+
 texture AFLAGF01, 132, 95
 {
    Patch AFLAG01, 0, 0

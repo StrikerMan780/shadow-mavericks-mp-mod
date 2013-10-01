@@ -185,44 +185,25 @@ Model Marine
 Model SM_ExplosiveBarrel
 {
   Path "Models/Barrel"
-  Model 0 "barrel.md2"
+  Model 0 "barrel.md3"
   Skin 0 "barrel.png"
   Scale 0.9 0.9 0.9
-  Frame BAR1 A 0 "barrel"
-  Frame BAR1 B 0 "barrel"
-  Frame BEXP A 0 "barrel"
-}
-
-Model SM_ExplosiveBarrel
-{
-  Path "Models/Explosion"
-  Model 0 "explode.md2"
-  Skin 0 "explode.pcx"
-  Scale 1.5 1.5 1.5
-  Frame XPLO A 0 "explodc1"
-  Frame XPLO B 0 "explodc2"
-  Frame XPLO C 0 "explodc3"
-  Frame XPLO D 0 "explodc4"
-  Frame XPLO E 0 "explodc5"
-  Frame XPLO F 0 "explodc6"
-  Frame XPLO G 0 "explodc7"
-  Frame XPLO H 0 "explodc8"
-  Frame XPLO I 0 "explodc10"
-  Frame XPLO J 0 "explodc12"
-  Frame XPLO K 0 "explodc14"
-  Frame XPLO L 0 "explodc16"
-  Frame XPLO M 0 "explodc18"
+  
+  FrameIndex BAR1 A 0 0
+  FrameIndex BAR1 B 0 0
+  FrameIndex BEXP A 0 0
 }
 
 Model NuclearBarrel
 {
   Path "Models/Barrel"
-  Model 0 "barrel.md2"
+  Model 0 "barrel.md3"
   Skin 0 "nukebarrel.png"
   Scale 1.0 1.0 1.0
-  Frame BAR1 A 0 "barrel"
-  Frame BAR1 B 0 "barrel"
-  Frame BEXP A 0 "barrel"
+  
+  FrameIndex BAR1 A 0 0
+  FrameIndex BAR1 B 0 0
+  FrameIndex BEXP A 0 0
 }
 
 
@@ -335,28 +316,6 @@ model Fleshy_BloodSpot
   ZOffset 0.2
 
   Frame BLD2 E 0 "skin"
-}
-
-model GibBloodTrail
-{
-  Path "Models/gibs"
-  Model 0 "bloodpool.md2"
-  Skin 0 "bloodsplat3.png"
-  Scale 1.4 1.4 1.4
-  ZOffset 0.2
-
-  Frame BLUD D 0 "skin"
-}
-
-model GibBloodTrailSmall
-{
-  Path "Models/gibs"
-  Model 0 "bloodpool.md2"
-  Skin 0 "bloodsplat3.png"
-  Scale 1.4 1.4 1.4
-  ZOffset 0.2
-
-  Frame BLUD D 0 "skin"
 }
 
 // ****** BOTTLES ********
@@ -844,16 +803,6 @@ Model MP40
 
 	FrameIndex MP40 C 0 2
 	FrameIndex MP40 C 1 0
-}
-
-model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40pickup.md3"
-	scale 3.6 3.6 3.6
-	ROTATING
-
-	FrameIndex MP4P A 0 0
 }
 
 Model P90
@@ -2287,110 +2236,6 @@ Model FlameThrowerWeap
    ZOffset 25
 
    FrameIndex FLAF B 0 0
-}
-
-Model GibRibs
-{
-   Path "Models\Gibs"
-   Model 0 "jib3_fly.md3"
-   Skin 0 "jib3.jpg"
-   Scale 0.86 0.86 0.86
-   ROTATING
-   //ZOffset 25
-
-   FrameIndex JIB3 A 0 0
-   FrameIndex JIB3 B 0 1
-   FrameIndex JIB3 C 0 2
-   FrameIndex JIB3 D 0 3
-}
-
-Model GibRibs
-{
-   Path "Models\Gibs"
-   Model 0 "jib3.md3"
-   Skin 0 "jib3.jpg"
-   Scale 0.8 0.8 0.8
-   //ZOffset 25
-
-   FrameIndex JIB3 E 0 0
-}
-
-Model GibEye
-{
-   Path "Models\Gibs"
-   Model 0 "jib2_fly.md3"
-   Skin 0 "jib2.jpg"
-   Scale 0.26 0.26 0.26
-   ROTATING
-   //ZOffset 25
-
-   FrameIndex JIB2 A 0 0
-   FrameIndex JIB2 B 0 1
-   FrameIndex JIB2 C 0 2
-   FrameIndex JIB2 D 0 3
-}
-
-Model GibEye
-{
-   Path "Models\Gibs"
-   Model 0 "jib2.md3"
-   Skin 0 "jib2.jpg"
-   Scale 0.26 0.26 0.26
-   //ZOffset 25
-
-   FrameIndex JIB2 E 0 0
-}
-
-Model GibHeart
-{
-   Path "Models\Gibs"
-   Model 0 "jib1.md2"
-   Skin 0 "jib1.jpg"
-   Scale 0.3 0.3 0.3
-   ROTATING
-   //ZOffset 25
-
-   Frame JIB1 A 0 "fly00"
-   Frame JIB1 B 0 "fly02"
-   Frame JIB1 C 0 "fly04"
-   Frame JIB1 D 0 "fly06"
-}
-
-Model GibHeart
-{
-   Path "Models\Gibs"
-   Model 0 "jib1.md2"
-   Skin 0 "jib1.jpg"
-   Scale 0.3 0.3 0.3
-   //ZOffset 25
-
-   Frame JIB1 E 0 "idle"
-}
-
-Model GibSpine
-{
-   Path "Models\Gibs"
-   Model 0 "jib4_fly.md3"
-   Skin 0 "jib4.jpg"
-   Scale 1.0 1.0 1.0
-   ROTATING
-   //ZOffset 25
-
-   FrameIndex JIB4 A 0 0
-   FrameIndex JIB4 B 0 1
-   FrameIndex JIB4 C 0 2
-   FrameIndex JIB4 D 0 3
-}
-
-Model GibSpine
-{
-   Path "Models\Gibs"
-   Model 0 "jib4.md3"
-   Skin 0 "jib4.jpg"
-   Scale 1.0 1.0 1.0
-   //ZOffset 25
-
-   FrameIndex JIB4 E 0 0
 }
 
 Model BouncingGib1
