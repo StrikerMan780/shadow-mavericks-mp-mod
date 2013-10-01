@@ -1,1 +1,1 @@
-move /Y .\backups\*.dbs .\pk3\Maps >nul 2>&1
+move /Y .\backups\*.dbs .\pk3_extras\Maps >nul 2>&1
