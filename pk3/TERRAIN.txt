@@ -260,10 +260,6 @@ terrain Ice
 	damagetype ice
 }
 
-//*********** Floors ************
-
-ifdoom
-
 floor NUKAGE1 nukage_t
 floor NUKAGE2 nukage_t
 floor NUKAGE3 nukage_t
@@ -275,12 +271,9 @@ floor lava1 lava_t
 floor lava2 lava_t
 floor lava3 lava_t
 floor lava4 lava_t
-floor glava1 lava_t
-floor nlava1 lava_t
 floor blood1 blood_t
 floor blood2 blood_t
 floor blood3 blood_t
-floor wblood1 blood_t
 floor SLIME01 Slime
 floor SLIME02 Slime
 floor SLIME03 Slime
@@ -289,41 +282,3 @@ floor SLIME05 Slime
 floor SLIME06 Slime
 floor SLIME07 Slime
 floor SLIME08 Slime
-floor WSLIME01 Slime
-floor wfwater1 water_t
-floor WNUKAGE1 nukage_t
-floor RWATER1 water_t
-floor RWATER2 water_t
-floor RWATER3 water_t
-floor RWATER4 redwater_t
-floor RWATER5 redwater_t
-floor RWATER6 greywater_t
-floor RWATER7 greywater_t
-floor RWATER8 greywater_t
-floor RWATER9 greywater_t
-floor bkwater1 greywater_t
-floor bkwater2 greywater_t
-floor bkwater3 greywater_t
-floor bkwater4 greywater_t
-floor GRANUKE1 greywater_t
-floor GRANUKE2 greywater_t
-floor GRANUKE3 greywater_t
-floor blblood1 bblood_t
-floor blblood2 bblood_t
-floor blblood3 bblood_t
-floor WETGRASS rain_t
-floor WETBRIK rainsolid_t
-floor WATER0 rain_t
-floor WATER1 rain_t
-floor WATER2 rain_t
-floor WATER3 rain_t
-floor WATER4 rain_t
-floor WATER5 rain_t
-floor WATER6 rain_t
-floor WATER7 rain_t
-floor BLDGRAS grassblood_t
-floor sand sand_t
-floor quiksand quiksand_t
-endif
-
-floor fltslud1 blood_t
