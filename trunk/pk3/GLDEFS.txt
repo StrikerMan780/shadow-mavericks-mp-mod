@@ -2471,26 +2471,6 @@ object BlueColumn
     frame BCOL { light BlueColumn }
 }
 
-skybox ORBIT fliptop
-{
-	ORBIT270
-	ORBIT0
-	ORBIT90
-	ORBIT180
-	ORBITTOP
-	ORBITBOT
-}
-
-skybox CITYSKY fliptop
-{
-	LA_FRONT
-	LA_RIGHT
-	LA_BACK
-	LA_LEFT
-	LA_TOP
-	LA_DOWN
-}
-
 Glow
 {
 	Flats

@@ -2,7 +2,7 @@ Note that this list of credits is a work in progress, and I'll be sure to cover 
 If you see something of yours that is in SMMP but hasn't been properly credited, let me know.
 I can be reached at mossj32@gmail.com
 
-Knowing how old (2006), and how large this project is (300mb), and considering how many people have contributed,
+Knowing how old (2006), and how large this project is (300mb+), and considering how many people have contributed,
 It's been difficult to keep track of what content belongs to who. Apologies to anyone I've missed.
 
 Sprites:
@@ -10,7 +10,7 @@ Zombieman Alt-Deaths - ItsNatureToDie, Minigunner
 Shotgun Guy Alt-Deaths - Kinsie, Phi108, Minigunner
 Fireborn - Raven Software, StrikerMan780
 Fallen Crusader - Raven Software, StrikerMan780
-Lightsaber-Wielding DoomGuy - DoomJedi
+Lightsaber-Wielding DoomGuy - DoomJedi (Thanks, man!)
 
 Sounds:
 
