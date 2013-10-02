@@ -1,0 +1,506 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="js" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<!-- $Id: page.tpl.php,v 1.1 2008/02/22 03:15:47 roopletheme Exp $ -->
+
+  <title>Unreal Model Viewer | Gildor's Homepage</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="DC.Title" content="Unreal Model Viewer">
+<meta name="description" content="Unreal Engine skeletal, vertex and 
+static mesh and animation viewer (umodel)">
+<meta name="keywords" content="umodel,Unreal Model Viewer,UT2004 Model 
+Viewer,ukx viewer,usx viewer,utx viewer,upk viewer,Unreal Mesh 
+Export,USkeletalMesh,UVertMesh,UStaticMesh,UMeshAnimation">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="http://www.gildor.org/misc/favicon.ico" 
+type="image/x-icon">
+  <style type="text/css" media="all">@import "/modules/node/node.css";</style>
+<style type="text/css" media="all">@import "/modules/system/defaults.css";</style>
+<style type="text/css" media="all">@import "/modules/system/system.css";</style>
+<style type="text/css" media="all">@import "/modules/user/user.css";</style>
+<style type="text/css" media="all">@import "/sites/all/modules/lightbox2/css/lightbox_alt.css";</style>
+<style type="text/css" media="all">@import "/sites/all/themes/tapestry/style.css";</style>
+<style type="text/css" media="all">@import "/sites/all/themes/tapestry/css/bizcasual.css";</style>
+<style type="text/css" media="all">@import "/sites/all/themes/tapestry/css/suckerfish.css";</style>
+  <script type="text/javascript" src="umodel_files/jquery_002.js"></script>
+<script type="text/javascript" src="umodel_files/drupal.js"></script>
+<script type="text/javascript" src="umodel_files/compat.js"></script>
+<script type="text/javascript" src="umodel_files/image_nodes.js"></script>
+<script type="text/javascript" src="umodel_files/lightbox.js"></script>
+<script type="text/javascript" src="umodel_files/jquery.js"></script>
+<script type="text/javascript">Drupal.extend({ settings: { "lightbox2": { "rtl": false, "file_path": "/(\\w\\w/)files", "base_path": "/", "default_image": "/sites/all/modules/lightbox2/images/brokenimage.jpg", "display_image_size": "", "overlay_opacity": "0.6", "use_alt_layout": 1, "disable_zoom": 0, "force_show_nav": 1, "image_node_sizes": "(\\.thumbnail)", "trigger_image_classes": "img.inline,img.flickr-photo-img,img.flickr-photoset-img,img.image-img_assist_custom,img.thumbnail, img.image-thumbnail", "group_images": true, "disable_for_gallery_lists": true, "disable_for_acidfree_gallery_lists": true, "node_link_text": "View Image Details", "node_link_target": 0, "image_count": "Image !current of !total", "lite_press_x_close": "press \x3ca href=\"#\" onclick=\"hideLightbox(); return false;\"\x3e\x3ckbd\x3ex\x3c/kbd\x3e\x3c/a\x3e to close" } } });</script>
+  <style type="text/css" media="print">@import "/sites/all/themes/tapestry/print.css";</style>
+  <script type="text/javascript"> </script>
+	<style type="text/css">
+		#banner, #container, #headercontainer, #header-region-container, #footer-region-container, #suckerfish-container { 
+			width: 980px;
+		}
+		#page-right, #round-right {
+			width: 1004px;
+		}
+        #sidebar-left {
+			width: 220px;
+		}
+
+        #sidebar-right {
+			width: 0px;
+		}
+        #sidebar-outside {
+			width: 0px;
+		}
+		#inside-content {
+			width: 980px;
+		}
+		#mainContent { 
+			width: 740px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		#round-container { 
+			width: 942px;
+		}
+	</style>
+
+	<style type="text/css">
+		body {
+			font-family : Tahoma, Verdana, Arial, Helvetica, sans-serif;
+		}
+	</style>
+
+
+<!--[if lte IE 6]>
+<style type="text/css" media="all">@import "/sites/all/themes/tapestry/css/ie6.css";</style>
+<![endif]-->
+
+
+<style type="text/css" media="all">@import "/sites/all/themes/tapestry/css/icons.css";</style>
+<!--[if lte IE 6]>
+<style type="text/css" media="all">@import "/sites/all/themes/tapestry/css/icons-ie6.css";</style>
+<![endif]-->
+
+<!--[if lte IE 6]>
+<script type="text/javascript"> 
+    $(document).ready(function(){ 
+        $(document).pngFix(); 
+    }); 
+</script> 
+<![endif]-->
+
+<script type="text/javascript" src="umodel_files/pickstyle.js"></script>
+<script type="text/javascript" src="umodel_files/pickicons.js"></script>
+
+</head><body>
+  <div id="leaderboard">
+    </div>
+
+  <div id="header">
+   <div id="headercontainer" class="clear-block">
+              
+        				<div class="clear-block" style="line-height: 0pt;"></div>
+	<div id="header-region-container" class="clear-block">
+    <div id="header-region" class="clear-block">
+				<div id="header-left" class="width99"><div id="block-block-1" 
+class="block block-block blk-outline blk-outline1">
+
+
+  <div class="content"><!--paging_filter--><table border="0" 
+width="100%">
+<tbody>
+<tr>
+<td>
+<h1><a href="http://www.gildor.org/" style="text-decoration: none;">Gildor's
+ Homepage</a></h1>
+</td>
+<td align="right"><a href="http://www.gildor.org/rss.xml"><img 
+src="umodel_files/rss.png" title="RSS newsfeed"></a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+							</div>
+    <!-- /header-region -->
+	</div>
+	<!-- /header-region-container -->
+	
+
+    <div class="clear-block" style="line-height: 0pt;"></div>
+  <div id="suckerfish-container"><div id="suckerfishmenu"><div 
+id="block-localizer-0" class="block block-localizer unstyled-block">
+
+  <h2>Language</h2>
+
+  <div class="content"><div class="item-list"><ul><li><a 
+href="http://www.gildor.org/switchuilocale/ru?destination=projects%2Fumodel"
+ title="Русский" class="uilocale"><img src="umodel_files/ru.png" 
+class="localizer-flag" alt="Русский" height="11" width="16">  Русский</a></li></ul></div></div>
+</div>
+</div></div>
+     </div>
+  </div>
+  <div id="header-bottom" class="clear-block"></div>
+  
+  
+<div id="outer-container">
+<div id="page-right">
+<div id="page-left">
+
+         
+  <div id="container">
+
+
+                            <div id="breadcrumb">
+               <div class="breadcrumb"><a 
+href="http://www.gildor.org/news">Home</a> <img 
+src="umodel_files/bullet-breadcrumb.png"> <a 
+href="http://www.gildor.org/projects">Projects</a></div>			 </div>
+               
+    <div class="clear-block"></div>
+
+<div id="inside-content">
+
+              <div class="clear-block">
+	<div id="sidebar-left"><div class="customframeblock color2-box-page-bg 
+block block-user" id="block-user-1">
+		<div class="boxborder">
+		<div class="bi">
+		<div class="bt"><div></div></div>
+<div class="custom-inbox">
+	<h2 class="title"></h2>
+	<div class="content">
+<ul class="menu">
+<li class="leaf"><a href="http://www.gildor.org/news">News</a></li>
+<li class="expanded"><a href="http://www.gildor.org/projects">Projects</a>
+<ul class="menu">
+<li class="leaf"><a href="http://www.gildor.org/en/projects/umodel" 
+class="active">Unreal Model Viewer</a></li>
+<li class="leaf"><a href="http://www.gildor.org/projects/unactorx" 
+title="Actor X Importer for 3ds Max">Actor X Importer</a></li>
+
+</ul>
+</li>
+<li class="leaf"><a href="http://www.gildor.org/downloads">Downloads</a></li>
+<li class="leaf"><a href="http://www.gildor.org/en/donate" title="Помощь
+ автору">Donate</a></li>
+<li class="leaf"><a href="http://www.gildor.org/search">Search</a></li>
+<li class="leaf"><a href="http://www.gildor.org/smf">Forum</a></li>
+<li class="leaf"><a href="http://www.gildor.org/en/links">Links</a></li>
+
+</ul>
+</div>
+</div>
+		<div class="bb"><div></div></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+</div>  <div id="mainContent">
+      
+
+
+        <h1 class="title">Unreal Model Viewer</h1>
+        <div class="tabs"></div>
+                        <div id="node-11" class="node clear-block">
+
+
+
+  <div class="meta">
+  
+    </div>
+
+  <div class="content">
+    <!--paging_filter--><p>Last update: 23.01.2010</p>
+<a href="http://www.gildor.org/en/projects/umodel#files">Download</a> | 
+<a href="http://www.gildor.org/gallery/umodel">Screenshots</a> | 
+<a href="http://www.gildor.org/smf/index.php?board=3.0">Discussion</a> |
+<a href="http://www.gildor.org/projects/umodel/compat">Compatibility 
+Table</a> |
+<a href="http://www.gildor.org/projects/umodel/tutorials">Video 
+Tutorials</a> |
+<a href="http://www.gildor.org/en/donate">Donate</a>
+<h2>
+<p>Capabilities</p>
+</h2>
+<hr>
+<ul>
+<li>Loading packages from some Unreal Engine based games</li>
+<li>Visualization of skeletal and vertex meshes with animation support</li>
+<li>Visualization of static meshes</li>
+<li>Viewing supported material types</li>
+<li>Export of skeletal animations and meshes into ActorX format (.psk 
+and .psa) or idSoftware md5</li>
+<li>Export of vertex meshes into Unreal .3D format</li>
+<li>Export of static meshes into psk format (for details look at <a 
+href="http://www.gildor.org/projects/umodel/readme">readme</a>)</li>
+<li>Export textures into tga format</li>
+<li>List of packaged objects (.u, .uax, .ukx, .utx etc).</li>
+</ul>
+
+<p>Supported titles:</p>
+<ul>
+
+<li><h4>Unreal Engine 1:</h4>
+  <ul>
+    <li>Unreal 1, Unreal Tournament 1</li>
+    <li>The Wheel of Time</li>
+  </ul>
+</li>
+
+<li><h4>Modified Unreal Engine 1:</h4>
+  <ul>
+    <li>DeusEx</li>
+    <li>Rune</li>
+  </ul>
+</li>
+
+<li><h4>Unreal Engine 2:</h4>
+  <ul>
+    <li>Unreal Tournament 2003/2004</li>
+    <li>Postal 2</li>
+  </ul>
+</li>
+
+<li><h4>Modified Unreal Engine 2:</h4>
+  <ul>
+    <li>Splinter Cell 1,2</li>
+    <li>Rainbow 6: Raven Shield</li>
+    <li>Lineage 2 Gracia</li>
+    <li>Land of Chaos Online</li>
+    <li>Star Wars: Republic Commando</li>
+  </ul>
+</li>
+
+<li><h4>Unreal Engine 2.5:</h4>
+  <ul>
+    <li>UE2Runtime</li>
+    <li>Harry Potter and the Prisoner of Azkaban</li>
+  </ul>
+</li>
+
+<li><h4>Modified Unreal Engine 2.5:</h4>
+  <ul>
+    <li>Tribes: Vengeance</li>
+    <li>Bioshock, Bioshock 2</li>
+    <li>Exteel</li>
+  </ul>
+</li>
+
+<li><h4>Unreal Engine 2X:</h4>
+  <ul>
+    <li>Unreal Championship 2: The Liandri Conflict</li>
+  </ul>
+</li>
+
+<li><h4>Unreal Engine 3:</h4>
+  <ul>
+    <li>Unreal Tournament 3</li>
+    <li>Gears of War</li>
+    <li>Gears of War 2 (XBox 360)</li>
+    <li>Unreal Development Kit (UDK)</li>
+    <li>Mortal Online</li>
+    <li>Section 8</li>
+  </ul>
+</li>
+
+<li><h4>Modified Unreal Engine 3:</h4>
+  <ul>
+    <li>Rainbow 6: Vegas 2</li>
+    <li>The Last Remnant</li>
+    <li>Damnation</li>
+    <li>Mass Effect, Mass Effect 2</li>
+    <li>BlackSite: Area 51</li>
+    <li>Mortal Kombat vs. DC Universe (XBox360)</li>
+    <li>TNA iMPACT!</li>
+    <li>Stranglehold</li>
+    <li>Army of Two (XBox360)</li>
+    <li>Huxley</li>
+    <li>AVA Online</li>
+    <li>Frontlines: Fuel of War</li>
+    <li>Mirror's Edge</li>
+    <li>X-Men Origins: Wolverine</li>
+    <li>Magna Carta 2</li>
+    <li>Batman: Arkham Asylum</li>
+    <li>Crime Craft</li>
+    <li>50 Cent: Blood on the Sand (XBox360)</li>
+    <li>Borderlands</li>
+    <li>Legendary: Pandora's Box</li>
+    <li>Dark Void</li>
+  </ul>
+</li>
+
+</ul>
+
+<h2>System requirements</h2>
+<hr>
+<ul>
+<li>Windows OS or Linux</li>
+<li>SDL 1.2 (included into package for Windows)</li>
+<li>OpenGL 1.1 videocard (OpenGL 2.0 is recommended)</li>
+</ul>
+<p></p>
+<a name="files"><h2>Downloads</h2></a>
+<hr>
+<p></p><table border="2" cellspacing="2" width="100%"><tbody><tr><td 
+width="30%"><a 
+href="http://www.gildor.org/sites/all/modules/link/down.php?file=umodel/umodel_win32.zip">Win32
+ version</a></td><td width="15%">Size<br>291.41 KB</td><td width="30%">Updated<br>13
+ March, 2010 - 01:00</td><td>15548 downloads</td></tr></tbody></table>
+<p></p><table border="2" cellspacing="2" width="100%"><tbody><tr><td 
+width="30%"><a 
+href="http://www.gildor.org/sites/all/modules/link/down.php?file=umodel/umodel_linux.tar.gz">Linux
+ version</a></td><td width="15%">Size<br>190.34 KB</td><td width="30%">Updated<br>13
+ March, 2010 - 01:00</td><td>433 downloads</td></tr></tbody></table>
+<p><a href="http://www.gildor.org/projects/umodel/readme">Readme with 
+changelog</a></p>
+<h2>Installation</h2>
+<hr>
+<p>There are 2 options for installation.</p>
+<p>a) Extract downloaded archive contents to directory, where Unreal 
+Tournament is installed (<i>root</i>&nbsp;directory&nbsp;of UT2004). In 
+this case, to display contents of package <i>Animations/Player.ukx </i>you
+ may use simple command line "umodel.exe Player"</p>
+<p>b) Extract downloaded archive to <i>any</i> directory. In this case 
+you should specify path to Unreal Tournament. Example: "umodel.exe 
+-path=C:/Games/UT2004 Player"</p>
+<h2>Command line </h2>
+<hr>
+<p><i>umodel</i><br>&nbsp;&nbsp;&nbsp;&nbsp;display short command line 
+help</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004 HumanMaleA</i><br>&nbsp;&nbsp;&nbsp;&nbsp;list
+ all packaged objects from <i>HumanMaleA</i></p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;HumanMaleA&nbsp;MercMaleD</i><br>&nbsp;&nbsp;&nbsp;&nbsp;display
+ mesh&nbsp;<i>MercMaleD</i>&nbsp;from package&nbsp;<i>HumanMaleA</i></p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;HumanMaleA 
+MercMaleD</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export SkeletalMesh<i>  
+MercMaleD</i> from <i>HumanMaleA&nbsp;package</i> as psk</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;-md5 
+HumanMaleA MercMaleD</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export SkeletalMesh<i>
+  MercMaleD</i> from <i>HumanMaleA&nbsp;package</i> as md5mesh</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;-all 
+HumanMaleA MercMaleD</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export SkeletalMesh<i>
+  MercMaleD</i> and all used resources (animation, textures etc)</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;HumanMaleA 
+BipedMaleA</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export animations 
+(MeshAnimation) <i>BipedMaleA</i> from <i>HumanMaleA</i>&nbsp;package as
+ psa</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;-md5 
+HumanMaleA BipedMaleA</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export animations 
+(MeshAnimation) <i>BipedMaleA</i> from <i>HumanMaleA</i>&nbsp;package as
+ md5anim</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;HumanMaleA</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export
+ all supported objects from <i>HumanMaleA</i> package</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-list&nbsp;HumanMaleA</i><br>&nbsp;&nbsp;&nbsp;&nbsp;list
+ contents of <i>HumanMaleA</i>&nbsp;package (object and class names)</p>
+<p><i>umodel&nbsp;-path=c:/games/ut2004&nbsp;-export&nbsp;2K4_NvidiaIntro&nbsp;Intro2k4Skaarj
+ MeshAnimation<br>umodel&nbsp;-path=c:/games/ut2004 -export 
+2K4_NvidiaIntro Intro2k4Skaarj SkeletalMesh</i><br>&nbsp;&nbsp;&nbsp;&nbsp;export
+ skaarj mesh and animations from package <i>2K4_NvidiaIntro</i> (both 
+objects has the same name, but different class names, so class name is 
+specified)</p>
+<p><i>umodel&nbsp;-list&nbsp;c:/games/unreal/music/QueenSong.umx</i><br>&nbsp;&nbsp;&nbsp;&nbsp;list
+ contents of <i>QueenSong.umx</i> package from  Unreal1. Here is package
+ name specified  with <i>full</i> file path. </p>
+<h2>User interface</h2>
+<h2>
+<hr>
+</h2>
+<p>Program controlled mostly with keyboard. To get key assignment help, 
+press &lt;H&gt; (help) key. Main keys:<br>
+</p><table border="0">
+<tbody>
+<tr>
+<td><strong>ESC</strong></td>
+<td>exit from program</td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+<td>get key help information</td>
+</tr>
+<tr>
+<td><strong>[, ]</strong></td>
+<td>switch between mesh animations</td>
+</tr>
+<tr>
+<td><strong>&lt;, &gt;</strong></td>
+<td>rewind animation time backward/forward</td>
+</tr>
+<tr>
+<td><strong>Space, X</strong></td>
+<td>start animation playback (single and looped)</td>
+</tr>
+<tr>
+<td><strong>Ctrl+A</strong></td>
+<td>switch between different animation sets (required for viewing UE3 
+animations)</td>
+</tr>
+<tr>
+<td><strong>PageUp, PageDown</strong></td>
+<td>switching between loaded objects</td>
+</tr>
+</tbody>
+</table>
+
+<p>You can rotate camera  holding left mouse button, zoom with right 
+mouse button, or pan camera (move alongside screen plane) with middle 
+mouse button.</p>  </div>
+
+
+</div>
+
+	<!-- end #mainContent --></div>
+</div>
+
+
+
+</div> <!-- /inside-content -->
+<div class="clear-block" style="clear: both;"></div>
+<div class="page-bottom clear-block"></div>
+
+
+  <div id="trailerboard">
+  <div id="footer">
+           <div id="footer-message">
+</div>  <!-- end #footer --></div>
+<script type="text/javascript">
+<!-- Hide Script
+	function move_in(img_name,img_src) {
+	document[img_name].src=img_src;
+	}
+
+	function move_out(img_name,img_src) {
+	document[img_name].src=img_src;
+	}
+//End Hide Script-->
+</script>
+<a href="http://www.roopletheme.com/" 
+onmouseover="move_in('rtlogo','/sites/all/themes/tapestry/images/bizcasual/roopletheme-rollover.png')"
+ 
+onmouseout="move_out('rtlogo','/sites/all/themes/tapestry/images/bizcasual/roopletheme.png')"
+ title="RoopleTheme!" target="_blank"><img class="rtlogo" 
+src="umodel_files/roopletheme.png" name="rtlogo" alt="RoopleTheme"></a>
+  </div>
+
+<!-- end #container --></div>
+</div></div>
+
+<div id="round-right">
+<div id="round-left">
+<div id="round-container">
+</div></div></div>
+
+</div>
+
+<div style="display: none;" id="overlay"></div><div style="display: 
+none;" id="lightbox"><div id="outerImageContainer"><div 
+id="imageContainer"><img id="lightboxImage"><div id="loading"><a 
+href="#" id="loadingLink"></a></div><div id="bottomNav"><a href="#" 
+id="bottomNavClose"></a><a href="#" id="bottomNavZoom"></a><a href="#" 
+id="bottomNavZoomOut"></a></div></div></div><div class="clearfix" 
+id="imageDataContainer"><div id="imageData"><div id="hoverNav"><a 
+class="force_show_nav" style="padding-top: 10px;" href="#" id="prevLink"></a><a
+ class="force_show_nav" style="padding-top: 10px;" href="#" 
+id="nextLink"></a></div><div id="imageDetails"><span id="caption"></span><span
+ id="numberDisplay"></span></div></div></div></div></body></html>
