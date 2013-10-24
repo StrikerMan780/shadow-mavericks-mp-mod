@@ -3,501 +3,306 @@
 // The people to credit here are DaniJ, Recurracy, -=Dark-Assassin=-, and Sitters.
 // If I've missed anyone to credit, email me at mossj32@gmail.com ...
 
-//**************************
-// BFG10K Model By Recurracy
-// *************************
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktex.png"
- Model 1 "bfg10kBeam.md3"
- Skin 1 "10ktex.png"
- Model 2 "bfg10kplasma.md3"
- Skin 2 "Green_plasma_skin.png"
-
-	NoInterpolation
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G E 0 0	 FrameIndex BG2G E 1 4	 FrameIndex BG2G E 2 0
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexF2.png"
- Model 2 "bfg10kplasma.md3"
- Skin 2 "Green_plasma_skin.png"
-
-	InterpolateDoubleFrames
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G F 0 0	 FrameIndex BG2G F 2 1
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexf3.png"
- Model 2 "bfg10kplasma.md3"
- Skin 2 "Green_plasma_skin.png"
-
-	InterpolateDoubleFrames
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G G 0 0	 FrameIndex BG2G G 2 2
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexf4.png"
- Model 2 "bfg10kplasma.md3"
- Skin 2 "Green_plasma_skin.png"
-
-	InterpolateDoubleFrames
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G H 0 0	 FrameIndex BG2G H 2 3
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexf5.png"
- Model 2 "bfg10kplasma.md3"
- Skin 2 "Green_plasma_skin.png"
-
-	InterpolateDoubleFrames
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G I 0 0	 FrameIndex BG2G I 2 4
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexf.png"
- Model 2 "bfg10kplasma.md3"
- Skin 2 "Green_plasma_skin.png"
-
-	InterpolateDoubleFrames
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G J 0 0	 FrameIndex BG2G J 2 5
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
- Model 0 "bfg10khud.md3"
- skin 0 "10ktex.png"
- Model 1 "bfg10kBeam.md3"
- Skin 1 "10ktex.png"
-
-	InterpolateDoubleFrames
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G A 0 0	 FrameIndex BG2G A 1 0
- FrameIndex BG2G B 0 0	 FrameIndex BG2G B 1 1
- FrameIndex BG2G C 0 0	 FrameIndex BG2G C 1 2
- FrameIndex BG2G D 0 0	 FrameIndex BG2G D 1 3
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
-
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexF3.png"
- Model 1 "bfg10kFlash.md3"
- Skin 1 "energy_flash0.png"
- Model 2 "bfg10kplasma2.md3"
- Skin 2 "Green_plasma_skin.png"
-
- scale -1.0 1.0 1.0
- FrameIndex BG2G K 0 1	FrameIndex BG2G K 1 1	FrameIndex BG2G K 2 1
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
-
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexF4.png"
- Model 1 "bfg10kFlash.md3"
- Skin 1 "energy_flash1.png"
- Model 2 "bfg10kplasma2.md3"
- Skin 2 "Green_plasma_skin.png"
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G L 0 2	FrameIndex BG2G L 1 2	FrameIndex BG2G L 2 2
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
-
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexF5.png"
- Model 1 "bfg10kFlash.md3"
- Skin 1 "energy_flash2.png"
- Model 2 "bfg10kplasma2.md3"
- Skin 2 "Green_plasma_skin.png"
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G M 0 3	FrameIndex BG2G M 1 3	FrameIndex BG2G M 2 3
- FrameIndex BG2G N 0 4	FrameIndex BG2G N 1 4	FrameIndex BG2G N 2 4
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
-
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexF5.png"
- Model 1 "bfg10kFlash.md3"
- Skin 1 "energy_flash2.png"
- Model 2 "bfg10kplasma2.md3"
- Skin 2 "Green_plasma_skin.png"
-
- scale -1.0 1.0 1.0
-
- FrameIndex BG2G N 0 4	FrameIndex BG2G N 1 4	FrameIndex BG2G N 2 4
-}
-
-Model BFG10K
-{
- Path "Models/Hud/BFG10k"
-
- Model 0 "bfg10khud.md3"
- skin 0 "10ktexf.png"
- Model 1 "bfg10kFlash.md3"
- Skin 1 "energy_flash2.png"
- Model 2 "bfg10kplasma2.md3"
- Skin 2 "Green_plasma_skin.png"
-
- scale -1.0 1.0 1.0
-
-NoInterpolation
-
- FrameIndex BG2G O 0 0	FrameIndex BG2G O 1 0	FrameIndex BG2G O 2 999
-}
-
 // Decorations by DaniJ
 // ---------------------
 Model Candelabra
 {
-   Path "Models\Decoration\Lights\Candelabra"
-   Model 0 "Candelabra1.md2"
-   Model 1 "Candelabra2.md3"
-   Skin 0 "candelabra.png"
-   Skin 1 "candleflame1.png"
-   Scale 1.0 1.0 1.0
+	Path "Models\Decoration\Lights\Candelabra"
+	Model 0 "Candelabra1.md2"
+	Model 1 "Candelabra2.md3"
+	Skin 0 "candelabra.png"
+	Skin 1 "candleflame1.png"
+	Scale 1.0 1.0 1.0
 
-   FrameIndex CBRA A 0 0
+	FrameIndex CBRA A 0 0
 }
 
 Model Column
 {
-   Path "Models\Decoration\Lights\Column"
-   Model 0 "SmallLamp.md2"
-   Skin 0 "SmallLamp.png"
-   Model 1 "SmallLamp_Glass.md2"
-   Skin 1 "SmallLamp.png"
-   Scale 1.0 1.0 1.0
+	Path "Models\Decoration\Lights\Column"
+	Model 0 "SmallLamp.md2"
+	Skin 0 "SmallLamp.png"
+	Model 1 "SmallLamp_Glass.md2"
+	Skin 1 "SmallLamp.png"
+	Scale 1.0 1.0 1.0
 
-   FrameIndex COLU A 0 0
+	FrameIndex COLU A 0 0
 }
 
 Model TechLamp
 {
-   Path "Models\Decoration\Lights\BigTechLamp"
-   Model 0 "Biglamp.md2"
-   Model 1 "biglamp_glass.md2"
-   Skin 0 "Biglamp.png"
-   Skin 1 "biglamp.png"
-   Scale 1.0 1.0 1.0
+	Path "Models\Decoration\Lights\BigTechLamp"
+	Model 0 "Biglamp.md2"
+	Model 1 "biglamp_glass.md2"
+	Skin 0 "Biglamp.png"
+	Skin 1 "biglamp.png"
+	Scale 1.0 1.0 1.0
 
-   FrameIndex TLMP A 0 0
-   FrameIndex TLMP B 0 0
-   FrameIndex TLMP C 0 0
-   FrameIndex TLMP D 0 0
+	FrameIndex TLMP A 0 0
+	FrameIndex TLMP B 0 0
+	FrameIndex TLMP C 0 0
+	FrameIndex TLMP D 0 0
 }
 
 Model TechLamp2
 {
-   Path "Models\Decoration\Lights\TechLamp"
-   Model 0 "Mediumlamp.md2"
-   Model 1 "MediumLamp_Glass.md2"
-   Model 2 "MediumLamp_Disc.md2"
-   Skin 0 "Mediumlamp.png"
-   Skin 1 "Mediumlamp.png"
-   Skin 2 "MediumLamp_Disc.tga"
-   Scale 0.175 0.175 0.175
+	Path "Models\Decoration\Lights\TechLamp"
+	Model 0 "Mediumlamp.md2"
+	Model 1 "MediumLamp_Glass.md2"
+	Model 2 "MediumLamp_Disc.md2"
+	Skin 0 "Mediumlamp.png"
+	Skin 1 "Mediumlamp.png"
+	Skin 2 "MediumLamp_Disc.tga"
+	Scale 0.175 0.175 0.175
 
-   FrameIndex TLP2 A 0 0
-   FrameIndex TLP2 B 0 0
-   FrameIndex TLP2 C 0 0
-   FrameIndex TLP2 D 0 0
+	FrameIndex TLP2 A 0 0
+	FrameIndex TLP2 B 0 0
+	FrameIndex TLP2 C 0 0
+	FrameIndex TLP2 D 0 0
 }
 
 Model TechPillar
 {
-   Path "Models\Decoration\Pillar"
-   Model 0 "RP-TechPillar.dmd"
-   Skin 0 "TechPillar.png"
-   Scale 0.5 0.5 0.5
+	Path "Models\Decoration\Pillar"
+	Model 0 "RP-TechPillar.dmd"
+	Skin 0 "TechPillar.png"
+	Scale 0.5 0.5 0.5
 
-   FrameIndex ELEC A 0 0
+	FrameIndex ELEC A 0 0
 }
 
 Model EvilEye
 {
-   Path "Models\Decoration\Lights\Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circle.png"
-   Skin 2 "candlestik.png"
-   skin 3 "candleflame1.png"
+	Path "Models\Decoration\Lights\Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circle.png"
+	Skin 2 "candlestik.png"
+	skin 3 "candleflame1.png"
 
-   scale -0.5 -0.5 0.5
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
 
-   FrameIndex CEYE A 0 0	   FrameIndex CEYE A 1 10	   FrameIndex CEYE A 2 0	   FrameIndex CEYE A 3 0
+	FrameIndex CEYE A 0 0		FrameIndex CEYE A 1 10		FrameIndex CEYE A 2 0		FrameIndex CEYE A 3 0
 }
 Model EvilEye
 {
-   Path "Models\Decoration\Lights\Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circle2.png"
-   Skin 2 "candlestik.png"
-   skin 3 "candleflame1.png"
+	Path "Models\Decoration\Lights\Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circle2.png"
+	Skin 2 "candlestik.png"
+	skin 3 "candleflame1.png"
 
-   scale -0.5 -0.5 0.5
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
 
-   FrameIndex CEYE B 0 2	   FrameIndex CEYE B 1 10	   FrameIndex CEYE B 2 0	   FrameIndex CEYE B 3 0
+	FrameIndex CEYE B 0 2		FrameIndex CEYE B 1 10		FrameIndex CEYE B 2 0		FrameIndex CEYE B 3 0
 }
 Model EvilEye
 {
-   Path "Models\Decoration\Lights\Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circle3.png"
-   Skin 2 "candlestik.png"
-   skin 3 "candleflame1.png"
+	Path "Models\Decoration\Lights\Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circle3.png"
+	Skin 2 "candlestik.png"
+	skin 3 "candleflame1.png"
 
-   scale -0.5 -0.5 0.5
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
 
-   FrameIndex CEYE C 0 4	   FrameIndex CEYE C 1 10	   FrameIndex CEYE C 2 0	   FrameIndex CEYE C 3 0
+	FrameIndex CEYE C 0 4		FrameIndex CEYE C 1 10		FrameIndex CEYE C 2 0		FrameIndex CEYE C 3 0
 }
 
 Model Candlestick
 {
-   Path "Models\Decoration\Lights\Flaming"
-   model 0 "Candlestick.md2"
-   model 1 "Candleflame.md3"
-   skin 0 "candlestik.png"
-   skin 1 "candleflame.png"
-   scale 0.5 0.5 0.5
+	Path "Models\Decoration\Lights\Flaming"
+	model 0 "Candlestick.md2"
+	model 1 "Candleflame.md3"
+	skin 0 "candlestik.png"
+	skin 1 "candleflame.png"
+	scale 0.5 0.5 0.5
 
-   FrameIndex CAND A 0 0	   FrameIndex CAND A 1 0
+	FrameIndex CAND A 0 0		FrameIndex CAND A 1 0
 }
 
 Model SM_BurningBarrel
 {
-   Path "Models\decoration\Lights\Flaming"
-   model 0 "FIRECAN.md2"
-   skin 0 "FIRECAN.PNG"
-   scale 1.0 1.0 1.0
+	Path "Models\decoration\Lights\Flaming"
+	model 0 "FIRECAN.md2"
+	skin 0 "FIRECAN.PNG"
+	scale 1.0 1.0 1.0
 
-   FrameIndex FCAN A 0 0
-   FrameIndex FCAN B 0 0
-   FrameIndex FCAN C 0 0
+	FrameIndex FCAN A 0 0
+	FrameIndex FCAN B 0 0
+	FrameIndex FCAN C 0 0
 }
 
 Model HEADCANDLES
 {
-   Path "Models\Decoration\Lights\Flaming"
-   model 0 "Skullpile1.md2"
-   model 1 "Skullpile2.md3"
-   model 2 "Skullpile4.md2"
-   skin 0 "skullpile.png"
-   skin 1 "candleflame.png"
-   skin 2 "candlestik.png"
-   scale 1.0 1.0 1.0
+	Path "Models\Decoration\Lights\Flaming"
+	model 0 "Skullpile1.md2"
+	model 1 "Skullpile2.md3"
+	model 2 "Skullpile4.md2"
+	skin 0 "skullpile.png"
+	skin 1 "candleflame.png"
+	skin 2 "candlestik.png"
+	scale 1.0 1.0 1.0
 
-   FrameIndex POL3 A 0 0
-   FrameIndex POL3 B 0 0
+	FrameIndex POL3 A 0 0
+	FrameIndex POL3 B 0 0
 }
 
 Model BlueColumn
 {
-   Path "Models/Decoration/Lights/Column"
-   Model 0 "SmallLamp.md2"
-   Skin 0 "SmallLampB.png"
-   Model 1 "SmallLamp_Glass.md2"
-   Skin 1 "SmallLampB.png"
-   Scale 1.0 1.0 1.0
+	Path "Models/Decoration/Lights/Column"
+	Model 0 "SmallLamp.md2"
+	Skin 0 "SmallLampB.png"
+	Model 1 "SmallLamp_Glass.md2"
+	Skin 1 "SmallLampB.png"
+	Scale 1.0 1.0 1.0
 
-   FrameIndex BCOL A 0 0
+	FrameIndex BCOL A 0 0
 }
 
 Model RedColumn
 {
-   Path "Models/Decoration/Lights/Column"
-   Model 0 "SmallLamp.md2"
-   Skin 0 "SmallLampR.png"
-   Model 1 "SmallLamp_Glass.md2"
-   Skin 1 "SmallLampR.png"
-   Scale 1.0 1.0 1.0
+	Path "Models/Decoration/Lights/Column"
+	Model 0 "SmallLamp.md2"
+	Skin 0 "SmallLampR.png"
+	Model 1 "SmallLamp_Glass.md2"
+	Skin 1 "SmallLampR.png"
+	Scale 1.0 1.0 1.0
 
-   FrameIndex RCOL A 0 0
+	FrameIndex RCOL A 0 0
 }
 
 Model RedEvilEye
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circler.png"
-   Skin 2 "candlestikr.png"
-   skin 3 "candleflame1r.png"
-   scale -0.5 -0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circler.png"
+	Skin 2 "candlestikr.png"
+	skin 3 "candleflame1r.png"
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
-   FrameIndex CEYR A 0 0	   FrameIndex CEYR A 1 10	   FrameIndex CEYR A 2 0	   FrameIndex CEYR A 3 0
+	FrameIndex CEYR A 0 0		FrameIndex CEYR A 1 10		FrameIndex CEYR A 2 0		FrameIndex CEYR A 3 0
 }
 Model RedEvilEye
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circler2.png"
-   Skin 2 "candlestikr.png"
-   skin 3 "candleflame1r.png"
-   scale -0.5 -0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circler2.png"
+	Skin 2 "candlestikr.png"
+	skin 3 "candleflame1r.png"
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
-   FrameIndex CEYR b 0 0	   FrameIndex CEYR B 1 10	   FrameIndex CEYR B 2 0	   FrameIndex CEYR B 3 0
+	FrameIndex CEYR b 0 0		FrameIndex CEYR B 1 10		FrameIndex CEYR B 2 0		FrameIndex CEYR B 3 0
 }
 Model RedEvilEye
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circler3.png"
-   Skin 2 "candlestikr.png"
-   skin 3 "candleflame1r.png"
-   scale -0.5 -0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circler3.png"
+	Skin 2 "candlestikr.png"
+	skin 3 "candleflame1r.png"
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
-   FrameIndex CEYR c 0 0	   FrameIndex CEYR C 1 10	   FrameIndex CEYR C 2 0	   FrameIndex CEYR C 3 0
+	FrameIndex CEYR c 0 0		FrameIndex CEYR C 1 10		FrameIndex CEYR C 2 0		FrameIndex CEYR C 3 0
 }
 
 Model BlueEvilEye
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circleb.png"
-   Skin 2 "candlestikb.png"
-   skin 3 "candleflame1b.png"
-   scale -0.5 -0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circleb.png"
+	Skin 2 "candlestikb.png"
+	skin 3 "candleflame1b.png"
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
 
-   FrameIndex CEYB A 0 0	   FrameIndex CEYB A 1 10	   FrameIndex CEYB A 2 0	   FrameIndex CEYB A 3 0
+	FrameIndex CEYB A 0 0		FrameIndex CEYB A 1 10		FrameIndex CEYB A 2 0		FrameIndex CEYB A 3 0
 }
 Model BlueEvilEye
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circleb2.png"
-   Skin 2 "candlestikb.png"
-   skin 3 "candleflame1b.png"
-   scale -0.5 -0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circleb2.png"
+	Skin 2 "candlestikb.png"
+	skin 3 "candleflame1b.png"
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
 
-   FrameIndex CEYB b 0 0	   FrameIndex CEYB B 1 10	   FrameIndex CEYB B 2 0	   FrameIndex CEYB B 3 0
+	FrameIndex CEYB b 0 0		FrameIndex CEYB B 1 10		FrameIndex CEYB B 2 0		FrameIndex CEYB B 3 0
 }
 Model BlueEvilEye
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "EvilEye.md2"
-   model 1 "EvilEye_Circle.md2"
-   model 2 "Candlestick.md2"
-   model 3 "Candleflame.md3"
-   skin 0 "EvilEye.png"
-   skin 1 "EvilEye_Circleb3.png"
-   Skin 2 "candlestikb.png"
-   skin 3 "candleflame1b.png"
-   scale -0.5 -0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "EvilEye.md2"
+	model 1 "EvilEye_Circle.md2"
+	model 2 "Candlestick.md2"
+	model 3 "Candleflame.md3"
+	skin 0 "EvilEye.png"
+	skin 1 "EvilEye_Circleb3.png"
+	Skin 2 "candlestikb.png"
+	skin 3 "candleflame1b.png"
+	scale -0.5 -0.5 0.5
 	ALIGNANGLE
 
-   FrameIndex CEYB c 0 0	   FrameIndex CEYB C 1 10	   FrameIndex CEYB C 2 0	   FrameIndex CEYB C 3 0
+	FrameIndex CEYB c 0 0		FrameIndex CEYB C 1 10		FrameIndex CEYB C 2 0		FrameIndex CEYB C 3 0
 }
 
 Model BlueCandlestick
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "Candlestick.md2"
-   model 1 "Candleflame.md3"
-   skin 0 "candlestikb.png"
-   skin 1 "candleflame1b.png"
-   scale 0.5 0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "Candlestick.md2"
+	model 1 "Candleflame.md3"
+	skin 0 "candlestikb.png"
+	skin 1 "candleflame1b.png"
+	scale 0.5 0.5 0.5
 
-   FrameIndex CANB A 0 0	   FrameIndex CANB A 1 0
+	FrameIndex CANB A 0 0		FrameIndex CANB A 1 0
 }
 
 Model RedCandlestick
 {
-   Path "Models/Decoration/Lights/Flaming"
-   model 0 "Candlestick.md2"
-   model 1 "Candleflame.md3"
-   skin 0 "candlestikr.png"
-   skin 1 "candleflame1r.png"
-   scale 0.5 0.5 0.5
+	Path "Models/Decoration/Lights/Flaming"
+	model 0 "Candlestick.md2"
+	model 1 "Candleflame.md3"
+	skin 0 "candlestikr.png"
+	skin 1 "candleflame1r.png"
+	scale 0.5 0.5 0.5
 
-   FrameIndex CANR A 0 0	   FrameIndex CANR A 1 0
+	FrameIndex CANR A 0 0		FrameIndex CANR A 1 0
 }
 
 model CandleChandelier
@@ -513,238 +318,238 @@ model CandleChandelier
 
 Model BigTree
 {
-   Path "Models\decoration\tree"
-   model 0 "Bigtree.md3"
-   skin 0 "Bigtree.Png"
-   scale 1.25 1.25 2.0
+	Path "Models\decoration\tree"
+	model 0 "Bigtree.md3"
+	skin 0 "Bigtree.Png"
+	scale 1.25 1.25 2.0
 
-   FrameIndex TRE2 A 0 0
+	FrameIndex TRE2 A 0 0
 }
 
 Model Stalagtite
 {
-   Path "Models\decoration\tree"
-   model 0 "Stalag.md2"
-   skin 0 "Stalag.png"
-   scale 1.6 1.6 1.6
+	Path "Models\decoration\tree"
+	model 0 "Stalag.md2"
+	skin 0 "Stalag.png"
+	scale 1.6 1.6 1.6
 
-   FrameIndex SMIT A 0 0
+	FrameIndex SMIT A 0 0
 }
 
 Model tallgreencolumn
 {
-   Path "Models\decoration\pillar"
-   model 0 "Tallpillar.md2"
-   skin 0 "greenStone2.png"
-   scale 1.0 1.0 1.25
+	Path "Models\decoration\pillar"
+	model 0 "Tallpillar.md2"
+	skin 0 "greenStone2.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL1 A 0 0
+	FrameIndex COL1 A 0 0
 }
 
 Model tallredcolumn
 {
-   Path "Models\decoration\pillar"
-   model 0 "Tallpillar.md2"
-   skin 0 "RedStone2.png"
-   scale 1.0 1.0 1.25
+	Path "Models\decoration\pillar"
+	model 0 "Tallpillar.md2"
+	skin 0 "RedStone2.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL3 A 0 0
+	FrameIndex COL3 A 0 0
 }
 
 Model shortredcolumn
 {
-   Path "Models\decoration\pillar"
-   model 0 "stonepillar.md2"
-   skin 0 "redstonepillar.png"
-   scale 1.0 1.0 1.25
+	Path "Models\decoration\pillar"
+	model 0 "stonepillar.md2"
+	skin 0 "redstonepillar.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL4 A 0 0
+	FrameIndex COL4 A 0 0
 }
 Model shortgreencolumn
 {
-   Path "Models\decoration\pillar"
-   model 0 "stonepillar.md2"
-   skin 0 "greenstonepillar.png"
-   scale 1.0 1.0 1.25
+	Path "Models\decoration\pillar"
+	model 0 "stonepillar.md2"
+	skin 0 "greenstonepillar.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL2 A 0 0
+	FrameIndex COL2 A 0 0
 }
 
 Model SKULLcolumn
 {
-   Path "Models\decoration\pillar"
-   model 0 "Stonepillar.md2"
-   model 1 "Skull.md3"
-   skin 0 "greenstonepillar.png"
-   skin 1 "SKULL.png"
-   scale 1.0 1.0 1.25
+	Path "Models\decoration\pillar"
+	model 0 "Stonepillar.md2"
+	model 1 "Skull.md3"
+	skin 0 "greenstonepillar.png"
+	skin 1 "SKULL.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL6 A 0 0   FrameIndex COL6 A 1 0
+	FrameIndex COL6 A 0 0	FrameIndex COL6 A 1 0
 }
 
 Model HEARTcolumn
 {
-   Path "Models\decoration\pillar"
-   model 0 "Stonepillar.md2"
-   model 1 "heart.md3"
-   skin 0 "heartpillar.png"
-   skin 1 "heart.png"
-   scale 1.0 1.0 1.25
-   FrameIndex COL5 A 0 0	   FrameIndex COL5 A 1 0
-   FrameIndex COL5 B 0 0	   FrameIndex COL5 B 1 1
+	Path "Models\decoration\pillar"
+	model 0 "Stonepillar.md2"
+	model 1 "heart.md3"
+	skin 0 "heartpillar.png"
+	skin 1 "heart.png"
+	scale 1.0 1.0 1.25
+	FrameIndex COL5 A 0 0		FrameIndex COL5 A 1 0
+	FrameIndex COL5 B 0 0		FrameIndex COL5 B 1 1
 }
 
 Model FloatingSkull
 {
-   Path "Models\Decoration\Misc"
-   model 0 "floatskull.md3"
-   skin 0 "floatskull.png"
-   scale 1.0 1.0 1.0
-   Rotating
+	Path "Models\Decoration\Misc"
+	model 0 "floatskull.md3"
+	skin 0 "floatskull.png"
+	scale 1.0 1.0 1.0
+	Rotating
 
-   FrameIndex FSKU A 0 0
-   FrameIndex FSKU B 0 0
-   FrameIndex FSKU C 0 0
+	FrameIndex FSKU A 0 0
+	FrameIndex FSKU B 0 0
+	FrameIndex FSKU C 0 0
 }
 
 Model TorchTree
 {
-   Path "Models\Decoration\Tree"
-   model 0 "TREE.md3"
-   skin 0 "Tree.png"
-   scale 0.5 0.5 0.5
+	Path "Models\Decoration\Tree"
+	model 0 "TREE.md3"
+	skin 0 "Tree.png"
+	scale 0.5 0.5 0.5
 
-   FrameIndex TRE1 A 0 0
+	FrameIndex TRE1 A 0 0
 }
 
 Model RedTechLamp
 {
-   Path "Models/Decoration/Lights/BigTechLamp"
-   Model 0 "Biglamp.md2"
-   Model 1 "biglamp_glass.md2"
-   Skin 0 "BiglampR.png"
-   Skin 1 "biglampR.png"
-   Scale 1.0 1.0 1.0
+	Path "Models/Decoration/Lights/BigTechLamp"
+	Model 0 "Biglamp.md2"
+	Model 1 "biglamp_glass.md2"
+	Skin 0 "BiglampR.png"
+	Skin 1 "biglampR.png"
+	Scale 1.0 1.0 1.0
 
-   FrameIndex TLP3 A 0 0
-   FrameIndex TLP3 B 0 0
-   FrameIndex TLP3 C 0 0
-   FrameIndex TLP3 D 0 0
+	FrameIndex TLP3 A 0 0
+	FrameIndex TLP3 B 0 0
+	FrameIndex TLP3 C 0 0
+	FrameIndex TLP3 D 0 0
 }
 
 Model RedTechLamp2
 {
-   Path "Models/Decoration/Lights/TechLamp"
-   Model 0 "Mediumlamp.md2"
-   Model 1 "MediumLamp_Glass.md2"
-   Model 2 "MediumLamp_Disc.md2"
-   Skin 0 "MediumlampR.png"
-   Skin 1 "MediumlampR.png"
-   Skin 2 "MediumLamp_Disc.tga"
-   Scale 0.175 0.175 0.175
+	Path "Models/Decoration/Lights/TechLamp"
+	Model 0 "Mediumlamp.md2"
+	Model 1 "MediumLamp_Glass.md2"
+	Model 2 "MediumLamp_Disc.md2"
+	Skin 0 "MediumlampR.png"
+	Skin 1 "MediumlampR.png"
+	Skin 2 "MediumLamp_Disc.tga"
+	Scale 0.175 0.175 0.175
 
-   FrameIndex TLP4 A 0 0
-   FrameIndex TLP4 B 0 0
-   FrameIndex TLP4 C 0 0
-   FrameIndex TLP4 D 0 0
+	FrameIndex TLP4 A 0 0
+	FrameIndex TLP4 B 0 0
+	FrameIndex TLP4 C 0 0
+	FrameIndex TLP4 D 0 0
 }
 
 Model Stalagmite
 {
-   Path "Models/decoration/tree"
-   model 0 "Stalag.md2"
-   skin 0 "StalagGrey.png"
-   scale 1.0 1.0 1.6
+	Path "Models/decoration/tree"
+	model 0 "Stalag.md2"
+	skin 0 "StalagGrey.png"
+	scale 1.0 1.0 1.6
 
-   FrameIndex SMT2 A 0 0
+	FrameIndex SMT2 A 0 0
 }
 Model TallGothicColumn
 {
-   Path "Models/decoration/pillar"
-   model 0 "Tallpillar.md2"
-   skin 0 "greyStone2.png"
-   scale 1.0 1.0 1.25
+	Path "Models/decoration/pillar"
+	model 0 "Tallpillar.md2"
+	skin 0 "greyStone2.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex GCOL A 0 0
+	FrameIndex GCOL A 0 0
 }
 Model tallGreycolumn
 {
-   Path "Models/decoration/pillar"
-   model 0 "Tallpillar.md2"
-   skin 0 "greyStone2.png"
-   scale 1.0 1.0 1.25
+	Path "Models/decoration/pillar"
+	model 0 "Tallpillar.md2"
+	skin 0 "greyStone2.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL7 A 0 0
+	FrameIndex COL7 A 0 0
 }
 
 Model Greycolumn
 {
-   Path "Models/decoration/pillar"
-   model 0 "stonepillar.md2"
-   skin 0 "Greystonepillar.png"
-   scale 1.0 1.0 1.25
+	Path "Models/decoration/pillar"
+	model 0 "stonepillar.md2"
+	skin 0 "Greystonepillar.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL8 A 0 0
+	FrameIndex COL8 A 0 0
 }
 Model GreyHEARTcolumn
 {
-   Path "Models/decoration/pillar"
-   model 0 "stonepillar.md2"
-   model 1 "heart.md3"
-   skin 0 "Greyheartpillar.png"
-   skin 1 "heart.png"
-   scale 1.0 1.0 1.25
+	Path "Models/decoration/pillar"
+	model 0 "stonepillar.md2"
+	model 1 "heart.md3"
+	skin 0 "Greyheartpillar.png"
+	skin 1 "heart.png"
+	scale 1.0 1.0 1.25
 
-   FrameIndex COL9 A 0 0	   FrameIndex COL9 A 1 0
-   FrameIndex COL9 B 0 0	   FrameIndex COL9 B 1 1
+	FrameIndex COL9 A 0 0		FrameIndex COL9 A 1 0
+	FrameIndex COL9 B 0 0		FrameIndex COL9 B 1 1
 }
 
 Model FloatingBobbingSkull
 {
-   Path "Models/Decoration/misc"
-   model 0 "floatskull.md3"
-   skin 0 "floatskull.png"
-   scale 1.0 1.0 1.0
-   Rotating
+	Path "Models/Decoration/misc"
+	model 0 "floatskull.md3"
+	skin 0 "floatskull.png"
+	scale 1.0 1.0 1.0
+	Rotating
 
-   FrameIndex FSKU A 0 0
-   FrameIndex FSKU B 0 0
-   FrameIndex FSKU C 0 0
+	FrameIndex FSKU A 0 0
+	FrameIndex FSKU B 0 0
+	FrameIndex FSKU C 0 0
 }
 
 Model IceChunk
 {
-   Path "Models\Decoration\Misc"
-   Model 0 "Ice.md3"
-   Skin 0 "Ice.png"
-   Scale 5.0 5.0 10.0
+	Path "Models\Decoration\Misc"
+	Model 0 "Ice.md3"
+	Skin 0 "Ice.png"
+	Scale 5.0 5.0 10.0
 
-   FrameIndex ICEC A 0 0
+	FrameIndex ICEC A 0 0
 }
 Model IceChunk
 {
-   Path "Models\Decoration\Misc"
-   Model 0 "Ice.md3"
-   Skin 0 "Ice.png"
-   Scale 5.0 5.0 7.0
+	Path "Models\Decoration\Misc"
+	Model 0 "Ice.md3"
+	Skin 0 "Ice.png"
+	Scale 5.0 5.0 7.0
 
-   FrameIndex ICEC B 0 0
+	FrameIndex ICEC B 0 0
 }
 Model IceChunk
 {
-   Path "Models\Decoration\Misc"
-   Model 0 "Ice.md3"
-   Skin 0 "Ice.png"
-   Scale 5.0 5.0 4.0
+	Path "Models\Decoration\Misc"
+	Model 0 "Ice.md3"
+	Skin 0 "Ice.png"
+	Scale 5.0 5.0 4.0
 
-   FrameIndex ICEC C 0 0
+	FrameIndex ICEC C 0 0
 }
 Model IceChunk
 {
-   Path "Models\Decoration\Misc"
-   Model 0 "Ice.md3"
-   Skin 0 "Ice.png"
-   Scale 5.0 5.0 1.0
+	Path "Models\Decoration\Misc"
+	Model 0 "Ice.md3"
+	Skin 0 "Ice.png"
+	Scale 5.0 5.0 1.0
 
-   FrameIndex ICEC D 0 0
+	FrameIndex ICEC D 0 0
 }

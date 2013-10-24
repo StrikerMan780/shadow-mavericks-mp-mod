@@ -198,6 +198,86 @@ sprite "LINGJ0", 20, 46
 	}
 }
 
+Sprite PLYGA0, 39, 55
+{
+	XScale 0.95
+	YScale 0.95
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGB0, 39, 55
+{
+	XScale 0.9
+	YScale 0.9
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGC0, 39, 55
+{
+	XScale 0.85
+	YScale 0.85
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGD0, 39, 55
+{
+	XScale 0.8
+	YScale 0.8
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGE0, 39, 55
+{
+	XScale 0.75
+	YScale 0.75
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGF0, 39, 55
+{
+	XScale 0.7
+	YScale 0.7
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGG0, 39, 55
+{
+	XScale 0.65
+	YScale 0.65
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGH0, 39, 55
+{
+	XScale 0.6
+	YScale 0.6
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGI0, 39, 55
+{
+	XScale 0.55
+	YScale 0.55
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
+Sprite PLYGJ0, 39, 55
+{
+	XScale 0.5
+	YScale 0.5
+	Offset 21, 52
+	Patch PLAYG1, 0, 0
+}
+
 Sprite SMEAA0, 128, 128
 {
 	XScale 4.0

@@ -16,13 +16,14 @@ alias SpecialMove "use SpecialMove"
 
 addkeysection "SMMP Misc Commands" SMMPMiscCommands
 addmenukey "All-In-One Fix" Fix
-alias Fix "snd_channels 64; gl_use_models 1; gl_interpolate_model_frames 1; gl_fogmode 1"
+alias Fix "snd_channels 64; gl_use_models 1; gl_interpolate_model_frames 1"
 addmenukey "Quick-Throw Molotov" usemolotov
 alias usemolotov "use MolotovCocktail"
 
 alias censortoggle "puke 132"
-alias crickagib "set crickagibvar %1;instagib %1"
 alias interpolate "gl_interpolate_model_frames 1"
+alias smmp_crickagib "set crickagibvar %1;instagib %1"
+alias smmp_classallowed "set classallowedvar %1"
 defaultbind n "showpop 3"
 
 clearplayerclasses

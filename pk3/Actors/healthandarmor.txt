@@ -1,7 +1,27 @@
 actor Stimpack2 : Stimpack Replaces Stimpack
 {
+	RenderStyle Add
+	Alpha 1.0
 	+FLOATBOB
-	Scale 0.9
+	States
+	{
+		Spawn:
+			STIM ABCDEFGHIJKLMNOP 1 BRIGHT
+			Loop
+	}
+}
+
+actor Medikit2 : Medikit Replaces Medikit
+{
+	RenderStyle Add
+	Alpha 1.0
+	+FLOATBOB
+	States
+	{
+		Spawn:
+			MEDI ABCDEFGHIJKLMNOP 1 BRIGHT
+			Loop
+	}
 }
 
 ACTOR Whopper : Health 20327
@@ -139,6 +159,7 @@ ACTOR Popcorn : Health
 ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
 {
 	inventory.pickupsound "HealthBonus"
+	Inventory.PickupMessage "Health Bonus (+2 Max)"
 	Inventory.Amount 2
 	+FLOATBOB
 	States
@@ -152,6 +173,7 @@ ACTOR MaxHealthBonus2 : MaxHealthBonus Replaces MaxHealthBonus
 ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
 {
 	inventory.pickupsound "HealthBonus"
+	Inventory.PickupMessage "Health Bonus (+2)"
 	Inventory.Amount 2
 	+FLOATBOB
 	States
@@ -165,6 +187,7 @@ ACTOR HealthBonus2 : HealthBonus Replaces HealthBonus
 ACTOR ArmorBonus2 : ArmorBonus Replaces ArmorBonus
 {
 	inventory.pickupsound "ArmorBonus"
+	Inventory.PickupMessage "Armor Bonus (+2)"
 	Armor.SaveAmount 2
 	RenderStyle Add
 	Alpha 1.0
@@ -180,6 +203,7 @@ ACTOR ArmorBonus2 : ArmorBonus Replaces ArmorBonus
 ACTOR MaxArmorBonus2 : MaxArmorBonus Replaces MaxArmorBonus
 {
 	inventory.pickupsound "ArmorBonus"
+	Inventory.PickupMessage "Armor Bonus (+2 Max)"
 	Armor.SaveAmount 2
 	Armor.MaxBonus 2
 	RenderStyle Add

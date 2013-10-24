@@ -22,6 +22,7 @@ Health Bonus Vials - Epic Games, StrikerMan780(Texture edits)
 Armor Items - Epic Games, StrikerMan780(Texture edits)
 Super Shotgun - Z3R0, Unkn0wn
 Quad-Barreled Shotgun - Valve, IAHGames, Game Zombie(CSS Hand Rig)
+PSO Handgun/Techpistol - smoke_fumus(hi-def remodel)
 
 Textures:
 Doom 2 Recolored Textures - DefconRazor32

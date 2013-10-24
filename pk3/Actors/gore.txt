@@ -304,6 +304,18 @@ actor GoreSmear : BaseEffect
 	}
 }
 
+actor BrainExplosion : BaseEffect
+{
+	Scale 0.25
+	States
+	{
+		Spawn:
+			BRNE ABCDEFGHIJK 1
+			BRNE KK 1 A_FadeOut(0.25)
+			stop
+	}
+}
+
 ACTOR BouncingGib1
 {
 	Radius 4
@@ -390,6 +402,11 @@ ACTOR GibMeat
 		GBRN EFGHIJK 3
 		stop
 	}
+}
+
+actor GibMeatSmall : GibMeat
+{
+	Scale 0.5
 }
 
 ACTOR GibBrain : GibMeat
