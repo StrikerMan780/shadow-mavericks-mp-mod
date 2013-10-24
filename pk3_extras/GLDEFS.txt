@@ -17,3 +17,135 @@ skybox CITYSKY fliptop
 	LA_TOP
 	LA_DOWN
 }
+
+brightmap texture PWMISC3
+{
+	map "Brightmaps/pwmisc3.png"
+}
+
+brightmap texture PWMISC4
+{
+	map "Brightmaps/pwmisc3.png"
+}
+
+brightmap texture CLUBMAVK
+{
+	map "Brightmaps/CLUBMAVK.png"
+}
+
+brightmap texture N_LTOR05
+{
+	map "Brightmaps/LITEBRIT.png"
+}
+
+brightmap texture SEVENEL
+{
+	map "Brightmaps/SEVENEL.png"
+}
+
+brightmap texture TILECF11
+{
+	map "Brightmaps/TILECF11.png"
+}
+
+brightmap texture TILEFB87
+{
+	map "Brightmaps/TILEFB87.png"
+}
+
+brightmap texture DMDCTF05
+{
+	map "Brightmaps/dmdctf05.png"
+}
+
+brightmap texture FIYAH
+{
+	map "Brightmaps/fiyah.png"
+}
+
+brightmap texture N_MTST07
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture N_MTST08
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture N_MTST09
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture N_MTST10
+{
+	map "Brightmaps/N_MTST07.png"
+}
+
+brightmap texture XPORTAL2
+{
+	map "Brightmaps/XPORTAL2.png"
+}
+
+brightmap texture XPORTAL3
+{
+	map "Brightmaps/XPORTAL3.png"
+}
+
+brightmap texture XPORTAL4
+{
+	map "Brightmaps/XPORTAL4.png"
+}
+
+brightmap texture XPORTAL5
+{
+	map "Brightmaps/XPORTAL5.png"
+}
+
+brightmap texture XPORTAL6
+{
+	map "Brightmaps/XPORTAL6.png"
+}
+
+/*
+brightmap texture LAVFALL1
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL2
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL3
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL4
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL5
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL6
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL7
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+
+brightmap texture LAVFALL8
+{
+	map "Brightmaps/LAVFALL1.png"
+}
+*/

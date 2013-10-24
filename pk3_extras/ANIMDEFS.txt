@@ -559,19 +559,7 @@ texture FIREBLU2
 	pic	FIREBL30 tics 2
 	pic	FIREBL31 tics 2
 	pic	FIREBL32 tics 2
-
-flat BLOOD1
-	pic BLOOD1 tics 8
-	pic BLOOD1 tics 8
-
-flat BLOOD2
-	pic BLOOD1 tics 8
-	pic BLOOD1 tics 8
-
-flat BLOOD3
-	pic BLOOD1 tics 8
-	pic BLOOD1 tics 8
-
+	
 flat BLBLOOD1
 	pic BLBLOOD1 tics 8
 	pic BLBLOOD1 tics 8
@@ -595,64 +583,6 @@ flat GRANUKE2
 flat GRANUKE3
 	pic GRANUKE1 tics 8
 	pic GRANUKE1 tics 8
-
-flat LAVA1
-	pic	LAVA1 tics 8
-	pic	LAVA1 tics 8
-
-flat LAVA2
-	pic	LAVA1 tics 8
-	pic	LAVA1 tics 8
-
-flat LAVA3
-	pic	LAVA1 tics 8
-	pic	LAVA1 tics 8
-
-flat LAVA4
-	pic	LAVA1 tics 8
-	pic	LAVA1 tics 8
-
-flat NUKAGE1
-	pic	NUKAGE1 tics 2
-	pic	NUKAGE2 tics 2
-	pic	NUKAGE3 tics 2
-	pic	NUKAGE4 tics 2
-	pic	NUKAGE5 tics 2
-	pic	NUKAGE6 tics 2
-	pic	NUKAGE7 tics 2
-	pic	NUKAGE8 tics 2
-	pic	NUKAGE9 tics 2
-	pic	NUKAGE10 tics 2
-	pic	NUKAGE11 tics 2
-	pic	NUKAGE12 tics 2
-
-flat NUKAGE2
-	pic	NUKAGE1 tics 2
-	pic	NUKAGE2 tics 2
-	pic	NUKAGE3 tics 2
-	pic	NUKAGE4 tics 2
-	pic	NUKAGE5 tics 2
-	pic	NUKAGE6 tics 2
-	pic	NUKAGE7 tics 2
-	pic	NUKAGE8 tics 2
-	pic	NUKAGE9 tics 2
-	pic	NUKAGE10 tics 2
-	pic	NUKAGE11 tics 2
-	pic	NUKAGE12 tics 2
-
-flat NUKAGE3
-	pic	NUKAGE1 tics 2
-	pic	NUKAGE2 tics 2
-	pic	NUKAGE3 tics 2
-	pic	NUKAGE4 tics 2
-	pic	NUKAGE5 tics 2
-	pic	NUKAGE6 tics 2
-	pic	NUKAGE7 tics 2
-	pic	NUKAGE8 tics 2
-	pic	NUKAGE9 tics 2
-	pic	NUKAGE10 tics 2
-	pic	NUKAGE11 tics 2
-	pic	NUKAGE12 tics 2
 
 flat SNUKE1
 	pic	SNUKE1 tics 2
@@ -695,78 +625,6 @@ flat SNUKE3
 	pic	SNUKE10 tics 2
 	pic	SNUKE11 tics 2
 	pic	SNUKE12 tics 2
-
-flat FWATER1
-	pic	FWATER1 tics 2
-	pic	FWATER2 tics 2
-	pic	FWATER3 tics 2
-	pic	FWATER4 tics 2
-	pic	FWATER5 tics 2
-	pic	FWATER6 tics 2
-	pic	FWATER7 tics 2
-	pic	FWATER8 tics 2
-	pic	FWATER9 tics 2
-	pic	FWATER10 tics 2
-	pic	FWATER11 tics 2
-	pic	FWATER12 tics 2
-	pic	FWATER13 tics 2
-	pic	FWATER14 tics 2
-	pic	FWATER15 tics 2
-	pic	FWATER16 tics 2
-
-flat FWATER2
-	pic	FWATER1 tics 2
-	pic	FWATER2 tics 2
-	pic	FWATER3 tics 2
-	pic	FWATER4 tics 2
-	pic	FWATER5 tics 2
-	pic	FWATER6 tics 2
-	pic	FWATER7 tics 2
-	pic	FWATER8 tics 2
-	pic	FWATER9 tics 2
-	pic	FWATER10 tics 2
-	pic	FWATER11 tics 2
-	pic	FWATER12 tics 2
-	pic	FWATER13 tics 2
-	pic	FWATER14 tics 2
-	pic	FWATER15 tics 2
-	pic	FWATER16 tics 2
-
-flat FWATER3
-	pic	FWATER1 tics 2
-	pic	FWATER2 tics 2
-	pic	FWATER3 tics 2
-	pic	FWATER4 tics 2
-	pic	FWATER5 tics 2
-	pic	FWATER6 tics 2
-	pic	FWATER7 tics 2
-	pic	FWATER8 tics 2
-	pic	FWATER9 tics 2
-	pic	FWATER10 tics 2
-	pic	FWATER11 tics 2
-	pic	FWATER12 tics 2
-	pic	FWATER13 tics 2
-	pic	FWATER14 tics 2
-	pic	FWATER15 tics 2
-	pic	FWATER16 tics 2
-
-flat FWATER4
-	pic	FWATER1 tics 2
-	pic	FWATER2 tics 2
-	pic	FWATER3 tics 2
-	pic	FWATER4 tics 2
-	pic	FWATER5 tics 2
-	pic	FWATER6 tics 2
-	pic	FWATER7 tics 2
-	pic	FWATER8 tics 2
-	pic	FWATER9 tics 2
-	pic	FWATER10 tics 2
-	pic	FWATER11 tics 2
-	pic	FWATER12 tics 2
-	pic	FWATER13 tics 2
-	pic	FWATER14 tics 2
-	pic	FWATER15 tics 2
-	pic	FWATER16 tics 2
 
 texture AOSHI00
 	pic AOSHI00 tics 4
@@ -915,7 +773,6 @@ warp2 flat water4
 warp2 flat water5
 warp2 flat water6
 warp2 flat water7
-warp2 flat blood1
 warp2 flat blblood1
 warp2 flat granuke1
 warp2 texture NLAVA1
@@ -923,10 +780,6 @@ warp flat wblood1
 warp flat wfwater1
 warp flat quiksand
 warp flat glava1
-warp flat lava1
-warp flat lava2
-warp flat lava3
-warp flat lava4
 warp texture e1sky1
 warp texture e3sky1
 warp texture warpface
