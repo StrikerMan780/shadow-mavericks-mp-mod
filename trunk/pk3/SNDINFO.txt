@@ -898,6 +898,12 @@ Popcorn DSPOPCRN
 // * PLAYER CLASSES *
 // ******************
 
+HorrificScream1 DSPLSPL1
+HorrificScream2 DSPLSPL2
+HorrificScream3 DSPLSPL3
+HorrificScream4 DSPDIEHI
+$random HorrificScream { HorrificScream1 HorrificScream2 HorrificScream3 HorrificScream4 }
+
 // ** Marine **
 
 MarineTaunt1 DSTAUNT
@@ -1108,16 +1114,16 @@ tourettes/grunt1	DSTGOOF
 tourettes/grunt2	DSTGNOWA
 $random tourettes/grunt { tourettes/grunt1 tourettes/grunt2 }
 
-$playeralias	Sgt.Tourette(SMMP)	male	*taunt		tourettes/taunt
-$playeralias	Sgt.Tourette(SMMP)	male	*death		tourettes/death
-$playersound    Sgt.Tourette(SMMP)  male    *xdeath     dstgdieh
-$playeralias	Sgt.Tourette(SMMP)	male	*pain100	tourettes/pain
-$playersound    Sgt.Tourette(SMMP)	male	*pain75		dstgpai3
-$playersound    Sgt.Tourette(SMMP)	male	*pain50		dstgpai4
-$playersound    Sgt.Tourette(SMMP)  male	*pain25		dstgpai5
-$playersound	Sgt.Tourette(SMMP)	male	*land		dsduklnd
-$playeralias	Sgt.Tourette(SMMP)	male	*grunt		tourettes/grunt
-$playeralias	Sgt.Tourette(SMMP)	male	*usefail	tourettes/usefail
+$playeralias	player	other	*taunt		tourettes/taunt
+$playeralias	player	other	*death		tourettes/death
+$playersound    player  other    *xdeath     dstgdieh
+$playeralias	player	other	*pain100	tourettes/pain
+$playersound    player	other	*pain75		dstgpai3
+$playersound    player	other	*pain50		dstgpai4
+$playersound    player  other	*pain25		dstgpai5
+$playersound	player	other	*land		dsduklnd
+$playeralias	player	other	*grunt		tourettes/grunt
+$playeralias	player	other	*usefail	tourettes/usefail
 
 DukePain100-1 	DSDUKP01
 DukePain100-2 	DSDUKP02

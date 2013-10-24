@@ -69,7 +69,6 @@ actor RandomCacodemonSpawner : RandomSpawner Replaces Cacodemon
 actor SM_Demon : Demon //Replaces Demon
 {
 	DropItem "ForceThrust", 2
-	Scale 0.79
 	States
 	{
 	Death:
@@ -131,7 +130,6 @@ actor BloodDemon : SM_Demon 5004
 	SpawnID 156
 	Health 300
 	Obituary "$OB_BLOODDEMON_MELEE"
-	Scale 0.79
 	States
 	{
 		Spawn:
@@ -173,7 +171,6 @@ ACTOR NightmareDemon : SM_Demon
 	+FLOORCLIP
 	RenderStyle Add
 	ALPHA 1.0
-	Scale 0.80
 	Obituary "%o was mauled by a Nightmare Demon!"
 	States
 	{
@@ -673,7 +670,9 @@ actor CacoShooper : GBTWCacodemon 12123
 	HEAD BCBA 2 A_FaceTarget
 	goto Shoop
   InstaShoop:
+	HEDT A 18
 	HEAD A 0 A_PlaySoundEx("ShoopDaWhoop2", "Auto", 0, 0.99)
+	goto Shoop
   Shoop:
 	WOOP A 0 Radius_Quake (9, 40, 0, 8, 0)
 	WOOP A 1 bright A_CustomMissile("ShooperBlast",32,0)
@@ -2414,6 +2413,19 @@ actor SM_Archvile : Archvile Replaces Archvile
   DamageFactor "Holy", 5.0
   DamageFactor "VilesBane", 1000
 }
+
+actor SMArachnotron : Arachnotron Replaces Arachnotron
+{
+	Dropitem "Beamer", 128
+	DropItem "Stinger", 64
+	DropItem "CricketAmmo", 28
+	DropItem "LightningGun", 20
+	DropItem "FreezeBolt", 54
+	DropItem "LaserRifle1", 64
+	DropItem "WeatherMaker", 38
+	DropItem "CellAmmo", 10
+}
+
 
 actor SM_Fatso : Fatso Replaces Fatso
 {
