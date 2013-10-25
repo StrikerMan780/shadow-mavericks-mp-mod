@@ -3646,3 +3646,20 @@ Model LightSaber
 	FrameIndex LSB2 Y 0 33
 	FrameIndex LSB2 Z 0 34
 }
+
+Model IPodLauncher
+{
+	Path "Models\HUD\IPodLauncher"
+	Model 0 "IPodLauncher.md3"
+	Skin 0 "IPodLauncher.png"
+	Scale -5.0 3.5 5
+
+	FrameIndex IPDG A 0 35
+	FrameIndex IPDG B 0 0
+	FrameIndex IPDG C 0 3
+	FrameIndex IPDG D 0 5
+	FrameIndex IPDG E 0 10
+	FrameIndex IPDG F 0 14
+	FrameIndex IPDG G 0 20
+	FrameIndex IPDG H 0 26
+}

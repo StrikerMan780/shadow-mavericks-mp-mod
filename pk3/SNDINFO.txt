@@ -504,6 +504,10 @@ MysteryItem DSMYSTER
 WinMysteryItem DSMYSTE1
 WinMysteryItemBonus DSMYSTE2
 
+world/barrelx DSBAREXP
+$rolloff world/barrelx 400 2400
+$limit world/barrelx 0
+
 //************-MONSTERS-*************
 
 // Bishop
