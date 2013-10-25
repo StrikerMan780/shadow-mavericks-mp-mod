@@ -73,8 +73,6 @@ Actor ElementalSSG : Weapon 12346
 			SHT4 A 7 A_ReFire
 			goto Ready
 		ICEFire:
-			SHT5 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEFire")
-			SHT5 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzFire")
 			SHT5 A 2
 			SHT5 A 0 radius_quake(4, 3, 0, 1, 0)
 			SHT5 A 0 A_PlayWeaponSound("weapons/sshotf")

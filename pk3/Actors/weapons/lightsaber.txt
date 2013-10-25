@@ -4,7 +4,7 @@ ACTOR LightSaber : ClericWeapon 25004
 	Obituary "%k gave %o a little taste of the force."
 	weapon.upsound "saberup"
 	Weapon.AmmoUse 0
-	attacksound "Saberhit"
+	attacksound "SaberFleshHit"
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NOALERT
 	+AXEBLOOD
@@ -44,6 +44,7 @@ ACTOR LightSaber : ClericWeapon 25004
 			Wait
 		Select:
 			LSAB A 0 BRIGHT A_GiveInventory("UsingSaber", 1)
+			LSAB A 0 BRIGHT A_GiveInventory("SaberColor", 1)
 			LSAB A 0 A_JumpIfInventory("SaberBlue", 1, "SelectBlue")
 			LSAB A 0 A_JumpIfInventory("SaberRed", 1, "SelectRed")
 			LSAB AAAABBBB 1 BRIGHT A_Raise
