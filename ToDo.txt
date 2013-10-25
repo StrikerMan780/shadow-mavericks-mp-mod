@@ -1,4 +1,4 @@
-===============
+ ===============
 SMMP To-Do List
 ===============
 
@@ -28,14 +28,17 @@ Add fire death for tourettes zombies, and make them capable of throwing molotovs
 Re-do all fire deaths
 Re-do ethereal energy deaths
 Use the SST TC's Bio Bow as the Biorifle for Duke
-Prevent the Ultimate attacks from Stacking Demonic Points
+
 * Reduce Action Sound Frequency for Danny.
 * Add alternate saber impact sounds
 * Shrink OpenGL Warning
 * Make Bishop Staff work like a ripper boomerang.
 
+(CANNOT DO YET) Prevent the Ultimate attacks from Stacking Demonic Points (CANNOT DO YET)
 
 -=Graphics=-
+Fix splash colors / Use Models for them
+Add high-res FRTB sprite
 
 -=COOP01=-
 Really update the fuck out of this map. Fix the end battle as well.
