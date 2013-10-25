@@ -1,0 +1,58 @@
+Made it so trites will drown in water.
+Fixed Toilet Teleporter in Night Club.
+Added Giygas Sky.
+Added new FIREBLU Texture.
+Added additonal ammo to Shiny Rabbit's room.
+Made it so leeroy zombies will attempt to lunge at people flying in the spacecraft.
+Set the taunt delay to an entire minunte, spam was getting out of hand.
+Made it so Zombies roam until they find someone on the HQ when spawned.
+Added SONICEXE Texture
+Added SCARE1 Graphic
+Added ROTMEAT1 Texture
+Added BLUDSTUF Texture
+Started work on Heretic Kitsune's Room
+Started work on Espio's Room
+Gave the Quad SSG Recoil Tilt
+Added Improved Arc Lightning from SuperDoom64
+Added HUD Model for Lightsaber
+Made another attempt at improving framerate on MPDM04
+Added corpse fades to heretic imps and mummies
+Added Suicide Animation for Marine
+Removed all Marine skins
+Loosened normal shotty spread
+Made Turrets fullbright when firing
+Slightly increased Trite radius
+Lowered the monster spawn cap
+Added iMac Model.
+Added Danny Friendly Monster.
+Made iMacs destructible.
+
+---------------------------------------------------------------
+
+Fixed Danny's respawn fog.
+Fixed sector linking on ruin's amplifier
+Made Danny Bright Red, rather than Dark Red
+Made saber block wider and taller
+Replaced Sector XBoxes with Models
+Finished layout of Giygas Lair
+Added new difficulty names
+Added Uncle Phil trap
+Added Striker X Helen pic
+Got rid of Coward Killing Time Music
+Fixed horizontal ball speed in Doomanoid
+Fixed iMac Respawn
+Added Grenade Launcher Model
+Added Grenade Launcher Sounds
+Overhauled Grenade Launcher Behaviour
+Gave the Minigun some offset jitter while firing
+Altered the Minigun to fire 2 rounds per burst
+Made Magnum Revolver Semi-Auto with Reload.
+Added new barrel from HL2
+Split SMMP into two separate modules
+Made a credit image for DoomJedi's lightsaber marine sprites!
+Improved SSG Model Animations
+Re-Done Animations for Elemental SSGs to match normal SSG
+Added high-res Molotov inventory icon
+Added Brown Sludge High Res Texture w/ Anims
+Added Armor Pickup Sound
+Added new models for the Armor Pickups
