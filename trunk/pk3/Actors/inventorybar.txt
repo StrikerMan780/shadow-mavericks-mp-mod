@@ -44,11 +44,17 @@ ACTOR MolotovCocktail_Dropped : MolotovCocktail
 	}
 }
 
+actor SerumSpawner : RandomSpawner 10592
+{
+	DropItem "HealingSerum"
+}
+
 ACTOR HealingSerum : ArtiHealth replaces ArtiHealth
 {
   Inventory.Icon ARTIHSER
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "Healing Serum"
+  Inventory.UseSound "HealingSerum"
   HealthPickup.AutoUse 0
   States
   {

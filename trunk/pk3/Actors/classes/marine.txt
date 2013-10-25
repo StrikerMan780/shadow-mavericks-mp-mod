@@ -107,30 +107,30 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLAY H 0
 		PLAY H 0 ThrustThingZ(0, Random(28, 40), 0, 1)
 		PLAY H 0 A_Jump(128, "Death", "XDeath")
-		PLAY H 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY H 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		goto Split
 	Death.Silver:
 		PLAY H 0
 		PLAY H 0 A_Jump(196, "Death")
-		PLAY H 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY H 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		goto HeadBurst
 	Death.HeadBurst:
 		PLAY H 0
 		PLAY H 0 A_Jump(132, "Death")
-		PLAY H 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY H 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		goto HeadBurst
 	Death.SSG:
 		PLAY H 0
 		PLAY H 0 A_Jump(150, "Death")
-		PLAY H 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY H 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY H 0 A_Jump(112, "HeadBurst")
 		goto Split
 	Death:
-		PLAY H 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY H 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY H 7
 		PLAY I 7 A_PlayerScream
@@ -139,7 +139,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLAY N -1
 		Stop
 	XDeath:
-		PLAY O 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY O 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY O 0 A_GiveToTarget("SpeakOneLiner", 1)
 		PLAY O 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -166,7 +166,6 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		Stop
 	Death.ChaosFire:
 		PLAY GG 0 A_Stop
-		PLAY G 0 A_GiveToTarget("DemonicPower", 20)
 		PLAY G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY G 5 A_PlayerScream
 		PLAY G 0 A_NoBlocking
@@ -212,7 +211,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLAY N -1
 		stop
 	Death.Microwave:
-		PLYG A 0 A_GiveToTarget("DemonicPower", 20)
+		PLYG A 0 A_GiveToTarget("DemonicPower", 10)
 		PLYG A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLYG A 4 A_PlaySound("DukeGrow")
 		PLYG B 4
@@ -235,7 +234,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		POL5 A -1
 		stop
 	Death.Ethereal:
-		PLAY G 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY G 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY G 1 A_PlayerScream
 		PLAY G 1 A_SpawnItemEX("EtherealMist", Random(-8, 8), Random(-8, 8), Random(0, 40), Random(-1, 1), Random(-1, 1), Random(-1, 1), 0, 128, 0)
@@ -312,13 +311,13 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		stop
 	Ice:
 		PLAY E 5 A_GenericFreezeDeath
-		PLAY E 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY E 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
 		PLAY E 1 A_GenericFreezeDeath
-		PLAY E 0 A_GiveToTarget("DemonicPower", 20)
+		PLAY E 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		PLAY EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		PLAY E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -336,7 +335,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLAY W -1
 		stop
 	Burn:
-		BURN A 0 A_GiveToTarget("DemonicPower", 20)
+		BURN A 0 A_GiveToTarget("DemonicPower", 10)
 		BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		BURN A 0 A_Playsound("firedeath")
 		BURN A 0 A_Fall
@@ -346,7 +345,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		BURN V -1
 		stop
 	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 20)
+		NULL A 0 A_GiveToTarget("DemonicPower", 10)
 		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NULL A 0 A_Playsound("disintegrate")
 		NULL A 0 A_NoBlocking
@@ -364,6 +363,15 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PDEC BCDEF 6
 		PDEC G -1
 		stop
+	Death.Saber:
+		PLYS A 0 A_GiveToTarget("DemonicPower", 10)
+		PLYS A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
+		PLYS A 0 A_PlayerScream
+		PLYS A 3 A_NoBlocking
+		PLYS B 3
+		PLYS B 0 A_SpawnItemEx("MarineLegs", 0, 0, 0, MOMX, MOMY, MOMZ, 0, SXF_TRANSFERTRANSLATION | SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		PLYS B 0 ThrustThingZ(0, random(40, 64), 0, 1)
+		goto Split2
 	Split:
 		PLYS AAAAAAAAAA 0 A_SpawnItemEx("Striker_FlyingBlood", random(-32,32), random(-32,32), random(0, 56), random(-10, 10), random(-10,10), random(8,10), 0, SXF_CLIENTSIDE, 0)
 		PLYS AAAAAAA 0 A_SpawnItemEx("GibMeatSmall", 0, 0, 32, random(-8,8), random(-8,8), random(4, 10), random(-180,180), SXF_CLIENTSIDE, 0)

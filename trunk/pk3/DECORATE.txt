@@ -1571,9 +1571,6 @@ Check2:
 Working:
 	RCOR A 1 ACS_Execute(962, 0)
 	RCOR A 1 A_PlaySound("Upgrade")
-	RCOR A 1 A_GiveInventory("PlasmaDebris", 1)
-	RCOR A 1 A_GiveInventory("ProtonTorpedoDebris", 1)
-	RCOR A 1 A_GiveInventory("ProtonGrenadeDebris", 1)
 	stop
 }
 }
@@ -1678,7 +1675,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL A 0 ACS_ExecuteAlways(921, 0)
 		Loop
 	Burn:
-		BURN A 0 A_GiveToTarget("DemonicPower", 20)
+		BURN A 0 A_GiveToTarget("DemonicPower", 10)
 		BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		BURN A 0 A_Playsound("firedeath")
 		BURN A 0 A_Fall
@@ -1688,7 +1685,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		BURN V -1
 		stop
 	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 20)
+		NULL A 0 A_GiveToTarget("DemonicPower", 10)
 		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NULL A 0 A_Playsound("disintegrate")
 		NULL A 0 A_NoBlocking
@@ -1723,7 +1720,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL H 0 ThrustThingZ(0, Random(28, 40), 0, 1)
 		goto Death
 	Death:
-		TAIL H 0 A_GiveToTarget("DemonicPower", 20)
+		TAIL H 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL H 0 ACS_ExecuteAlways(965, 0)
 		TAIL H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL H 7
@@ -1733,7 +1730,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL N -1
 		Stop
 	XDeath:
-		TAIL H 0 A_GiveToTarget("DemonicPower", 20)
+		TAIL H 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL O 0 A_GiveToTarget("SpeakOneLiner", 1)
 		TAIL O 0 ACS_ExecuteAlways(965, 0)
 		TAIL O 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
@@ -1746,7 +1743,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Death.ChaosFire:
 		TAIL GG 0 A_Stop
 		TAIL G 0 ACS_ExecuteAlways(965, 0)
-		TAIL G 0 A_GiveToTarget("DemonicPower", 20)
 		TAIL G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL G 5 A_PlayerScream
 		TAIL G 0 A_NoBlocking
@@ -1792,7 +1788,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL N -1
 		stop
 	Death.Ethereal:
-		TAIL G 0 A_GiveToTarget("DemonicPower", 20)
+		TAIL G 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL G 1 A_PlayerScream
 		TAIL G 1 A_SpawnItemEX("EtherealMist", Random(-8, 8), Random(-8, 8), Random(0, 40), Random(-1, 1), Random(-1, 1), Random(-1, 1), 0, 128, 0)
@@ -1885,7 +1881,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TNT1 A 0 ACS_ExecuteAlways(965, 0)
 		goto See
 	Death.Microwave:
-		TAIG A 0 A_GiveToTarget("DemonicPower", 20)
+		TAIG A 0 A_GiveToTarget("DemonicPower", 10)
 		TAIG A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIG A 14 A_PlaySound("DukeGrow")
 		TAIG B 10
@@ -1905,13 +1901,13 @@ actor Tails : MagePlayer Replaces MagePlayer
 		stop
 	Ice:
 		TAIL E 5 A_GenericFreezeDeath
-		TAIL E 0 A_GiveToTarget("DemonicPower", 20)
+		TAIL E 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
 		TAIL E 1 A_GenericFreezeDeath
-		TAIL E 0 A_GiveToTarget("DemonicPower", 20)
+		TAIL E 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		TAIL E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -2135,7 +2131,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		NWPS AAAABBBBCCCCDDDD 1 A_CustomMissile ("Walljumpcheck", 0, 0, 0, 2, 0)
 		Loop
 	Burn:
-		BURN A 0 A_GiveToTarget("DemonicPower", 20)
+		BURN A 0 A_GiveToTarget("DemonicPower", 10)
 		BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		BURN A 0 A_Playsound("firedeath")
 		BURN A 0 A_Fall
@@ -2145,7 +2141,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		BURN V -1
 		stop
 	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 20)
+		NULL A 0 A_GiveToTarget("DemonicPower", 10)
 		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NULL A 0 A_Playsound("disintegrate")
 		NULL A 0 A_NoBlocking
@@ -2170,7 +2166,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		NWPS H 0
 		NWPS H 0 ThrustThingZ(0, Random(28, 40), 0, 1)
 	Death:
-		NWPS H 0 A_GiveToTarget("DemonicPower", 20)
+		NWPS H 0 A_GiveToTarget("DemonicPower", 10)
 		NWPS H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NWPS H 10
 		NWPS I 10 A_PlayerScream
@@ -2179,7 +2175,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		NWPS N -1
 		Stop
 	XDeath:
-		NWPS O 0 A_GiveToTarget("DemonicPower", 20)
+		NWPS O 0 A_GiveToTarget("DemonicPower", 10)
 		NWPS O 0 A_GiveToTarget("SpeakOneLiner", 1)
 		NWPS O 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NWPS O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -2190,7 +2186,6 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		Stop
 	Death.ChaosFire:
 		NWPS GG 0 A_Stop
-		NWPS G 0 A_GiveToTarget("DemonicPower", 20)
 		NWPS G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NWPS G 5 A_PlayerScream
 		NWPS G 0 A_NoBlocking
@@ -2236,7 +2231,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		NWPS N -1
 		stop
 	Death.Ethereal:
-		NWPS G 0 A_GiveToTarget("DemonicPower", 20)
+		NWPS G 0 A_GiveToTarget("DemonicPower", 10)
 		NWPS G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NWPS G 1 A_PlayerScream
 		NWPS G 1 A_SpawnItemEX("EtherealMist", Random(-8, 8), Random(-8, 8), Random(0, 40), Random(-1, 1), Random(-1, 1), Random(-1, 1), 0, 128, 0)
@@ -2313,13 +2308,13 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		stop
 	Ice:
 		NWPS E 5 A_GenericFreezeDeath
-		NWPS E 0 A_GiveToTarget("DemonicPower", 20)
+		NWPS E 0 A_GiveToTarget("DemonicPower", 10)
 		NWPS E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NWPS E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
 		NWPS E 1 A_GenericFreezeDeath
-		NWPS E 0 A_GiveToTarget("DemonicPower", 20)
+		NWPS E 0 A_GiveToTarget("DemonicPower", 10)
 		NWPS E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NWPS EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		NWPS E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -2337,7 +2332,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		NWPS W -1
 		stop
 	Death.Microwave:
-		LING A 0 A_GiveToTarget("DemonicPower", 20)
+		LING A 0 A_GiveToTarget("DemonicPower", 10)
 		LING A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		LING A 4 A_PlaySound("DukeGrow")
 		LING B 4
@@ -2550,7 +2545,7 @@ actor DukeNukem : Link
 		DUKE G 4 A_Pain
 		Goto Spawn
 	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 20)
+		NULL A 0 A_GiveToTarget("DemonicPower", 10)
 		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NULL A 0 A_Playsound("disintegrate")
 		NULL A 0 A_NoBlocking
@@ -2565,7 +2560,7 @@ actor DukeNukem : Link
 		DUKE H 0
 		DUKE H 0 ThrustThingZ(0, Random(28, 40), 0, 1)
 	Death:
-		DUKE H 0 A_GiveToTarget("DemonicPower", 20)
+		DUKE H 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE H 6
 		DUKE I 6 A_PlayerScream
@@ -2574,7 +2569,7 @@ actor DukeNukem : Link
 		DUKE N -1
 		Stop
 	XDeath:
-		DUKE O 0 A_GiveToTarget("DemonicPower", 20)
+		DUKE O 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE O 0 A_GiveToTarget("SpeakOneLiner", 1)
 		DUKE O 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE O 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -2585,7 +2580,7 @@ actor DukeNukem : Link
 		DUKE W -1
 		Stop
 	Death.Microwave:
-		DUKG A 0 A_GiveToTarget("DemonicPower", 20)
+		DUKG A 0 A_GiveToTarget("DemonicPower", 10)
 		DUKG A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKG A 4 A_PlaySound("DukeGrow")
 		DUKG B 4
@@ -2620,7 +2615,6 @@ actor DukeNukem : Link
 		stop
 	Death.ChaosFire:
 		DUKE GG 0 A_Stop
-		DUKE G 0 A_GiveToTarget("DemonicPower", 20)
 		DUKE G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE G 5 A_PlayerScream
 		DUKE G 0 A_NoBlocking
@@ -2666,7 +2660,7 @@ actor DukeNukem : Link
 		DUKE N -1
 		stop
 	Death.Ethereal:
-		DUKE G 0 A_GiveToTarget("DemonicPower", 20)
+		DUKE G 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE G 1 A_PlayerScream
 		DUKE G 1 A_SpawnItemEX("EtherealMist", Random(-8, 8), Random(-8, 8), Random(0, 40), Random(-1, 1), Random(-1, 1), Random(-1, 1), 0, 128, 0)
@@ -2743,13 +2737,13 @@ actor DukeNukem : Link
 		stop
 	Ice:
 		DUKE E 5 A_GenericFreezeDeath
-		DUKE E 0 A_GiveToTarget("DemonicPower", 20)
+		DUKE E 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
 		DUKE E 1 A_GenericFreezeDeath
-		DUKE E 0 A_GiveToTarget("DemonicPower", 20)
+		DUKE E 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		DUKE E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -5408,38 +5402,38 @@ actor SoccerKick : Weapon
 
 ACTOR NukeLauncher : Weapon 25005
 {
-Inventory.PickupSound "misc/w_pkup"
-Inventory.PickupMessage "You found the Nuke Launcher!!!! MUAHAHAHAHAHAHA MASS DESTRUCTION TIME!!!"
-Obituary "%o got blown to fucking hell by %k's Nuke!!"
-Weapon.AmmoType "ProtonAmmo"
-Weapon.AmmoGive 20
-Weapon.AmmoUse 15
-AttackSound "NukeLaunch"
-Weapon.Kickback 50000
-Weapon.SelectionOrder 1
-+WEAPON.BFG
-+WEAPON.NOLMS
-States
-{
-Spawn:
-	NUKP A -1
-	Loop
-Ready:
-	NUKL A 1 A_WeaponReady
-	Loop
-Deselect:
-	NUKL A 1 A_Lower
-	Loop
-Select:
-	NUKL A 2 A_Raise
-	Loop
-Fire:
-	NUKL A 0
-	NUKL B 4 BRIGHT A_FireCustomMissile("Nuke",0,15,0,0)
-	NUKL A 60
-	NUKL A 1 A_REFIRE
-	Goto Ready
-}
+	Inventory.PickupSound "misc/w_pkup"
+	Inventory.PickupMessage "You found the Nuke Launcher!!!! MUAHAHAHAHAHAHA MASS DESTRUCTION TIME!!!"
+	Obituary "%o got blown to fucking hell by %k's Nuke!!"
+	Weapon.AmmoType "ProtonAmmo"
+	Weapon.AmmoGive 15
+	Weapon.AmmoUse 15
+	AttackSound "NukeLaunch"
+	Weapon.Kickback 50000
+	Weapon.SelectionOrder 1
+	+WEAPON.BFG
+	+WEAPON.NOLMS
+	States
+	{
+		Spawn:
+			NUKP A -1
+			Loop
+		Ready:
+			NUKL A 1 A_WeaponReady
+			Loop
+		Deselect:
+			NUKL A 1 A_Lower
+			Loop
+		Select:
+			NUKL A 2 A_Raise
+			Loop
+		Fire:
+			NUKL A 0
+			NUKL B 4 BRIGHT A_FireCustomMissile("Nuke",0,15,0,0)
+			NUKL A 60
+			NUKL A 1 A_REFIRE
+			Goto Ready
+	}
 }
 
 actor NukeRandom
@@ -5794,42 +5788,42 @@ actor Raining32 16000
 	}
 }
 
-actor SaberColor : CustomInventory 10592
+actor SaberColor : CustomInventory
 {
-inventory.pickupmessage "Lightsaber Color Changer (Use inventory Bar to activate)"
-inventory.pickupsound "misc/p_pkup"
-inventory.icon ARTICOLO
-inventory.amount 2
-inventory.maxamount 2
-+COUNTITEM
-+INVENTORY.UNDROPPABLE
-+INVBAR
-states
-{
-Spawn:
-	LCHN A -1
-	stop
-Use:
-	TNT1 A 0 A_Jumpifinventory("SaberRed", 1, "UseBlue")
-	TNT1 A 0 A_Jumpifinventory("SaberBlue", 1, "UseGreen")
-	TNT1 A 0
-	goto UseRed
-UseRed:
-	TNT1 A 0 A_TakeInventory("SaberGreen", 255)
-	TNT1 A 0 A_GiveInventory ("SaberRed", 1)
-	TNT1 A 0 A_GiveInventory("SaberColor", 1)
-	stop
-UseBlue:
-	TNT1 A 0 A_TakeInventory("SaberRed", 255)
-	TNT1 A 0 A_GiveInventory("SaberBlue",1)
-	TNT1 A 0 A_GiveInventory("SaberColor", 1)
-	stop
-UseGreen:
-	TNT1 A 0 A_TakeInventory("SaberBlue", 255)
-	TNT1 A 0 A_GiveInventory("SaberGreen",1)
-	TNT1 A 0 A_GiveInventory("SaberColor", 1)
-	stop
-}
+	inventory.pickupmessage "Lightsaber Color Changer (Use inventory Bar to activate)"
+	inventory.pickupsound "misc/p_pkup"
+	inventory.icon ARTICOLO
+	inventory.amount 2
+	inventory.maxamount 2
+	+COUNTITEM
+	+INVENTORY.UNDROPPABLE
+	+INVBAR
+	states
+	{
+	Spawn:
+		LCHN A -1
+		stop
+	Use:
+		TNT1 A 0 A_Jumpifinventory("SaberRed", 1, "UseBlue")
+		TNT1 A 0 A_Jumpifinventory("SaberBlue", 1, "UseGreen")
+		TNT1 A 0
+		goto UseRed
+	UseRed:
+		TNT1 A 0 A_TakeInventory("SaberGreen", 255)
+		TNT1 A 0 A_GiveInventory ("SaberRed", 1)
+		TNT1 A 0 A_GiveInventory("SaberColor", 1)
+		stop
+	UseBlue:
+		TNT1 A 0 A_TakeInventory("SaberRed", 255)
+		TNT1 A 0 A_GiveInventory("SaberBlue",1)
+		TNT1 A 0 A_GiveInventory("SaberColor", 1)
+		stop
+	UseGreen:
+		TNT1 A 0 A_TakeInventory("SaberBlue", 255)
+		TNT1 A 0 A_GiveInventory("SaberGreen",1)
+		TNT1 A 0 A_GiveInventory("SaberColor", 1)
+		stop
+	}
 }
 
 actor ForcePullAttack : LoreShot
@@ -6541,12 +6535,13 @@ actor FlakCannon : ClericWeapon 12212
 			goto Ready
 
 		AltFire:
-			FLAK A 0 A_PlayWeaponSound("FlakShell")
-			FLAK A 0 A_FireCustomMissile("FlakShell", 0, 10, 10, 4)
-			FLAK B 2 radius_quake(2, 5, 0, 1, 0)
-			FLAK CDE 2
-			FLAK FGHI 2
-			FLAK A 16
+			FLAK B 0 A_PlayWeaponSound("FlakShell")
+			FLAK B 0 A_FireCustomMissile("FlakShell", 0, 10, 10, 4)
+			FLAK B 0 radius_quake(2, 5, 0, 1, 0)
+			FLAK B 2 A_SetPitch(pitch-4)
+			FLAK CDEFG 2 A_SetPitch(pitch+0.8)
+			FLAK HI 2
+			FLAK A 15
 			FLAK A 4 A_Refire
 			goto Ready
 
@@ -6644,21 +6639,21 @@ actor FlakShard
 
 actor FreezerTrail
 {
-Radius 8
-Height 8
-Gravity 0.02
-RenderStyle Add
-Alpha 0.9
-+PUFFONACTORS
-+NOBLOCKMAP
-+FORCEXYBILLBOARD
-States
-{
-Spawn:
-TNT1 A 0
-CRYT ABABABCBCBCDCDCDC 1 BRIGHT A_FadeOut(0.008)
-stop
-}
+	Radius 8
+	Height 8
+	Gravity 0.02
+	RenderStyle Add
+	Alpha 0.9
+	+PUFFONACTORS
+	+NOBLOCKMAP
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			CRYT ABABABCBCBCDCDCDC 1 BRIGHT A_FadeOut(0.008)
+			stop
+	}
 }
 
 actor FreezerShot : PlasmaBall
@@ -6744,129 +6739,129 @@ actor FlakShell
 
 actor ProtonGrenadeLauncher : Weapon 5011
 {
-radius 20
-height 16
-SpawnID 154
-obituary "%o ate %k's Pineapple."
-inventory.pickupmessage "You Picked up the Proton Grenade Launcher!"
-weapon.selectionorder 2400
-weapon.kickback 300
-weapon.ammotype1 "ProtonAmmo"
-weapon.ammotype2 "ProtonAmmo"
-weapon.ammouse1 1
-weapon.ammouse2 1
-weapon.ammogive1 2
-weapon.ammogive2 0
-+WEAPON.NOAUTOFIRE
-+WEAPON.EXPLOSIVE
-+WEAPON.NOALERT
-States
-{
-Select:
-	GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
-	GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
-	GRLG A 1 A_Raise
-	goto Select+2
+	radius 20
+	height 16
+	SpawnID 154
+	obituary "%o ate %k's Pineapple."
+	inventory.pickupmessage "You Picked up the Proton Grenade Launcher!"
+	weapon.selectionorder 2400
+	weapon.kickback 300
+	weapon.ammotype1 "ProtonAmmo"
+	weapon.ammotype2 "ProtonAmmo"
+	weapon.ammouse1 1
+	weapon.ammouse2 1
+	weapon.ammogive1 2
+	weapon.ammogive2 0
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.EXPLOSIVE
+	+WEAPON.NOALERT
+	States
+	{
+		Select:
+			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
+			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
+			GRLG A 1 A_Raise
+			goto Select+2
 
-Deselect:
-	GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
-	GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
-	GRLG A 1 A_Lower
-	goto Deselect+2
+		Deselect:
+			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
+			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
+			GRLG A 1 A_Lower
+			goto Deselect+2
 
-Ready:
-	GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
-	GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
-	GRLG A 1 A_WeaponReady
-	goto Ready+2
+		Ready:
+			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
+			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
+			GRLG A 1 A_WeaponReady
+			goto Ready+2
 
-Hold:
-Fire:
-	GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-	GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-	GRLG A 0 A_AlertMonsters
-	GRLG A 1
-	GRLG B 0 A_GunFlash
-	GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
-	GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade", 0, 1, 7, 5)
-	goto FireAnim
-	
-AltFire:
-	GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-	GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-	GRLG A 0 A_AlertMonsters
-	GRLG A 1
-	GRLG B 0 A_GunFlash
-	GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
-	GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade_Bounce", 0, 1, 7, 5)
-	goto FireAnim
-	
-FireAnim:
-	GRLG B 2 BRIGHT A_SetPitch (pitch-2)
-	GRLG C 2 A_SetPitch(pitch+0.8)
-	GRLG D 2 A_SetPitch(pitch+0.6)
-	GRLG E 2 A_SetPitch(pitch+0.4)
-	GRLG F 2 A_SetPitch(pitch+0.2)
-	GRLG GHIJKLMNO 2
-	GRLG A 2 BRIGHT
-	GRLG A 0 A_Refire
-	goto Ready+2
-	
-Flash:
-	TNT1 A 2 bright A_Light1
-	TNT1 A 2 bright A_Light2
-	TNT1 A 2 bright A_Light1
-	MISF A 0 bright A_Light0
-	stop
+		Hold:
+		Fire:
+			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
+			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
+			GRLG A 0 A_AlertMonsters
+			GRLG A 1
+			GRLG B 0 A_GunFlash
+			GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
+			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade", 0, 1, 7, 5)
+			goto FireAnim
+			
+		AltFire:
+			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
+			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
+			GRLG A 0 A_AlertMonsters
+			GRLG A 1
+			GRLG B 0 A_GunFlash
+			GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
+			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade_Bounce", 0, 1, 7, 5)
+			goto FireAnim
+			
+		FireAnim:
+			GRLG B 2 BRIGHT A_SetPitch (pitch-2)
+			GRLG C 2 A_SetPitch(pitch+0.8)
+			GRLG D 2 A_SetPitch(pitch+0.6)
+			GRLG E 2 A_SetPitch(pitch+0.4)
+			GRLG F 2 A_SetPitch(pitch+0.2)
+			GRLG GHIJKLMNO 2
+			GRLG A 2 BRIGHT
+			GRLG A 0 A_Refire
+			goto Ready+2
+			
+		Flash:
+			TNT1 A 2 bright A_Light1
+			TNT1 A 2 bright A_Light2
+			TNT1 A 2 bright A_Light1
+			MISF A 0 bright A_Light0
+			stop
 
-TailsSelect:
-	PUNT A 1 A_Raise
-	loop
-TailsDeselect:
-	PUNT A 1 A_Lower
-	loop
-TailsReady:
-	PUNT A 1 A_WeaponReady
-	loop
-TailsFire:
-	PUNT A 2
-	PUNT B 0 A_PlaySoundEx("skeleton/swing", "auto", 0)
-	PUNT BC 1
-	PUNT D 1 A_FireCustomMissile("StickyBomb", 0, 1, -5, 0)
-	PUNT EFGH 1
-	TNT1 A 15
-	TNT1 A 0 A_Refire
-	goto Ready
+		TailsSelect:
+			PUNT A 1 A_Raise
+			loop
+		TailsDeselect:
+			PUNT A 1 A_Lower
+			loop
+		TailsReady:
+			PUNT A 1 A_WeaponReady
+			loop
+		TailsFire:
+			PUNT A 2
+			PUNT B 0 A_PlaySoundEx("skeleton/swing", "auto", 0)
+			PUNT BC 1
+			PUNT D 1 A_FireCustomMissile("StickyBomb", 0, 1, -5, 0)
+			PUNT EFGH 1
+			TNT1 A 15
+			TNT1 A 0 A_Refire
+			goto Ready
 
-DukeSelect:
-	D6GL A 0 A_PlayWeaponSound("DukeWeaponSelect")
-	D6GL A 1 A_Raise
-	goto DukeSelect+1
-DukeDeselect:
-	D6GL A 1 A_Lower
-	loop
-DukeReady:
-	D6GL A 1 A_WeaponReady
-	loop
-DukeFire:
-	D6GL B 0 A_AlertMonsters
-	D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
-	D6GL B 3 A_FireCustomMissile("Duke64Grenade", 0, 1, 15, 0)
-	D6GL CDE 3
-	D6GL A 10
-	D6GL A 0 A_Refire
-	goto DukeReady
-DukeAltFire:
-	D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
-	D6GL B 3 A_FireCustomMissile("PlutoniumGrenade", 0, 1, 15, 0)
-	D6GL CDE 3
-	D6GL A 10
-	D6GL A 0 A_Refire
-	goto DukeReady
-Spawn:
-	GLAU A -1
-	stop
-}
+		DukeSelect:
+			D6GL A 0 A_PlayWeaponSound("DukeWeaponSelect")
+			D6GL A 1 A_Raise
+			goto DukeSelect+1
+		DukeDeselect:
+			D6GL A 1 A_Lower
+			loop
+		DukeReady:
+			D6GL A 1 A_WeaponReady
+			loop
+		DukeFire:
+			D6GL B 0 A_AlertMonsters
+			D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
+			D6GL B 3 A_FireCustomMissile("Duke64Grenade", 0, 1, 15, 0)
+			D6GL CDE 3
+			D6GL A 10
+			D6GL A 0 A_Refire
+			goto DukeReady
+		DukeAltFire:
+			D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
+			D6GL B 3 A_FireCustomMissile("PlutoniumGrenade", 0, 1, 15, 0)
+			D6GL CDE 3
+			D6GL A 10
+			D6GL A 0 A_Refire
+			goto DukeReady
+		Spawn:
+			GLAU A -1
+			stop
+	}
 }
 
 actor GrenadeExplosionShell
@@ -8125,26 +8120,24 @@ actor Raining1024Skybox 18427
 
 actor Booze1 : CustomInventory 30100
 {
-//$SPRITE BOZEA0
-//Booze1
-inventory.pickupmessage "Drank an Entire 40oz Jug of Malt Liquor!"
-inventory.pickupsound "drinkpickup"
-inventory.maxamount 0
-Radius 6
-Height 16
-Scale 0.8
-+COUNTITEM
-+INVENTORY.AUTOACTIVATE
-States
-{
-Spawn:
-BOZE A -1
-stop
-Use:
-TNT1 A 0
-TNT1 A 1 A_Print("Sorry, Drunk Mode Script Needs Fixing")
-stop
-}
+	inventory.pickupmessage "Drank an Entire 40oz Jug of Malt Liquor!"
+	inventory.pickupsound "drinkpickup"
+	inventory.maxamount 0
+	Radius 6
+	Height 16
+	Scale 0.8
+	+COUNTITEM
+	+INVENTORY.AUTOACTIVATE
+	States
+	{
+		Spawn:
+			BOZE A -1
+			stop
+		Use:
+			TNT1 A 0
+			TNT1 A 1 A_Print("Sorry, Drunk Mode Script Needs Fixing")
+			stop
+	}
 }
 
 actor Booze2 30101
@@ -11552,32 +11545,33 @@ Fire:
 
 actor HolyMissile2 : HolyMissile Replaces HolyMissile
 {
-Speed 0
+	DamageType "Demonic"
+	Speed 0
 }
 
 actor HolySpirit2 : HolySpirit Replaces HolySpirit
 {
-Projectile
-Speed 14
-RenderStyle Add
-DamageType "Demonic"
-Alpha 0.9
-obituary "%o was devoured by %k's wicked spirits"
--BLOODSPLATTER
-+BLOODLESSIMPACT
-+LOOKALLAROUND
+	Projectile
+	Speed 14
+	RenderStyle Add
+	DamageType "Demonic"
+	Alpha 0.9
+	obituary "%o was devoured by %k's wicked spirits"
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+	+LOOKALLAROUND
 }
 
 actor HolyTail2 : HolyTail Replaces HolyTail
 {
-RenderStyle Add
-Alpha 0.9
+	RenderStyle Add
+	Alpha 0.9
 }
 
 actor HolyTailTrail2 : HolyTailTrail Replaces HolyTailTrail
 {
-RenderStyle Add
-Alpha 0.9
+	RenderStyle Add
+	Alpha 0.9
 }
 
 actor Wrathsymbol
@@ -11832,177 +11826,6 @@ XDeath:
 Death:
 	HLPS DEFGH 4 BRIGHT
 	stop
-}
-}
-
-ACTOR PlasmaDebris : CustomInventory
-{
-inventory.pickupmessage ""
-inventory.pickupsound "misc/i_pkup"
-inventory.icon ICONJNK1
-inventory.amount 1
-inventory.maxamount 2
-+INVBAR
-States
-{
-Spawn:
-	UJUN A 10500
-	goto Fade
-Fade:
-	UJUN A 1 A_FadeOut(0.1)
-	loop
-Use:
-	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
-	TNT1 A 10 A_FireCustomMissile("ThrownDebris1", 0, 0, 0, 1)
-	stop
-}
-}
-
-ACTOR ProtonTorpedoDebris : CustomInventory
-{
-inventory.pickupmessage ""
-inventory.pickupsound "misc/i_pkup"
-inventory.icon ICONJNK2
-inventory.amount 1
-inventory.maxamount 2
-+INVBAR
-States
-{
-Spawn:
-	UJUN B 10500
-	goto Fade
-Fade:
-	UJUN B 1 A_FadeOut(0.1)
-	loop
-Use:
-	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
-	TNT1 A 10 A_FireCustomMissile("ThrownDebris2", 0, 0, 0, 1)
-	stop
-}
-}
-
-ACTOR ProtonGrenadeDebris : CustomInventory
-{
-inventory.pickupmessage ""
-inventory.pickupsound "misc/i_pkup"
-inventory.icon ICONJNK3
-inventory.amount 1
-inventory.maxamount 2
-+INVBAR
-States
-{
-Spawn:
-	UJUN C 10500
-	goto Fade
-Fade:
-	UJUN C 1 A_FadeOut(0.1)
-	loop
-Use:
-	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
-	TNT1 A 10 A_FireCustomMissile("ThrownDebris3", 0, 0, 0, 1)
-	stop
-}
-}
-
-actor ThrownDebris1
-{
-Projectile
-Radius 16
-Height 16
-Damage 16
-Speed 58
-Obituary "%k beaned %o in the head with a broken plasma gun barrel."
-BounceCount 4
-BounceFactor 0.6
-SeeSound "Junk"
-+HEXENBOUNCE
-+NOEXTREMEDEATH
--NOGRAVITY
-+CANBOUNCEWATER
-States
-{
-Spawn:
-UJUN A 0
-UJUN A 0 A_StopSound
-UJUN A 2
-goto Spawn+2
-Death:
-TNT1 A 0
-TNT1 A 0 A_SpawnItem("PlasmaDebris", 8)
-stop
-XDeath:
-TNT1 A 0
-TNT1 A 0 A_PlaySound("JunkSmack")
-TNT1 A 0 A_SpawnItem("PlasmaDebris", 8)
-stop
-}
-}
-
-actor ThrownDebris2
-{
-Projectile
-Radius 12
-Height 12
-Damage 10
-Speed 58
-Obituary "%k biffed a piece of a proton torpedo launcher at %o."
-BounceCount 4
-BounceFactor 0.6
-SeeSound "Junk"
-+HEXENBOUNCE
-+NOEXTREMEDEATH
--NOGRAVITY
-+CANBOUNCEWATER
-States
-{
-Spawn:
-UJUN B 0
-UJUN B 0 A_StopSound
-UJUN B 2
-goto Spawn+2
-Death:
-TNT1 A 0
-TNT1 A 0 A_SpawnItem("ProtonTorpedoDebris", 8)
-stop
-XDeath:
-TNT1 A 0
-TNT1 A 0 A_PlaySound("JunkSmack")
-TNT1 A 0 A_SpawnItem("ProtonTorpedoDebris", 8)
-stop
-}
-}
-
-actor ThrownDebris3
-{
-Projectile
-Radius 14
-Height 14
-Damage 14
-Speed 58
-Obituary "%k jabbed a broken Grenade launcher handle in %o's eye."
-BounceCount 4
-BounceFactor 0.6
-SeeSound "Junk"
-+HEXENBOUNCE
-+NOEXTREMEDEATH
--NOGRAVITY
-+CANBOUNCEWATER
-States
-{
-Spawn:
-UJUN C 0
-UJUN C 0 A_StopSound
-UJUN C 2
-goto Spawn+2
-Death:
-TNT1 A 0
-TNT1 A 0 A_SpawnItem("ProtonGrenadeDebris", 8)
-stop
-XDeath:
-TNT1 A 0
-TNT1 A 0 A_PlaySound("JunkSmack")
-TNT1 A 0 A_SpawnItem("ProtonGrenadeDebris", 8)
-stop
 }
 }
 

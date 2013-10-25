@@ -211,10 +211,17 @@ saberswing3 dssabfl3
 saberswing4 dssabfl4
 saberswing5 dssabfl5
 $random saberswing { saberswing1 saberswing2 saberswing3 saberswing4 saberswing5 }
+
 saberhit1 dssabht1
 saberhit2 dssabht2
 saberhit3 dssabht3
 $random saberhit { saberhit1 saberhit2 saberhit3 }
+
+SaberFleshHit1 dssabfh1
+SaberFleshHit2 dssabfh2
+SaberFleshHit3 dssabfh3
+SaberFleshHit4 dssabfh4
+$random SaberFleshHit { SaberFleshHit1 SaberFleshHit2 SaberFleshHit3 SaberFleshHit4 }
 
 // Nuke
 NukeBeep DSNUKE
@@ -492,6 +499,11 @@ StickyHitWall DSSTICKW
 SonicEXE DSSONEXE
 Giygas1 DSGIYG01
 
+HealingSerum DSHEALSE
+MysteryItem DSMYSTER
+WinMysteryItem DSMYSTE1
+WinMysteryItemBonus DSMYSTE2
+
 //************-MONSTERS-*************
 
 // Bishop
@@ -662,6 +674,7 @@ Fooby3 DSFOOB3
 PlaneGuy DSPLNGUY
 DrinkingFountain DSDRKFNT
 ScreenON DSSCREEN
+Fart DSFART
 
 // Ambience
 
