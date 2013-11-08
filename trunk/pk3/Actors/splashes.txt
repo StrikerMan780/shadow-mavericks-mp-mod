@@ -71,10 +71,10 @@ ACTOR GreyWaterSplashDrop
 	Mass 9
 	Scale	.4
 	projectile
-	- nogravity
+	-NOGRAVITY
 	+DONTSPLASH
 	+CORPSE
-        +EXPLODEONWATER
+	+EXPLODEONWATER
 	States
 	{
 		GSPH A 7
@@ -82,104 +82,6 @@ ACTOR GreyWaterSplashDrop
 		GSPH C 7
 		GSPH D 7
 		GSPH A 7
-		Stop
-	}
-}
-
-actor WaterSplashBaseSmall
-{
-  Radius 1
-  Height 1
-  Mass 1
-  alpha .6
-  Scale 0.5
-  +DONTSPLASH
-  +NOGRAVITY
-  +NOCLIP
-  States
-  {
-  Spawn:
-    SPSH E 3
-    SPSH F 3 A_SpawnDebris("WaterSplashDrop")
-    SPSH G 3
-    SPSH H 3
-    SPSH I 3
-    SPSH J 3
-    SPSH K 3
-    Stop
-  }
-}
-
-ACTOR WaterSplashDrop
-{
-	renderstyle add
-	Radius 1
-    Height 1
-	alpha .5
-	Health 5
-	Mass 9
-	Scale	.4
-	projectile
-	- nogravity
-	+DONTSPLASH
-	+CORPSE
-        +EXPLODEONWATER
-	States
-	{
-		SPSH A 6
-		SPSH B 7
-		SPSH C 7
-		SPSH D 6
-		SPSH A 7
-		Stop
-	}
-}
-
-actor BloodSplashBaseSmall
-{
-  Radius 1
-  Height 1
-  Mass 1
-  alpha .6
-  Scale 0.5
-  +NOCLIP
-  +DONTSPLASH
-  +NOGRAVITY
-  States
-  {
-  Spawn:
-    BSPH E 3
-    BSPH F 3 A_SpawnDebris("BloodSplashDrop")
-    BSPH G 3
-    BSPH H 3
-    BSPH I 3
-    BSPH J 3
-    BSPH K 3
-    Stop
-  }
-}
-
-ACTOR BloodSplashDrop
-{
-	renderstyle add
-	Radius 1
-	Height 1
-	alpha .5
-	Health 5
-	Mass 9
-	Scale	.4
-	projectile
-	- nogravity
-	+DONTSPLASH
-	+CORPSE
-        +EXPLODEONWATER
-	States
-	{
-		BSPH A 7
-		BSPH B 7
-		BSPH C 7
-		BSPH D 7
-		BSPH A 7
 		Stop
 	}
 }
@@ -322,5 +224,365 @@ ACTOR SandPuff
 	Spawn:
 		SAND ABCDE 4
 		Stop
+	}
+}
+
+actor SMMP_WaterSplashChunk : BaseEffect
+{
+	Scale 0.0625
+	RenderStyle Translucent
+	Alpha 0.75
+	+NOCLIP
+	-NOGRAVITY
+	-NOINTERACTION
+	States
+	{
+		Spawn:
+			SPSH A 0
+			SPSH A 0 A_Jump(128, "Splash2", "Splash3", "Splash4")
+			goto Splash1
+		Splash1:
+			SPSH A 1 A_FadeOut(0.05)
+			loop
+		Splash2:
+			SPSH B 1 A_FadeOut(0.05)
+			loop
+		Splash3:
+			SPSH C 1 A_FadeOut(0.05)
+			loop
+		Splash4:
+			SPSH D 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+actor SMMP_BlueBloodSplashChunk : SMMP_WaterSplashChunk
+{
+	Alpha 1.0
+	+LOWGRAVITY
+}
+
+actor SMMP_BloodSplashChunk : BaseEffect
+{
+	Scale 0.0625
+	RenderStyle Translucent
+	Alpha 1.0
+	+NOCLIP
+	+LOWGRAVITY
+	-NOGRAVITY
+	-NOINTERACTION
+	States
+	{
+		Spawn:
+			BSPH A 0
+			BSPH A 0 A_Jump(128, "Splash2", "Splash3", "Splash4")
+			goto Splash1
+		Splash1:
+			BSPH A 1 A_FadeOut(0.05)
+			loop
+		Splash2:
+			BSPH B 1 A_FadeOut(0.05)
+			loop
+		Splash3:
+			BSPH C 1 A_FadeOut(0.05)
+			loop
+		Splash4:
+			BSPH D 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+actor SMMP_NukageSplashChunk : BaseEffect
+{
+	Scale 0.0625
+	RenderStyle Translucent
+	Alpha 0.75
+	Gravity 0.75
+	+NOCLIP
+	-NOGRAVITY
+	-NOINTERACTION
+	States
+	{
+		Spawn:
+			SLDG A 0
+			SLDG A 0 A_Jump(128, "Splash2", "Splash3", "Splash4")
+			goto Splash1
+		Splash1:
+			SLDG A 1 A_FadeOut(0.05)
+			loop
+		Splash2:
+			SLDG B 1 A_FadeOut(0.05)
+			loop
+		Splash3:
+			SLDG C 1 A_FadeOut(0.05)
+			loop
+		Splash4:
+			SLDG D 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+actor SMMP_RedWaterSplashChunk : BaseEffect
+{
+	Scale 0.0625
+	RenderStyle Translucent
+	Alpha 0.75
+	+NOCLIP
+	-NOGRAVITY
+	-NOINTERACTION
+	States
+	{
+		Spawn:
+			RWSH A 0
+			RWSH A 0 A_Jump(128, "Splash2", "Splash3", "Splash4")
+			goto Splash1
+		Splash1:
+			RWSH A 1 A_FadeOut(0.05)
+			loop
+		Splash2:
+			RWSH B 1 A_FadeOut(0.05)
+			loop
+		Splash3:
+			RWSH C 1 A_FadeOut(0.05)
+			loop
+		Splash4:
+			RWSH D 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+actor SMMP_SlimeSplashChunk : BaseEffect
+{
+	Scale 0.0625
+	RenderStyle Translucent
+	Alpha 1.0
+	+NOCLIP
+	+LOWGRAVITY
+	-NOGRAVITY
+	-NOINTERACTION
+	States
+	{
+		Spawn:
+			SLIM A 0
+			SLIM A 0 A_Jump(128, "Splash2", "Splash3", "Splash4")
+			goto Splash1
+		Splash1:
+			SLIM A 1 A_FadeOut(0.05)
+			loop
+		Splash2:
+			SLIM B 1 A_FadeOut(0.05)
+			loop
+		Splash3:
+			SLIM C 1 A_FadeOut(0.05)
+			loop
+		Splash4:
+			SLIM D 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+ACTOR SMMP_RedWaterSplashBase
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Translucent
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			BSPH EEEEEEEEEEEEEE 0 A_SpawnItemEx("SMMP_RedWaterSplashChunk", 0, 0, 1, (random(-400,400)/100.0), (random(-400,400)/100.0), (random(600,1200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			BSPH EFGHIJKJ 2
+			Stop
+	}
+}
+
+actor SMMP_RedWaterSplashBaseSmall : SMMP_RedWaterSplashBase
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			BSPH EEEEE 0 A_SpawnItemEx("SMMP_WaterSplashChunk", 0, 0, 1, (random(-400,400)/100.0), (random(-400,400)/100.0), (random(600,1200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			BSPH EFGHIJKJ 2
+			Stop
+	}
+}
+
+ACTOR SMMP_WaterSplashBase
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Translucent
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			SPSH EEEEEEEEEEEEEE 0 A_SpawnItemEx("SMMP_WaterSplashChunk", 0, 0, 1, (random(-400,400)/100.0), (random(-400,400)/100.0), (random(600,1200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			SPSH EFGHIJKJ 2
+			Stop
+	}
+}
+
+actor SMMP_WaterSplashBaseSmall : SMMP_WaterSplashBase
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			SPSH EEEEE 0 A_SpawnItemEx("SMMP_WaterSplashChunk", 0, 0, 1, (random(-400,400)/100.0), (random(-400,400)/100.0), (random(600,1200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			SPSH EFGHIJKJ 2
+			Stop
+	}
+}
+
+ACTOR SMMP_BlueBloodSplashBase
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Translucent
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			SPSH EEEEE 0 A_SpawnItemEx("SMMP_BlueBloodSplashChunk", 0, 0, 1, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(200,300)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			SPSH EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_BlueBloodSplashBaseSmall : SMMP_BlueBloodSplashBase
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			SPSH EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_BloodSplashBase
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Translucent
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			BSPH EEEEE 0 A_SpawnItemEx("SMMP_BloodSplashChunk", 0, 0, 1, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(200,300)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			BSPH EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_BloodSplashBaseSmall : SMMP_BloodSplashBase
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			BSPH EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_NukageSplashBase
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Translucent
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			SLDG EEEEEEEEEEEEEE 0 A_SpawnItemEx("SMMP_NukageSplashChunk", 0, 0, 1, (random(-300,300)/100.0), (random(-300,300)/100.0), (random(400,900)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			SLDG EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_NukageSplashBaseSmall : SMMP_NukageSplashBase
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			SLDG EEEEE 0 A_SpawnItemEx("SMMP_NukageSplashChunk", 0, 0, 1, (random(-300,300)/100.0), (random(-300,300)/100.0), (random(400,900)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			SLDG EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_SlimeSplashBase
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Translucent
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			SLIM EEEEE 0 A_SpawnItemEx("SMMP_SlimeSplashChunk", 0, 0, 1, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(200,300)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			SLIM EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_SlimeSplashBaseSmall : SMMP_SlimeSplashBase
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			SLIM EFGHIJKJ 3
+			Stop
+	}
+}
+
+ACTOR SMMP_LavaFire
+{
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+DONTSPLASH
+	+DONTBLAST
+	RenderStyle Add
+	Alpha 1.0
+	States
+	{
+		Spawn:
+			LVAS ABCDEFG 3 BRIGHT A_SpawnItemEx("BulletSmoke", (random(-800,800)/100.0), (random(-800,800)/100.0), 1, 0, 0, (random(200,300)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			Stop
+	}
+}
+
+actor SMMP_LavaFireSmall : SMMP_LavaFire
+{
+	Scale 0.64
+	States
+	{
+		Spawn:
+			LVAS ABC 3 BRIGHT A_SpawnItemEx("BulletSmoke", (random(-200,200)/100.0), (random(-200,200)/100.0), 1, 0, 0, (random(100,200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			LVAS DEFG 3 BRIGHT
+			Stop
 	}
 }

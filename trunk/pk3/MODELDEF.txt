@@ -206,7 +206,6 @@ Model NuclearBarrel
 	FrameIndex BEXP A 0 0
 }
 
-
 Model Camaro
 {
 	Path "Models/car"
@@ -1820,38 +1819,55 @@ Model Duke64ExplosionShell
 	Frame NULL L 0 "Frame12"
 }
 
+Model BFGShockwave
+{
+	Path "Models\Explosion"
+	Model 0 "ExplosionRing.md3"
+	Skin 0 "bfgring.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
+}
+
 Model Duke64ExplosionRing
 {
 	Path "Models\Explosion"
-	Model 0 "ExplosionRing.md2"
+	Model 0 "ExplosionRing.md3"
 	Skin 0 "ExplosionRing.png"
-	Scale 4.0 4.0 4.0
+	Scale 8.0 8.0 8.0
 
-	Frame NULL A 0 "Frame1"
-	Frame NULL B 0 "Frame2"
-	Frame NULL C 0 "Frame3"
-	Frame NULL D 0 "Frame4"
-	Frame NULL E 0 "Frame5"
-	Frame NULL F 0 "Frame6"
-	Frame NULL G 0 "Frame7"
-	Frame NULL H 0 "Frame8"
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
 }
 
 Model NukeExplosionRing
 {
 	Path "Models\Explosion"
-	Model 0 "ExplosionRing.md2"
+	Model 0 "ExplosionRing.md3"
 	Skin 0 "ExplosionRing.png"
-	Scale 4.0 4.0 4.0
+	Scale 8.0 8.0 8.0
 
-	Frame NULL A 0 "Frame1"
-	Frame NULL B 0 "Frame2"
-	Frame NULL C 0 "Frame3"
-	Frame NULL D 0 "Frame4"
-	Frame NULL E 0 "Frame5"
-	Frame NULL F 0 "Frame6"
-	Frame NULL G 0 "Frame7"
-	Frame NULL H 0 "Frame8"
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
 }
 
 Model EnergyBallExplosionShellWeak
@@ -1878,18 +1894,18 @@ Model EnergyBallExplosionShellWeak
 Model EnergyBallExplosionRingWeak
 {
 	Path "Models\Explosion"
-	Model 0 "ExplosionRing.md2"
+	Model 0 "ExplosionRing.md3"
 	Skin 0 "EnergyRing.png"
-	Scale 1.4 1.4 1.4
+	Scale 2.8 2.8 2.8
 
-	Frame NULL A 0 "Frame1"
-	Frame NULL B 0 "Frame2"
-	Frame NULL C 0 "Frame3"
-	Frame NULL D 0 "Frame4"
-	Frame NULL E 0 "Frame5"
-	Frame NULL F 0 "Frame6"
-	Frame NULL G 0 "Frame7"
-	Frame NULL H 0 "Frame8"
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
 }
 
 Model EnergyBallExplosionShellMid
@@ -1916,18 +1932,18 @@ Model EnergyBallExplosionShellMid
 Model EnergyBallExplosionRingMid
 {
 	Path "Models\Explosion"
-	Model 0 "ExplosionRing.md2"
+	Model 0 "ExplosionRing.md3"
 	Skin 0 "EnergyRing.png"
-	Scale 1.4 1.4 1.4
+	Scale 2.8 2.8 2.8
 
-	Frame NULL A 0 "Frame1"
-	Frame NULL B 0 "Frame2"
-	Frame NULL C 0 "Frame3"
-	Frame NULL D 0 "Frame4"
-	Frame NULL E 0 "Frame5"
-	Frame NULL F 0 "Frame6"
-	Frame NULL G 0 "Frame7"
-	Frame NULL H 0 "Frame8"
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
 }
 
 Model EnergyBallExplosionShellStrong
@@ -1954,18 +1970,18 @@ Model EnergyBallExplosionShellStrong
 Model EnergyBallExplosionRingStrong
 {
 	Path "Models\Explosion"
-	Model 0 "ExplosionRing.md2"
+	Model 0 "ExplosionRing.md3"
 	Skin 0 "EnergyRing.png"
-	Scale 1.4 1.4 1.4
+	Scale 2.8 2.8 2.8
 
-	Frame NULL A 0 "Frame1"
-	Frame NULL B 0 "Frame2"
-	Frame NULL C 0 "Frame3"
-	Frame NULL D 0 "Frame4"
-	Frame NULL E 0 "Frame5"
-	Frame NULL F 0 "Frame6"
-	Frame NULL G 0 "Frame7"
-	Frame NULL H 0 "Frame8"
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
 }
 
 Model EnergyBallExplosionShellMega
@@ -1992,18 +2008,18 @@ Model EnergyBallExplosionShellMega
 Model EnergyBallExplosionRingMega
 {
 	Path "Models\Explosion"
-	Model 0 "ExplosionRing.md2"
+	Model 0 "ExplosionRing.md3"
 	Skin 0 "EnergyRing.png"
-	Scale 1.4 1.4 1.4
+	Scale 2.8 2.8 2.8
 
-	Frame NULL A 0 "Frame1"
-	Frame NULL B 0 "Frame2"
-	Frame NULL C 0 "Frame3"
-	Frame NULL D 0 "Frame4"
-	Frame NULL E 0 "Frame5"
-	Frame NULL F 0 "Frame6"
-	Frame NULL G 0 "Frame7"
-	Frame NULL H 0 "Frame8"
+	FrameIndex NULL A 0 0
+	FrameIndex NULL B 0 1
+	FrameIndex NULL C 0 2
+	FrameIndex NULL D 0 3
+	FrameIndex NULL E 0 4
+	FrameIndex NULL F 0 5
+	FrameIndex NULL G 0 6
+	FrameIndex NULL H 0 7
 }
 
 Model SmartRifle
@@ -2107,62 +2123,6 @@ Model SmartRifle
 	FrameIndex MOR2 D 0 82
 	FrameIndex MOR2 E 0 84
 	FrameIndex MOR2 F 0 86
-}
-
-Model BFG_SMMP
-{
-	Path "Models\HUD"
-	Model 0 "BFG.md2"
-	Skin 0 "BFG.png"
-	Model 1 "BFG_Pipes.md2"
-	Skin 1 "BFG.png"
-	Model 2 "BFG_BnL.md2"
-	Skin 2 "BFG.png"
-	Scale -3 3 5
-	ZOffset -24
-
-	FrameIndex BFGG A 0 0
-	FrameIndex BFGG A 1 0
-	FrameIndex BFGG A 2 0
-	FrameIndex BFGG B 0 0
-	FrameIndex BFGG B 1 0
-	FrameIndex BFGG B 2 0
-	FrameIndex BFGG C 0 8
-	FrameIndex BFGG C 1 8
-	FrameIndex BFGG C 2 8
-}
-
-Model BFG_SMMP
-{
-	Path "Models\HUD"
-	Model 0 "BFG_MF.md2"
-	Skin 0 "BFG_MF.png"
-	Scale -30 3 26
-	ZOffset 18
-
-	FrameIndex BFGF A 0 0
-}
-
-Model BFG_SMMP
-{
-	Path "Models\HUD"
-	Model 0 "BFG_MF.md2"
-	Skin 0 "BFG_MF1.png"
-	Scale -30 3 26
-	ZOffset 18
-
-	FrameIndex BFGF B 0 0
-}
-
-model BFG_SMMP
-{
-	Path "Models\Pickups"
-	Model 0 "W-BFG.md2"
-	Skin 0 "W-BFG.png"
-	Scale 1.3 1.3 1.3
-	ROTATING
-
-	FrameIndex BFUG A 0 0
 }
 
 model RicochetSpark
@@ -3662,4 +3622,42 @@ Model IPodLauncher
 	FrameIndex IPDG F 0 14
 	FrameIndex IPDG G 0 20
 	FrameIndex IPDG H 0 26
+}
+
+Model BFG_SMMP
+{
+	Path "Models\HUD\BFG9000"
+	Model 0 "BFG9000.md3"
+	Scale -5.0 5.0 5.0
+	ZOffset 72
+
+	FrameIndex BFGG A 0 0
+	
+	FrameIndex BFGG B 0 1
+	FrameIndex BFGG C 0 2
+	FrameIndex BFGG D 0 3
+	FrameIndex BFGG E 0 4
+	FrameIndex BFGG F 0 5
+	FrameIndex BFGG G 0 6
+	FrameIndex BFGG H 0 7
+	FrameIndex BFGG I 0 8
+	FrameIndex BFGG J 0 9
+	FrameIndex BFGG K 0 10
+	FrameIndex BFGG L 0 11
+	FrameIndex BFGG M 0 12
+	FrameIndex BFGG N 0 13
+	FrameIndex BFGG O 0 14
+	FrameIndex BFGG P 0 15
+	FrameIndex BFGG Q 0 16
+	FrameIndex BFGG R 0 17
+	FrameIndex BFGG S 0 18
+	FrameIndex BFGG T 0 19
+	FrameIndex BFGG U 0 20
+	FrameIndex BFGG V 0 21
+	FrameIndex BFGG W 0 22
+	FrameIndex BFGG X 0 23
+	FrameIndex BFGG Y 0 24
+	FrameIndex BFGG Z 0 25
+	FrameIndex BFG2 A 0 26
+	FrameIndex BFG2 B 0 27
 }

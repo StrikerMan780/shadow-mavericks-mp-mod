@@ -2779,7 +2779,6 @@ ACTOR Danny_Tourettes_Guard 19632
    SeeSound "tourettes/taunt"
    PainSound "tourettes/pain"
    DeathSound "tourettes/death"
-   ActiveSound "tourettes/taunt"
    MONSTER
    +FLOORCLIP
    +FRIENDLY
@@ -2789,6 +2788,7 @@ ACTOR Danny_Tourettes_Guard 19632
    +NORADIUSDMG
    +DONTGIB
    +NEVERFAST
+   +DROPOFF
    -COUNTKILL
    Translation "112:127=176:191"
    States
