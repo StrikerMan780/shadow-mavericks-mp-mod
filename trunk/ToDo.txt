@@ -13,32 +13,77 @@ StrikerMan780
 * Make it so flesh growth takes over some areas of the map during giygas invasion
 * Add more areas to access with Keys
 * Add George Carlin Fear of Germs rant.
-* Update my Persona Sprite Again
 * Add Danny-cam
 * Make use of SONICEXE Texture
 * Make use of SCARE1 Graphic on broken music players for Giygas Event
 * Finish Espio's Room
 * Finish Heretic's Room
+* Needs more stuff to do... must come up with some sort of idea.
+* Finish the Giygas Event
+* Fix Blaze Heatnix Song
+* Link the elevator sectors in my room
+* Add a kill switch to leeroy zombie event
+* Put more work into reducing lines of sight for areas in HQ, also reduce complexity.
+* Move the spawn that's close to the crack
+* Replace ruin's truck image
+* replace ruin's trans-am/beer image with one of buggies
+* Replace firebird logo with night shot of car
+* Make note about text scaling in lobby
+* Get texture for the split door in center of HQ Entryway
+* Move Impse Party Sprites out of the Skybox, and move them to areas outdoors.
 
 
 -=ACS/DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.
 Add fire death for tourettes zombies, and make them capable of throwing molotovs.
-Re-do all fire deaths
 Re-do ethereal energy deaths
 Use the SST TC's Bio Bow as the Biorifle for Duke
 
-* Reduce Action Sound Frequency for Danny.
-* Add alternate saber impact sounds
-* Shrink OpenGL Warning
+Add BFG10k from Quake 3 Arena *LATER*
+
+*DONE* Increase Flak shard projectile speed
+*DONE* Set +NODAMAGETHRUST on Tails Shotgun Sparks
+*DONE* Fix the Grenade Explosion Sound. Replace A_PlaySoundEx with A_PlaySound
+*DONE* Buff the Freezebolt
+*DONE* Give the SSG the Steel skin, rather than Gold
+*DONE* Remove NukeRandom actors from NuclearBarrel
+*DONE* Remove "PlayerClass" console command from Class Enforcer script.
+*DONE* Fix Typo in Nuclear Barrel Obituary
+*DONE* Increase the Efficacy of the Saber Block
+*DONE* Tweak the Elemental SSG a bit
+*DONE* Widen Quad SSG spread a little
+*DONE* Report SetFont leaking into other scripts online
+*DONE* Decreased Floating Flame Particle Rate
+*DONE* Give the Elemental SSG some Decals
+*DONE* Increase Torch Particle Rate
+*DONE* Give Flak Shell explosion new graphics
+*DONE* Tweak IPod Launcher Damage
+*DONE* Nerf the Stinger slightly
+*DONE* Make the Proton Torpedo move at a consistent speed again
+*DONE* Add Custom Splash Models/Effects
+*DONE* Fix color of pentagram / Convert to PNG
+*DONE* Add High-Res Grenade Trail Sprite
+*DONE* Triple the Range of Taunt Sounds
+*DONE* Reset the Minigun to using 1 shot per fire
+*DONE* Make Mystery Item give more than one Inventory Item
+*DONE* Increase Mystery Item Chances!
+*DONE* Replace Invul Sphere with ST Spheres and Kamikaze in Vanilla DM Pack
+*DONE* Make Mystery Item Messages Cancel on Death
+*DONE* Revamp the BFG9000
+*DONE* Make Nuke Launcher Radiation and Gas track owner
+*DONE* Make Nuke Launcher less Ear Rape-Inducing.
+*DONE* Remade the Etheral Death anims to be cleaner.
+*DONE* Re-Do the Marine Fire Death
+
+Report to Zandro Tracker that State Jumps are complete and utter trash online.
+
 * Make Bishop Staff work like a ripper boomerang.
 
 (CANNOT DO YET) Prevent the Ultimate attacks from Stacking Demonic Points (CANNOT DO YET)
 
 -=Graphics=-
-Fix splash colors / Use Models for them
-Add high-res FRTB sprite
+* Update my Persona Sprite Again
 
 -=COOP01=-
 Really update the fuck out of this map. Fix the end battle as well.
