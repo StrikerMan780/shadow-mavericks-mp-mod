@@ -227,6 +227,7 @@ $random SaberFleshHit { SaberFleshHit1 SaberFleshHit2 SaberFleshHit3 SaberFleshH
 NukeBeep DSNUKE
 NukeLaunch DSNUKELN
 NukeExplode DSNUKEEX
+$rolloff NukeExplode 2048 4096
 $limit NukeExplode 0
 WTFBoom DSWTFBOO
 
@@ -274,6 +275,19 @@ FartGrenade4 dsfartg4
 // Ethereal Crossbow
 weapons/bowshoot		dscrsbow
 weapons/bowhit			dscrshit
+
+// BFG9000
+BFGArc1 DSBFGEX1
+BFGArc2 DSBFGEX2
+BFGArc3 DSBFGEX3
+$random BFGArc { BFGArc1 BFGArc2 BFGArc3 }
+$limit BFGArc 0
+$limit BFGArc1 0
+$limit BFGArc2 0
+$limit BFGArc3 0
+
+BFGFire DSBFGFIR
+$rolloff weapons/bfgx 512 2048
 
 // BFG10k
 BFG10kShot DSBFG10F
@@ -503,6 +517,7 @@ HealingSerum DSHEALSE
 MysteryItem DSMYSTER
 WinMysteryItem DSMYSTE1
 WinMysteryItemBonus DSMYSTE2
+DeadNotBigSurprise DSURDEAD
 
 world/barrelx DSBAREXP
 $rolloff world/barrelx 400 2400
@@ -930,6 +945,14 @@ $random MarineTaunts { MarineTaunt1 MarineTaunt2 }
 $playersound	player	male	*falling		dsfall
 $playersound	player	male	*fist			dspunch
 $playeralias 	player	male	*taunt		MarineTaunts
+
+MarineBurn1 DSMARNB1
+MarineBurn2 DSMARNB2
+MarineBurn3 DSMARNB3
+MarineBurn4 DSMARNB4
+MarineBurn5 DSMARNB5
+MarineBurn6 DSMARNB6
+$random MarineBurn { MarineBurn1 MarineBurn2 MarineBurn3 MarineBurn4 MarineBurn5 MarineBurn6 }
 
 // ** TAILS **
 

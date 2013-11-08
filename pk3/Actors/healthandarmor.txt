@@ -266,20 +266,3 @@ ACTOR RedArmor : BasicArmorPickup 5040
 		Loop
 	}
 }
-
-actor MysteryPowerup : CustomInventory
-{
-	RenderStyle Add
-	Alpha 1.0
-	+FLOATBOB
-	+INVENTORY.AUTOACTIVATE
-	States
-	{
-		Spawn:
-			MYST ABCDEFGHIJKLMNOP 1 BRIGHT
-			Loop
-		Use:
-			TNT1 A 0 ACS_ExecuteAlways(917, 0)
-			stop
-	}
-}

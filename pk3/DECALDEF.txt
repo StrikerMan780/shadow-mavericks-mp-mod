@@ -121,6 +121,115 @@ decalgroup BulletChip
 	BulletChip5 2
 }
 
+decal BlazeChip1
+{
+	pic BULLETHL
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+}
+
+decal BlazeChip2
+{
+	pic BULLETH2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+}
+
+decal BlazeChip3
+{
+	pic BULLETH2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.15
+}
+
+decal BlazeChip4
+{
+	pic BULLETHL
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal BlazeChip5
+{
+	pic BULLETHL
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.09
+	y-scale 0.09
+}
+
+decal BlazeChipBurn1
+{
+	pic HOTBULH1
+	Add 1.0
+	x-scale 0.1
+	y-scale 0.1
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip1
+}
+
+decal BlazeChipBurn2
+{
+	pic HOTBULH2
+	Add 1.0
+	x-scale 0.1
+	y-scale 0.1
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip2
+}
+
+decal BlazeChipBurn3
+{
+	pic HOTBULH2
+	Add 1.0
+	x-scale 0.15
+	y-scale 0.15
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip3
+}
+
+decal BlazeChipBurn4
+{
+	pic HOTBULH1
+	Add 1.0
+	x-scale 0.12
+	y-scale 0.12
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip4
+}
+
+decal BlazeChipBurn5
+{
+	pic HOTBULH1
+	Add 1.0
+	x-scale 0.09
+	y-scale 0.09
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip5
+}
+
+decalgroup BlazeChip
+{
+	BlazeChipBurn1 2
+	BlazeChipBurn2 2
+	BlazeChipBurn3 2
+	BlazeChipBurn4 1
+	BlazeChipBurn5 2
+}
+
 /***** Blood Decals ********************************************************/
 /*
  * Blood splats just stick to the walls.

@@ -1,76 +1,55 @@
-actor UsingSaber : Inventory
+actor BaseCheck : Inventory
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  inventory.icon "STTPRCNT"
-  -INVBAR
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
+	inventory.amount 1
+	inventory.maxamount 1
+	-INVBAR
+	+INVENTORY.UNDROPPABLE
+	states
+	{
+		Spawn:
+			TNT1 A 1
+			loop
+	}
 }
 
-actor SaberGuard : Inventory
+actor BaseClassCheck : Inventory
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  inventory.icon "STTPRCNT"
-  -INVBAR
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
+	inventory.amount 1
+	inventory.maxamount 1
+	-INVBAR
+	-INTERHUBSTRIP
+	+INVENTORY.UNDROPPABLE
+	+INVENTORY.HUBPOWER
+	states
+	{
+		Spawn:
+			TNT1 A 1
+			loop
+	}
 }
 
-actor Firing : Inventory
+actor IsDeathmatch : BaseCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  inventory.icon "STTPRCNT"
-  -INVBAR
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
-actor ActivationPrevention : Inventory
+actor UsingSaber : BaseCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  inventory.icon "STTPRCNT"
-  -INVBAR
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
-actor TauntSpamProtection : Inventory
+actor SaberGuard : BaseCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  inventory.icon "STTPRCNT"
-  -INVBAR
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
+}
+
+actor Firing : BaseCheck
+{
+}
+
+actor ActivationPrevention : BaseCheck
+{
+}
+
+actor TauntSpamProtection : BaseCheck
+{
 }
 
 actor NukeTrigger 17462
@@ -95,68 +74,20 @@ actor NukeTrigger 17462
 	}
 }
 
-actor MarineClassCheck : Inventory
+actor MarineClassCheck : BaseClassCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
-actor TailsClassCheck : Inventory
+actor TailsClassCheck : BaseClassCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
-actor DukeClassCheck : Inventory
+actor DukeClassCheck : BaseClassCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
-actor LinkClassCheck : Inventory
+actor LinkClassCheck : BaseClassCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
 actor HitConfirmation : CustomInventory
@@ -178,17 +109,17 @@ actor HitConfirmation : CustomInventory
 
 actor GenericTimer : Inventory
 {
- inventory.amount 1
- inventory.maxamount 9999
- -INVENTORY.INVBAR
- +INVENTORY.UNDROPPABLE
- +INVENTORY.HUBPOWER
- States
- {
- 	Spawn:
- 		TNT1 A -1
- 		stop
- }
+	inventory.amount 1
+	inventory.maxamount 9999
+	-INVENTORY.INVBAR
+	+INVENTORY.UNDROPPABLE
+	+INVENTORY.HUBPOWER
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			stop
+	}
 }
 
 actor MusicSwitchBack : CustomInventory
@@ -225,20 +156,8 @@ actor UnfreezePlayerArcade : CustomInventory
  }
 }
 
-actor NoLightningSound : Inventory
+actor NoLightningSound : BaseCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
 actor LightningSound : CustomInventory
@@ -281,36 +200,12 @@ actor KnockoutTrigger : CustomInventory
 	}
 }
 
-actor DemonicChargerCheck : Inventory
+actor DemonicChargerCheck : BaseCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
-actor DemonicChargerCheck2 : Inventory
+actor DemonicChargerCheck2 : BaseCheck
 {
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
 }
 
 actor DemonicChargeEffect : CustomInventory
@@ -443,19 +338,19 @@ actor SpeakEntry : CustomInventory
 
 actor TailsFlightCheck : Inventory
 {
-  inventory.amount 1
-  inventory.maxamount 100
-  inventory.icon "STTPRCNT"
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
+	inventory.amount 1
+	inventory.maxamount 100
+	inventory.icon "STTPRCNT"
+	-INVBAR
+	-INTERHUBSTRIP
+	+INVENTORY.UNDROPPABLE
+	+INVENTORY.HUBPOWER
+	states
+	{
+		Spawn:
+			TNT1 A 1
+			loop
+	}
 }
 
 actor FlareCheck : Inventory
@@ -563,26 +458,14 @@ actor SpecialMove : CustomInventory
   }
 }
 
-actor SaberGreen : Puzzleitem
+actor SaberGreen : BaseCheck
 {
-	inventory.amount 1
-	inventory.maxamount 1
-	-INVBAR
-	+INVENTORY.UNDROPPABLE
 }
 
-actor SaberBlue : Puzzleitem
+actor SaberBlue : BaseCheck
 {
-	inventory.amount 1
-	inventory.maxamount 1
-	-INVBAR
-	+INVENTORY.UNDROPPABLE
 }
 
-actor SaberRed : Puzzleitem
+actor SaberRed : BaseCheck
 {
-	inventory.amount 1
-	inventory.maxamount 1
-	-INVBAR
-	+INVENTORY.UNDROPPABLE
 }

@@ -4,50 +4,35 @@
 //Splashes
 splash 	nukage
 {
- smallclass 	NukageSplashBaseSmall
- smallclip		0
- smallsound	slimesmall
-
- baseclass		sludgesplash
- chunkclass	sludgechunk
- chunkxvelshift	8
- chunkyvelshift	8
- chunkzvelshift	6
- chunkbasezvel	2
- sound		slime
- NoAlert
-}
-
-splash Slime
-{
-	smallclass		SlimeSplash
-	smallclip		6
+	smallclass		SMMP_NukageSplashBaseSmall
+	smallclip		0
 	smallsound		slimesmall
 
-	baseclass		SlimeSplash
-	chunkclass		SlimeChunk
-	chunkxvelshift	8
-	chunkyvelshift	8
-	chunkzvelshift	8
-	chunkbasezvel	2
+	baseclass		SMMP_NukageSplashBase
 	sound			slime
 	NoAlert
 }
 
-splash 	water
+splash Slime
 {
- smallclass 	watersplashbasesmall
- smallclip		3
- smallsound	watersmall
+	smallclass		SMMP_SlimeSplashBaseSmall
+	smallclip		0
+	smallsound		slimesmall
 
- baseclass		watersplashbase
- chunkclass	watersplash
- chunkxvelshift	8
- chunkyvelshift	8
- chunkzvelshift	8
- chunkbasezvel	2
- sound		water
- NoAlert
+	baseclass		SMMP_SlimeSplashBase
+	sound			slime
+	NoAlert
+}
+
+splash water
+{
+	smallclass		SMMP_WaterSplashBaseSmall
+	smallclip		0
+	smallsound		watersmall
+
+	baseclass		SMMP_WaterSplashBase
+	sound			water
+	NoAlert
 }
 
 splash 	greywater
@@ -68,66 +53,47 @@ splash 	greywater
 
 splash redwater
 {
- smallclass 	bloodsplashbasesmall
- smallclip		3
- smallsound	bloodsmall
+	smallclass		SMMP_RedWaterSplashBaseSmall
+	smallclip		0
+	smallsound		watersmall
 
- baseclass		bloodsplashbase
- chunkclass	bloodsplash
- chunkxvelshift	8
- chunkyvelshift	8
- chunkzvelshift	8
- chunkbasezvel	2
- sound		water
- NoAlert
+	baseclass		SMMP_RedWaterSplashBase
+	sound			water
+	NoAlert
 }
 
 splash 	blood
 {
- smallclass 	bloodsplashbasesmall
- smallclip		4
- smallsound	bloodsmall
+	smallclass		SMMP_BloodSplashBaseSmall
+	smallclip		0
+	smallsound		bloodsmall
 
- baseclass		bloodsplashbase
- chunkclass	bloodsplash
- chunkxvelshift	8
- chunkyvelshift	8
- chunkzvelshift	8
- chunkbasezvel	2
- sound		blood
- NoAlert
+	baseclass		SMMP_BloodSplashBase
+	sound			blood
+	NoAlert
 }
+
 
 splash 	blueblood
 {
- smallclass 	watersplashbasesmall
- smallclip		4
- smallsound	bloodsmall
+	smallclass		SMMP_BlueBloodSplashBaseSmall
+	smallclip		0
+	smallsound		bloodsmall
 
- baseclass		watersplashbase
- chunkclass	watersplash
- chunkxvelshift	8
- chunkyvelshift	8
- chunkzvelshift	8
- chunkbasezvel	2
- sound		blood
- NoAlert
+	baseclass		SMMP_BlueBloodSplashBase
+	sound			blood
+	NoAlert
 }
 
 splash 	lava
 {
- smallclass 	lavasplash
- smallclip		5
- smallsound	burnsmall
+	smallclass		SMMP_LavaFireSmall
+	smallclip		0
+	smallsound		burnsmall
 
- baseclass		lavasplash
- chunkclass	lavasmoke
- chunkxvelshift	-1
- chunkyvelshift	-1
- chunkzvelshift	2
- chunkbasezvel	1
- sound		burn
- NoAlert
+	baseclass		SMMP_LavaFire
+	sound		burn
+	NoAlert
 }
 
 splash 	rainwater
@@ -173,9 +139,9 @@ terrain	 nukage_t
 
 terrain	water_t
 {
- splash 	water
- footclip	 8
- liquid
+	splash		water
+	footclip	8
+	liquid
 }
 
 terrain	redwater_t

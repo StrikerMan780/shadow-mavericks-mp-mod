@@ -1,0 +1,242 @@
+Model SMMP_WaterSplashBase
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "FWATER1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SPSH E 0 0
+	FrameIndex SPSH F 0 1
+	FrameIndex SPSH G 0 2
+	FrameIndex SPSH H 0 3
+	FrameIndex SPSH I 0 4
+	FrameIndex SPSH J 0 5
+	FrameIndex SPSH K 0 6
+}
+
+Model SMMP_WaterSplashBaseSmall
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "FWATER1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SPSH E 0 0
+	FrameIndex SPSH F 0 1
+	FrameIndex SPSH G 0 2
+	FrameIndex SPSH H 0 3
+	FrameIndex SPSH I 0 4
+	FrameIndex SPSH J 0 5
+	FrameIndex SPSH K 0 6
+}
+
+Model SMMP_RedWaterSplashBase
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "RWATER5.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex BSPH E 0 0
+	FrameIndex BSPH F 0 1
+	FrameIndex BSPH G 0 2
+	FrameIndex BSPH H 0 3
+	FrameIndex BSPH I 0 4
+	FrameIndex BSPH J 0 5
+	FrameIndex BSPH K 0 6
+}
+
+Model SMMP_RedWaterSplashBaseSmall
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "RWATER5.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex BSPH E 0 0
+	FrameIndex BSPH F 0 1
+	FrameIndex BSPH G 0 2
+	FrameIndex BSPH H 0 3
+	FrameIndex BSPH I 0 4
+	FrameIndex BSPH J 0 5
+	FrameIndex BSPH K 0 6
+}
+
+
+Model SMMP_BlueBloodSplashBase
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "BLBLOOD1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SPSH E 0 0
+	FrameIndex SPSH F 0 1
+	FrameIndex SPSH G 0 2
+	FrameIndex SPSH H 0 3
+	FrameIndex SPSH I 0 4
+	FrameIndex SPSH J 0 5
+	FrameIndex SPSH K 0 6
+}
+
+Model SMMP_BlueBloodSplashBaseSmall
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "BLBLOOD1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SPSH E 0 0
+	FrameIndex SPSH F 0 1
+	FrameIndex SPSH G 0 2
+	FrameIndex SPSH H 0 3
+	FrameIndex SPSH I 0 4
+	FrameIndex SPSH J 0 5
+	FrameIndex SPSH K 0 6
+}
+
+Model SMMP_BloodSplashBase
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "BLOOD1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex BSPH E 0 0
+	FrameIndex BSPH F 0 1
+	FrameIndex BSPH G 0 2
+	FrameIndex BSPH H 0 3
+	FrameIndex BSPH I 0 4
+	FrameIndex BSPH J 0 5
+	FrameIndex BSPH K 0 6
+}
+
+Model SMMP_BloodSplashBaseSmall
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "BLOOD1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex BSPH E 0 0
+	FrameIndex BSPH F 0 1
+	FrameIndex BSPH G 0 2
+	FrameIndex BSPH H 0 3
+	FrameIndex BSPH I 0 4
+	FrameIndex BSPH J 0 5
+	FrameIndex BSPH K 0 6
+}
+
+Model SMMP_LavaFire
+{
+	Path "Models/Splashes"
+	Model 0 "LavaSplash.md2"
+	Skin 0 "lavaflame0.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	ROTATING
+	Rotation-Speed 4.0
+	
+	FrameIndex LVAS A 0 0
+	FrameIndex LVAS B 0 1
+	FrameIndex LVAS C 0 2
+	FrameIndex LVAS D 0 3
+	FrameIndex LVAS E 0 4
+	FrameIndex LVAS F 0 5
+	FrameIndex LVAS G 0 6
+}
+
+Model SMMP_LavaFireSmall
+{
+	Path "Models/Splashes"
+	Model 0 "LavaSplash.md2"
+	Skin 0 "lavaflame0.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	ROTATING
+	Rotation-Speed 4.0
+	
+	FrameIndex LVAS A 0 0
+	FrameIndex LVAS B 0 1
+	FrameIndex LVAS C 0 2
+	FrameIndex LVAS D 0 3
+	FrameIndex LVAS E 0 4
+	FrameIndex LVAS F 0 5
+	FrameIndex LVAS G 0 6
+}
+
+Model SMMP_NukageSplashBase
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "NUKAGE1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SLDG E 0 0
+	FrameIndex SLDG F 0 1
+	FrameIndex SLDG G 0 2
+	FrameIndex SLDG H 0 3
+	FrameIndex SLDG I 0 4
+	FrameIndex SLDG J 0 5
+	FrameIndex SLDG K 0 6
+}
+
+Model SMMP_NukageSplashBaseSmall
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "NUKAGE1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SLDG E 0 0
+	FrameIndex SLDG F 0 1
+	FrameIndex SLDG G 0 2
+	FrameIndex SLDG H 0 3
+	FrameIndex SLDG I 0 4
+	FrameIndex SLDG J 0 5
+	FrameIndex SLDG K 0 6
+}
+
+Model SMMP_SlimeSplashBase
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "NSLIME1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SLIM E 0 0
+	FrameIndex SLIM F 0 1
+	FrameIndex SLIM G 0 2
+	FrameIndex SLIM H 0 3
+	FrameIndex SLIM I 0 4
+	FrameIndex SLIM J 0 5
+	FrameIndex SLIM K 0 6
+}
+
+Model SMMP_SlimeSplashBaseSmall
+{
+	Path "Models/Splashes"
+	Model 0 "Splash.md2"
+	Skin 0 "NSLIME1.png"
+	Scale 4.0 4.0 4.0
+	ZOffset 1.5
+	
+	FrameIndex SLIM E 0 0
+	FrameIndex SLIM F 0 1
+	FrameIndex SLIM G 0 2
+	FrameIndex SLIM H 0 3
+	FrameIndex SLIM I 0 4
+	FrameIndex SLIM J 0 5
+	FrameIndex SLIM K 0 6
+}
