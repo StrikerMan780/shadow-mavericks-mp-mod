@@ -1,0 +1,32 @@
+MD3Compile
+
+First, a list of what each interface item does:
+
+* The Currently Loaded Objects List - You can select objects from this list, as well as rename them.
+* Default Shader Edit Box - Q3 Models (mostly mapobjects) don't have .skin files...this is where you type the "shader" setting for the selected object.  Player models leave this blank.
+* Selected Toggle - Toggles the selection of the current object.
+* Tag Toggle - If the current object is just 1 triangle, it is eligible to be a "tag" object...this toggles that state, and when set to "on" from "off" it does the required math to create the tag data.
+* Object Selection Helpers - All, None, Invert.  Please don't tell me you can't figure these out :)
+* Import Objects - Loads a file, then displays it's detected list of objects.  Select the objects you want to import, and hit okay.  In the case of objects with differing framecounts, you are out of luck.  All loaded objects must be of the same framecount.  If you load a file, and it has 2 objects with different counts, select one for import, and buffer it with new frames to balance it out...if that's what you need.  This can be used after objects are already in the scene to add more objects, as long as the new objects are also the correct framecount.
+* Import Frames - Loads a series of files (multiple select dialog) and adds frames to each object from those files.  If you load a 3ds file to start the session, and it has 2 objects, "u_torso" and "my_ass"...then attempt to import frames from a 3ds file with the objects "u_torso" and "kiss_it"...if "u_torso" is the same vert/face between both objects, and "my_ass" and "kiss_it" are also the same vert/face count, the import will work.  Object names are only used to match objects when all other options (equal face/vert counts) fail.
+* Export Objects - Exports objects to an md3.  The option to export only selected frames and objects will be given.  Internal name refers to the name the file knows itself by internally.  For map objects, the name and relative path of the md3 should be placed here (for a lamp mapobject, that might be models/mapobjects/lamp.md3 - notice the q3 style path slash)...for player models, it's a bit weirder.  The upper (upper.md3, upper_1.md3) series of md3 files has this form: models/players/modelname/modelname.md3 (or modelname_1.md3 for upper_1.md3)...so for klesk's upper.md3 it would be models/players/klesk/klesk.md3...got it?  both head and lower series have nothing here....leave it blank.
+* Delete Selected Objects - Removes any object selected object from the session.
+* Delete Selected Frames - Removes any selected frame from the session.
+* Shift Selected Frames - Shifts all selected frames according to your choice in the dialog box that opens.
+* Align/Offset Selected - Allows you to align objects in the session a few different ways.  Due to the fact that I am lazy and pressed for time right now, Pure Offset isn't functional...it's easy...and I am busy :)  However, Ground Plane Align works...you just put the "ground plane" (which in q3a for a player model is -24.0) in the Y position box, choose what type of objects/frames get modified, and hit OK.  Absolute Tag Align places the current object (which must be a tag) at Position.  Other objects will be moved the same amount if they are selected, and that choice is used.  For instance.  You have a player model head...with it's tag_head.  it's not at 0,0,0...and it needs to be.  You select all objects, and all frames, choose Tag Align, set Position to 0,0,0, and choose to use selected objects and frames also...and hit Okay.  Now tag_head is a 0,0,0 and everything else came along for the ride :)
+Rebuild Normals - Depending on how you got your mesh into the app, it may not have "good" normals.  Use this option to rebuild them...or just to rebuild good ones if you want to see if I can do a better job.  The standard selection options are there...as well as Ignore UV Splits.  This option allows the program to build normals without regard to geometry which has been "split" by UV edges.  All MD3s are split this way...but when you imported, you may have placed splits in the mesh to affect the normals, and so this option isn't for you :)
+* Current Frame, Floating Frame, Frame Name - This display shows which frame you are currently on, and which frame your mouse is over in the interface.  The framename can be edited at any time.  Whether or not it's important in Q3A has yet to be seen, but it's there.
+* Frame Selection Helpers - All, None, Invert.  Please don't tell me you can't figure these out :)
+
+* Camera View - The camera follows the NST1 camera system...Left mouse rotates like a trackball, unless you grab the handles, and then the opposite axis are locked off.  Right mouse translates the model in screen space.  Left+Right (in that order) Zoom the camera, as does the middle mouse button.  Shift+Left changes the FOV.  Mouse Wheel does nothing (for now).
+
+There are 2 items in the camera view that need so explaining...
+
+The topmost bar is your timeline "scrubber"...left drag it to move through frames.  It's width shows you which frames in the lower bar are visible.
+The lower bar can be left clicked to toggle selections.  Shift+left click works as you'd expect.  Left drag is also very predictable :)  Right click to set that frame as the current frame.  It should be obvious, but dark grey means "not selected" and light grey means "selected".
+
+More formats will follow after the holidays...and more functions as well. There ya go.  Enjoy!
+Dave "NPherno" Eaton II
+npherno@sunstorm.net
+
+
