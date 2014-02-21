@@ -91,69 +91,69 @@ IF ERRORLEVEL 1 GOTO DEVCORE
 
 :DEVCORE
 echo Compiling SMMP Development Core Module...
-del SMMP_Core_DEV.pk3
+del .\builds\SMMP_Core_DEV.pk3 /q
 
 cd pk3
-..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP_Core_DEV.pk3 .\
+7za a -y -tzip -mx=0 -mmt -x!.svn ..\builds\SMMP_Core_DEV.pk3 .\
 
 pause
 goto MENU
 
 :DEVEXTRAS
 echo Compiling SMMP Development Extras Module...
-del SMMP_MapsAndExtras_DEV.pk3
+del .\builds\SMMP_MapsAndExtras_DEV.pk3 /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP_MapsAndExtras_DEV.pk3 .\
+7za a -y -tzip -mx=0 -mmt -x!.svn ..\builds\SMMP_MapsAndExtras_DEV.pk3 .\
 
 pause
 goto MENU
 
 :SVNCOREFULL
 echo Compiling SMMP SVN Core Module Rev#: %REVISIONNUMBER% (Full Compression)...
-del SMMP_Core_r%REVISIONNUMBER%.pk3
+del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 
 cd pk3
-..\Tools\7za a -y -tzip -mx=9 -mmt -x!.svn ..\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=9 -mmt -x!.svn ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
 
 :SVNEXTRASFULL
 echo Compiling SMMP SVN Extras Module Rev#: %REVISIONNUMBER% (Full Compression)...
-del SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3
+del .\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-..\Tools\7za a -y -tzip -mx=9 -mmt -x!.svn ..\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=9 -mmt -x!.svn ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
 
 :SVNCOREQUICK
 echo Compiling SMMP SVN Core Module Rev#: %REVISIONNUMBER% (No Compression)...
-del SMMP_Core_r%REVISIONNUMBER%.pk3
+del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 
 cd pk3
-..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=0 -mmt -x!.svn ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
 
 :SVNEXTRASQUICK
 echo Compiling SMMP SVN Extras Module Rev#: %REVISIONNUMBER% (No Compression)...
-del SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3
+del .\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-..\Tools\7za a -y -tzip -mx=0 -mmt -x!.svn ..\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=0 -mmt -x!.svn ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
