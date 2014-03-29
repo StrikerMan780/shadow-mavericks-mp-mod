@@ -50,6 +50,13 @@ entry_types
 		text_language = "z_animdefs";
 	}
 
+	cvarinfo : text
+	{
+		name = "Console var defs";
+		match_name = "cvarinfo";
+		text_language = "z_cvarinfo";
+	}
+
 	decaldef : text
 	{
 		name = "Decals";
@@ -110,7 +117,7 @@ entry_types
 	{
 		name = "OpenGL defs";
 		match_extorname = 1;
-		match_name = "gldefs", "doomdefs", "hticdefs", "hexndefs", "strfdefs";
+		match_name = "gldefs", "doomdefs", "hticdefs", "hexndefs", "strfdefs", "glbdefs";
 		match_ext = "gl", "bm";
 		text_language = "z_gldefs";
 	}
@@ -175,11 +182,24 @@ entry_types
 		text_language = "z_modeldef";
 	}
 
+	voxeldefs : text
+	{
+		name = "Voxel defs";
+		match_name = "voxeldef";
+		text_language = "z_voxeldef";
+	}
+
 	reverbs : text
 	{
 		name = "Reverbs";
 		match_name = "reverbs";
 		text_language = "z_reverbs";
+	}
+	
+	secrets : text
+	{
+		name = "ZDoom secret list";
+		match_name = "secrets";
 	}
 
 	rscript : text
@@ -264,7 +284,7 @@ entry_types
 	
 	palvers : text
 	{
-		name = "Paletted Texture Substitutions";
+		name = "Paletted replacements";
 		match_name = "palvers";
 	}
 
@@ -272,12 +292,21 @@ entry_types
 	{
 		name = "UDMF Map Data";
 		match_name = "textmap";
+		colour = 60, 255, 100;
 	}
 
 	xhairs : text
 	{
 		name = "Crosshairs";
 		match_name = "xhairs";
+	}
+	
+	// Boom swantbls.dat files
+	swantbls : text
+	{
+		name = "Boom Swan Tables";
+		match_name = "swantbls", "defswani";
+		export_ext = "dat";
 	}
 	
 	// Doomsday DED lumps and files
@@ -329,6 +358,14 @@ entry_types
 		name = "Main Configuration";
 		match_name = "maincfg";
 	}
+	
+	// ZDaemon text lumps
+	patchinf : text
+    {
+            name = "Patchinfo";
+            match_name = "patchinf";
+            text_language = "zd_patchinf";
+    }
 
 	// Catchall for various misc text lumps
 	misctext : text

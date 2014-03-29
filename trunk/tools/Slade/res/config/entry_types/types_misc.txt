@@ -85,13 +85,13 @@ entry_types
 	colormap : gfx_raw
 	{
 		name = "Colormap";
-		match_name = "colormap", "*map", "tinttab", "xlatab", "lights", "*lite?", "*lite";
+		match_name = "colormap", "menucmap", "*map", "tinttab", "xlatab", "lights", "*lite?", "*lite";
 		match_ext = "cmp";
 		match_extorname = 1;
-		size = 256, 8192, 8320, 8704, 8448, 8776, 15104, 65536;
+		size = 256, 4096, 8192, 8320, 8704, 8448, 8776, 15104, 16384, 16896, 65536;
 		reliability = 120;
 		extra = image;
-		export_ext = "lmp";
+		export_ext = "cmp";
 		category = "Data";
 		icon = "e_colormap";
 		colour = 255, 180, 0;
@@ -100,7 +100,8 @@ entry_types
 	transtable : colormap
 	{
 		name = "Translation Table";
-		match_name = "trantbl*", "tranmap", "cr???*", "*mask", "colort??";
+		match_name = "trantbl*", "tranmap", "cr???*", "*mask", "colort??", "tr_*";
+		match_extorname = 1;
 		extra = image;
 		export_ext = "lmp";
 		category = "Data";
