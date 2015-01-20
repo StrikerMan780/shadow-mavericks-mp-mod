@@ -4,7 +4,7 @@ setslot 2 DukePistol FairyBow NewPistol Magnum 454Casull Tails_TechPistol
 setslot 3 NewShotgun SM_SuperShotgun QuadShotgun ElementalSSG
 setslot 4 SM_Chaingun Mp40 P90 Minigun SmartRifle
 setslot 5 HellFireCannon ProtonGrenadeLauncher ProtonTorpedoLauncher
-setslot 6 LaserRifle1 PlasmaCannon Railgun Beamer Stinger LightningGun
+setslot 6 LaserRifle1 PlasmaCannon Railgun Beamer Stinger ShockRifle
 setslot 7 BFG_SMMP BFG10k SniperRifle NukeLauncher Noisy_Cricket
 setslot 8 FreezeBolt BioRifle Needler FlakCannon
 setslot 9 BishopStaff WeatherMaker EtherealCrossbow ChaosFlames WrathoftheWickedSpirits FaroresWind
@@ -24,6 +24,7 @@ alias censortoggle "puke 132"
 alias interpolate "gl_interpolate_model_frames 1"
 alias smmp_crickagib "set crickagibvar %1;instagib %1"
 alias smmp_classallowed "set classallowedvar %1"
+alias smmp_weathertype "set weathertypevar %1"
 defaultbind n "showpop 3"
 
 clearplayerclasses

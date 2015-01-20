@@ -10,6 +10,8 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	DamageFactor "SpinDash", 2.25
 	DamageFactor "Tourettes", 0.0
 	DamageFactor "BFG", 0.4375
+	DamageFactor "Flak", 0.5
+	DamageFactor "Hellfire", 0.5
 	player.startitem "NewPistol"
 	player.startitem "Melee"
 	player.startitem "MechAmmo", 56
@@ -268,9 +270,9 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		NULL A -1
 		stop
 	Ice:
-		PLAY E 5 A_GenericFreezeDeath
 		PLAY E 0 A_GiveToTarget("DemonicPower", 10)
 		PLAY E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
+		PLAY E 5 A_GenericFreezeDeath
 		PLAY E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
@@ -300,8 +302,8 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PLYB A 0 A_NoBlocking
 		PLYB A 0 A_PlaySound("BurningFire", CHAN_VOICE, true)
 		PLYB A 0 A_PlaySound("BurningUp", CHAN_AUTO)
-		PLYB ABCD 5 BRIGHT A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 0)
-		PLYB EFGHEFGHEFGHEFGHEFGHEFGHEFGHEFGH 3 BRIGHT A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 16), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 16)
+		PLYB ABCD 5 BRIGHT A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 0)
+		PLYB EFGHEFGHEFGHEFGHEFGHEFGHEFGHEFGH 3 BRIGHT A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 16), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 16)
 		PLYB I 0 BRIGHT A_PlaySound("SmallBurningFire", CHAN_VOICE, true)
 		PLYB IJK 3 BRIGHT
 		PLYB LMLMLMLMLMLM 4 BRIGHT
@@ -310,8 +312,9 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	Burn2:
 		PLAY H 0
 		PLAY H 0 A_NoBlocking
-		PLAY H 0 A_SpawnItemEx("MarineBurn", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION | SXF_NOCHECKPOSITION, 0)
-		NULL A 3
+		PLAY H 1
+		PLAY H 0 A_SpawnItemEx("MarineBurn", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
+		NULL AAA 3
 		NULL A -1
 		stop
 	Disintegrate:
@@ -403,6 +406,9 @@ ACTOR MarineBurn
 	+FLOORCLIP
 	+SLIDESONWALLS
 	+DROPOFF
+	
+	var int user_runtime;
+
 	States
 	{
 	Spawn:
@@ -413,42 +419,42 @@ ACTOR MarineBurn
 		PLAY A 0 A_Jump(128, "RunLoop2")
 		goto RunLoop
 	RunLoop:
-		PLAY A 0 A_GiveInventory("GenericTimer", 1)
+		PLAY A 0 A_SetUserVar("user_runtime", user_runtime+1) 
 		PLAY A 1 A_Recoil(-4)
 		PLAY A 0 A_SetAngle(angle+random(8, 22))
-		PLAY AA 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY AA 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
 		PLAY B 1 A_Recoil(-4)
 		PLAY B 0 A_SetAngle(angle+random(8, 22))
-		PLAY BB 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY BB 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
 		PLAY C 1 A_Recoil(-4)
 		PLAY C 0 A_SetAngle(angle+random(8, 22))
-		PLAY CC 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY CC 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
 		PLAY D 1 A_Recoil(-4)
 		PLAY D 0 A_SetAngle(angle+random(8, 22))
-		PLAY DD 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
-		PLAY D 0 A_JumpIfInventory("GenericTimer", 20, "Die")
+		PLAY DD 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY D 0 A_JumpIf(user_runtime >= 20, "Die")
 		loop
 	RunLoop2:
-		PLAY A 0 A_GiveInventory("GenericTimer", 1)
+		PLAY A 0 A_SetUserVar("user_runtime", user_runtime+1) 
 		PLAY A 1 A_Recoil(-4)
 		PLAY A 0 A_SetAngle(angle+random(-22, -8))
-		PLAY AA 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY AA 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
 		PLAY B 1 A_Recoil(-4)
 		PLAY B 0 A_SetAngle(angle+random(-22, -8))
-		PLAY BB 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY BB 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
 		PLAY C 1 A_Recoil(-4)
 		PLAY C 0 A_SetAngle(angle+random(-22, -8))
-		PLAY CC 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY CC 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
 		PLAY D 1 A_Recoil(-4)
 		PLAY D 0 A_SetAngle(angle+random(-22, -8))
-		PLAY DD 0 A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
-		PLAY D 0 A_JumpIfInventory("GenericTimer", 20, "Die")
+		PLAY DD 0 A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 64)
+		PLAY D 0 A_JumpIf(user_runtime >= 20, "Die")
 		loop
 	Die:
 		PLYB A 0 A_PlaySound("BurningFire", CHAN_BODY, true)
 		PLYB A 0 A_PlaySound("BurningUp", CHAN_AUTO)
-		PLYB ABCD 5 BRIGHT A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 0)
-		PLYB EFGHEFGHEFGHEFGHEFGHEFGHEFGHEFGH 3 BRIGHT A_SpawnItemEx("IgnitedSurfaceFlame", random(-16,16), Random(-16,16), random(0, 16), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 16)
+		PLYB ABCD 5 BRIGHT A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 48), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 0)
+		PLYB EFGHEFGHEFGHEFGHEFGHEFGHEFGHEFGH 3 BRIGHT A_SpawnItemEx("BasicFlame", random(-16,16), Random(-16,16), random(0, 16), 0, 0, (Random(100, 200)/100.0), 0, SXF_CLIENTSIDE, 16)
 		PLYB I 0 BRIGHT A_PlaySound("SmallBurningFire", CHAN_BODY, true)
 		PLYB IJK 3 BRIGHT
 		PLYB LMLMLMLMLMLM 4 BRIGHT

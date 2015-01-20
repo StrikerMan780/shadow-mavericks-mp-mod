@@ -534,13 +534,13 @@ object BFG10kShot
 // Arachnotron Fireball
 pointlight ARACHPLAS
 {
-    color 0.6 1.0 0.0
+    color 0.412 0.969 0.765
     size 56
 }
 
 flickerlight ARACHPLAS_X1
 {
-    color 0.4 0.8 0.0
+    color 0.412 0.969 0.765
     size 72
     secondarySize 80
     chance 0.3
@@ -548,7 +548,7 @@ flickerlight ARACHPLAS_X1
 
 flickerlight ARACHPLAS_X2
 {
-    color 0.6 0.6 0.0
+    color 0.412 0.969 0.765
     size 88
     secondarySize 96
     chance 0.3
@@ -556,7 +556,7 @@ flickerlight ARACHPLAS_X2
 
 flickerlight ARACHPLAS_X3
 {
-    color 0.4 0.4 0.0
+    color 0.412 0.969 0.765
     size 48
     secondarySize 32
     chance 0.3
@@ -564,7 +564,7 @@ flickerlight ARACHPLAS_X3
 
 flickerlight ARACHPLAS_X4
 {
-    color 0.2 0.2 0.0
+    color 0.412 0.969 0.765
     size 24
     secondarySize 16
     chance 0.3
@@ -572,14 +572,13 @@ flickerlight ARACHPLAS_X4
 
 object PowerBeam
 {
-    frame GPLSA { light ARACHPLAS }
-    frame GPLSB { light ARACHPLAS }
+    frame APLS { light ARACHPLAS }
 
-    frame GPLEA { light ARACHPLAS_X1 }
-    frame GPLEB { light ARACHPLAS_X2 }
-    frame GPLEC { light ARACHPLAS_X2 }
-    frame GPLED { light ARACHPLAS_X3 }
-    frame GPLEE { light ARACHPLAS_X4 }
+    frame APBXA { light ARACHPLAS_X1 }
+    frame APBXB { light ARACHPLAS_X2 }
+    frame APBXC { light ARACHPLAS_X2 }
+    frame APBXD { light ARACHPLAS_X3 }
+    frame APBXE { light ARACHPLAS_X4 }
 }
 
 // Arachnotron Fireball
@@ -933,12 +932,6 @@ flickerlight BPUFF2
     chance 0.8
 }
 
-object NewBulletPuff
-{
-    frame PUFFA { light BPUFF1 }
-    frame PUFFB { light BPUFF2 }
-}
-
 // Rocket
 pointlight ROCKET
 {
@@ -1279,13 +1272,19 @@ object ValkrieShot
 pointlight BFGBALL
 {
     color 0.1 1.0 0.0
-    size 80
+    size 96
+}
+
+pointlight BFGSparkle
+{
+    color 0.1 1.0 0.0
+    size 32
 }
 
 flickerlight BFGBALL_X1
 {
     color 0.2 1.0 0.0
-    size 80
+    size 104
     secondarySize 88
     chance 0.3
 }
@@ -1293,7 +1292,7 @@ flickerlight BFGBALL_X1
 flickerlight BFGBALL_X2
 {
     color 0.3 1.0 0.0
-    size 104
+    size 128
     secondarySize 112
     chance 0.3
 }
@@ -1301,7 +1300,7 @@ flickerlight BFGBALL_X2
 flickerlight BFGBALL_X3
 {
     color 0.5 1.0 0.0
-    size 120
+    size 164
     secondarySize 128
     chance 0.3
 }
@@ -1309,7 +1308,7 @@ flickerlight BFGBALL_X3
 flickerlight BFGBALL_X4
 {
     color 0.2 0.7 0.0
-    size 56
+    size 96
     secondarySize 64
     chance 0.3
 }
@@ -1317,12 +1316,12 @@ flickerlight BFGBALL_X4
 flickerlight BFGBALL_X5
 {
     color 0.1 0.3 0.0
-    size 48
+    size 64
     secondarySize 56
     chance 0.3
 }
 
-object FastBFGBall
+object SMMP_BFGBall
 {
     frame BFS1A { light BFGBALL }
     frame BFS1B { light BFGBALL }
@@ -1338,6 +1337,11 @@ object FastBFGBall
     frame BFE2B { light BFGBALL_X1 }
     frame BFE2C { light BFGBALL_X4 }
     frame BFE2D { light BFGBALL_X5 }
+}
+
+object BFGTrailSparkle
+{
+	frame BFGS { light BFGSparkle }
 }
 
 Pointlight VulgarShot
@@ -1600,6 +1604,14 @@ pulselight SuperChaingunPuff
 object SuperChaingunHit
 {
     frame HBEX { light SuperChaingunPuff }
+}
+
+pulselight ShockBeamHit
+{
+    color 0.533 0.361 0.651
+    size 16
+    secondarySize 32
+    interval 4.0
 }
 
 object LaserShot
@@ -2385,6 +2397,12 @@ Object Fleshspawnball
 	Frame FLBLM { Light Fleshspawnball13 }
 }
 
+Pointlight ShockBall
+{
+	Color 0.604 0.514 0.867
+	Size 64
+}
+
 // Evil Eye Blue
 flickerlight2 BlueEvilEye
 {
@@ -2473,6 +2491,19 @@ flickerlight2 BlueColumn
 object BlueColumn
 {
     frame BCOL { light BlueColumn }
+}
+
+flickerlight HellfireSparkLight
+{
+    color 1.0 0.5 0.0
+    size 24
+    secondarySize 32
+    chance 0.1
+}
+
+object HellfireSpark
+{
+	frame FRTB { light HellfireSparkLight }
 }
 
 Glow
@@ -2616,4 +2647,49 @@ brightmap sprite ENG5C0
 brightmap sprite ALLYA0
 {
 	map "Brightmaps/ALLYA0.png"
+}
+
+brightmap texture WALLAVA1
+{
+	map "Brightmaps/WALLAVA1.png"
+}
+
+brightmap texture FLT510_1
+{
+	map "Brightmaps/FLT510_1.png"
+}
+
+brightmap texture FLT510_2
+{
+	map "Brightmaps/FLT510_2.png"
+}
+
+brightmap texture FLT510_3
+{
+	map "Brightmaps/FLT510_3.png"
+}
+
+brightmap texture FLT510_4
+{
+	map "Brightmaps/FLT510_4.png"
+}
+
+brightmap texture FLT510_5
+{
+	map "Brightmaps/FLT510_5.png"
+}
+
+brightmap texture FLT510_6
+{
+	map "Brightmaps/FLT510_6.png"
+}
+
+brightmap texture FLT510_7
+{
+	map "Brightmaps/FLT510_7.png"
+}
+
+brightmap texture FLT510_8
+{
+	map "Brightmaps/FLT510_8.png"
 }

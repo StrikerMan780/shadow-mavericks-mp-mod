@@ -3,11 +3,14 @@ actor BulletTracer : FastProjectile
 	Projectile
 	Radius 2
 	Height 2
-	Speed 232
+	Speed 200
 	RenderStyle Add
 	Alpha 1.0
 	+NOGRAVITY
 	+THRUGHOST
+	+DONTSPLASH
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
 	States
 	{
 		Spawn:
@@ -21,20 +24,42 @@ actor BulletTracer : FastProjectile
 	}
 }
 
+actor FireTracer : BulletTracer
+{
+}
+
+actor PelletTracer : BulletTracer
+{
+	Scale 0.75
+}
+
+actor ChaingunTracer : BulletTracer
+{
+}
+
+actor BoltTracer : BulletTracer
+{
+	States
+	{
+		Spawn:
+			BOLT ABCD 1 BRIGHT
+			loop
+	}
+}
+
 actor PIPSSpark
 {
-	Height 1
-	Radius 1
-	Damage 1
+	obituary "%o was singed by %k!"
+	Height 2
+	Radius 2
+	Damage 2
 	Speed 10
 	Projectile
 	-NOGRAVITY
 	+DONTSPLASH
 	+FORCEXYBILLBOARD
-	+STRIFEDAMAGE
 	+NODAMAGETHRUST
 	+BLOODLESSIMPACT
-	+RIPPER
 	BounceType Hexen
 	RenderStyle Add
 	Scale 0.03
@@ -62,7 +87,6 @@ ACTOR PIPSHit
 	Scale 0.5
 	Alpha 1.0
 	Renderstyle Add
-	obituary "%o was singed by %k!"
 	+NOGRAVITY
 	+FIXMAPTHINGPOS
 	+FORCEXYBILLBOARD
@@ -79,18 +103,26 @@ ACTOR PIPSHit
 
 actor PIPS_Shot : FastProjectile
 {
+	obituary "%o was singed by %k!"
+	Decal PIPSChip
 	Projectile
 	Radius 2
 	Height 2
-	Speed 200
-	Damage 2
+	Speed 150
+	Damage (3)
 	RenderStyle Add
 	Alpha 1.0
 	Scale 0.25
+	+BLOODLESSIMPACT
 	+NOGRAVITY
+	+RIPPER
 	States
 	{
 		Spawn:
+			PIPH AA 1 BRIGHT
+			PIPH A 0 BRIGHT A_ChangeFlag("RIPPER", 0)
+			goto SpawnLoop
+		SpawnLoop:
 			PIPH A 1 BRIGHT
 			loop
 		XDeath:
@@ -99,7 +131,7 @@ actor PIPS_Shot : FastProjectile
 			goto Death
 		Death:
 			TNT1 A 0
-			TNT1 AAAA 0 A_CustomMissile("PIPSSpark", 0, 0, random(-180,180), CMF_AIMDIRECTION | CMF_TRACKOWNER, random(-90,90))
+			TNT1 AAA 0 A_CustomMissile("PIPSSpark", 0, 0, random(-180,180), CMF_AIMDIRECTION | CMF_TRACKOWNER, random(-90,90))
 			TNT1 A 1 A_SpawnItemEx("PIPSHit", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 			stop
 	}
@@ -475,8 +507,249 @@ actor NewPlasma : PlasmaBall Replaces PlasmaBall
 	}
 }
 
+actor BluePlasmaTrail : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.04
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		BLSE ABCDE 1 BRIGHT
+		stop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor BluePlasmaFlashSpawner
+{
+	Projectile
+	Radius 2
+	Height 2
+	Speed 25
+	+ALLOWCLIENTSPAWN
+	States
+	{
+		Death:
+		Spawn:
+			BLSS A 0
+			BLSS A 0 A_SpawnItemEx("BluePlasmaFlash1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor BluePlasmaFlash1 : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.064
+	States
+	{
+	Spawn:
+		PMUZ AAAA 0 BRIGHT A_SpawnItemEx("BluePlasmaFlash2", 0, 0, 0, 0, (random(-400,400)/100.0), (random(-150,150)/100.0), 0, SXF_CLIENTSIDE, 0)
+		goto SpawnLoop
+	SpawnLoop:
+		PMUZ A 1 BRIGHT A_FadeOut(0.1)
+		loop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor BluePlasmaFlash2 : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.75
+	Scale 0.04
+	States
+	{
+	Spawn:
+		PMUZ B 1 BRIGHT A_FadeOut(0.1)
+		loop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor BluePlasmaMist : BaseEffect
+{
+	RenderStyle Add
+	Scale 0.10
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		BLSE ABCDE 1 BRIGHT
+		stop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor BluePlasma : PlasmaBall
+{
+	decal BluePlasmaScorch
+	Damage (20)
+	Speed 50
+	obituary "%k gave %o a serious case of Plasma Burn"
+	Alpha 1.0
+	RenderStyle Add
+	SeeSound ""
+	DeathSound "HaloPlasmaHit"
+	scale 0.04
+	States
+	{
+	Spawn:
+		BLSS A 0
+		BLSS A 0 ThrustThingZ(0, Random(0,3), Random(0,1), 1)
+		goto SpawnLoop
+	SpawnLoop:
+		BLSS AB 1 BRIGHT A_SpawnItemEx("BluePlasmaTrail", 0, 0, 0, (random(-80,80)/100.0), (random(-80,80)/100.0), (random(-80,80)/100.0), 0, SXF_CLIENTSIDE, 0)
+		loop
+	XDeath:
+		TNT1 A 0
+		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+		goto Death
+	Death:
+		BLSE AAAAAAA 0 A_SpawnItemEx("BluePlasmaMist", 0, 0, 0, (Random(-400,400)/100.0), (Random(-400,400)/100.0), (Random(-400,400)/100.0), 0, SXF_CLIENTSIDE, 0)
+		BLSE ABCDE 2 Bright
+		Stop
+	}
+}
+
+actor PowerMist : BaseEffect
+{
+	RenderStyle Add
+	Scale 0.1
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		APBX ABCDE 1 BRIGHT
+		stop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PowerTrail : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.02
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		goto Projectile
+	Projectile:
+		APLS ABCD 1 A_Fadeout(0.1)
+		loop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PowerBeam
+{
+	Radius 4
+	Height 8
+	Projectile
+	RenderStyle Add
+	Alpha 1.0
+	obituary "%o was 'sploded by %k's Supra"
+	speed 64
+	damage (4)
+	scale 0.02
+	DamageType "Disintegrate"
+	Decal "TealPlasmaScorch"
+	+RIPPER
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+	+NODAMAGETHRUST
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	States
+	{
+	Spawn:
+		APLS A 1 BRIGHT
+		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS B 1 BRIGHT
+		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS C 1 BRIGHT
+		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS D 1 BRIGHT
+		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		loop
+	Death:
+		APBX A 0 BRIGHT
+		APBX A 0 BRIGHT A_Explode(24, 32, 1)
+		APBX AAAA 0 A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-4.0,4.0), frandom(-4.0,4.0), frandom(-4.0,4.0), 0, SXF_CLIENTSIDE, 0)
+		APBX ABCDE 2 BRIGHT A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(-2.0,2.0), 0, SXF_CLIENTSIDE, 0)
+		stop
+	}
+}
+
 actor Tourettes_NewPlasma : NewPlasma
 {
 	DamageType "Tourettes"
 	SeeSound "HaloPlasmaRifle"
+}
+
+actor IgnitedSurface
+{
+	Projectile
+	Height 5
+	Radius 2
+	BounceFactor 0.0
+	obituary "%o was purified by %k's cleansing flame."
+	RenderStyle Add
+	Scale 0.5
+	ReactionTime 160
+	DamageType "Fire"
+	-SOLID
+	+NODAMAGETHRUST
+	+LOWGRAVITY
+	-NOGRAVITY
+	+HEXENBOUNCE
+	+SKYEXPLODE
+	+DONTSPLASH
+	States
+	{
+		Spawn:
+			TFIR A 0 A_CountDown
+			TNT1 A 0 A_SpawnItemEx("BasicFlame", random(-8,8), Random(-8,8), 0, 0, 0, Random(1, 2), 0, 128, 64)
+			TNT1 A 2 A_Explode(3, 18, 1)
+			TNT1 A 0 A_JumpIf(waterlevel == 3, "Disappear")
+			loop
+		Death:
+			TNT1 A 1
+			stop
+		Disappear:
+			TNT1 A 0
+			TNT1 A 1
+			stop
+	}
 }

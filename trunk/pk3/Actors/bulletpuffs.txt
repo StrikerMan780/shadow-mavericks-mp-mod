@@ -1,3 +1,86 @@
+actor FireTracerSpawner
+{
+	Radius 0
+	Height 0
+	+DROPOFF
+	+NOBLOCKMAP
+	+NOINTERACTION
+	+NOGRAVITY
+	+NOCLIP
+	+ISMONSTER
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("FireTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor MinigunTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("BulletTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor PelletTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("PelletTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor ChaingunTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("ChaingunTracer", 0, 12)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BoltTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("BoltTracer", 0, 12)
+			TNT1 A 1
+			stop
+	}
+}
+
 Actor BulletBlast
 {
 	Radius 1
@@ -209,6 +292,7 @@ actor NewBulletPuffSpark
 
 actor NewBulletPuff : BulletPuff Replaces BulletPuff
 {
+	Height 2
 	Decal Bulletchip
 	VSpeed 0
 	RenderStyle Add
@@ -233,8 +317,8 @@ actor NewBulletPuff : BulletPuff Replaces BulletPuff
 		PUFF A 0 A_SpawnItemEX("RicochetSpawner", 0, 0, 0, 0, 0, 0, 0, 128, 224)
 		goto Puff
 	Puff:
-		PUFF A 2 bright
-		PUFF B 1 bright
+		PUFF A 2 bright Light("BPUFF1")
+		PUFF B 1 bright Light("BPUFF2")
 		goto Smoke
 	Smoke:
 		PUFF B 0 A_Jump(64, "Smoke2")
@@ -249,6 +333,18 @@ actor NewBulletPuff : BulletPuff Replaces BulletPuff
 	}
 }
 
+actor ChainsawPuff : NewBulletPuff
+{
+	States
+	{
+	Crash:
+		PUFF A 0
+		PUFF AA 0 A_SpawnItemEx("BulletDebris", 0, 0, 0, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(100,600)/100.0), random(-360,360), 128, 76)
+		PUFF AAA 0 A_SpawnItemEx("NewBulletPuffSpark", 0, 0, 0, (random(-100,100)/100.0), (random(-100,100)/100.0), (random(0,200)/100.0), random(-180,180), 128, 48)
+		goto Puff
+	}
+}
+
 actor Tourettes_BulletPuff : NewBulletPuff
 {
 	DamageType "Tourettes"
@@ -259,6 +355,13 @@ actor SilverBulletPuff : NewBulletPuff
 	DamageType "Silver"
 	states
 	{
+	Crash:
+		PUFF A 0
+		PUFF AAA 0 A_SpawnItemEx("BulletDebris", 0, 0, 0, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(100,600)/100.0), random(-360,360), 128, 76)
+		PUFF A 0 A_SpawnItemEX("BulletBlast", 0, 0, 0, 0, 0, 0, 0, 128, 246)
+		PUFF AAA 0 A_SpawnItemEx("NewBulletPuffSpark", 0, 0, 0, (random(-100,100)/100.0), (random(-100,100)/100.0), (random(0,200)/100.0), random(-180,180), 128, 48)
+		PUFF A 0 A_SpawnItemEX("RicochetSpawner", 0, 0, 0, 0, 0, 0, 0, 128, 224)
+		goto Puff
 	Puff:
 		PUFS A 2 bright
 		PUFS B 1 bright
@@ -266,19 +369,62 @@ actor SilverBulletPuff : NewBulletPuff
 	}
 }
 
-actor HeadBursterPuff : NewBulletPuff
+actor SilverBulletPuff2 : SilverBulletPuff
+{
+	obituary "%o was torn apart by %k's .454 Casull Rounds"
+}
+
+actor KeyringPuff : SilverBulletPuff
+{
+	obituary "%o took a silver fragment from %k's Keyring!"
+}
+
+actor SniperPuff : NewBulletPuff
 {
 	DamageType "HeadBurst"
 }
 
-actor QuadPuff : NewBulletPuff
+actor MinigunPuff : NewBulletPuff
 {
-	DamageType "QuadSSG"
+	+ISMONSTER
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("MinigunTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			goto "Super::Spawn"
+		Crash:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("MinigunTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			goto "Super::Crash"
+	}
 }
 
 actor SSGPuff : NewBulletPuff
 {
 	DamageType "SSG"
+	+ISMONSTER
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("PelletTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			goto "Super::Spawn"
+		Crash:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("PelletTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			goto "Super::Crash"
+	}
+}
+
+actor QuadPuff : SSGPuff
+{
+	DamageType "QuadSSG"
+}
+
+actor ShotgunPuff : SSGPuff
+{
+	DamageType "HeadBurst"
 }
 
 actor FistPuff : BulletPuff
@@ -465,11 +611,37 @@ ACTOR ExpanderPuff
     }
 }
 
+actor FreezeSparks : BaseEffect
+{
+	Scale 0.5
+	RenderStyle Add
+	Alpha 1.0
+	States
+	{
+		Spawn:
+			BOLT ABCDEFGHIJKL 1 BRIGHT A_FadeOut(0.05)
+			stop
+	}	
+}
+
+actor ElectricSnowflake : BaseEffect
+{
+	Scale 0.05
+	RenderStyle Translucent
+	Alpha 0.8
+	States
+	{
+		Spawn:
+			SFLK ABCDEFGHIJKLMNOP 2 A_FadeOut(0.05)
+			loop
+	}	
+}
+
 ACTOR FreezeShock
 {
 	Radius 16
 	Height 8
-	Scale 0.82
+	Scale 0.75
 	Alpha 0.75
 	Renderstyle Add
 	obituary "%o suffered from cold shock due to %k's freezebolt!"
@@ -477,27 +649,32 @@ ACTOR FreezeShock
 	+FIXMAPTHINGPOS
 	+BLOODLESSIMPACT
 	+PUFFGETSOWNER
+	+PIERCEARMOR
 	+FIXMAPTHINGPOS
 	+NOGRAVITY
 	+NOBLOCKMAP
 	+FORCEXYBILLBOARD
+	+ISMONSTER
 	-BLOODSPLATTER
 	DamageType "Ice"
 	States
 	{
-	Spawn:
-  		TNT1 A 0
-  		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-  		goto Crash
-	Crash:
-	  BOLT A 0
-	  BOLT A 0 A_Playsound("Freezehit")
-	  BOLT ABCDEFGHIJKL 2 BRIGHT
-	  Stop
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			TNT1 A 0 A_SpawnItemEx("BoltTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			goto Crash
+		Crash:
+			BOLT A 0
+			BOLT A 0 A_SpawnItemEx("BoltTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			BOLT A 0 A_Playsound("Freezehit")
+			BOTT AAAA 0 BRIGHT A_SpawnItemEx("ElectricSnowflake", 0, 0, 0, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(-200,200)/100.0), random(-180,180), SXF_CLIENTSIDE, 96)
+			BOLT ABCDEFGHIJKL 1 BRIGHT A_SpawnItemEx("FreezeSparks", 0, 0, 0, (random(-400,400)/100.0), (random(-400,400)/100.0), (random(-400,400)/100.0), random(-180,180), SXF_CLIENTSIDE, 128)
+			Stop
 	}
 }
 
-actor BlazeFlames : Rocketfire
+actor BlazeFlames : BasicFlame
 {
 	Scale 0.25
 	+MISSILE
@@ -522,6 +699,7 @@ actor BlazePuff
 	+FORCEXYBILLBOARD
 	+NOGRAVITY
 	+NOBLOCKMAP
+	+ISMONSTER
 	States
 	{
 		Spawn:
@@ -531,6 +709,7 @@ actor BlazePuff
 		Crash:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySound("vile/firecrkl")
+			TNT1 A 0 A_SpawnItemEx("FireTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
 			TNT1 A 1 A_SpawnItemEx("BlazeFlames", Random(-4,4), Random(-4,4), 0, 0, 0, (Random(1,150)/100.0), 0, SXF_CLIENTSIDE, 0)
 			TNT1 AAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("BlazeFlames", Random(-4,4), Random(-4,4), 0, 0, 0, (Random(1,150)/100.0), 0, SXF_CLIENTSIDE, 200)
 			stop
@@ -569,27 +748,29 @@ ACTOR BlitzShock
 
 actor FrostPuff
 {
- Radius 8
- Height 8
- Gravity 0.02
- obituary "%o was frozen to the core by %k's Blizzard SSG."
- DamageType "Ice"
- +PUFFONACTORS
- +PUFFGETSOWNER
- +NOBLOCKMAP
- +FORCEXYBILLBOARD
- States
- {
+	Radius 8
+	Height 8
+	obituary "%o was frozen to the core by %k's Blizzard SSG."
+	DamageType "Ice"
+	Scale 0.15
+	+PUFFONACTORS
+	+PUFFGETSOWNER
+	+NOBLOCKMAP
+	+FORCEXYBILLBOARD
+	+NOGRAVITY
+	States
+	{
  	Spawn:
   		TNT1 A 0
   		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-  		stop
+  		goto Crash
  	Crash:
  		TNT1 A 0
  		TNT1 A 0 A_PlaySound("IceShot")
- 		CRYT ABABABABABCBCBCBCBCBCDCDCDCDCDCDCDCDCDCDCDCD 1
- 		stop
- }
+ 		FRZE ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+		FRZ2 ABCDEFGHI 1 BRIGHT
+		stop
+	}
 }
 
 actor SonicWaveBlast
@@ -758,6 +939,7 @@ actor MasterSwordHit
 
 Actor SuperChaingunHit
 {
+	Height 2
 	Scale 0.4
 	Alpha 0.9
 	RenderStyle Add
@@ -768,6 +950,8 @@ Actor SuperChaingunHit
 	+PUFFONACTORS
 	+PUFFGETSOWNER
 	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	+ISMONSTER
 	States
 	{
 	Spawn:
@@ -775,6 +959,23 @@ Actor SuperChaingunHit
 		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
 		goto Crash
 	Crash:
+		HBEX A 0 A_SpawnItemEx("ChaingunTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+		HBEX A 0 A_Explode(12, 24, 0)
+		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
+		stop
+	}
+}
+
+Actor EnemySuperChaingunHit : SuperChaingunHit
+{
+	States
+	{
+	Spawn:
+		HBEX A 0 A_SpawnItemEx("ChaingunTracerSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
+		stop
+	Crash:
+		HBEX A 0 A_SpawnItemEx("ChaingunTracerSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
 		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
 		stop
 	}

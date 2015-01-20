@@ -5,7 +5,7 @@ actor SM_SuperShotgun : Weapon Replaces SuperShotgun
 	obituary "%k turned %o's torso into a pile of red gruel."
 	radius 20
 	height 16
-	inventory.pickupmessage "\cdGolden SSG \cc/ \ciSilver Bullet Gun \cc/ \cfDin's Fire \cc/ \crSlamshot"
+	inventory.pickupmessage "\cdSuper Shotgun \cc/ \ciKeyring \cc/ \cfDin's Fire \cc/ \crSPAS-12"
 	weapon.selectionorder 400
 	weapon.kickback 100
 	Weapon.AmmoType "SpreadAmmo"
@@ -35,25 +35,26 @@ actor SM_SuperShotgun : Weapon Replaces SuperShotgun
 			SHT2 A 0 A_JumpIfInventory("TailsClassCheck", 1, "SBGFire")
 			SHT2 A 0 A_JumpIfInventory("LinkClassCheck", 1, "DinFire")
 			SHT2 A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-			SHT2 A 2
 			SHT2 A 0 radius_quake(4, 3, 0, 1, 0)
 			SHT2 A 0 A_PlayWeaponSound("weapons/sshotf")
-			SHT2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "SSGPuff")
-			SHT2 A 2 A_GunFlash
+			SHT2 A 0 A_FireBullets (10, 6, 20, 5, "SSGPuff")
+			SHT2 A 1 A_GunFlash
 			SHT2 B 0 A_SetPitch(pitch-4)
-			SHT2 BCDEF 1 A_SetPitch(pitch+0.8)
-			SHT2 AA 1 A_CheckReload
-			SHT2 A 2
-			SH2R ABCDE 2
-			SH2R F 2 A_PlaySoundEx("weapons/sshoto", "auto", 0)
-			SH2R GG 0 A_FireCustomMissile("SSGCasing", Random(-14,8),0,2,0)
+			SHT2 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)
+			SHT2 A 1 A_CheckReload
+			SH2R AB 2
+			SH2R C 0 A_PlaySoundEx("weapons/sshoto", "auto", 0)
+			SH2R CDEF 2
+			//SH2R GG 0 A_FireCustomMissile("SSGCasing", Random(-14,8),0,2,0)
 			SH2R GHI 2
-			SH2R J 2
-			SH2R K 2 A_PlaySoundEx("weapons/sshotl", "auto", 0)
+			SH2R JK 2
+			SH2R L 0 A_PlaySoundEx("weapons/sshotl", "auto", 0)
 			SH2R LMNO 2
-			SH2R P 0 A_PlaySoundEx("weapons/sshotc", "auto", 0)
-			SH2R PQRS 2
-			SHT2 A 7 A_ReFire
+			SH2R PQRSTUVWX 2
+			SH2R Y 0 A_PlaySoundEx("weapons/sshotc", "auto", 0)
+			SH2R YZ 2
+			SH22 ABCD 1
+			SHT2 A 0 A_ReFire
 			goto Ready
 		Flash:
 			SH2F A 0 A_JumpIfInventory("TailsClassCheck", 1, "SBGFlash")
@@ -73,19 +74,25 @@ actor SM_SuperShotgun : Weapon Replaces SuperShotgun
 			SBGN A 1 A_Lower
 			loop
 		SBGFire:
-			SBGN A 0 A_GunFlash
 			SBGN A 0 A_PlayWeaponSound("SilverBulletFire")
-			SBGN A 4 A_FireBullets (3, 3, 2, 20, "SilverBulletPuff")
-			SBGN A 20
-			SBGN B 0 A_PlayWeaponSound("SilverBulletLoad")
-			SBGN BB 4 A_FireCustomMissile("SilverBulletCasing",45+random(-8,8),0,0,5)
-			SBGN A 9
+			SBGN A 0 A_FireBullets (5, 4, 4, 32, "KeyringPuff", FBF_USEAMMO | FBF_NORANDOM)
+			SBGN A 0 A_GunFlash
+			SBGN A 2 A_SetPitch(pitch-4.0)
+			SBGN BCD 1 A_SetPitch(pitch+1.0)
+			SBGN A 3 A_SetPitch(pitch+1.0)
+			SBGN EFGHI 2
+			SBGN J 1 A_PlaySound("SilverBulletLoad", CHAN_AUTO)
+			SBGN K 1 
+			SBGN L 1 A_FireCustomMissile("SilverBulletCasing",45+random(-8,8),0,2,8)
+			SBGN M 1
+			SBGN NOPQRSTUV 2
+			SBGN A 7
 			SBGN A 0 A_Refire
 			goto SBGReady
 		SBGFlash:
-			SBGF A 3 BRIGHT A_Light2
-			SBGF B 2 BRIGHT A_Light1
-			SBGF A 0 BRIGHT A_Light0
+			SBGF A 2 BRIGHT A_Light2
+			SBGF B 1 BRIGHT A_Light1
+			TNT1 A 0 BRIGHT A_Light0
 			stop
 
 		// Din's Fire

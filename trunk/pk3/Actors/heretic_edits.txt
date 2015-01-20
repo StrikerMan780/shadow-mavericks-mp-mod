@@ -2,7 +2,7 @@ ACTOR SMMP_HereticImpBall : HereticImpBall replaces HereticImpBall
 {
 	Speed 30
 	FastSpeed 50
-	Damage 3
+	Damage 2
 	Alpha 1.0
 	RenderStyle Add
 	States
@@ -36,6 +36,7 @@ actor HereticImpBallTrail
 actor SM_HereticImp : HereticImp
 {
 	+FLOATBOB
+	DropItem "HealthBonus2", 48
 	States
 	{
 		Melee:
@@ -66,7 +67,7 @@ actor SM_HereticImp : HereticImp
 			Wait
 		Crash:
 			IMPX I 7 A_ImpExplode
-			IMPX J 7 A_Scream
+			IMPX J 7 A_ScreamAndUnblock
 			IMPX K 7
 			IMPX L 10500
 			goto Fade
@@ -75,7 +76,7 @@ actor SM_HereticImp : HereticImp
 			loop
 		XCrash:
 			IMPX X 7
-			IMPX Y 7
+			IMPX Y 7 A_NoBlocking
 			IMPX Z 10500
 			goto XFade
 		XFade:
@@ -93,6 +94,7 @@ actor SM_HereticImpLeader : SM_HereticImp replaces HereticImpLeader
 	+MISSILEEVENMORE
 	+FLOATBOB
 	AttackSound "himp/attack"
+	DropItem "HealthBonus2", 64
 	States
 	{
 		Melee:
@@ -107,11 +109,11 @@ actor SM_HereticImpLeader : SM_HereticImp replaces HereticImpLeader
 			Goto Missile+3
 		Throw:
 			IMPX DE 3 A_FaceTarget
-			IMPX F 5 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			IMPX F 5 A_CustomMissile("HereticImpBall", 32, 0, 0, CMF_AIMOFFSET) 
 			IMPX DE 3 A_FaceTarget
-			IMPX F 5 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			IMPX F 5 A_CustomMissile("HereticImpBall", 32, 0, frandom(-2.0, 2.0), CMF_AIMOFFSET, frandom(-2.0, 2.0)) 
 			IMPX DE 3 A_FaceTarget
-			IMPX F 5 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+			IMPX F 5 A_CustomMissile("HereticImpBall", 32, 0, frandom(-2.0, 2.0), CMF_AIMOFFSET, frandom(-2.0, 2.0)) 
 			Goto See
 	}
 }
@@ -126,6 +128,7 @@ actor SM_Mummy : Mummy
 	hitobituary "%o was beaten down by a flesh golem"
 	obituary "%o was flayed by a flesh golem"
 	PainChance 96
+	
 	States
 	{
 		See:
@@ -138,6 +141,7 @@ actor SM_Mummy : Mummy
 			Goto See
 		Death:
 			MUMM I 5
+			MUMM JJJJJJJJJJ 0 A_SpawnItemEx("Fleshy_Splatter", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), MOMX+frandom(-8.0, 8.0), MOMY+frandom(-8.0, 8.0), MOMZ+frandom(2.0, 12.0), Random(-180, 180), SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 64)
 			MUMM J 5 A_Scream
 			MUMM K 5 A_SpawnItemEx("MummySoul", 0,0,10, 0,0,1)
 			MUMM L 5
@@ -316,5 +320,203 @@ actor SMMP_Pod : Pod replaces Pod
 			PPOD E 3 A_SpawnItemEx("XDeathGibs", 0, 0, 16, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0) 
 			PPOD F 2
 			Stop
+	}
+}
+
+actor FirebornBlur : BaseEffect
+{
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			TNT1 A 2
+			CLNK AABBCCDD 1 A_FadeOut(0.09375)
+			stop
+	}
+} 
+
+actor FirebornFlames : IgnitedSurface
+{
+	obituary "%o trodden on the remains of a Fireborn."
+	Speed 4
+	States
+	{
+	Spawn:
+		TFIR A 0 A_CountDown
+		TNT1 A 0 A_SpawnItemEx("BasicFlame", random(-10,10), Random(-10,10), 0, 0, 0, Random(1, 2), 0, 128, 64)
+		TNT1 A 2 A_Explode(8, 24, 1)
+		TNT1 A 0 A_JumpIf(waterlevel == 3, "Disappear")
+		loop
+	}
+}
+
+actor Fireborn replaces Clink
+{
+	Health 100
+	Radius 20
+	Height 64
+	Mass 120
+	Speed 12
+	PainChance 64
+	DamageFactor "Fire", 0.25
+	MinMissileChance 48
+	MeleeThreshold 128
+	MaxTargetRange 256
+	BloodType "FirebornBlood"
+	Monster
+	+FLOORCLIP
+	+DONTRIP
+	SeeSound "clink/sight"
+	PainSound "clink/pain"
+	DeathSound "clink/death"
+	ActiveSound "clink/active"
+	Obituary "%o was immolated by a Fireborn."
+	HitObituary "%o was cut down by a Fireborn."
+	DropItem "CellAmmo", 84, 20
+	DropItem "ProtonAmmo", 84, 20
+	DropItem "MaxArmorBonus2", 84
+	DropItem "MaxHealthBonus2", 32
+	States
+	{
+	Spawn:
+		CLNK A 0 A_Look
+		CLNK A 6 A_Wander
+		CLNK B 0 A_Look
+		CLNK B 6 A_Wander
+		CLNK C 0 A_Look
+		CLNK C 6 A_Wander
+		CLNK D 0 A_Look
+		CLNK D 6 A_Wander
+		Loop
+	See:
+		CLNK AABBCCDD 2 A_Chase
+		CLNK A 0 A_JumpIf(Health <= 50, "GoBerserk")
+		Loop
+	GoBerserk:
+		CLNK A 0 A_PlaySound("clink/sight", CHAN_AUTO)
+		CLNK AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("FirebornChunk", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-10.0, 10.0), frandom(-10.0, 10.0), frandom(2.0, 16.0), random(-180, 180), SXF_CLIENTSIDE, 16)
+		CLNK AAAAAAAA 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(2.0, 4.0), random(-180, 180), SXF_CLIENTSIDE, 0)
+		CLNK A 0 A_SpawnItemEx("Fireborn_PissedOff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPOINTERS | SXF_TRANSFERTRANSLATION | SXF_NOCHECKPOSITION, 0)
+		stop
+	Melee:
+		CLNK E 0 A_JumpIf(Health <= 50, "GoBerserk")
+		CLNK E 0 A_PlaySound("clink/attack", CHAN_AUTO)
+		CLNK E 3 A_FaceTarget
+		CLNK E 0 A_Recoil(-2)
+		CLNK F 3 A_FaceTarget
+		CLNK G 4 A_CustomMeleeAttack(10, "LinkSwordHit")
+		Goto See
+	Missile:
+		CLNK A 0 A_FaceTarget
+		CLNK A 0 A_Recoil(-8)
+		CLNK AABB 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLNK C 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLNK C 0 A_FaceTarget
+		CLNK C 0 A_Recoil(-8)
+		CLNK CCDD 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLNK A 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLNK A 0 A_FaceTarget
+		CLNK A 0 A_Recoil(-8)
+		CLNK AABB 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLNK C 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLNK C 0 A_FaceTarget
+		CLNK C 0 A_Recoil(-8)
+		CLNK CCDD 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLNK A 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLNK A 0 A_FaceTarget
+		CLNK A 0 A_Recoil(-8)
+		goto See
+	Pain:
+		CLNK H 2
+		CLNK H 2 A_Pain
+		CLNK H 0 A_FastChase
+		Goto See
+	Death:
+		CLNK IJ 6
+		CLNK K 5 A_Scream
+		CLNK L 0 A_PlaySound("world/barrelx", CHAN_AUTO)
+		CLNK L 0 A_Explode(32, 128)
+		CLNK LLLLLL 0 A_SpawnItemEx("FirebornFlames", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(1.0, 6.0), random(-180, 180), SXF_TRANSFERPOINTERS, 64)
+		CLNK LLLLLLLLLLLLL 0 A_SpawnItemEx("FirebornLava", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(2.0, 12.0), random(-180, 180), SXF_CLIENTSIDE, 64)
+		CLNK LLLLLLLLLLLLL 0 A_SpawnItemEx("FirebornChunk", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-10.0, 10.0), frandom(-10.0, 10.0), frandom(2.0, 16.0), random(-180, 180), SXF_CLIENTSIDE, 64)
+		CLNK L 5 A_NoBlocking
+		CLNK MN 5
+		CLNK O -1
+		Stop
+	}
+}
+
+actor Fireborn_PissedOff : Fireborn
+{
+	Speed 14
+	DamageFactor "Fire", 0.0
+	PainChance 32
+	MaxTargetRange 512
+	Obituary "%o was immolated by a pissed-off Fireborn."
+	HitObituary "%o was sheared in two and cauterized by a Fireborn."
+	-DONTRIP
+	States
+	{
+	Spawn:
+		CLN2 AA 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 A 0 A_Look
+		CLN2 A 6 A_Wander
+		CLN2 BB 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 B 0 A_Look
+		CLN2 B 6 A_Wander
+		CLN2 CC 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 C 0 A_Look
+		CLN2 C 6 A_Wander
+		CLN2 DD 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 D 0 A_Look
+		CLN2 D 6 A_Wander
+		Loop
+	See:
+		CLN2 AA 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 AA 2 A_Chase
+		CLN2 BB 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 BB 2 A_Chase
+		CLN2 CC 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 CC 2 A_Chase
+		CLN2 DD 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 DD 2 A_Chase
+		Loop
+	Melee:
+		CLN2 E 0 A_PlaySound("clink/attack", CHAN_AUTO)
+		CLN2 E 3 A_FaceTarget
+		CLN2 E 0 A_Recoil(-2)
+		CLN2 F 3 A_FaceTarget
+		CLN2 G 4 A_CustomMeleeAttack(20, "LinkSwordHit")
+		Goto See
+	Missile:
+		CLN2 A 0 A_FaceTarget
+		CLN2 A 0 A_Recoil(-8)
+		CLN2 AA 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 AABB 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLN2 C 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLN2 C 0 A_FaceTarget
+		CLN2 C 0 A_Recoil(-8)
+		CLN2 CC 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 CCDD 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLN2 A 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLN2 A 0 A_FaceTarget
+		CLN2 A 0 A_Recoil(-8)
+		CLN2 AA 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 AABB 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLN2 C 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLN2 C 0 A_FaceTarget
+		CLN2 C 0 A_Recoil(-8)
+		CLN2 CC 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		CLN2 CCDD 1 A_SpawnItemEx("FirebornBlur", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		CLN2 A 0 A_Chase("Melee", "", CHF_DONTMOVE)
+		CLN2 A 0 A_FaceTarget
+		CLN2 A 0 A_Recoil(-8)
+		CLN2 AA 0 A_SpawnItemEx("BasicFlame", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0.0, 56.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		goto See
+	Pain:
+		CLN2 H 2
+		CLN2 H 2 A_Pain
+		CLN2 H 0 A_FastChase
+		Goto See
 	}
 }

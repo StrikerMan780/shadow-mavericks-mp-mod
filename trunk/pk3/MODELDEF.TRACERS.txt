@@ -1,0 +1,118 @@
+model BulletTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 20.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model FireTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "FireTracer.png"
+	Scale 20.0 3.5 3.5
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex PUFF A 0 0
+}
+
+model PelletTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 16.0 1.0 1.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model ChaingunTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "ChaingunTracer.png"
+	Scale 16.0 2.75 2.75
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model BoltTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "BoltTracer1.png"
+	Scale 20.0 3.5 3.5
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex BOLT A 0 0
+}
+
+model BoltTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "BoltTracer2.png"
+	Scale 20.0 3.5 3.5
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex BOLT B 0 0
+}
+
+model BoltTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "BoltTracer3.png"
+	Scale 20.0 3.5 3.5
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex BOLT C 0 0
+}
+
+model BoltTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "BoltTracer4.png"
+	Scale 20.0 3.5 3.5
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex BOLT D 0 0
+}
+
+//model ShockBeam
+//{
+//	Path "models/Projectiles"
+//	Model 0 "Tracer.md3"
+//	Skin 0 "ShockBeam.png"
+//	Scale 128.0 16.0 16.0
+//	PITCHFROMMOMENTUM
+//
+//	FrameIndex SRSP A 0 0
+//}

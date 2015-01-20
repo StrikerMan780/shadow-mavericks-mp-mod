@@ -55,6 +55,24 @@ combiner BloodSmearer
 	BloodSlider
 }
 
+slider WaterSlider
+{
+	SlideTime		3
+	DistY			-64
+}
+
+fader WaterFader
+{
+	DecayStart	1.5
+	DecayTime	1.5
+}
+
+combiner WaterDrip
+{
+	WaterSlider
+	WaterFader
+}
+
 /***** Bullet Chips *****/
 
 decal BulletChip1
@@ -228,6 +246,70 @@ decalgroup BlazeChip
 	BlazeChipBurn3 2
 	BlazeChipBurn4 1
 	BlazeChipBurn5 2
+}
+
+decal PIPSChipBurn1
+{
+	pic HOTPLSH1
+	Add 1.0
+	x-scale 0.1
+	y-scale 0.1
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip1
+}
+
+decal PIPSChipBurn2
+{
+	pic HOTPLSH2
+	Add 1.0
+	x-scale 0.1
+	y-scale 0.1
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip2
+}
+
+decal PIPSChipBurn3
+{
+	pic HOTPLSH2
+	Add 1.0
+	x-scale 0.15
+	y-scale 0.15
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip3
+}
+
+decal PIPSChipBurn4
+{
+	pic HOTPLSH1
+	Add 1.0
+	x-scale 0.12
+	y-scale 0.12
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip4
+}
+
+decal PIPSChipBurn5
+{
+	pic HOTPLSH1
+	Add 1.0
+	x-scale 0.09
+	y-scale 0.09
+	fullbright
+	animator GoAway2
+	lowerdecal BlazeChip5
+}
+
+decalgroup PIPSChip
+{
+	PIPSChipBurn1 2
+	PIPSChipBurn2 2
+	PIPSChipBurn3 2
+	PIPSChipBurn4 1
+	PIPSChipBurn5 2
 }
 
 /***** Blood Decals ********************************************************/
@@ -593,10 +675,20 @@ decalgroup BloodSmear
 
 decal Scorch
 {
-	pic SCORCH1
+	pic RKTSCRCH
 	shade "00 00 00"
-	x-scale 0.5
-	y-scale 0.5
+	x-scale 0.125
+	y-scale 0.125
+	randomflipx
+	randomflipy
+}
+
+decal SmallScorch
+{
+	pic RKTSCRCH
+	shade "00 00 00"
+	x-scale 0.075
+	y-scale 0.075
 	randomflipx
 	randomflipy
 }
@@ -681,8 +773,8 @@ decal BluePlasmaScorch1
 {
 	pic BLSSA0
 	add 1.0
-	x-scale 0.09
-	y-scale 0.09
+	x-scale 0.04
+	y-scale 0.04
 	fullbright
 	animator GoAway
 	lowerdecal PlasmaScorchLower
@@ -692,8 +784,52 @@ decal BluePlasmaScorch2
 {
 	pic BLSSB0
 	add 1.0
-	x-scale 0.09
-	y-scale 0.09
+	x-scale 0.04
+	y-scale 0.04
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower
+}
+
+decal TealPlasmaScorch1
+{
+	pic APLSA0
+	add 1.0
+	x-scale 0.04
+	y-scale 0.04
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower
+}
+
+decal TealPlasmaScorch2
+{
+	pic APLSB0
+	add 1.0
+	x-scale 0.04
+	y-scale 0.04
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower
+}
+
+decal TealPlasmaScorch3
+{
+	pic APLSC0
+	add 1.0
+	x-scale 0.04
+	y-scale 0.04
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower
+}
+
+decal TealPlasmaScorch4
+{
+	pic APLSD0
+	add 1.0
+	x-scale 0.04
+	y-scale 0.04
 	fullbright
 	animator GoAway
 	lowerdecal PlasmaScorchLower
@@ -717,6 +853,27 @@ decalgroup BluePlasmaScorch
 {
 	BluePlasmaScorch1	1
 	BluePlasmaScorch2	1
+}
+
+decalgroup TealPlasmaScorch
+{
+	TealPlasmaScorch1	1
+	TealPlasmaScorch2	1
+	TealPlasmaScorch3	1
+	TealPlasmaScorch4	1
+}
+
+// *************** SHOCK RIFLE
+
+decal ShockRifleScorch
+{
+	pic SHOKBURN
+	add 1.0
+	x-scale 0.125
+	y-scale 0.125
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower
 }
 
 /***** BFG Scorches ********************************************************/
@@ -825,30 +982,6 @@ decalgroup RailScorch
 {
 	RailScorch1 1
 	RailScorch2 1
-}
-
-/***** Arachnotron Plasma Scorches *****************************************/
-
-decal ArachScorch1
-{
-	pic APLSA0
-	add 1.0
-	animator GoAway
-	lowerdecal PlasmaScorchLower1
-}
-
-decal ArachScorch2
-{
-	pic APLSB0
-	add 1.0
-	animator GoAway
-	lowerdecal PlasmaScorchLower2
-}
-
-decalgroup ArachnotronScorch
-{
-	ArachScorch1	1
-	ArachScorch2	1
 }
 
 /***** Baron of Hell/Hell Knight Scorches **********************************/
@@ -1591,6 +1724,16 @@ decalgroup RepeaterScorch
 	RepeaterScorch2 1
 }
 
+decal WaterDroplet
+{
+	pic RAINA0
+	translucent 0.5
+	x-scale 0.025
+	y-scale 0.025
+	randomflipx
+	animator WaterDrip
+}
+
 /***** Generators **********************************************************/
 
 generator Pistol				BulletChip
@@ -1621,7 +1764,7 @@ generator SuperShotgunGuy		BulletChip
 generator WolfensteinSS			BulletChip
 generator SpiderMastermind		BulletChip
 
-generator ArachnotronPlasma		ArachnotronScorch
+generator ArachnotronPlasma		TealPlasmaScorch
 generator BaronBall				BaronScorch
 // [BC] For the Belphegor.
 generator BelphegorBall				BaronScorch
@@ -1726,7 +1869,6 @@ generator MiniMissile			Scorch
 generator Mauler			RailScorchLower
 
 // [SM780] - GBTW HQ Decals
-generator PowerBeam			ArachnotronScorch
 generator BioBall				BioRifle
 generator NeedlerCrystal		Needler
 
