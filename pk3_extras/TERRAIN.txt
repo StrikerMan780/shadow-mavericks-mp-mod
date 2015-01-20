@@ -4,7 +4,6 @@
 ifdoom
 
 floor glava1 lava_t
-floor nlava1 lava_t
 floor wblood1 blood_t
 floor WSLIME01 Slime
 floor wfwater1 water_t
