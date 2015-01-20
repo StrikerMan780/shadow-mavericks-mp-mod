@@ -1,25 +1,3 @@
-flat FLTSLUD1
-	pic BLOOD1 tics 8
-	pic BLOOD1 tics 8
-	
-flat FLTWAWA1
-	pic	FWATER1 tics 2
-	pic	FWATER2 tics 2
-	pic	FWATER3 tics 2
-	pic	FWATER4 tics 2
-	pic	FWATER5 tics 2
-	pic	FWATER6 tics 2
-	pic	FWATER7 tics 2
-	pic	FWATER8 tics 2
-	pic	FWATER9 tics 2
-	pic	FWATER10 tics 2
-	pic	FWATER11 tics 2
-	pic	FWATER12 tics 2
-	pic	FWATER13 tics 2
-	pic	FWATER14 tics 2
-	pic	FWATER15 tics 2
-	pic	FWATER16 tics 2
-	
 flat FWATER1
 	pic	FWATER1 tics 2
 	pic	FWATER2 tics 2
@@ -249,10 +227,11 @@ flat BLOOD2
 flat BLOOD3
 	pic BLOOD1 tics 8
 	pic BLOOD1 tics 8
-
+	
 warp2 flat blood1
 warp flat lava1
 warp flat lava2
 warp flat lava3
 warp flat lava4
 warp flat slime05
+warp2 texture NLAVA1

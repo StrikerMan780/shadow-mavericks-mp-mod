@@ -1,0 +1,401 @@
+actor MidRedFloatingFlame : BaseEffect
+{
+	RenderStyle Add
+	XScale 0.90
+	YScale 0.78
+	Alpha 0.8
+	+FORCEYBILLBOARD
+	States
+	{
+	Spawn:
+		FRED ABCD 1 BRIGHT
+		FRED ABCD 1 BRIGHT
+		goto Fade
+  
+	Fade:
+		FRED ABCD 1 A_Fadeout
+		loop
+	}
+}
+
+actor MidBlueFloatingFlame : MidRedFloatingFlame
+{
+	States
+	{
+	Spawn:
+		FBLU ABCD 1 BRIGHT
+		FBLU ABCD 1 BRIGHT
+		goto Fade
+  
+	Fade:
+		FBLU ABCD 1 A_Fadeout
+		loop
+	}
+}
+
+actor MidGreenFloatingFlame : MidRedFloatingFlame
+{
+	Alpha 0.6
+	States
+	{
+	Spawn:
+		FGRE ABCD 1 BRIGHT
+		FGRE ABCD 1 BRIGHT
+		goto Fade
+  
+	Fade:
+		FGRE ABCD 1 A_Fadeout
+		loop
+	}
+}
+
+actor MidYellowFloatingFlame : MidRedFloatingFlame
+{
+	Alpha 0.4
+	States
+	{
+	Spawn:
+		FYEL ABCD 1 BRIGHT
+		FYEL ABCD 1 BRIGHT
+		goto Fade
+  
+	Fade:
+		FYEL ABCD 1 A_Fadeout
+		loop
+	}
+}
+
+actor MidWhiteFloatingFlame : MidRedFloatingFlame
+{
+	Alpha 0.2
+  	States
+	{
+	Spawn:
+		FWHT ABCD 1 BRIGHT
+		FWHT ABCD 1 BRIGHT
+		goto Fade
+  
+	Fade:
+		FWHT ABCD 1 A_Fadeout
+		loop
+	}
+}
+
+// Ember code loosely based on Tormentor667, SolarSnowfall, and Ghastly_Dragon's Ember SFX
+Actor RedEmber
+{
+	+Missile
+	+DontSplash
+	+NoBlockmap
+	+NoGravity
+	+ForceXYBillboard
+	+ClientSideOnly
+	+AllowClientSpawn
+	-Solid
+	Radius 3
+	Height 3
+	Speed 0
+	RenderStyle Add
+	Alpha 0.01
+	Scale 0.03
+	States
+	{
+		Spawn:
+			REMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			REMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			REMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+		Death:
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BlueEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			BEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			BEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			BEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+actor GreenEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			GEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			GEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			GEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+actor YellowEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			YEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			YEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			YEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+actor SilverEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			SEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			SEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			SEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+ACTOR ImprovedRedTorch : RedTorch Replaces RedTorch
+{
+	Game Doom
+	Radius 16
+	Height 68
+	XScale 0.88
+	YScale 0.78
+	+SOLID
+	+USESPECIAL
+	+FORCEYBILLBOARD
+	States
+	{
+	Spawn:
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("RedEmber", frandom(-6.0,6.0), Random(-6.0,6.0), 56, 0, 0, 1, Random(-180, 180), SXF_CLIENTSIDE, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidRedFloatingFlame", frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(43.0, 45.0), 0, 0, frandom(1.0, 2.0), Random(-180, 180), SXF_CLIENTSIDE, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedBlueTorch : ImprovedRedTorch Replaces BlueTorch
+{
+	States
+	{
+	Spawn:
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("BlueEmber", frandom(-6.0,6.0), Random(-6.0,6.0), 56, 0, 0, 1, Random(-180, 180), SXF_CLIENTSIDE, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidBlueFloatingFlame", frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(43.0, 45.0), 0, 0, frandom(1.0, 2.0), Random(-180, 180), SXF_CLIENTSIDE, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedGreenTorch : ImprovedRedTorch Replaces GreenTorch
+{
+	States
+	{
+	Spawn:
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("GreenEmber", frandom(-6.0,6.0), Random(-6.0,6.0), 56, 0, 0, 1, Random(-180, 180), SXF_CLIENTSIDE, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidGreenFloatingFlame", frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(43.0, 45.0), 0, 0, frandom(1.0, 2.0), Random(-180, 180), SXF_CLIENTSIDE, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedYellowTorch : ImprovedRedTorch 5152
+{
+	States
+	{
+	Spawn:
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("YellowEmber", frandom(-6.0,6.0), Random(-6.0,6.0), 56, 0, 0, 1, Random(-180, 180), SXF_CLIENTSIDE, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidYellowFloatingFlame", frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(43.0, 45.0), 0, 0, frandom(1.0, 2.0), Random(-180, 180), SXF_CLIENTSIDE, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedWhiteTorch : ImprovedRedTorch 5150
+{
+	States
+	{
+	Spawn:
+		TRED A 0 BRIGHT
+		TRED A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		TRED A 0 BRIGHT A_SpawnItemEx("SilverEmber", frandom(-6.0,6.0), Random(-6.0,6.0), 56, 0, 0, 1, Random(-180, 180), SXF_CLIENTSIDE, 242)
+		TRED A 1 BRIGHT A_SpawnItemEx("MidWhiteFloatingFlame", frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(43.0, 45.0), 0, 0, frandom(1.0, 2.0), Random(-180, 180), SXF_CLIENTSIDE, 32)
+		goto Spawn+2
+	}
+}
+
+
+actor SmallRedFloatingFlame
+{
+  Radius 4
+  Height 4
+  RenderStyle Add
+  XScale 0.88
+  YScale 0.64
+  Alpha 0.8
+  -SOLID
+  +NOGRAVITY
+  +NOINTERACTION
+  +CLIENTSIDEONLY
+  +ALLOWCLIENTSPAWN
+  States
+  {
+  Spawn:
+  FRED ABCD 1 BRIGHT
+  FRED ABCD 1 BRIGHT
+  FRED ABCD 1 A_Fadeout
+  goto Spawn+8
+  }
+}
+
+actor SmallBlueFloatingFlame : SmallRedFloatingFlame
+{
+  States
+  {
+  Spawn:
+  FBLU ABCD 1 BRIGHT
+  FBLU ABCD 1 BRIGHT
+  FBLU ABCD 1 A_Fadeout
+  goto Spawn+8
+  }
+}
+
+actor SmallGreenFloatingFlame : SmallRedFloatingFlame
+{
+  Alpha 0.6
+  States
+  {
+  Spawn:
+  FGRE ABCD 1 BRIGHT
+  FGRE ABCD 1 BRIGHT
+  FGRE ABCD 1 A_Fadeout
+  goto Spawn+8
+  }
+}
+
+actor SmallYellowFloatingFlame : SmallRedFloatingFlame
+{
+  Alpha 0.4
+  States
+  {
+  Spawn:
+  FYEL ABCD 1 BRIGHT
+  FYEL ABCD 1 BRIGHT
+  FYEL ABCD 1 A_Fadeout
+  goto Spawn+8
+  }
+}
+
+actor SmallWhiteFloatingFlame : SmallRedFloatingFlame
+{
+  Alpha 0.2
+  States
+  {
+  Spawn:
+  FWHT ABCD 1 BRIGHT
+  FWHT ABCD 1 BRIGHT
+  FWHT ABCD 1 A_Fadeout
+  goto Spawn+8
+  }
+}
+
+ACTOR ImprovedShortRedTorch : ShortRedTorch Replaces ShortRedTorch
+{
+	Game Doom
+	Radius 16
+	Height 68
+	XScale 0.88
+	YScale 0.78
+	+SOLID
+	+USESPECIAL
+	+FORCEYBILLBOARD
+	States
+	{
+	Spawn:
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("RedEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 2 BRIGHT A_SpawnItemEx("SmallRedFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedShortBlueTorch : ImprovedShortRedTorch Replaces ShortBlueTorch
+{
+	States
+	{
+	Spawn:
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("BlueEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 2 BRIGHT A_SpawnItemEx("SmallBlueFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedShortGreenTorch : ImprovedShortRedTorch Replaces ShortGreenTorch
+{
+	States
+	{
+	Spawn:
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("GreenEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 2 BRIGHT A_SpawnItemEx("SmallGreenFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedShortYellowTorch : ImprovedShortRedTorch 5153
+{
+	States
+	{
+	Spawn:
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("YellowEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 2 BRIGHT A_SpawnItemEx("SmallYellowFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 32)
+		goto Spawn+2
+	}
+}
+
+ACTOR ImprovedShortWhiteTorch : ImprovedShortRedTorch 5151
+{
+	States
+	{
+	Spawn:
+		SMRT A 0 BRIGHT
+		SMRT A 0 BRIGHT A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
+		SMRT A 0 BRIGHT A_SpawnItemEx("SilverEmber", Random(-6,6), Random(-6,6), 45, 0, 0, 1, Random(-360,360), 128, 242)
+		SMRT A 2 BRIGHT A_SpawnItemEx("SmallWhiteFloatingFlame", Random(-2,2), Random(-2,2), Random(32, 34), Random(-0.5, 0.5), Random(-0.5, 0.5), Random(1, 2), Random(-360, 360), 128, 32)
+		goto Spawn+2
+	}
+}

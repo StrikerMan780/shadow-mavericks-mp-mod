@@ -128,8 +128,8 @@ actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
 actor RandomCrystalVial : RandomSpawner Replaces CrystalVial
 {
 	DropItem "Stimpack2", 255 100
-	DropItem "HealthBonus2", 255 100
-	DropItem "MaxHealthBonus2", 255 100
+	DropItem "HealthBonus2", 255 75
+	DropItem "MaxHealthBonus2", 255 75
 	DropItem "Medikit", 255 25
 }
 

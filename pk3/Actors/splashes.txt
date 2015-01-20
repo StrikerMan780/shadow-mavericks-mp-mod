@@ -229,10 +229,11 @@ ACTOR SandPuff
 
 actor SMMP_WaterSplashChunk : BaseEffect
 {
+	Decal "WaterDroplet"
 	Scale 0.0625
 	RenderStyle Translucent
 	Alpha 0.75
-	+NOCLIP
+	+MISSILE
 	-NOGRAVITY
 	-NOINTERACTION
 	States
@@ -242,16 +243,16 @@ actor SMMP_WaterSplashChunk : BaseEffect
 			SPSH A 0 A_Jump(128, "Splash2", "Splash3", "Splash4")
 			goto Splash1
 		Splash1:
-			SPSH A 1 A_FadeOut(0.05)
+			SPSH A 1 A_FadeOut(0.032)
 			loop
 		Splash2:
-			SPSH B 1 A_FadeOut(0.05)
+			SPSH B 1 A_FadeOut(0.032)
 			loop
 		Splash3:
-			SPSH C 1 A_FadeOut(0.05)
+			SPSH C 1 A_FadeOut(0.032)
 			loop
 		Splash4:
-			SPSH D 1 A_FadeOut(0.05)
+			SPSH D 1 A_FadeOut(0.032)
 			loop
 	}
 }
@@ -267,7 +268,6 @@ actor SMMP_BloodSplashChunk : BaseEffect
 	Scale 0.0625
 	RenderStyle Translucent
 	Alpha 1.0
-	+NOCLIP
 	+LOWGRAVITY
 	-NOGRAVITY
 	-NOINTERACTION
@@ -298,7 +298,6 @@ actor SMMP_NukageSplashChunk : BaseEffect
 	RenderStyle Translucent
 	Alpha 0.75
 	Gravity 0.75
-	+NOCLIP
 	-NOGRAVITY
 	-NOINTERACTION
 	States
@@ -327,7 +326,6 @@ actor SMMP_RedWaterSplashChunk : BaseEffect
 	Scale 0.0625
 	RenderStyle Translucent
 	Alpha 0.75
-	+NOCLIP
 	-NOGRAVITY
 	-NOINTERACTION
 	States
@@ -356,7 +354,6 @@ actor SMMP_SlimeSplashChunk : BaseEffect
 	Scale 0.0625
 	RenderStyle Translucent
 	Alpha 1.0
-	+NOCLIP
 	+LOWGRAVITY
 	-NOGRAVITY
 	-NOINTERACTION

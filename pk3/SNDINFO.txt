@@ -4,6 +4,9 @@ misc/gibbed			dsslop
 hitsound dshitsnd
 $limit hitsound 0
 
+HereComesTheSun dsbeatle
+NYC dsnyc
+
 FuckingWindows98 DSFWIN98
 $rolloff FuckingWindows98 400 2400
 
@@ -29,12 +32,34 @@ $limit weapons/plasmaf 0
 $limit weapons/rocklf 0
 
 hellfire	dshellfi
+
+hellfiremissileignition dshellf2
+$limit hellfiremissileignition 0
+$volume hellfiremissileignition 0.32
+
+HellfireChambering1 dshellr1
+HellfireChambering2 dshellr2
+$random HellfireChambering { HellfireChambering1 HellfireChambering2 }
+$volume HellfireChambering 0.32
+$volume HellfireChambering1 0.32
+$volume HellfireChambering2 0.32
+
+HellfireCycle dshellr3
+$volume HellfireCycle 0.32
+
 HellFly		dsmisfly
 $limit Hellfly 0
+$volume HellFly 0.32
 
 laserhit dslhit
+
 mp40fire dsmp40
 $limit mp40fire 0
+MP40ClipOut dsmp40co
+MP40ClipIn dsmp40ci
+MP40BoltBack dsmp40bb
+MP40BoltSlap dsmp40bs
+$volume MP40BoltSlap 0.5
 
 pistol1 ds9mm1
 pistol2 ds9mm2
@@ -53,8 +78,8 @@ $limit misc/icebreak 0
 9mmClipIn ds9mmIn
 9mmSlide ds9mmsli
 
-phazonbeam dsphazon
-$limit phazonbeam 0
+SupraFire dssupra
+$limit SupraFire 0
 
 firedeath dsfirdth
 disintegrate dsdisdth
@@ -245,11 +270,14 @@ rico10	dsrico10
 $random ricochet { rico1 rico2 rico3 rico4 rico5 rico6 rico7 rico8 rico9 rico10 }
 
 // Lightning gun
-MageLightningFire          dscelfir
-MageLightningContinuous    dscelcnt
-MageLightningReady         dscelgun
-MageLightningZap           dscelatk
-LightningGunClose		   dsligcls
+ShockRifleFire dsshkrif
+ShockRifleBall dsshkbal
+ShockRifleExplosion dsshkbax
+ShockRifleRaise dsshkup
+ShockCombo dsshkcom
+$limit ShockRifleFire 0
+$limit ShockRifleBall 0
+$rolloff ShockCombo 512 2400
 
 // Needler
 Needler1 dsneed1
@@ -298,7 +326,10 @@ weapons/bfg10kidle		ds10kidl
 $limit weapons/bfg10kx 0
 
 // Grenade Launcher
-weapons/grenlf DSGLAUNC
+GrenadeLaunch1 DSGRENL1
+GrenadeLaunch2 DSGRENL2
+GrenadeLaunch3 DSGRENL3
+$random weapons/grenlf { GrenadeLaunch1 GrenadeLaunch2 GrenadeLaunch3 }
 
 GrenadeBounce1 DSGBNCE1
 GrenadeBounce2 DSGBNCE2
@@ -396,9 +427,6 @@ NewRailgunFire1 DSRGFIR1
 NewRailgunFire2 DSRGFIR2
 NewRailgunFire3 DSRGFIR3
 $random NewRailgunFire { NewRailgunFire1 NewRailgunFire2 NewRailgunFire3 }
-NewRailgunStereo1 DSRGSTER
-NewRailgunStereo2 DSRGSTE2
-$random NewRailgunStereo { NewRailgunStereo1 NewRailgunStereo2 }
 
 // New Chaingun
 chaingun1 dschngn1
@@ -433,9 +461,17 @@ Casull4 DSCASUL4
 $random CasullFire { Casull1 Casull2 Casull3 Casull4 }
 
 // Halo Plasma Rifle
-HaloPlasmaRifle DSHALOPR
-HaloPlasmaHit	DSHALOPH
+HaloPlasmaRifle1 DSHALOP1
+HaloPlasmaRifle2 DSHALOP2
+$random HaloPlasmaRifle { HaloPlasmaRifle1 HaloPlasmaRifle2 }
+HaloPlasmaHit1	DSHLOPH1
+HaloPlasmaHit2	DSHLOPH2
+$random HaloPlasmaHit { HaloPlasmaHit1 HaloPlasmaHit2 }
 $limit HaloPlasmaRifle 0
+$limit HaloPlasmaHit 0
+$volume HaloPlasmaHit1 0.5
+$volume HaloPlasmaHit2 0.5
+$volume HaloPlasmaHit 0.5
 
 // Proton Torpedoes
 ProtonExplosion DSPROEXP
@@ -523,6 +559,12 @@ world/barrelx DSBAREXP
 $rolloff world/barrelx 400 2400
 $limit world/barrelx 0
 
+// Chainsaw
+ChainsawOff DSSAWOFF
+ChainsawRev DSSAWREV
+ChainsawDown DSSAWDWN
+ChainsawSlash DSSAWSLA
+
 //************-MONSTERS-*************
 
 // Bishop
@@ -594,35 +636,6 @@ Hanger/Death	GK_DETH1
 
 SlimeBall/Splat	DSSICKEX
 $limit SlimeBall/Splat 0
-
-// Mummy
-mummy/sight			mumsit
-mummy/attack1			mumat1
-mummy/attack2			mumat2
-mummy/pain			mumpai
-mummy/death			mumdth
-mummy/active			mumsit
-
-// Heretic Imp
-himp/sight			impsit
-himp/attack			impat1
-himp/pain			imppai
-himp/death			impdth
-himp/active			impsit
-himp/leaderattack		impat2
-
-
-// Heretic Knight 
-hknight/sight			kgtsit
-hknight/attack			kgtatk
-hknight/superattack		kgtsupr
-hknight/melee			kgtat2
-hknight/pain			kgtpai
-hknight/death			kgtdth
-hknight/active			kgtsit
-hknight/hit				hrnhit
-hknight/axewhoosh		kgtatk
-$limit hknight/axewhoosh 0
 
 //***********************************
 
@@ -829,25 +842,13 @@ FlakBounce1 dsfkric1
 FlakBounce2 dsfkric2
 $random FlakBounce { FlakBounce1 FlakBounce2 }
 
-HeavyShot DSHEVMIS
-$volume HeavyShot 0.5
-
 BigExp1 dsboom1
 BigExp2 dsboom2
 BigExp3 dsboom3
-BigExp4 dsboom4
-$random BigExplosion { BigExp1 BigExp2 BigExp3 BigExp4 }
+$random BigExplosion { BigExp1 BigExp2 BigExp3 }
 $rolloff BigExp1 400 2400 
 $rolloff BigExp2 400 2400 
 $rolloff BigExp3 400 2400 
-$rolloff BigExp4 400 2400 
-
-$random weapons/grenlx { BigExp2 BigExp3 }
-$limit weapons/grenlx 0
-$limit BigExp1 0
-$limit BigExp2 0
-$limit BigExp3 0
-$limit BigExp4 0
 
 // Stripper
 stripper dsstrip1

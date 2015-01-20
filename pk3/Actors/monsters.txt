@@ -52,8 +52,16 @@ actor RandomDemonSpawner : RandomSpawner Replaces Demon
 	Height 56
 	+ISMONSTER
 	DropItem "SM_Demon", 255 100
-	DropItem "NightmareDemon", 255 16
 	DropItem "LeeroyZombie", 255 2
+}
+
+actor RandomSpectreSpawner : RandomSpawner Replaces Spectre
+{
+	Radius 20
+	Height 56
+	+ISMONSTER
+	DropItem "SM_Spectre", 255 100
+	DropItem "NightmareDemon", 255 16
 }
 
 actor RandomCacodemonSpawner : RandomSpawner Replaces Cacodemon
@@ -111,7 +119,7 @@ actor SM_StealthDemon : SM_Demon Replaces StealthDemon
 	Alpha 0.0
 }
 
-actor SM_Spectre : SM_Demon Replaces Spectre
+actor SM_Spectre : SM_Demon
 {
 	spawnid 9
 	hitobituary "%o was eaten by a spectre."
@@ -218,6 +226,33 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 	DropItem "ForcePull", 2
 	States
 	{
+		Death.HeadBurst:
+			TROA I 0
+			TROA I 0 A_Jump(150, "Death")
+			TROA I 0 A_GiveToTarget("DemonicPower", 1)
+			TROA I 0 A_Jump(75, "HeadPop")
+			goto HeadBurst
+		HeadBurst:
+			TROA I 0 A_SpawnItemEx("BrainExplosion", 0, 0, 48, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TROA IIIIIII 0 A_SpawnItemEx("Striker_FlyingBlood", 0, 0, 48, random(-4,4), random(-4,4), random(4, 16), random(-180,180), SXF_CLIENTSIDE, 0)
+			TROA IIII 0 A_SpawnItemEx("GibBrain", 0, 0, 48, random(-4,4), random(-4,4), random(4, 10), random(-180,180), SXF_CLIENTSIDE, 0)
+			TROA IIII 0 A_SpawnItemEx("GibMeatSmall", 0, 0, 48, random(-4,4), random(-4,4), random(4, 10), random(-180,180), SXF_CLIENTSIDE, 0)
+			TROA I 0 A_XScream
+			TROA I 6 A_NoBlocking
+			TROA JKL 6
+			TROA M 10500
+			goto HeadburstFade
+		HeadburstFade:
+			TROA M 1 A_FadeOut(0.05)
+			loop
+		HeadPop:
+			TROA IIIIIIIII 0 A_SpawnItemEx("Striker_FlyingBlood", 0, 0, 48, random(-4,4), random(-4,4), random(4, 16), random(-180,180), SXF_CLIENTSIDE, 0)
+			TROA I 0 A_SpawnItemEx("FlyingImpHead", 0, 0, 48, (random(-100, 100)/100.0), 0, (random(100,400)/100.0), 0, 0, 0)
+			TROA I 0 A_XScream
+			TROA I 6 A_NoBlocking
+			TROA JKL 6
+			TROA M 10500
+			goto HeadburstFade
 		Death:
 			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TNT1 A 0 A_Jump(128, "AltDeath", "AltDeath2")
@@ -385,8 +420,9 @@ ACTOR FreezerZombie : ZombieMan 20248
 	Health 60
 	DropItem "CellAmmo"
 	Dropitem "FreezeBolt", 36
+	AttackSound "freezebolt"
 	bloodcolor "20 20 20"
-	Obituary "%o was Frozen Still by a Freezer Zombie"
+	Obituary "%o was Frozen Solid by a FreezeBolt Zombie"
 	Painchance 50
 	Translation "128:143=192:207"
 	States
@@ -403,11 +439,12 @@ ACTOR FreezerZombie : ZombieMan 20248
 			loop
 		Missile:
 			POSS E 6 A_FaceTarget
-			POSS F 3 A_CustomMissile("Freezershot", 32, 0, random(-2,2))
-			POSS E 3 A_FaceTarget
-			POSS F 3 A_CustomMissile("Freezershot", 32, 0, random(-2,2))
-			POSS E 3 A_FaceTarget
-			POSS F 3 A_CustomMissile("Freezershot", 32, 0, random(-2,2))
+			POSS F 2 A_CustomBulletAttack(22.5, 0, 1, 3, "FreezeShock")
+			POSS E 2 A_FaceTarget
+			POSS F 2 A_CustomBulletAttack(22.5, 0, 1, 3, "FreezeShock")
+			POSS E 2 A_FaceTarget
+			POSS F 2 A_CustomBulletAttack(22.5, 0, 1, 3, "FreezeShock")
+			POSS E 2 A_FaceTarget
 			Goto See
 
 		Death:
@@ -887,6 +924,7 @@ actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
 	DamageFactor "Wolf", 0
 	attacksound "mp40fire"
 	DropItem "MP40"
+	DropItem "HealingSerum", 16
 	states
 	{
 		Missile:
@@ -1421,7 +1459,7 @@ actor GBTWChaingunGuy : ChainGunGuy //Replaces ChainGunGuy
 		goto Fade
 	Missile:
 		CPOS E 10 A_FaceTarget
-		CPOS FE 4 BRIGHT A_CustomBulletAttack(22.5, 6.0, 1, 3, "SuperChaingunHit")
+		CPOS FE 4 BRIGHT A_CustomBulletAttack(22.5, 6.0, 1, 3, "EnemySuperChaingunHit")
 		CPOS F 1 A_CPosRefire
 		Goto Missile+1
 	Fade:
@@ -1482,7 +1520,7 @@ actor SM_CyberDemon : CyberDemon Replaces CyberDemon
   DropItem "ProtonGrenadeLauncher", 120
   DropItem "Excalibat", 10
   Dropitem "Noisy_Cricket", 26
-  dropitem "FlameThrowerWeap", 46
+  Dropitem "FlameThrowerWeap", 46
   DropItem "Lightsaber", 32
   DropItem "IpodLauncher", 64
   DropItem "GrapplerShot", 100
@@ -1492,8 +1530,9 @@ actor SM_CyberDemon : CyberDemon Replaces CyberDemon
   DropItem "ElementalSSG", 1
   DropItem "CricketAmmo", 28 2
   DropItem "454Casull", 32
-  DamageFactor "Electric", 1.5
-  DamageFactor "Fire", 0.7
+  DamageFactor "Electric", 1.25
+  DamageFactor "Silver", 2.0
+  DamageFactor "Fire", 0.5
   DamageFactor "Holy", 6.0
   States
   {
@@ -1515,7 +1554,7 @@ actor SM_CyberDemon : CyberDemon Replaces CyberDemon
 		CYBR G 10 A_Pain
 		Goto See
 	Death:
-		CYBR H 10 A_GiveToTarget("DemonicPower", 120)
+		CYBR H 10 A_GiveToTarget("DemonicPower", 100)
 		CYBR I 10 A_Scream
 		CYBR JKL 10
 		CYBR M 10 A_NoBlocking
@@ -1605,6 +1644,7 @@ actor Vulgar : GBTWDoomImp 30127
 	VULG H 2
 	VULG H 2 A_Pain
 	goto See
+  Death.HeadBurst:
   Death:
 	TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 	TNT1 A 0 A_Jump(128, "AltDeath", "AltDeath2")
@@ -1822,6 +1862,8 @@ ACTOR SuperShotgunGuy 5005
    Obituary "$OB_SSGGUY"
    Translation "112:127=16:47"
    DropItem "SM_SuperShotgun"
+   DropItem "Whopper", 25
+   DropItem "Fries", 25
    Dropitem "QuadShotgun", 10
    States
    {
@@ -1938,6 +1980,8 @@ ACTOR Fleshspawn
 	mass 80
 	speed 8
 	damage 2
+	DamageFactor "Flak", 1.5
+	DamageFactor "Hellfire", 2.0
 	painchance 224
 	missiletype "Fleshspawnball"
 	bloodcolor "blue"
@@ -2403,15 +2447,16 @@ actor LeeroyZombie : GBTWZombieMan 17291
 
 actor SM_Archvile : Archvile Replaces Archvile
 {
-  Dropitem "ElementalSSG", 100
-  DropItem "ForceThrust", 80
-  DropItem "WeatherMaker", 76
-  DropItem "GasPickup", 36
-  DropItem "DemonicPower", 200, 64
-  DamageFactor "Ice", 1.2
-  DamageFactor "Fire", 0.8
-  DamageFactor "Holy", 5.0
-  DamageFactor "VilesBane", 1000
+	Dropitem "ElementalSSG", 100
+	DropItem "ForceThrust", 80
+	DropItem "WeatherMaker", 76
+	DropItem "GasPickup", 36
+	DropItem "DemonicPower", 200, 64
+	DamageFactor "Ice", 1.2
+	DamageFactor "Fire", 0.5
+	DamageFactor "Holy", 5.0
+	DamageFactor "Silver", 1.25
+	DamageFactor "VilesBane", 1000
 }
 
 actor SMArachnotron : Arachnotron Replaces Arachnotron
@@ -2713,6 +2758,7 @@ actor Hangman 32123
   height 56
   mass 0x7fffffff
   speed 0
+  MaxTargetRange 145
   painchance 75
   seesound "hanger/sight"
   painsound "hanger/pain"
@@ -2780,6 +2826,7 @@ ACTOR Danny_Tourettes_Guard 19632
    PainSound "tourettes/pain"
    DeathSound "tourettes/death"
    MONSTER
+   +AVOIDMELEE
    +FLOORCLIP
    +FRIENDLY
    +SLIDESONWALLS

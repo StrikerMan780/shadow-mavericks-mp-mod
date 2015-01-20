@@ -1,0 +1,5 @@
+#include "actors/weapons/elementalssg.txt"
+#include "actors/weapons/supershotgun.txt"
+#include "actors/weapons/lightsaber.txt"
+#include "actors/weapons/shockrifle.txt"
+#include "actors/weapons/protongrenadelauncher.txt"

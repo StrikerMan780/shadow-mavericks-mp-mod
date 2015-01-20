@@ -44,11 +44,23 @@ actor Firing : BaseCheck
 {
 }
 
+actor Toggle : BaseCheck
+{
+}
+
 actor ActivationPrevention : BaseCheck
 {
 }
 
 actor TauntSpamProtection : BaseCheck
+{
+}
+
+actor ChainsawHealthCritical : BaseCheck
+{
+}
+
+actor ChainsawSlashReady : BaseCheck
 {
 }
 
@@ -92,19 +104,19 @@ actor LinkClassCheck : BaseClassCheck
 
 actor HitConfirmation : CustomInventory
 {
- inventory.maxamount 1
- -INVENTORY.INVBAR
- +INVENTORY.AUTOACTIVATE
- +INVENTORY.ALWAYSPICKUP
- States
- {
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 1 ACS_ExecuteAlways(966, 0)
- 		stop
- }
+	inventory.maxamount 1
+	-INVENTORY.INVBAR
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			stop
+		Use:
+			TNT1 A 1 ACS_ExecuteAlways(966, 0)
+			stop
+	}
 }
 
 actor GenericTimer : Inventory
@@ -468,4 +480,17 @@ actor SaberBlue : BaseCheck
 
 actor SaberRed : BaseCheck
 {
+}
+
+actor ChaseCam2
+{
+	height 0
+	radius 0
+	+NOGRAVITY
+	states
+	{
+		Spawn:
+			TNT1 A -1
+			stop
+	}
 }

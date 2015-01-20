@@ -237,6 +237,7 @@ floor lava1 lava_t
 floor lava2 lava_t
 floor lava3 lava_t
 floor lava4 lava_t
+floor nlava1 lava_t
 floor blood1 blood_t
 floor blood2 blood_t
 floor blood3 blood_t
