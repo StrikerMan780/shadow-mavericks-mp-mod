@@ -159,6 +159,12 @@ pause
 goto MENU
 
 :LEAVE
+cls
 echo.
+chgcolor 0a
 echo Thanks for trying SMMP! - Jordon Moss (aka. Striker The Hedgefox)
+chgcolor 0b
 echo Found any bugs? E-Mail me at mossj32@gmail.com
+echo or post @ http://shadowmavericks.com/forums/
+chgcolor 0e
+timeout 5
