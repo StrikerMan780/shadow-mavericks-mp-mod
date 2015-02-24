@@ -17,7 +17,7 @@ ACTOR LightSaber : ClericWeapon 25004
 			SABP A -1
 			Loop
 		Ready:
-			LSAB A 0 BRIGHT A_PlaySoundEX("saberidle", "SoundSlot6", 1)
+			LSAB A 0 BRIGHT A_PlaySound("saberidle", 6, 1.0, 1)
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "ReadyRed")
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "ReadyBlue")
 			LSAB AAAABBBB 1 BRIGHT A_WeaponReady
@@ -31,15 +31,17 @@ ACTOR LightSaber : ClericWeapon 25004
 		Deselect:
 			LSAB A 0 BRIGHT A_TakeInventory("UsingSaber", 1)
 			LSAB A 0 BRIGHT A_TakeInventory("SaberGuard", 1)
-			LSAB A 0 BRIGHT A_StopSoundEx("SoundSlot6")
+			LSAB A 0 BRIGHT A_StopSound(6)
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "DeselectRed")
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "DeselectBlue")
 			LSAB AAAABBBB 1 BRIGHT A_Lower
 			Wait
 		DeselectRed:
+			LSRB A 0 BRIGHT A_StopSound(6)
 			LSRB AAAABBBB 1 BRIGHT A_Lower
 			Wait
 		DeselectBlue:
+			LSBB A 0 BRIGHT A_StopSound(6)
 			LSBB AAAABBBB 1 BRIGHT A_Lower
 			Wait
 		Select:
@@ -61,7 +63,7 @@ ACTOR LightSaber : ClericWeapon 25004
 			LSAB C 0 BRIGHT A_Jump(128, "Fire2")
 			LSAB C 1 BRIGHT A_Recoil(-4)
 			LSAB D 1 BRIGHT
-			LSAB E 1 BRIGHT A_Playsound("saberswing")
+			LSAB E 1 BRIGHT A_PlayWeaponSound("saberswing")
 			LSAB F 1 BRIGHT
 			LSAB G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
 			LSAB G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
@@ -90,7 +92,7 @@ ACTOR LightSaber : ClericWeapon 25004
 		Fire2:
 			LSA2 C 1 BRIGHT A_Recoil(-4)
 			LSA2 D 1 BRIGHT
-			LSA2 E 1 BRIGHT A_Playsound("saberswing")
+			LSA2 E 1 BRIGHT A_PlayWeaponSound("saberswing")
 			LSA2 F 1 BRIGHT
 			LSA2 G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
 			LSA2 G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
@@ -120,7 +122,7 @@ ACTOR LightSaber : ClericWeapon 25004
 			LSRB C 0 BRIGHT A_Jump(128, "FireRed2")
 			LSRB C 1 BRIGHT A_Recoil(-4)
 			LSRB D 1 BRIGHT
-			LSRB E 1 BRIGHT A_Playsound("saberswing")
+			LSRB E 1 BRIGHT A_PlayWeaponSound("saberswing")
 			LSRB F 1 BRIGHT
 			LSRB G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
 			LSRB G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
@@ -149,7 +151,7 @@ ACTOR LightSaber : ClericWeapon 25004
 		FireRed2:
 			LSR2 C 1 BRIGHT A_Recoil(-4)
 			LSR2 D 1 BRIGHT
-			LSR2 E 1 BRIGHT A_Playsound("saberswing")
+			LSR2 E 1 BRIGHT A_PlayWeaponSound("saberswing")
 			LSR2 F 1 BRIGHT
 			LSR2 G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
 			LSR2 G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
@@ -179,7 +181,7 @@ ACTOR LightSaber : ClericWeapon 25004
 			LSBB C 0 BRIGHT A_Jump(128, "FireBlue2")
 			LSBB C 1 BRIGHT A_Recoil(-4)
 			LSBB D 1 BRIGHT
-			LSBB E 1 BRIGHT A_Playsound("saberswing")
+			LSBB E 1 BRIGHT A_PlayWeaponSound("saberswing")
 			LSBB F 1 BRIGHT
 			LSBB G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
 			LSBB G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
@@ -208,7 +210,7 @@ ACTOR LightSaber : ClericWeapon 25004
 		FireBlue2:
 			LSB2 C 1 BRIGHT A_Recoil(-4)
 			LSB2 D 1 BRIGHT
-			LSB2 E 1 BRIGHT A_Playsound("saberswing")
+			LSB2 E 1 BRIGHT A_PlayWeaponSound("saberswing")
 			LSB2 F 1 BRIGHT
 			LSB2 G 0 BRIGHT A_FireCustomMissile("SliceProjectile", 0, 0, 0, 0)
 			LSB2 G 1 BRIGHT A_CustomPunch(32, 1, 0, "SaberPuff",70)
