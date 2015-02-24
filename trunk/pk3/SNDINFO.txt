@@ -789,6 +789,9 @@ MagmaHit dsmaghit
 // Stinger
 StingerFire dsstnfir
 StingerHit dsstnhit
+StingerCharge dsstnchg
+$limit StingerHit 0
+$limit StingerFire 0
 
 // Bullet Casing
 bulletcasing1 DSCASIN1

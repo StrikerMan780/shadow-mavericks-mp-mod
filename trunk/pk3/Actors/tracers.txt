@@ -1,0 +1,184 @@
+actor FireTracerSpawner
+{
+	Radius 0
+	Height 0
+	+DROPOFF
+	+NOBLOCKMAP
+	+NOINTERACTION
+	+NOGRAVITY
+	+NOCLIP
+	+ISMONSTER
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("FireTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor FrostTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(26)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("FrostTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor MinigunTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("BulletTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor PelletTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("PelletTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor ChaingunTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("ChaingunTracer", 0, 12)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BoltTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(32)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("BoltTracer", 0, 12)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor RepeaterTracerSpawnerRight : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(26)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("RepeaterTracer", 0, 12)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor RepeaterTracerSpawnerLeft : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Fire(26)
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_CustomMissile("RepeaterTracer", 0, -12)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BulletTracer : FastProjectile
+{
+	Projectile
+	Radius 2
+	Height 2
+	Speed 200
+	RenderStyle Add
+	Alpha 1.0
+	+NOGRAVITY
+	+THRUGHOST
+	+DONTSPLASH
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
+	States
+	{
+		Spawn:
+			PUFF A 1 BRIGHT
+			loop
+		Crash:
+		Death:
+			TNT1 A 0
+			TNT1 A 1
+			stop
+	}
+}
+
+actor FireTracer : BulletTracer
+{
+}
+
+actor FrostTracer : BulletTracer
+{
+}
+
+actor PelletTracer : BulletTracer
+{
+	Scale 0.75
+}
+
+actor ChaingunTracer : BulletTracer
+{
+}
+
+actor RepeaterTracer : BulletTracer
+{
+}
+
+actor BoltTracer : BulletTracer
+{
+	States
+	{
+		Spawn:
+			BOLT ABCD 1 BRIGHT
+			loop
+	}
+}

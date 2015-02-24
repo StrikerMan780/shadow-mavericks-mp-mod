@@ -39,6 +39,15 @@ actor RandomKnight : RandomSpawner Replaces Knight
 	DropItem "BioZombie", 255 16
 }
 
+actor RandomClink : RandomSpawner Replaces Clink
+{
+	Radius 20
+	Height 64
+	+ISMONSTER
+	DropItem "FireBorn", 255 100
+	DropItem "Grell_NoSpawnFloat", 255 48
+}
+
 actor Heretic_RandomMelee : RandomSpawner Replaces Gauntlets
 {
 	DropItem "BloodyChainsaw", 255 100

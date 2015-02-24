@@ -934,9 +934,8 @@ Model PlasmaCannon
 
 Model Stinger
 {
-	Path "Models\HUD"
+	Path "Models\HUD\Stinger"
 	Model 0 "stinger.md3"
-	Skin 0 "body.png"
 	Scale -5.0 5.0 5
 
 	FrameIndex STNG A 0 0
@@ -958,15 +957,16 @@ model StingerShot
 	FrameIndex STPL B 0 0
 }
 
-model StingTrail
+model StingerShot2
 {
 	Path "Models\Projectiles"
 	Model 0 "laserbeam.md2"
 	Skin 0 "laserbeam.png"
-	Scale 0.0 0.0 0.0
+	Scale 2.5 3.0 3.0
 	PITCHFROMMOMENTUM
 
 	FrameIndex STPL A 0 0
+	FrameIndex STPL B 0 0
 }
 
 model Stinger
@@ -1438,7 +1438,8 @@ Model Tails_TechPistol
 	Path "Models\HUD\TechPistol"
 	Model 0 "TechPistol.md3"
 	Model 1 "TechPistol_Tube.md3"
-	Skin 1 "Tube_Normal01.png"
+	Path "Textures\Models\TechPistol"
+	Skin 1 "Tube_N01.png"
 	Scale 5.0 5.0 5
 
 	FrameIndex TEKP A 0 0
@@ -1476,7 +1477,8 @@ Model Tails_TechPistol
 	Model 1 "TechFlash.md3"
 	Skin 1 "TechFlash.png"
 	Model 2 "TechPistol_Tube.md3"
-	Skin 2 "Tube_Normal01.png"
+	Path "Textures\Models\TechPistol"
+	Skin 2 "Tube_N01.png"
 	Scale 5.0 5.0 5
 
 	FrameIndex TEKP B 0 0
@@ -1487,7 +1489,8 @@ Model Tails_TechPistol
 	Path "Models\HUD\TechPistol"
 	Model 0 "TechPistol_Rail.md3"
 	Model 1 "TechPistol_Tube.md3"
-	Skin 1 "Tube_Rail01.png"
+	Path "Textures\Models\TechPistol"
+	Skin 1 "Tube_R01.png"
 	Scale 5.0 5.0 5
 
 	FrameIndex TEKR A 0 0
@@ -1525,7 +1528,8 @@ Model Tails_TechPistol
 	Model 1 "TechFlash.md3"
 	Skin 1 "TechFlash_Rail.png"
 	Model 2 "TechPistol_Tube.md3"
-	Skin 2 "Tube_Rail01.png"
+	Path "Textures\Models\TechPistol"
+	Skin 2 "Tube_R01.png"
 	Scale 5.0 5.0 5
 
 	FrameIndex TEKR B 0 0
@@ -1536,7 +1540,8 @@ Model Tails_TechPistol
 	Path "Models\HUD\TechPistol"
 	Model 0 "TechPistol_Super.md3"
 	Model 1 "TechPistol_Tube.md3"
-	Skin 1 "Tube_Super01.png"
+	Path "Textures\Models\TechPistol"
+	Skin 1 "Tube_S01.png"
 	Scale 5.0 5.0 5
 
 	FrameIndex TEKS A 0 0
@@ -1574,7 +1579,8 @@ Model Tails_TechPistol
 	Model 1 "TechFlash.md3"
 	Skin 1 "TechFlash_Super.png"
 	Model 2 "TechPistol_Tube.md3"
-	Skin 2 "Tube_Super01.png"
+	Path "Textures\Models\TechPistol"
+	Skin 2 "Tube_S01.png"
 	Scale 5.0 5.0 5
 
 	FrameIndex TEKS B 0 0
@@ -1752,41 +1758,40 @@ Model SniperRifle
 
 Model SM_Chaingun
 {
-	Path "Models\HUD"
+	Path "Models\HUD\Repeater"
 	Model 0 "Repeater.md3"
-	Skin 0 "Repeater.png"
 	Scale 5.0 5.0 5
 	ZOffset -4
 
 	FrameIndex DAUT A 0 0
-}
-
-Model SM_Chaingun
-{
-	Path "Models\HUD"
-	Model 0 "Repeater.md3"
-	Skin 0 "Repeater.png"
-	Model 1 "RepeaterFlash1.md3"
-	Skin 1 "RepeaterFlash.png"
-	Scale 5.0 5.0 5
-	ZOffset -4
-
 	FrameIndex DAUT B 0 1
-	FrameIndex DAUT B 1 0
+	FrameIndex DAUT C 0 2
+	FrameIndex DAUT D 0 3
+	FrameIndex DAUT E 0 4
 }
 
 Model SM_Chaingun
 {
-	Path "Models\HUD"
-	Model 0 "Repeater.md3"
-	Skin 0 "Repeater.png"
-	Model 1 "RepeaterFlash2.md3"
-	Skin 1 "RepeaterFlash.png"
+	Path "Models\HUD\Repeater"
+	Model 0 "RepeaterFlash1.md3"
+	Skin 0 "RepeaterFlash.png"
 	Scale 5.0 5.0 5
-	ZOffset -4
+	ZOffset -6
 
-	FrameIndex DAUT C 0 2
-	FrameIndex DAUT C 1 0
+	FrameIndex DAUF A 0 0
+	FrameIndex DAUF B 0 1
+}
+
+Model SM_Chaingun
+{
+	Path "Models\HUD\Repeater"
+	Model 0 "RepeaterFlash2.md3"
+	Skin 0 "RepeaterFlash.png"
+	Scale 5.0 5.0 5
+	ZOffset -6
+
+	FrameIndex DAUF C 0 0
+	FrameIndex DAUF D 0 1
 }
 
 Model ShockComboExplosionShell
@@ -2624,6 +2629,77 @@ Model ElementalSSG
 
 	FrameIndex SH4F A 0 0
 	FrameIndex SH4F B 0 1
+}
+
+Model ElementalSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "IceSuperShotgun.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SHT5 A 0 0
+	FrameIndex SHT5 B 0 1
+	FrameIndex SHT5 C 0 4
+	FrameIndex SHT5 D 0 6
+	FrameIndex SHT5 E 0 8
+	FrameIndex SHT5 F 0 12
+	FrameIndex SHT5 G 0 14
+	FrameIndex SHT5 H 0 16
+	FrameIndex SHT5 I 0 18
+	FrameIndex SHT5 J 0 20
+	FrameIndex SHT5 K 0 22
+}
+
+Model ElementalSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "IceSuperShotgun_Reload.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH5R A 0 5
+	FrameIndex SH5R B 0 10
+	FrameIndex SH5R C 0 15
+	FrameIndex SH5R D 0 20
+	FrameIndex SH5R E 0 25
+	FrameIndex SH5R F 0 30
+	FrameIndex SH5R G 0 35
+	FrameIndex SH5R H 0 40
+	FrameIndex SH5R I 0 45
+	FrameIndex SH5R J 0 50
+	FrameIndex SH5R K 0 55
+	FrameIndex SH5R L 0 60
+	FrameIndex SH5R M 0 65
+	FrameIndex SH5R N 0 70
+	FrameIndex SH5R O 0 75
+	FrameIndex SH5R P 0 80
+	FrameIndex SH5R Q 0 85
+	FrameIndex SH5R R 0 90
+	FrameIndex SH5R S 0 95
+	FrameIndex SH5R T 0 100
+	FrameIndex SH5R U 0 105
+	FrameIndex SH5R V 0 110
+	FrameIndex SH5R W 0 115
+	FrameIndex SH5R X 0 120
+	FrameIndex SH5R Y 0 125
+	FrameIndex SH5R Z 0 130
+	FrameIndex SH52 A 0 135
+	FrameIndex SH52 B 0 140
+	FrameIndex SH52 C 0 145
+	FrameIndex SH52 D 0 150
+}
+
+Model ElementalSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "SuperShotgunFlash.md3"
+	Skin 0 "iceflash.png"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH5F A 0 0
+	FrameIndex SH5F B 0 1
 }
 
 model Minigun
@@ -3861,6 +3937,7 @@ Model Beamer
 {
 	Path "Models\HUD\Supra"
 	Model 0 "supra.md3"
+	Path "Textures\Models\Supra"
 	Skin 0 "supra.png"
 	Scale 5.0 4.2 5.0
 	ZOffset -72
