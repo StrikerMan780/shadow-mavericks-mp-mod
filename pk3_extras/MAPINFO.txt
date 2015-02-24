@@ -130,7 +130,7 @@ map MPDM07 "Ravage - StrikerMan780"
 map MPDM08 "CityScape - StrikerMan780"
 {
 	sky1 = CITYSKY, 0.0
-	music = D_CITYSC
+	music = D_HISPEE
 	forcenoskystretch
 	allowcrouch
 	clipmidtextures
