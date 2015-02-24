@@ -24,6 +24,21 @@ model FireTracer
 	FrameIndex PUFF A 0 0
 }
 
+model FrostTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "FrostTracer.png"
+	Scale 20.0 3.5 3.5
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex PUFF A 0 0
+}
+
 model PelletTracer
 {
 	Path "models/Projectiles"
@@ -40,6 +55,17 @@ model ChaingunTracer
 	Path "models/Projectiles"
 	Model 0 "Tracer.md3"
 	Skin 0 "ChaingunTracer.png"
+	Scale 16.0 2.75 2.75
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model RepeaterTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "RepeaterTracer.png"
 	Scale 16.0 2.75 2.75
 	PITCHFROMMOMENTUM
 

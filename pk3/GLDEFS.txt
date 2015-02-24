@@ -658,61 +658,6 @@ object LightningZapZ
     frame MLF2 { light MAGELIGHT }
 }
 
-flickerlight GreenSaber
-{
-    color 0.0 1.0 0.0
-    size 48
-    secondarySize 52
-    chance 0.5
-}
-
-flickerlight OrangeSaber
-{
-    color 1.0 0.5 0.0
-    size 48
-    secondarySize 52
-    chance 0.5
-}
-
-flickerlight BlueSaber
-{
-    color 0.0 0.0 1.0
-    size 48
-    secondarySize 52
-    chance 0.5
-}
-
-object GreenSaberLight
-{
-    frame GSTR { light GreenSaber }
-}
-
-object GreenSaberLightSmall
-{
-    frame GSTR { light GreenSaber }
-}
-
-
-object OrangeSaberLight
-{
-    frame OSTR { light OrangeSaber }
-}
-
-object OrangeSaberLightSmall
-{
-    frame OSTR { light OrangeSaber }
-}
-
-object BlueSaberLight
-{
-    frame BSTR { light BlueSaber }
-}
-
-object BlueSaberLightSmall
-{
-    frame BSTR { light BlueSaber }
-}
-
 pulselight ForceEffect
 {
     color 0.0 1.0 1.0
@@ -824,56 +769,6 @@ pointlight CricketBoom1
 object CricketBlast
 {
     frame CEXP { light CricketBoom1 }
-}
-
-pointlight CricketTrail1
-{
-    color 0.0 0.4 1.0
-    size 48
-}
-
-object CricketTrail
-{
-    frame CRTL { light CricketTrail1 }
-}
-
-object CricketWave
-{
-    frame CRTL { light CricketTrail1 }
-}
-
-flickerlight GrenadeBoom
-{
-    color 1.0 0.8 0.0
-    size 32
-    secondarySize 64
-    chance 0.9
-}
-
-object GBTWGrenade
-{
-    frame SGRNB { light GrenadeBoom }
-    frame SGRNC { light GrenadeBoom }
-    frame SGRND { light GrenadeBoom }
-    frame SGRNE { light GrenadeBoom }
-    frame SGRNF { light GrenadeBoom }
-    frame SGRNG { light GrenadeBoom }
-    frame SGRNH { light GrenadeBoom }
-    frame SGRNI { light GrenadeBoom }
-    frame SGRNJ { light GrenadeBoom }
-}
-
-object GBTWGrenadeLob
-{
-    frame SGRNB { light GrenadeBoom }
-    frame SGRNC { light GrenadeBoom }
-    frame SGRND { light GrenadeBoom }
-    frame SGRNE { light GrenadeBoom }
-    frame SGRNF { light GrenadeBoom }
-    frame SGRNG { light GrenadeBoom }
-    frame SGRNH { light GrenadeBoom }
-    frame SGRNI { light GrenadeBoom }
-    frame SGRNJ { light GrenadeBoom }
 }
 
 // Plasma
@@ -1497,19 +1392,6 @@ object FlakShard
 	frame PUFF { light FlakLight5 }
 }
 
-flickerlight GoldDust
-{
-    color 1.0 0.8 0.0
-    size 8
-    secondarySize 10
-    chance 0.9
-}
-
-object GoldPuff
-{
-	frame SGLD { light GoldDust }
-}
-
 flickerlight2 MARINEATK
 {
     color 1.0 0.8 0.2
@@ -2036,11 +1918,6 @@ pointlight RepeaterPuffLight
     size 24
 }
 
-object RepeaterPuff
-{
-	frame RPUF { light RepeaterPuffLight }
-}
-
 flickerlight RAVE1
 {
     color 0.0 0.6 1.0
@@ -2562,134 +2439,4 @@ Glow
 		ROCKRED2
 		ROCKRED3
 	}
-}
-
-brightmap sprite XPANA0
-{
-	map "Brightmaps/XPANA0.png"
-}
-
-brightmap sprite XPANB0
-{
-	map "Brightmaps/XPANB0.png"
-}
-
-brightmap sprite XPANC0
-{
-	map "Brightmaps/XPANC0.png"
-}
-
-brightmap sprite XPAND0
-{
-	map "Brightmaps/XPAND0.png"
-}
-
-brightmap sprite ENG2A0
-{
-	map "Brightmaps/ENG2.png"
-}
-
-brightmap sprite ENG2B0
-{
-	map "Brightmaps/ENG2.png"
-}
-
-brightmap sprite ENG2C0
-{
-	map "Brightmaps/ENG2.png"
-}
-
-brightmap sprite ENG3A0
-{
-	map "Brightmaps/ENG3.png"
-}
-
-brightmap sprite ENG3B0
-{
-	map "Brightmaps/ENG3.png"
-}
-
-brightmap sprite ENG3C0
-{
-	map "Brightmaps/ENG3.png"
-}
-
-brightmap sprite ENG4A0
-{
-	map "Brightmaps/ENG4.png"
-}
-
-brightmap sprite ENG4B0
-{
-	map "Brightmaps/ENG4.png"
-}
-
-brightmap sprite ENG4C0
-{
-	map "Brightmaps/ENG4.png"
-}
-
-brightmap sprite ENG5A0
-{
-	map "Brightmaps/ENG5.png"
-}
-
-brightmap sprite ENG5B0
-{
-	map "Brightmaps/ENG5.png"
-}
-
-brightmap sprite ENG5C0
-{
-	map "Brightmaps/ENG5.png"
-}
-
-brightmap sprite ALLYA0
-{
-	map "Brightmaps/ALLYA0.png"
-}
-
-brightmap texture WALLAVA1
-{
-	map "Brightmaps/WALLAVA1.png"
-}
-
-brightmap texture FLT510_1
-{
-	map "Brightmaps/FLT510_1.png"
-}
-
-brightmap texture FLT510_2
-{
-	map "Brightmaps/FLT510_2.png"
-}
-
-brightmap texture FLT510_3
-{
-	map "Brightmaps/FLT510_3.png"
-}
-
-brightmap texture FLT510_4
-{
-	map "Brightmaps/FLT510_4.png"
-}
-
-brightmap texture FLT510_5
-{
-	map "Brightmaps/FLT510_5.png"
-}
-
-brightmap texture FLT510_6
-{
-	map "Brightmaps/FLT510_6.png"
-}
-
-brightmap texture FLT510_7
-{
-	map "Brightmaps/FLT510_7.png"
-}
-
-brightmap texture FLT510_8
-{
-	map "Brightmaps/FLT510_8.png"
 }

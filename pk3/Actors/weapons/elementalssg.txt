@@ -53,6 +53,11 @@ Actor ElementalSSG : Weapon 12346
 			SH42 ABCD 2
 			SHT4 A 0 A_ReFire
 			goto Ready
+		Flash:
+			SH4F A 2 bright A_Light1
+			SH4F B 1 bright A_Light2
+			SH4F B 0 bright A_Light0
+			stop
 		
 		ICEReady:
 			SHT5 A 1 A_WeaponReady
@@ -64,26 +69,31 @@ Actor ElementalSSG : Weapon 12346
 			SHT5 A 1 A_lower
 			LOOP
 		ICEFire:
-			SHT5 A 2
 			SHT5 A 0 radius_quake(4, 3, 0, 1, 0)
-			SHT5 A 0 A_FireBullets(11, 6, 10, 10, "FrostPuff")
-			SHT5 A 0 A_Recoil(8)
-			SHT5 A 2 A_GunFlash
+			SHT5 A 0 A_FireBullets(9, 5, 10, 10, "FrostPuff")
+			SHT5 A 1 A_GunFlash("IceFlash")
 			SHT5 B 0 A_SetPitch(pitch-4)
-			SHT5 BCDEF 2 A_SetPitch(pitch+0.8)
-			SHT5 AA 1 A_CheckReload
-			SHT5 A 3
-			SH5R ABCDE 2
-			SH5R F 2 A_PlaySoundEx("weapons/shotopen", "auto", 0)
-			SH5R GG 0 A_FireCustomMissile("ElementalCasing", Random(-14,8),0,2,0)
+			SHT5 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)
+			SHT5 A 1 A_CheckReload
+			SH5R AB 2
+			SH5R C 0 A_PlaySoundEx("weapons/shotopen", "auto", 0)
+			SH5R CDEF 2
+			//SH5R GG 0 A_FireCustomMissile("ElementalCasing", Random(-14,8),0,2,0)
 			SH5R GHI 2
-			SH5R J 2
-			SH5R K 2 A_PlaySoundEx("weapons/shotload", "auto", 0)
+			SH5R JK 2
+			SH5R L 0 A_PlaySoundEx("weapons/shotload", "auto", 0)
 			SH5R LMNO 2
-			SH5R P 0 A_PlaySoundEx("weapons/shotclose", "auto", 0)
-			SH5R PQRS 2
-			SHT5 A 7 A_ReFire
+			SH5R PQRSTUVWX 2
+			SH5R Y 0 A_PlaySoundEx("weapons/shotclose", "auto", 0)
+			SH5R YZ 2
+			SH52 ABCD 2
+			SHT5 A 0 A_ReFire
 			goto Ready
+		ICEFlash:
+			SH5F A 2 bright A_Light1
+			SH5F B 1 bright A_Light2
+			SH5F B 0 bright A_Light0
+			stop
 		
 		BlitzReady:
 			SHT6 A 1 A_WeaponReady
@@ -98,7 +108,7 @@ Actor ElementalSSG : Weapon 12346
 			SHT6 A 3
 			SHT6 A 0 Radius_Quake(1, 2, 0, 1, 0)
 			SHT6 A 0 A_FireBullets(11, 6, 10, 10, "BlitzShock")
-			SHT6 A 7 A_GunFlash
+			SHT6 A 7 A_GunFlash("BlitzFlash")
 			SHT6 B 3 A_Recoil(7)
 			SHT6 C 3 A_CheckReload
 			SHT6 D 3
@@ -112,19 +122,6 @@ Actor ElementalSSG : Weapon 12346
 			SHT6 A 3 A_ReFire
 			SHT6 A 5 A_ReFire
 			goto ready
-			
-		Flash:
-			SH4F A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEFlash")
-			SH4F A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzFlash")
-			SH4F A 2 bright A_Light1
-			SH4F B 1 bright A_Light2
-			SH4F B 0 bright A_Light0
-			stop
-		ICEFlash:
-			SH5F A 2 bright A_Light1
-			SH5F B 1 bright A_Light2
-			SH5F B 0 bright A_Light0
-			stop
 		BlitzFlash:
 			SHT6 E 0 bright A_Light1
 			SHT6 F 3 bright A_Light2
