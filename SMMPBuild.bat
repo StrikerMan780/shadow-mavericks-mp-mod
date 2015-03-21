@@ -92,6 +92,7 @@ IF ERRORLEVEL 1 GOTO DEVCORE
 :DEVCORE
 echo Compiling SMMP Development Core Module...
 del .\builds\SMMP_Core_DEV.pk3 /q
+move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
 7za a -y -tzip -mx=0 -mmt -x!.GIT ..\builds\SMMP_Core_DEV.pk3 .\
@@ -103,7 +104,6 @@ goto MENU
 echo Compiling SMMP Development Extras Module...
 del .\builds\SMMP_MapsAndExtras_DEV.pk3 /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
-move /Y .\pk3_extras\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
@@ -115,6 +115,7 @@ goto MENU
 :GITCOREFULL
 echo Compiling SMMP GIT Core Module Rev#: %REVISIONNUMBER% (Full Compression)...
 del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
+move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
 7za a -y -tzip -mx=9 -mmt -x!.GIT ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
@@ -126,7 +127,6 @@ goto MENU
 echo Compiling SMMP GIT Extras Module Rev#: %REVISIONNUMBER% (Full Compression)...
 del .\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
-move /Y .\pk3_extras\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
@@ -138,6 +138,7 @@ goto MENU
 :GITCOREQUICK
 echo Compiling SMMP GIT Core Module Rev#: %REVISIONNUMBER% (No Compression)...
 del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
+move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
 7za a -y -tzip -mx=0 -mmt -x!.GIT ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
@@ -149,7 +150,6 @@ goto MENU
 echo Compiling SMMP GIT Extras Module Rev#: %REVISIONNUMBER% (No Compression)...
 del .\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
-move /Y .\pk3_extras\Maps\*.dbs .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
