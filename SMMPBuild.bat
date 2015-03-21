@@ -3,6 +3,7 @@ SET PATH=%PATH%;%~dp0\Tools
 set WorkingCopyPath=%~dp0
 cls
 
+:GITRefresh
 echo ------------------------------
 echo Retrieving GIT Revision Number
 echo ------------------------------
@@ -75,13 +76,18 @@ echoj "(QUICK)" $0a
 echo.
 chgcolor 0f
 echoj "7. "
+chgcolor 02
+echo Refresh GIT Revision
+chgcolor 0f
+echoj "8. "
 chgcolor 03
 echo Quit
 chgcolor 07
 
 echo.
-CHOICE /C 1234567 /N /M "Choose Option (Number Keys):"
-IF ERRORLEVEL 7 GOTO LEAVE
+CHOICE /C 12345678 /N /M "Choose Option (Number Keys):"
+IF ERRORLEVEL 8 GOTO LEAVE
+IF ERRORLEVEL 7 GOTO GITREFRESH
 IF ERRORLEVEL 6 GOTO GITEXTRASQUICK
 IF ERRORLEVEL 5 GOTO GITCOREQUICK
 IF ERRORLEVEL 4 GOTO GITEXTRASFULL
