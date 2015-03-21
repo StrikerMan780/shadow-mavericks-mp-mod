@@ -12,7 +12,6 @@ StrikerMan780
 * Make giygas invade after first nightfall of his release.
 * Make it so flesh growth takes over some areas of the map during giygas invasion
 * Add more areas to access with Keys
-* Add George Carlin Fear of Germs rant.
 * Add Danny-cam
 * Make use of SONICEXE Texture
 * Make use of SCARE1 Graphic on broken music players for Giygas Event
@@ -20,7 +19,6 @@ StrikerMan780
 * Finish Heretic's Room
 * Needs more stuff to do... must come up with some sort of idea.
 * Finish the Giygas Event
-* Fix Blaze Heatnix Song
 * Link the elevator sectors in my room
 * Add a kill switch to leeroy zombie event
 * Put more work into reducing lines of sight for areas in HQ, also reduce complexity.
@@ -30,8 +28,6 @@ StrikerMan780
 * Replace firebird logo with night shot of car
 * Make note about text scaling in lobby
 * Get texture for the split door in center of HQ Entryway
-* Move Impse Party Sprites out of the Skybox, and move them to areas outdoors.
-* Fix incorrect name of song in Music Player (Blaze Heatnix)
 
 
 -=ACS/DECORATE CODE=-
@@ -41,25 +37,9 @@ Add fire death for tourettes zombies, and make them capable of throwing molotovs
 Re-do ethereal energy deaths
 Use the SST TC's Bio Bow as the Biorifle for Duke
 Add BFG10k from Quake 3 Arena *LATER*
-
-*DONE* Fix the fucking flame death for the marine
-*DONE* Fix the 0-length Death state on GBTWGrenade
-*DONE* Buff the FreezeBolt, and make it Armor-piercing
-*DONE* Increase shotgun raise speed
-*DONE* Increase P90 Raise speed
-*DONE* Increase Pistol Raise Speed
-*DONE* Make "Respawns" Message only show in COOP
-*DONE* Make Force Jump push more upwards and less forward
-*DONE* Remove shitty alt-fire to MP40, and remove burst fire
-*DONE* Update my Persona Sprite Again
-*DONE* Slightly slow down firing speed of shotgun
-*DONE* Slightly lower firing speed of Tails' Shotgun
 * Replace old Nuke Launcher with a planted bomb
-* Replace Beamer with the Supra from Warframe
 * Give Tails the hand Fusion Bomb
 * Slow down revenant missiles
-* make fleshspawn flak vulnerable - DONE
-* Give the freezebolt a snowflake effect - DONE
 
 Report to Zandro Tracker that State Jumps are complete and utter trash online.
 
