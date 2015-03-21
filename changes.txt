@@ -56,3 +56,61 @@ Added high-res Molotov inventory icon
 Added Brown Sludge High Res Texture w/ Anims
 Added Armor Pickup Sound
 Added new models for the Armor Pickups
+
+-----------------------------------------------------------------------
+r500 to r502:
+
+*DONE* Increase Flak shard projectile speed
+*DONE* Set +NODAMAGETHRUST on Tails Shotgun Sparks
+*DONE* Fix the Grenade Explosion Sound. Replace A_PlaySoundEx with A_PlaySound
+*DONE* Buff the Freezebolt
+*DONE* Give the SSG the Steel skin, rather than Gold
+*DONE* Remove NukeRandom actors from NuclearBarrel
+*DONE* Remove "PlayerClass" console command from Class Enforcer script.
+*DONE* Fix Typo in Nuclear Barrel Obituary
+*DONE* Increase the Efficacy of the Saber Block
+*DONE* Tweak the Elemental SSG a bit
+*DONE* Widen Quad SSG spread a little
+*DONE* Report SetFont leaking into other scripts online
+*DONE* Decreased Floating Flame Particle Rate
+*DONE* Give the Elemental SSG some Decals
+*DONE* Increase Torch Particle Rate
+*DONE* Give Flak Shell explosion new graphics
+*DONE* Tweak IPod Launcher Damage
+*DONE* Nerf the Stinger slightly
+*DONE* Make the Proton Torpedo move at a consistent speed again
+*DONE* Add Custom Splash Models/Effects
+*DONE* Fix color of pentagram / Convert to PNG
+*DONE* Add High-Res Grenade Trail Sprite
+*DONE* Triple the Range of Taunt Sounds
+*DONE* Reset the Minigun to using 1 shot per fire
+*DONE* Make Mystery Item give more than one Inventory Item
+*DONE* Increase Mystery Item Chances!
+*DONE* Replace Invul Sphere with ST Spheres and Kamikaze in Vanilla DM Pack
+*DONE* Make Mystery Item Messages Cancel on Death
+*DONE* Revamp the BFG9000
+*DONE* Make Nuke Launcher Radiation and Gas track owner
+*DONE* Make Nuke Launcher less Ear Rape-Inducing.
+*DONE* Remade the Etheral Death anims to be cleaner.
+*DONE* Re-Do the Marine Fire Death
+
+--------------------------------------------------------------------------
+r502 to r516
+
+*DONE* Fix incorrect name of song in Music Player (Blaze Heatnix)
+*DONE* Fix the fucking flame death for the marine
+*DONE* Fix the 0-length Death state on GBTWGrenade
+*DONE* Buff the FreezeBolt, and make it Armor-piercing
+*DONE* Increase shotgun raise speed
+*DONE* Increase P90 Raise speed
+*DONE* Increase Pistol Raise Speed
+*DONE* Make "Respawns" Message only show in COOP
+*DONE* Make Force Jump push more upwards and less forward
+*DONE* Remove shitty alt-fire to MP40, and remove burst fire
+*DONE* Update my Persona Sprite Again
+*DONE* Slightly slow down firing speed of shotgun
+*DONE* Slightly lower firing speed of Tails' Shotgun
+*DONE* Replace Beamer with the Supra from Warframe
+*DONE* Make fleshspawn flak vulnerable
+*DONE* Give the freezebolt a snowflake effect
+*DONE* Move Impse Party Sprites out of the Skybox, and move them to other areas
