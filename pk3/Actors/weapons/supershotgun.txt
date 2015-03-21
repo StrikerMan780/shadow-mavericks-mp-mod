@@ -31,11 +31,11 @@ actor SuperShotgunGiver_Dropped : SuperShotgunGiver
 
 actor SM_SuperShotgun : Weapon
 {
+	Tag "Super Shotgun"
 	Decal BulletChip
 	obituary "%k turned %o's torso into a pile of red gruel."
 	radius 20
 	height 16
-	inventory.pickupmessage "Super Shotgun"
 	weapon.selectionorder 400
 	weapon.kickback 100
 	Weapon.AmmoType "SpreadAmmo"
@@ -84,9 +84,9 @@ actor SM_SuperShotgun : Weapon
 
 actor Keyring : Weapon
 {
+	Tag "Keyring"
 	Decal BulletChip
 	obituary "%k shot silver shards into %o's skull."
-	inventory.pickupmessage "Keyring"
 	weapon.selectionorder 400
 	weapon.kickback 100
 	Weapon.AmmoType "SpreadAmmo"
@@ -129,9 +129,9 @@ actor Keyring : Weapon
 
 actor DinsFire : Weapon
 {
+	Tag "Din's Fire"
 	Decal BulletChip
 	obituary "%k unleashed the wrath of Din's Fire on %o."
-	inventory.pickupmessage "Din's Fire"
 	weapon.selectionorder 400
 	weapon.kickback 100
 	Weapon.AmmoType "SpreadAmmo"
@@ -163,9 +163,9 @@ actor DinsFire : Weapon
 
 actor SPAS-12 : Weapon
 {
+	Tag "SPAS-12"
 	Decal BulletChip
 	obituary "%o was torn to shreds by %k's SPAS-12."
-	inventory.pickupmessage "SPAS-12"
 	weapon.selectionorder 400
 	weapon.kickback 100
 	weapon.upsound "SlamShotCock2"
