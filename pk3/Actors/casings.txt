@@ -1,0 +1,303 @@
+actor BulletCasingSpawnerLeft
+{
+	Projectile
+	+NOGRAVITY
+	+NOCLIP
+	+CLIENTSIDEONLY
+	Speed 5
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItemEx("BulletCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		stop
+	}
+}
+
+actor SilverBulletCasingSpawnerLeft : BulletCasingSpawnerLeft
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItemEx("SilverBulletCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		stop
+	}
+}
+
+actor ShellCasingSpawnerLeft : BulletCasingSpawnerLeft
+{
+	Speed 4
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("ShellCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			stop
+	}
+}
+
+actor RepeaterCasingSpawnerLeft : BulletCasingSpawnerLeft
+{
+	Speed 4
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("RepeaterCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			stop
+	}
+}
+
+actor BulletCasingSpawnerRight : BulletCasingSpawnerLeft
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("BulletCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			stop
+	}
+}
+
+actor SilverBulletCasingSpawnerRight : BulletCasingSpawnerLeft
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("SilverBulletCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			stop
+	}
+}
+
+actor ShellCasingSpawnerRight : BulletCasingSpawnerLeft
+{
+	Speed 4
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("ShellCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			stop
+	}
+}
+
+actor RepeaterCasingSpawnerRight : BulletCasingSpawnerLeft
+{
+	Speed 4
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("RepeaterCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			stop
+	}
+}
+
+ACTOR BulletCasing
+{
+	+NOTELEPORT
+	+DONTSPLASH
+	-NOBLOCKMAP
+	Height 12
+	Radius 9
+	Speed 5
+	Gravity 0.6
+	Scale 0.08
+	Reactiontime 600
+	BounceCount 4
+	+DOOMBOUNCE
+	+MISSILE
+	-NOGRAVITY
+	-NOLIFTDROP
+	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
+	+FORCEXYBILLBOARD
+	SeeSound "BulletCasing"
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_StopSound
+			PBUL A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
+			PBUL ABCDEF 1 A_CountDown
+			Goto Spawn+3
+		Death:
+			PBUL A 0 A_Jump(32,8)
+			PBUL A 0 A_Jump(37,8)
+			PBUL A 0 A_Jump(43,8)
+			PBUL A 0 A_Jump(51,8)
+			PBUL A 0 A_Jump(64,8)
+			PBUL A 0 A_Jump(85,8)
+			PBUL A 0 A_Jump(128,8)
+			PBUL A 110
+			Stop
+			PBUL B 160
+			Stop
+			PBUL D 100
+			Stop
+			PBUL B 320
+			Stop
+			PBUL D 128
+			Stop
+			PBUL D 100
+			Stop
+			PBUL D 200
+			Stop
+			PBUL B 300
+			Stop
+	}
+}
+
+ACTOR SilverBulletCasing
+{
+	+NOTELEPORT
+	+DONTSPLASH
+	-NOBLOCKMAP
+	Height 12
+	Radius 9
+	Speed 5
+	Gravity 0.6
+	Scale 0.08
+	Reactiontime 600
+	BounceCount 4
+	+DOOMBOUNCE
+	+MISSILE
+	-NOGRAVITY
+	-NOLIFTDROP
+	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
+	+FORCEXYBILLBOARD
+	SeeSound "BulletCasing"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_StopSound
+		MBUL A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
+		MBUL ABCDEF 1 A_CountDown
+		Goto Spawn+3
+	Death:
+		MBUL A 0 A_Jump(32,8)
+		MBUL A 0 A_Jump(37,8)
+		MBUL A 0 A_Jump(43,8)
+		MBUL A 0 A_Jump(51,8)
+		MBUL A 0 A_Jump(64,8)
+		MBUL A 0 A_Jump(85,8)
+		MBUL A 0 A_Jump(128,8)
+		MBUL A 110
+		Stop
+		MBUL B 160
+		Stop
+		MBUL D 100
+		Stop
+		MBUL B 320
+		Stop
+		MBUL D 128
+		Stop
+		MBUL D 100
+		Stop
+		MBUL D 200
+		Stop
+		MBUL B 300
+		Stop
+}
+}
+
+actor RepeaterCasingSmoke : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.7
+	Scale 0.2
+	+NOCLIP
+	States
+	{
+		Death:
+		Spawn:
+			SMK2 A 1 BRIGHT
+			SMK2 A 1 BRIGHT A_FadeOut(0.04)
+			goto Spawn+1
+	}
+}
+
+actor RepeaterCasing : SilverBulletCasing
+{
+	SeeSound ""
+	DeathSound "RepeaterCasing"
+	-DOOMBOUNCE
+	Translation "80:111=176:191"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		MBUL A 0 ThrustThingZ(0, Random(6, 20), 0, 1)
+		MBUL ABCDEF 1 BRIGHT
+		Goto Spawn+2
+	Death:
+		TNT1 AAAAA 0 A_SpawnItemEx("RepeaterCasingSmoke", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+		TNT1 A 1
+		stop
+	}
+}
+
+ACTOR ShellCasing
+{
+	+NOTELEPORT
+	+DONTSPLASH
+	-NOBLOCKMAP
+	Height 12
+	Radius 9
+	Speed 4
+	Gravity 0.5
+	Scale 0.20
+	BounceCount 4
+	SeeSound "ShellCasing"
+	PROJECTILE
+	ReactionTime 25
+	+DOOMBOUNCE
+	+CLIENTSIDEONLY
+	-NOGRAVITY
+	-NOLIFTDROP
+	-ACTIVATEPCROSS
+	-ACTIVATEIMPACT
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		12CA A 0
+		12CA A 1 A_StopSound
+		12CA A 0 ThrustThingZ(0, Random(6, 16), 0, 1)
+		12CA A 3 A_CountDown
+		12CA ABCDEFGH 1
+		Goto Spawn+4
+	Death:
+		12CA A 0 A_Jump(50,3)
+		12CA A 0 A_Jump(50,3)
+		12CA A 100
+		Stop
+		12CA G 200
+		Stop
+		12CA E 200
+		Stop
+	}
+}
+
+actor SSGCasing : ShellCasing
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_StopSound
+			TNT1 A 0 ThrustThingZ(0, Random(26, 36), 0, 1)
+			12CA C 3
+			12CA C 0 A_CountDown
+			12CA CDEFGHAB 1
+			Goto Spawn+4
+	}
+}
+
+actor ElementalCasing : SSGCasing
+{
+}

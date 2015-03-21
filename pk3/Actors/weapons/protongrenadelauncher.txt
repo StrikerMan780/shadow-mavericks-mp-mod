@@ -44,7 +44,7 @@ actor ProtonGrenadeLauncher : Weapon 5011
 			GRLG A 0 A_AlertMonsters
 			GRLG A 0 A_GunFlash
 			GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
-			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade", 0, 1, 7, 5)
+			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade", 0, true, 7, 3, true, 6)
 			goto FireAnim
 			
 		AltFire:
@@ -53,7 +53,7 @@ actor ProtonGrenadeLauncher : Weapon 5011
 			GRLG A 0 A_AlertMonsters
 			GRLG A 0 A_GunFlash
 			GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
-			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade_Impact", 0, 1, 7, 5)
+			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade_Impact", 0, true, 7, 3, true, 6)
 			goto FireAnim
 			
 		FireAnim:
@@ -85,7 +85,7 @@ actor ProtonGrenadeLauncher : Weapon 5011
 			PUNT A 2
 			PUNT B 0 A_PlaySoundEx("skeleton/swing", "auto", 0)
 			PUNT BC 1
-			PUNT D 1 A_FireCustomMissile("StickyBomb", 0, 1, -5, 0)
+			PUNT D 1 A_FireCustomMissile("StickyBomb", 0, true, -5, 0, true, 5)
 			PUNT EFGH 1
 			TNT1 A 15
 			TNT1 A 0 A_Refire
@@ -146,7 +146,6 @@ actor GBTWGrenade Replaces Grenade
 		Spawn:
 			SGRN A 0
 			SGRN A 0 A_StopSound
-			SGRN A 0 ThrustThingZ(0, 28, 0, 1)
 			SGRN AAAAAAAAAA 1 A_SpawnItemEX("GrenadeTrail", (random(-200,200)/100.0), (random(-200,200)/100.0), (random(-200,200)/100.0), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			goto Fly
 		
@@ -359,45 +358,32 @@ actor StickyBomb
 	States
 	{
 		Spawn:
-			STIK A 0
-			STIK A 0 ThrustThingZ(0, 20, 0, 1)
 			STIK AB 4
-			goto Spawn+2
+			loop
 
 		XDeath:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySoundEx("StickyLatchedOn", "Auto", 0)
 			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-			STIK DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 1 A_Fire
-			goto Explode2
+			TNT1 A 0 A_SeekerMissile(0, 0, SMF_LOOK, 256, 1)
+			STIK DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 1 A_Fire(32)
+			goto Explode
 
 		Crash:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySoundEx("StickyHitWall", "Auto", 0)
 			TNT1 A 0
 			STIK C 40
-			goto Explode1
+			goto Explode
 
 		Death:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySoundEx("StickyHitWall", "Auto", 0)
 			TNT1 A 0 A_NoGravity
 			STIK C 40
-			goto Explode1
+			goto Explode
 
-		Explode1:
-			TNT1 A 0 A_SpawnItemEX("GrenadeExplosionShell", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 A 0 A_SpawnItemEX("StickyBombExplosion", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
-			goto ExplodeEnd
-
-		Explode2:
-			TNT1 A 0 A_SpawnItemEX("GrenadeExplosionShell", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 A 0 A_SpawnItemEX("StickyBombExplosion", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 32, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
-			goto ExplodeEnd
-
-		ExplodeEnd:
+		Explode:
 			TNT1 A 0 A_AlertMonsters
 			TNT1 A 0 A_ChangeFlag("EXTREMEDEATH", 1)
 			TNT1 A 0 radius_quake(3, 16, 0, 3, 0)
@@ -405,6 +391,11 @@ actor StickyBomb
 			TNT1 A 0 A_NoGravity
 			TNT1 A 0 A_SetTranslucent(0.9, 1)
 			TNT1 A 0 A_PlaySoundEx("TechPlasmaSuperBoom", "Auto", 0)
+			
+			TNT1 A 0 A_SpawnItemEX("GrenadeExplosionShell", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 0 A_SpawnItemEX("StickyBombExplosion", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
+			
 			TNT1 A 2
 			stop
 	}

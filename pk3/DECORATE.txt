@@ -37,6 +37,7 @@ const int STOPSPIN = 965;
 const int HITCROSS = 966;
 
 #include "actors/effects.txt"
+#include "actors/casings.txt"
 #include "actors/missionselector.txt"
 #include "actors/checksandtriggers.txt"
 #include "actors/ammotypes.txt"
@@ -867,103 +868,6 @@ actor Silencer : CustomInventory
 			TNT1 A 0 A_GiveInventory("UnSilenced",1)
 			TNT1 A 0 A_GiveInventory("Silencer", 1)
 			TNT1 A 0 A_Print("Silencer OFF")
-			stop
-	}
-}
-
-actor BulletCasingSpawnerLeft
-{
-	Projectile
-	+NOGRAVITY
-	+NOCLIP
-	+CLIENTSIDEONLY
-	Speed 5
-	States
-	{
-		Spawn:
-		TNT1 A 0
-		TNT1 A 1 A_SpawnItemEx("BulletCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		stop
-	}
-}
-
-actor SilverBulletCasingSpawnerLeft : BulletCasingSpawnerLeft
-{
-	States
-	{
-		Spawn:
-		TNT1 A 0
-		TNT1 A 1 A_SpawnItemEx("SilverBulletCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		stop
-	}
-}
-
-actor ShellCasingSpawnerLeft : BulletCasingSpawnerLeft
-{
-	Speed 4
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 1 A_SpawnItemEx("ShellCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			stop
-	}
-}
-
-actor RepeaterCasingSpawnerLeft : BulletCasingSpawnerLeft
-{
-	Speed 4
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 1 A_SpawnItemEx("RepeaterCasing", 0, 6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			stop
-	}
-}
-
-actor BulletCasingSpawnerRight : BulletCasingSpawnerLeft
-{
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 1 A_SpawnItemEx("BulletCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			stop
-	}
-}
-
-actor SilverBulletCasingSpawnerRight : BulletCasingSpawnerLeft
-{
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 1 A_SpawnItemEx("SilverBulletCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			stop
-	}
-}
-
-actor ShellCasingSpawnerRight : BulletCasingSpawnerLeft
-{
-	Speed 4
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 1 A_SpawnItemEx("ShellCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			stop
-	}
-}
-
-actor RepeaterCasingSpawnerRight : BulletCasingSpawnerLeft
-{
-	Speed 4
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 1 A_SpawnItemEx("RepeaterCasing", 0, -6, 0, momx, momy, momz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 			stop
 	}
 }
@@ -4515,6 +4419,7 @@ stop
 
 actor QuadShotgun : ClericWeapon 12843
 {
+	Tag "Quad-Barreled Shotgun"
 	decal Bulletchip
 	obituary "%o was fuckin' obliterated by %k's quad-barreled shotgun."
 	radius 20
@@ -4577,7 +4482,7 @@ actor Minigun : ClericWeapon 5014
 	Weapon.AmmoUse 1
 	Weapon.Selectionorder 700
 	Weapon.Kickback 100
-	Inventory.PickupMessage "You got the minigun!"
+	Inventory.PickupMessage "You got the shredder!"
 	Obituary "%o was torn to meaty shreds by %k."
 	AttackSound "weapons/minigun"
 	SpawnID 214
@@ -4660,7 +4565,7 @@ actor Minigun : ClericWeapon 5014
 		TNT1 A 0 A_JumpIfNoAmmo("NoFlash")
 		TNT1 A 0 radius_quake(2, 2, 0, 1, 0)
 		TNT1 A 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,12,3)
-		TNT1 A 0 A_FireBullets (8, 5, 1, 5, "MinigunPuff")
+		TNT1 A 0 A_FireBullets (7, 4, 1, 5, "MinigunPuff")
 		TNT1 A 0 A_SetPitch(pitch-0.5)
 		TNT1 A 0 A_SetAngle(angle+random(-1,1))
 		TNT1 A 0 A_Jump(128, "Flash2", "Flash3", "Flash4")
