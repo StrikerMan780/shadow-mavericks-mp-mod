@@ -21,6 +21,21 @@
 // | Ruins the novelty and experience, in my honest opinion.					|
 // ******************************************************************************
 
+const int CHAINSAWHEALTHCHECK = 912;
+const int LIGHTNINGSOUND = 919;
+const int FLARECHECK = 920;
+const int FLIGHTCHECK = 921;
+const int GIVELIGHTNINGSOUND = 924;
+const int KNOCKOUT = 925;
+const int DOWALLJUMP = 926;
+const int JUMPCHECK = 927;
+//const int CHECKDROPPED = 961;
+const int TPUPGRADE = 962;
+const int GIVEWEAPON = 963;
+const int SPINATTACK = 964;
+const int STOPSPIN = 965;
+const int HITCROSS = 966;
+
 #include "actors/effects.txt"
 #include "actors/missionselector.txt"
 #include "actors/checksandtriggers.txt"
@@ -425,28 +440,28 @@ actor ProtonTorpedo Replaces Rocket
 
 actor MiniDukeExplode
 {
-Height 1
-Radius 1
-Speed 0
-RenderStyle Add
-Alpha 1.0
-Scale 0.2
-Projectile
--MISSILE
-+FORCEXYBILLBOARD
-States
-{
-Spawn:
-	DEXP ABCDEFGHIJKLMNOPQRSTU 1 BRIGHT
-	stop
-}
+	Height 1
+	Radius 1
+	Speed 0
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.125
+	Projectile
+	-MISSILE
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		XPLO ABCDEFGH 2 BRIGHT
+		stop
+	}
 }
 
 
 actor DukeDevastatorRocket
 {
 	Projectile
-	Speed 30
+	Speed 50
 	Damage 3
 	Radius 4
 	Height 8
@@ -460,7 +475,7 @@ actor DukeDevastatorRocket
 		Spawn:
 			RPGM A 0 BRIGHT
 			RPGM A 0 ThrustThingZ(0, Random(0,5), Random(0,1), 1)
-			RPGM A 1 BRIGHT
+			RPGM A 1 BRIGHT A_SpawnItemEx("HellfireSmoke", 0, 0, 0, MOMX-(MOMX*1.5), MOMY-(MOMY*1.5), MOMZ-(MOMZ*1.5), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 			goto Spawn+2
 		XDeath:
 			TNT1 A 0
@@ -471,8 +486,8 @@ actor DukeDevastatorRocket
 			NULL A 0 radius_quake(2, 8, 0, 1, 0)
 			NULL A 0 A_PlaySoundEx ("TechPlasmaSuperBoom", "Auto", 0, 0.4)
 			NULL A 0 A_Explode(18, 32)
-			NULL AAAAAAAAA 0 A_SpawnItemEx("RPGSpark", Random(-4,8), Random(-4,8), Random(-4,8), Random(-6,6), Random(-6,6), Random(-6,6), random(-180,180), 128, 0)
-			NULL A 1 A_SpawnItemEx("MiniDukeExplode", 0, 0, -8, 0, 0, 0, 0, 128, 0)
+			NULL AAAA 0 A_SpawnItemEx("RPGSpark", Random(-4,8), Random(-4,8), Random(-4,8), Random(-6,6), Random(-6,6), Random(-6,6), random(-180,180), SXF_CLIENTSIDE, 64)
+			NULL A 1 A_SpawnItemEx("MiniDukeExplode", 0, 0, 0, 0, 0, 0, 0, 128, 0)
 			NULL A 4
 			NULL A 3
 			stop
@@ -822,38 +837,38 @@ Spawn:
 
 actor Silencer : CustomInventory
 {
-inventory.pickupmessage "Silencer (Shouldn't have been able to pick this up asshole!)"
-inventory.pickupsound "misc/p_pkup"
-inventory.icon ARTISILE
-inventory.amount 2
-inventory.maxamount 2
-inventory.usesound "SilencerToggle"
-+COUNTITEM
-+INVENTORY.UNDROPPABLE
--INVENTORY.INTERHUBSTRIP
-+INVBAR
-states
-{
-Spawn:
-	TNT1 A -1
-	stop
-Use:
-	TNT1 A 0 A_Jumpifinventory("Silenced", 1, "SilencerOFF")
-	TNT1 A 0
-	goto SilencerON
-SilencerON:
-	TNT1 A 0 A_TakeInventory("UnSilenced", 255)
-	TNT1 A 0 A_GiveInventory ("Silenced", 1)
-	TNT1 A 0 A_GiveInventory("Silencer", 1)
-	TNT1 A 0 A_Print("Silencer ON")
-	stop
-SilencerOFF:
-	TNT1 A 0 A_TakeInventory("Silenced", 255)
-	TNT1 A 0 A_GiveInventory("UnSilenced",1)
-	TNT1 A 0 A_GiveInventory("Silencer", 1)
-	TNT1 A 0 A_Print("Silencer OFF")
-	stop
-}
+	inventory.pickupmessage "Silencer (Shouldn't have been able to pick this up asshole!)"
+	inventory.pickupsound "misc/p_pkup"
+	inventory.icon ARTISILE
+	inventory.amount 2
+	inventory.maxamount 2
+	inventory.usesound "SilencerToggle"
+	+COUNTITEM
+	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
+	+INVBAR
+	states
+	{
+		Spawn:
+			TNT1 A -1
+			stop
+		Use:
+			TNT1 A 0 A_Jumpifinventory("Silenced", 1, "SilencerOFF")
+			TNT1 A 0
+			goto SilencerON
+		SilencerON:
+			TNT1 A 0 A_TakeInventory("UnSilenced", 255)
+			TNT1 A 0 A_GiveInventory ("Silenced", 1)
+			TNT1 A 0 A_GiveInventory("Silencer", 1)
+			TNT1 A 0 A_Print("Silencer ON")
+			stop
+		SilencerOFF:
+			TNT1 A 0 A_TakeInventory("Silenced", 255)
+			TNT1 A 0 A_GiveInventory("UnSilenced",1)
+			TNT1 A 0 A_GiveInventory("Silencer", 1)
+			TNT1 A 0 A_Print("Silencer OFF")
+			stop
+	}
 }
 
 actor BulletCasingSpawnerLeft
@@ -1222,252 +1237,6 @@ actor NewPistol : ClericWeapon Replaces Pistol
 	}
 }
 
-actor Duke64BulletPuff : NewBulletPuff
-{
-	obituary "%k tore %o a new anus."
-}
-
-ACTOR Duke64Clip : Ammo
-{
-	Inventory.MaxAmount 14 // size of the clip
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 14 //MUST be the same as Inventory.MaxAmmount
-	Inventory.Icon "MAGICON2"
-	+IGNORESKILL
-}
-
-ACTOR MP40Clip : Ammo
-{
-	Inventory.MaxAmount 30 // size of the clip
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 30 //MUST be the same as Inventory.MaxAmmount
-	Inventory.Icon "MAGICON2"
-	+IGNORESKILL
-}
-
-actor Mp40 : Weapon 23403
-{
-	decal BulletChip
-	obituary "%o was perforated by %k's MP40."
-	Inventory.PickupSound "misc/w_pkup"
-	Inventory.PickupMessage "Snagged an MP40!"
-	weapon.selectionorder 1900
-	weapon.kickback 100
-	Weapon.AmmoType1 "MechAmmo"
-	Weapon.AmmoGive 50
-	Weapon.AmmoUse 1
-	+WEAPON.AMMO_OPTIONAL
-	+WEAPON.ALT_AMMO_OPTIONAL
-	Scale 0.5
-	states
-	{
-	Spawn:
-		MP4P A -1
-		loop
-	Ready:
-		MP40 A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
-		MP40 A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
-		MP40 A 0 A_WeaponReady
-		goto AltFire
-	Ready2:
-		MP40 A 1 A_WeaponReady
-		loop
-	Deselect:
-		MP40 A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
-		MP40 A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
-		goto Deselect2
-	Deselect2:
-		MP40 A 1 A_Lower
-		loop
-	Select:
-		MP40 A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
-		MP40 A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
-		goto Select2
-	Select2:
-		MP40 A 1 A_Raise
-		loop
-	Empty:
-		MP40 A 0 A_PlaySound("WeaponEmpty")
-		MP40 A 7 A_WeaponReady(WRF_NOFIRE)
-		MP40 A 0
-		goto ReloadCheck
-	Fire:
-		MP40 A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-		MP40 A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-		MP40 A 0 A_JumpIfInventory("MP40Clip", 1, "MP40Fire")
-		goto Empty
-	MP40Fire:
-		MP40 B 0 A_PlayWeaponSound("mp40fire")
-		MP40 B 0 A_TakeInventory("MP40Clip", 1)
-		MP40 B 0 A_FireBullets (2, 1, -1, 5, "NewBulletPuff", 0)
-		MP40 B 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,6,6)
-		MP40 B 0 radius_quake(3, 2, 0, 1, 0)
-		MP40 B 0 A_SetPitch(pitch-0.75)
-		MP40 B 1 BRIGHT A_Gunflash
-		MP40 C 1 BRIGHT A_SetPitch(pitch+0.25)
-		MP40 DE 1 A_SetPitch(pitch+0.25)
-		MP40 A 0 A_Refire
-		goto Ready2		
-	AltFire:
-		MP40 A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeAltFire")
-		MP40 A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsAltFire")
-		goto ReloadCheck		
-	Flash:
-		TNT1 A 2 bright A_Light2
-		TNT1 A 1 bright A_Light1
-		TNT1 A 0 bright A_Light0
-		stop		
-	ReloadCheck:
-		MP4R A 0 A_JumpIfInventory("MP40Clip",30,2)
-		MP4R A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
-		MP4R A 0
-		goto Ready2
-	ReloadStart:
-		MP4R ABCD 3
-		MP4R E 3 A_PlaySound("MP40BoltBack", CHAN_AUTO)
-		MP4R FGHIJ 3
-		MP4R K 3 A_PlaySound("MP40ClipOut", CHAN_AUTO)
-		MP4R LMNO 3
-		MP4R P 3 A_PlaySound("MP40ClipIn", CHAN_AUTO)
-		MP4R Q 3
-		goto ReloadAmmo
-	ReloadAmmo:
-		TNT1 A 0 A_TakeInventory("MechAmmo",1)
-		TNT1 A 0 A_GiveInventory("MP40Clip",1)
-		TNT1 A 0 A_JumpIfInventory("MP40Clip",30,"ReloadDone")
-		TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
-		goto ReloadDone
-	ReloadDone:
-		MP4R RSTUV 3
-		MP4R W 3 A_PlaySound("MP40BoltSlap", CHAN_AUTO)
-		MP4R XYZ 3
-		goto Ready2
-
-	TailsReady:
-		M40T A 0 A_WeaponReady
-		goto AltFire
-	TailsReady2:
-		M40T A 1 A_WeaponReady
-		loop
-	TailsSelect:
-		M40T A 1 A_Raise
-		loop
-	TailsDeselect:
-		M40T A 1 A_Lower
-		loop
-	TailsEmpty:
-		M40T A 0 A_PlaySound("WeaponEmpty")
-		M40T A 7 A_WeaponReady(WRF_NOFIRE)
-		M40T A 0
-		goto TailsReloadCheck
-	TailsFire:
-		M40T A 0 A_JumpIfInventory("MP40Clip", 1, "TailsMP40Fire")
-		goto TailsEmpty
-	TailsMP40Fire:
-		M40T B 0 A_PlayWeaponSound("mp40fire")
-		M40T B 0 A_TakeInventory("MP40Clip", 1)
-		M40T B 0 A_FireBullets (2, 1, -1, 5, "NewBulletPuff", 0)
-		M40T B 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,6,6)
-		M40T B 0 radius_quake(3, 2, 0, 1, 0)
-		M40T B 0 A_SetPitch(pitch-0.75)
-		M40T B 1 BRIGHT A_Gunflash
-		M40T C 1 BRIGHT A_SetPitch(pitch+0.25)
-		M40T DE 1 A_SetPitch(pitch+0.125)
-		M40T A 0 A_Refire
-		goto TailsReady2
-	TailsAltFire:
-		M40T A 0
-		goto TailsReloadCheck
-	TailsReloadCheck:
-		M4RT A 0 A_JumpIfInventory("MP40Clip",30,2)
-		M4RT A 0 A_JumpIfInventory("MechAmmo",1,"TailsReloadStart")
-		M4RT A 0
-		goto TailsReady2
-	TailsReloadStart:
-		M4RT ABCD 3
-		M4RT E 3 A_PlaySound("MP40BoltBack", CHAN_AUTO)
-		M4RT FGHIJ 3
-		M4RT K 3 A_PlaySound("MP40ClipOut", CHAN_AUTO)
-		M4RT LMNO 3
-		M4RT P 3 A_PlaySound("MP40ClipIn", CHAN_AUTO)
-		M4RT Q 3
-		goto TailsReloadAmmo
-	TailsReloadAmmo:
-		TNT1 A 0 A_TakeInventory("MechAmmo",1)
-		TNT1 A 0 A_GiveInventory("MP40Clip",1)
-		TNT1 A 0 A_JumpIfInventory("MP40Clip",30,"TailsReloadDone")
-		TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"TailsReloadAmmo")
-		goto TailsReloadDone
-	TailsReloadDone:
-		M4RT RSTUV 3
-		M4RT W 3 A_PlaySound("MP40BoltSlap", CHAN_AUTO)
-		M4RT XYZ 3
-		goto TailsReady2
-		
-	DukeReady:
-		DN6P A 0 A_WeaponReady
-		goto DukeAltfire
-		DN6P A 1 A_WeaponReady
-		goto DukeReady+1
-	DukeSelect:
-		DN6P A 0 A_PlayWeaponSound("Duke64ClipIn")
-		DN6P A 1 A_Raise
-		goto DukeSelect+1
-	DukeDeselect:
-		DN6P A 1 A_Lower
-		loop
-	DukeFire:
-		DN6P A 0 A_JumpIfInventory("Duke64Clip", 1, "Duke64PistolFire")
-		goto DukeEmpty
-	Duke64PistolFire:
-		DN6P B 0 A_PlayWeaponSound("Duke64PistolFire")
-		DN6P B 0 A_TakeInventory("Duke64Clip", 1)
-		DN6P B 0 A_FireBullets (2, 2, 1, 9, "Duke64BulletPuff", 0)
-		DN6P B 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,0,6)
-		DN6P B 1 BRIGHT A_Gunflash
-		DN6P C 1
-		DN6P A 4
-		DN6P A 0 A_JumpIfNoAmmo("DukeAltFire")
-		DN6P A 1 A_ReFire
-		goto DukeReady+1
-	DukeAltFire:
-		DN6P A 0
-		Goto DukeReloadCheck
-	DukeReloadCheck:
-		DN6P D 0 A_JumpIfInventory("Duke64Clip",14,2)
-		DN6P D 0 A_JumpIfInventory("MechAmmo",1,"DukeReloadStart")
-		DN6P A 0
-		goto DukeReady+1
-	DukeReloadStart:
-		DN6P D 5 A_PlaySound("Duke64Slide", CHAN_AUTO)
-		DN6P E 5 A_PlaySound("Duke64ClipOut", CHAN_AUTO)
-		DN6P F 2
-		DN6P E 5
-		DN6P G 2
-		DN6P H 2
-		goto DukeReloadAmmo
-	DukeReloadAmmo:
-		TNT1 A 0 A_TakeInventory("MechAmmo",1)
-		TNT1 A 0 A_GiveInventory("Duke64Clip",1)
-		TNT1 A 0 A_JumpIfInventory("Duke64Clip",14,"DukeReloadDone")
-		TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"DukeReloadAmmo")
-		goto DukeReloadDone
-	DukeReloadDone:
-		DN6P I 2 A_PlaySound("Duke64ClipIn", CHAN_AUTO)
-		DN6P J 2 A_PlaySound("Duke64ClipLock", CHAN_AUTO)
-		DN6P K 2
-		DN6P E 2
-		DN6P D 2
-		goto DukeReady+1
-	DukeEmpty:
-		DN6P A 0
-		DN6P A 0 A_PlaySound("WeaponEmpty")
-		DN6P A 6 A_WeaponReady(WRF_NOFIRE)
-		DN6P A 0
-		goto DukeReloadCheck
-	}
-}
-
 actor Piss
 {
 	projectile
@@ -1664,97 +1433,6 @@ actor FaroresWind : FighterWeapon
 	}
 }
 
-// *********************** DUKE NUKEM CLASS *******************
-// =======
-
-ACTOR DukeClip : Ammo
-{
-	Inventory.MaxAmount 12 // size of the clip
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 12 //MUST be the same as Inventory.MaxAmmount
-	Inventory.Icon "MAGICON2"
-	+IGNORESKILL
-}
-
-actor DukePistol : FighterWeapon
-{
-obituary "%k busted a cap in %o's ass."
-attacksound "DukePistol"
-weapon.selectionorder 1900
-weapon.kickback 100
-weapon.upsound "DukeClipIn"
-Weapon.AmmoType1 "DukeClip" //The guns magazine
-Weapon.AmmoType2 "MechAmmo" //The real ammo
-Weapon.AmmoGive 12
-Weapon.AmmoGive2 24
-Weapon.AmmoUse1 1
-Weapon.AmmoUse2 0
-+WEAPON.WIMPY_WEAPON
-+WEAPON.CHEATNOTWEAPON
-states
-{
-Ready:
-	DISG A 0 A_WeaponReady
-	goto Altfire
-	DISG A 1 A_WeaponReady
-	goto Ready+1
-Deselect:
-	DISG A 1 A_Lower
-	loop
-Select:
-	DISG A 1 A_Raise
-	loop
-Fire:
-	DISG B 0 A_FireBullets (2, 1.5, 1, 6, "NewBulletPuff")
-	DISG B 1 BRIGHT A_Gunflash
-	DISG B 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,-1,6)
-	DISG C 1 BRIGHT
-	DISG A 4
-	DISG A 0 A_JumpIfNoAmmo(2)
-	DISG A 1 A_ReFire
-	goto Ready+1
-	NULL A 0
-	goto AltFire
-AltFire:
-	DISG A 0
-	Goto ReloadCheck
-
-ReloadCheck:
-	DISG D 0 A_JumpIfInventory("DukeClip",12,2)
-	DISG D 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
-	DISG A 0
-	goto Ready+1
-
-ReloadStart:
-	DISG D 5
-	DISG E 5 A_PlaySound("DukeClipOut")
-	DISG F 2
-	DISG E 5
-	DISG G 2
-	DISG H 2
-	goto ReloadAmmo
-
-ReloadAmmo:
-	TNT1 A 0 A_TakeInventory("MechAmmo",1)
-	TNT1 A 0 A_GiveInventory("DukeClip",1)
-	TNT1 A 0 A_JumpIfInventory("DukeClip",12,"ReloadDone")
-	TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
-	goto ReloadDone
-
-ReloadDone:
-	DISG I 2 A_PlaySound("DukeClipIn")
-	DISG J 2
-	DISG K 2
-	DISG E 2
-	DISG D 2
-	goto Ready+1
-Flash:
-	TNT1 A 2 bright A_Light1
-	TNT1 A 0 bright A_Light0
-	stop
-}
-}
-
 actor DukeExplode
 {
 Height 1
@@ -1933,121 +1611,6 @@ actor BishopStaff : ClericWeapon 24304
 	}
 }
 
-actor BloodyChainsaw : ClericWeapon Replaces Chainsaw
-{
-	spawnid 32
-	obituary "%o was torn to gory shreds by %k's chainsaw."
-	radius 20
-	height 16
-	inventory.pickupmessage "A chainsaw!	Find some meat!"
-	weapon.upsound "weapons/sawup"
-	weapon.selectionorder 2200
-	+WEAPON.MELEEWEAPON
-	states
-	{
-	Ready:
-		SAWD ABCDEFGHIJKLMNOPQRSTUVW 2 A_WeaponReady(WRF_NOFIRE)
-		goto ReadyLoop
-	ReadyLoop:
-		SAW1 A 0 A_Playsound("weapons/sawidle", 7, 1.0, 1)
-		SAW1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_WeaponReady
-		SAW2 ABCDEFGHIJKLMNOPQRSTUVWXY 2 A_WeaponReady
-		goto ReadyLoop
-	Deselect:
-		SAW1 A 0 A_PlaySound("ChainsawOff", 7, 1.0, 0)
-		goto DeselectLoop
-	DeselectLoop:
-		SAW1 A 1 A_Lower
-		loop
-	Select:
-		SAWD A 0 A_Raise
-		SAWD A 1 A_Raise
-		loop
-	Fire:
-		SAWS A 1 A_PlaySound("ChainsawRev", 7, 1.0, 0)
-		SAWS BC 1
-		SAWS DEF 1 A_GunFlash("DoAttack")
-		SAWS G 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWS GHIJK 1
-		SAWS L 0 A_PlaySound("weapons/sawfull", 7, 1.0, 1)
-		SAWS LMNOP 1 A_GunFlash("DoAttack")
-		SAWS P 0 A_ReFire
-		goto AttackEnd
-	Hold:
-		SAWL A 0 A_PlaySound("weapons/sawfull", 7, 1.0, 1)
-		SAWL A 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL ABCD 1 A_GunFlash("DoAttack")
-		SAWL E 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL EFGH 1 A_GunFlash("DoAttack")
-		SAWL I 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL IJKL 1 A_GunFlash("DoAttack")
-		SAWL M 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL MNOP 1 A_GunFlash("DoAttack")
-		SAWL A 0 A_ReFire
-		goto AttackEnd
-	AttackEnd:
-		SAWE A 0 A_PlaySound("ChainsawDown", 7, 1.0, 0)
-		SAWE ABCDEFG 1 A_GunFlash("DoAttack")
-		SAWE HIJKLMOPQRSTUVW 1
-		goto ReadyLoop
-	
-	Slash:
-		SAWS A 0 A_PlaySound("ChainsawSlash", 7, 1.0, 0)
-		SAWS A 0 A_TakeInventory("ChainsawSlashReady", 1)
-		SAWS A 0 A_Recoil(-4)
-		SAWS ABC 1
-		SWS1 A 0 A_Jump(128, "Slash2")
-		goto Slash1
-	Slash1:
-		SWS1 AB 2 
-		SWS1 CDEFGHIJKL 2 A_GunFlash("DoSlashAttack")
-		SWS1 MNOPQRSTUVW 2
-		SWS1 W 0 A_Refire("Fire")
-		goto ReadyLoop
-	Slash2:
-		SWS2 AB 2 
-		SWS2 CDEFGHIJKL 2 A_GunFlash("DoSlashAttack")
-		SWS2 MNOPQRSTUVW 2
-		SWS2 W 0 A_Refire("Fire")
-		goto ReadyLoop
-	
-	AltFire:
-		SAW1 A 0 A_PlaySound("ChainsawOff", 7, 1.0, 0)
-		SAW1 ABCDEFGH 2 A_WeaponReady(WRF_NOFIRE)
-		SAW1 A 0 A_Refire
-		goto PullCord
-	AltHold:
-		SAW1 AA 2 A_WeaponReady(WRF_NOFIRE)
-		SAW1 A 0 A_Refire
-		goto PullCord
-	PullCord:
-		SAWP A 0 A_PlaysoundEX("weapons/sawup",voice, 0)
-		SAWP ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 A_WeaponReady(WRF_NOFIRE)
-		SAWC ABCDEFGHIJKLMNOPQRSTU 1 A_WeaponReady(WRF_NOFIRE)
-		goto ReadyLoop
-		
-	DoAttack:
-		TNT1 A 0 A_Quake(1, 2, 0, 1, "")
-		TNT1 A 0 A_Saw("", "weapons/sawhit", 1, "ChainsawPuff", 0, 65, 2.8125, 1)
-		TNT1 A 0 A_JumpIfCloser(80, "CheckHealth") 
-		stop
-	DoSlashAttack:
-		TNT1 A 0 A_Quake(2, 2, 0, 1, "")
-		TNT1 A 0 A_Saw("", "weapons/sawhit", 5, "ChainsawPuff", 0, 65, 3.8125, 1)
-		stop
-	CheckHealth:
-		TNT1 A 0 ACS_ExecuteAlways(912, 0)
-		TNT1 A 0 A_JumpIfInventory("ChainsawHealthCritical", 1, "ConfirmSlash", AAPTR_PLAYER_GETTARGET)
-		stop
-	ConfirmSlash:
-		TNT1 A 0 A_GiveInventory("ChainsawSlashReady", 1)
-		stop
-	Spawn:
-		CSAW A -1
-		stop
-	}
-}
-
 actor GrapplingHook : LoreShot Replaces LoreShot
 {
 	speed 48
@@ -2085,7 +1648,7 @@ states
 }
 }
 
-actor GrapplerShot : Weapon 20481
+actor GrapplerShot : ClericWeapon 20481
 {
 	obituary "%o was hooked like a fish by %k!"
 	Inventory.PickupSound "misc/w_pkup"
@@ -3605,7 +3168,7 @@ actor FairyArrow
 	}
 }
 
-actor IPodLauncher : ClericWeapon 24305
+actor IPodLauncher : Weapon 24305
 {
 	decal BulletChip
 	obituary "%o swallowed %k's IPod."
@@ -5008,13 +4571,14 @@ actor QuadShotgun : ClericWeapon 12843
 
 actor Minigun : ClericWeapon 5014
 {
+	Tag "The Shredder"
 	Weapon.AmmoType "MechAmmo"
 	Weapon.AmmoGive 100
 	Weapon.AmmoUse 1
 	Weapon.Selectionorder 700
 	Weapon.Kickback 100
 	Inventory.PickupMessage "You got the minigun!"
-	Obituary "%k torn %o to meaty shreds with %p Minigun"
+	Obituary "%o was torn to meaty shreds by %k."
 	AttackSound "weapons/minigun"
 	SpawnID 214
 	Radius 20
@@ -6749,133 +6313,6 @@ actor RageRune2 : RageRune Replaces RageRune
 	}
 }
 
-actor NewShotgun : Weapon Replaces Shotgun
-{
-	Decal BulletChip
-	spawnid 27
-	obituary "%o chewed on %k's boomstick."
-	radius 20
-	height 16
-	inventory.pickupmessage "You got the shotgun!"
-	weapon.selectionorder 1300
-	weapon.kickback 100
-	Weapon.AmmoType "SpreadAmmo"
-	weapon.ammouse 1
-	weapon.ammogive 8
-	states
-	{
-	Ready:
-		SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
-		SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
-		SHTG A 1 A_WeaponReady
-		goto Ready+2
-	Deselect:
-		SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
-		SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
-		SHTG AA 0 A_Lower
-		SHTG A 1 A_Lower
-		goto Deselect+2
-	Select:
-		SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
-		SHTG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
-		SHTG AA 0 A_Raise
-		SHTG A 1 A_Raise
-		goto Select+2
-	Fire:
-		SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-		SHTG B 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-		SHTG B 0 A_FireCustomMissile("ShotgunSmoke", random(-1, 1), 0, 3, 7)
-		SHTG B 0 A_GunFlash
-		SHTG B 0 Radius_Quake(2, 3, 0, 1, 0)
-		SHTG B 0 bright A_PlayWeaponSound("weapons/shotgf")
-		SHTG B 0 Bright A_FireBullets (6.6, 3.5, 10, 5, "ShotgunPuff")
-		SHTG B 1 Bright A_SetPitch (pitch-2)
-		SHTG C 1 A_SetPitch(pitch+0.8)
-		SHTG D 2 A_SetPitch(pitch+0.6)
-		SHTG E 2 A_SetPitch(pitch+0.4)
-		SHTG F 2 A_SetPitch(pitch+0.2)
-		SHTG G 2
-		SHTG H 2 A_PlaySoundEx("ShotgunCock", "auto", 0)
-		SHTG IJKL 2
-		SHTG M 0 A_FireCustomMissile("ShellCasingSpawnerRight",-45+random(-8,8),0,12,3)
-		SHTG MNOPQRS 2
-		SHTG A 2
-		SHTG A 0 A_Refire
-		goto Ready
-	Flash:
-		SHTG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFlash")
-		SHTF A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFlash")
-		SHTF A 2 Bright A_Light1
-		SHTF A 0 Bright A_Light0
-		stop
-
-	DukeReady:
-		DHTG A 1 A_WeaponReady
-		goto DukeReady
-	DukeDeselect:
-		DHTG A 1 A_Lower
-		loop
-	DukeSelect:
-		DHTG A 0 A_PlayWeaponSound("DukeShotgunCock")
-		DHTG A 0 A_Jump(48, "DukeSpeak")
-		DHTG A 1 A_Raise
-		goto DukeSelect+2
-	DukeSpeak:
-		DHTG A 0 A_PlaySoundEx("DukeShotgunRaise", "SoundSlot5", 0, 0.3)
-		goto DukeSelect+2
-	DukeFire:
-		DHTG E 0 bright A_PlayWeaponSound("DukeShotgunFire")
-		DHTG E 0 A_FireBullets (4, 2, 6, 7, "DukeShotgunBulletPuff")
-		DHTG A 3 A_GunFlash
-		DHTG EFE 2
-		DHTG A 3
-		DHTG BC 3
-		DHTG G 3 A_PlaySound("DukeShotgunCock")
-		DHTG D 4
-		DHTG G 3 A_FireCustomMissile("ShellCasingSpawnerLeft",45+random(-8,8),0,0,6)
-		DHTG CB 3
-		DHTG A 1
-		DHTG A 5 A_ReFire
-		goto DukeReady
-	DukeFlash:
-		DHTF A 3 bright A_Light1
-		DHTF B 2 bright A_Light2
-		DHTF B 0 bright A_Light0
-		stop
-		
-	TailsSelect:
-		PIPS A 1 A_Raise
-		loop
-	TailsDeselect:
-		PIPS A 1 A_Lower
-		loop
-	TailsReady:
-		PIPS A 1 A_WeaponReady
-		loop
-	TailsFire:
-		PIPS B 0 Radius_Quake(2, 3, 0, 1, 0)
-		PIPS B 0 A_PlayWeaponSound("PIPS")
-		PIPS B 0 A_GunFlash
-		PIPS BBBBB 0 A_FireCustomMissile("PIPS_Shot", (random(-400,400)/100.0),0,10,0,0, (random(-200,200)/100.0))
-		PIPS B 0 A_FireCustomMissile("PIPS_Shot", (random(-400,400)/100.0),1,10,0,0, (random(-200,200)/100.0))
-		PIPS B 2 A_SetPitch(pitch-0.50)
-		PIPS CD 2
-		PIPS EF 2 A_SetPitch(pitch+0.25)
-		PIPS GHI 2
-		PIPS JKLMN 1
-		PIPS A 12
-		PIPS A 0 A_Refire
-		goto TailsReady
-	TailsFlash:
-		PIPF A 2 A_Light2
-		TNT1 A 0 A_Light0
-		stop
-	Spawn:
-		SHOT A -1
-		stop
-	}
-}
-
 actor ForceJump : CustomInventory 18635
 {
 	inventory.pickupmessage "Force Jump!"
@@ -6916,8 +6353,7 @@ actor TechPlasmaTrail
 	{
 		Spawn:
 			TNT1 A 2
-			TPT1 IJKLMNOPQRSTUVWXYZ 1 BRIGHT A_FadeOut(0.08)
-			TPT2 ABC 1 BRIGHT A_FadeOut(0.08)
+			TPT1 BCDEFGHIJKLMNO 1 BRIGHT A_FadeOut(0.08)
 			stop
 		Death:
 			TNT1 AA 1
@@ -6931,8 +6367,7 @@ actor TechPlasmaBurst : TechPlasmaTrail
 	states
 	{
 	Spawn:
-		TPT1 ABCDEFGHIJKLMNOPQRSTUVXYZ 1 BRIGHT
-		TPT2 ABC 1 BRIGHT
+		TPT1 ABCDEFGHIJKLMNO 1 BRIGHT
 		stop
 	}
 }
@@ -6967,49 +6402,51 @@ actor TechPlasma
 		TPLA B 0
 		TPLA B 0 A_PlaySound("TechPlasmaHit")
 		TPLA BBBBBBBBB 0 A_SpawnItemEX("TechPlasmaBurst", 0, 0, 0, frandom(-1.5,1.5), frandom(-1.5,1.5), frandom(-1.5,1.5), random(-180,180), SXF_CLIENTSIDE, 0)
-		TPLA BBBCCCDDD 1 BRIGHT A_SpawnItemEX("TechPlasmaBurst", 0, 0, 0, frandom(-0.75,0.75), frandom(-0.75,0.75), frandom(-0.75,0.75), random(-180,180), SXF_CLIENTSIDE, 0)
+		TPLA BBBCCCDDD 1 BRIGHT A_SpawnItemEX("TechPlasmaBurst", 0, 0, 0, frandom(-1.0,1.0), frandom(-1.0,1.0), frandom(-1.0,1.0), random(-180,180), SXF_CLIENTSIDE, 0)
 		stop
 	}
 }
 
 actor SuperTechPlasma
 {
-Radius 11
-Height 22
-Speed 50
-Damage 12
-Obituary "%o wasn't aware of %k's technological genius."
-ReactionTime 128
-Seesound "weapons/plasmax"
-BounceCount 2
-BounceFactor 1
-Projectile
-+HEXENBOUNCE
-+FORCERADIUSDMG
-+EXTREMEDEATH
-+FORCEXYBILLBOARD
-States
-{
-	Spawn:
-		TPS2 A 0
-		TPS2 A 0 A_StopSound
-		TPS2 A 1 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
-		TPS2 A 0 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
-		TPS2 B 1 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
-		TPS2 B 0 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
-		TPS2 A 0 A_CountDown
-		goto Spawn+2
-	XDeath:
-		TNT1 A 0
-		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-		goto Death
-	Death:
-		MISL B 0 A_PlaySound("TechPlasmaSuperBoom")
-		MISL B 0 A_SetTranslucent(0.9, 1)
-		MISL B 0 A_Explode(24, 64, 0)
-		MISL BCD 1 BRIGHT
-		stop
-}
+	RenderStyle Add
+	Alpha 1.0
+	Radius 11
+	Height 22
+	Speed 50
+	Damage 12
+	Obituary "%o wasn't aware of %k's technological genius."
+	ReactionTime 128
+	Seesound "weapons/plasmax"
+	BounceCount 2
+	BounceFactor 1
+	Projectile
+	+HEXENBOUNCE
+	+FORCERADIUSDMG
+	+EXTREMEDEATH
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			TPS2 A 0
+			TPS2 A 0 A_StopSound
+			TPS2 A 1 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
+			TPS2 A 0 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
+			TPS2 B 1 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
+			TPS2 B 0 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
+			TPS2 A 0 A_CountDown
+			goto Spawn+2
+		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			goto Death
+		Death:
+			MISL B 0 A_PlaySound("TechPlasmaSuperBoom")
+			MISL B 0 A_SetTranslucent(0.9, 1)
+			MISL B 0 A_Explode(24, 64, 0)
+			MISL BCD 1 BRIGHT
+			stop
+	}
 }
 
 actor SuperTechPlasmaTrail
@@ -7058,22 +6495,24 @@ Spawn:
 
 actor Tails_TechPistol : MageWeapon
 {
+	Tag "TLS-912 TechPistol"
 	Decal TechRailScorch
 	attacksound "TechRail"
 	obituary "%o was blasted by %k's TechPistol."
-	weapon.selectionorder 1300
+	weapon.selectionorder 1500
 	weapon.kickback 100
 	weapon.ammotype "CellAmmo"
 	weapon.ammouse 1
 	weapon.ammogive 0
 	+WEAPON.CHEATNOTWEAPON
+	+WEAPON.WIMPY_WEAPON
 	states
 	{
 	Ready:
 		TEKP A 0 A_JumpIfInventory("RailMode", 1, "RailModeReady")
 		TEKP A 0 A_JumpIfInventory("TechUpgraded", 1, "PowerReady")
-		TEKP A 1 A_WeaponReady
-		goto Ready+2
+		TEKP AAAA 1 A_WeaponReady
+		goto Ready
 	RailModeReady:
 		TEKR A 1 A_WeaponReady
 		loop
@@ -7179,42 +6618,42 @@ actor Tails_TechPistol : MageWeapon
 
 actor TailsFlightTrigger : CustomInventory
 {
-inventory.icon "ARTIFLY"
-inventory.amount 1
-inventory.maxamount 1
-+INVENTORY.QUIET
-+INVENTORY.INVBAR
-+INVENTORY.HUBPOWER
-+INVENTORY.KEEPDEPLETED
-+INVENTORY.ALWAYSPICKUP
--INVENTORY.AUTOACTIVATE
--INVENTORY.INTERHUBSTRIP
-+INVENTORY.UNDROPPABLE
-+COUNTITEM
-states
-{
-Spawn:
-	LCHN A -1
-	stop
-Use:
-	TNT1 A 0
-	TNT1 A 0 A_JumpifInventory("CannotUse", 1, "GoDie")
-	TNT1 A 0 A_Jumpifinventory("RedFlag", 1, "GoDie")
-	TNT1 A 0 A_Jumpifinventory("BlueFlag", 1, "GoDie")
-	TNT1 A 0 A_Jumpifinventory("WhiteFlag", 1, "GoDie")
-	TNT1 A 0 A_Jumpifinventory("RedSkullST", 1, "GoDie")
-	TNT1 A 0 A_Jumpifinventory("BlueSkullST", 1, "GoDie")
-	TNT1 A 0 A_JumpIfInventory("PowerPossessionArtifact", 1, "GoDie")
-	TNT1 A 0 A_Jumpifinventory("PowerFlight", 1, "GoDie")
-	TNT1 A 0
-	goto GoFly
-GoFly:
-	TNT1 A 0 A_GiveInventory("TailsFlight", 1)
-	stop
-GoDie:
-	TNT1 A 0
-	stop
-}
+	inventory.icon "ARTIFLY"
+	inventory.amount 1
+	inventory.maxamount 1
+	+INVENTORY.QUIET
+	+INVENTORY.INVBAR
+	+INVENTORY.HUBPOWER
+	+INVENTORY.KEEPDEPLETED
+	+INVENTORY.ALWAYSPICKUP
+	-INVENTORY.AUTOACTIVATE
+	-INVENTORY.INTERHUBSTRIP
+	+INVENTORY.UNDROPPABLE
+	+COUNTITEM
+	states
+	{
+	Spawn:
+		LCHN A -1
+		stop
+	Use:
+		TNT1 A 0
+		TNT1 A 0 A_JumpifInventory("CannotUse", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("RedFlag", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("BlueFlag", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("WhiteFlag", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("RedSkullST", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("BlueSkullST", 1, "GoDie")
+		TNT1 A 0 A_JumpIfInventory("PowerPossessionArtifact", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("PowerFlight", 1, "GoDie")
+		TNT1 A 0
+		goto GoFly
+	GoFly:
+		TNT1 A 0 A_GiveInventory("TailsFlight", 1)
+		stop
+	GoDie:
+		TNT1 A 0
+		stop
+	}
 }
 
 actor TailsFlight : PowerupGiver
@@ -7711,32 +7150,36 @@ ACTOR RailClip : Ammo
 
 actor RailGunCorePickup : CustomInventory 16789
 {
-//SpawnID 252
-Scale 0.80
-inventory.amount 1
-inventory.maxamount 1
-inventory.pickupmessage "Railgun Core"
--INVBAR
-+FLOATBOB
-+NOGRAVITY
-+INVENTORY.UNDROPPABLE
-states
-{
-Spawn:
-	RCOR A -1
-	loop
-Pickup:
-	RCOR A 0 A_JumpIfInventory("RailGunCore", 1, "FuckOff")
-	RCOR A 1 A_JumpIfInventory("TailsClassCheck", 1, "Working")
-	stop
-Working:
-	RCOR A 1 A_GiveInventory("RailGunCore", 1)
-	RCOR A 0 A_SpawnItemEx("RailgunCoreRespawner", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
-	stop
-FuckOff:
-	TNT1 A 1
-	stop
-}
+	//SpawnID 252
+	Scale 0.80
+	inventory.amount 1
+	inventory.maxamount 1
+	inventory.pickupmessage "Railgun Core"
+	-INVBAR
+	+FLOATBOB
+	+NOGRAVITY
+	+INVENTORY.UNDROPPABLE
+	states
+	{
+	Spawn:
+		RCOR A -1
+		loop
+	Pickup:
+		RCOR A 1 A_JumpIfInventory("TailsClassCheck", 1, "Working")
+		stop
+	Working:
+		RCOR A 1 A_GiveInventory("RailGunCore", 1)
+		RCOR A 0 A_JumpIfInventory("IsDeathmatch", 1, "Respawn")
+		RCOR A 0 A_RailWait
+		stop
+	Respawn:
+		RCOR A 0 A_SpawnItemEx("RailgunCoreRespawner", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+		RCOR A 0 A_RailWait
+		stop
+	FuckOff:
+		TNT1 A 1
+		stop
+	}
 }
 
 actor RailgunCoreRespawner
@@ -7760,17 +7203,17 @@ actor RailgunCoreRespawner
 
 actor RailGunCore : PuzzleItem
 {
-inventory.amount 1
-inventory.maxamount 1
-inventory.pickupmessage "Railgun Core"
--INVBAR
-+INVENTORY.UNDROPPABLE
-states
-{
-Spawn:
-	RCOR A -1
-	loop
-}
+	inventory.amount 1
+	inventory.maxamount 1
+	inventory.pickupmessage "Railgun Core"
+	-INVBAR
+	+INVENTORY.UNDROPPABLE
+	states
+	{
+	Spawn:
+		RCOR A -1
+		loop
+	}
 }
 
 ACTOR Railgun : ClericWeapon 5012
@@ -7858,7 +7301,7 @@ ACTOR Railgun : ClericWeapon 5012
 		Goto LightDone
 	Spawn:
 		RAIL A 0
-		RAIL A 0 Thing_ChangeTID(0, 1337)
+		RAIL A 0 A_SpawnItemEx("RailgunCorePickup", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 		RAIL A -1
 		loop
 	}
@@ -10264,6 +9707,7 @@ ACTOR SMMP_BFGBall Replaces BFGBall
 		BFE1 A 0 Radius_Quake(9, 35, 0, 8, 0)
 		BFE1 ABCDEF 3 Bright A_SpawnItemEx("BFGBlastFog", 0, 0, 0, (random(-200, 200)/100.0),(random(-200, 200)/100.0), (random(-200, 200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
 		TNT1 A 12
+		BFE1 A 0 A_Explode(150, 256, 1)
 		TNT1 AAAA 0 A_SpawnItemEx("BFGTrailSparkle", 0, 0, 0, Random(-4,4), Random(-4,4), Random(-4,4), random(-180, 180), SXF_CLIENTSIDE, 0)
 		TNT1 AAAAAA 0 A_SpawnItemEx("ElectricArc_Green", 0, 0, 0, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 0)
 		TNT1 AAAA 2 A_SpawnItemEx("BFGShockwave3", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)

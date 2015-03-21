@@ -21,13 +21,13 @@ ACTOR LightSaber : ClericWeapon 25004
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "ReadyRed")
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "ReadyBlue")
 			LSAB AAAABBBB 1 BRIGHT A_WeaponReady
-			loop
+			goto Ready+1
 		ReadyRed:
 			LSRB AAAABBBB 1 BRIGHT A_WeaponReady
-			goto Ready
+			goto Ready+1
 		ReadyBlue:
 			LSBB AAAABBBB 1 BRIGHT A_WeaponReady
-			goto Ready
+			goto Ready+1
 		Deselect:
 			LSAB A 0 BRIGHT A_TakeInventory("UsingSaber", 1)
 			LSAB A 0 BRIGHT A_TakeInventory("SaberGuard", 1)

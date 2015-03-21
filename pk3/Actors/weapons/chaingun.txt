@@ -1,44 +1,63 @@
-ACTOR ChaingunShotCount : Inventory
-{
-Inventory.Amount 1
-Inventory.MaxAmount 3
--INVBAR
+actor ChaingunGiver : ClassWeaponGiver Replaces Chaingun
+{	
+	states
+	{
+		Spawn:
+			MGUN A 0
+			MGUN A -1 A_CheckFlag("DROPPED", "Dropped")
+			loop
+		Pickup:
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 2, 32, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			TNT1 A 0 A_SpawnItemEx("ChaingunGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
 }
 
-actor SM_Chaingun : Weapon Replaces Chaingun
+actor ChaingunGiver_Dropped : ChaingunGiver
 {
-	spawnid 28
+	States
+	{
+		Spawn:
+			MGUN A 63000
+			goto FadeAway
+		Pickup:
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 2, 16, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+ACTOR ChaingunShotCount : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 3
+	-INVBAR
+}
+
+actor SM_Chaingun : Weapon
+{
+	Tag "T-23A Explosive Minigun"
 	obituary "%o was turned into swiss-cheese by %k's gatling gun."
-	radius 20
-	height 16
-	inventory.pickupmessage "\cdGatling Gun \cc/ \ciDual Micro-Repeaters"
 	weapon.selectionorder 700
 	weapon.kickback 100
 	weapon.ammotype "MechAmmo"
 	weapon.ammouse 1
-	weapon.ammogive 20	
+	weapon.ammogive 0	
 	states
 	{
 	Ready:
-		CHGG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
-		CHGG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
 		CHGG A 1 A_WeaponReady
 		loop
 	Deselect:
-		CHGG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
-		CHGG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
 		CHGG A 1 A_Lower
 		loop
 	Select:
-		CHGG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
-		CHGG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
 		CHGG A 1 A_Raise
 		loop
 	Hold:
 		CHGG A 0
 	Fire:
-		CHGG B 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-		CHGG B 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
 		CHGG B 0 A_JumpIfInventory("ChaingunShotCount", 3, "Fire4")
 		CHGG B 0 A_JumpIfInventory("ChaingunShotCount", 2, "Fire3")
 		CHGG B 0 A_JumpIfInventory("ChaingunShotCount", 1, "Fire2")
@@ -92,94 +111,52 @@ actor SM_Chaingun : Weapon Replaces Chaingun
 	NoFlash:
 		TNT1 A 1
 		stop
+	}
+}
 
-	TailsReady:
-		DAUT A 1 A_WeaponReady
-		loop
-	TailsDeselect:
-		DAUT A 1 A_Lower
-		loop
-	TailsSelect:
-		DAUT A 1 A_Raise
-		loop
-	TailsFire:
-		DAUT B 0 A_GunFlash("TailsFlash1")
-		DAUT B 0 A_PlayWeaponSound("TailsRepeater")
-		DAUT B 0 A_FireCustomMissile("RepeaterCasingSpawnerRight",-45+random(-8,8),0,6,7)
-		DAUT B 0 BRIGHT A_FireBullets (4.5, 1.5, 1, 5, "RepeaterPuff")
-		DAUT B 1 BRIGHT A_SetPitch(pitch-0.25)
-		DAUT C 2 A_SetPitch(pitch+0.25)
-		DAUT A 1
-		DAUT D 0 A_GunFlash("TailsFlash2")
-		DAUT D 0 A_PlayWeaponSound("TailsRepeater")
-		DAUT D 0 A_FireCustomMissile("RepeaterCasingSpawnerLeft",45+random(-8,8),0,-6,7)
-		DAUT D 0 A_FireBullets (4.5, 1.5, 1, 5, "RepeaterPuffLeft")
-		DAUT D 1 BRIGHT A_SetPitch(pitch-0.25)
-		DAUT E 2 A_SetPitch(pitch+0.25)
-		DAUT A 0 A_ReFire
-		goto Ready
-	TailsFlash1:
-		DAUF A 2 BRIGHT
-		DAUF B 1 BRIGHT
-		stop
-	TailsFlash2:
-		DAUF C 2 BRIGHT
-		DAUF D 1 BRIGHT
-		stop
-
-	DukeReady:
-		RIPG A 1 A_WeaponReady
-		loop
-	DukeSelect:
-		RIPG A 0 A_PlayWeaponSound("DukeWeaponSelect")
-		RIPG A 1 A_Raise
-		goto DukeSelect+1
-	DukeDeselect:
-		RIPG A 1 A_Lower
-		loop
-	DukeFire:
-		RIPG B 0 BRIGHT A_JumpIfInventory("ChaingunShotCount", 3, "DukeFire4")
-		RIPG B 0 BRIGHT A_JumpIfInventory("ChaingunShotCount", 2, "DukeFire3")
-		RIPG B 0 BRIGHT A_JumpIfInventory("ChaingunShotCount", 1, "DukeFire2")
-		RIPG B 0 BRIGHT A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,4)
-		RIPG B 0 BRIGHT A_PlayWeaponSound("DukeRipper")
-		RIPG B 0 radius_quake(1, 2, 0, 1, 0)
-		RIPG B 2 BRIGHT A_FireBullets(5, 2, 1, 6, "NewBulletPuff")
-		RIPG A 0 BRIGHT A_GiveInventory("ChaingunShotCount", 1)
-		RIPG A 0 A_Refire
-		RIPG A 0 A_TakeInventory("ChaingunShotCount", 3)
-		goto DukeReady
-	DukeFire2:
-		RIPG C 2 BRIGHT
-		RIPG D 0 BRIGHT A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,4)
-		RIPG D 0 BRIGHT A_PlayWeaponSound("DukeRipper")
-		RIPG D 0 radius_quake(1, 2, 0, 1, 0)
-		RIPG D 2 BRIGHT A_FireBullets(5, 2, -1, 5, "NewBulletPuff")
-		RIPG E 1 BRIGHT A_GiveInventory("ChaingunShotCount", 1)
-		RIPG A 0 A_Refire
-		RIPG A 0 A_TakeInventory("ChaingunShotCount", 3)
-		goto DukeReady
-	DukeFire3:
-		RIPG F 0 BRIGHT A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,4)
-		RIPG F 0 BRIGHT A_PlayWeaponSound("DukeRipper")
-		RIPG F 0 radius_quake(1, 2, 0, 1, 0)
-		RIPG F 2 BRIGHT A_FireBullets(5, 2, -1, 5, "NewBulletPuff")
-		RIPG G 2 BRIGHT A_GiveInventory("ChaingunShotCount", 1)
-		RIPG A 0 A_Refire
-		RIPG A 0 A_TakeInventory("ChaingunShotCount", 3)
-		goto DukeReady
-	DukeFire4:
-		RIPG H 0 BRIGHT A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,4)
-		RIPG H 0 BRIGHT A_PlayWeaponSound("DukeRipper")
-		RIPG H 0 radius_quake(1, 2, 0, 1, 0)
-		RIPG H 2 BRIGHT A_FireBullets(5, 2, -1, 5, "NewBulletPuff")
-		RIPG I 1 BRIGHT A_TakeInventory("ChaingunShotCount", 3)
-		RIPG A 0 A_Refire
-		goto DukeReady
-
-	Spawn:
-		MGUN A -1
-		stop
+actor BCF-2Repeaters : Weapon
+{
+	Tag "BCF-2 Repeaters"
+	obituary "%o was corroded by %k's BCF-2 Repeaters."
+	weapon.selectionorder 700
+	weapon.kickback 100
+	weapon.ammotype "MechAmmo"
+	weapon.ammouse 1
+	weapon.ammogive 0
+	attacksound "TailsRepeater"
+	States
+	{
+		Ready:
+			DAUT A 1 A_WeaponReady
+			loop
+		Deselect:
+			DAUT A 1 A_Lower
+			loop
+		Select:
+			DAUT A 1 A_Raise
+			loop
+		Fire:
+			DAUT B 0 A_GunFlash("Flash1")
+			DAUT B 0 A_FireCustomMissile("RepeaterCasingSpawnerRight",-45+random(-8,8),0,6,7)
+			DAUT B 0 BRIGHT A_FireBullets (4.5, 1.5, 1, 5, "RepeaterPuff")
+			DAUT B 1 BRIGHT A_SetPitch(pitch-0.25)
+			DAUT C 2 A_SetPitch(pitch+0.25)
+			DAUT A 1
+			DAUT D 0 A_GunFlash("Flash2")
+			DAUT D 0 A_FireCustomMissile("RepeaterCasingSpawnerLeft",45+random(-8,8),0,-6,7)
+			DAUT D 0 A_FireBullets (4.5, 1.5, 1, 5, "RepeaterPuffLeft")
+			DAUT D 1 BRIGHT A_SetPitch(pitch-0.25)
+			DAUT E 2 A_SetPitch(pitch+0.25)
+			DAUT A 0 A_ReFire
+			goto Ready
+		Flash1:
+			DAUF A 2 BRIGHT
+			DAUF B 1 BRIGHT
+			stop
+		Flash2:
+			DAUF C 2 BRIGHT
+			DAUF D 1 BRIGHT
+			stop
 	}
 }
 
@@ -262,5 +239,49 @@ actor RepeaterSpark
 		Death:
 			TNT1 A 1
 			stop
+	}
+}
+
+actor RipperChaingun : Weapon
+{
+	Tag "EDF ''Ripper'' Chaingun"
+	obituary "%o was hosed down by %k's ripper."
+	weapon.selectionorder 700
+	weapon.kickback 100
+	weapon.ammotype "MechAmmo"
+	weapon.ammouse 1
+	weapon.ammogive 0
+	weapon.upsound "DukeWeaponSelect"
+	attacksound "DukeRipper"
+	states
+	{
+		Ready:
+			RIPG A 1 A_WeaponReady
+			loop
+		Select:
+			RIPG A 1 A_Raise
+			loop
+		Deselect:
+			RIPG A 1 A_Lower
+			loop
+		Fire:
+			RIPG B 1 BRIGHT A_GunFlash
+			RIPG C 1 BRIGHT
+			RIPG D 1 BRIGHT 
+			RIPG E 1 BRIGHT A_GunFlash
+			RIPG F 1 BRIGHT
+			RIPG G 1 BRIGHT
+			RIPG H 1 BRIGHT A_GunFlash
+			RIPG I 1 BRIGHT
+			RIPG A 1 BRIGHT
+			RIPG A 0 A_Refire
+			goto Ready
+		Flash:
+			TNT1 A 0 A_FireBullets(5, 2, -1, 9, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			TNT1 A 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,4)
+			TNT1 A 0 radius_quake(1, 2, 0, 1, 0)
+			TNT1 A 2 A_Light2
+			TNT1 A 1 A_Light1
+			goto LightDone
 	}
 }

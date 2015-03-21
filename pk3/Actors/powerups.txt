@@ -1,6 +1,18 @@
 actor NewSoulSphere : SoulSphere replaces SoulSphere
 {
 	+NOGRAVITY
+	+FLOATBOB
+	+FORCEXYBILLBOARD
+	RenderStyle "Add"
+	Alpha 1.0
+	XScale 0.08
+	YScale 0.07
+	States
+	{
+		Spawn:
+			SSPH A -1 BRIGHT
+			loop
+	}
 }
 
 actor NewMegaSphere : MegaSphere replaces MegaSphere
