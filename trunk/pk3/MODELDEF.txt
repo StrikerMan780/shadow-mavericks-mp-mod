@@ -650,152 +650,6 @@ model ValkrieTrail
 	FrameIndex VALK A 0 0
 }
 
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40.md3"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex MP40 A 0 0
-	FrameIndex MP40 D 0 5
-	FrameIndex MP40 E 0 7
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40.md3"
-	Model 1 "mp40flash.md3"
-	Skin 1 "f_mp40.png"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex MP40 B 0 2
-	FrameIndex MP40 B 1 0
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40.md3"
-	Model 1 "mp40flash2.md3"
-	Skin 1 "f_mp40.png"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex MP40 C 0 4
-	FrameIndex MP40 C 1 0
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_reload.md3"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex MP4R A 0 1
-	FrameIndex MP4R B 0 3
-	FrameIndex MP4R C 0 5
-	FrameIndex MP4R D 0 7
-	FrameIndex MP4R E 0 9
-	FrameIndex MP4R F 0 10
-	FrameIndex MP4R G 0 13
-	FrameIndex MP4R H 0 15
-	FrameIndex MP4R I 0 17
-	FrameIndex MP4R J 0 20
-	FrameIndex MP4R K 0 22
-	FrameIndex MP4R L 0 24
-	FrameIndex MP4R M 0 26
-	FrameIndex MP4R N 0 32
-	FrameIndex MP4R O 0 34
-	FrameIndex MP4R P 0 36
-	FrameIndex MP4R Q 0 38
-	FrameIndex MP4R R 0 40
-	FrameIndex MP4R S 0 42
-	FrameIndex MP4R T 0 46
-	FrameIndex MP4R U 0 48
-	FrameIndex MP4R V 0 50
-	FrameIndex MP4R W 0 52
-	FrameIndex MP4R X 0 56
-	FrameIndex MP4R Y 0 58
-	FrameIndex MP4R Z 0 62
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_tails.md3"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex M40T A 0 0
-	FrameIndex M40T D 0 5
-	FrameIndex M40T E 0 7
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_tails.md3"
-	Model 1 "mp40flash.md3"
-	Skin 1 "f_mp40.png"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex M40T B 0 2
-	FrameIndex M40T B 1 0
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_tails.md3"
-	Model 1 "mp40flash2.md3"
-	Skin 1 "f_mp40.png"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex M40T C 0 4
-	FrameIndex M40T C 1 0
-}
-
-Model MP40
-{
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_reload_tails.md3"
-	Scale 5.0 3.5 5
-	ZOffset 2
-
-	FrameIndex M4RT A 0 1
-	FrameIndex M4RT B 0 3
-	FrameIndex M4RT C 0 5
-	FrameIndex M4RT D 0 7
-	FrameIndex M4RT E 0 9
-	FrameIndex M4RT F 0 10
-	FrameIndex M4RT G 0 13
-	FrameIndex M4RT H 0 15
-	FrameIndex M4RT I 0 17
-	FrameIndex M4RT J 0 20
-	FrameIndex M4RT K 0 22
-	FrameIndex M4RT L 0 24
-	FrameIndex M4RT M 0 26
-	FrameIndex M4RT N 0 32
-	FrameIndex M4RT O 0 34
-	FrameIndex M4RT P 0 36
-	FrameIndex M4RT Q 0 38
-	FrameIndex M4RT R 0 40
-	FrameIndex M4RT S 0 42
-	FrameIndex M4RT T 0 46
-	FrameIndex M4RT U 0 48
-	FrameIndex M4RT V 0 50
-	FrameIndex M4RT W 0 52
-	FrameIndex M4RT X 0 56
-	FrameIndex M4RT Y 0 58
-	FrameIndex M4RT Z 0 62
-}
-
 Model P90
 {
 	Path "Models\HUD\P90"
@@ -1756,44 +1610,6 @@ Model SniperRifle
 	FrameIndex SINS B 1 0
 }
 
-Model SM_Chaingun
-{
-	Path "Models\HUD\Repeater"
-	Model 0 "Repeater.md3"
-	Scale 5.0 5.0 5
-	ZOffset -4
-
-	FrameIndex DAUT A 0 0
-	FrameIndex DAUT B 0 1
-	FrameIndex DAUT C 0 2
-	FrameIndex DAUT D 0 3
-	FrameIndex DAUT E 0 4
-}
-
-Model SM_Chaingun
-{
-	Path "Models\HUD\Repeater"
-	Model 0 "RepeaterFlash1.md3"
-	Skin 0 "RepeaterFlash.png"
-	Scale 5.0 5.0 5
-	ZOffset -6
-
-	FrameIndex DAUF A 0 0
-	FrameIndex DAUF B 0 1
-}
-
-Model SM_Chaingun
-{
-	Path "Models\HUD\Repeater"
-	Model 0 "RepeaterFlash2.md3"
-	Skin 0 "RepeaterFlash.png"
-	Scale 5.0 5.0 5
-	ZOffset -6
-
-	FrameIndex DAUF C 0 0
-	FrameIndex DAUF D 0 1
-}
-
 Model ShockComboExplosionShell
 {
 	Path "Models\Explosion"
@@ -2335,127 +2151,6 @@ Model BouncingGib3
 	FrameIndex GBRN D 0 0
 }
 
-Model SM_SuperShotgun
-{
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgun.md3"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SHT2 A 0 0
-	FrameIndex SHT2 B 0 1
-	FrameIndex SHT2 C 0 4
-	FrameIndex SHT2 D 0 6
-	FrameIndex SHT2 E 0 8
-	FrameIndex SHT2 F 0 12
-	FrameIndex SHT2 G 0 14
-	FrameIndex SHT2 H 0 16
-	FrameIndex SHT2 I 0 18
-	FrameIndex SHT2 J 0 20
-	FrameIndex SHT2 K 0 22
-}
-
-Model SM_SuperShotgun
-{
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgun_Reload.md3"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SH2R A 0 5
-	FrameIndex SH2R B 0 10
-	FrameIndex SH2R C 0 15
-	FrameIndex SH2R D 0 20
-	FrameIndex SH2R E 0 25
-	FrameIndex SH2R F 0 30
-	FrameIndex SH2R G 0 35
-	FrameIndex SH2R H 0 40
-	FrameIndex SH2R I 0 45
-	FrameIndex SH2R J 0 50
-	FrameIndex SH2R K 0 55
-	FrameIndex SH2R L 0 60
-	FrameIndex SH2R M 0 65
-	FrameIndex SH2R N 0 70
-	FrameIndex SH2R O 0 75
-	FrameIndex SH2R P 0 80
-	FrameIndex SH2R Q 0 85
-	FrameIndex SH2R R 0 90
-	FrameIndex SH2R S 0 95
-	FrameIndex SH2R T 0 100
-	FrameIndex SH2R U 0 105
-	FrameIndex SH2R V 0 110
-	FrameIndex SH2R W 0 115
-	FrameIndex SH2R X 0 120
-	FrameIndex SH2R Y 0 125
-	FrameIndex SH2R Z 0 130
-	FrameIndex SH22 A 0 135
-	FrameIndex SH22 B 0 140
-	FrameIndex SH22 C 0 145
-	FrameIndex SH22 D 0 150
-}
-
-Model SM_SuperShotgun
-{
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgunFlash.md3"
-	Skin 0 "muzzleflash2.png"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SH2F A 0 0
-	FrameIndex SH2F B 0 1
-}
-
-Model SM_SuperShotgun
-{
-	Path "Models\HUD\SilverBulletGun"
-	Model 0 "SilverBulletGun.md3"
-	Scale 5.0 3.5 5.0
-
-	FrameIndex SBGN A 0 0
-	FrameIndex SBGN B 0 38
-	FrameIndex SBGN C 0 39
-	FrameIndex SBGN D 0 40
-	FrameIndex SBGN E 0 2
-	FrameIndex SBGN F 0 4
-	FrameIndex SBGN G 0 6
-	FrameIndex SBGN H 0 8
-	FrameIndex SBGN I 0 10
-	FrameIndex SBGN J 0 12
-	FrameIndex SBGN K 0 14
-	FrameIndex SBGN L 0 16
-	FrameIndex SBGN M 0 18
-	FrameIndex SBGN N 0 20
-	FrameIndex SBGN O 0 22
-	FrameIndex SBGN P 0 24
-	FrameIndex SBGN Q 0 26
-	FrameIndex SBGN R 0 28
-	FrameIndex SBGN S 0 30
-	FrameIndex SBGN T 0 32
-	FrameIndex SBGN U 0 34
-	FrameIndex SBGN V 0 36
-}
-
-Model SM_SuperShotgun
-{
-	Path "Models\HUD\SilverBulletGun"
-	Model 0 "keyringflash1.md3"
-	Skin 0 "keyringflash.png"
-	Scale 5.0 3.5 5.0
-
-	FrameIndex SBGF A 0 0
-}
-
-Model SM_SuperShotgun
-{
-	Path "Models\HUD\SilverBulletGun"
-	Model 0 "keyringflash2.md3"
-	Skin 0 "keyringflash.png"
-	Scale 5.0 3.5 5.0
-
-	FrameIndex SBGF B 0 0
-}
-
 Model BioRifle
 {
 	Path "Models\HUD\BioRifle"
@@ -2827,17 +2522,6 @@ Model SM_Chaingun
 
 	FrameIndex CHGF B 0 0
 }
-
-Model SM_Chaingun
-{
-	Path "Models\HUD\Chaingun"
-	Model 0 "ChaingunPickup.md3"
-	Scale 0.52 0.52 0.52
-	ROTATING
-
-	FrameIndex MGUN A 0 0
-}
-
 
 Model FlakCannon
 {
@@ -3596,36 +3280,125 @@ Model NewShotgun
 	FrameIndex SHTF A 0 0
 }
 
-Model NewShotgun
+Model PIPS
 {
 	Path "Models\HUD\PIPS"
 	Model 0 "PlasmaShotgun.md3"
-	Scale -5.0 4.0 5.0
+	Scale 5.0 3.5 5.0
 	
 	FrameIndex PIPS A 0 0
 	FrameIndex PIPS B 0 2
-	FrameIndex PIPS C 0 3
-	FrameIndex PIPS D 0 4
-	FrameIndex PIPS E 0 5
-	FrameIndex PIPS F 0 6
-	FrameIndex PIPS G 0 7
-	FrameIndex PIPS H 0 8
-	FrameIndex PIPS I 0 9
-	FrameIndex PIPS J 0 10
-	FrameIndex PIPS K 0 11
-	FrameIndex PIPS L 0 12
-	FrameIndex PIPS M 0 13
-	FrameIndex PIPS N 0 14
+	FrameIndex PIPS C 0 4
+	FrameIndex PIPS D 0 6
+	FrameIndex PIPS E 0 8
+	FrameIndex PIPS F 0 10
+	FrameIndex PIPS G 0 12
+	FrameIndex PIPS H 0 14
+	FrameIndex PIPS I 0 16
+	FrameIndex PIPS J 0 18
+	FrameIndex PIPS K 0 20
+	FrameIndex PIPS L 0 22
+	FrameIndex PIPS M 0 24
+	FrameIndex PIPS N 0 26
+	FrameIndex PIPS O 0 28
+	FrameIndex PIPS P 0 30
 }
 
-Model NewShotgun
+Model PIPS
+{
+	Path "Models\HUD\PIPS"
+	Model 0 "PlasmaShotgun2.md3"
+	Scale 5.0 3.5 5.0
+	
+	FrameIndex PIP2 A 0 0
+	FrameIndex PIP2 B 0 2
+	FrameIndex PIP2 C 0 4
+	FrameIndex PIP2 D 0 6
+	FrameIndex PIP2 E 0 8
+	FrameIndex PIP2 F 0 10
+	FrameIndex PIP2 G 0 12
+	FrameIndex PIP2 H 0 14
+	FrameIndex PIP2 I 0 16
+	FrameIndex PIP2 J 0 18
+	FrameIndex PIP2 K 0 20
+	FrameIndex PIP2 L 0 22
+	FrameIndex PIP2 M 0 24
+	FrameIndex PIP2 N 0 26
+	FrameIndex PIP2 O 0 28
+	FrameIndex PIP2 P 0 30
+}
+
+Model PIPS
+{
+	Path "Models\HUD\PIPS"
+	Model 0 "PlasmaShotgunReload.md3"
+	Scale 5.0 3.5 5.0
+	
+	FrameIndex PIR1 A 0 0
+	FrameIndex PIR1 B 0 2
+	FrameIndex PIR1 C 0 4
+	FrameIndex PIR1 D 0 6
+	FrameIndex PIR1 E 0 8
+	FrameIndex PIR1 F 0 10
+	FrameIndex PIR1 G 0 12
+	FrameIndex PIR1 H 0 14
+	FrameIndex PIR1 I 0 16
+	FrameIndex PIR1 J 0 18
+	FrameIndex PIR1 K 0 20
+	FrameIndex PIR1 L 0 22
+	FrameIndex PIR1 M 0 24
+	FrameIndex PIR1 N 0 26
+	FrameIndex PIR1 O 0 28
+	FrameIndex PIR1 P 0 30
+	FrameIndex PIR1 Q 0 32
+	FrameIndex PIR1 R 0 34
+	FrameIndex PIR1 S 0 36
+	FrameIndex PIR1 T 0 38
+	FrameIndex PIR1 U 0 40
+	FrameIndex PIR1 V 0 42
+	
+	FrameIndex PIR1 W 0 44
+	FrameIndex PIR1 X 0 45
+	FrameIndex PIR1 Y 0 46
+	FrameIndex PIR1 Z 0 47
+	FrameIndex PIR2 A 0 48
+	FrameIndex PIR2 B 0 49
+	FrameIndex PIR2 C 0 50
+	FrameIndex PIR2 D 0 51
+	FrameIndex PIR2 E 0 52
+	FrameIndex PIR2 F 0 53
+	FrameIndex PIR2 G 0 54
+	FrameIndex PIR2 H 0 55
+	FrameIndex PIR2 I 0 56
+	FrameIndex PIR2 J 0 57
+	FrameIndex PIR2 K 0 58
+	FrameIndex PIR2 L 0 59
+	FrameIndex PIR2 M 0 60
+	FrameIndex PIR2 N 0 61
+	FrameIndex PIR2 O 0 62
+	
+	FrameIndex PIR2 P 0 64
+	FrameIndex PIR2 Q 0 66
+	FrameIndex PIR2 R 0 68
+	FrameIndex PIR2 S 0 70
+	FrameIndex PIR2 T 0 72
+	FrameIndex PIR2 U 0 74
+	FrameIndex PIR2 V 0 76
+	FrameIndex PIR2 W 0 78
+	FrameIndex PIR2 X 0 80
+	FrameIndex PIR2 Y 0 82
+	FrameIndex PIR2 Z 0 84
+}
+
+Model PIPS
 {
 	Path "Models\HUD\PIPS"
 	Model 0 "PlasmaShotgun_Flash.md3"
 	Skin 0 "PlasmaShotgun_Flash.png"
-	Scale -5.0 4.0 5.0
+	Scale 5.0 3.5 5.0
 	
 	FrameIndex PIPF A 0 0
+	FrameIndex PIPF B 0 1
 }
 
 Model GasolineCan
@@ -4295,3 +4068,35 @@ Model BloodyChainsaw
 	FrameIndex SWS2 V 0 42
 	FrameIndex SWS2 W 0 44
 }
+
+model TechPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "Bolt.png"
+	Scale 1.0 1.0 1.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex TPLA A 0 0
+}
+
+model SuperTechPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "SuperBolt.png"
+	Scale 1.25 1.25 1.25
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex TPS2 A 0 0
+	FrameIndex TPS2 B 0 0
+}
+

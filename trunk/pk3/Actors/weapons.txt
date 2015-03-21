@@ -1,3 +1,25 @@
+actor ClassWeaponGiver : CustomInventory
+{
+	Speed 0
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage ""
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.QUIET
+	states
+	{
+		Stay:
+			TNT1 A 0
+			fail
+		Remove:
+			TNT1 A 0 A_RailWait
+			stop
+		FadeAway:
+			"####" "#" 1 A_FadeOut(0.001)
+			loop
+	}
+}
+
 #include "actors/weapons/elementalssg.txt"
 #include "actors/weapons/supershotgun.txt"
 #include "actors/weapons/lightsaber.txt"
@@ -5,3 +27,6 @@
 #include "actors/weapons/protongrenadelauncher.txt"
 #include "actors/weapons/stinger.txt"
 #include "actors/weapons/chaingun.txt"
+#include "actors/weapons/shotguns.txt"
+#include "actors/weapons/chainsaw.txt"
+#include "actors/weapons/mp40.txt"

@@ -2020,47 +2020,6 @@ object TourettesZombie
 	frame RAVPR { light RAVE6 }
 }
 
-// Lost Soul
-flickerlight LOSTSOUL
-{
-    color 1.0 0.75 0.0
-    size 56
-    secondarysize 64
-    chance 0.1
-}
-
-flickerlight LOSTSOUL_X1
-{
-    color 0.8 0.7 0.0
-    size 72
-    secondarySize 80
-    chance 0.25
-}
-
-flickerlight LOSTSOUL_X2
-{
-    color 0.6 0.5 0.0
-    size 88
-    secondarySize 96
-    chance 0.25
-}
-
-flickerlight LOSTSOUL_X3
-{
-    color 0.4 0.3 0.0
-    size 104
-    secondarySize 112
-    chance 0.25
-}
-
-flickerlight LOSTSOUL_X4
-{
-    color 0.2 0.1 0.0
-    size 112
-    secondarySize 120
-    chance 0.25
-}
-
 object SM_LostSoul
 {
     frame SKULA { light LOSTSOUL    }

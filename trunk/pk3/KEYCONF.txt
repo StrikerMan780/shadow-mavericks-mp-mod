@@ -1,15 +1,3 @@
-weaponsection "GBTW Weapons"
-setslot 1 Melee BloodyChainsaw Excalibat Lightsaber
-setslot 2 DukePistol FairyBow NewPistol Magnum 454Casull Tails_TechPistol
-setslot 3 NewShotgun SM_SuperShotgun QuadShotgun ElementalSSG
-setslot 4 SM_Chaingun Mp40 P90 Minigun SmartRifle
-setslot 5 HellFireCannon ProtonGrenadeLauncher ProtonTorpedoLauncher
-setslot 6 LaserRifle1 PlasmaCannon Railgun Beamer Stinger ShockRifle
-setslot 7 BFG_SMMP BFG10k SniperRifle NukeLauncher Noisy_Cricket
-setslot 8 FreezeBolt BioRifle Needler FlakCannon
-setslot 9 BishopStaff WeatherMaker EtherealCrossbow ChaosFlames WrathoftheWickedSpirits FaroresWind
-setslot 0 SoccerKick E_Peen_Joke IPodLauncher GrapplerShot GasolineCan FlameThrowerWeap
-
 addkeysection "SMMP Class Abilities" SMMPClassAbilities
 addmenukey "Use Special Move" SpecialMove
 alias SpecialMove "use SpecialMove"

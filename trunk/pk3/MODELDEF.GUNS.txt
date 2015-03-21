@@ -1,0 +1,268 @@
+Model SM_SuperShotgun
+{
+	Path "Models\HUD\SSG"
+	Model 0 "SuperShotgun.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SHT2 A 0 0
+	FrameIndex SHT2 B 0 1
+	FrameIndex SHT2 C 0 4
+	FrameIndex SHT2 D 0 6
+	FrameIndex SHT2 E 0 8
+	FrameIndex SHT2 F 0 12
+	FrameIndex SHT2 G 0 14
+	FrameIndex SHT2 H 0 16
+	FrameIndex SHT2 I 0 18
+	FrameIndex SHT2 J 0 20
+	FrameIndex SHT2 K 0 22
+}
+
+Model SM_SuperShotgun
+{
+	Path "Models\HUD\SSG"
+	Model 0 "SuperShotgun_Reload.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH2R A 0 5
+	FrameIndex SH2R B 0 10
+	FrameIndex SH2R C 0 15
+	FrameIndex SH2R D 0 20
+	FrameIndex SH2R E 0 25
+	FrameIndex SH2R F 0 30
+	FrameIndex SH2R G 0 35
+	FrameIndex SH2R H 0 40
+	FrameIndex SH2R I 0 45
+	FrameIndex SH2R J 0 50
+	FrameIndex SH2R K 0 55
+	FrameIndex SH2R L 0 60
+	FrameIndex SH2R M 0 65
+	FrameIndex SH2R N 0 70
+	FrameIndex SH2R O 0 75
+	FrameIndex SH2R P 0 80
+	FrameIndex SH2R Q 0 85
+	FrameIndex SH2R R 0 90
+	FrameIndex SH2R S 0 95
+	FrameIndex SH2R T 0 100
+	FrameIndex SH2R U 0 105
+	FrameIndex SH2R V 0 110
+	FrameIndex SH2R W 0 115
+	FrameIndex SH2R X 0 120
+	FrameIndex SH2R Y 0 125
+	FrameIndex SH2R Z 0 130
+	FrameIndex SH22 A 0 135
+	FrameIndex SH22 B 0 140
+	FrameIndex SH22 C 0 145
+	FrameIndex SH22 D 0 150
+}
+
+Model SM_SuperShotgun
+{
+	Path "Models\HUD\SSG"
+	Model 0 "SuperShotgunFlash.md3"
+	Skin 0 "muzzleflash2.png"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH2F A 0 0
+	FrameIndex SH2F B 0 1
+}
+
+Model Keyring
+{
+	Path "Models\HUD\SilverBulletGun"
+	Model 0 "SilverBulletGun.md3"
+	Scale 5.0 3.5 5.0
+
+	FrameIndex SBGN A 0 0
+	FrameIndex SBGN B 0 38
+	FrameIndex SBGN C 0 39
+	FrameIndex SBGN D 0 40
+	FrameIndex SBGN E 0 2
+	FrameIndex SBGN F 0 4
+	FrameIndex SBGN G 0 6
+	FrameIndex SBGN H 0 8
+	FrameIndex SBGN I 0 10
+	FrameIndex SBGN J 0 12
+	FrameIndex SBGN K 0 14
+	FrameIndex SBGN L 0 16
+	FrameIndex SBGN M 0 18
+	FrameIndex SBGN N 0 20
+	FrameIndex SBGN O 0 22
+	FrameIndex SBGN P 0 24
+	FrameIndex SBGN Q 0 26
+	FrameIndex SBGN R 0 28
+	FrameIndex SBGN S 0 30
+	FrameIndex SBGN T 0 32
+	FrameIndex SBGN U 0 34
+	FrameIndex SBGN V 0 36
+}
+
+Model Keyring
+{
+	Path "Models\HUD\SilverBulletGun"
+	Model 0 "keyringflash1.md3"
+	Skin 0 "keyringflash.png"
+	Scale 5.0 3.5 5.0
+
+	FrameIndex SBGF A 0 0
+}
+
+Model Keyring
+{
+	Path "Models\HUD\SilverBulletGun"
+	Model 0 "keyringflash2.md3"
+	Skin 0 "keyringflash.png"
+	Scale 5.0 3.5 5.0
+
+	FrameIndex SBGF B 0 0
+}
+
+Model BCF-2Repeaters
+{
+	Path "Models\HUD\Repeater"
+	Model 0 "Repeater.md3"
+	Scale 5.0 5.0 5
+	ZOffset -4
+
+	FrameIndex DAUT A 0 0
+	FrameIndex DAUT B 0 1
+	FrameIndex DAUT C 0 2
+	FrameIndex DAUT D 0 3
+	FrameIndex DAUT E 0 4
+}
+
+Model BCF-2Repeaters
+{
+	Path "Models\HUD\Repeater"
+	Model 0 "RepeaterFlash1.md3"
+	Skin 0 "RepeaterFlash.png"
+	Scale 5.0 5.0 5
+	ZOffset -6
+
+	FrameIndex DAUF A 0 0
+	FrameIndex DAUF B 0 1
+}
+
+Model BCF-2Repeaters
+{
+	Path "Models\HUD\Repeater"
+	Model 0 "RepeaterFlash2.md3"
+	Skin 0 "RepeaterFlash.png"
+	Scale 5.0 5.0 5
+	ZOffset -6
+
+	FrameIndex DAUF C 0 0
+	FrameIndex DAUF D 0 1
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40.md3"
+	Scale 5.0 3.5 5
+	ZOffset 2
+
+	FrameIndex MP40 A 0 0
+	FrameIndex MP40 B 0 2
+	FrameIndex MP40 C 0 4
+	FrameIndex MP40 D 0 5
+	FrameIndex MP40 E 0 7
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40flash.md3"
+	Skin 0 "f_mp40.png"
+	Scale 5.0 3.5 5
+	ZOffset 2
+
+	FrameIndex MP4F A 0 0
+	FrameIndex MP4F B 0 1
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40_reload.md3"
+	Scale 5.0 3.5 5
+	ZOffset 2
+
+	FrameIndex MP4R A 0 1
+	FrameIndex MP4R B 0 3
+	FrameIndex MP4R C 0 5
+	FrameIndex MP4R D 0 7
+	FrameIndex MP4R E 0 9
+	FrameIndex MP4R F 0 10
+	FrameIndex MP4R G 0 13
+	FrameIndex MP4R H 0 15
+	FrameIndex MP4R I 0 17
+	FrameIndex MP4R J 0 20
+	FrameIndex MP4R K 0 22
+	FrameIndex MP4R L 0 24
+	FrameIndex MP4R M 0 26
+	FrameIndex MP4R N 0 32
+	FrameIndex MP4R O 0 34
+	FrameIndex MP4R P 0 36
+	FrameIndex MP4R Q 0 38
+	FrameIndex MP4R R 0 40
+	FrameIndex MP4R S 0 42
+	FrameIndex MP4R T 0 46
+	FrameIndex MP4R U 0 48
+	FrameIndex MP4R V 0 50
+	FrameIndex MP4R W 0 52
+	FrameIndex MP4R X 0 56
+	FrameIndex MP4R Y 0 58
+	FrameIndex MP4R Z 0 62
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40_Tails.md3"
+	Scale 5.0 3.5 5
+	ZOffset 2
+
+	FrameIndex MP4T A 0 0
+	FrameIndex MP4T B 0 2
+	FrameIndex MP4T C 0 4
+	FrameIndex MP4T D 0 5
+	FrameIndex MP4T E 0 7
+}
+
+Model MP40
+{
+	Path "Models\HUD\mp40"
+	Model 0 "mp40_reload_tails.md3"
+	Scale 5.0 3.5 5
+	ZOffset 2
+
+	FrameIndex M4RT A 0 1
+	FrameIndex M4RT B 0 3
+	FrameIndex M4RT C 0 5
+	FrameIndex M4RT D 0 7
+	FrameIndex M4RT E 0 9
+	FrameIndex M4RT F 0 10
+	FrameIndex M4RT G 0 13
+	FrameIndex M4RT H 0 15
+	FrameIndex M4RT I 0 17
+	FrameIndex M4RT J 0 20
+	FrameIndex M4RT K 0 22
+	FrameIndex M4RT L 0 24
+	FrameIndex M4RT M 0 26
+	FrameIndex M4RT N 0 32
+	FrameIndex M4RT O 0 34
+	FrameIndex M4RT P 0 36
+	FrameIndex M4RT Q 0 38
+	FrameIndex M4RT R 0 40
+	FrameIndex M4RT S 0 42
+	FrameIndex M4RT T 0 46
+	FrameIndex M4RT U 0 48
+	FrameIndex M4RT V 0 50
+	FrameIndex M4RT W 0 52
+	FrameIndex M4RT X 0 56
+	FrameIndex M4RT Y 0 58
+	FrameIndex M4RT Z 0 62
+}

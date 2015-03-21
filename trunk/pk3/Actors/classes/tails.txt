@@ -1,32 +1,9 @@
-// **** Tails Class ****
-// Tails sacrifices having a large arsenal for many powerful and
-// Unique abilities. He is Resilient to Radius Damage
-// And he can Fly.
-
-// Being a Genius, He can also combine weapons
-// and Integrate their technologies into his Primary Weapon.
-// He is less affected by Gravity, similar to the physics in
-// Sonic games. Tails is useful as a support class during
-// COOP Games because of this.
-
-// His primary weapon shoots bouncing plasma projectiles,
-// and can be switched to rail mode once he picks up a
-// Railgun Core. Once Upgraded to Super mode after
-// Combining weapons, it fires powerful shots, while
-// Still only using 1 ammo per shot, making him an efficient
-// Attacker in long maps.
-
-// During the demon attacks on mobius,
-// Arch viles were constantly reviving defeated demons, so
-// Tails developed a serum, called Vile's Bane, which could
-// Kill an archvile instantly, without need of brute force.
-// Tails starts with 5 of these at the beginning of each map
-// Or, online, at each respawn. Throw them at an arch vile
-// to kill them instantly. The syringes cause little damage to
-// Other monsters.
-
 // Sprites thanks to SSNTails, and the SRB2 Development Team.
 // Scripting and Character Voice by StrikerMan780.
+
+actor TailsClassCheck : BaseClassCheck
+{
+}
 
 actor Tails : MagePlayer Replaces MagePlayer
 {
@@ -49,9 +26,13 @@ actor Tails : MagePlayer Replaces MagePlayer
 	DamageFactor "Flak", 0.5
 	DamageFactor "Hellfire", 0.5
 	RadiusDamageFactor 0.75
+	
+	Player.ForwardMove 1
+	Player.SideMove 1
 	Player.JumpZ 8
 	Player.AttackZOffset 3
 	Player.Viewheight 36
+	
 	Player.ColorRange 112, 127
 	Player.SpawnClass "Any"
 	Player.DisplayName "Tails"
@@ -60,6 +41,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Player.InvulnerabilityMode "Reflective"
 	Player.HealRadiusType "Health"
 	Player.Hexenarmor 10, 10, 25, 5, 20
+	
 	Player.StartItem "Tails_TechPistol"
 	Player.StartItem "Melee"
 	Player.StartItem "ChaosFlames"
@@ -70,15 +52,25 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Player.StartItem "CellAmmo", 50
 	Player.StartItem "MechAmmo", 50
 	Player.StartItem "SpecialMove", 2
-	Player.ForwardMove 1
-	Player.SideMove 1
+
+	Player.WeaponSlot 1, "Melee", "Excalibat"
+	Player.WeaponSlot 2, "Tails_TechPistol"
+	Player.WeaponSlot 3, "PIPS", "Keyring", "ElementalSSG"
+	Player.WeaponSlot 4, "BCF-2Repeaters", "Mp40"
+	Player.WeaponSlot 5, "ProtonGrenadeLauncher", "ProtonTorpedoLauncher"
+	Player.WeaponSlot 6, "LaserRifle1", "PlasmaCannon", "Beamer", "Stinger", "ShockRifle"
+	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
+	Player.WeaponSlot 8, "BioRifle", "Needler"
+	Player.WeaponSlot 9, "WeatherMaker", "EtherealCrossbow", "ChaosFlames"
+	Player.WeaponSlot 0, "SoccerKick", "E_Peen_Joke", "IPodLauncher", "GasolineCan"
+	
 	States
 	{
 	Spawn:
 		TAIL A 0
-		TAIL A 0 ACS_ExecuteAlways(965, 0)
+		TAIL A 0 ACS_ExecuteAlways(STOPSPIN, 0)
 		TAIL A 0 A_JumpIfInventory("PowerFlight", 1, "Fly")
-		TAIL A 6 ACS_ExecuteAlways(921, 0)
+		TAIL A 6 ACS_ExecuteAlways(FLIGHTCHECK, 0)
 		loop
 	Fly:
 		TAIF A 0 A_JumpIfInventory("RedFlag", 1, "TakeCarry")
@@ -101,7 +93,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	See:
 		TAIL A 0 A_JumpIfInventory("PowerFlight", 1, "Fly")
 		TAIL ABCD 4
-		TAIL A 0 ACS_ExecuteAlways(921, 0)
+		TAIL A 0 ACS_ExecuteAlways(FLIGHTCHECK, 0)
 		Loop
 	Burn:
 		BURN A 0 A_GiveToTarget("DemonicPower", 10)
@@ -121,16 +113,14 @@ actor Tails : MagePlayer Replaces MagePlayer
 		NULL A -1
 		stop
 	Missile:
-		TAIL E 0 ACS_ExecuteAlways(965, 0)
 		TAIL E 0 A_JumpIfInventory("PowerFlight", 1, "FlyAttack")
 		TAIL E 12
-		TAIL E 0 ACS_ExecuteAlways(965, 0)
+		TAIL E 0 ACS_ExecuteAlways(STOPSPIN, 0)
 		Goto Spawn
 	Melee:
-		TAIL F 0 ACS_ExecuteAlways(965, 0)
 		TAIL F 0 A_JumpIfInventory("PowerFlight", 1, "FlyAttack")
 		TAIL F 6 BRIGHT
-		TAIL F 0 ACS_ExecuteAlways(965, 0)
+		TAIL F 0 ACS_ExecuteAlways(STOPSPIN, 0)
 		Goto Missile
 	Pain.BFG:
 		TAIL G 0 A_SpawnItemEx("SMMP_BFGExtra", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
@@ -141,7 +131,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		Goto XDeath
 	Pain:
 		TAIL G 0
-		TAIL G 0 ACS_ExecuteAlways(965, 0)
+		TAIL G 0 ACS_ExecuteAlways(STOPSPIN, 0)
 		TAIL G 4
 		TAIL G 4 A_Pain
 		TAIL A 0 A_JumpIfInventory("PowerFlight", 1, "Fly")
@@ -246,7 +236,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		stop
 	Spin:
 		TSPN A 0 A_ChangeFlag ("NOPAIN", 1)
-		TSPN A 0 ACS_ExecuteAlways(913, 0)
+		TSPN A 0 ACS_ExecuteAlways(913, 0) // Chasecam
 		TSPN A 0 A_Recoil(-10)
 		TSPN AAA 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
 		TSPN A 0 A_Recoil(-9)
@@ -261,8 +251,8 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TSPN CCC 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
 		TSPN AB 2
 		TSPN C 3
-		TAIL A 0 ACS_ExecuteAlways(915, 0)
-		TNT1 A 0 ACS_ExecuteAlways(965, 0)
+		TAIL A 0 ACS_ExecuteAlways(915, 0) // Stop Chasecam
+		TNT1 A 0 ACS_ExecuteAlways(STOPSPIN, 0)
 		TNT1 A 0 A_ChangeFlag ("NOPAIN", 0)
 		goto See
 	Death.Microwave:
@@ -355,18 +345,18 @@ actor TailsWeaponUpgrade : CustomInventory
 	{
 	Use:
 		RCOR A 1 A_JumpIfInventory("PlasmaCannon", 1, "Check1")
-		RCOR A 0 ACS_Execute(963, 0)
+		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
 		stop
 	Check1:
 		RCOR A 1 A_JumpIfInventory("ProtonTorpedoLauncher", 1, "Check2")
-		RCOR A 0 ACS_Execute(963, 0)
+		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
 		stop
 	Check2:
 		RCOR A 1 A_JumpIfInventory("ProtonGrenadeLauncher", 1, "Working")
-		RCOR A 0 ACS_Execute(963, 0)
+		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
 		stop
 	Working:
-		RCOR A 1 ACS_Execute(962, 0)
+		RCOR A 1 ACS_Execute(TPUPGRADE, 0, 0)
 		RCOR A 1 A_PlaySound("Upgrade")
 		stop
 	}

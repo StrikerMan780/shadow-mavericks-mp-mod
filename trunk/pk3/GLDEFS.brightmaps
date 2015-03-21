@@ -162,3 +162,8 @@ brightmap texture TUBE_S01
 {
 	map "Brightmaps/TP_Tube.png"
 }
+
+brightmap texture PIPS
+{
+	map "Brightmaps/pips.png"
+}

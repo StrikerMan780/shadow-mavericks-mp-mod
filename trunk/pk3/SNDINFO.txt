@@ -4,6 +4,8 @@ misc/gibbed			dsslop
 hitsound dshitsnd
 $limit hitsound 0
 
+NewWeapon dsnewwep
+
 HereComesTheSun dsbeatle
 NYC dsnyc
 
@@ -133,6 +135,10 @@ $limit TechPlasmaSuperBoom 0
 $limit weapons/plasmax 0
 
 PIPS dspips
+PIPSClipOut dspipout
+PIPSClipIn dspipcin
+PIPSCock dspipcok
+PIPSEject dspipejc
 
 // Upgrade Junk
 Junk1 DSJUNK1
