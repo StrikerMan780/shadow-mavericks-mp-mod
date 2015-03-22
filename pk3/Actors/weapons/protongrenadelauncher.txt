@@ -314,9 +314,9 @@ actor GrenadeExplosionShell : BaseEffect
 		Spawn:
 			NULL A 0
 			NULL A 0 BRIGHT A_SpawnItemEX("GrenadeExplosionRing", 0, 0, 4, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			NULL ABCDABCDABCD 1 BRIGHT A_Fadeout(0.025)
-			NULL E 0 BRIGHT A_SpawnItemEX("GrenadeExplosionSwirl", 0, 0, 4, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			NULL EFGH 1 BRIGHT A_Fadeout(0.025)
+			NULL ABCDABCDABCD 1 BRIGHT Light("GrenadeExplosion") A_Fadeout(0.025)
+			NULL E 0 BRIGHT Light("GrenadeExplosion") A_SpawnItemEX("GrenadeExplosionSwirl", 0, 0, 4, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			NULL EFGH 1 BRIGHT Light("GrenadeExplosion") A_Fadeout(0.025)
 			stop
 	}
 }

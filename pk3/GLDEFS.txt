@@ -1912,6 +1912,15 @@ object DukeExplosion
 	frame DEXP { light DukeExplosion }
 }
 
+pulselight GrenadeExplosion
+{
+    color 1.0 0.5 0.0
+    size 4
+    secondarySize 256
+    interval 4.0
+    Offset 0 32 0
+}
+
 pointlight RepeaterPuffLight
 {
     color 1.0 0.0 0.0

@@ -6,7 +6,6 @@ StrikerMan780
 -------------
 
 -=HQ=-
-* Add mountains bordering the Island.
 * Finish work on underground sewer system
 
 * Make giygas invade after first nightfall of his release.
