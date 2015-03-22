@@ -4090,3 +4090,13 @@ model SuperTechPlasma
 	FrameIndex TPS2 B 0 0
 }
 
+model RPGSpark
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 1.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}

@@ -240,7 +240,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		LING J 0 A_Fall
 		LING J 0 A_Explode
 		LING J 0 A_GiveToTarget("SpeakOneLiner", 1)
-		NULL A 0 A_SpawnItemEx("DukeExplode", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+		NULL A 0 A_SpawnItemEx("DukeExplosion", 0, 0, 0, 0, 0, 0, 0, 128, 0)
 		NULL A 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		NULL A -1
 		stop

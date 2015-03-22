@@ -566,6 +566,47 @@ actor FreezeBoltMuzzleSparkSpawner
 	}
 }
 
+actor MiniDukeExplosion : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.125
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		XPLO ABCDEFGH 2 BRIGHT
+		stop
+	}
+}
+
+actor DukeExplosion : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.64
+	States
+	{
+		Spawn:
+			DEXP ABCDEFGHIJKLMNOPQRST 1 BRIGHT
+			stop
+	}
+}
+
+actor DukeExplosion2 : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.35
+	States
+	{
+	Spawn:
+		XPLO ABCD 1 BRIGHT
+		XPLO EFGH 2 BRIGHT
+		stop
+	}
+}
+
 actor GiygasEnergy : BaseEffect
 {
 	RenderStyle Add

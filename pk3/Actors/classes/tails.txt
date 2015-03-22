@@ -269,7 +269,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIG E 0 A_Fall
 		TAIG E 0 A_Explode
 		TAIG E 0 A_GiveToTarget("SpeakOneLiner", 1)
-		TAIG E 0 A_SpawnItemEx("DukeExplode", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+		TAIG E 0 A_SpawnItemEx("DukeExplosion", 0, 0, 0, 0, 0, 0, 0, 128, 0)
 		TAIG E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		TAIL PQRSTUV 6
 		TAIL W -1
