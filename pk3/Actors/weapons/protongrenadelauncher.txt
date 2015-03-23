@@ -1,9 +1,36 @@
-actor ProtonGrenadeLauncher : Weapon 5011
+actor GrenadeLauncherGiver : ClassWeaponGiver 5011
+{	
+	states
+	{
+		Spawn:
+			GLAU A 0
+			GLAU A -1 A_CheckFlag("DROPPED", "Dropped")
+			loop
+		Pickup:
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 4, 2, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			TNT1 A 0 A_SpawnItemEx("GrenadeLauncherGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor GrenadeLauncherGiver_Dropped : GrenadeLauncherGiver
+{
+	States
+	{
+		Spawn:
+			GLAU A 63000
+			goto FadeAway
+		Pickup:
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 4, 1, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor ProtonGL : Weapon
 {
 	Tag "FG-32 ''Vortex'' Launcher"
-	radius 20
-	height 16
-	SpawnID 154
 	obituary "%o ate %k's Pineapple."
 	inventory.pickupmessage "You Picked up the Proton Grenade Launcher!"
 	weapon.selectionorder 2400
@@ -16,42 +43,28 @@ actor ProtonGrenadeLauncher : Weapon 5011
 	weapon.ammogive2 0
 	+WEAPON.NOAUTOFIRE
 	+WEAPON.EXPLOSIVE
-	+WEAPON.NOALERT
 	+WEAPON.NOAUTOAIM
 	States
 	{
 		Select:
-			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
-			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
 			GRLG A 1 A_Raise
-			goto Select+2
+			loop
 
 		Deselect:
-			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
-			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
 			GRLG A 1 A_Lower
-			goto Deselect+2
+			loop
 
 		Ready:
-			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
-			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
 			GRLG A 1 A_WeaponReady
-			goto Ready+2
+			loop
 
-		Hold:
 		Fire:
-			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
-			GRLG A 0 A_AlertMonsters
 			GRLG A 0 A_GunFlash
 			GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
 			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade", 0, true, 7, 3, true, 6)
 			goto FireAnim
 			
 		AltFire:
-			GRLG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-			GRLG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeAltFire")
-			GRLG A 0 A_AlertMonsters
 			GRLG A 0 A_GunFlash
 			GRLG A 0 A_PlayWeaponSound("weapons/grenlf")
 			GRLG B 0 BRIGHT A_FireCustomMissile("GBTWGrenade_Impact", 0, true, 7, 3, true, 6)
@@ -65,60 +78,12 @@ actor ProtonGrenadeLauncher : Weapon 5011
 			GRLG F 2 A_SetPitch(pitch+0.2)
 			GRLG GHIJKLMNOPQRST 2
 			GRLG A 0 A_Refire
-			goto Ready+2
+			goto Ready
 			
 		Flash:
 			GRLF A 2 bright A_Light2
 			GRLF B 1 bright A_Light1
 			TNT1 A 0 bright A_Light0
-			stop
-
-		TailsSelect:
-			PUNT A 1 A_Raise
-			loop
-		TailsDeselect:
-			PUNT A 1 A_Lower
-			loop
-		TailsReady:
-			PUNT A 1 A_WeaponReady
-			loop
-		TailsFire:
-			PUNT A 2
-			PUNT B 0 A_PlaySoundEx("skeleton/swing", "auto", 0)
-			PUNT BC 1
-			PUNT D 1 A_FireCustomMissile("StickyBomb", 0, true, -5, 0, true, 5)
-			PUNT EFGH 1
-			TNT1 A 15
-			TNT1 A 0 A_Refire
-			goto Ready
-
-		DukeSelect:
-			D6GL A 0 A_PlayWeaponSound("DukeWeaponSelect")
-			D6GL A 1 A_Raise
-			goto DukeSelect+1
-		DukeDeselect:
-			D6GL A 1 A_Lower
-			loop
-		DukeReady:
-			D6GL A 1 A_WeaponReady
-			loop
-		DukeFire:
-			D6GL B 0 A_AlertMonsters
-			D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
-			D6GL B 3 A_FireCustomMissile("Duke64Grenade", 0, 1, 15, 0)
-			D6GL CDE 3
-			D6GL A 10
-			D6GL A 0 A_Refire
-			goto DukeReady
-		DukeAltFire:
-			D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
-			D6GL B 3 A_FireCustomMissile("PlutoniumGrenade", 0, 1, 15, 0)
-			D6GL CDE 3
-			D6GL A 10
-			D6GL A 0 A_Refire
-			goto DukeReady
-		Spawn:
-			GLAU A -1
 			stop
 	}
 }
@@ -321,6 +286,41 @@ actor GrenadeExplosionShell : BaseEffect
 	}
 }
 
+actor StickyBombs : Weapon
+{
+	Tag "Sticky Bombs"
+	obituary "%o was stuck by %k's sticky bombs!"
+	weapon.selectionorder 2400
+	weapon.ammotype "ProtonAmmo"
+	weapon.ammouse 1
+	weapon.ammogive 0
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.EXPLOSIVE
+	+WEAPON.NOALERT
+	+WEAPON.NOAUTOAIM
+	States
+	{
+		Select:
+			PUNT A 1 A_Raise
+			loop
+		Deselect:
+			PUNT A 1 A_Lower
+			loop
+		Ready:
+			PUNT A 1 A_WeaponReady
+			loop
+		Fire:
+			PUNT A 2
+			PUNT B 0 A_PlaySoundEx("skeleton/swing", "auto", 0)
+			PUNT BC 1
+			PUNT D 1 A_FireCustomMissile("StickyBomb", 0, true, -5, 0, true, 5)
+			PUNT EFGH 1
+			TNT1 A 15
+			TNT1 A 0 A_Refire
+			goto Ready
+	}
+}
+
 actor StickyBombExplosion
 {
 	Radius 1
@@ -397,9 +397,167 @@ actor StickyBomb
 			
 			TNT1 A 0 A_SpawnItemEX("GrenadeExplosionShell", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			TNT1 A 0 A_SpawnItemEX("StickyBombExplosion", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180,180), SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, frandom(0.0,16.0), 0, frandom(-16.0,16.0), random(-180,180), SXF_CLIENTSIDE, 0)
 			
 			TNT1 A 2
 			stop
+	}
+}
+
+actor DukeGL : Weapon
+{
+	Tag "M32 Grenade Launcher"
+	obituary "%k fed %o a can of whoop-ass!"
+	weapon.selectionorder 2400
+	weapon.ammotype1 "ProtonAmmo"
+	weapon.ammotype2 "ProtonAmmo"
+	weapon.ammouse1 1
+	weapon.ammouse2 1
+	weapon.ammogive 0
+	weapon.upsound "DukeWeaponSelect"
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.EXPLOSIVE
+	+WEAPON.NOAUTOAIM
+	States
+	{
+		Select:
+			D6GL A 1 A_Raise
+			loop
+		Deselect:
+			D6GL A 1 A_Lower
+			loop
+		Ready:
+			D6GL A 1 A_WeaponReady
+			loop
+		Fire:
+			D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
+			D6GL B 3 A_FireCustomMissile("Duke64Grenade", 0, 1, 15, 0)
+			D6GL CDE 3
+			D6GL A 10
+			D6GL A 0 A_Refire
+			goto Ready
+		AltFire:
+			D6GL B 0 A_PlayWeaponSound("Duke64GrenadeLaunch")
+			D6GL B 3 A_FireCustomMissile("PlutoniumGrenade", 0, 1, 15, 0)
+			D6GL CDE 3
+			D6GL A 10
+			D6GL A 0 A_Refire
+			goto Ready
+	}
+}
+
+actor Duke64GrenadeSmoke : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.7
+	Scale 0.2
+	States
+	{
+		Spawn:
+			SMK1 A 1
+			SMK1 A 1 A_FadeOut(0.04)
+			goto Spawn+1
+	}
+}
+
+actor Duke64Grenade
+{
+	Radius 8
+	Height 8
+	Scale 0.3
+	Speed 18
+	Damage 10
+	Gravity 0.58
+	ReactionTime 12
+	BounceCount 4
+	BounceFactor 0.8
+	SeeSound "Duke64GrenadeBounce"
+	obituary "%k force-fed %o a can of whoop-ass."
+	Projectile
+	+DOOMBOUNCE
+	-NOGRAVITY
+	+EXPLODEONWATER
+	+FORCEXYBILLBOARD
+	+EXTREMEDEATH
+	+FORCERADIUSDMG
+	States
+	{
+	Spawn:
+		64GR A 0
+		64GR A 0 ThrustThingZ(0, 20, 0, 1)
+		64GR A 0 A_StopSound
+		64GR A 0 A_CountDown
+		64GR ABCDE 4 A_SpawnItemEX("Duke64GrenadeSmoke", 0, 0, 4, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+		goto Spawn+3
+	Death:
+		64GR A 0 A_PlaySound("DukeExplosion")
+		64GR A 0 A_Explode
+		64GR A 0 A_SpawnItemEX("Duke64Explosion", 0, 0, 4, 0, 0, 0, 0, 128, 0)
+		64GR A 0 A_SpawnItemEX("Duke64ExplosionShell", 0, 0, 4, 0, 0, 0, 0, 128, 0)
+		64GR A 0 A_SpawnItemEX("Duke64ExplosionRing", 0, 0, 4, 0, 0, 0, 0, 128, 0)
+		64GR AAAAAAAAAAA 0 A_SpawnItemEX("Duke64ExplosionSmoke", Random(-48,48), Random(-48, 48), Random(-28, 36), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PlutoniumMist
+{
+	Projectile
+	Radius 1
+	Height 1
+	Damage 0
+	Speed 10
+	Scale 0.6
+	RenderStyle Add
+	Alpha 1.0
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		GPLE AB 2 BRIGHT
+		GPLE CDE 1 BRIGHT
+		GPLE E 1 A_FadeOut(0.1)
+		goto Spawn+6
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PlutoniumGrenade
+{
+	Radius 8
+	Height 8
+	Scale 0.3
+	Speed 22
+	Damage 5
+	Gravity 0.58
+	obituary "%o was irradiated by %k's Plutonium Grenade."
+	Projectile
+	-NOGRAVITY
+	-NOTELEPORT
+	+EXPLODEONWATER
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	+NODAMAGETHRUST
+	States
+	{
+	Spawn:
+		64PG A 0
+		64PG A 0 ThrustThingZ(0, 20, 0, 1)
+		64PG ABCDE 4 A_SpawnItemEX("Duke64GrenadeSmoke", 0, 0, 4, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+		goto Spawn+2
+	Death:
+		64PG A 0 A_PlaySound("PlutoniumGrenadeExplode")
+		64PG A 0 A_Explode(72, 192)
+		64PG AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEX("PlutoniumMist", Random(-56,56), Random(-56, 56), Random(-56, 56), Random(-12,12), Random(-12,12), Random(-8,8), 0, 128, 0)
+		TNT1 A 1
+		stop
 	}
 }

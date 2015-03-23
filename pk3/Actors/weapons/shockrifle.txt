@@ -207,9 +207,9 @@ actor ShockRifleBall
 		TNT1 A 0 A_GiveToTarget("ShockComboFlasher", 1)
 		TNT1 A 0 A_Stop
 		TNT1 A 0 A_PlaySound("ShockCombo", CHAN_AUTO)
-		TNT1 A 0 A_Explode(200, 156, true, false, 56)
-		TNT1 A 0 A_Blast(BF_DONTWARN, 255, 156, 20, "BlastEffect", "")
-		TNT1 A 0 A_Quake(3, 35, 0, 172, "") 
+		TNT1 A 0 A_Explode(200, 188, true, false, 64)
+		TNT1 A 0 A_Blast(BF_DONTWARN, 255, 188, 20, "BlastEffect", "")
+		TNT1 A 0 A_Quake(3, 35, 0, 188, "") 
 		goto DeathFade
 	Death:
 		TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
@@ -245,6 +245,7 @@ actor ShockComboExplosionShell : BaseEffect
 {
 	RenderStyle Add
 	Alpha 1.0
+	Scale 1.25
 	States
 	{
 	Spawn:
@@ -258,6 +259,7 @@ actor ShockComboExplosionRing : BaseEffect
 {
 	RenderStyle Add
 	Alpha 0.4
+	Scale 1.25
 	States
 	{
 	Spawn:
@@ -274,7 +276,7 @@ actor ShockComboExplosionRing2
 	Speed 0
 	RenderStyle Add
 	Alpha 1.0
-	Scale 1.0
+	Scale 1.25
 	+NOGRAVITY
 	+NOBLOCKMAP
 	+NOCLIP
@@ -294,14 +296,14 @@ actor ShockComboFlash : BaseEffect
 	VSpeed 0
 	RenderStyle Add
 	Alpha 1.0
-	Scale 1.5
+	Scale 1.75
 	States
 	{
 	Spawn:
 		SRCF A 2 BRIGHT
 		goto Fade
 	Fade:
-		SRCF A 1 BRIGHT A_FadeOut(0.09)
+		SRCF A 1 BRIGHT A_FadeOut(0.07)
 		loop
 	}
 }

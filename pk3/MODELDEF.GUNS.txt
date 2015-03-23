@@ -266,3 +266,97 @@ Model MP40
 	FrameIndex M4RT Y 0 58
 	FrameIndex M4RT Z 0 62
 }
+
+Model ProtonGL
+{
+	Path "Models\HUD\ProtonGL"
+	Model 0 "protongrenadelauncher.md3"
+	Scale 5.0 3.5 5.0
+	ZOffset 0
+
+	FrameIndex GRLG A 0 0
+	FrameIndex GRLG B 0 2
+	FrameIndex GRLG C 0 4
+	FrameIndex GRLG D 0 6
+	FrameIndex GRLG E 0 8
+	FrameIndex GRLG F 0 10
+	FrameIndex GRLG G 0 12
+	FrameIndex GRLG H 0 14
+	FrameIndex GRLG I 0 16
+	FrameIndex GRLG J 0 18
+	FrameIndex GRLG K 0 20
+	FrameIndex GRLG L 0 22
+	FrameIndex GRLG M 0 24
+	FrameIndex GRLG N 0 26
+	FrameIndex GRLG O 0 28
+	FrameIndex GRLG P 0 30
+	FrameIndex GRLG Q 0 32
+	FrameIndex GRLG R 0 34
+	FrameIndex GRLG S 0 36
+	FrameIndex GRLG T 0 38
+}
+
+Model ProtonGL
+{
+	Path "Models\HUD\ProtonGL"
+	Model 0 "grenadeflash.md3"
+	Skin 0 "grenadeflash.png"
+	Scale 5.0 3.5 5.0
+	ZOffset 0
+
+	FrameIndex GRLF A 0 0
+	FrameIndex GRLF B 0 1
+}
+
+Model StickyBombs
+{
+	Path "Models\HUD\StickyBomb"
+	Model 0 "StickyBomb.md3"
+	Scale -5.0 4.0 5
+	//ZOffset -1
+
+	FrameIndex PUNT A 0 0
+}
+
+Model StickyBombs
+{
+	Path "Models\HUD\StickyBomb"
+	Model 0 "StickyBomb.md3"
+	Scale -5.0 5.0 5
+	//ZOffset -1
+
+	FrameIndex PUNT B 0 5
+	FrameIndex PUNT C 0 9
+	FrameIndex PUNT D 0 12
+	FrameIndex PUNT E 0 14
+	FrameIndex PUNT F 0 15
+	FrameIndex PUNT G 0 17
+	FrameIndex PUNT H 0 19
+}
+
+Model StickyBomb
+{
+	Path "Models\HUD\StickyBomb"
+	Model 0 "StickyBombProjectile.md3"
+	Skin 0 "StickyBomb.png"
+	Scale 12.0 12.0 12.0
+
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+	PitchFromMomentum
+
+	FrameIndex STIK A 0 0
+	FrameIndex STIK B 0 0
+}
+
+Model StickyBomb
+{
+	Path "Models\HUD\StickyBomb"
+	Model 0 "StickyBombProjectile.md3"
+	Skin 0 "StickyBomb.png"
+	Scale 12.0 12.0 12.0
+
+	FrameIndex STIK C 0 0
+	FrameIndex STIK D 0 0
+}

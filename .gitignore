@@ -2,3 +2,4 @@ builds/SMMP_MapsAndExtras_DEV.pk3
 builds/SMMP_Core_DEV.pk3
 *.dbs
 *.backup*
+*.bak

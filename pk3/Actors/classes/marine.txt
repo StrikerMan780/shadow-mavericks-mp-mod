@@ -30,7 +30,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	Player.WeaponSlot 2, "NewPistol", "Magnum", "454Casull"
 	Player.WeaponSlot 3, "NewShotgun", "SM_SuperShotgun", "QuadShotgun", "ElementalSSG"
 	Player.WeaponSlot 4, "SM_Chaingun", "Mp40", "P90", "Minigun", "SmartRifle"
-	Player.WeaponSlot 5, "HellFireCannon", "ProtonGrenadeLauncher", "ProtonTorpedoLauncher"
+	Player.WeaponSlot 5, "HellFireCannon", "ProtonGL", "ProtonTorpedoLauncher"
 	Player.WeaponSlot 6, "LaserRifle1", "PlasmaCannon", "Railgun", "Beamer", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "SniperRifle", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "FreezeBolt", "BioRifle", "Needler", "FlakCannon"
