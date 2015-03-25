@@ -200,6 +200,8 @@ actor BowExplosion : BaseEffect
 
 actor BowShot
 {
+	Radius 11
+	Height 8
 	Projectile
 	Speed 70
 	Obituary "%o was vanquished by %k's ethereal bowcaster."
