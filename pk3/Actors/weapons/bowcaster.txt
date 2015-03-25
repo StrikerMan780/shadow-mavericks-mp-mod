@@ -230,6 +230,7 @@ actor BowShot
 
 actor BowShotBounce : BowShot
 {
+	Speed 60
 	BounceType Doom
 	BounceFactor 1.0
 	BounceCount 3
