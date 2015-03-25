@@ -27,7 +27,6 @@ StrikerMan780
 * Make note about text scaling in lobby
 * Get texture for the split door in center of HQ Entryway
 
-
 -=ACS/DECORATE CODE=-
 Make Tails Recover his Vile's Bane after 50 monster kills.
 Make fading inventory items for monster drops.

@@ -203,7 +203,7 @@ actor BowShot
 	Projectile
 	Speed 70
 	Obituary "%o was vanquished by %k's ethereal bowcaster."
-	Damage (50)
+	Damage (100)
 	Decal CrossbowScorch
 	DamageType "Ethereal"
 	RenderStyle Add

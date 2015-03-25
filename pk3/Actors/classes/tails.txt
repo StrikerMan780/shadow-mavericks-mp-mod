@@ -25,6 +25,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	DamageFactor "BFG", 0.4375
 	DamageFactor "Flak", 0.5
 	DamageFactor "Hellfire", 0.5
+	DamageFactor "Ethereal", 0.5
 	RadiusDamageFactor 0.75
 	
 	Player.ForwardMove 1
