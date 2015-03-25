@@ -1410,14 +1410,6 @@ flickerlight2 TAILATK
     offset 0 40 0
 }
 
-pointlight PLAYERSHADOW
-{
-    color 0.3 0.3 0.3
-    size 14
-    subtractive 1
-    dontlightself 1
-}
-
 pointlight GreenSaber
 {
     color 0.25 1.0 0.0
@@ -1438,13 +1430,7 @@ pointlight RedSaber
 
 object Marine
 {
-	frame PLAYA { light PLAYERSHADOW }
-	frame PLAYB { light PLAYERSHADOW }
-	frame PLAYC { light PLAYERSHADOW }
-	frame PLAYD { light PLAYERSHADOW }
-	frame PLAYE { light PLAYERSHADOW }
     frame PLAYF { light MARINEATK }
-    frame PLAYG { light PLAYERSHADOW }
 	frame PSAG { light GreenSaber }
 	frame PSAB { light BlueSaber }
 	frame PSAR { light RedSaber }
@@ -1452,27 +1438,7 @@ object Marine
 
 object Tails
 {
-	frame TAILA { light PLAYERSHADOW }
-	frame TAILB { light PLAYERSHADOW }
-	frame TAILC { light PLAYERSHADOW }
-	frame TAILD { light PLAYERSHADOW }
-	frame TAILE { light PLAYERSHADOW }
     frame TAILF { light TAILATK }
-    frame TAILG { light PLAYERSHADOW }
-}
-
-Pointlight Laser
-{
-	Color 1.0 0.0 0.0
-	Size 64
-}
-
-Flickerlight2 LaserHit
-{
-	Color 1.0 1.0 1.0
-	Size 32
-	secondarySize 38
-    interval 1
 }
 
 pulselight SuperChaingunPuff
@@ -1494,17 +1460,6 @@ pulselight ShockBeamHit
     size 16
     secondarySize 32
     interval 4.0
-}
-
-object LaserShot
-{
-    frame LASRA { light Laser }
-    frame LASRB { light LaserHit }
-    frame LASRC { light LaserHit }
-    frame LASRD { light LaserHit }
-    frame LASRE { light LaserHit }
-    frame LASRF { light LaserHit }
-    frame LASRG { light LaserHit }
 }
 
 Pointlight PIPSShot
@@ -1904,7 +1859,7 @@ pulselight DukeExplosion
     size 4
     secondarySize 256
     interval 4.0
-    Offset 0 32 0
+    Offset 0 16 0
 }
 
 object DukeExplosion
@@ -1918,7 +1873,7 @@ pulselight GrenadeExplosion
     size 4
     secondarySize 256
     interval 4.0
-    Offset 0 32 0
+    Offset 0 0 0
 }
 
 pointlight RepeaterPuffLight
@@ -2246,6 +2201,15 @@ Pointlight ShockBall
 {
 	Color 0.604 0.514 0.867
 	Size 64
+}
+
+pulselight ShockCombo
+{
+    color 1.0 0.9 0.5
+    size 4
+    secondarySize 512
+    interval 4.0
+    Offset 0 0 0
 }
 
 // Evil Eye Blue

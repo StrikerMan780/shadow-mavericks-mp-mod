@@ -142,3 +142,40 @@ model BoltTracer
 //
 //	FrameIndex SRSP A 0 0
 //}
+
+
+model BowShot
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "green_shot.png"
+	Model 1 "TracerTip.md3"
+	Skin 1 "greentip.png"
+	Scale 8.5 3.5 3.5
+
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+	
+	PITCHFROMMOMENTUM
+		
+	FrameIndex FX03 A 0 0
+}
+
+model BowShotBounce
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "green_shot.png"
+	Model 1 "TracerTip.md3"
+	Skin 1 "greentip.png"
+	Scale 8.5 3.5 3.5
+
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+	
+	PITCHFROMMOMENTUM
+		
+	FrameIndex FX03 A 0 0
+}

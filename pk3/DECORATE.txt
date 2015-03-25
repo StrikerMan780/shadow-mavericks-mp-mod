@@ -2582,6 +2582,13 @@ actor FlameStreamStart : FlameStream
 	Seesound "FlameThrower"
 }
 
+ACTOR FlameHeat : Inventory
+{
+	Inventory.MaxAmount 100
+	Inventory.Icon STTPRCNT
+	-INVBAR
+}
+
 ACTOR FlameThrowerWeap : ClericWeapon 20994
 {
 Weapon.SelectionOrder 300
@@ -2604,22 +2611,22 @@ Spawn:
 Ready:
 	FLAM A 0 A_PlaySoundEx("FlameThrowerIdle", "SoundSlot7", 1, -1)
 	FLAM A 0 A_JumpIf(waterlevel == 3, "WaterReady")
-	FLAM A 0 A_TakeInventory("LaserHeat", 1)
+	FLAM A 0 A_TakeInventory("FlameHeat", 1)
 	FLAM A 1 A_WeaponReady
-	FLAM B 0 A_TakeInventory("LaserHeat", 1)
+	FLAM B 0 A_TakeInventory("FlameHeat", 1)
 	FLAM B 1 A_WeaponReady
-	FLAM C 0 A_TakeInventory("LaserHeat", 1)
+	FLAM C 0 A_TakeInventory("FlameHeat", 1)
 	FLAM C 1 A_WeaponReady
 	goto Ready+1
 WaterReady:
-	FLAM E 0 A_TakeInventory("LaserHeat", 100)
+	FLAM E 0 A_TakeInventory("FlameHeat", 100)
 	FLAM E 0 A_PlayWeaponSound("FlameThrowerCool")
 	FLAM E 0 A_StopSoundEx("SoundSlot7")
 	FLAM E 1 A_WeaponReady
 	goto WaterReady+3
 Deselect:
 	FLAM A 0 A_StopSoundEx("SoundSlot7")
-	FLAM A 0 A_TakeInventory("LaserHeat", 100)
+	FLAM A 0 A_TakeInventory("FlameHeat", 100)
 	FLAM ABC 1 A_Lower
 	goto Deselect+2
 Select:
@@ -2629,39 +2636,39 @@ Fire:
 	FLAF A 0 A_JumpIf(waterlevel == 3, "WaterFire")
 	FLAF A 0 radius_quake(2, 2, 0, 1, 0)
 	FLAF A 0 A_PlayWeaponSound("FlameThrowerIgnite")
-	FLAF A 0 A_GiveInventory("LaserHeat", 1)
+	FLAF A 0 A_GiveInventory("FlameHeat", 1)
 	FLAF A 2 BRIGHT A_FireCustomMissile("FlameStreamStart", 0, 1, 12, 0)
-	FLAF B 0 A_GiveInventory("LaserHeat", 1)
+	FLAF B 0 A_GiveInventory("FlameHeat", 1)
 	FLAF B 2 BRIGHT A_FireCustomMissile("FlameStream", 0, 1, 12, 0)
 	FLAM A 1 A_Refire
-	FLAM A 0 A_TakeInventory("LaserHeat", 10)
+	FLAM A 0 A_TakeInventory("FlameHeat", 10)
 	Goto Ready
 Hold:
 	FLAF A 0 A_JumpIf(waterlevel == 3, "WaterFire")
-	FLAF A 0 A_JumpIfInventory("LaserHeat", 100, "Cooloff")
+	FLAF A 0 A_JumpIfInventory("FlameHeat", 100, "Cooloff")
 	FLAF A 0 A_PlaySoundEx("FlameThrowerLoop", "SoundSlot7", 1, -1)
-	FLAF A 0 A_GiveInventory("LaserHeat", 1)
+	FLAF A 0 A_GiveInventory("FlameHeat", 1)
 	FLAF A 2 BRIGHT A_FireCustomMissile("FlameStream", 0, 1, 12, 0)
-	FLAF B 0 A_GiveInventory("LaserHeat", 1)
+	FLAF B 0 A_GiveInventory("FlameHeat", 1)
 	FLAF B 2 BRIGHT A_FireCustomMissile("FlameStream", 0, 1, 12, 0)
 	FLAM A 1 A_Refire
 	FLAF A 0 A_StopSoundEx("SoundSlot7")
 	FLAM A 0 A_PlaySoundEx("FlameThrowerVent", auto, 0)
 	FLAM A 0 A_PlayWeaponSound("FlameThrowerCool")
 	FLAM ABCABC 2 A_FireCustomMissile("CoolingSmoke", random(-5, 5), 0, 3, 7)
-	FLAM A 0 A_TakeInventory("LaserHeat", 10)
+	FLAM A 0 A_TakeInventory("FlameHeat", 10)
 	FLAM A 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM A 1 A_Refire
-	FLAM B 0 A_TakeInventory("LaserHeat", 5)
+	FLAM B 0 A_TakeInventory("FlameHeat", 5)
 	FLAM B 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM B 1 A_Refire
-	FLAM C 0 A_TakeInventory("LaserHeat", 5)
+	FLAM C 0 A_TakeInventory("FlameHeat", 5)
 	FLAM C 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM C 1 A_Refire
-	FLAM A 0 A_TakeInventory("LaserHeat", 5)
+	FLAM A 0 A_TakeInventory("FlameHeat", 5)
 	FLAM A 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM A 1 A_Refire
-	FLAM B 0 A_TakeInventory("LaserHeat", 5)
+	FLAM B 0 A_TakeInventory("FlameHeat", 5)
 	FLAM B 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM B 1 A_Refire
 	FLAM C 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
@@ -2678,19 +2685,19 @@ Cooloff:
 	FLAM A 0 A_PlaySoundEx("FlameThrowerVent", auto, 0)
 	FLAM A 0 A_PlayWeaponSound("FlameThrowerCool")
 	FLAM ABCABC 2 A_FireCustomMissile("CoolingSmoke", random(-5, 5), 0, 3, 7)
-	FLAM A 0 A_TakeInventory("LaserHeat", 10)
+	FLAM A 0 A_TakeInventory("FlameHeat", 10)
 	FLAM A 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM A 1
-	FLAM B 0 A_TakeInventory("LaserHeat", 10)
+	FLAM B 0 A_TakeInventory("FlameHeat", 10)
 	FLAM B 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM B 1
-	FLAM C 0 A_TakeInventory("LaserHeat", 10)
+	FLAM C 0 A_TakeInventory("FlameHeat", 10)
 	FLAM C 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM C 1
-	FLAM A 0 A_TakeInventory("LaserHeat", 10)
+	FLAM A 0 A_TakeInventory("FlameHeat", 10)
 	FLAM A 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM A 1
-	FLAM B 0 A_TakeInventory("LaserHeat", 10)
+	FLAM B 0 A_TakeInventory("FlameHeat", 10)
 	FLAM B 0 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
 	FLAM B 1
 	FLAM CABC 1 A_FireCustomMissile("CoolingSmoke2", random(-3, 3), 0, 3, 7)
@@ -2698,7 +2705,7 @@ Cooloff:
 	FLAM C 1 A_Refire
 	goto Ready
 WaterFire:
-	FLAM E 0 A_TakeInventory("LaserHeat", 100)
+	FLAM E 0 A_TakeInventory("FlameHeat", 100)
 	FLAM E 0 A_JumpIf(waterlevel == 0, "Ready")
 	FLAM E 0 A_JumpIf(waterlevel == 1, "Ready")
 	FLAM E 0 A_StopSoundEx("SoundSlot7")
@@ -3392,127 +3399,6 @@ actor Magnum : ClericWeapon 10493
 	}
 }
 
-ACTOR LaserHeat : Inventory
-{
-Inventory.MaxAmount 100
-Inventory.Icon STTPRCNT
--INVBAR
-}
-
-actor LaserTrail
-{
-Radius 1
-Height 1
-RenderStyle Add
-Alpha 0.8
-+FORCEXYBILLBOARD
-+CORPSE
-+NOGRAVITY
-States
-{
-Spawn:
-LASR AAA 2 BRIGHT A_FadeOut(0.1)
-stop
-Death:
-TNT1 A 1
-stop
-}
-}
-
-actor LaserShot
-{
-	Decal LaserScorch
-	Projectile
-	Radius 12
-	Height 8
-	Speed 80
-	Damage 11
-	RenderStyle Add
-	Alpha 0.8
-	BounceCount 2
-	BounceFactor 1.0
-	SeeSound "LaserRifle"
-	obituary "%o was fried by %k's laser."
-	+FORCEXYBILLBOARD
-	States
-	{
-		Spawn:
-			LASR A 0
-			LASR A 0 A_Jump(64, "SetBounce")
-			goto SpawnNormal
-		SpawnNormal:
-			LASR A 1 BRIGHT A_SpawnItemEX("LaserTrail", 0, 0, 0, 0, 0, 0, 0, 128, 0)
-			loop
-		SetBounce:
-			LASR A 0 A_ChangeFlag("HEXENBOUNCE", 1)
-			goto SpawnNormal
-		XDeath:
-			TNT1 A 0
-			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-			goto Death
-		Death:
-			LASR B 0 A_PlaySound("LaserHit", CHAN_AUTO)
-			LASR BCDEFG 2 BRIGHT
-			stop
-	}
-}
-
-// Code Based on the Laser Rifle from Wildweasel's
-// "Batteries Still not Included" WAD, great Wad, go
-// Check it out at Wildweasel's DOOM Armory Site
-// At: http://armory.drdteam.org
-// Sprites from Star Wars: Dark Forces
-
-// Removed Secondary Fire for Balance
-// Also, Primary Fire is Stronger.
-
-ACTOR LaserRifle1 : Weapon 13422
-{
-Decal BulletChip
-Weapon.SelectionOrder 550
-Inventory.PickupSound "misc/w_pkup"
-Inventory.PickupMessage "Laser Rifle! Melt Em' Down!"
-Weapon.AmmoType1 "CellAmmo"
-obituary "%o was fried by %k's laser."
-//	 Weapon.AmmoType2 "HeatLevel"
-Weapon.AmmoGive 30
-Weapon.AmmoUse1 2
-Weapon.Kickback 20
-AttackSound "LaserRifle"
-States
-{
-Spawn:
-	LRIP A -1
-	Loop
-Ready:
-	PRFG A 1 A_WeaponReady
-	PRFG A 0 A_TakeInventory("LaserHeat",1)
-	PRFG A 0 A_WeaponReady
-	Loop
-Deselect:
-	PRFG A 1 A_Lower
-	PRFG A 0 A_TakeInventory("LaserHeat", 500)
-	Loop
-Select:
-	PRFG A 1 A_Raise
-	PRFG A 0 A_TakeInventory("LaserHeat", 500)
-	Loop
-Fire:
-	PRFG A 0 A_JumpIfInventory("LaserHeat",90,"OverHeated")
-	PRFG A 0 A_GiveInventory("LaserHeat",10)
-	PRFF A 0 BRIGHT A_FireCustomMissile("LaserShot", 0, 1, 6, 0)
-	PRFF A 2 BRIGHT // A_PlaySound("LaserRifle")
-	PRFG A 10
-	Goto Ready
-OverHeated:
-	PRFG B 3 A_PlaySound("OverHeated")
-	PRFG C 3
-	PRFG D 4
-	PRFG A 2
-	goto Ready
-}
-}
-
 ACTOR BioBurstDrop
 {
 	renderstyle add
@@ -3893,7 +3779,7 @@ actor NukedAreaFlames : IgnitedSurface
 	States
 	{
 	Spawn:
-		TFIR A 0 A_CountDown
+		TNT1 A 0 A_CountDown
 		TNT1 A 0 A_SpawnItemEx("BasicFlame", random(-10,10), Random(-10,10), 0, 0, 0, Random(1, 2), 0, 128, 64)
 		TNT1 A 2 A_Explode(8, 24, 1)
 		TNT1 A 0 A_JumpIf(waterlevel == 3, "Disappear")
@@ -4667,7 +4553,7 @@ actor IgnitedGas : IgnitedSurface
 	states
 	{
 	Spawn:
-		TFIR A 0 A_CountDown
+		TNT1 A 0 A_CountDown
 		TNT1 A 0 A_SpawnItemEx("BasicFlame", random(-8,8), Random(-8,8), 0, 0, 0, Random(1, 2), 0, SXF_CLIENTSIDE, 128)
 		TNT1 A 2 A_Explode(5, 20, 1)
 		TNT1 A 0 A_JumpIf(waterlevel == 3, "Disappear")
@@ -6114,7 +6000,7 @@ actor TechPlasma
 	Speed 50
 	Damage 7
 	Scale 0.75
-	Seesound "TechPlasmaBounce"
+	BounceSound "TechPlasmaBounce"
 	BounceCount 2
 	BounceFactor 1
 	Projectile
@@ -6125,10 +6011,8 @@ actor TechPlasma
 	States
 	{
 	Spawn:
-		TPLA A 0 BRIGHT
-		TPLA A 0 BRIGHT A_StopSound
 		TPLA A 1 BRIGHT A_SpawnItemEX("TechPlasmaTrail", 0, 0, 0, MOMX/2+frandom(-1.0,1.0), MOMY/2+frandom(-1.0,1.0), MOMZ/2+frandom(-1.0,1.0), random(-180,180), SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-		goto Spawn+2
+		loop
 	XDeath:
 		TNT1 A 0
 		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
@@ -6152,7 +6036,7 @@ actor SuperTechPlasma
 	Damage 12
 	Obituary "%o wasn't aware of %k's technological genius."
 	ReactionTime 128
-	Seesound "weapons/plasmax"
+	bouncesound "weapons/plasmax"
 	BounceCount 2
 	BounceFactor 1
 	Projectile
@@ -6163,14 +6047,12 @@ actor SuperTechPlasma
 	States
 	{
 		Spawn:
-			TPS2 A 0
-			TPS2 A 0 A_StopSound
 			TPS2 A 1 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
 			TPS2 A 0 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
 			TPS2 B 1 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
 			TPS2 B 0 BRIGHT A_SpawnItemEX("SuperTechPlasmaTrail", Random(-16, 16), Random(-16, 16), Random(-16, 16), 0, 0, 0, 0, 128, 0)
 			TPS2 A 0 A_CountDown
-			goto Spawn+2
+			loop
 		XDeath:
 			TNT1 A 0
 			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
@@ -7598,471 +7480,303 @@ Actor FartCloud
 
 actor FartGrenade
 {
-Projectile
-Speed 15
-Radius 16
-Height 24
-+DOOMBOUNCE
--NOGRAVITY
-States
-{
-Spawn:
-FART ABCDEGH 4
-loop
-Death:
-FART E 0
-FART E 0 A_PlaySound("FartGrenade1") // Part1
-FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 86 ThrustThingZ(0, Random(15, 30), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 86 ThrustThingZ(0, Random(15, 30), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-TNT1 A 0 A_PlaySound("FartGrenade2")	// Part2
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 12 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 12 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 12 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 18 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 22 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 35 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 86 ThrustThingZ(0, Random(15, 30), 0, 0)
-TNT1 A 0 A_PlaySound("FartGrenade3") // Part3
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 18 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 20 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 22 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 28 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 35 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 60 ThrustThingZ(0, Random(15, 30), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0) // Part3
-TNT1 A 0 A_PlaySound("FartGrenade4")
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0) // Part5
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0) // Part6
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
-FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
-FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
-NEXP A 0 A_Explode(200, 256, 0)
-NEXP A 0 A_PlaySound("weapons/grenlx")
-NEXP A 0 A_NoGravity
-NEXP A 0 A_SetTranslucent(0.9, 1)
-NEXP A 0 A_Stop
-NEXP ABCDEFGHIJKLMNOPQRSTU 1 bright
-stop
-}
-}
-
-actor EtherealCrossbow : Weapon 13321
-{
-Scale 0.86
-radius 20
-height 16
-inventory.pickupmessage "You got the Ethereal Crossbow!"
-weapon.selectionorder 9999
-weapon.kickback 100
-Weapon.Ammotype "DemonicPower"
-Weapon.AmmoUse 5
-weapon.ammogive 0
-States
-{
-Ready:
-ECRO ABC 2 A_WeaponReady
-loop
-Select:
-ECRO AABBCC 1 A_Raise
-loop
-Deselect:
-ECRO AABBCC 1 A_Lower
-loop
-Fire:
-ECRO D 0 A_FireCustomMissile("BowSide",6,0,0,0) // Left
-ECRO D 0 A_FireCustomMissile("BowJet",3,0,0,0) // Left Jet
-ECRO D 0 A_FireCustomMissile("BowSide",-6,0,0,0) // Right
-ECRO D 0 A_FireCustomMissile("BowJet",-3,0,0,0) // Right Jet
-ECRO D 6 Bright A_FireCustomMissile("BowCenter",0,1,0,0)
-ECRO EFGH 3
-ECRO A 12
-ECRO A 0 A_Refire
-goto Ready
-Spawn:
-ECRP A -1
-loop
-}
-}
-
-actor BowCenter : CrossbowFX1 Replaces CrossbowFX1
-{
-	Speed 70
-	Obituary "%o was vanquished by %k's ethereal Crossbow"
-	Damage 12
-	Decal CrossbowScorch
-	DamageType "Ethereal"
-	+FORCEXYBILLBOARD
-	States
-	{
-		Spawn:
-			FX03 B 1 BRIGHT A_SpawnItemEx("EtherealMist2", 0, 0, 0, 0, 0, 0, 0, 128, 0)
-			loop
-		XDeath:
-			TNT1 A 0
-			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-			goto Death
-	}
-}
-
-actor BowSide : CrossbowFX3 Replaces CrossbowFX3
-{
-	Speed 50
-	Obituary "%o was vanquished by %k's ethereal Crossbow"
-	Damage 8
-	Decal CrossbowScorch2
-	DamageType "Ethereal"
-	+FORCEXYBILLBOARD
-	States
-	{
-		Spawn:
-			FX03 A 1 BRIGHT A_SpawnItemEx("EtherealSideTrail", 0, 0, 0, 0, 0, 0, 0, 128, 0)
-			loop
-		XDeath:
-			TNT1 A 0
-			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-			goto Death
-	}
-}
-
-actor BowJet
-{
-Projectile
-Radius 4
-Height 4
-Speed 20
-ReactionTime 12
-RenderStyle Add
-Alpha 0.5
-Scale 0.22
-obituary "%o breathed in %k's deadly jet of ethereal mist"
-Damage 3
-+RIPPER
--BLOODSPLATTER
-+BLOODLESSIMPACT
-+FORCEXYBILLBOARD
-States
-{
-Spawn:
-TNT1 A 0 BRIGHT A_CountDown
-TNT1 A 1 BRIGHT A_SpawnItemEx("EtherealMist3", 0, 0, 0, 0, 0, 0, 0, 128, 0)
-loop
-}
-}
-
-actor EtherealSideTrail
-{
-Alpha 0.9
-RenderStyle Add
-Radius 1
-Height 1
-Gravity 0.03
-+NOCLIP
-+CORPSE
-+FORCEXYBILLBOARD
-+NOINTERACTION
-States
-{
-Spawn:
-	TNT1 A 2 BRIGHT
-	FX03 F 4 BRIGHT
-	FX03 K 4 BRIGHT
-	FX03 G 4 BRIGHT A_FadeOut
-	goto Spawn+3
-}
-}
-
-actor Etherealmist2
-{
-	Radius 1
-	Height 1
-	Speed 2
-	Scale 0.6
-	RenderStyle Add
-	Alpha 0.5
-	Translation "176:191=112:127", "32:47=112:127"
-	PROJECTILE
-	+CORPSE
-	+FORCEXYBILLBOARD
-	+NOINTERACTION
+	Projectile
+	Speed 15
+	Radius 16
+	Height 24
+	+DOOMBOUNCE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
-		EPF4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-		EPF5 AB 1 BRIGHT
-		Stop
+		FART ABCDEGH 4
+		loop
 	Death:
-		NADA A 1
-		Stop
-	}
-}
+		FART E 0
+		FART E 0 A_PlaySound("FartGrenade1") // Part1
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 86 ThrustThingZ(0, Random(15, 30), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 86 ThrustThingZ(0, Random(15, 30), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
 
-actor Etherealmist3
-{
-	Radius 1
-	Height 1
-	Speed 2
-	Scale 0.22
-	RenderStyle Add
-	Alpha 0.5
-	Translation "176:191=112:127", "32:47=112:127"
-	PROJECTILE
-	+CORPSE
-	+FORCEXYBILLBOARD
-	+NOINTERACTION
-	States
-	{
-	Spawn:
-		EPF4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-		EPF5 AB 1 BRIGHT
-		Stop
-	Death:
-		NADA A 1
-		Stop
+		TNT1 A 0 A_PlaySound("FartGrenade2")	// Part2
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 12 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 12 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 12 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 18 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 22 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 35 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 86 ThrustThingZ(0, Random(15, 30), 0, 0)
+
+		TNT1 A 0 A_PlaySound("FartGrenade3") // Part3
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 15 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 18 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 20 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 22 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 28 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 35 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 60 ThrustThingZ(0, Random(15, 30), 0, 0)
+
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0) // Part3
+		TNT1 A 0 A_PlaySound("FartGrenade4")
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0) // Part5
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(0, 5), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 10 ThrustThingZ(0, Random(12, 20), 0, 0)
+
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0) // Part6
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		FART E 5 ThrustThingZ(0, Random(0, 20), 0, 0)
+		FART E 0 ThrustThing(Random(0, 255), Random(2, 10), 0, 0)
+		FART E 0 A_CustomMissile("FartCloud", Random(24, 76), 0, 0, 6, 0)
+		NEXP A 0 A_Explode(200, 256, 0)
+		NEXP A 0 A_PlaySound("weapons/grenlx")
+		NEXP A 0 A_NoGravity
+		NEXP A 0 A_SetTranslucent(0.9, 1)
+		NEXP A 0 A_Stop
+		NEXP ABCDEFGHIJKLMNOPQRSTU 1 bright
+		stop
 	}
 }
 
@@ -9962,7 +9676,7 @@ actor MolotovFlames : IgnitedSurface
 	States
 	{
 	Spawn:
-		TFIR A 0 A_CountDown
+		TNT1 A 0 A_CountDown
 		TNT1 A 0 A_SpawnItemEx("BasicFlame", random(-10,10), Random(-10,10), 0, 0, 0, Random(1, 2), 0, 128, 64)
 		TNT1 A 2 A_Explode(8, 24, 1)
 		TNT1 A 0 A_JumpIf(waterlevel == 3, "Disappear")

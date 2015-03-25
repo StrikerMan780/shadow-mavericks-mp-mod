@@ -138,10 +138,16 @@ statusbar normal, forcescaled
 
 statusbar fullscreen, forcescaled
 {
-	IsSelected LaserRifle1, FlameThrowerWeap
+	IsSelected FlameThrowerWeap
 	{
-		DrawBar "HEATLEFT", "HEATLBAK", LaserHeat, vertical, 142, 89;
-		DrawBar "HEATRGHT", "HEATRBAK", LaserHeat, vertical, 170, 89;
+		DrawBar "HEATLEFT", "HEATLBAK", FlameHeat, vertical, 142, 89;
+		DrawBar "HEATRGHT", "HEATRBAK", FlameHeat, vertical, 170, 89;
+	}
+	
+	IsSelected EtherealCrossbow
+	{
+		DrawBar "HEATLEFT", "HEATLBAK", BowCharge, vertical, 142, 89;
+		DrawBar "HEATRGHT", "HEATRBAK", BowCharge, vertical, 170, 89;
 	}
 
 	IsSelected ValkrieCannons, DeathbringerCannons

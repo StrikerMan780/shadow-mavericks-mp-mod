@@ -58,7 +58,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Player.WeaponSlot 3, "PIPS", "Keyring", "ElementalSSG"
 	Player.WeaponSlot 4, "BCF-2Repeaters", "Mp40"
 	Player.WeaponSlot 5, "StickyBombs", "ProtonTorpedoLauncher"
-	Player.WeaponSlot 6, "LaserRifle1", "PlasmaCannon", "Beamer", "Stinger", "ShockRifle"
+	Player.WeaponSlot 6, "PlasmaCannon", "Beamer", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"
 	Player.WeaponSlot 9, "WeatherMaker", "EtherealCrossbow", "ChaosFlames"

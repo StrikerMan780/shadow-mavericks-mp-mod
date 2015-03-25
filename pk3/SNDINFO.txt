@@ -308,7 +308,10 @@ FartGrenade4 dsfartg4
 
 // Ethereal Crossbow
 weapons/bowshoot		dscrsbow
+weapons/bowshootalt		dscrsalt
+weapons/bowcharge		dscrschg
 weapons/bowhit			dscrshit
+weapons/bowbounce		dscrsbnc
 
 // BFG9000
 BFGArc1 DSBFGEX1

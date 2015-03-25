@@ -18,7 +18,6 @@ StrikerMan780
 * Finish Heretic's Room
 * Needs more stuff to do... must come up with some sort of idea.
 * Finish the Giygas Event
-* Link the elevator sectors in my room
 * Add a kill switch to leeroy zombie event
 * Put more work into reducing lines of sight for areas in HQ, also reduce complexity.
 * Move the spawn that's close to the crack

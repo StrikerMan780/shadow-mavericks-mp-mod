@@ -443,18 +443,6 @@ model DukeRocket
 	FrameIndex RPGM A 0 0
 }
 
-model BowSide
-{
-	Path "Models/projectiles"
-	Model 0 "SideBowBolt.md2"
-	Skin 0 "SideBowBolt.png"
-	Scale 1.5 1.5 1.5
-	PITCHFROMMOMENTUM
-//ZOffset 0.5
-
-	Frame FX03 A 0 "skin"
-}
-
 Model ShockRifle
 {
 	Path "Models\HUD\ShockRifle"
@@ -513,53 +501,6 @@ Model ShockRifle
 	FrameIndex LIGF A 0 0
 	FrameIndex LIGF B 0 1
 }
-
-Model LaserRifle1
-{
-	Path "Models\Pickups"
-	Model 0 "BlasterPickup.Md3"
-	Skin 0 "blaster_w.jpg"
-	Scale 2.5 2.5 2.5
-	ROTATING
-
-	FrameIndex LRIP A 0 0
-}
-
-Model LaserRifle1
-{
-	Path "Models\HUD"
-	Model 0 "BlasterRifle.Md3"
-	Skin 0 "NewBlaster.jpg"
-	Scale -4.5 4.2 5
-
-	FrameIndex PRFG A 0 0
-}
-
-Model LaserRifle1
-{
-	Path "Models\HUD"
-	Model 0 "BlasterRifle.Md3"
-	Skin 0 "NewBlaster.jpg"
-	Model 1 "BlasterRifleFlash.Md3"
-	Skin 1 "BlasterFlash.png"
-	Scale -4.5 4.2 5
-
-	FrameIndex PRFF A 0 1
-	FrameIndex PRFF A 1 0
-}
-
-Model LaserRifle1
-{
-	Path "Models\HUD"
-	Model 0 "BlasterRifle.Md3"
-	Skin 0 "NewBlasterOverHeat.jpg"
-	Scale -4.5 4.2 5
-
-	FrameIndex PRFG B 0 0
-	FrameIndex PRFG C 0 0
-	FrameIndex PRFG D 0 0
-}
-
 
 model CompanionCube
 {
@@ -1133,28 +1074,6 @@ Model PlasmaCannon
 	FrameIndex HLOP E 0 9
 	FrameIndex HLOP F 0 11
 	FrameIndex HLOP G 0 13
-}
-
-model LaserShot
-{
-	Path "Models\Projectiles"
-	Model 0 "laserbeam.md2"
-	Skin 0 "laserbeam2.png"
-	Scale 3.0 3.0 3.0
-	PITCHFROMMOMENTUM
-
-	FrameIndex LASR A 0 0
-}
-
-model LaserTrail
-{
-	Path "Models\Projectiles"
-	Model 0 "laserbeam.md2"
-	Skin 0 "laserbeam2.png"
-	Scale 0.0 0.0 0.0
-	PITCHFROMMOMENTUM
-
-	FrameIndex LASR A 0 0
 }
 
 Model Magnum

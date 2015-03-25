@@ -360,3 +360,48 @@ Model StickyBomb
 	FrameIndex STIK C 0 0
 	FrameIndex STIK D 0 0
 }
+
+Model EtherealCrossbow
+{
+	Path "Models\HUD\Bowcaster"
+	Model 0 "Bowcaster.md3"
+	Skin 0 "Bowcaster.jpg"
+	Scale -5.0 4.0 5.0
+	ZOffset -24
+
+	FrameIndex ECRO A 0 0
+	FrameIndex ECRO B 0 1
+	FrameIndex ECRO C 0 2
+	FrameIndex ECRO D 0 3
+	FrameIndex ECRO E 0 4
+	FrameIndex ECRO F 0 5
+	FrameIndex ECRO G 0 6
+	FrameIndex ECRO H 0 7
+}
+
+Model EtherealCrossbow
+{
+	Path "Models\HUD\Bowcaster"
+	Model 0 "Bowcasterflash.md3"
+	Skin 0 "Bowcasterflash.png"
+	Scale -5.0 4.0 5.0
+	ZOffset -24
+
+	FrameIndex ECRF A 0 0
+	FrameIndex ECRF B 0 1
+	FrameIndex ECRF C 0 2
+	FrameIndex ECRF D 0 3
+	
+	FrameIndex ECRF E 0 4
+	FrameIndex ECRF F 0 5
+	FrameIndex ECRF G 0 6
+	FrameIndex ECRF H 0 7
+	FrameIndex ECRF I 0 8
+	FrameIndex ECRF J 0 9
+	FrameIndex ECRF K 0 10
+	FrameIndex ECRF L 0 11
+	FrameIndex ECRF M 0 12
+	FrameIndex ECRF N 0 13
+	FrameIndex ECRF O 0 14
+	FrameIndex ECRF P 0 15
+}

@@ -249,8 +249,8 @@ actor ShockComboExplosionShell : BaseEffect
 	States
 	{
 	Spawn:
-		NULL ABCDEFGH 2 BRIGHT
-		NULL IJKL 2 BRIGHT A_FadeOut(0.18)
+		NULL ABCDEFGH 2 BRIGHT Light("ShockCombo")
+		NULL IJKL 2 BRIGHT Light("ShockCombo") A_FadeOut(0.18)
 		stop
 	}
 }
