@@ -83,7 +83,7 @@ actor TorpedoExplosionShell : BaseEffect
 	}
 }
 
-actor ProtonTorpedo
+actor ProtonTorpedo replaces Rocket
 {
 	Projectile
 	Radius 11
