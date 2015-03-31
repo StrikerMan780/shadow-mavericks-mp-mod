@@ -1,4 +1,5 @@
-//clearepisodes
+//clearepisodes
+
 episode HQ
 {
 	name = "[SM] HQ"
@@ -42,6 +43,7 @@ map HQ "[SM] HQ"
 	forcenoskystretch
 	clipmidtextures
 	allowcrouch
+	islobby
 	NOBOTNODES
 }
 
