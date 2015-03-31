@@ -93,8 +93,8 @@ actor GBTWGrenade Replaces Grenade
 	Radius 8
 	Height 8
 	Projectile
+	BounceType Hexen
 	-NOGRAVITY
-	+HEXENBOUNCE
 	+EXPLODEONWATER
 	+FORCEXYBILLBOARD
 	+FORCERADIUSDMG
@@ -144,7 +144,7 @@ actor GBTWGrenade_Impact : GBTWGrenade
 	obituary "%o sucked on %k's noob tube."
 	Speed 50
 	Damage 10
-	-HEXENBOUNCE
+	BounceType None
 }
 
 actor GrenadeTrail : BaseEffect
