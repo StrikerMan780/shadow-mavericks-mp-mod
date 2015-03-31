@@ -35,28 +35,28 @@ ACTOR LightSaber : ClericWeapon 25004
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "DeselectRed")
 			LSAB A 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "DeselectBlue")
 			LSAB AAAABBBB 1 BRIGHT A_Lower
-			Wait
+			loop
 		DeselectRed:
 			LSRB A 0 BRIGHT A_StopSound(6)
 			LSRB AAAABBBB 1 BRIGHT A_Lower
-			Wait
+			loop
 		DeselectBlue:
 			LSBB A 0 BRIGHT A_StopSound(6)
 			LSBB AAAABBBB 1 BRIGHT A_Lower
-			Wait
+			loop
 		Select:
 			LSAB A 0 BRIGHT A_GiveInventory("UsingSaber", 1)
 			LSAB A 0 BRIGHT A_GiveInventory("SaberColor", 1)
 			LSAB A 0 A_JumpIfInventory("SaberBlue", 1, "SelectBlue")
 			LSAB A 0 A_JumpIfInventory("SaberRed", 1, "SelectRed")
 			LSAB AAAABBBB 1 BRIGHT A_Raise
-			Wait
+			loop
 		SelectRed:
 			LSRB AAAABBBB 1 BRIGHT A_Raise
-			Wait
+			loop
 		SelectBlue:
 			LSBB AAAABBBB 1 BRIGHT A_Raise
-			Wait
+			loop
 		Fire:
 			LSAB C 0 A_JumpIfInventory("SaberBlue", 1, "FireBlue")
 			LSAB C 0 A_JumpIfInventory("SaberRed", 1, "FireRed")
