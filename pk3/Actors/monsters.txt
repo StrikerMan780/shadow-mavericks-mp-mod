@@ -498,7 +498,7 @@ actor StealthGBTWCacodemon : GBTWCacodemon Replaces StealthCacodemon
 ACTOR Cacolantern : GBTWCacodemon 5006
 {
 	SpawnID 159
-	Health 800
+	Health 600
 	Obituary "$OB_CACOLANTERN"
 	HitObituary "$OB_CACOLANTERN_MELEE"
 	States
@@ -569,7 +569,7 @@ ACTOR CacolanternBall
 ACTOR Abaddon : Cacolantern 5015
 {
 	SpawnID 220
-	Health 1200
+	Health 800
 	Speed 12
 	PainChance 40
 	Obituary "$OB_ABADDON"
