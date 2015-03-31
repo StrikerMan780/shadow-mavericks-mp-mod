@@ -101,7 +101,7 @@ del .\builds\SMMP_Core_DEV.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_DEV.pk3 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_DEV.pk7 .\
 
 pause
 goto MENU
@@ -113,7 +113,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_DEV.pk3 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_DEV.pk7 .\
 
 pause
 goto MENU
@@ -124,7 +124,7 @@ del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -tzip -mx=9 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
+7za a -y -t7z -mx=9 -ms=on -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
@@ -136,7 +136,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -tzip -mx=9 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
+7za a -y -t7z -mx=9 -ms=on -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
@@ -147,7 +147,7 @@ del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
@@ -159,7 +159,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU

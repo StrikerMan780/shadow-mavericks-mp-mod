@@ -1,5 +1,7 @@
-builds/SMMP_MapsAndExtras_DEV.pk3
-builds/SMMP_Core_DEV.pk3
 *.dbs
 *.backup*
 *.bak
+builds/SMMP_MapsAndExtras_*.pk7
+builds/SMMP_Core_*.pk7
+builds/SMMP_MapsAndExtras_*.pk3
+builds/SMMP_Core_*.pk3
