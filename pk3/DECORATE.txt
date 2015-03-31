@@ -8744,11 +8744,9 @@ actor Flare
 	Height 4
 	Speed 50
 	Damage 1
-	SeeSound "FlareThrow"
 	Obituary "%o was burned by %k's flare"
 	DamageType "Fire"
 	-NOGRAVITY
-	-SOLID
 	+DONTSPLASH
 	+FORCEXYBILLBOARD
 	+NODAMAGETHRUST
@@ -8759,6 +8757,7 @@ actor Flare
 	{
 		Spawn:
 			YEMB A 0 BRIGHT
+			YEMB A 0 BRIGHT A_PlaySound("FlareThrow", CHAN_AUTO)
 			YEMB A 0 BRIGHT A_PlaySoundEx("FlareBurn", "auto", 1, -1)
 			goto Burn
 		Burn:
@@ -8781,7 +8780,7 @@ actor Flare
 			stop
 		Death:
 			YEMB A 0 BRIGHT A_NoGravity
-			YEMB A 0 BRIGHT
+			YEMB A 0 BRIGHT A_Stop
 			goto Burn
 		XDeath:
 			YEMB A 0 BRIGHT A_Gravity
