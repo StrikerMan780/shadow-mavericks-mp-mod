@@ -568,6 +568,7 @@ ACTOR CacolanternBall
 
 ACTOR Abaddon : Cacolantern 5015
 {
+	DamageFactor "Holy", 1.25
 	SpawnID 220
 	Health 800
 	Speed 12

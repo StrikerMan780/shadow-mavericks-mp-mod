@@ -239,17 +239,17 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TSPN A 0 A_ChangeFlag ("NOPAIN", 1)
 		TSPN A 0 ACS_ExecuteAlways(913, 0) // Chasecam
 		TSPN A 0 A_Recoil(-10)
-		TSPN AAA 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
+		TSPN AAA 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
 		TSPN A 0 A_Recoil(-9)
-		TSPN BBB 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
+		TSPN BBB 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
 		TSPN B 0 A_Recoil(-8)
-		TSPN CCC 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
+		TSPN CCC 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
 		TSPN C 0 A_Recoil(-8)
-		TSPN AAA 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
+		TSPN AAA 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
 		TSPN A 0 A_Recoil(-8)
-		TSPN BBB 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
+		TSPN BBB 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
 		TSPN B 0 A_Recoil(-8)
-		TSPN CCC 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, 1, 0)
+		TSPN CCC 1 A_SpawnItemEX("DashDamager", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION, 0)
 		TSPN AB 2
 		TSPN C 3
 		TAIL A 0 ACS_ExecuteAlways(915, 0) // Stop Chasecam
@@ -321,7 +321,7 @@ actor DashDamager
 	{
 		Spawn:
 			TNT1 A 0
-			TNT1 A 1 A_Explode(32, 32, 0)
+			TNT1 A 1 A_Explode(32, 32, 0, false, 32)
 			TSPT A 1 A_FadeOut(0.1)
 			goto Spawn+2
 		Death:
