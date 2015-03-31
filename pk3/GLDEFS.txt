@@ -414,34 +414,65 @@ object MaxHealthBonus2
 pointlight REDARMOR1
 {
     color 0.6 0.0 0.0
-    size 48
-}
-
-pointlight REDARMOR2
-{
-    color 0.6 0.0 0.0
     size 32
+	offset 0 32 0
 }
 
 object RedArmor
 {
-    frame ARM3A0 { light REDARMOR1 }
-    frame ARM3B0 { light REDARMOR2 }
+    frame ARM3 { light REDARMOR1 }
 }
 
-// Max Health Potion
+pointlight GREENARMOR1
+{
+    color 0.0 1.0 0.0
+    size 32
+	offset 0 32 0
+}
+
+object GreenArmor2
+{
+    frame ARM1 { light GREENARMOR1 }
+}
+
+pointlight BLUEARMOR1
+{
+    color 0.0 0.25 1.0
+    size 32
+	offset 0 32 0
+}
+
+object BlueArmor2
+{
+    frame ARM2 { light BLUEARMOR1 }
+}
+
 pulselight STIMPACK
 {
     color 1.0 0.0 0.0
     size 24
     secondarySize 20
     interval 2.0
-	offset 0 24 0
+	offset 0 26 0
 }
 
 object Stimpack2
 {
     frame STIM { light STIMPACK }
+}
+
+pulselight MEDIKIT
+{
+    color 1.0 1.0 0.0
+    size 24
+    secondarySize 28
+    interval 2.0
+	offset 0 24 0
+}
+
+object Medikit2
+{
+    frame MEDI { light MEDIKIT }
 }
 
 // ------------------

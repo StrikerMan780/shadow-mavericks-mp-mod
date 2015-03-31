@@ -3615,6 +3615,23 @@ model PowerBeam
 	FrameIndex APLS D 0 0
 }
 
+model SM_ArachnotronPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "TealTracer.png"
+	Scale 320.0 96.0 96.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex APLS A 0 0
+	FrameIndex APLS B 0 0
+	FrameIndex APLS C 0 0
+	FrameIndex APLS D 0 0
+}
 
 Model BloodyChainsaw
 {
