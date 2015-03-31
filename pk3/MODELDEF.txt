@@ -2621,6 +2621,33 @@ Model GrenadeExplosionSwirl
 	FrameIndex NULL H 0 7
 }
 
+Model TorpedoExplosionShell
+{
+	Path "Models\Explosion"
+	Model 0 "ExplosionShell.md2"
+	Skin 0 "ExplosionShellYellow.png"
+	Scale 4.0 4.0 4.8
+	
+	Rotating
+	Rotation-Speed -20
+	Rotation-Vector 1.0 0.5 0.25
+	
+	Frame NULL A 0 "Frame1"
+	Frame NULL B 0 "Frame2"
+	Frame NULL C 0 "Frame3"
+	Frame NULL D 0 "Frame4"
+
+	Frame NULL E 0 "Frame5"
+	Frame NULL F 0 "Frame6"
+	Frame NULL G 0 "Frame7"
+	Frame NULL H 0 "Frame8"
+	
+	Frame NULL I 0 "Frame9"
+	Frame NULL J 0 "Frame10"
+	Frame NULL K 0 "Frame11"
+	Frame NULL L 0 "Frame12"
+}
+
 model BigPentagram
 {
 	Path "Models/FloorDecals"
@@ -2993,7 +3020,7 @@ Model HellfireCannon
 	FrameIndex HELR U 0 41
 }
 
-Model ProtonTorpedoLauncher
+Model ProtonTL
 {
 	Path "Models\HUD\ProtonTorpedoLauncher"
 	Model 0 "ProtonTorpedoLauncher.md3"
@@ -3911,7 +3938,6 @@ model SuperTechPlasma
 	Rotation-Vector 1 0 0
 
 	FrameIndex TPS2 A 0 0
-	FrameIndex TPS2 B 0 0
 }
 
 model RPGSpark
@@ -3923,4 +3949,19 @@ model RPGSpark
 	PITCHFROMMOMENTUM
 
 	FrameIndex PUFF A 0 0
+}
+
+model ProtonTorpedo
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "YellowBolt.png"
+	Scale 1.0 1.0 1.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -20
+	Rotation-Vector 1 0 0
+
+	FrameIndex MISL A 0 0
 }

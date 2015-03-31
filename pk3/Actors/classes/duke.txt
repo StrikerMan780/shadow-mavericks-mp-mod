@@ -26,7 +26,7 @@ actor DukeNukem : Link
 	Player.WeaponSlot 2, "DukePistol"
 	Player.WeaponSlot 3, "DukeShotgun", "SPAS-12", "ElementalSSG"
 	Player.WeaponSlot 4, "RipperChaingun", "M1911"
-	Player.WeaponSlot 5, "HellFireCannon", "DukeGL", "ProtonTorpedoLauncher"
+	Player.WeaponSlot 5, "HellFireCannon", "DukeGL", "DukeRPG"
 	Player.WeaponSlot 6, "PlasmaCannon", "Beamer", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"

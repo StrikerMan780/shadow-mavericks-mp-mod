@@ -1,7 +1,6 @@
-// Molotov Cocktail
-
 ACTOR MolotovCocktail : CustomInventory 25121
 {
+	Tag "Molotov Cocktail"
 	Scale 0.25
 	inventory.pickupmessage "Molotov Cocktail"
 	inventory.pickupsound "misc/p_pkup"
@@ -18,7 +17,8 @@ ACTOR MolotovCocktail : CustomInventory 25121
 			MOGP A -1
 			Loop
 		Use:
-			TNT1 A 1 A_FireCustomMissile("Bottlex", 0, 0, 0, 0)
+			//TNT1 A 1 A_FireCustomMissile("Bottlex", 0, 0, 0, 0)
+			TNT1 A 0 A_SpawnItemEx("Bottlex", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch)*32,0,sin(-pitch)*32, 0, 0, 0)
 			stop
 	}
 }
@@ -51,6 +51,7 @@ actor SerumSpawner : RandomSpawner 10592
 
 ACTOR HealingSerum : ArtiHealth replaces ArtiHealth
 {
+  Tag "Healing Serum"
   Inventory.Icon ARTIHSER
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "Healing Serum"
@@ -62,4 +63,42 @@ ACTOR HealingSerum : ArtiHealth replaces ArtiHealth
 		PTN2 ABC 4
 		Loop
   }
+}
+
+actor SaberColor : CustomInventory
+{
+	Tag "Change Saber Color"
+	inventory.pickupsound "misc/p_pkup"
+	inventory.icon ARTICOLO
+	inventory.amount 2
+	inventory.maxamount 2
+	+COUNTITEM
+	+INVENTORY.UNDROPPABLE
+	+INVBAR
+	states
+	{
+	Spawn:
+		LCHN A -1
+		stop
+	Use:
+		TNT1 A 0 A_Jumpifinventory("SaberRed", 1, "UseBlue")
+		TNT1 A 0 A_Jumpifinventory("SaberBlue", 1, "UseGreen")
+		TNT1 A 0
+		goto UseRed
+	UseRed:
+		TNT1 A 0 A_TakeInventory("SaberGreen", 255)
+		TNT1 A 0 A_GiveInventory ("SaberRed", 1)
+		TNT1 A 0 A_GiveInventory("SaberColor", 1)
+		stop
+	UseBlue:
+		TNT1 A 0 A_TakeInventory("SaberRed", 255)
+		TNT1 A 0 A_GiveInventory("SaberBlue",1)
+		TNT1 A 0 A_GiveInventory("SaberColor", 1)
+		stop
+	UseGreen:
+		TNT1 A 0 A_TakeInventory("SaberBlue", 255)
+		TNT1 A 0 A_GiveInventory("SaberGreen",1)
+		TNT1 A 0 A_GiveInventory("SaberColor", 1)
+		stop
+	}
 }

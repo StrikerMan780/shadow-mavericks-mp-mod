@@ -56,6 +56,10 @@ actor TauntSpamProtection : BaseCheck
 {
 }
 
+actor MysteryPowerupInUse : BaseCheck
+{
+}
+
 actor NukeTrigger 17462
 {
 	Health 99999

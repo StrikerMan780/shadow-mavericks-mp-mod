@@ -49,7 +49,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 	Player.WeaponSlot 2, "FairyBow"
 	Player.WeaponSlot 3, "NewShotgun", "DinsFire", "ElementalSSG"
 	Player.WeaponSlot 4, "SM_Chaingun", "Mp40"
-	Player.WeaponSlot 5, "HellFireCannon", "ProtonGL", "ProtonTorpedoLauncher"
+	Player.WeaponSlot 5, "HellFireCannon", "ProtonGL", "IceRod"
 	Player.WeaponSlot 6, "PlasmaCannon", "Beamer", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"

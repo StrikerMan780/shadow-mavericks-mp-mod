@@ -1,0 +1,175 @@
+// Footsteps V4
+// Sound Info
+
+// Define the actual sounds here
+
+// Default / Ground
+step/generic1			DSGEN1
+step/generic2			DSGEN2
+step/generic3			DSGEN3
+step/generic4			DSGEN4
+$random step/generic { step/generic1  step/generic2  step/generic3  step/generic4 }
+
+// Water
+step/water1			DSWTR1
+step/water2			DSWTR2
+step/water3			DSWTR3
+step/water4			DSWTR4
+$random step/water { step/water1  step/water2  step/water3  step/water4 }
+
+// Carpet
+step/carpet1			DSCARP1
+step/carpet2			DSCARP2
+step/carpet3			DSCARP3
+step/carpet4			DSCARP4
+$random step/carpet { step/carpet1 step/carpet2 step/carpet3 step/carpet4 }
+
+// Dirt
+step/dirt1			DSDIR1
+step/dirt2			DSDIR2
+step/dirt3			DSDIR3
+step/dirt4			DSDIR4
+$random step/dirt { step/dirt1 step/dirt2 step/dirt3 step/dirt4 }
+
+// Gravel
+step/gravel1			DSGRV1
+step/gravel2			DSGRV2
+step/gravel3			DSGRV3
+step/gravel4			DSGRV4
+$random step/gravel { step/gravel1 step/gravel2 step/gravel3 step/gravel4 }
+
+// Concrete
+step/hard1			DSSSTP1
+step/hard2			DSSSTP2
+step/hard3			DSSSTP3
+step/hard4			DSSSTP4
+$random step/hard { step/hard1 step/hard2 step/hard3 step/hard4 }
+
+// Metal
+step/metal1			DSMET1
+step/metal2 		DSMET2
+step/metal3			DSMET3
+step/metal4			DSMET4
+$random step/metal { step/metal1 step/metal2 step/metal3 step/metal4 }
+
+// Marble
+step/marble1			DSMRB1
+step/marble2			DSMRB2
+step/marble3			DSMRB3
+step/marble4			DSMRB4
+$random step/marble { step/marble1 step/marble2 step/marble3 step/marble4 }
+
+// Brick / Rock
+step/brick1			DSBR1
+step/brick2			DSBR2
+step/brick3			DSBR3
+step/brick4			DSBR4
+$random step/brick { step/brick1 step/brick2 step/brick3 step/brick4 }
+
+// Snow
+step/snow1			DSSNOW1
+step/snow2			DSSNOW2
+step/snow3			DSSNOW3
+step/snow4			DSSNOW4
+$random step/snow { step/snow1 step/snow2 step/snow3 step/snow4 }
+
+// Nukage
+step/nukage1			DSNKG1
+step/nukage2			DSNKG2
+step/nukage3			DSNKG3
+step/nukage4			DSNKG4
+$random step/nukage { step/nukage1 step/nukage2 step/nukage3 step/nukage4 }
+
+// Blood
+step/blood1			DSBLD1
+step/blood2			DSBLD2
+step/blood3			DSBLD3
+step/blood4			DSBLD4
+$random step/blood { step/blood1 step/blood2 step/blood3 step/blood4 }
+
+// Wood
+step/wood1			DSWOD1
+step/wood2			DSWOD2
+step/wood3			DSWOD3
+step/wood4			DSWOD4
+$random step/wood { step/wood1 step/wood2 step/wood3 step/wood4 }
+
+// Slime
+step/slime1			DSSLM1
+step/slime2			DSSLM2
+step/slime3			DSSLM3
+step/slime4			DSSLM4
+$random step/slime { step/slime1 step/slime2 step/slime3 step/slime4 }
+
+// Flesh
+step/flesh1			DSFLS1
+step/flesh2			DSFLS2
+step/flesh3			DSFLS3
+step/flesh4			DSFLS4
+$random step/flesh { step/flesh1 step/flesh2 step/flesh3 step/flesh4 }
+
+// Lava
+step/lava1			DSLVA1
+step/lava2			DSLVA2
+$random step/lava { step/lava1 step/lava2 }
+
+// Bone
+step/bone1			DSBONS1
+step/bone2			DSBONS2
+step/bone3			DSBONS3
+step/bone4			DSBONS4
+$random step/bone { step/bone1 step/bone2 step/bone3 step/bone4 }
+
+// sky
+step/fart1			DSSKY1
+step/fart2			DSSKY2
+step/fart3			DSSKY3
+step/fart4			DSSKY4
+$random step/fart{ step/fart1 step/fart2 step/fart3 step/fart4 }
+
+// computer
+step/comp1	DSCOM1
+step/comp2	DSCOM2
+step/comp3	DSCOM3
+step/comp4	DSCOM4
+step/comp5	DSCOM5
+step/comp6	DSCOM6
+$random step/computer { step/comp1 step/comp2 step/comp3 step/comp4 step/comp5 step/comp6 }
+
+// Grass
+step/grass1 DSGRS1
+step/grass2	DSGRS2
+step/grass3 DSGRS3
+step/grass4 DSGRS4
+
+$random step/grass { step/grass1 step/grass2 step/grass3 step/grass4 }
+
+// Wet Stone
+step/wetstone1 Wstone01
+step/wetstone2 Wstone02
+step/wetstone3 Wstone03
+step/wetstone4 Wstone04
+
+$random step/wetstone { step/wetstone1 step/wetstone2 step/wetstone3 step/wetstone4 }
+
+// Sand
+step/sand1			sand01
+step/sand2			sand02
+step/sand3			sand03
+step/sand4			sand04
+$random step/sand { step/sand1 step/sand2 step/sand3 step/sand4 }
+
+// Glass
+step/glass1			glass01
+step/glass2			glass02
+step/glass3			glass03
+step/glass4			glass04
+$random step/glass { step/glass1 step/glass2 step/glass3 step/glass4 }
+
+// Wet Grass
+step/wetgrass1 Wgrass01
+step/wetgrass2 Wgrass02
+step/wetgrass3 Wgrass03
+step/wetgrass4 Wgrass04
+
+$random step/wetgrass { step/wetgrass1 step/wetgrass2 step/wetgrass3 step/wetgrass4 }
