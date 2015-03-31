@@ -587,50 +587,6 @@ $limit BishopProjectile 0
 ShoopDaWhoop DSSHOOP
 ShoopDaWhoop2 DSSHOOP2
 
-// Trite
-tritedeath1 dstdth1
-tritedeath2 dstdth2
-tritedeath3 dstdth3
-$random tritedeath { tritedeath1 tritedeath2 tritedeath3 }
-TriteAttack1 dstatk1
-TriteAttack2 dstatk2
-TriteAttack3 dstatk3
-$random triteattack { TriteAttack1 TriteAttack2 TriteAttack3 }
-TriteBite1 dstbit1
-TriteBite2 dstbit2
-$random tritebite { tritebite1 tritebite2 }
-TriteSplat1 dstspl1
-TriteSplat2 dstspl2
-$random tritesplat { tritesplat1 tritesplat2 }
-TriteSee1 dstsit1
-TriteSee2 dstsit2
-TriteSee3 dstsit3
-TriteSee4 dstsit4
-$random TriteSee { tritesee1 tritesee2 tritesee3 tritesee4 }
-TritePain1 dstpn1
-TritePain2 dstpn2
-TritePain3 dstpn3
-TritePain4 dstpn4
-$random TritePain { tritepain1 tritepain2 tritepain3 tritepain4 }
-TriteStep1 dstst1
-TriteStep2 dstst2
-TriteStep3 dstst3
-TriteStep4 dstst4
-$random TriteStep { tritestep1 tritestep2 tritestep3 tritestep4 }
-$limit TriteStep1 0
-$limit TriteStep2 0
-$limit TriteStep3 0
-$limit TriteStep4 0
-$limit TriteStep 0
-
-// Turret
-TurretFire1 DSTURFIR
-TurretFire2 DSTURFI2
-TurretFire3 DSTURFI3
-$random TurretFire { TurretFire1 TurretFire2 TurretFire3 }
-$limit TurretFire 0
-TurretReady DSTURRDY
-
 // Hangman
 Hanger/Sight	GK_SGHT1
 
@@ -893,50 +849,6 @@ Rave DSRAVE
 // Angry German Zombie
 AngryGermanZombie1 DSGERMA1
 
-// Grell
-grell/sight     dsgresit
-grell/active    dsgreact
-grell/attack    dsgreatk
-grell/pain      dsgrepai
-grell/death     dsgredth
-grell/thud      dsgrethd
-
-// Fleshspawn
-flesh/sight		flspnsit
-flesh/melee		flspnatk
-flesh/pain		flspnhit
-flesh/death		flspndth
-flesh/active	flspnact
-
-// Zombie man
-
-$random grunt/sight 		{ grunt/sight1  grunt/sight2  grunt/sight3 }
-$random grunt/death		{ grunt/death1  grunt/death2  grunt/death3 }
-grunt/sight1			dsposit1
-grunt/sight2			dsposit2
-grunt/sight3			dsposit3
-grunt/active			dsposact
-grunt/pain			dspopain
-grunt/death1			dspodth1
-grunt/death2			dspodth2
-grunt/death3			dspodth3
-grunt/attack			dspistol
-
-// Shotgun guy
-
-$random shotguy/sight		{ shotguy/sight1  shotguy/sight2  shotguy/sight3 }
-$random shotguy/death		{ shotguy/death1  shotguy/death2  shotguy/death3 }
-shotguy/sight1			dsposit1
-shotguy/sight2			dsposit2
-shotguy/sight3			dsposit3
-shotguy/active			dsposact
-shotguy/pain			dspopain
-shotguy/death1			dspodth1
-shotguy/death2			dspodth2
-shotguy/death3			dspodth3
-shotguy/attack			dsshotgn
-
-
 Popcorn DSPOPCRN
 
 // ******************
@@ -1023,23 +935,6 @@ $playersound	sonic	male	*usefail	dssonoof
 $playersound	sonic	male	*dive		dssonwat
 $playersound	sonic	male	*surface	dssonwat
 $playersound	sonic	male	*gasp		dssongsp
-
-
-//{
-//name = "Link"
-//sprite = NWPS
-//dsplpain = dslinkp1
-//dsoof = dslinkoo
-//dsnoway = dslinkju
-//dspldeth = dslinkdi
-//dspdiehi = dslinkdi
-//dsouch = dslinkgs
-//dstaunt = dslinkb1
-//dsjump = dslinkju
-//dspunch = dssword
-//gender = male
-//scale = 1.24
-//}
 
 LinkTaunt1 dslinkb1
 LinkTaunt2 dslinkb2
@@ -1370,54 +1265,6 @@ menu/choose			dsmnuok 	// Choose a menu item
 menu/clear			dsmnudis	// Close top menu
 
 // ****** MONSTER SOUNDS *******
-$random monster/vulsit 		{ monster/vulsi1  monster/vulsi2 monster/vulsi3 }
-$random monster/vuldth 		{ monster/vuldt1  monster/vuldt2 }
-monster/vulsi1                  dsvulsi1
-monster/vulsi2                  dsvulsi2
-monster/vulsi3                  dsvulsi3
-monster/vulsi4                  dsvulsi4
-monster/vulact                  dsvulact
-monster/vulpai                  dsvulpai
-monster/vuldt1                  dsvuldt1
-monster/vuldt2                  dsvuldt2
-monster/vulswg                  dsvulswg
-monster/vulhit                  dsvulhit
-
-//NailBorg Sounds
-$random Monsters/NBSight { Monsters/NBSit1 Monsters/NBSit2 Monsters/NBSit3 }
-Monsters/NBSit1		DSNBSIT1
-Monsters/NBSit2		DSNBSIT2
-Monsters/NBSit3		DSNBSIT3
-
-$random Monsters/NBDeath { Monsters/NBDth1 Monsters/NBDth2 Monsters/NBDth3 }
-Monsters/NBDth1		DSNBDTH1
-Monsters/NBDth1		DSNBDTH2
-Monsters/NBDth1		DSNBDTH3
-
-Monsters/NBPain		DSNBPAIN
-Monsters/NBAct		DSNBSACT
-Monsters/NBWalk		DSNBWALK
-
-//BioZombie Sounds
-PNZombie/See1	pnzsee1
-PNZombie/See2	pnzsee2
-PNZombie/See3	pnzsee3
-$Random PNZombie/See	{ PNZombie/See1 PNZombie/See2 PNZombie/See3 }
-
-PNZombie/Act1	pnzAct1
-PNZombie/Act2	pnzAct2
-PNZombie/Act3	pnzAct3
-$Random PNZombie/Act	{ PNZombie/Act1 PNZombie/Act2 PNZombie/Act3 }
-
-PNZombie/Pain1	pnzPain1
-PNZombie/Pain2	pnzPain2
-PNZombie/Pain3	pnzPain3
-$Random PNZombie/Pain	{ PNZombie/Pain1 PNZombie/Pain2 PNZombie/Pain3 }
-
-PNZombie/Die1	pnzDie1
-PNZombie/Die2	pnzDie2
-PNZombie/Die3	pnzDie3
-$Random PNZombie/Die	{ PNZombie/Die1 PNZombie/Die2 PNZombie/Die3 }
 
 HeavyAct1	DSHVACT1
 HeavyAct2	DSHVACT2
