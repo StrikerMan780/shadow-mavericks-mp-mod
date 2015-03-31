@@ -2,15 +2,14 @@ actor GrenadeLauncherGiver : ClassWeaponGiver 5011
 {	
 	states
 	{
-		Spawn:
-			GLAU A 0
-			GLAU A -1 A_CheckFlag("DROPPED", "Dropped")
+		Item:
+			GLAU A -1
 			loop
 		Pickup:
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 4, 2, 0) == TRUE, "Stay")
+			GLAU A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 4, 2, 0) == TRUE, "Stay")
 			goto Remove
 		Dropped:
-			TNT1 A 0 A_SpawnItemEx("GrenadeLauncherGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			GLAU A 0 A_SpawnItemEx("GrenadeLauncherGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
 			stop
 	}
 }
@@ -23,7 +22,7 @@ actor GrenadeLauncherGiver_Dropped : GrenadeLauncherGiver
 			GLAU A 63000
 			goto FadeAway
 		Pickup:
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 4, 1, 1) == TRUE, "Stay")
+			GLAU A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 4, 1, 1) == TRUE, "Stay")
 			goto Remove
 	}
 }

@@ -3,15 +3,14 @@ actor MP40Giver : ClassWeaponGiver 23403
 	Scale 0.5
 	states
 	{
-		Spawn:
-			MP4P A 0
-			MP4P A -1 A_CheckFlag("DROPPED", "Dropped")
+		Item:
+			MP4P A -1
 			loop
 		Pickup:
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 3, 30, 0) == TRUE, "Stay")
+			MP4P A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 3, 30, 0) == TRUE, "Stay")
 			goto Remove
 		Dropped:
-			TNT1 A 0 A_SpawnItemEx("MP40Giver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			MP4P A 0 A_SpawnItemEx("MP40Giver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
 			stop
 	}
 }
@@ -24,7 +23,7 @@ actor MP40Giver_Dropped : MP40Giver
 			MP4P A 63000
 			goto FadeAway
 		Pickup:
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 3, 15, 1) == TRUE, "Stay")
+			MP4P A 0 A_JumpIf(ACS_ExecuteWithResult(GIVEWEAPON, 3, 15, 1) == TRUE, "Stay")
 			goto Remove
 	}
 }
