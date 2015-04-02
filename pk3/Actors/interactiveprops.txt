@@ -1,0 +1,84 @@
+actor DrinkingFountain : SwitchableDecoration 16541
+{
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	height 16
+	radius 12
+	XScale 0.70
+	YScale 0.75
+	+SOLID
+	+USESPECIAL
+	states
+	{
+		Spawn:
+			FOUN A 0
+			FOUN A -1 A_SetSpecial(130, 0)
+			loop
+		Active:
+			FOUN B 0 A_ChangeFlag("USESPECIAL", 0)
+			FOUN B 0 A_PlaySound("DrinkingFountain")
+			FOUN BCDBCDBCDBCDBCDBCDBCDBCDB 1 A_GiveToTarget("Health", 1)
+			FOUN CDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCD 1
+			FOUN A 0 A_ChangeFlag("USESPECIAL", 1)
+			goto Spawn
+	}
+}
+
+actor Stripper : SwitchableDecoration 30107
+{	
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	Radius 16
+	Height 56
+	Scale 0.62
+	+SOLID
+	+USESPECIAL
+	States
+	{
+		Spawn:
+			STRP A 0
+			STRP A 0 A_SetSpecial(130, 0)
+			goto Dance
+		Dance:
+			STRP ABCDEDCB 5
+			loop
+		Active:
+			STRP A 0 A_JumpIfInTargetInventory("GBTWMoney", 5, "Strip")
+			goto Dance
+		Strip:
+			STRP F 0 A_ChangeFlag("USESPECIAL", 0)
+			STRP F 0 A_TakeFromTarget("GBTWMoney", 5)
+			STRP F 10 A_Playsound("stripper")
+			STRP GHGHGHGHGHGHGHGHGH 3 A_GiveToTarget("Health", 1)
+			STRP F 7
+			STRP F 0 A_ChangeFlag("USESPECIAL", 1)
+			goto Dance
+	}
+}
+
+actor 8trackStereo : SwitchableDecoration 16542
+{
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	height 24
+	radius 20
+	+SOLID
+	+USESPECIAL
+	var int user_playing;
+	states
+	{
+		Spawn:
+			FOUN A 0
+			FOUN A -1 A_SetSpecial(130, 0)
+			loop
+		StopPlaying:
+			FOUN A 0 A_SetUserVar("user_playing", 0)
+			FOUN A 35 A_StopSound(CHAN_BODY)
+			goto Spawn
+		Active:
+			FOUN A 0 A_JumpIf(user_playing == 1, "StopPlaying")
+			FOUN A 0 A_SetUserVar("user_playing", 1)
+			FOUN A 0 A_PlaySound("HereComesTheSun", CHAN_BODY)
+			goto Playing
+		Playing:
+			FOUN ABCDEFGHIJKLMNOP 16
+			loop
+	}
+}

@@ -44,10 +44,6 @@ actor Firing : BaseCheck
 {
 }
 
-actor Toggle : BaseCheck
-{
-}
-
 actor ActivationPrevention : BaseCheck
 {
 }

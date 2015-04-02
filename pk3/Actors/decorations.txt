@@ -489,7 +489,7 @@ actor TailsSalute 25012
 actor ForestTree1 11100
 {
 	height 128
-	radius 16
+	radius 4
 	+SOLID
 	States
 	{
@@ -507,7 +507,7 @@ actor ForestTree1 11100
 actor ForestTree2 11101
 {
 	height 128
-	radius 16
+	radius 4
 	+SOLID
 	States
 	{
@@ -525,7 +525,7 @@ actor ForestTree2 11101
 actor ForestTree3 11102
 {
 	height 128
-	radius 16
+	radius 4
 	+SOLID
 	States
 	{
@@ -631,52 +631,6 @@ actor Striker_Persona 16523
   	Spawn:
   		SFUR A -1
   		loop
-  }
-}
-
-actor 8trackStereo : SwitchableDecoration 16542
-{
-  height 24
-  radius 20
-  +SOLID
-  +USESPECIAL
-  states
-  {
-  Spawn:
-  	FOUN A -1
-  	loop
-  Inactive:
-	FOUN A 0 A_TakeInventory("Toggle", 1)
-	FOUN A 35 A_StopSound(CHAN_BODY)
-	goto Spawn
-  Active:
-	FOUN A 0 A_GiveInventory("Toggle", 1)
-	FOUN A 0 A_PlaySound("HereComesTheSun", CHAN_BODY)
-	goto Playing
-  Playing:
-	FOUN ABCDEFGHIJKLMNOP 16
-    loop
-  }
-}
-
-actor DrinkingFountain : SwitchableDecoration 16541
-{
-  height 16
-  radius 12
-  XScale 0.70
-  YScale 0.75
-  +SOLID
-  +USESPECIAL
-  states
-  {
-  Spawn:
-  	FOUN A -1
-  	loop
-  Inactive:
-  Active:
-  	FOUN B 0 A_PlaySound("DrinkingFountain")
-    FOUN BCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCDBCD 1
-    goto Spawn
   }
 }
 
