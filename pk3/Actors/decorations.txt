@@ -756,6 +756,12 @@ ACTOR Impse 5058
 	}
 }
 
+actor FloatingImpse : Impse
+{
+	+NOGRAVITY
+	+FLOATBOB
+}
+
 ACTOR FloatingBobbingSkull : FloatingSkull 5009
 {
 	+FLOATBOB
