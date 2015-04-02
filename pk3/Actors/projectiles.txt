@@ -531,6 +531,8 @@ actor BluePlasmaMist : BaseEffect
 
 actor BluePlasma : PlasmaBall
 {
+	Radius 8
+	Height 8
 	decal BluePlasmaScorch
 	Damage (20)
 	Speed 50
