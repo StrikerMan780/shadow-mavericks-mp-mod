@@ -17,7 +17,6 @@ actor Link : FighterPlayer Replaces FighterPlayer
 	RadiusDamageFactor 1
 	DamageFactor "Holy", 0.5
 	DamageFactor "ChaosFire", 1.5
-	DamageFactor "SpinDash", 2.25
 	DamageFactor "Tourettes", 0.0
 	DamageFactor "BFG", 0.4375
 	DamageFactor "Flak", 0.5

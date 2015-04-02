@@ -20,7 +20,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 	+FORCERADIUSDMG
 	DamageFactor "Demonic", 1.5
 	DamageFactor "ChaosFire", 0.5
-	DamageFactor "SpinDash", 2.25
 	DamageFactor "Tourettes", 0.0
 	DamageFactor "BFG", 0.4375
 	DamageFactor "Flak", 0.5
@@ -321,7 +320,7 @@ actor DashDamager
 	{
 		Spawn:
 			TNT1 A 0
-			TNT1 A 1 A_Explode(32, 32, 0, false, 32)
+			TNT1 A 1 A_Explode(32, 32, false, false, 32)
 			TSPT A 1 A_FadeOut(0.1)
 			goto Spawn+2
 		Death:
@@ -349,10 +348,6 @@ actor TailsWeaponUpgrade : CustomInventory
 		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
 		stop
 	Check1:
-		RCOR A 1 A_JumpIfInventory("ProtonTorpedoLauncher", 1, "Check2")
-		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
-		stop
-	Check2:
 		RCOR A 1 A_JumpIfInventory("StickyBombs", 1, "Working")
 		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
 		stop
