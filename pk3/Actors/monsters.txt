@@ -2999,6 +2999,7 @@ ACTOR Danny_Tourettes_Guard 19632
    +DONTGIB
    +NEVERFAST
    +DROPOFF
+   +NOICEDEATH
    -COUNTKILL
    Translation "112:127=176:191"
    States
