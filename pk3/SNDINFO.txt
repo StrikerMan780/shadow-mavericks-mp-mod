@@ -648,23 +648,13 @@ DrunkSong2 DSFLOGGN
 DrunkSong3 DSDRNKFI
 $RANDOM DrunkSong { DrunkSong1 DrunkSong2 DrunkSong3 }
 
-newplayer DSNEWPLY
 BurningFire DSBURNIN
 SmallBurningFire DSSMLBRN
 KnockedTheFuckOut DSKNKOUT
 
-KefkaLaugh DSKEFKA
 Doh DSDOH
-Penis DSPENIS
 Flashlight DSFLASHL
-ArkanoidIntro DSARKINT
 Fail DSFAIL
-TomSawyer DSTOMSAW
-SMIntro SMIntro
-SMProduction SMProduc
-TitleHit DSTITLEH
-BillyMays DSBILLYM
-MarioBrick DSBRICK
 Fooby1 DSFOOB1
 Fooby2 DSFOOB2
 Fooby3 DSFOOB3
@@ -674,44 +664,6 @@ ScreenON DSSCREEN
 Fart DSFART
 
 // Ambience
-
-WaterFallRush  DSWTRFAL
-jeanluc DSPICARD
-tvoutbeep DSTVOUT
-shipinterior DSINSHIP
-shipengine DSSHPENG
-raining dsrainfl
-terminal dstermin
-SOAD DSSOAD
-CostaDelSol DSCOSTA
-OutDoors DSOUTDRS
-Crickets DSODCRIK
-NEDM DSNEDM
-lolinternet DSLOLINT
-CatGroove DSCATGRV
-DOG DSDOG
-SWAG DSSWAG
-UnclePhil DSUNPHIL
-
-$ambient 4 WaterFallRush POINT CONTINUOUS 1.0
-$ambient 5 jeanluc POINT CONTINUOUS 0.9
-$ambient 6 tvoutbeep POINT CONTINUOUS 0.08
-$ambient 7 shipinterior POINT CONTINUOUS 1.4
-$ambient 8 shipengine POINT CONTINUOUS 2.0
-$ambient 9 Raining POINT CONTINUOUS 0.6
-$ambient 10 terminal POINT CONTINUOUS 2.0
-$ambient 11 SOAD Point CONTINUOUS 1.0
-$ambient 12 CostaDelSol Point CONTINUOUS 0.5
-$ambient 13 OutDoors SURROUND CONTINUOUS 1.4
-$ambient 14 OutDoors Point 0.3 CONTINUOUS 1.5
-$ambient 15 Crickets Point 0.4 CONTINUOUS 1.0
-$ambient 16 NEDM Point CONTINUOUS 2.0
-$ambient 17 Raining Point 0.3 CONTINUOUS 0.5
-$ambient 18 lolinternet POINT CONTINUOUS 1.0
-$ambient 19 CatGroove POINT CONTINUOUS 1.0
-$ambient 20 DOG POINT CONTINUOUS 1.0
-$ambient 21 SWAG POINT 1.5 CONTINUOUS 1.0
-$ambient 22 UnclePhil POINT 1.0 CONTINUOUS 1.0
 
 thunder1 DSTHUND1
 thunder2 DSTHUND2
