@@ -405,3 +405,44 @@ Model EtherealCrossbow
 	FrameIndex ECRF O 0 14
 	FrameIndex ECRF P 0 15
 }
+
+Model SniperRifle
+{
+	Path "Models\HUD\SniperRifle"
+	Model 0 "SniperRifle.md3"
+	Scale 5.0 4.2 5
+	ZOffset -2
+
+	FrameIndex SINS A 0 0
+	FrameIndex SINS B 0 2
+	FrameIndex SINS C 0 4
+	FrameIndex SINS D 0 6
+	FrameIndex SINS E 0 8
+	FrameIndex SINS F 0 10
+	FrameIndex SINS G 0 12
+	FrameIndex SINS H 0 14
+	FrameIndex SINS I 0 16
+	FrameIndex SINS J 0 18
+	FrameIndex SINS K 0 20
+	FrameIndex SINS L 0 22
+	FrameIndex SINS M 0 24
+	FrameIndex SINS N 0 26
+	FrameIndex SINS O 0 28
+	FrameIndex SINS P 0 30
+	FrameIndex SINS Q 0 32
+	FrameIndex SINS R 0 34
+	FrameIndex SINS S 0 36
+	FrameIndex SINS T 0 38
+	FrameIndex SINS U 0 40
+}
+
+Model SniperRifle
+{
+	Path "Models\HUD\SniperRifle"
+	Model 0 "SniperRifleFlash.md3"
+	Skin 0 "MuzzleFlash.png"
+	Scale 5.0 4.2 5
+	ZOffset -2
+
+	FrameIndex SINF A 0 0
+}

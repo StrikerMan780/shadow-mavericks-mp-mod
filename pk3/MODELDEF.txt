@@ -1500,42 +1500,6 @@ model BottleX
 	FrameIndex MOGT E 0 0
 }
 
-Model SniperRifle
-{
-	Path "Models\HUD\SniperRifle"
-	Model 0 "SniperRifle.md3"
-	Scale 5.0 4.2 5
-	ZOffset -2
-
-	FrameIndex SINS A 0 0
-	FrameIndex SINS C 0 3
-	FrameIndex SINS D 0 4
-	FrameIndex SINS E 0 5
-	FrameIndex SINS F 0 6
-	FrameIndex SINS G 0 7
-	FrameIndex SINS H 0 8
-	FrameIndex SINC A 0 9
-	FrameIndex SINC B 0 11
-	FrameIndex SINC C 0 15
-	FrameIndex SINC D 0 18
-	FrameIndex SINC E 0 23
-	FrameIndex SINC F 0 32
-	FrameIndex SINC G 0 38
-}
-
-Model SniperRifle
-{
-	Path "Models\HUD\SniperRifle"
-	Model 0 "SniperRifle.md3"
-	Model 1 "SniperRifleFlash.md3"
-	Skin 1 "MuzzleFlash.png"
-	Scale 5.0 4.2 5
-	ZOffset -2
-
-	FrameIndex SINS B 0 2
-	FrameIndex SINS B 1 0
-}
-
 Model ShockComboExplosionShell
 {
 	Path "Models\Explosion"
