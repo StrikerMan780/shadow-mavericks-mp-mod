@@ -425,8 +425,12 @@ model DukeDevastatorRocket
 	Path "Models/projectiles"
 	Model 0 "2605_rocket.md2"
 	Skin 0 "2605_rocket.png"
-	Scale 0.25 0.25 0.25
+	Scale 0.25 0.25 0.3
 	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 1 0 0
 
 	FrameIndex RPGM A 0 0
 }
@@ -436,9 +440,12 @@ model DukeRocket
 	Path "Models/projectiles"
 	Model 0 "2605_rocket.md2"
 	Skin 0 "2605_rocket.png"
-	Scale 0.25 0.25 0.25
-	ZOffset -4
+	Scale 0.25 0.25 0.3
 	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -5
+	Rotation-Vector 1 0 0
 
 	FrameIndex RPGM A 0 0
 }
