@@ -91,6 +91,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIF A 0 A_PlaySound("TailsFlying")
 		goto Fly
 	See:
+		TAIL A 0 ACS_Execute(INIT_FOOTSTEPS, 0)
 		TAIL A 0 A_JumpIfInventory("PowerFlight", 1, "Fly")
 		TAIL ABCD 4
 		TAIL A 0 ACS_ExecuteAlways(FLIGHTCHECK, 0)

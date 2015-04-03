@@ -61,6 +61,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 		NWPS AA 5
 		loop
 	See:
+		NWPS A 0 ACS_Execute(INIT_FOOTSTEPS, 0)
 		NWPS AAAABBBBCCCCDDDD 1 A_CustomMissile("Walljumpcheck", 0, 0, 0, 2, 0)
 		Loop
 	Burn:

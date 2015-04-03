@@ -45,6 +45,7 @@ actor DukeNukem : Link
 		DUKS D 0 A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SwimSee")
 		loop
 	See:
+		DUKE A 0 ACS_Execute(INIT_FOOTSTEPS, 0)
 		DUKE A 4
 		DUKE A 0 A_JumpIf(waterlevel == 3, "SwimSee")
 		DUKE B 4

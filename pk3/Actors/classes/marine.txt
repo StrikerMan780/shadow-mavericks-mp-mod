@@ -55,6 +55,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 		PSAR AA 1 BRIGHT A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SaberSee_Red")
 		goto Spawn
 	See:
+		PLAY A 0 ACS_Execute(INIT_FOOTSTEPS, 0)
 		PLAY A 0 A_JumpIfInventory("UsingSaber", 1, "SaberSpawn")
 		PLAY ABCD 4
 		Loop
