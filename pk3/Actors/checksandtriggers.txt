@@ -44,6 +44,10 @@ actor Firing : BaseCheck
 {
 }
 
+actor IsCensoredMode : BaseCheck
+{
+}
+
 actor ActivationPrevention : BaseCheck
 {
 }
