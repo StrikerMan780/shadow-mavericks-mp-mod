@@ -806,6 +806,7 @@ Popcorn DSPOPCRN
 // ******************
 // * PLAYER CLASSES *
 // ******************
+Jump DSJUMP
 
 HorrificScream1 DSPLSPL1
 HorrificScream2 DSPLSPL2
