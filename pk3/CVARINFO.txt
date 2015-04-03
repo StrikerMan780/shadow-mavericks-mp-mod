@@ -1,0 +1,7 @@
+server noarchive bool smmp_crickagib = false;
+server noarchive int smmp_weathertype = 0;
+server noarchive bool smmp_block_marine = false;
+server noarchive bool smmp_block_tails = false;
+server noarchive bool smmp_block_link = false;
+server noarchive bool smmp_block_duke = false;
+user bool smmp_uncensored = false;

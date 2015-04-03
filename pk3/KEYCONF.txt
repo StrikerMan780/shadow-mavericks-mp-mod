@@ -8,15 +8,24 @@ alias Fix "snd_channels 64; gl_use_models 1; gl_interpolate_model_frames 1"
 addmenukey "Quick-Throw Molotov" usemolotov
 alias usemolotov "use MolotovCocktail"
 
-alias censortoggle "puke 132"
+alias censortoggle "echo This command has been replaced by the CVAR smmp_uncensored"
 alias interpolate "gl_interpolate_model_frames 1"
-alias smmp_crickagib "set crickagibvar %1;instagib %1"
-alias smmp_classallowed "set classallowedvar %1"
-alias smmp_weathertype "set weathertypevar %1"
 defaultbind n "showpop 3"
 
-clearplayerclasses
+addkeysection "SMMP Global Taunt System" SMMPTauntSystem
+addmenukey "Select Next Taunt" TauntNext 
+addmenukey "Select Previous Taunt" TauntPrevious
+addmenukey "Taunt Skip Ahead by 5" TauntSkipNext
+addmenukey "Taunt Skip Back by 5" TauntSkipBack
+addmenukey "Play Global Taunt" TauntPlay
+alias TauntNext "puke -930 1"
+alias TauntPrevious "puke -930 0"
+alias TauntSkipNext "puke -930 2"
+alias TauntSkipBack "puke -930 3"
+alias TauntPlay "puke -931"
+alias SendTaunt "puke -931 %1"
 
+clearplayerclasses
 addplayerclass "Marine"
 addplayerclass "Tails"
 addplayerclass "Link"
