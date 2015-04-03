@@ -109,6 +109,17 @@ mummy/death			mumdth
 mummy/active			mumsit
 mummy/head			mumhed
 
+// Fallen Crusader
+hknight/sight			kgtsit
+hknight/attack			kgtatk
+hknight/melee			kgtat2
+hknight/pain			kgtpai
+hknight/death			kgtdth
+hknight/active			kgtsit
+hknight/hit				hrnhit
+hknight/axewhoosh		kgtatk
+hknight/superattack		kgtsupr
+
 // Grell
 grell/sight     dsgresit
 grell/active    dsgreact
