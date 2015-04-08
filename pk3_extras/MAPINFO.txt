@@ -39,6 +39,7 @@ map HQ "[SM] HQ"
 {
 	sky1 = bsky2, 0.01
 	music = ""
+	lightmode = 0
 	evenlighting
 	forcenoskystretch
 	clipmidtextures

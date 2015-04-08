@@ -27,6 +27,7 @@ CatGroove DSCATGRV
 DOG DSDOG
 SWAG DSSWAG
 UnclePhil DSUNPHIL
+CarelessWhisper DSBANLO
 
 $ambient 4 WaterFallRush POINT CONTINUOUS 1.0
 $ambient 5 jeanluc POINT CONTINUOUS 0.9
@@ -47,3 +48,4 @@ $ambient 19 CatGroove POINT CONTINUOUS 1.0
 $ambient 20 DOG POINT CONTINUOUS 1.0
 $ambient 21 SWAG POINT 1.5 CONTINUOUS 1.0
 $ambient 22 UnclePhil POINT 1.0 CONTINUOUS 1.0
+$ambient 23 CarelessWhisper Point CONTINUOUS 0.5

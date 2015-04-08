@@ -108,6 +108,26 @@ brightmap texture XPORTAL6
 	map "Brightmaps/XPORTAL6.png"
 }
 
+brightmap texture SKYSTAR1
+{
+	map "Brightmaps/STARRY1.png"
+}
+
+brightmap texture SKYSTAR2
+{
+	map "Brightmaps/STARRY1.png"
+}
+
+brightmap texture SKYSTAR3
+{
+	map "Brightmaps/STARRY2.png"
+}
+
+brightmap texture SKYSTAR4
+{
+	map "Brightmaps/STARRY3.png"
+}
+
 /*
 brightmap texture LAVFALL1
 {

@@ -1,0 +1,97 @@
+// Striker's Keys
+
+Actor KeyPiece1 : PuzzleItem 23234
+{
+	-INVBAR
+	Inventory.MaxAmount 1
+	Inventory.Icon TNT1A0
+	inventory.pickupsound "misc/k_pkup"
+	inventory.pickupmessage "Found Piece #1 of \chStriker\cdMan\ci780\cl's Key"
+	inventory.Respawntics 600
+	States
+	{
+	Spawn:
+		SKEY A 4
+		Loop
+	}
+}
+
+Actor KeyPiece2 : PuzzleItem 23235
+{
+	-INVBAR
+	Inventory.MaxAmount 1
+	Inventory.Icon TNT1A0
+	inventory.pickupsound "misc/k_pkup"
+	inventory.pickupmessage "Found Piece #2 of \chStriker\cdMan\ci780\cl's Key"
+	inventory.Respawntics 600
+	States
+	{
+	Spawn:
+		SKEY A 4
+		Loop
+	}
+}
+
+Actor KeyPiece3 : PuzzleItem 23236
+{
+	-INVBAR
+	Inventory.MaxAmount 1
+	Inventory.Icon TNT1A0
+	inventory.pickupsound "misc/k_pkup"
+	inventory.pickupmessage "Found Piece #3 of \chStriker\cdMan\ci780\cl's Key"
+	inventory.Respawntics 600
+	States
+	{
+	Spawn:
+		SKEY A 4
+		Loop
+	}
+}
+
+Actor KeyPiece4 : PuzzleItem 23237
+{
+	-INVBAR
+	Inventory.MaxAmount 1
+	Inventory.Icon TNT1A0
+	inventory.pickupsound "misc/k_pkup"
+	inventory.pickupmessage "Found Piece #4 of \chStriker\cdMan\ci780\cl's Key"
+	inventory.Respawntics 600
+	States
+	{
+	Spawn:
+		SKEY A 4
+		Loop
+	}
+}
+
+Actor KeyPiece5 : PuzzleItem 23238
+{
+	-INVBAR
+	Inventory.MaxAmount 1
+	Inventory.Icon TNT1A0
+	inventory.pickupsound "misc/k_pkup"
+	inventory.pickupmessage "Found Piece #5 of \chStriker\cdMan\ci780\cl's Key"
+	inventory.Respawntics 600
+	States
+	{
+	Spawn:
+		SKEY A 4
+		Loop
+	}
+}
+
+Actor KeyPiece6 : PuzzleItem 23239
+{
+	-INVBAR
+	Inventory.MaxAmount 1
+	Inventory.Icon TNT1A0
+	inventory.pickupsound "misc/k_pkup"
+	inventory.pickupmessage "Found Piece #6 of \chStriker\cdMan\ci780\cl's Key"
+	inventory.Respawntics 600
+	States
+	{
+	Spawn:
+		SKEY A 4
+		Loop
+	}
+}

@@ -485,16 +485,6 @@ texture ANIM_H00
 	pic	ANIM_H14 tics 2
 	pic	ANIM_H15 tics 2
 
-texture AFLAGF01
-	pic	AFLAGF01 tics 3
-	pic	AFLAGF02 tics 3
-	pic	AFLAGF03 tics 3
-	pic	AFLAGF04 tics 3
-	pic	AFLAGF05 tics 3
-	pic	AFLAGF06 tics 3
-	pic	AFLAGF07 tics 3
-	pic	AFLAGF08 tics 3
-
 texture LAVFALL1
 	pic	LAVFALL1 tics 4
 	pic	LAVFALL2 tics 4
@@ -857,6 +847,7 @@ warp texture PSOWAL39
 warp texture EVILSKY2
 warp texture EVILSKY3
 warp texture WSKSNAK2
+warp texture ROTMEAT1
 
 switch SW1STNE1 on pic SW2STNE1 tics 0
 switch SW1STNE2 on pic SW2STNE2 tics 0
