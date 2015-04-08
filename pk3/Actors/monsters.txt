@@ -93,6 +93,7 @@ actor SM_Demon : Demon //Replaces Demon
 		TNT1 A 0 A_JumpIfHealthLower(1, "Remove")
 		TNT1 A 1 A_ChangeFlag("SOLID", 0)
 		TNT1 A 1 A_ChangeFlag("SHOOTABLE", 0)
+		TNT1 A 1 A_ChangeFlag("DORMANT", 1)
 		TNT1 A 1
 		TNT1 A -1
 		loop
@@ -100,8 +101,9 @@ actor SM_Demon : Demon //Replaces Demon
 	Enabled:
 		TNT1 A 0
 		TNT1 A 0 A_JumpIfHealthLower(1, "Remove")
-		TNT1 A 1 A_ChangeFlag("SOLID", 1)
-		TNT1 A 1 A_ChangeFlag("SHOOTABLE", 1)
+		TNT1 A 0 A_ChangeFlag("SOLID", 1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE", 1)
+		TNT1 A 0 A_ChangeFlag("DORMANT", 0)
 		TNT1 A 1
 		goto Spawn
 	Remove:
@@ -226,6 +228,7 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 	DropItem "ForcePull", 2
 	States
 	{
+		Death.SSG:
 		Death.HeadBurst:
 			TROA I 0
 			TROA I 0 A_Jump(150, "Death")
@@ -1478,7 +1481,7 @@ actor SM_LostSoul : LostSoul Replaces LostSoul
 }
 
 //Vulgar
-actor Vulgar : GBTWDoomImp 30127
+actor Vulgar : DoomImp 30127
 {
 	obituary "%o was poisoned by a vulgar."
 	hitobituary "A Vulgar had %o for lunch."
@@ -1581,6 +1584,9 @@ actor Vulgar : GBTWDoomImp 30127
 			VULG ML 8
 			VULG KJI 6
 			goto See
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
 	}
 }
 
@@ -2651,8 +2657,9 @@ actor Trite 17121
 		Disabled:
 			TNT1 A 0
 			TNT1 A 0 A_JumpIfHealthLower(1, "Death")
-			TNT1 A 1 A_ChangeFlag("SOLID", 0)
-			TNT1 A 1 A_ChangeFlag("SHOOTABLE", 0)
+			TNT1 A 0 A_ChangeFlag("SOLID", 0)
+			TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+			TNT1 A 0 A_ChangeFlag("DORMANT", 1)
 			TNT1 A 1
 			TNT1 A -1
 			loop
@@ -2660,8 +2667,9 @@ actor Trite 17121
 		Enabled:
 			TNT1 A 0
 			TNT1 A 0 A_JumpIfHealthLower(1, "Death")
-			TNT1 A 1 A_ChangeFlag("SOLID", 1)
-			TNT1 A 1 A_ChangeFlag("SHOOTABLE", 1)
+			TNT1 A 0 A_ChangeFlag("SOLID", 1)
+			TNT1 A 0 A_ChangeFlag("SHOOTABLE", 1)
+			TNT1 A 0 A_ChangeFlag("DORMANT", 0)
 			TNT1 A 1
 			goto Spawn
 	}
@@ -2708,6 +2716,7 @@ actor HangingTurret 16093
 	Speed 0
 	PainChance 0
 	FloatSpeed 0
+	MaxTargetRange 2048
 	Mass 0x7fffffff
 	AttackSound "TurretFire"
 	DeathSound "BigExplosion"
@@ -2723,6 +2732,7 @@ actor HangingTurret 16093
 	+NOINFIGHTING
 	+NOFEAR
 	+NOSPLASHALERT
+	-CANBLAST
 	States
 	{
 	Spawn:
@@ -3032,9 +3042,9 @@ ACTOR Danny_Tourettes_Guard 19632
 			TGUY E 2 A_FaceTarget
 			TGUY F 2 Bright A_CustomMissile("Tourettes_NewPlasma")
 			TGUY E 0 A_Jump(128, "PlasmaDodgeLeft", "PlasmaDodgeRight")
+			TGUY E 0 A_JumpIfCloser(384, "PlasmaBackoff")
 			goto Missile_PlasmaChecks
 		Missile_PlasmaChecks:
-			TGUY E 0 A_JumpIfCloser(384, "PlasmaBackoff")
 			TGUY E 0 A_JumpIfInTargetInventory("Firing", 1, "DodgeShoot")
 			TGUY E 0 A_CposRefire
 			TGUY E 0 A_Jump(48, "See")

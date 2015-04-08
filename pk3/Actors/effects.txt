@@ -649,8 +649,3 @@ actor GiygasEnergySpawner
 			stop
 	}
 }
-
-ACTOR FloatBobSkyViewpoint : SkyViewpoint 11482
-{
-	+FLOATBOB
-}

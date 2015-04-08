@@ -131,23 +131,6 @@ actor MusicSwitchBack : CustomInventory
  }
 }
 
-actor UnfreezePlayerArcade : CustomInventory
-{
- inventory.maxamount 1
- -INVENTORY.INVBAR
- +INVENTORY.AUTOACTIVATE
- +INVENTORY.ALWAYSPICKUP
- States
- {
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 1 ACS_ExecuteAlways(151, 0)
- 		stop
- }
-}
-
 actor NoLightningSound : BaseCheck
 {
 }

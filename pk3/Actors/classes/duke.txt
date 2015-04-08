@@ -103,7 +103,6 @@ actor DukeNukem : Link
 		DUKE G 4 A_Pain
 		Goto Spawn
 	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 10)
 		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NULL A 0 A_Playsound("disintegrate")
 		NULL A 0 A_NoBlocking
@@ -118,7 +117,6 @@ actor DukeNukem : Link
 		DUKE H 0
 		DUKE H 0 ThrustThingZ(0, Random(28, 40), 0, 1)
 	Death:
-		DUKE H 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE H 6
 		DUKE I 6 A_PlayerScream
@@ -127,7 +125,6 @@ actor DukeNukem : Link
 		DUKE N -1
 		Stop
 	XDeath:
-		DUKE O 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE O 0 A_GiveToTarget("SpeakOneLiner", 1)
 		DUKE O 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE O 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -138,7 +135,6 @@ actor DukeNukem : Link
 		DUKE W -1
 		Stop
 	Death.Microwave:
-		DUKG A 0 A_GiveToTarget("DemonicPower", 10)
 		DUKG A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKG A 4 A_PlaySound("DukeGrow")
 		DUKG B 4
@@ -218,7 +214,6 @@ actor DukeNukem : Link
 		DUKE N -1
 		stop
 	Death.Ethereal:
-		DUKE G 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE G 0 A_SetTranslucent(1.0, 0)
 		DUKE G 1 A_PlayerScream
@@ -244,14 +239,12 @@ actor DukeNukem : Link
 		NULL A -1
 		stop
 	Ice:
-		DUKE E 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE E 5 A_GenericFreezeDeath
 		DUKE E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
 		DUKE E 1 A_GenericFreezeDeath
-		DUKE E 0 A_GiveToTarget("DemonicPower", 10)
 		DUKE E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		DUKE EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		DUKE E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)

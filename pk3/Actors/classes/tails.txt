@@ -25,6 +25,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	DamageFactor "Flak", 0.5
 	DamageFactor "Hellfire", 0.5
 	DamageFactor "Ethereal", 0.5
+	DamageFactor "Sniper", 0.66
 	RadiusDamageFactor 0.75
 	
 	Player.ForwardMove 1
@@ -97,7 +98,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL A 0 ACS_ExecuteAlways(FLIGHTCHECK, 0)
 		Loop
 	Burn:
-		BURN A 0 A_GiveToTarget("DemonicPower", 10)
 		BURN A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		BURN A 0 A_Playsound("firedeath")
 		BURN A 0 A_NoBlocking
@@ -105,7 +105,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 		BURN V -1
 		stop
 	Disintegrate:
-		NULL A 0 A_GiveToTarget("DemonicPower", 10)
 		NULL A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		NULL A 0 A_Playsound("disintegrate")
 		NULL A 0 A_NoBlocking
@@ -145,7 +144,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL H 0 ThrustThingZ(0, Random(28, 40), 0, 1)
 		goto Death
 	Death:
-		TAIL H 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL H 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL H 7
 		TAIL I 7 A_PlayerScream
@@ -154,7 +152,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL N -1
 		Stop
 	XDeath:
-		TAIL O 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL O 0 A_GiveToTarget("SpeakOneLiner", 1)
 		TAIL O 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
@@ -210,7 +207,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL N -1
 		stop
 	Death.Ethereal:
-		TAIL G 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL G 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL G 0 A_SetTranslucent(1.0, 0)
 		TAIL G 1 A_PlayerScream
@@ -257,7 +253,6 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TNT1 A 0 A_ChangeFlag ("NOPAIN", 0)
 		goto See
 	Death.Microwave:
-		TAIG A 0 A_GiveToTarget("DemonicPower", 10)
 		TAIG A 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIG A 14 A_PlaySound("DukeGrow")
 		TAIG B 10
@@ -276,14 +271,12 @@ actor Tails : MagePlayer Replaces MagePlayer
 		TAIL W -1
 		stop
 	Ice:
-		TAIL E 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL E 5 A_GenericFreezeDeath
 		TAIL E 1 A_FreezeDeathChunks
 		Wait
 	Death.IceRod:
 		TAIL E 1 A_GenericFreezeDeath
-		TAIL E 0 A_GiveToTarget("DemonicPower", 10)
 		TAIL E 0 A_JumpIfInventory("Kamikaze", 1, "KamikazeDeath")
 		TAIL EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		TAIL E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)

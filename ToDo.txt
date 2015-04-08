@@ -19,8 +19,6 @@ StrikerMan780
 * Needs more stuff to do... must come up with some sort of idea.
 * Finish the Giygas Event
 * Add a kill switch to leeroy zombie event
-* Put more work into reducing lines of sight for areas in HQ, also reduce complexity.
-* Move the spawn that's close to the crack
 * Replace ruin's truck image
 * replace ruin's trans-am/beer image with one of buggies
 * Replace firebird logo with night shot of car

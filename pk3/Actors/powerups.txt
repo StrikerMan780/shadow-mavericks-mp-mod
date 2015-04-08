@@ -62,3 +62,60 @@ actor MysteryPowerup : CustomInventory 13422
 			fail
 	}
 }
+
+ACTOR RageSphere : PowerupGiver
+{
+	Game Doom
+	Game Heretic
+	Game Hexen
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type DoubleFiringSpeed
+	Powerup.Color GoldMap
+	Powerup.Duration 1050
+	Inventory.PickupMessage "Rage Sphere!"
+	States
+	{
+	Spawn:
+		DOOM A 10 Bright
+		Loop
+	}
+}
+
+ACTOR UltraSphere : Custominventory 25075
+{
+	Scale 0.5
+	inventory.pickupmessage "UltraSphere!"
+	inventory.pickupsound "misc/p_pkup"
+	RenderStyle Add
+	Alpha 0.9
+	+COUNTITEM
+	+FLOATBOB
+	+NOGRAVITY
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		ULTR ABC 1
+		loop
+	Pickup:
+		TNT1 A 0 A_PlaysoundEX("UltraInsanity", SoundSlot7, 0)
+		TNT1 A 0 A_GiveInventory ("TurboSphere")
+		TNT1 A 0 A_GiveInventory ("DoomSphere")
+		TNT1 A 0 A_GiveInventory ("RageSphere")
+		TNT1 A 0 A_GiveInventory ("GuardSphere")
+		TNT1 A 0 A_GiveInventory ("Infrared")
+		TNT1 A 0 A_GiveInventory ("Backpack")
+		TNT1 A 0 A_GiveInventory ("Berserk")
+		TNT1 A 0 A_GiveInventory ("Radsuit")
+		TNT1 A 0 A_GiveInventory ("MegaSphere")
+		TNT1 A 0 A_GiveInventory ("Redarmor")
+		TNT1 A 0 A_GiveInventory ("CellAmmo", 300)
+		TNT1 A 0 A_GiveInventory ("DemonicPower", 100)
+		TNT1 A 0 A_GiveInventory ("MaxHealthBonus", 100)
+		stop
+	}
+}

@@ -37,6 +37,7 @@ const int STOPSPIN = 965;
 const int HITCROSS = 966;
 
 #include "actors/effects.txt"
+#include "actors/keys.txt"
 #include "actors/casings.txt"
 #include "actors/missionselector.txt"
 #include "actors/checksandtriggers.txt"
@@ -1525,65 +1526,6 @@ actor GrapplerShot : ClericWeapon 20481
 	}
 }
 
-ACTOR RageSphere : PowerupGiver
-{
-	Game Doom
-	Game Heretic
-	Game Hexen
-	+COUNTITEM
-	+NOGRAVITY
-	+INVENTORY.AUTOACTIVATE
-	+INVENTORY.ALWAYSPICKUP
-	Inventory.MaxAmount 0
-	Powerup.Type DoubleFiringSpeed
-	Powerup.Color GoldMap
-	Powerup.Duration 1050
-	Inventory.PickupMessage "Rage Sphere!"
-	States
-	{
-	Spawn:
-		DOOM A 10 Bright
-		Loop
-	}
-}
-
-
-ACTOR UltraSphere : Custominventory 25075
-{
-	Scale 0.5
-	inventory.pickupmessage "UltraSphere!"
-	inventory.pickupsound "misc/p_pkup"
-	RenderStyle Add
-	Alpha 0.9
-	+COUNTITEM
-	+FLOATBOB
-	+NOGRAVITY
-	+FORCEXYBILLBOARD
-	States
-	{
-	Spawn:
-		ULTR ABC 1
-		loop
-	Pickup:
-		TNT1 A 0 A_PlaysoundEX("UltraInsanity", SoundSlot7, 0)
-		TNT1 A 0 A_GiveInventory ("TurboSphere")
-		TNT1 A 0 A_GiveInventory ("DoomSphere")
-		TNT1 A 0 A_GiveInventory ("RageSphere")
-		TNT1 A 0 A_GiveInventory ("GuardSphere")
-		TNT1 A 0 A_GiveInventory ("BishopStaff")
-		TNT1 A 0 A_GiveInventory ("Infrared")
-		TNT1 A 0 A_GiveInventory ("Backpack")
-		TNT1 A 0 A_GiveInventory ("Berserk")
-		TNT1 A 0 A_GiveInventory ("Radsuit")
-		TNT1 A 0 A_GiveInventory ("MegaSphere")
-		TNT1 A 0 A_GiveInventory ("Redarmor")
-		TNT1 A 0 A_GiveInventory ("CellAmmo", 300)
-		TNT1 A 0 A_GiveInventory ("DemonicPower", 100)
-		TNT1 A 0 A_GiveInventory ("MaxHealthBonus", 10)
-		stop
-	}
-}
-
 actor SlaugheredMarine 20322
 {
 	Height 56
@@ -2231,104 +2173,6 @@ actor Beamer : Weapon 21321
 	}
 }
 
-// Striker's Keys
-
-Actor KeyPiece1 : PuzzleItem 23234
-{
--INVBAR
-Inventory.MaxAmount 1
-Inventory.Icon TNT1A0
-inventory.pickupsound "misc/k_pkup"
-inventory.pickupmessage "Found Piece #1 of \chStriker\cdMan\ci780\cl's Key"
-inventory.Respawntics 600
-States
-{
-Spawn:
-	SKEY A 4
-	Loop
-}
-}
-
-Actor KeyPiece2 : PuzzleItem 23235
-{
--INVBAR
-Inventory.MaxAmount 1
-Inventory.Icon TNT1A0
-inventory.pickupsound "misc/k_pkup"
-inventory.pickupmessage "Found Piece #2 of \chStriker\cdMan\ci780\cl's Key"
-inventory.Respawntics 600
-States
-{
-Spawn:
-	SKEY A 4
-	Loop
-}
-}
-
-Actor KeyPiece3 : PuzzleItem 23236
-{
--INVBAR
-Inventory.MaxAmount 1
-Inventory.Icon TNT1A0
-inventory.pickupsound "misc/k_pkup"
-inventory.pickupmessage "Found Piece #3 of \chStriker\cdMan\ci780\cl's Key"
-inventory.Respawntics 600
-States
-{
-Spawn:
-	SKEY A 4
-	Loop
-}
-}
-
-Actor KeyPiece4 : PuzzleItem 23237
-{
--INVBAR
-Inventory.MaxAmount 1
-Inventory.Icon TNT1A0
-inventory.pickupsound "misc/k_pkup"
-inventory.pickupmessage "Found Piece #4 of \chStriker\cdMan\ci780\cl's Key"
-inventory.Respawntics 600
-States
-{
-Spawn:
-	SKEY A 4
-	Loop
-}
-}
-
-Actor KeyPiece5 : PuzzleItem 23238
-{
--INVBAR
-Inventory.MaxAmount 1
-Inventory.Icon TNT1A0
-inventory.pickupsound "misc/k_pkup"
-inventory.pickupmessage "Found Piece #5 of \chStriker\cdMan\ci780\cl's Key"
-inventory.Respawntics 600
-States
-{
-Spawn:
-	SKEY A 4
-	Loop
-}
-}
-
-Actor KeyPiece6 : PuzzleItem 23239
-{
--INVBAR
-Inventory.MaxAmount 1
-Inventory.Icon TNT1A0
-inventory.pickupsound "misc/k_pkup"
-inventory.pickupmessage "Found Piece #6 of \chStriker\cdMan\ci780\cl's Key"
-inventory.Respawntics 600
-States
-{
-Spawn:
-	SKEY A 4
-	Loop
-}
-}
-
 actor BurningFireFlame : BasicFlame
 {
 	Scale 0.4
@@ -2416,24 +2260,6 @@ Actor DeathbringerPickup : HellbenderPickup 26173
 		SHIP A 0
 		SHIP A 0
 		stop
-	}
-}
-
-ACTOR SmileyNunchuck 20526
-{
-	Game Doom
-	Radius 4
-	Height 4
-	Scale 0.40
-	-SOLID
-	+ALLOWCLIENTSPAWN
-	States
-	{
-	Spawn:
-		UATA ABCDEFGHIJKLMNOPQRSTUVWXYZ 4
-		UAT2 A 4
-		UAT2 BCB 20
-		Loop
 	}
 }
 
@@ -3512,7 +3338,7 @@ actor SniperRifle : ClericWeapon 19983
 			SINS B 0 A_FireCustomMissile("SniperSmoke", random(-1, 1), 0, 1, 9)
 			SINS B 0 A_FireCustomMissile("BulletTracer", 0, 0, 8, 4)
 			SINS B 0 BRIGHT A_GunFlash
-			SINS B 0 BRIGHT A_FireBullets (0, 0, 3, 33, "SniperPuff", FBF_USEAMMO | FBF_NORANDOM)
+			SINS B 0 BRIGHT A_FireBullets (0, 0, 3, 50, "SniperPuff", FBF_USEAMMO | FBF_NORANDOM)
 			SINS B 2 BRIGHT A_SetPitch(pitch-1.5)
 			SINS C 0 A_SetPitch(pitch+0.25)
 			SINS C 2 A_FireCustomMissile("SniperSmokeSmall", frandom(-1.0, 1.0), 0, 1, 9)

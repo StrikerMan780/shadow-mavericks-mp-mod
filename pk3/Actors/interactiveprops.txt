@@ -82,3 +82,7 @@ actor 8trackStereo : SwitchableDecoration 16542
 			loop
 	}
 }
+
+ACTOR SmileyNunchuck 20526
+{
+}

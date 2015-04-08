@@ -298,7 +298,7 @@ actor KeyringPuff : SilverBulletPuff
 
 actor SniperPuff : NewBulletPuff
 {
-	DamageType "HeadBurst"
+	DamageType "Sniper"
 }
 
 actor MinigunPuff : NewBulletPuff
