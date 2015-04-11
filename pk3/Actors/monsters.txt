@@ -828,6 +828,7 @@ actor GBTWBelphegor : GBTWHellKnight 5008
 			BOS3 G 6 A_BasicAttack (10, "baron/melee", "BelphegorBall", 32)
 			Goto See
 		Death:
+			BOS3 I 0 A_TakeInventory("Firing", 1)
 			BOS3 I 8 A_GiveToTarget("DemonicPower", 32)
 			BOS3 J 8 A_Scream
 			BOS3 K 8
@@ -3017,6 +3018,7 @@ ACTOR Danny_Tourettes_Guard 19632
 			TGUY F 0 Bright A_PlayWeaponSound("weapons/chngun")
 			TGUY F 2 Bright A_CustomBulletAttack(4, 3, 1, 8, "Tourettes_BulletPuff")
 			TGUY F 0 A_JumpIf(momx < 2 && momy < 2 && momx > -2 && momy > -2, "DodgeShootLeft")
+			TGUY F 0 A_MonsterRefire(0, "Spawn") 
 			TGUY F 0 A_JumpIf(user_dodgeshootcount <= 6, "DodgeShootLoop")
 			goto See
 		DodgeShootLeft:
@@ -3030,6 +3032,7 @@ ACTOR Danny_Tourettes_Guard 19632
 			TGUY F 0 Bright A_PlayWeaponSound("weapons/chngun")
 			TGUY F 2 Bright A_CustomBulletAttack(4, 3, 1, 8, "Tourettes_BulletPuff")
 			TGUY F 0 A_JumpIf(momx < 2 && momy < 2 && momx > -2 && momy > -2, "DodgeShoot")
+			TGUY F 0 A_MonsterRefire(0, "Spawn") 
 			TGUY F 0 A_JumpIf(user_dodgeshootcount <= 6, "DodgeShootLeftLoop")
 			goto See
 		Missile:
