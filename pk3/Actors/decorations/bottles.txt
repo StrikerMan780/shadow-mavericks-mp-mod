@@ -1,0 +1,104 @@
+actor BaseBottle
+{
+	DamageFactor "Fire", 0.0
+	Mass 0x7fffffff
+	Health 5
+	Radius 6
+	Height 16
+	Scale 0.8
+	+SHOOTABLE
+	+SOLID
+	+NOBLOOD
+	States
+	{
+		Death:
+			TNT1 AAAAAAAAAAAAA 0 A_SpawnItemEx("MolotovGlass", 0, 0, 0, frandom(-4.0,4.0), frandom(-4.0,4.0), frandom(0.0,8.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			TNT1 A 0 A_PlaySound("bottlebreak", CHAN_AUTO)
+			TNT1 A 2100
+			TNT1 A 0 A_JumpIf(1 == 1, "Respawn")
+			stop
+	}
+}
+
+actor Booze2 : BaseBottle 30101
+{
+	States
+	{
+		Spawn:
+			BOZE B -1
+			stop
+		Death:
+			TNT1 AAAAAAAAAAAAA 0 A_SpawnItemEx("GreenBottleGlass", 0, 0, 0, frandom(-4.0,4.0), frandom(-4.0,4.0), frandom(0.0,8.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			TNT1 A 0 A_PlaySound("bottlebreak", CHAN_AUTO)
+			TNT1 A 2100
+			goto Respawn
+		Respawn:
+			TNT1 A 0 A_SpawnItemEx("Booze2", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
+
+actor Booze3 : BaseBottle 30102
+{
+	States
+	{
+		Spawn:
+			BOZE C -1
+			stop
+		Respawn:
+			TNT1 A 0 A_SpawnItemEx("Booze3", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
+
+actor Booze4 : BaseBottle 30103
+{
+	States
+	{
+		Spawn:
+			BOZE D -1
+			stop
+		Respawn:
+			TNT1 A 0 A_SpawnItemEx("Booze4", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
+
+actor Booze5 : BaseBottle 30104
+{
+	States
+	{
+		Spawn:
+			BOZE E -1
+			stop
+		Respawn:
+			TNT1 A 0 A_SpawnItemEx("Booze5", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
+
+actor Booze6 : BaseBottle 30105
+{
+	States
+	{
+		Spawn:
+			BOZE F -1
+			stop
+		Respawn:
+			TNT1 A 0 A_SpawnItemEx("Booze6", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
+
+actor Booze7 : BaseBottle 30106
+{
+	States
+	{
+		Spawn:
+			BOZE G -1
+			stop
+		Respawn:
+			TNT1 A 0 A_SpawnItemEx("Booze7", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
