@@ -119,3 +119,29 @@ ACTOR UltraSphere : Custominventory 25075
 		stop
 	}
 }
+
+actor Booze1 : CustomInventory 30100
+{
+	inventory.pickupmessage "Drank an Entire 40oz Jug of Malt Liquor!"
+	inventory.pickupsound "drinkpickup"
+	inventory.maxamount 0
+	Radius 6
+	Height 16
+	Scale 0.8
+	+COUNTITEM
+	+INVENTORY.AUTOACTIVATE
+	States
+	{
+		Spawn:
+			BOZE A -1
+			stop
+		Pickup:
+			TNT1 A 0
+			TNT1 A 1 A_JumpIfInventory("DrunkMode", 1, "FeckOffCrows")
+			TNT1 A 0 ACS_ExecuteAlways(DRUNK_MODE, 0)
+			stop
+		FeckOffCrows:
+			TNT1 A 1
+			fail
+	}
+}
