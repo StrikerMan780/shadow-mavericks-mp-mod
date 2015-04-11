@@ -612,83 +612,6 @@ object PowerBeam
     frame APBXE { light ARACHPLAS_X4 }
 }
 
-// Arachnotron Fireball
-pointlight BLUEPOWPLAS
-{
-    color 0.0 0.5 1.0
-    size 56
-}
-
-flickerlight BLUEPOWPLAS_X1
-{
-    color 0.0 0.5 0.8
-    size 72
-    secondarySize 80
-    chance 0.3
-}
-
-flickerlight BLUEPOWPLAS_X2
-{
-    color 0.0 0.5 0.7
-    size 88
-    secondarySize 96
-    chance 0.3
-}
-
-flickerlight BLUEPOWPLAS_X3
-{
-    color 0.0 0.4 0.4
-    size 48
-    secondarySize 32
-    chance 0.3
-}
-
-flickerlight BLUEPOWPLAS_X4
-{
-    color 0.0 0.2 0.4
-    size 24
-    secondarySize 16
-    chance 0.3
-}
-
-object BluePowerBeam
-{
-    frame BLSSA { light BLUEPOWPLAS }
-    frame BLSSB { light BLUEPOWPLAS }
-
-    frame BLSEA { light BLUEPOWPLAS_X1 }
-    frame BLSEB { light BLUEPOWPLAS_X2 }
-    frame BLSEC { light BLUEPOWPLAS_X2 }
-    frame BLSED { light BLUEPOWPLAS_X3 }
-    frame BLSEE { light BLUEPOWPLAS_X4 }
-}
-
-flickerlight MAGELIGHT
-{
-    color 0.4 0.4 1.0
-    size 48
-    secondarySize 52
-    chance 0.7
-}
-
-object LightningCeiling
-{
-    frame MLFX { light MAGELIGHT }
-    frame MLF2 { light MAGELIGHT }
-}
-
-object LightningFloor
-{
-    frame MLFX { light MAGELIGHT }
-    frame MLF2 { light MAGELIGHT }
-}
-
-object LightningZapZ
-{
-    frame MLFX { light MAGELIGHT }
-    frame MLF2 { light MAGELIGHT }
-}
-
 pulselight ForceEffect
 {
     color 0.0 1.0 1.0
@@ -704,8 +627,8 @@ object ForceFX
 
 pointlight FlameThrower
 {
-Color 1.0 0.8 0.0
-size 45
+	Color 1.0 0.8 0.0
+	size 45
 }
 
 object FlameStream
@@ -1013,84 +936,11 @@ object NeedlerFlare
 	frame NEFLA { light Needler }
 }
 
-// Crossbow secondary projectile
-pointlight SMALLBOWBOLT
-{
-    color 0.0 1.0 0.0
-    size 40
-}
-
-flickerlight SMALLBOWBOLT_X1
-{
-    color 0.0 0.7 0.0
-    size 48
-    secondarySize 52
-    chance 0.3
-}
-
-flickerlight SMALLBOWBOLT_X2
-{
-    color 0.0 0.4 0.0
-    size 40
-    secondarySize 44
-    chance 0.3
-}
-
-flickerlight SMALLBOWBOLT_X3
-{
-    color 0.0 0.2 0.0
-    size 32
-    secondarySize 36
-    chance 0.3
-}
-
-object BowSide
-{
-    frame FX03A { light SMALLBOWBOLT }
-
-    frame FX03C { light SMALLBOWBOLT_X1 }
-    frame FX03D { light SMALLBOWBOLT_X2 }
-    frame FX03E { light SMALLBOWBOLT_X3 }
-}
-
 // Crossbow primary proectile
-pointlight BIGBOWBOLT
+pointlight BOWCASTERSHOT
 {
-    color 0.7 1.0 0.0
+    color 0.353 1.0 0.475
     size 64
-}
-
-flickerlight BIGBOWBOLT_X1
-{
-    color 0.4 0.8 0.0
-    size 72
-    secondarySize 74
-    chance 0.3
-}
-
-flickerlight BIGBOWBOLT_X2
-{
-    color 0.4 0.6 0.0
-    size 56
-    secondarySize 64
-    chance 0.3
-}
-
-flickerlight BIGBOWBOLT_X3
-{
-    color 0.2 0.4 0.0
-    size 32
-    secondarySize 40
-    chance 0.3
-}
-
-object BowCenter
-{
-    frame FX03B { light BIGBOWBOLT }
-
-    frame FX03H { light BIGBOWBOLT_X1 }
-    frame FX03I { light BIGBOWBOLT_X2 }
-    frame FX03J { light BIGBOWBOLT_X3 }
 }
 
 pointlight ChaosDark

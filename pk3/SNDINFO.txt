@@ -691,6 +691,9 @@ trap3 dstrap3
 trap4 dstrap4
 vox1 dsvox1
 
+bottlebreak dsbtlbrk
+$limit bottlebreak 0
+
 // Force
 ForcePull dsfpull
 

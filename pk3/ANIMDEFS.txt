@@ -228,6 +228,8 @@ flat BLOOD3
 	pic BLOOD1 tics 8
 	pic BLOOD1 tics 8
 	
+cameratexture DRUNKMOD	160	120 fit 853 480
+	
 warp2 flat blood1
 warp flat lava1
 warp flat lava2

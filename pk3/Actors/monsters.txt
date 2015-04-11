@@ -302,8 +302,8 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 			IMPB CCCCCCCCCCCCCCCCCCCCCC 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, Random(5, 10), Random(5,10), Random(2, 20), Random(-255, 255), 128, 0)
 			IMPB CCCCCCCCCCC 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, random(-2, 2), random(-2, 2), random(1, 14), Random(-180, 180), 128, 0)
 			POL5 A 0 A_NoBlocking
-			POL5 A -1
-			stop
+			POL5 A 10500
+			goto Fade
 		XDeath:
 			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
@@ -560,12 +560,12 @@ ACTOR CacolanternBall
 	DeathSound "caco/shotx"
 	States
 	{
-	Spawn:
-		BAL8 AB 4 BRIGHT
-		Loop
-	Death:
-		BAL8 CDE 6 BRIGHT
-		Stop
+		Spawn:
+			BAL8 AB 4 BRIGHT
+			Loop
+		Death:
+			BAL8 CDE 6 BRIGHT
+			Stop
 	}
 }
 
@@ -581,45 +581,45 @@ ACTOR Abaddon : Cacolantern 5015
 	Bloodcolor "FF 00 00"
 	States
 	{
-	Spawn:
-		HED3 A 10 A_Look
-		Loop
-	See:
-		HED3 A 3 A_Chase
-		Loop
-	Pain:
-		HED3 E 3
-		HED3 E 3 A_Pain
-		HED3 F 6
-		Goto See
-	Missile:
-		HED3 BC 5 A_FaceTarget
-		HED3 D 5 BRIGHT A_BasicAttack (8, "None", "AbaddonBall", 32)
-		HED3 BC 5 A_FaceTarget
-		HED3 D 5 BRIGHT A_BasicAttack (8, "None", "AbaddonBall", 32)
-		Goto See
-	Death:
-		HED3 G 0 A_Scream
-		HED3 G 4
-		HED3 G 4
-		HED3 H 8
-		HED3 H -1
-		stop
-	Crash:
-		HED3 I 4 A_PlaySoundEx("*fist", "Auto", 0, 0)
-		HED3 J 4
-		HED3 K 2 A_NoBlocking
-		HED3 K 1 A_UnsetSolid
-		HED3 K 1 A_UnSetShootable
-		HED3 L 10500 A_SetFloorClip
-		goto Fade
-	Fade:
-		"####" "#" 1 A_FadeOut(0.05)
-		loop
-	Raise:
-		HED3 L 8 A_UnSetFloorClip
-		HED3 KJIHG 8
-		Goto See
+		Spawn:
+			HED3 A 10 A_Look
+			Loop
+		See:
+			HED3 A 3 A_Chase
+			Loop
+		Pain:
+			HED3 E 3
+			HED3 E 3 A_Pain
+			HED3 F 6
+			Goto See
+		Missile:
+			HED3 BC 5 A_FaceTarget
+			HED3 D 5 BRIGHT A_BasicAttack (8, "None", "AbaddonBall", 32)
+			HED3 BC 5 A_FaceTarget
+			HED3 D 5 BRIGHT A_BasicAttack (8, "None", "AbaddonBall", 32)
+			Goto See
+		Death:
+			HED3 G 0 A_Scream
+			HED3 G 4
+			HED3 G 4
+			HED3 H 8
+			HED3 H -1
+			stop
+		Crash:
+			HED3 I 4 A_PlaySoundEx("*fist", "Auto", 0, 0)
+			HED3 J 4
+			HED3 K 2 A_NoBlocking
+			HED3 K 1 A_UnsetSolid
+			HED3 K 1 A_UnSetShootable
+			HED3 L 10500 A_SetFloorClip
+			goto Fade
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
+		Raise:
+			HED3 L 8 A_UnSetFloorClip
+			HED3 KJIHG 8
+			Goto See
 	}
 }
 
@@ -637,12 +637,12 @@ ACTOR AbaddonBall
 	DeathSound "caco/shotx"
 	States
 	{
-	Spawn:
-		BAL3 AB 4 BRIGHT
-		Loop
-	Death:
-		BAL3 CDE 6 BRIGHT
-		Stop
+		Spawn:
+			BAL3 AB 4 BRIGHT
+			Loop
+		Death:
+			BAL3 CDE 6 BRIGHT
+			Stop
 	}
 }
 
@@ -1478,6 +1478,12 @@ actor SM_LostSoul : LostSoul Replaces LostSoul
 {
 	Health 50
 	DeathSound "misc/unused"
+	States
+	{
+		See:
+			SKUL AB 3 Bright A_Chase
+			Loop
+	}
 }
 
 //Vulgar
@@ -1578,8 +1584,8 @@ actor Vulgar : DoomImp 30127
 			VULG CCCCCCCCCCCCCCCCCCCCCC 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, Random(5, 10), Random(5,10), Random(2, 20), Random(-255, 255), 128, 0)
 			VULG CCCCCCCCCCC 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, random(-2, 2), random(-2, 2), random(1, 14), Random(-180, 180), 128, 0)
 			POL5 A 0 A_NoBlocking
-			POL5 A -1
-			stop
+			POL5 A 10500
+			goto Fade
 		Raise:
 			VULG ML 8
 			VULG KJI 6
@@ -1841,7 +1847,7 @@ actor Grell
 			GREL K 4
 			GREL LM 4 A_SetFloorClip
 			GREL N 10500
-			Stop
+			goto Fade
 		Raise:
 			GREL M 5 A_UnSetFloorClip
 			GREL LKJIH 5
@@ -2387,52 +2393,55 @@ ACTOR Hectebus : SM_Fatso 5007
    Obituary "$OB_HECTEBUS"
    States
    {
-   Spawn:
-	  HECT AB 15 A_Look
-	  Loop
-   See:
-	  HECT AABBCCDDEEFF 4 A_Chase
-	  Loop
-   Pain:
-	  HECT J 3 A_TakeInventory("Firing", 1)
-	  HECT J 3 A_Pain
-	  Goto See
-   Missile:
-	  //These Next 2 states replace A_FatRaise and A_HectRaise
-	  HECT G 0 A_PlaySound("fatso/raiseguns")
-	  HECT G 20 A_FaceTarget
-	  HECT H 0 A_GiveInventory("Firing", 1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,5.625,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,11.25,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,16.875,1)
-	  HECT H 10 BRIGHT
-	  HECT IG 5 A_FaceTarget
-	  HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,-5.625,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,-11.25,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,-16.875,1)
-	  HECT H 10 BRIGHT
-	  HECT IG 5 A_FaceTarget
-	  HECT H 0 A_CustomMissile("HectShot",28,0,-11.25,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,-5.625,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,5.625,1)
-	  HECT H 0 A_CustomMissile("HectShot",28,0,11.25,1)
-	  HECT H 10 BRIGHT A_TakeInventory("Firing", 1)
-	  HECT IG 5 A_FaceTarget
-	  Goto See
-   Death:
-	  HECT K 6
-	  HECT L 6 A_Scream
-	  HECT M 6 A_NoBlocking
-	  HECT NOPQRS 6
-	  HECT T -1
-	  Stop
-   Raise:
-	  HECT RQPONMLK 5
-	  Goto See
-   }
+		Spawn:
+			HECT AB 15 A_Look
+			Loop
+		See:
+			HECT AABBCCDDEEFF 4 A_Chase
+			Loop
+		Pain:
+			HECT J 3 A_TakeInventory("Firing", 1)
+			HECT J 3 A_Pain
+			Goto See
+		Missile:
+			//These Next 2 states replace A_FatRaise and A_HectRaise
+			HECT G 0 A_PlaySound("fatso/raiseguns")
+			HECT G 20 A_FaceTarget
+			HECT H 0 A_GiveInventory("Firing", 1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,5.625,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,11.25,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,16.875,1)
+			HECT H 10 BRIGHT
+			HECT IG 5 A_FaceTarget
+			HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,-5.625,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,-11.25,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,-16.875,1)
+			HECT H 10 BRIGHT
+			HECT IG 5 A_FaceTarget
+			HECT H 0 A_CustomMissile("HectShot",28,0,-11.25,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,-5.625,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,5.625,1)
+			HECT H 0 A_CustomMissile("HectShot",28,0,11.25,1)
+			HECT H 10 BRIGHT A_TakeInventory("Firing", 1)
+			HECT IG 5 A_FaceTarget
+			Goto See
+		Death:
+			HECT K 6
+			HECT L 6 A_Scream
+			HECT M 6 A_NoBlocking
+			HECT NOPQRS 6
+			HECT T 10500
+			goto Fade
+		Raise:
+			HECT RQPONMLK 5
+			Goto See
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
+	}
 }
 
 ACTOR HectShot : FatShot

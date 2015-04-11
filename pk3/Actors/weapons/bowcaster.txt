@@ -215,7 +215,7 @@ actor BowShot
 	States
 	{
 		Spawn:
-			FX03 A 1 BRIGHT
+			FX03 A 1 BRIGHT Light("BOWCASTERSHOT")
 			loop
 		XDeath:
 			TNT1 A 0

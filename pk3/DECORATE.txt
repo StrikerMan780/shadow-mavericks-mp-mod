@@ -29,6 +29,7 @@ const int GIVELIGHTNINGSOUND = 924;
 const int KNOCKOUT = 925;
 const int DOWALLJUMP = 926;
 const int JUMPCHECK = 927;
+const int DRUNK_MODE = 933;
 const int INIT_FOOTSTEPS = 961;
 const int TPUPGRADE = 962;
 const int GIVEWEAPON = 963;
@@ -5483,124 +5484,6 @@ actor Raining1024Skybox 18427
 		TNT1 A 2 A_SpawnItemEX("Rain", Random(-512,512), Random(-512,512), 0, 0, 0, 0, 0, 128, 96)
 		loop
 	}
-}
-
-actor Booze1 : CustomInventory 30100
-{
-	inventory.pickupmessage "Drank an Entire 40oz Jug of Malt Liquor!"
-	inventory.pickupsound "drinkpickup"
-	inventory.maxamount 0
-	Radius 6
-	Height 16
-	Scale 0.8
-	+COUNTITEM
-	+INVENTORY.AUTOACTIVATE
-	States
-	{
-		Spawn:
-			BOZE A -1
-			stop
-		Use:
-			TNT1 A 0
-			TNT1 A 1 A_Print("Sorry, Drunk Mode Script Needs Fixing")
-			stop
-	}
-}
-
-actor Booze2 30101
-{
-//$SPRITE BOZEB0
-//Booze2
-Radius 6
-Height 16
-Scale 0.8
-+SOLID
-States
-{
-Spawn:
-BOZE B -1
-stop
-}
-}
-
-actor Booze3 30102
-{
-//$SPRITE BOZEC0
-//Booze3
-Radius 6
-Height 16
-Scale 0.8
-+SOLID
-States
-{
-Spawn:
-BOZE C -1
-stop
-}
-}
-
-actor Booze4 30103
-{
-//$SPRITE BOZED0
-//Booze4
-Radius 6
-Height 16
-Scale 0.8
-+SOLID
-States
-{
-Spawn:
-BOZE D -1
-stop
-}
-}
-
-actor Booze5 30104
-{
-//$SPRITE BOZEE0
-//Booze5
-Radius 6
-Height 16
-Scale 0.8
-+SOLID
-States
-{
-Spawn:
-BOZE E -1
-stop
-}
-}
-
-actor Booze6 30105
-{
-//$SPRITE BOZEF0
-//Booze6
-Radius 6
-Height 16
-Scale 0.8
-+SOLID
-States
-{
-Spawn:
-BOZE F -1
-stop
-}
-}
-
-actor Booze7 30106
-{
-//$SPRITE BOZEG0
-//Booze7
-Radius 6
-Height 16
-Scale 0.8
-+SOLID
-States
-{
-Spawn:
-BOZE G -1
-stop
-}
 }
 
 ACTOR MiniPalmTree 30001

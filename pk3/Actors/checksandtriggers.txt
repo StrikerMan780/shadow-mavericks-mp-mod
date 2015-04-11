@@ -60,6 +60,11 @@ actor MysteryPowerupInUse : BaseCheck
 {
 }
 
+actor DrunkMode : BaseCheck
+{
+}
+
+
 actor NukeTrigger 17462
 {
 	Health 99999
