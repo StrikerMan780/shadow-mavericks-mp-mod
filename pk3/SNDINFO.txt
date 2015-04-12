@@ -602,6 +602,21 @@ Hanger/Death	GK_DETH1
 SlimeBall/Splat	DSSICKEX
 $limit SlimeBall/Splat 0
 
+Vomit1 dsvomit1
+Vomit2 dsvomit2
+$random Vomit { Vomit1 Vomit2 }
+
+Drunk1 dsdrunk1
+Drunk2 dsdrunk2
+Drunk3 dsdrunk3
+Drunk4 dsdrunk4
+Drunk5 dsdrunk5
+Drunk6 dsdrunk6
+Drunk7 dsdrunk7
+Drunk8 dsdrunk8
+Drunk9 dsdrunk9
+$random Drunk { Drunk1 Drunk2 Drunk3 Drunk4 Drunk5 Drunk6 Drunk7 Drunk8 Drunk9 }
+
 //***********************************
 
 // ************ ITEMS ***********
@@ -642,11 +657,6 @@ sand dssand
 
 
 // Misc Shit
-
-DrunkSong1 DSDICK
-DrunkSong2 DSFLOGGN
-DrunkSong3 DSDRNKFI
-$RANDOM DrunkSong { DrunkSong1 DrunkSong2 DrunkSong3 }
 
 BurningFire DSBURNIN
 SmallBurningFire DSSMLBRN
@@ -691,7 +701,12 @@ trap3 dstrap3
 trap4 dstrap4
 vox1 dsvox1
 
-bottlebreak dsbtlbrk
+bottlebreak1 dsbtlbr1
+bottlebreak2 dsbtlbr2
+bottlebreak3 dsbtlbr3
+bottlebreak4 dsbtlbr4
+bottlebreak5 dsbtlbr5
+$random bottlebreak { bottlebreak1 bottlebreak2 bottlebreak3 bottlebreak4 bottlebreak5 }
 $limit bottlebreak 0
 
 // Force

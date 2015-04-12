@@ -228,7 +228,70 @@ flat BLOOD3
 	pic BLOOD1 tics 8
 	pic BLOOD1 tics 8
 	
-cameratexture DRUNKMOD	160	120 fit 853 480
+cameratexture DRUNKM01	160	120 fit 853 480
+cameratexture DRUNKM02	160	120 fit 853 480
+cameratexture DRUNKM03	160	120 fit 853 480
+cameratexture DRUNKM04	160	120 fit 853 480
+cameratexture DRUNKM05	160	120 fit 853 480
+cameratexture DRUNKM06	160	120 fit 853 480
+cameratexture DRUNKM07	160	120 fit 853 480
+cameratexture DRUNKM08	160	120 fit 853 480
+cameratexture DRUNKM09	160	120 fit 853 480
+cameratexture DRUNKM10	160	120 fit 853 480
+cameratexture DRUNKM11	160	120 fit 853 480
+cameratexture DRUNKM12	160	120 fit 853 480
+cameratexture DRUNKM13	160	120 fit 853 480
+cameratexture DRUNKM14	160	120 fit 853 480
+cameratexture DRUNKM15	160	120 fit 853 480
+cameratexture DRUNKM16	160	120 fit 853 480
+cameratexture DRUNKM17	160	120 fit 853 480
+cameratexture DRUNKM18	160	120 fit 853 480
+cameratexture DRUNKM19	160	120 fit 853 480
+cameratexture DRUNKM20	160	120 fit 853 480
+cameratexture DRUNKM21	160	120 fit 853 480
+cameratexture DRUNKM22	160	120 fit 853 480
+cameratexture DRUNKM23	160	120 fit 853 480
+cameratexture DRUNKM24	160	120 fit 853 480
+cameratexture DRUNKM25	160	120 fit 853 480
+cameratexture DRUNKM26	160	120 fit 853 480
+cameratexture DRUNKM27	160	120 fit 853 480
+cameratexture DRUNKM28	160	120 fit 853 480
+cameratexture DRUNKM29	160	120 fit 853 480
+cameratexture DRUNKM30	160	120 fit 853 480
+cameratexture DRUNKM31	160	120 fit 853 480
+cameratexture DRUNKM32	160	120 fit 853 480
+cameratexture DRUNKM33	160	120 fit 853 480
+cameratexture DRUNKM34	160	120 fit 853 480
+cameratexture DRUNKM35	160	120 fit 853 480
+cameratexture DRUNKM36	160	120 fit 853 480
+cameratexture DRUNKM37	160	120 fit 853 480
+cameratexture DRUNKM38	160	120 fit 853 480
+cameratexture DRUNKM39	160	120 fit 853 480
+cameratexture DRUNKM40	160	120 fit 853 480
+cameratexture DRUNKM41	160	120 fit 853 480
+cameratexture DRUNKM42	160	120 fit 853 480
+cameratexture DRUNKM43	160	120 fit 853 480
+cameratexture DRUNKM44	160	120 fit 853 480
+cameratexture DRUNKM45	160	120 fit 853 480
+cameratexture DRUNKM46	160	120 fit 853 480
+cameratexture DRUNKM47	160	120 fit 853 480
+cameratexture DRUNKM48	160	120 fit 853 480
+cameratexture DRUNKM49	160	120 fit 853 480
+cameratexture DRUNKM50	160	120 fit 853 480
+cameratexture DRUNKM51	160	120 fit 853 480
+cameratexture DRUNKM52	160	120 fit 853 480
+cameratexture DRUNKM53	160	120 fit 853 480
+cameratexture DRUNKM54	160	120 fit 853 480
+cameratexture DRUNKM55	160	120 fit 853 480
+cameratexture DRUNKM56	160	120 fit 853 480
+cameratexture DRUNKM57	160	120 fit 853 480
+cameratexture DRUNKM58	160	120 fit 853 480
+cameratexture DRUNKM59	160	120 fit 853 480
+cameratexture DRUNKM60	160	120 fit 853 480
+cameratexture DRUNKM61	160	120 fit 853 480
+cameratexture DRUNKM62	160	120 fit 853 480
+cameratexture DRUNKM63	160	120 fit 853 480
+cameratexture DRUNKM64	160	120 fit 853 480
 	
 warp2 flat blood1
 warp flat lava1
