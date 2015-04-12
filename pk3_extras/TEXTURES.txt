@@ -6,6 +6,11 @@ Texture SKYDAY, 2048, 2048
 	Patch SKYDAYP, 0, 0
 }
 
+Texture SKYGREY, 2048, 2048
+{
+	Patch SKYGREYP, 0, 0
+}
+
 Texture SKYDAY2, 2048, 2048
 {
 	Patch SKYDAYP, 0, 0
