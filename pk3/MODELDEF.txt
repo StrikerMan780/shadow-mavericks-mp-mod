@@ -387,6 +387,21 @@ model Booze7
 
 // ******* PROJECTILES *********
 
+model ThrownScrumpy
+{
+	Path "Models/bottles"
+	Model 0 "scrumpy.md3"
+	Skin 0 "scrumpy.png"
+	Scale 2.4 2.4 2.88
+	ZOffset -4
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 0 0 1
+
+	FrameIndex BOZE C 0 0
+}
+
 model ThrownBottle
 {
 	Path "Models/bottles"

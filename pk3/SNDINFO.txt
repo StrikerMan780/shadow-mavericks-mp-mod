@@ -5,6 +5,7 @@ hitsound dshitsnd
 $limit hitsound 0
 
 NewWeapon dsnewwep
+Condom dscondom
 
 HereComesTheSun dsbeatle
 NYC dsnyc
@@ -573,6 +574,10 @@ ChainsawOff DSSAWOFF
 ChainsawRev DSSAWREV
 ChainsawDown DSSAWDWN
 ChainsawSlash DSSAWSLA
+
+DemoBoom dsdemobm
+$limit DemoBoom 0
+$rolloff DemoBoom 400 2400 
 
 //************-MONSTERS-*************
 

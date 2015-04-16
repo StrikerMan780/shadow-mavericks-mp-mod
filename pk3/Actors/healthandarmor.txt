@@ -270,3 +270,32 @@ ACTOR RedArmor : BasicArmorPickup 5040
 		Loop
 	}
 }
+
+actor Condom1 : MaxArmorBonus 18814
+{
+	Inventory.PickupMessage "Durex Avanti BARE Latex Condom (+1 Max Armor)"
+	Inventory.PickupSound "Condom"
+	Armor.SaveAmount 1
+	Armor.MaxBonus 1
+	radius 4
+	height 4
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor Condom2 : Condom1 18815
+{
+	Inventory.PickupMessage "Durex Tropical Flavored Condom (+2 Max Armor)"
+	Armor.SaveAmount 2
+	Armor.MaxBonus 2
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}

@@ -667,3 +667,15 @@ actor GiygasEnergySpawner
 			stop
 	}
 }
+
+actor Duke64Explosion : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	States
+	{
+	Spawn:
+		D6EX ABCDEFGHIJKLMNOPQ 2 BRIGHT
+		stop
+	}
+}

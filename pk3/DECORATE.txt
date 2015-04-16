@@ -4610,26 +4610,6 @@ actor FlakShell
 	}
 }
 
-actor Duke64Explosion
-{
-	Height 1
-	Radius 1
-	Speed 0
-	RenderStyle Add
-	Alpha 1.0
-	+NOGRAVITY
-	+NOBLOCKMAP
-	+NOCLIP
-	+CLIENTSIDEONLY
-	+FORCEXYBILLBOARD
-	States
-	{
-	Spawn:
-		D6EX ABCDEFGHIJKLMNOPQ 2 BRIGHT
-		stop
-	}
-}
-
 actor Duke64ExplosionSmoke
 {
 	Projectile

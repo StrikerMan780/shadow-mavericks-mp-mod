@@ -181,36 +181,6 @@ actor Dildo 18813
 	}
 }
 
-actor Condom1 18814
-{
-  radius 4
-  height 4
-  -SOLID
-  +ALLOWCLIENTSPAWN
-  +NOINTERACTION
-  States
-  {
-  Spawn:
-  NULL A -1
-  loop
-  }
-}
-
-actor Condom2 18815
-{
-  radius 4
-  height 4
-  -SOLID
-  +ALLOWCLIENTSPAWN
-  +NOINTERACTION
-  States
-  {
-  Spawn:
-  NULL A -1
-  loop
-  }
-}
-
 actor Condom_BlueShell 18816
 {
 	radius 4
