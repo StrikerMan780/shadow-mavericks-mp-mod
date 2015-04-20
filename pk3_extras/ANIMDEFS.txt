@@ -1093,3 +1093,25 @@ pic 33 tics 6
 pic 34 tics 6
 pic 35 tics 6
 pic 36 tics 60
+
+texture GSTATI00
+	pic	GSTATI00 tics 1
+	pic	GSTATI01 tics 1
+	pic	GSTATI02 tics 1
+	pic	GSTATI03 tics 1
+	pic	GSTATI04 tics 1
+	pic	GSTATI05 tics 1
+	pic	GSTATI06 tics 1
+	pic	GSTATI07 tics 1
+	pic	GSTATI08 tics 1
+	pic	GSTATI09 tics 1
+	pic	GSTATI10 tics 1
+	pic	GSTATI11 tics 1
+	pic	GSTATI12 tics 1
+	pic	GSTATI13 tics 1
+	pic	GSTATI14 tics 1
+	pic	GSTATI15 tics 1
+	pic	GSTATI16 tics 1
+	pic	GSTATI17 tics 1
+	pic	GSTATI18 tics 1
+	pic	GSTATI19 tics 1
