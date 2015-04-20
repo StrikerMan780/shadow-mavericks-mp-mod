@@ -98,10 +98,11 @@ IF ERRORLEVEL 1 GOTO DEVCORE
 :DEVCORE
 echo Compiling SMMP Development Core Module...
 del .\builds\SMMP_Core_DEV.pk3 /q
+del .\pk3\*.tmp /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_DEV.pk7 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_Core_DEV.pk7 .\
 
 pause
 goto MENU
@@ -109,11 +110,12 @@ goto MENU
 :DEVEXTRAS
 echo Compiling SMMP Development Extras Module...
 del .\builds\SMMP_MapsAndExtras_DEV.pk3 /q
+del .\pk3_extras\*.tmp /q
 move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_DEV.pk7 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_MapsAndExtras_DEV.pk7 .\
 
 pause
 goto MENU
@@ -124,7 +126,7 @@ del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -t7z -mx=9 -ms=on -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk7 .\
+7za a -y -t7z -mx=9 -ms=on -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
@@ -136,7 +138,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -t7z -mx=9 -ms=on -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk7 .\
+7za a -y -t7z -mx=9 -ms=on -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
@@ -147,7 +149,7 @@ del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk7 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
@@ -159,7 +161,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk7 .\
+7za a -y -t7z -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk7 .\
 
 pause
 goto MENU
