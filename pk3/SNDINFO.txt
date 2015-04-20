@@ -197,6 +197,7 @@ weapons/hornrodpowhit		dswthhit
 weathermaker dsweath
 weatherbuzz dsbuzz
 misc/rain dswrain
+misc/rain_inside dswrain2
 
 // Excalibat
 batswing DSBATSWN

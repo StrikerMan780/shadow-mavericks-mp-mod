@@ -136,6 +136,7 @@ actor ThrownBottle
 	Seesound "skeleton/swing"
 	+FORCEXYBILLBOARD
 	+FORCEPAIN
+	+FORCERADIUSDMG
 	-NOGRAVITY
 	States
 	{

@@ -120,6 +120,21 @@ hknight/hit				hrnhit
 hknight/axewhoosh		kgtatk
 hknight/superattack		kgtsupr
 
+// Fireborn
+clink/sight			clksit
+clink/pain			clkpai
+clink/death			clkdth
+
+clinkattack1	clkat1
+clinkattack2	clkat2
+clinkattack3	clkat3
+clinkattack4	clkat4
+$random clink/attack { clinkattack1 clinkattack2 clinkattack3 clinkattack4 }
+
+clinkactive1	CLKACT1
+clinkactive2	CLKACT2
+$random clink/active { clinkactive1 clinkactive2 }
+
 // Grell
 grell/sight     dsgresit
 grell/active    dsgreact

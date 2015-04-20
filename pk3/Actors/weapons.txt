@@ -1,5 +1,7 @@
 actor ClassWeaponGiver : CustomInventory
 {
+	Radius 20
+	Height 16
 	Speed 0
 	Inventory.PickupMessage ""
 	+INVENTORY.AUTOACTIVATE

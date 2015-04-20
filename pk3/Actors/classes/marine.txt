@@ -384,7 +384,6 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	}
 }
 
-
 ACTOR MarineLegs
 {
   Radius 8

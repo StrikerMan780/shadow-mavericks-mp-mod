@@ -1,5 +1,8 @@
 actor MP40Giver : ClassWeaponGiver 23403
 {	
+	//$Category SMMP Weapons
+	//$Title Maschinenpistole 40
+	//$Color 17
 	Scale 0.5
 	states
 	{

@@ -1,5 +1,8 @@
 actor GrenadeLauncherGiver : ClassWeaponGiver 5011
 {	
+	//$Category SMMP Weapons
+	//$Title FG-32 ''Vortex'' Launcher
+	//$Color 17
 	states
 	{
 		Item:

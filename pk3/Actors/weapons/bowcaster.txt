@@ -1,5 +1,9 @@
 actor EtherealCrossbow : Weapon 13321
 {
+	//$Category SMMP Weapons
+	//$Title Ethereal Bowcaster
+	//$Color 17
+	Tag "Ethereal Bowcaster"
 	Scale 0.86
 	radius 20
 	height 16

@@ -38,6 +38,7 @@ const int STOPSPIN = 965;
 const int HITCROSS = 966;
 
 #include "actors/effects.txt"
+#include "actors/weather.txt"
 #include "actors/keys.txt"
 #include "actors/casings.txt"
 #include "actors/missionselector.txt"
@@ -3727,104 +3728,6 @@ Spawn:
 }
 }
 
-actor Drip
-{
-	Radius 1
-	Height 1
-	RenderStyle Translucent
-	Alpha 0.5
-	Scale 0.64
-	+NOINTERACTION
-	+NOBLOCKMAP
-	+DROPOFF
-	+DONTSPLASH
-	+CLIENTSIDEONLY
-	States
-	{
-		Spawn:
-			DRIP ABCDEFGHI 1
-			stop
-	}
-}
-
-actor BloodDrip : Drip
-{
-	States
-	{
-		Spawn:
-			BRIP ABCDEFGHI 1
-			stop
-	}
-}
-
-ACTOR Rain
-{
-	Radius 1
-	Height 1
-	Speed 0
-	Damage 0
-	Alpha 0.6
-	Gravity 2
-	YScale 0.12
-	XScale 0.08
-	RenderStyle Translucent
-	+NOBLOCKMAP
-	+DROPOFF
-	+MISSILE
-	+NOTELEPORT
-	+CLIENTSIDEONLY
-	+DONTSPLASH
-	-ACTIVATEIMPACT
-	-ACTIVATEPCROSS
-	States
-	{
-	Spawn:
-		RAIN A 1 A_JumpIf(waterlevel == 3, "Disappear")
-		Loop
-	Death:
-		TNT1 A 0 A_SpawnItemEx("Drip", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		Stop
-	Disappear:
-		TNT1 A 0
-		TNT1 A 1
-		stop
-	}
-}
-
-actor BloodRain : Rain
-{
-	States
-	{
-	Spawn:
-		BLDR A 1 A_JumpIf(waterlevel == 3, "Disappear")
-		Loop
-	Death:
-		TNT1 A 0 A_SpawnItemEx("BloodDrip", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		Stop
-	Disappear:
-		TNT1 A 0
-		TNT1 A 1
-		stop
-	}
-}
-
-actor Raining32 16000
-{
-	Radius 16
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A 8 A_SpawnItemEX("Rain", Random(-16,16), Random(-16,16), 0, 0, 0, 0, 0, 128, 128)
-		Loop
-	}
-}
-
 actor ForcePullAttack : LoreShot
 {
 	Height 1
@@ -5259,149 +5162,6 @@ States
 	NEXP A 0 A_Explode(600, 356)
 	NEXP ABCDEFGHIJKLMNOPQRSTU 1 bright
 	stop
-	}
-}
-
-actor Raining64 12363
-{
-	Radius 32
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A 6 A_SpawnItemEX("Rain", Random(-32,32), Random(-32,32), 0, 0, 0, 0, 0, 128, 128)
-		Loop
-	}
-}
-
-actor Raining128 12364
-{
-	Radius 64
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A 6 A_SpawnItemEX("Rain", Random(-64,64), Random(-64,64), 0, 0, 0, 0, 0, 128, 128)
-		Loop
-	}
-}
-
-actor RainingBlood128 21112
-{
-	Radius 64
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A 4 A_SpawnItemEX("BloodRain", Random(-64,64), Random(-64,64), 0, 0, 0, 0, 0, 128, 128)
-		Loop
-	}
-}
-
-actor Raining512HQ 18424
-{
-	Radius 256
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A -1
-		loop
-	Raining:
-		TNT1 A 0 A_CheckSight("NoSpawn")
-		TNT1 A 3 A_SpawnItemEX("Rain", Random(-256,256), Random(-256,256), 0, 0, 0, 0, 0, 128, 64)
-		loop
-	NoSpawn:
-		TNT1 A 1
-		goto Raining
-	}
-}
-
-actor Raining1024HQ 18425
-{
-	Radius 512
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A -1
-		loop
-	Raining:
-		TNT1 A 0 A_CheckSight("NoSpawn")
-		TNT1 A 2 A_SpawnItemEX("Rain", Random(-512,512), Random(-512,512), 0, 0, 0, 0, 0, 128, 96)
-		loop
-	NoSpawn:
-		TNT1 A 1
-		goto Raining
-	}
-}
-
-actor Raining2048HQ 18426
-{
-	Radius 1024
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A -1
-		loop
-	Raining:
-		TNT1 A 0 A_CheckSight("NoSpawn")
-		TNT1 A 1 A_SpawnItemEX("Rain", Random(-1024,1024), Random(-1024,1024), 0, 0, 0, 0, 0, 128, 128)
-		loop
-	NoSpawn:
-		TNT1 A 1
-		goto Raining
-	}
-}
-
-actor Raining1024Skybox 18427
-{
-	Radius 512
-	Height 1
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	States
-	{
-	Spawn:
-		TNT1 A -1
-		loop
-	Raining:
-		TNT1 A 2 A_SpawnItemEX("Rain", Random(-512,512), Random(-512,512), 0, 0, 0, 0, 0, 128, 96)
-		loop
 	}
 }
 
@@ -7950,23 +7710,6 @@ ACTOR SMMP_BFGBall Replaces BFGBall
 	}
 }
 
-actor VolumetricFogSpawner 20001
-{
-	Radius 64
-	+ALLOWCLIENTSPAWN
-	+CLIENTSIDEONLY
-	+NOINTERACTION
-	+NOCLIP
-	+NOBLOCKMAP
-	states
-	{
-	Spawn:
-		TNT1 A 1
-		TNT1 AAAAAAAA 0 A_SpawnItemEx("VolumetricFogSprite", Random(-64, 64), Random(-64, 64), 0, 0, 0, 0, 0, 128, 48)
-		stop
-	}
-}
-
 actor Bubble
 {
 	Projectile
@@ -8000,26 +7743,6 @@ actor BubbleSpawner 20002
 	{
 	Spawn:
 		TNT1 A 8 A_SpawnItemEx("Bubble", Random(-32, 32), Random(-32, 32), Random(0, 20), 0, 0, Random(1,2), 0, 128, 48)
-		loop
-	}
-}
-
-
-actor VolumetricFogSprite
-{
-	yscale 0.08
-	renderstyle Add
-	alpha 0.6
-	+FORCEXYBILLBOARD
-	+NOINTERACTION
-	+ALLOWCLIENTSPAWN
-	+CLIENTSIDEONLY
-	+NOCLIP
-	+NOBLOCKMAP
-	states
-	{
-	Spawn:
-		FOG1 A -1
 		loop
 	}
 }
