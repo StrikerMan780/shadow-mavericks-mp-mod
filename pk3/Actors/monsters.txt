@@ -140,36 +140,16 @@ actor BloodDemon : SM_Demon 5004
 	SpawnID 156
 	Health 300
 	Obituary "$OB_BLOODDEMON_MELEE"
+	Translation "16:34=32:47", "35:37=1:2", "38:47=0:0", "229:229=89:89", "151:151=111:111", "48:63=80:95", "64:78=96:111", "79:79=0:0", "208:212=172:175", "214:223=176:181", "213:213=85:85", "160:167=80:95"
 	States
 	{
-		Spawn:
-			SRG2 AB 10 A_Look
-			Loop
 		See:
-			SRG2 AABBCCDD 2 A_Chase
+			SARG AABBCCDD 2 A_Chase
 			Loop
-		Pain:
-			SRG2 H 2
-			SRG2 H 2 A_Pain
-			Goto See
 		Melee:
-			SRG2 EF 8 A_FaceTarget
-			SRG2 G 8 A_SargAttack
+			SARG EF 8 A_FaceTarget
+			SARG G 8 A_SargAttack
 			Goto See
-		Death:
-			SRG2 I 0 A_GiveToTarget("DemonicPower", 4)
-			SRG2 I 8
-			SRG2 J 8 A_Scream
-			SRG2 K 4 A_Fall
-			SRG2 LM 4
-			SRG2 N 10500
-			goto Fade
-		Raise:
-			SRG2 NMLKJI 5
-			Goto See
-		Fade:
-			"####" "#" 1 A_FadeOut(0.05)
-			loop
 	}
 }
 
@@ -2835,8 +2815,8 @@ actor Hangman 32123
 	HANG CCCCCC 0 A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, SXF_CLIENTSIDE, 0)
 	goto DeathDrip
   DeathDrip:
-	HANG C 0 A_SpawnItemEx("BloodRain", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-	HANG C 256 A_SpawnItemEx("BloodRain", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+	HANG C 0 A_SpawnItemEx("BloodRain2", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+	HANG C 256 A_SpawnItemEx("BloodRain2", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 	loop
   }
 }
