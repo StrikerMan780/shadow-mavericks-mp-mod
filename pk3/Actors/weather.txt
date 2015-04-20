@@ -77,6 +77,7 @@ actor Drip : BaseEffect
 	RenderStyle Translucent
 	Alpha 0.5
 	Scale 0.64
+	+CLIENTSIDEONLY
 	+NOCLIP
 	+FORCEYBILLBOARD
 	-FORCEXYBILLBOARD
@@ -117,29 +118,25 @@ ACTOR Rain
 	+THRUACTORS
 	+CANNOTPUSH
 	+MISSILE
+	+CLIENTSIDEONLY
 	-FORCEXYBILLBOARD
 	-SOLID
 	States
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JumpIf((waterlevel > 0) || (ACS_ExecuteWithResult(911, 1) == false), "Disappear")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(911, 1) == false, "Disappear")
 		TNT1 A 0 ThrustThingZ(0, 150, 1, 0)
 		goto Fall
 	Fall:
 		RAIN A 1 A_JumpIf(z < ceilingz, "EnableInteraction")
 		Loop
 	EnableInteraction:
-		RAIN A 0 A_ChangeFlag("NOINTERACTION", 0)
-		goto InteractiveFall
-	InteractiveFall:
-		RAIN A 1 A_JumpIf(waterlevel > 0, "Disappear")
-		loop
-	Crash:
-	Death:
-		TNT1 A 1 A_SpawnItemEx("Drip", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_NOCHECKPOSITION, 128)
-		Stop
+		RAIN A 0
+		RAIN A 0 A_SpawnItemEx("Rain2", 0, 0, 0, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY | SXF_NOCHECKPOSITION, 0)
+		stop
 	Disappear:
+		TNT1 A 0
 		TNT1 A 1
 		stop
 	}
@@ -177,16 +174,9 @@ actor BloodRain : Rain
 		BLDR A 1 A_JumpIf(z < ceilingz, "EnableInteraction")
 		Loop
 	EnableInteraction:
-		BLDR A 0 A_ChangeFlag("NOINTERACTION", 0)
-		goto InteractiveFall
-	InteractiveFall:
-		BLDR A 1 A_JumpIf(waterlevel > 0, "Disappear")
-		loop
-	Crash:
-	Death:
-		TNT1 A 0
-		TNT1 A 0 A_SpawnItemEx("BloodDrip", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_NOCHECKPOSITION, 128)
-		Stop
+		BLDR A 0
+		BLDR A 0 A_SpawnItemEx("Rain2", 0, 0, 0, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY | SXF_NOCHECKPOSITION, 0)
+		stop
 	}
 }
 
