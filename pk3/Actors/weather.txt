@@ -133,7 +133,7 @@ ACTOR Rain
 		Loop
 	EnableInteraction:
 		RAIN A 0
-		RAIN A 0 A_SpawnItemEx("Rain2", 0, 0, 0, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY | SXF_NOCHECKPOSITION, 0)
+		RAIN A 0 A_SpawnItemEx("Rain2", 0, 0, 0, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY, 0)
 		stop
 	Disappear:
 		TNT1 A 0
@@ -175,7 +175,7 @@ actor BloodRain : Rain
 		Loop
 	EnableInteraction:
 		BLDR A 0
-		BLDR A 0 A_SpawnItemEx("Rain2", 0, 0, 0, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY | SXF_NOCHECKPOSITION, 0)
+		BLDR A 0 A_SpawnItemEx("Rain2", 0, 0, 0, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY, 0)
 		stop
 	}
 }
