@@ -680,3 +680,94 @@ actor Duke64Explosion : BaseEffect
 		stop
 	}
 }
+
+Actor RedEmber : BaseEffect
+{
+	-NOINTERACTION
+	+MISSILE
+	Radius 3
+	Height 3
+	Speed 0
+	RenderStyle Add
+	Alpha 0.01
+	Scale 0.03
+	States
+	{
+		Spawn:
+			REMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			REMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			REMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+		Death:
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BlueEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			BEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			BEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			BEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+actor GreenEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			GEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			GEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			GEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+actor YellowEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			YEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			YEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			YEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}
+
+actor SilverEmber : RedEmber
+{
+	States
+	{
+		Spawn:
+			SEMB AAAA 1 Bright A_FadeIn(0.25)
+			goto Move
+		Move:
+			SEMB AAA 8 Bright A_Recoil(frandom(-1.0,1.0))
+			goto Fade
+		Fade:
+			SEMB A 1 Bright A_FadeOut(random(0.05, 0.1))
+			loop
+	}
+}

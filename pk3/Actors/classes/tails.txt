@@ -59,7 +59,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Player.WeaponSlot 3, "PIPS", "Keyring", "ElementalSSG"
 	Player.WeaponSlot 4, "BCF-2Repeaters", "Mp40"
 	Player.WeaponSlot 5, "StickyBombs", "ProtonTL"
-	Player.WeaponSlot 6, "PlasmaCannon", "Beamer", "Stinger", "ShockRifle"
+	Player.WeaponSlot 6, "HaloPlasmaRifle", "Beamer", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"
 	Player.WeaponSlot 9, "WeatherMaker", "EtherealCrossbow", "ChaosFlames"
@@ -338,7 +338,7 @@ actor TailsWeaponUpgrade : CustomInventory
 	states
 	{
 	Use:
-		RCOR A 1 A_JumpIfInventory("PlasmaCannon", 1, "Check1")
+		RCOR A 1 A_JumpIfInventory("HaloPlasmaRifle", 1, "Check1")
 		RCOR A 0 ACS_Execute(TPUPGRADE, 0, 1)
 		stop
 	Check1:

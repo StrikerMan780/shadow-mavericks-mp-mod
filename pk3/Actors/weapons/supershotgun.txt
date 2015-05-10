@@ -31,6 +31,10 @@ actor SuperShotgunGiver_Dropped : SuperShotgunGiver
 actor SM_SuperShotgun : Weapon
 {
 	Tag "Super Shotgun"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 2.0
 	Decal BulletChip
 	obituary "%k turned %o's torso into a pile of red gruel."
 	radius 20
@@ -84,6 +88,10 @@ actor SM_SuperShotgun : Weapon
 actor Keyring : Weapon
 {
 	Tag "Keyring"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
 	Decal BulletChip
 	obituary "%k shot silver shards into %o's skull."
 	weapon.selectionorder 400
@@ -163,6 +171,10 @@ actor DinsFire : Weapon
 actor SPAS-12 : Weapon
 {
 	Tag "SPAS-12"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.25
 	Decal BulletChip
 	obituary "%o was torn to shreds by %k's SPAS-12."
 	weapon.selectionorder 400

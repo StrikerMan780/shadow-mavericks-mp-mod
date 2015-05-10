@@ -414,32 +414,6 @@ ACTOR ReflectProjectile : SliceProjectile
 	+THRUSPECIES
 }
 
-actor NewPlasma : PlasmaBall Replaces PlasmaBall
-{
-	seesound ""
-	decal PlasmaScorch
-	Speed 38
-	Alpha 1.0
-	Obituary "%o stared at %k's pretty orange plasma for too long."
-	+FORCEXYBILLBOARD
-	RenderStyle Add
-	scale 0.09
-	States
-	{
-	Spawn:
-		PLSS ABCD 1 BRIGHT
-		loop
-	XDeath:
-		TNT1 A 0
-		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-		goto Death
-	Death:
-		PLSE AAAAAAA 0 A_SpawnItemEx("PlasmaMist", 0, 0, 0, random(-5,5), Random(-5,5), Random(-5,5), 0, 128, 0)
-		PLSE ABCDE 2 Bright
-		Stop
-	}
-}
-
 actor BluePlasmaTrail : BaseEffect
 {
 	RenderStyle Add

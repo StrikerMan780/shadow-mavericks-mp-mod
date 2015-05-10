@@ -446,3 +446,18 @@ Model SniperRifle
 
 	FrameIndex SINF A 0 0
 }
+
+Model HaloPlasmaRifle
+{
+	Path "Models\HUD\HaloPlasmaRifle"
+	Model 0 "HaloPlasmaRifle.md3"
+	Scale 5.0 3.2 5
+
+	FrameIndex HLOP A 0 0
+	FrameIndex HLOP B 0 3
+	FrameIndex HLOP C 0 5
+	FrameIndex HLOP D 0 7
+	FrameIndex HLOP E 0 9
+	FrameIndex HLOP F 0 11
+	FrameIndex HLOP G 0 13
+}

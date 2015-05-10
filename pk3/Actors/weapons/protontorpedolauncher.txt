@@ -30,6 +30,10 @@ actor TorpedoLauncherGiver_Dropped : TorpedoLauncherGiver
 actor ProtonTL : Weapon
 {
 	Tag "A55-H013 ''Inferno'' Launcher"
+	Weapon.BobSpeed 1.25
+	Weapon.BobStyle "Alpha"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
 	weapon.selectionorder 2500
 	weapon.kickback 100
 	weapon.ammotype "ProtonAmmo"

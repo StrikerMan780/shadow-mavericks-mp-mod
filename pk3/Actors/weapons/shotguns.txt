@@ -30,6 +30,10 @@ actor ShotgunGiver_Dropped : ShotgunGiver
 actor NewShotgun : Weapon
 {
 	Tag "Remington 870 Magnum"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 0.75
+    Weapon.BobRangeY 1.5
 	Decal BulletChip
 	obituary "%o chewed on %k's boomstick."
 	radius 20
@@ -89,7 +93,10 @@ ACTOR PIPSClip : Ammo
 actor PIPS : Weapon
 {
 	Tag "Plasma Injection Pulse Shotgun"
-	inventory.pickupmessage "Plasma Injection Pulse Shotgun (Slot 3)"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 0.5
+    Weapon.BobRangeY 1.5
 	weapon.selectionorder 1300
 	weapon.kickback 100
 	Weapon.AmmoType1 "PIPSClip"
@@ -179,6 +186,10 @@ actor DukeShotgun : Weapon
 	Tag "Custom Winchester 1300 Defender"
 	Decal BulletChip
 	obituary "%o ate %k's load."
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.25
 	weapon.selectionorder 1300
 	weapon.kickback 100
 	Weapon.AmmoType "SpreadAmmo"

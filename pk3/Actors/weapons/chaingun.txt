@@ -37,6 +37,10 @@ ACTOR ChaingunShotCount : Inventory
 actor SM_Chaingun : Weapon
 {
 	Tag "T-23A Explosive Minigun"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.0
 	obituary "%o was turned into swiss-cheese by %k's gatling gun."
 	weapon.selectionorder 700
 	weapon.kickback 100
@@ -116,6 +120,10 @@ actor SM_Chaingun : Weapon
 actor BCF-2Repeaters : Weapon
 {
 	Tag "BCF-2 Repeaters"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 0.64
 	obituary "%o was corroded by %k's BCF-2 Repeaters."
 	weapon.selectionorder 700
 	weapon.kickback 100
@@ -244,6 +252,10 @@ actor RepeaterSpark
 actor RipperChaingun : Weapon
 {
 	Tag "EDF ''Ripper'' Chaingun"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.25
 	obituary "%o was hosed down by %k's ripper."
 	weapon.selectionorder 700
 	weapon.kickback 100

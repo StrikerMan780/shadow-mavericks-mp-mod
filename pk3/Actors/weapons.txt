@@ -27,10 +27,12 @@ actor ClassWeaponGiver : CustomInventory
 
 #include "actors/weapons/elementalssg.txt"
 #include "actors/weapons/supershotgun.txt"
+#include "actors/weapons/quadssg.txt"
 #include "actors/weapons/lightsaber.txt"
 #include "actors/weapons/shockrifle.txt"
 #include "actors/weapons/protontorpedolauncher.txt"
 #include "actors/weapons/protongrenadelauncher.txt"
+#include "actors/weapons/plasmarifle.txt"
 #include "actors/weapons/stinger.txt"
 #include "actors/weapons/chaingun.txt"
 #include "actors/weapons/shotguns.txt"

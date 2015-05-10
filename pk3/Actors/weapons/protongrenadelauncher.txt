@@ -33,6 +33,10 @@ actor GrenadeLauncherGiver_Dropped : GrenadeLauncherGiver
 actor ProtonGL : Weapon
 {
 	Tag "FG-32 ''Vortex'' Launcher"
+	Weapon.BobSpeed 1.25
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
 	obituary "%o ate %k's Pineapple."
 	inventory.pickupmessage "You Picked up the Proton Grenade Launcher!"
 	weapon.selectionorder 2400

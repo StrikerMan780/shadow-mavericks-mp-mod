@@ -1,0 +1,60 @@
+actor QuadShotgun : ClericWeapon 12843
+{
+	Tag "Quad-Barreled Shotgun"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 2.0
+	decal Bulletchip
+	obituary "%o was fuckin' obliterated by %k's quad-barreled shotgun."
+	radius 20
+	height 16
+	attacksound "Quadshotgun"
+	inventory.pickupmessage "You got the quad-barreled shotgun!"
+	weapon.selectionorder 300
+	weapon.kickback 300
+	Weapon.AmmoType "SpreadAmmo"
+	weapon.ammouse 4
+	weapon.ammogive 8
+	states
+	{
+		Ready:
+			SHT3 A 1 A_WeaponReady
+			loop
+		Deselect:
+			SHT3 A 1 A_Lower
+			loop
+		Select:
+			SHT3 A 1 A_Raise
+			loop
+		Fire:
+			SHT3 A 0 A_Recoil(12)
+			SHT3 A 0 A_FireBullets (13.2, 7.1, 40, 5, "QuadPuff")
+			SHT3 A 1 A_GunFlash
+			SHT3 A 0 A_SetPitch(pitch-12)
+			SHT3 B 0 radius_quake(6, 6, 0, 1, 0)
+			SHT3 BCDE 1 A_SetPitch(pitch+2)
+			SHT3 FG 2 A_SetPitch(pitch+2)
+			SHT3 H 2
+			SHT3 A 3 A_CheckReload
+			SH3R A 0 A_PlaySoundEx("QuadOpen", "auto", 0)
+			SH3R ABCDEFGHIJKLMNOP 2
+			SH3R Q 2 A_PlaySoundEx("QuadLoad", "auto", 0)
+			SH3R RSTUVW 2
+			SH3R X 2 A_PlaySoundEx("QuadLoad", "auto", 0)
+			SH3R YZ 2
+			SH32 ABCDEFGH 2
+			SH32 I 2 A_PlaySoundEx("QuadClose", "auto", 0)
+			SH32 JKLMN 2
+			SHT3 A 5 A_ReFire
+			goto Ready
+		Flash:
+			SH3F A 2 bright A_Light1
+			SH3F B 1 bright A_Light2
+			SH3F B 0 bright A_Light0
+			stop
+		Spawn:
+			SGN3 A -1
+			stop
+	}
+}

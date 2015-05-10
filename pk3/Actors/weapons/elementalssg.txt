@@ -3,6 +3,11 @@
 
 Actor ElementalSSG : Weapon 12346
 {
+	Tag "Elemental SSG (Fire)"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 2.0
 	spawnid 33
 	inventory.pickupmessage "You got the \cgElem\chent\cfal SSG! \ccWreak some Havok!"
 	obituary "%o was Torched by %k's Blaze SSG."

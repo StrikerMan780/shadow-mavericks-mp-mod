@@ -4,6 +4,10 @@ actor EtherealCrossbow : Weapon 13321
 	//$Title Ethereal Bowcaster
 	//$Color 17
 	Tag "Ethereal Bowcaster"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.0
 	Scale 0.86
 	radius 20
 	height 16

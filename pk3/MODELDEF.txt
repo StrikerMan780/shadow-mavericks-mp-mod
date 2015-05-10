@@ -782,24 +782,11 @@ Model P90
 Model PlasmaCannon
 {
 	Path "Models\HUD\plasmarifle"
-	Model 0 "PlasmaRiflePickup.md3"
-	Scale 2.2 2.2 2.2
-	ROTATING
-
-	FrameIndex PLAS A 0 0
-}
-
-Model PlasmaCannon
-{
-	Path "Models\HUD\plasmarifle"
 	Model 0 "plasmarifle.md3"
 	Scale -5.0 4.2 5
 
 	FrameIndex PLSG A 0 0
-	FrameIndex PLSG B 0 0
-	FrameIndex PLSG C 0 0
 	FrameIndex PLSG D 0 0
-	FrameIndex PLSG H 0 0
 }
 
 Model PlasmaCannon
@@ -810,7 +797,7 @@ Model PlasmaCannon
 	Skin 1 "pgun_flash0.png"
 	Scale -5.0 4.2 5
 
-	FrameIndex PLSG F 0 1
+	FrameIndex PLSG B 0 1
 }
 
 Model PlasmaCannon
@@ -821,7 +808,7 @@ Model PlasmaCannon
 	Skin 1 "pgun_flash1.png"
 	Scale -5.0 4.2 5
 
-	FrameIndex PLSG G 0 2
+	FrameIndex PLSG C 0 2
 }
 
 Model Stinger
@@ -1156,21 +1143,6 @@ model 454Casull
 	ROTATING
 
 	FrameIndex CASP A 0 0
-}
-
-Model PlasmaCannon
-{
-	Path "Models\HUD\HaloPlasmaRifle"
-	Model 0 "HaloPlasmaRifle.md3"
-	Scale 5.0 3.2 5
-
-	FrameIndex HLOP A 0 0
-	FrameIndex HLOP B 0 3
-	FrameIndex HLOP C 0 5
-	FrameIndex HLOP D 0 7
-	FrameIndex HLOP E 0 9
-	FrameIndex HLOP F 0 11
-	FrameIndex HLOP G 0 13
 }
 
 Model Magnum
@@ -4042,4 +4014,22 @@ model ProtonTorpedo
 	Rotation-Vector 1 0 0
 
 	FrameIndex MISL A 0 0
+}
+
+model NewPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "PlasmaBall.md3"
+	Skin 0 "Plasma_Orange.png"
+	Scale 10.0 10.0 12.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 1 0 0
+
+	FrameIndex PLSS A 0 0
+	FrameIndex PLSS B 0 1
+	FrameIndex PLSS C 0 2
+	FrameIndex PLSS D 0 3
 }
