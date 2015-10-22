@@ -48,24 +48,33 @@ actor RandomClink : RandomSpawner Replaces Clink
 	DropItem "Grell_NoSpawnFloat", 255 48
 }
 
+actor RandomIronlich : RandomSpawner Replaces Ironlich
+{
+	Radius 22
+	Height 62
+	+ISMONSTER
+	DropItem "Abaddon", 255 100
+}
+
 actor Heretic_RandomMelee : RandomSpawner Replaces Gauntlets
 {
 	DropItem "BloodyChainsaw", 255 100
+	DropItem "NewBerserk", 255 5
 }
 
 actor Heretic_RandomShotgun : RandomSpawner Replaces Crossbow
 {
-	DropItem "NewShotgun", 255 100
-	DropItem "SM_SuperShotgun", 255 32
+	DropItem "ShotgunGiver", 255 100
+	DropItem "SuperShotgunGiver", 255 32
 	DropItem "QuadShotgun", 255 1
 }
 
 actor Heretic_RandomMachinegun : RandomSpawner Replaces Blaster
 {
-	DropItem "SM_Chaingun", 255 100
+	DropItem "ChaingunGiver", 255 100
 	DropItem "Minigun", 255 48
 	DropItem "P90", 255 32
-	DropItem "Mp40", 255 2
+	DropItem "MP40Giver", 255 2
 	DropItem "SmartRifle", 255 1
 }
 
@@ -123,6 +132,16 @@ actor Heretic_RandomLargeAmmo : RandomSpawner replaces BlasterHefty
 	DropItem "LargeSpreadAmmo", 255 100
 }
 
+actor Heretic_ProtonAmmo : RandomSpawner replaces PhoenixRodAmmo
+{
+	DropItem "ProtonAmmo", 255 100
+}
+
+actor Heretic_LargeProtonAmmo : RandomSpawner replaces PhoenixRodHefty
+{
+	DropItem "LargeProtonAmmo", 255 100
+}
+
 actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
 {
 	Radius 12
@@ -137,8 +156,8 @@ actor RandomSerpentTorch : RandomSpawner Replaces SerpentTorch
 actor RandomCrystalVial : RandomSpawner Replaces CrystalVial
 {
 	DropItem "Stimpack2", 255 100
-	DropItem "HealthBonus2", 255 75
 	DropItem "MaxHealthBonus2", 255 75
+	DropItem "HealthBonus2", 255 50
 	DropItem "Medikit", 255 25
 }
 

@@ -79,7 +79,7 @@ ACTOR ProtonAmmo : Ammo Replaces RocketAmmo
 	}
 }
 
-ACTOR ProtonCharge : ProtonAmmo Replaces RocketBox
+ACTOR LargeProtonAmmo : ProtonAmmo Replaces RocketBox
 {
 	Game Doom
 	SpawnID 141

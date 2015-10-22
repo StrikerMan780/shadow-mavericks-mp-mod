@@ -1,0 +1,9 @@
+ElecViolet
+{
+	#0000AA #FF00FF
+Console:
+	#000000 #6400FF     0 127
+	#6500FF #FF00FF   128 256
+Flat:
+	#6400FF
+}

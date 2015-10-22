@@ -1,0 +1,12 @@
+{
+mapname = mpdm01
+gamemode = deathmatch
+fraglimit = 25
+dmflags = 279556
+dmflags2 = 576
+bot[0] = Grunt
+bot[1] = Tails
+bot[2] = Alucard
+bot[3] = Link
+bot[4] = Duke
+}

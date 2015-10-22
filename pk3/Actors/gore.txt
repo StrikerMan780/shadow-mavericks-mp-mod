@@ -295,12 +295,17 @@ actor Bloodmist : BaseEffect
 
 actor GoreSmear : BaseEffect
 {
+	Scale 0.025
 	States
 	{
 		Spawn:
-			SMEA ABCDEFGH 1
-			SMEA IJKLMNO 1 A_FadeOut(0.12)
-			stop
+			SMEA A 1 A_SetScale(scalex+0.25)
+			SMEA A 0 A_JumpIf(scalex >= 0.75, "Fade")
+			loop
+		Fade:
+			SMEA A 1 A_SetScale(scalex+0.125)
+			SMEA A 0 A_FadeOut(0.125)
+			loop
 	}
 }
 

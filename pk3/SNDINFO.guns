@@ -1,0 +1,9 @@
+OICWFire dsmorita
+OICWGrenade dsmorits
+OICWBolt dsmsbolt
+OICWClipout dsmscout
+OICWClipin dsmsclin
+M203Open dsm203op
+M203Load dsm203ld
+M203Close dsm203cl
+$limit OICWFire 0

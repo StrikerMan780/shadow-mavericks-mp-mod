@@ -10,7 +10,7 @@ Model ProtonAmmo
 	FrameIndex ROCK A 0 0
 }
 
-Model ProtonCharge
+Model LargeProtonAmmo
 {
 	Path "Models\Pickups"
 	Model 0 "ItemContainer.md3"

@@ -6,11 +6,6 @@ episode HQ
 	noskillmenu
 }
 
-episode COOP01
-{
-	name = "[SM] Campaign"
-}
-
 episode MPDM01
 {
 	name = "[SM] Deathmatch"
@@ -174,6 +169,7 @@ map MPDUEL01 "Magma Caves - StrikerMan780"
 	sky1 = sky3, 0.0
 	music = D_JBDAMN
 	next = MPDUEL02
+	UsePlayerStartZ
 }
 
 map MPDUEL02 "Testament - Ruin"

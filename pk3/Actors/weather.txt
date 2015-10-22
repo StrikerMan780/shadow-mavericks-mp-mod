@@ -128,7 +128,7 @@ ACTOR Rain
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(911, 1) == false, "Disappear")
+		TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CHECKSKY", 1) == false, "Disappear")
 		TNT1 A 0 ThrustThingZ(0, 150, 1, 0)
 		goto Fall
 	Fall:
@@ -171,7 +171,7 @@ actor BloodRain : Rain
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 A 0 A_JumpIf((waterlevel > 0) || (ACS_ExecuteWithResult(911, 1) == false), "Disappear")
+		TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CHECKSKY", 1) == false, "Disappear")
 		TNT1 A 0 ThrustThingZ(0, 150, 1, 0)
 		goto Fall
 	Fall:
@@ -179,7 +179,7 @@ actor BloodRain : Rain
 		Loop
 	EnableInteraction:
 		BLDR A 0
-		BLDR A 0 A_SpawnItemEx("Rain2", 0, 0, 64, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY | SXF_NOCHECKPOSITION, 0)
+		BLDR A 0 A_SpawnItemEx("BloodRain2", 0, 0, 64, 0, 0, velz, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEVELOCITY | SXF_NOCHECKPOSITION, 0)
 		stop
 	}
 }

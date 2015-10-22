@@ -4,8 +4,8 @@ Actor BulletBlast
 	Height 1
 	RenderStyle Add
 	Alpha .5
-	XScale 0.5
-	YScale 0.45
+	XScale 0.1
+	YScale 0.05
 	+DONTSPLASH
 	+NOINTERACTION
 	+FORCEXYBILLBOARD
@@ -14,11 +14,51 @@ Actor BulletBlast
 	+NOGRAVITY
 	-ACTIVATEPCROSS
 	-ACTIVATEIMPACT
+	
+	var int user_scale;
+	
 	States
 	{
 	Spawn:
-		PBLS ABCDE 1 BRIGHT
-		stop
+		PBLS A 0
+		PBLS A 0 A_Jump(256, "Blast1", "Blast2", "Blast3", "Blast4")
+		goto Blast1
+	
+	Blast1:
+		PBLS ABCDE 1 BRIGHT A_SetScale(scalex+0.1, scaley+0.1)
+		goto Fade1	
+	Fade1:
+		PBLS E 1 BRIGHT A_SetScale(scalex+0.1, scaley+0.1)
+		PBLS E 0 BRIGHT A_FadeOut(0.1)
+		loop
+	
+	Blast2:
+		PBLS A 0 BRIGHT A_SetScale(scalex*-1.0, scaley*-1.0)
+		PBLS ABCDE 1 BRIGHT A_SetScale(scalex-0.1, scaley-0.1)
+		goto Fade2	
+	Fade2:
+		PBLS E 1 BRIGHT A_SetScale(scalex-0.1, scaley-0.1)
+		PBLS E 0 BRIGHT A_FadeOut(0.1)
+		loop
+		
+	Blast3:
+		PBLS A 0 BRIGHT A_SetScale(scalex, scaley*-1.0)
+		PBLS ABCDE 1 BRIGHT A_SetScale(scalex+0.1, scaley-0.1)
+		goto Fade3	
+	Fade3:
+		PBLS E 1 BRIGHT A_SetScale(scalex+0.1, scaley-0.1)
+		PBLS E 0 BRIGHT A_FadeOut(0.1)
+		loop
+		
+	Blast4:
+		PBLS A 0 BRIGHT A_SetScale(scalex*-1.0, scaley)
+		PBLS ABCDE 1 BRIGHT A_SetScale(scalex-0.1, scaley+0.1)
+		goto Fade4	
+	Fade4:
+		PBLS E 1 BRIGHT A_SetScale(scalex-0.1, scaley+0.1)
+		PBLS E 0 BRIGHT A_FadeOut(0.1)
+		loop
+		
 	Death:
 		TNT1 A 1
 		stop
@@ -229,7 +269,7 @@ actor NewBulletPuff : BulletPuff Replaces BulletPuff
 	Crash:
 		PUFF A 0
 		PUFF AAA 0 A_SpawnItemEx("BulletDebris", 0, 0, 0, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(100,600)/100.0), random(-360,360), 128, 76)
-		PUFF A 0 A_SpawnItemEX("BulletBlast", 0, 0, 0, 0, 0, 0, 0, 128, 246)
+		PUFF A 0 A_SpawnItemEX("BulletBlast", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 128)
 		PUFF AAA 0 A_SpawnItemEx("NewBulletPuffSpark", 0, 0, 0, (random(-100,100)/100.0), (random(-100,100)/100.0), (random(0,200)/100.0), random(-180,180), 128, 48)
 		PUFF A 0 A_SpawnItemEX("RicochetSpawner", 0, 0, 0, 0, 0, 0, 0, 128, 224)
 		goto Puff
@@ -275,7 +315,7 @@ actor SilverBulletPuff : NewBulletPuff
 	Crash:
 		PUFF A 0
 		PUFF AAA 0 A_SpawnItemEx("BulletDebris", 0, 0, 0, (random(-200,200)/100.0), (random(-200,200)/100.0), (random(100,600)/100.0), random(-360,360), 128, 76)
-		PUFF A 0 A_SpawnItemEX("BulletBlast", 0, 0, 0, 0, 0, 0, 0, 128, 246)
+		PUFF A 0 A_SpawnItemEX("BulletBlast", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 128)
 		PUFF AAA 0 A_SpawnItemEx("NewBulletPuffSpark", 0, 0, 0, (random(-100,100)/100.0), (random(-100,100)/100.0), (random(0,200)/100.0), random(-180,180), 128, 48)
 		PUFF A 0 A_SpawnItemEX("RicochetSpawner", 0, 0, 0, 0, 0, 0, 0, 128, 224)
 		goto Puff

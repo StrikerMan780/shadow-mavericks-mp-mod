@@ -131,9 +131,33 @@ clinkattack3	clkat3
 clinkattack4	clkat4
 $random clink/attack { clinkattack1 clinkattack2 clinkattack3 clinkattack4 }
 
-clinkactive1	CLKACT1
+clinkactive1	CLKACT1 
 clinkactive2	CLKACT2
 $random clink/active { clinkactive1 clinkactive2 }
+
+// SuperBeast
+beast/sight			bstsit
+beast/attack		bstatk
+beast/pain			bstpai
+beast/death			bstdth
+$limit beast/attack 0
+
+beast/active1		bstact1
+beast/active2		bstact2
+beast/active3		bstact3
+$random beast/active { beast/active1 beast/active2 beast/active3 }
+
+beast/walk1			bstwalk1
+beast/walk2			bstwalk2
+beast/walk3			bstwalk3
+beast/walk4			bstwalk4
+beast/walk5			bstwalk5
+beast/walk6			bstwalk6
+$random beast/walk { beast/walk1 beast/walk2 beast/walk3 beast/walk4 beast/walk5 beast/walk6 }
+
+beast/crash1		bstcrsh1
+beast/crash2		bstcrsh2
+$random beast/crash { beast/crash1 beast/crash2 }
 
 // Grell
 grell/sight     dsgresit

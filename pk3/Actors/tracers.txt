@@ -13,8 +13,7 @@ actor FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(32)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 32.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("FireTracer", 0, 10)
 			TNT1 A 1
 			stop
@@ -28,8 +27,7 @@ actor FrostTracerSpawner : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(26)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 26.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("FrostTracer", 0, 10)
 			TNT1 A 1
 			stop
@@ -43,8 +41,7 @@ actor MinigunTracerSpawner : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(32)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 32, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("BulletTracer", 0, 10)
 			TNT1 A 1
 			stop
@@ -58,8 +55,7 @@ actor PelletTracerSpawner : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(32)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 32.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("PelletTracer", 0, 10)
 			TNT1 A 1
 			stop
@@ -73,8 +69,7 @@ actor ChaingunTracerSpawner : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(32)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 32.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("ChaingunTracer", 0, 12)
 			TNT1 A 1
 			stop
@@ -88,8 +83,7 @@ actor BoltTracerSpawner : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(32)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 32.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("BoltTracer", 0, 12)
 			TNT1 A 1
 			stop
@@ -103,8 +97,7 @@ actor RepeaterTracerSpawnerRight : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(26)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 26.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("RepeaterTracer", 0, 12)
 			TNT1 A 1
 			stop
@@ -118,8 +111,7 @@ actor RepeaterTracerSpawnerLeft : FireTracerSpawner
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(26)
-			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 26.0, 0, WARPF_NOCHECKPOSITION)
 			TNT1 A 0 A_CustomMissile("RepeaterTracer", 0, -12)
 			TNT1 A 1
 			stop
@@ -137,6 +129,7 @@ actor BulletTracer : FastProjectile
 	+NOGRAVITY
 	+THRUGHOST
 	+DONTSPLASH
+	+THRUACTORS
 	-ACTIVATEIMPACT
 	-ACTIVATEPCROSS
 	States

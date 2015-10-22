@@ -1,0 +1,251 @@
+ACTOR OICWClip : Ammo
+{
+	Inventory.MaxAmount 60 // size of the clip
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 60 //MUST be the same as Inventory.MaxAmmount
+	Inventory.Icon "MAGICON2"
+	+IGNORESKILL
+}
+
+actor OICW_Grenade_Mode : BaseCheck
+{
+}
+
+actor SmartRifle : ClericWeapon 23501
+{
+	Tag "Objective Individual Combat Weapon"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 0.75
+    Weapon.BobRangeY 1.25
+	decal BulletChip
+	obituary "%o was overpowered by %k's OICW."
+	Inventory.PickupSound "misc/w_pkup"
+	Inventory.PickupMessage "Found an OICW!"
+	weapon.selectionorder 120
+	weapon.kickback 100
+	Weapon.AmmoType1 "OICWClip"
+	Weapon.AmmoGive 60
+	Weapon.AmmoUse1 1
+	Weapon.AmmoType2 "MechAmmo"
+	Weapon.AmmoUse2 0
+	Weapon.AmmoGive2 60
+	+WEAPON.AMMO_OPTIONAL
+	+WEAPON.NOAUTOAIM
+	+WEAPON.NOALERT
+	Scale 0.45
+	states
+	{
+		Spawn:
+			MRIP A -1
+			loop
+		Ready:
+			MORI A 0 A_JumpIfInventory("OICW_Grenade_Mode", 1, "GrenadeReady")
+			MORI A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+			goto Ready+1
+		Deselect:
+			MORI A 0 A_JumpIfInventory("OICW_Grenade_Mode", 1, "GrenadeDeselect")
+			MORI A 1 A_Lower
+			goto Deselect+1
+		Select:
+			MORI A 0 A_JumpIfInventory("OICW_Grenade_Mode", 1, "GrenadeSelect")
+			MORI A 1 A_Raise
+			goto Select+1
+		Fire:
+			MORI A 0 A_JumpIfInventory("OICW_Grenade_Mode", 1, "CheckGrenadeFire")
+			MORI A 0 A_JumpIfNoAmmo("ReloadCheck")
+			MORI A 0 A_PlaysoundEX("OICWFire", Weapon, 0)
+			MORI A 0 A_FireBullets (2, 1, 1, 15, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			MORI A 0 A_AlertMonsters
+			MORI B 0 BRIGHT A_GunFlash
+			MORI B 1 BRIGHT A_SetPitch(pitch-1.0)
+			MORI C 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,1,6)
+			MORI C 1 BRIGHT A_SetPitch(pitch+0.25)
+			MORI DEF 1 A_SetPitch(pitch+0.25)
+			MORI GHIJKLMNOPQR 1 A_WeaponReady(WRF_NOBOB)
+			MORI A 0 A_ReFire
+			goto Ready
+			
+		AltFire:
+			MORI A 0 A_JumpIfInventory("OICW_Grenade_Mode", 1, "SwitchToCarbine")
+			goto SwitchToGrenade
+			
+		SwitchToGrenade:
+			MRTG A 0 A_GiveInventory("OICW_Grenade_Mode", 1)
+			MRTG A 0 A_Print("Grenade Mode")
+			MRTG ABCDEFGHIJ 1
+			MRTG KLMNOPQRST 1 A_WeaponReady(WRF_NOBOB | WRF_NOSECONDARY)
+			goto GrenadeReady
+		
+		SwitchToCarbine:
+			MRTC A 0 A_TakeInventory("OICW_Grenade_Mode", 1)
+			MRTG A 0 A_Print("Carbine Mode")
+			MRTC ABCDEFGHIJ 1
+			MRTC KLMNOPQRST 1 A_WeaponReady(WRF_NOBOB | WRF_NOSECONDARY)
+			goto Ready
+		
+		Reload:
+			MORI A 0
+			goto ReloadCheck
+			
+		ReloadCheck:
+			MORR A 0 A_JumpIfInventory("OICWClip",60,2)
+			MORR A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
+			MORR A 0
+			goto Ready
+
+		ReloadStart:
+			MORR ABCEF 2
+			MORR G 2 A_PlaySoundEx("OICWClipOut", "Auto", 0)
+			MORR HIJKLMNOPQRSTU 2
+			MORR V 0
+			goto ReloadAmmo
+
+		ReloadAmmo:
+			MORR V 0 A_TakeInventory("MechAmmo",1)
+			MORR V 0 A_GiveInventory("OICWClip",1)
+			MORR V 0 A_JumpIfInventory("OICWClip",60,"ReloadDone")
+			MORR V 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+			goto ReloadDone
+
+		ReloadDone:
+			MORR V 2 A_PlaySoundEx("OICWClipIn", "Auto", 0)
+			MORR WXYZ 2
+			MOR2 ABCDEFGH 2
+			MOR2 I 2 A_PlaySoundEx("OICWBolt", "Auto", 0)
+			MOR2 JKLMNOPQRSTUVWXY 2
+			MORI A 0
+			goto Ready
+
+		Flash:
+			TNT1 A 0 A_FireCustomMissile("RifleSmoke", 0, 0, 10, 2)
+			TNT1 A 0 A_FireCustomMissile("GunSparkSpawner", 0, 0, 7, 3)
+			TNT1 A 1 bright A_Light1
+			TNT1 A 0 bright A_Light0
+			stop
+			
+		GrenadeReady:
+			MORG A 1 A_WeaponReady
+			loop
+		GrenadeDeselect:
+			MORG A 1 A_Lower
+			loop
+		GrenadeSelect:
+			MORG A 1 A_Raise
+			loop
+		CheckGrenadeFire:
+			MORG A 0 A_JumpIfInventory("ProtonAmmo", 1, "GrenadeFire")
+			MORG A 0
+			goto GrenadeReady
+		GrenadeFire:
+			MORG B 0 A_PlaysoundEX("OICWGrenade", Weapon, 0)
+			MORG B 0 A_AlertMonsters
+			MORG B 0 radius_quake(6, 3, 0, 1, 0)
+			MORG B 0 A_TakeInventory("ProtonAmmo", 1)
+			MORG B 0 A_FireCustomMissile("OICW_Grenade", 0, false, 4, 0, false, 6)
+			MORG B 2 BRIGHT A_SetPitch(pitch-4.0)
+			MORG C 2 BRIGHT A_SetPitch(pitch+0.4)
+			MORG DEFGHIJKL 2 A_SetPitch(pitch+0.4)
+			MORG M 0 A_JumpIfInventory("ProtonAmmo", 1, "ReloadGrenade")
+			goto SwitchToCarbine
+			
+		ReloadGrenade:
+			MORG M 2 A_PlaySound("M203Open", CHAN_AUTO)
+			MORG NOPQRSTUV 2
+			MORG W 2 A_PlaySound("M203Load", CHAN_AUTO)
+			MORG XYZ 2
+			MRG2 ABCDEFGHI 2
+			MRG2 J 2 A_PlaySound("M203Close", CHAN_AUTO)
+			MRG2 KLMNOPQ 2
+			MRG2 RST 2 A_WeaponReady(WRF_NOBOB)
+			MORG A 0 A_Refire
+			goto GrenadeReady
+	}
+}
+
+actor OICW_Grenade
+{
+	Projectile
+	Radius 4
+	Height 4
+	obituary "%o took %k's cluster grenade to the face."
+	Damage (20)
+	Speed 60
+	bouncesound "weapons/grbnce"
+	BounceFactor 0.32
+	Scale 0.75
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	+HEXENBOUNCE
+	+BOUNCEONACTORS
+	-NOGRAVITY
+	States
+	{
+		Spawn:
+			SGRN AAAAA 1
+			SGRN A 0 A_ChangeFlag("HEXENBOUNCE", 0)
+			SGRN A 0 A_ChangeFlag("BOUNCEONACTORS", 0)
+			SGRN A 0 A_ChangeFlag("EXTREMEDEATH", 1)
+			goto Fly
+		
+		Fly:
+			SGRN A 1 BRIGHT
+			loop
+
+		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			goto Death
+
+		Death:
+			TNT1 A 0 radius_quake(3, 16, 0, 4, 0)
+			TNT1 A 0 A_PlaySound("BigExplosion", CHAN_AUTO)
+			TNT1 A 0 A_Explode(64, 80, true, false, 48)
+			TNT1 AAA 0 A_SpawnItemEX("Duke64ExplosionSmoke", 0, 0, 0, frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(-2.0,2.0), 0, SXF_CLIENTSIDE, 32)
+			TNT1 A 0 A_SpawnItemEX("Duke64ExplosionFast", 0, 0, 4, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, frandom(3.0,10.0), 0, frandom(2.0,16.0), random(-180,180), SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAA 0 A_SpawnItemEx("Cluster", 0, 0, 0, frandom(3.0,8.0), 0, frandom(4.0,16.0), random(-180,180), SXF_TRANSFERPOINTERS, 0)
+			TNT1 AA 5
+			stop
+	}
+}
+
+actor Cluster
+{
+	Radius 2
+	Height 2
+	Scale 0.5
+	projectile
+	+FORCERADIUSDMG
+	+HEXENBOUNCE
+	+SKYEXPLODE
+	+FORCEXYBILLBOARD
+	+BOUNCEONACTORS
+	+EXPLODEONWATER
+	-NOGRAVITY
+	-BLOODLESSIMPACT
+	obituary "%o was clusterfucked by %k."
+	Damage 0
+	SeeSound "Flakbounce"
+	var int user_timermax;
+	var int user_timer;
+	States
+	{
+	Spawn:
+		METL A 0
+		METL A 0 A_SetGravity(frandom(0.9, 1.1)) 
+		METL A 0 A_SetUserVar("user_timermax", random(20, 56))
+		goto Fly
+	Fly:
+		METL A 1 A_SetUserVar("user_timer", user_timer+1)
+		METL A 0 A_SpawnItemEX("FlakPuff", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		METL A 0 A_JumpIf(user_timer >= user_timermax, "Death")
+		loop
+	Death:
+		TNT1 A 0 A_PlaySound("ClusterExplode", CHAN_AUTO)
+		TNT1 A 0 A_Explode(32, 64, true, false, 32)
+		TNT1 A 1 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		TNT1 A 2
+		stop
+	}
+}

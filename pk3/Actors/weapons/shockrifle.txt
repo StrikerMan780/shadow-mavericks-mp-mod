@@ -1,5 +1,11 @@
 actor ShockRifle : Weapon 18004
 {
+	Tag "ASMD Shock Rifle"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
+	Decal ShockRifleScorch
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "Picked up an ASMD Shock Rifle!"
 	Obituary "%o was fatally enlightened by %k's shock beam"
@@ -27,7 +33,7 @@ actor ShockRifle : Weapon 18004
 			loop
 		Fire:
 			LIGH B 0 A_GunFlash
-			LIGH B 0 A_FireBullets(0, 0, 1, 45, "ShockRiflePuff", FBF_USEAMMO | FBF_NORANDOM)
+			LIGH B 0 A_RailAttack(45, 6, true, "none", "AA 00 FF", RGF_NOPIERCING | RGF_FULLBRIGHT, 0, "ShockRiflePuff", 0.0, 0.0, 8192, 16, 3.0, 1.0, "ShockBeamTrail")
 			LIGH B 0 A_SetPitch(pitch-2.0)
 			LIGH BCDEFGHIJKLMNOPQ 1 A_SetPitch(pitch+0.125)
 			LIGH A 5
@@ -37,8 +43,8 @@ actor ShockRifle : Weapon 18004
 			LIG2 B 0 A_FireCustomMissile("ShockRifleBall", 0, 1, 8, -16, 1)
 			LIG2 B 0 A_SetPitch(pitch-3.0)
 			LIG2 BCDEFGHIJKLMNOPQ 1 A_SetPitch(pitch+0.1875)
-			LIG2 RS 1
-			LIG2 TUV 1 A_Refire
+			LIG2 RS 1 A_WeaponReady(WRF_NOBOB | WRF_NOSECONDARY)
+			LIG2 TUV 1 A_WeaponReady(WRF_NOBOB)
 			LIGH A 0 A_Refire
 			goto Ready
 		Flash:
@@ -49,70 +55,18 @@ actor ShockRifle : Weapon 18004
 	}
 }
 
-actor ShockBeam
+actor ShockBeamTrail : BaseEffect
 {
-	Projectile
-	Radius 2
-	Height 4
-	Speed 6
-	+SEEKERMISSILE
-	States
-	{
-		Spawn:
-			TNT1 A 0 BRIGHT
-			TNT1 A 0 BRIGHT
-			goto Beam
-		Beam:
-			SRSP A 0 BRIGHT A_SpawnItemEx("ShockBeamTrail", 0, 0, 0, VELX, VELY, VELZ, 0, SXF_TRANSFERPOINTERS | SXF_ABSOLUTEVELOCITY | SXF_CLIENTSIDE, 0)
-			goto Death
-		Death:
-			TNT1 AA 1
-			stop
-	}
-}
-
-actor ShockBeamTrail
-{
-	Projectile
 	Radius 2
 	Height 4
 	RenderStyle Add
 	Alpha 1.0
 	Scale 0.20
-	+DONTBLAST
-	+SEEKERMISSILE
-	+DONTSPLASH
-	+FORCEXYBILLBOARD
-	-ACTIVATEIMPACT
-	-ACTIVATEPCROSS
 	States
 	{
 		Spawn:
-			TNT1 A 0
-			TNT1 A 0 A_JumpIfTracerCloser(64, "Death")
-			TNT1 A 0 A_SpawnItemEx("ShockBeamTrail", 0, 0, 0, VELX, VELY, VELZ, 0, SXF_TRANSFERPOINTERS | SXF_ABSOLUTEVELOCITY | SXF_CLIENTSIDE, 0)
-			goto Beam
-		Beam:
 			SRSP A 1 BRIGHT A_Fadeout(0.075)
 			loop
-		Death:
-			TNT1 A 1
-			stop
-	}
-}
-
-actor ShockBeamSpawner : FireTracerSpawner
-{
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
-			TNT1 A 0 A_Fire(32)
-			TNT1 A 0 A_FaceTarget
-			TNT1 A 0 A_CustomMissile("ShockBeam", 0, 12)
-			TNT1 A 1
-			stop
 	}
 }
 
@@ -127,17 +81,11 @@ Actor ShockRiflePuff
 	DamageType "ShockBeam"
 	+NOBLOCKMAP
 	+NOGRAVITY
-	+NOBLOOD
-	+NOBLOODDECALS
 	+PUFFONACTORS
 	+PUFFGETSOWNER
 	+FORCEXYBILLBOARD
-	+ISMONSTER
 	+ALWAYSPUFF
 	+DONTBLAST
-	+NODAMAGE
-	+SHOOTABLE
-	+SPECTRAL
 	-NONETID
 	States
 	{
@@ -146,14 +94,13 @@ Actor ShockRiflePuff
 		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
 		goto Crash
 	Crash:
-		TNT1 A 0 A_SpawnItemEx("ShockBeamSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
 		TNT1 A 0 A_Blast(BF_DONTWARN, 128, 32, 4, "BlastEffect", "")
 		TNT1 AAAAAA 0 A_SpawnItemEx("ShockRifleSpark", 0, 0, 0, frandom(-0.5, 0.5), frandom(-0.5, 0.5), frandom(0.0, 2.0), random(-180, 180), SXF_CLIENTSIDE, 0)
 		SRCF A 2 BRIGHT Light("ShockBeamHit")
 		goto Fade
 	Fade:
-		SRCF AAAAAAAAAA 1 BRIGHT Light("ShockBeamHit") A_FadeOut(0.1)
-		stop
+		SRCF A 1 BRIGHT Light("ShockBeamHit") A_FadeOut(0.1)
+		loop
 	}
 }
 
@@ -180,7 +127,6 @@ actor ShockRifleBall
 	+FORCEXYBILLBOARD
 	+FORCERADIUSDMG
 	+NOBLOODDECALS
-	+PIERCEARMOR
 	+NODAMAGE
 	+NOTARGETSWITCH
 	SeeSound "ShockRifleBall"
@@ -275,7 +221,7 @@ actor ShockComboExplosionRing2
 	Speed 0
 	RenderStyle Add
 	Alpha 1.0
-	Scale 1.25
+	Scale 0.025
 	+NOGRAVITY
 	+NOBLOCKMAP
 	+NOCLIP
@@ -284,9 +230,9 @@ actor ShockComboExplosionRing2
 	States
 	{
 	Spawn:
-		SRCR ABC 1 BRIGHT
-		SRCR DEFGH 1 BRIGHT A_FadeOut(0.07)
-		stop
+		SRCR A 1 BRIGHT A_SetScale(scalex+0.1)
+		SRCR A 0 BRIGHT A_FadeOut(0.07)
+		loop
 	}
 }
 

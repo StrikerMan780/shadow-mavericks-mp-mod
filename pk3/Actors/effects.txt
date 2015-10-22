@@ -438,7 +438,6 @@ actor GunSpark
 	Projectile
 	Radius 2
 	Height 2
-	Speed 30
 	Damage 0
 	RenderStyle Add
 	Alpha 1.0
@@ -458,14 +457,31 @@ actor GunSpark
 	{
 		Spawn:
 			PUFF A 0 BRIGHT
-			PUFF A 0 A_Recoil(Random(-3,3))
-			PUFF A 0 BRIGHT ThrustThingZ(0, Random(0, 7), Random(0,1), 1)
 			PUFF A 0 A_JumpIf(WaterLevel >= 1, "Death")
 			PUFF A 1 BRIGHT A_FadeOut(0.15)
-			goto Spawn+3
+			loop
 		Death:
 			TNT1 A 1
 			TNT1 A 1
+			stop
+	}
+}
+
+actor GunSparkSpawner
+{
+	Projectile
+	Speed 30
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	+DONTSPLASH
+	+CANBOUNCEWATER
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 AAAAA 0 A_SpawnItemEx("GunSpark", 0, 0, 0, velx+frandom(-3.0,3.0), vely+frandom(-3.0,3.0), velz+frandom(-2.0,3.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
 			stop
 	}
 }
@@ -669,6 +685,33 @@ actor GiygasEnergySpawner
 	}
 }
 
+actor Duke64ExplosionSmoke
+{
+	Projectile
+	Height 1
+	Radius 1
+	Speed 0
+	Damage 0
+	RenderStyle Add
+	Alpha 0.5
+	Scale 0.2
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+	+HEXENBOUNCE
+	+BLOODLESSIMPACT
+	+BOUNCEONACTORS
+	+THRUACTORS
+	+DONTSPLASH
+	States
+	{
+	Death:
+	Spawn:
+		SMK1 A 1 A_SetScale(scalex+0.1)
+		SMK1 A 0 A_FadeOut(0.01)
+		loop
+	}
+}
+
 actor Duke64Explosion : BaseEffect
 {
 	RenderStyle Add
@@ -677,6 +720,16 @@ actor Duke64Explosion : BaseEffect
 	{
 	Spawn:
 		D6EX ABCDEFGHIJKLMNOPQ 2 BRIGHT
+		stop
+	}
+}
+
+actor Duke64ExplosionFast : Duke64Explosion
+{
+	States
+	{
+	Spawn:
+		D6EX ABCDEFGHIJKLMNOPQ 1 BRIGHT
 		stop
 	}
 }

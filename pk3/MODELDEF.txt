@@ -941,24 +941,40 @@ Model NewPistol
 {
 	Path "Models\HUD\WaltherP99"
 	Model 0 "WaltherP99.md3"
-	Scale 5.0 4.5 5
-	ZOffset -1.2
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
 
 	FrameIndex PISG A 0 0
 	FrameIndex PISG B 0 4
 	FrameIndex PISG C 0 5
+	FrameIndex PISG D 0 6
+	FrameIndex PISG E 0 8
+	FrameIndex PISG F 0 10
+	FrameIndex PISG G 0 12
+	FrameIndex PISG H 0 14
+	FrameIndex PISG I 0 16
+	FrameIndex PISG J 0 18
+	FrameIndex PISG K 0 20
 }
 
 Model NewPistol
 {
 	Path "Models\HUD\WaltherP99"
 	Model 0 "WaltherP99Silenced.md3"
-	Scale 5.0 4.5 5
-	ZOffset -1.2
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
 
 	FrameIndex PISS A 0 0
 	FrameIndex PISS B 0 4
 	FrameIndex PISS C 0 5
+	FrameIndex PISS D 0 6
+	FrameIndex PISS E 0 8
+	FrameIndex PISS F 0 10
+	FrameIndex PISS G 0 12
+	FrameIndex PISS H 0 14
+	FrameIndex PISS I 0 16
+	FrameIndex PISS J 0 18
+	FrameIndex PISS K 0 20
 }
 
 Model NewPistol
@@ -966,77 +982,171 @@ Model NewPistol
 	Path "Models\HUD\WaltherP99"
 	Model 0 "P99Flash.md3"
 	Skin 0 "pistolflash.png"
-	Scale 5.0 4.5 5
-	ZOffset -1.2
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
 
 	FrameIndex PISF A 0 0
-}
-
-Model NewPistol
-{
-	Path "Models\HUD\WaltherP99"
-	Model 0 "P99Flash2.md3"
-	Skin 0 "pistolflash.png"
-	Scale 5.0 4.5 5
-	ZOffset -1.2
-
-	FrameIndex PISF B 0 0
+	FrameIndex PISF B 0 1
 }
 
 Model NewPistol
 {
 	Path "Models\HUD\WaltherP99"
 	Model 0 "WaltherP99Reload.md3"
-	Scale 5.0 4.5 5
-	ZOffset -1.2
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
 
-	FrameIndex PISG D 0 0
-	FrameIndex PISG E 0 7
-	FrameIndex PISG F 0 13
-	FrameIndex PISG G 0 15
-	FrameIndex PISG H 0 16
-	FrameIndex PISG I 0 25
-	FrameIndex PISG J 0 40
-	FrameIndex PISG K 0 44
-	FrameIndex PISG L 0 58
-	FrameIndex PISG M 0 62
-	FrameIndex PISG N 0 73
-	FrameIndex PISG O 0 76
-	FrameIndex PISG P 0 80
-	FrameIndex PISG Q 0 82
-	FrameIndex PISG R 0 84
-	FrameIndex PISG S 0 88
-	FrameIndex PISG T 0 90
-	FrameIndex PISG U 0 91
-	FrameIndex PISG V 0 92
+	FrameIndex PISR D 0 0
+	FrameIndex PISR E 0 7
+	FrameIndex PISR F 0 13
+	FrameIndex PISR G 0 15
+	FrameIndex PISR H 0 16
+	FrameIndex PISR I 0 25
+	FrameIndex PISR J 0 40
+	FrameIndex PISR K 0 44
+	FrameIndex PISR L 0 58
+	FrameIndex PISR M 0 62
+	FrameIndex PISR N 0 73
+	FrameIndex PISR O 0 76
+	FrameIndex PISR P 0 80
+	FrameIndex PISR Q 0 82
+	FrameIndex PISR R 0 84
+	FrameIndex PISR S 0 88
+	FrameIndex PISR T 0 90
+	FrameIndex PISR U 0 91
+	FrameIndex PISR V 0 92
 }
 
 Model NewPistol
 {
 	Path "Models\HUD\WaltherP99"
 	Model 0 "WaltherP99SilencedReload.md3"
-	Scale 5.0 4.5 5
-	ZOffset -1.2
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
 
-	FrameIndex PISS D 0 0
-	FrameIndex PISS E 0 7
-	FrameIndex PISS F 0 13
-	FrameIndex PISS G 0 15
-	FrameIndex PISS H 0 16
-	FrameIndex PISS I 0 25
-	FrameIndex PISS J 0 40
-	FrameIndex PISS K 0 44
-	FrameIndex PISS L 0 58
-	FrameIndex PISS M 0 62
-	FrameIndex PISS N 0 73
-	FrameIndex PISS O 0 76
-	FrameIndex PISS P 0 80
-	FrameIndex PISS Q 0 82
-	FrameIndex PISS R 0 84
-	FrameIndex PISS S 0 88
-	FrameIndex PISS T 0 90
-	FrameIndex PISS U 0 91
-	FrameIndex PISS V 0 92
+	FrameIndex PSRS D 0 0
+	FrameIndex PSRS E 0 7
+	FrameIndex PSRS F 0 13
+	FrameIndex PSRS G 0 15
+	FrameIndex PSRS H 0 16
+	FrameIndex PSRS I 0 25
+	FrameIndex PSRS J 0 40
+	FrameIndex PSRS K 0 44
+	FrameIndex PSRS L 0 58
+	FrameIndex PSRS M 0 62
+	FrameIndex PSRS N 0 73
+	FrameIndex PSRS O 0 76
+	FrameIndex PSRS P 0 80
+	FrameIndex PSRS Q 0 82
+	FrameIndex PSRS R 0 84
+	FrameIndex PSRS S 0 88
+	FrameIndex PSRS T 0 90
+	FrameIndex PSRS U 0 91
+	FrameIndex PSRS V 0 92
+}
+
+Model NewPistol
+{
+	Path "Models\HUD\WaltherP99"
+	Model 0 "WaltherP99SilencerOn.md3"
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
+
+	FrameIndex PISW A 0 4
+	FrameIndex PISW B 0 6
+	FrameIndex PISW C 0 8
+	FrameIndex PISW D 0 10
+	FrameIndex PISW E 0 12
+	FrameIndex PISW F 0 14
+	FrameIndex PISW G 0 16
+	FrameIndex PISW H 0 18
+	FrameIndex PISW I 0 20
+	FrameIndex PISW J 0 22
+	FrameIndex PISW K 0 24
+	FrameIndex PISW L 0 26
+	FrameIndex PISW M 0 28
+	FrameIndex PISW N 0 30
+	FrameIndex PISW O 0 32
+	FrameIndex PISW P 0 34
+	FrameIndex PISW Q 0 36
+	FrameIndex PISW R 0 38
+	FrameIndex PISW S 0 40
+	FrameIndex PISW T 0 42
+	FrameIndex PISW U 0 46
+	FrameIndex PISW V 0 48
+	FrameIndex PISW W 0 50
+	FrameIndex PISW X 0 52
+	FrameIndex PISW Y 0 54
+	FrameIndex PISW Z 0 56
+	FrameIndex PISX A 0 58
+	FrameIndex PISX B 0 60
+	FrameIndex PISX C 0 62
+	FrameIndex PISX D 0 64
+	FrameIndex PISX E 0 66
+	FrameIndex PISX F 0 68
+	FrameIndex PISX G 0 70
+	FrameIndex PISX H 0 72
+	FrameIndex PISX I 0 76
+	FrameIndex PISX J 0 78
+	FrameIndex PISX K 0 80
+	FrameIndex PISX L 0 82
+	FrameIndex PISX M 0 84
+	FrameIndex PISX N 0 86
+	FrameIndex PISX O 0 88
+	FrameIndex PISX P 0 90
+	FrameIndex PISX Q 0 92
+}
+
+Model NewPistol
+{
+	Path "Models\HUD\WaltherP99"
+	Model 0 "WaltherP99SilencerOff.md3"
+	Scale 5.0 4.0 5
+	//ZOffset -1.2
+
+	FrameIndex PISY A 0 4
+	FrameIndex PISY B 0 6
+	FrameIndex PISY C 0 8
+	FrameIndex PISY D 0 10
+	FrameIndex PISY E 0 12
+	FrameIndex PISY F 0 14
+	FrameIndex PISY G 0 16
+	FrameIndex PISY H 0 18
+	FrameIndex PISY I 0 20
+	FrameIndex PISY J 0 22
+	FrameIndex PISY K 0 24
+	FrameIndex PISY L 0 26
+	FrameIndex PISY M 0 28
+	FrameIndex PISY N 0 30
+	FrameIndex PISY O 0 32
+	FrameIndex PISY P 0 34
+	FrameIndex PISY Q 0 36
+	FrameIndex PISY R 0 38
+	FrameIndex PISY S 0 40
+	FrameIndex PISY T 0 42
+	FrameIndex PISY U 0 46
+	FrameIndex PISY V 0 48
+	FrameIndex PISY W 0 50
+	FrameIndex PISY X 0 52
+	FrameIndex PISY Y 0 54
+	FrameIndex PISY Z 0 56
+	FrameIndex PISZ A 0 58
+	FrameIndex PISZ B 0 60
+	FrameIndex PISZ C 0 62
+	FrameIndex PISZ D 0 64
+	FrameIndex PISZ E 0 66
+	FrameIndex PISZ F 0 68
+	FrameIndex PISZ G 0 70
+	FrameIndex PISZ H 0 72
+	FrameIndex PISZ I 0 76
+	FrameIndex PISZ J 0 78
+	FrameIndex PISZ K 0 80
+	FrameIndex PISZ L 0 82
+	FrameIndex PISZ M 0 84
+	FrameIndex PISZ N 0 86
+	FrameIndex PISZ O 0 88
+	FrameIndex PISZ P 0 90
+	FrameIndex PISZ Q 0 92
 }
 
 model ForestTree1
@@ -1824,109 +1934,6 @@ Model EnergyBallExplosionRingMega
 	FrameIndex NULL H 0 7
 }
 
-Model SmartRifle
-{
-	Path "Models\HUD\SmartRifle"
-	Model 0 "SmartRifle.md3"
-	Scale -5.0 3.0 5
-	ZOffset 2
-
-	FrameIndex MORI A 0 32
-}
-
-Model SmartRifle
-{
-	Path "Models\HUD\SmartRifle"
-	Model 0 "SmartRifle.md3"
-	Model 1 "SmartRifleFlash.md3"
-	Skin 1 "muzzleflashx.png"
-	Scale -5.0 3.0 5
-	ZOffset 2
-
-	FrameIndex MRIT A 0 0
-	FrameIndex MRIT A 1 0
-}
-
-Model SmartRifle
-{
-	Path "Models\HUD\SmartRifle"
-	Model 0 "SmartRifle.md3"
-	Model 1 "SmartRifleFlash2.md3"
-	Skin 1 "muzzleflashx2.png"
-	Scale -5.0 3.0 5
-	ZOffset 2
-
-	FrameIndex MRIT B 0 5
-	FrameIndex MRIT B 1 0
-}
-
-Model SmartRifle
-{
-	Path "Models\HUD\SmartRifle"
-	Model 0 "SmartRifle.md3"
-	Model 1 "SmartRifleSGFlash.md3"
-	Skin 1 "SmartRifleSGFlash.png"
-	Scale -5.0 3.0 5
-	ZOffset 2
-
-	FrameIndex MORI B 0 3
-	FrameIndex MORI B 1 0
-}
-
-Model SmartRifle
-{
-	Path "Models\HUD\SmartRifle"
-	Model 0 "SmartRifle.md3"
-	Model 1 "SmartRifleSGFlash2.md3"
-	Skin 1 "SmartRifleSGFlash.png"
-	Scale -5.0 3.0 5
-	ZOffset 2
-
-	FrameIndex MORI C 0 2
-	FrameIndex MORI C 1 0
-}
-
-Model SmartRifle
-{
-	Path "Models\HUD\SmartRifle"
-	Model 0 "SmartRifleReload.md3"
-	Scale -5.0 3.0 5
-	ZOffset 2
-
-	FrameIndex MORR A 0 4
-	FrameIndex MORR B 0 7
-	FrameIndex MORR C 0 10
-	FrameIndex MORR D 0 14
-	FrameIndex MORR E 0 17
-	FrameIndex MORR F 0 19
-	FrameIndex MORR G 0 20
-	FrameIndex MORR H 0 22
-	FrameIndex MORR I 0 23
-	FrameIndex MORR J 0 24
-	FrameIndex MORR K 0 25
-	FrameIndex MORR L 0 32
-	FrameIndex MORR M 0 34
-	FrameIndex MORR N 0 36
-	FrameIndex MORR O 0 38
-	FrameIndex MORR P 0 45
-	FrameIndex MORR Q 0 48
-	FrameIndex MORR R 0 50
-	FrameIndex MORR S 0 55
-	FrameIndex MORR T 0 58
-	FrameIndex MORR U 0 60
-	FrameIndex MORR V 0 62
-	FrameIndex MORR W 0 64
-	FrameIndex MORR X 0 67
-	FrameIndex MORR Y 0 69
-	FrameIndex MORR Z 0 74
-	FrameIndex MOR2 A 0 76
-	FrameIndex MOR2 B 0 78
-	FrameIndex MOR2 C 0 80
-	FrameIndex MOR2 D 0 82
-	FrameIndex MOR2 E 0 84
-	FrameIndex MOR2 F 0 86
-}
-
 model RicochetSpark
 {
 	Path "Models\Projectiles"
@@ -2575,13 +2582,32 @@ Model FlakShard
 	FrameIndex METL E 0 0
 }
 
+Model OICW_Grenade
+{
+	Path "Models\HUD\ProtonGL"
+	Model 0 "Grenade.md3"
+	Skin 0 "wpn_vog.png"
+	Scale 4.0 4.0 4.8
+	PITCHFROMMOMENTUM
+
+	Rotating
+	Rotation-Speed 20
+	Rotation-Vector 1 0 0
+	
+	FrameIndex SGRN A 0 0
+}
+
 Model GBTWGrenade
 {
 	Path "Models\HUD\ProtonGL"
 	Model 0 "Grenade.md3"
 	Skin 0 "wpn_vog.png"
-	Scale 4.0 4.0 4.0
+	Scale 4.0 4.0 4.8
 	PITCHFROMMOMENTUM
+
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
 	
 	FrameIndex SGRN A 0 0
 }
@@ -4032,4 +4058,14 @@ model NewPlasma
 	FrameIndex PLSS B 0 1
 	FrameIndex PLSS C 0 2
 	FrameIndex PLSS D 0 3
+}
+
+Model Barrel
+{
+	Path "Models/Barrel"
+	Model 0 "barrel.md3"
+	Skin 0 "oildrum.png"
+	Scale 1.0 1.0 0.78
+	
+	FrameIndex BARL A 0 0
 }

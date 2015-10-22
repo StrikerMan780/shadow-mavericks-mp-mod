@@ -128,6 +128,16 @@ brightmap texture FLT510_8
 	map "Brightmaps/FLT510_8.png"
 }
 
+brightmap flat FLOOR09
+{
+	map "Brightmaps/FLOOR09.png"
+}
+
+brightmap texture FLOOR09
+{
+	map "Brightmaps/FLOOR09.png"
+}
+
 brightmap texture SUPRA
 {
 	map "Brightmaps/Supra.png"

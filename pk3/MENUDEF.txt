@@ -1,0 +1,121 @@
+ListMenu "MainMenu"
+{
+	StaticPatch 8, 24, "M_DOOM"
+	
+	Font "SmallFont", "White", "Green"
+	Linespacing 10
+	Position 24, 104
+	Selector "NODRAW", 0, 0
+	
+	TextItem "New Game", "n", "PlayerclassMenu"
+	TextItem "Skirmish", "n", "ZA_SkirmishMenu"
+	TextItem "Main Options", "o", "OptionsMenu"
+	TextItem "SMMP Options", "m", "SMMPOptions"
+	TextItem "Load Game", "l", "LoadGameMenu"
+	TextItem "Save Game", "s", "SaveGameMenu"
+	TextItem "Quit", "q", "QuitMenu"
+}
+
+OptionValue "CycleMinutes"
+{
+	5, "5 Minutes"
+	10, "10 Minutes"
+	15, "15 Minutes"
+	24, "24 Minutes (Default)"
+	45, "45 Minutes"
+	60, "1 Hour"
+	120, "2 Hours"
+	1440, "24 Hours"
+}
+
+OptionValue "WeatherTypes"
+{
+	0, "Clear"
+	1, "Rain"
+	2, "Blood Rain"
+	3, "Snow"
+}
+
+OptionValue "WeatherDensity"
+{
+	16, "Very Light"
+	32, "Light (Default)"
+	50, "Medium"
+	64, "Heavy"
+	100, "Very Heavy"
+}
+
+OptionMenu "SMMPOptions"
+{
+	Title "SMMP OPTIONS"
+	Option "Uncensored Mode (18+)", "smmp_uncensored", "OnOff"
+	Option "HQ Day/Night Cycle Time", "smmp_daycycle_minutes", "CycleMinutes"
+	StaticText 	""
+	Option "Weather Type", "smmp_weathertype", "WeatherTypes"
+	Option "Weather Density", "smmp_weatherdensity", "WeatherDensity"
+	Option "Weather Sounds", "smmp_weathersound", "OnOff"
+	StaticText 	""
+	Option "Scrumpy Mode", "smmp_scrumpy", "OnOff"
+	Option "Crickagib Mode", "smmp_crickagib", "OnOff"
+	StaticText 	""
+	Option "Block Marine", "smmp_block_marine", "OnOff"
+	Option "Block Tails", "smmp_block_tails", "OnOff"
+	Option "Block Link", "smmp_block_link", "OnOff"
+	Option "Block Duke", "smmp_block_duke", "OnOff"
+	StaticText 	""
+	StaticText "Key Bindings", 1
+	Control "Use Special Move", "SpecialMove"
+	Control "Quick-Throw Molotov", "UseMolotov"
+	Control "Show Ammo & Money", "showpop 3"
+	StaticText 	""
+	StaticText "Taunt System", 1
+	Control "Select Next Taunt", "TauntNext"
+	Control "Select Previous Taunt", "TauntPrevious"
+	Control "Taunt Skip Ahead by 5", "TauntSkipNext"
+	Control "Taunt Skip Back by 5", "TauntSkipBack"
+	Control "Play Global Taunt", "TauntPlay"
+}
+
+ListMenu "PlayerclassMenu"
+{
+	NetgameMessage "$NEWGAME"
+	Font "SmallFont", "ElecViolet"
+	StaticTextCentered 160, 32, "Choose your character:"
+	
+	Font "SmallFont", "White", "Green"
+	Linespacing 10
+	Position 48, 63
+	Selector "NODRAW", 0, 0
+	
+	PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+	MouseWindow 0, 220
+
+	// The rest of this menu will be set up based on the actual player definitions.
+}
+
+ListMenu "EpisodeMenu"
+{
+	NetgameMessage "$NEWGAME"
+	Font "SmallFont", "ElecViolet"
+	StaticTextCentered 160, 32, "Select an Episode:"
+	
+	Font "SmallFont", "White", "Green"
+	Linespacing 10
+	Position 48, 63
+	Selector "NODRAW", 0, 0
+	
+	// items will be filled in by MAPINFO
+}
+
+ListMenu "SkillMenu"
+{
+	Font "SmallFont", "ElecViolet"
+	StaticTextCentered 160, 32, "Select a difficulty:"
+	
+	Font "SmallFont", "White", "Green"
+	Linespacing 10
+	Position 48, 63
+	Selector "NODRAW", 0, 0
+	
+	// Will be filled in by difficulties
+}

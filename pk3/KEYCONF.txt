@@ -1,29 +1,21 @@
-addkeysection "SMMP Class Abilities" SMMPClassAbilities
-addmenukey "Use Special Move" SpecialMove
 alias SpecialMove "use SpecialMove"
+alias UseMolotov "use MolotovCocktail"
 
 addkeysection "SMMP Misc Commands" SMMPMiscCommands
 addmenukey "All-In-One Fix" Fix
 alias Fix "snd_channels 64; gl_use_models 1; gl_interpolate_model_frames 1"
-addmenukey "Quick-Throw Molotov" usemolotov
-alias usemolotov "use MolotovCocktail"
 
 alias censortoggle "echo This command has been replaced by the CVAR smmp_uncensored"
 alias interpolate "gl_interpolate_model_frames 1"
 defaultbind n "showpop 3"
+defaultbind r "+reload"
 
-addkeysection "SMMP Global Taunt System" SMMPTauntSystem
-addmenukey "Select Next Taunt" TauntNext 
-addmenukey "Select Previous Taunt" TauntPrevious
-addmenukey "Taunt Skip Ahead by 5" TauntSkipNext
-addmenukey "Taunt Skip Back by 5" TauntSkipBack
-addmenukey "Play Global Taunt" TauntPlay
-alias TauntNext "puke -930 1"
-alias TauntPrevious "puke -930 0"
-alias TauntSkipNext "puke -930 2"
-alias TauntSkipBack "puke -930 3"
-alias TauntPlay "puke -931"
-alias SendTaunt "puke -931 %1"
+alias TauntNext "pukename \"TAUNT_SELECT\" always 1"
+alias TauntPrevious "pukename \"TAUNT_SELECT\" always 0"
+alias TauntSkipNext "pukename \"TAUNT_SELECT\" always 2"
+alias TauntSkipBack "pukename \"TAUNT_SELECT\" always 3"
+alias TauntPlay "pukename \"TAUNT_PLAY\" always"
+alias SendTaunt "pukename \"TAUNT_SELECT\" always 1 %1"
 
 clearplayerclasses
 addplayerclass "Marine"

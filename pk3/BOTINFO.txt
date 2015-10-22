@@ -33,7 +33,7 @@ anticipation = 4
 reactiontime = 4
 perception = 4
 chatfrequency = 50
-favoriteweapon = "supershotgun"
+favoriteweapon = "sm_supershotgun"
 }
 
 {
@@ -93,11 +93,11 @@ Anticipation   = 3
 Reactiontime   = 3
 Perception     = 3
 Chatfrequency  = 25
-Favoriteweapon = "supershotgun"
+Favoriteweapon = "sm_supershotgun"
 }
 
 {
-name = "\cfD\cku\cike \cfNu\ckk\ciem"
+name = "\cfD\cku\cike"
 script = HUMANBOT
 Chatlump = DUKECHAT
 gender = male
@@ -114,4 +114,24 @@ reactiontime = 4
 perception = 4
 chatfrequency = 42
 favoriteweapon = "Stinger"
+}
+
+{
+name = "\cdLink"
+script = HUMANBOT
+Chatlump = LINKCHAT
+gender = male
+color = "00 FF 00"
+railcolor = "green"
+skin = "Base"
+class = "Link"
+revealed = true
+accuracy = 3
+intelect = 4
+evade = 4
+anticipation = 4
+reactiontime = 4
+perception = 4
+chatfrequency = 10
+favoriteweapon = "IceRod"
 }

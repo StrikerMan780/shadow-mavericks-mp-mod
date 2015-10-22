@@ -835,7 +835,7 @@ actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
 {
 	DamageFactor "Wolf", 0
 	attacksound "mp40fire"
-	DropItem "MP40"
+	DropItem "MP40Giver_Dropped"
 	DropItem "HealingSerum", 16
 	states
 	{
@@ -2755,9 +2755,14 @@ actor HangingTurret 16093
 		stop
 	RespawnFriendly:
 		TNT1 A 4200
-		TNT1 A 0 A_Respawn
+		TNT1 A 0 A_SpawnItemEx("FriendlyHangingTurret", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 		stop
 	}
+}
+
+actor FriendlyHangingTurret : HangingTurret
+{
+	+FRIENDLY
 }
 
 actor Hangman 32123

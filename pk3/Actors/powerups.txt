@@ -55,7 +55,7 @@ actor MysteryPowerup : CustomInventory 13422
 			Loop
 		Pickup:
 			TNT1 A 0 A_JumpIfInventory("MysteryPowerupInUse", 1, "FuckOff")
-			TNT1 A 0 ACS_ExecuteAlways(917, 0)
+			TNT1 A 0 ACS_NamedExecuteAlways("MYSTERY_ITEM", 0)
 			stop
 		FuckOff:
 			TNT1 A 0
@@ -138,7 +138,7 @@ actor Booze1 : CustomInventory 30100
 		Pickup:
 			TNT1 A 0
 			TNT1 A 1 A_JumpIfInventory("DrunkMode", 1, "FeckOffCrows")
-			TNT1 A 0 ACS_ExecuteAlways(DRUNK_MODE, 0)
+			TNT1 A 0 ACS_NamedExecuteAlways("DRUNK_MODE", 0)
 			stop
 		FeckOffCrows:
 			TNT1 A 1

@@ -38,5 +38,8 @@ actor ClassWeaponGiver : CustomInventory
 #include "actors/weapons/shotguns.txt"
 #include "actors/weapons/chainsaw.txt"
 #include "actors/weapons/mp40.txt"
+#include "actors/weapons/p90.txt"
+#include "actors/weapons/oicw.txt"
+#include "actors/weapons/railgun.txt"
 #include "actors/weapons/bowcaster.txt"
 #include "actors/weapons/jokeweapons.txt"

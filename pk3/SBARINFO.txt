@@ -199,8 +199,8 @@ statusbar fullscreen, forcescaled
 
 			IsSelected SmartRifle
 			{
-				drawimage "SPRAICON", 252, 186, center;
-				drawnumber 3, BIGFONT, red, SpreadAmmo, 239, 177;
+				drawimage "PRTNICON", 252, 186, center;
+				drawnumber 3, BIGFONT, red, ProtonAmmo, 239, 177;
 			}
 
 			// Selected Item -
@@ -294,8 +294,8 @@ statusbar fullscreen, forcescaled
 
 			IsSelected SmartRifle
 			{
-				drawimage "SPRAICON", 305, 186, center;
-				drawnumber 3, BIGFONT, red, SpreadAmmo, 292, 177;
+				drawimage "PRTNICON", 305, 186, center;
+				drawnumber 3, BIGFONT, red, ProtonAmmo, 292, 177;
 			}
 
 			// Selected Item
@@ -389,8 +389,8 @@ statusbar fullscreen, forcescaled
 
 			IsSelected SmartRifle
 			{
-				drawimage "SPRAICON", 284, 186, center;
-				drawnumber 3, BIGFONT, red, SpreadAmmo, 271, 177;
+				drawimage "PRTNICON", 284, 186, center;
+				drawnumber 3, BIGFONT, red, ProtonAmmo, 271, 177;
 			}
 
 			// Selected Item =

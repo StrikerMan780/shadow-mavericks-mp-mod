@@ -1,0 +1,97 @@
+ACTOR P90Clip : Ammo
+{
+	Inventory.MaxAmount 80 // size of the clip
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 80 //MUST be the same as Inventory.MaxAmmount
+	Inventory.Icon "MAGICON2"
+	+IGNORESKILL
+}
+
+actor P90 : ClericWeapon 24302
+{
+	Tag "FN-P90"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 0.75
+    Weapon.BobRangeY 1.25
+	decal BulletChip
+	obituary "%o was perforated by %k's P90."
+	Inventory.PickupSound "misc/w_pkup"
+	Inventory.PickupMessage "Oooh, A P90! (AKA. Lead Flinger!)"
+	weapon.selectionorder 900
+	weapon.kickback 80
+	Weapon.AmmoType1 "P90Clip"
+	Weapon.AmmoType2 "MechAmmo"
+	Weapon.AmmoGive2 80
+	Weapon.AmmoUse1 1
+	attacksound "p90fire"
+	+WEAPON.AMMO_OPTIONAL
+	Scale 0.68
+	states
+	{
+		Spawn:
+			P90P A -1
+			loop
+		Ready:
+			P90G A 1 A_WeaponReady
+			loop
+		Deselect:
+			P90G AAA 0 A_Lower
+			P90G A 1 A_Lower
+			loop
+		Select:
+			P90G AAA 0 A_Raise
+			P90G A 1 A_Raise
+			loop
+		Fire:
+			P90G B 0 A_JumpIfNoAmmo("ReloadCheck")
+			P90G B 0 BRIGHT radius_quake(1, 2, 0, 1, 0)
+			P90G B 0 BRIGHT A_GunFlash
+			P90G B 0 BRIGHT A_FireBullets (4, 3, -1, 5, "NewBulletPuff")
+			P90G B 1 BRIGHT A_SetPitch(pitch-0.5)
+			P90G C 1 BRIGHT A_SetPitch(pitch+0.25)
+			P90G A 1 A_SetPitch(pitch+0.25)
+			P90G B 0 A_ReFire
+			goto Ready
+		Flash:
+			P90F A 2 BRIGHT A_Light1
+			P90F B 1 BRIGHT A_Light0
+			stop
+		AltFire:
+			P90G A 0
+			goto ReloadCheck
+			
+		ReloadCheck:
+			P9R1 A 0 A_JumpIfInventory("P90Clip",80,2)
+			P9R1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
+			P9R1 A 0
+			goto Ready
+
+		ReloadStart:
+			P9R1 ABCDE 2
+			P9R1 F 0 A_PlaySoundEx("P90Unlock", "auto", 0)
+			P9R1 FGH 2
+			P9R1 I 0 A_PlaySoundEx("P90ClipOut", "auto", 0)
+			P9R1 IJKLMNOP 2
+			P9R1 Q 4
+			P9R1 RS 2
+			P9R1 T 0 A_PlaySoundEx("P90ClipIn", "auto", 0)
+			P9R1 TUVWXYZ 2
+			P9R2 ABC 2
+			goto ReloadAmmo
+
+		ReloadAmmo:
+			TNT1 A 0 A_TakeInventory("MechAmmo",1)
+			TNT1 A 0 A_GiveInventory("P90Clip",1)
+			TNT1 A 0 A_JumpIfInventory("P90Clip",80,"ReloadDone")
+			TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+			goto ReloadDone
+
+		ReloadDone:
+			P9R3 ABC 2
+			P9R3 D 0 A_PlaySoundEx("P90Cock", "auto", 0)
+			P9R3 DEFGHIJK 2
+			P9R3 LMNOPQRSTU 1
+			goto Ready
+	}
+}

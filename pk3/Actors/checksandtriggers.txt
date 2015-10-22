@@ -99,7 +99,7 @@ actor HitConfirmation : CustomInventory
 			TNT1 A -1
 			stop
 		Use:
-			TNT1 A 1 ACS_ExecuteAlways(HITCROSS, 0)
+			TNT1 A 1 ACS_NamedExecuteAlways("HITCROSS", 0)
 			stop
 	}
 }
@@ -154,7 +154,7 @@ actor LightningSound : CustomInventory
  	Use:
  		TNT1 A 0
  		TNT1 A 0 A_JumpIfInventory("NoLightningSound", 1, "GoDie")
- 		TNT1 A 1 ACS_ExecuteAlways(LIGHTNINGSOUND, 0)
+ 		TNT1 A 1 ACS_NamedExecuteAlways("LIGHTNINGSOUND", 0)
  		stop
  	GoDie:
  		TNT1 A 1
@@ -175,7 +175,7 @@ actor KnockoutTrigger : CustomInventory
 		stop
 	Use:
 		TNT1 A 0
-		TNT1 A 1 ACS_Execute(KNOCKOUT, 0)
+		TNT1 A 1 ACS_NamedExecute("KNOCKOUT", 0)
 		stop
 	}
 }
@@ -419,18 +419,18 @@ actor SpecialMove : CustomInventory
   	stop
   MarineWorking:
   	TNT1 A 0 A_TakeInventory("FlareCheck", 100)
-  	TNT1 A 0 ACS_ExecuteAlways(FLARECHECK,0)
+  	TNT1 A 0 ACS_NamedExecuteAlways("FLARECHECK",0)
 	
   	TNT1 A 0 A_SpawnItemEx("Flare", cos(-pitch)*1, 0, 50+(sin(pitch)*1),cos(-pitch)*50,0,(sin(-pitch)*50)+3, 0, 0, 0)
   	TNT1 A 0 A_GiveInventory("SpecialMove", 1)
   	stop
   LinkWorking:
-    TNT1 A 0 ACS_ExecuteAlways(DOWALLJUMP,0)
+    TNT1 A 0 ACS_NamedExecuteAlways("DOWALLJUMP",0)
     TNT1 A 0 A_GiveInventory("SpecialMove", 1)
     stop
   TailsWorking:
 	TNT1 A 0 A_PlayWeaponSound("SpinDash")
-	TNT1 A 0 ACS_Execute(SPINATTACK,0,1)
+	TNT1 A 0 ACS_NamedExecute("SPINATTACK",0,1)
 	TNT1 A 0 A_GiveInventory("SpecialMove", 1)
 	stop
   DontUse:

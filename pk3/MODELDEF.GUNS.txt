@@ -461,3 +461,220 @@ Model HaloPlasmaRifle
 	FrameIndex HLOP F 0 11
 	FrameIndex HLOP G 0 13
 }
+
+Model SmartRifle
+{
+	Path "Models\HUD\OICW"
+	Model 0 "OICW_Shoot.md3"
+	Scale 5.0 3.5 5
+	Offset -24.0 0.0 6.0
+	AngleOffset 4.0
+	RollOffset -3.0
+	PitchOffset -1.5
+
+	FrameIndex MORI A 0 0
+	FrameIndex MORI B 0 2
+	FrameIndex MORI C 0 4
+	FrameIndex MORI D 0 6
+	FrameIndex MORI E 0 8
+	FrameIndex MORI F 0 10
+	FrameIndex MORI G 0 12
+	FrameIndex MORI H 0 14
+	FrameIndex MORI I 0 16
+	FrameIndex MORI J 0 18
+	FrameIndex MORI K 0 20
+	FrameIndex MORI L 0 22
+	FrameIndex MORI M 0 24
+	FrameIndex MORI N 0 26
+	FrameIndex MORI O 0 28
+	FrameIndex MORI P 0 30
+	FrameIndex MORI Q 0 32
+	FrameIndex MORI R 0 34
+}
+
+Model SmartRifle
+{
+	Path "Models\HUD\OICW"
+	Model 0 "OICW_Reload.md3"
+	Scale 5.0 3.5 5
+	Offset -24.0 0.0 6.0
+	AngleOffset 4.0
+	RollOffset -3.0
+	PitchOffset -1.5
+
+	FrameIndex MORR A 0 0
+	FrameIndex MORR B 0 2
+	FrameIndex MORR C 0 4
+	FrameIndex MORR D 0 6
+	FrameIndex MORR E 0 8
+	FrameIndex MORR F 0 10
+	FrameIndex MORR G 0 12
+	FrameIndex MORR H 0 14
+	FrameIndex MORR I 0 16
+	FrameIndex MORR J 0 18
+	FrameIndex MORR K 0 20
+	FrameIndex MORR L 0 22
+	FrameIndex MORR M 0 24
+	FrameIndex MORR N 0 26
+	FrameIndex MORR O 0 28
+	FrameIndex MORR P 0 30
+	FrameIndex MORR Q 0 32
+	FrameIndex MORR R 0 34
+	FrameIndex MORR S 0 36
+	FrameIndex MORR T 0 38
+	FrameIndex MORR U 0 40
+	FrameIndex MORR V 0 42
+	FrameIndex MORR W 0 44
+	FrameIndex MORR X 0 46
+	FrameIndex MORR Y 0 48
+	FrameIndex MORR Z 0 50
+	
+	FrameIndex MOR2 A 0 52
+	FrameIndex MOR2 B 0 54
+	FrameIndex MOR2 C 0 56
+	FrameIndex MOR2 D 0 58
+	FrameIndex MOR2 E 0 60
+	FrameIndex MOR2 F 0 62
+	FrameIndex MOR2 G 0 64
+	FrameIndex MOR2 H 0 66
+	FrameIndex MOR2 I 0 68
+	FrameIndex MOR2 J 0 70
+	FrameIndex MOR2 K 0 72
+	FrameIndex MOR2 L 0 74
+	FrameIndex MOR2 M 0 76
+	FrameIndex MOR2 N 0 78
+	FrameIndex MOR2 O 0 80
+	FrameIndex MOR2 P 0 82
+	FrameIndex MOR2 Q 0 84
+	FrameIndex MOR2 R 0 86
+	FrameIndex MOR2 S 0 88
+	FrameIndex MOR2 T 0 90
+	FrameIndex MOR2 U 0 92
+	FrameIndex MOR2 V 0 94
+	FrameIndex MOR2 W 0 96
+	FrameIndex MOR2 X 0 98
+	FrameIndex MOR2 Y 0 100
+}
+
+Model SmartRifle
+{
+	Path "Models\HUD\OICW"
+	Model 0 "OICW_ToGrenade.md3"
+	Scale 5.0 3.5 5
+	Offset -24.0 0.0 6.0
+	AngleOffset 4.0
+	RollOffset -3.0
+	PitchOffset -1.5
+
+	FrameIndex MRTG A 0 0
+	FrameIndex MRTG B 0 2
+	FrameIndex MRTG C 0 4
+	FrameIndex MRTG D 0 6
+	FrameIndex MRTG E 0 8
+	FrameIndex MRTG F 0 10
+	FrameIndex MRTG G 0 12
+	FrameIndex MRTG H 0 14
+	FrameIndex MRTG I 0 16
+	FrameIndex MRTG J 0 18
+	FrameIndex MRTG K 0 20
+	FrameIndex MRTG L 0 22
+	FrameIndex MRTG M 0 24
+	FrameIndex MRTG N 0 26
+	FrameIndex MRTG O 0 28
+	FrameIndex MRTG P 0 30
+	FrameIndex MRTG Q 0 32
+	FrameIndex MRTG R 0 34
+	FrameIndex MRTG S 0 36
+	FrameIndex MRTG T 0 38
+}
+
+Model SmartRifle
+{
+	Path "Models\HUD\OICW"
+	Model 0 "OICW_ToCarbine.md3"
+	Scale 5.0 3.5 5
+	Offset -24.0 0.0 6.0
+	AngleOffset 4.0
+	RollOffset -3.0
+	PitchOffset -1.5
+
+	FrameIndex MRTC A 0 0
+	FrameIndex MRTC B 0 2
+	FrameIndex MRTC C 0 4
+	FrameIndex MRTC D 0 6
+	FrameIndex MRTC E 0 8
+	FrameIndex MRTC F 0 10
+	FrameIndex MRTC G 0 12
+	FrameIndex MRTC H 0 14
+	FrameIndex MRTC I 0 16
+	FrameIndex MRTC J 0 18
+	FrameIndex MRTC K 0 20
+	FrameIndex MRTC L 0 22
+	FrameIndex MRTC M 0 24
+	FrameIndex MRTC N 0 26
+	FrameIndex MRTC O 0 28
+	FrameIndex MRTC P 0 30
+	FrameIndex MRTC Q 0 32
+	FrameIndex MRTC R 0 34
+	FrameIndex MRTC S 0 36
+	FrameIndex MRTC T 0 38
+}
+
+Model SmartRifle
+{
+	Path "Models\HUD\OICW"
+	Model 0 "OICW_Grenade.md3"
+	Scale 5.0 3.5 5
+	Offset -24.0 0.0 6.0
+	AngleOffset 4.0
+	RollOffset -3.0
+	PitchOffset -1.5
+
+	FrameIndex MORG A 0 0
+	FrameIndex MORG B 0 2
+	FrameIndex MORG C 0 4
+	FrameIndex MORG D 0 6
+	FrameIndex MORG E 0 8
+	FrameIndex MORG F 0 10
+	FrameIndex MORG G 0 12
+	FrameIndex MORG H 0 14
+	FrameIndex MORG I 0 16
+	FrameIndex MORG J 0 18
+	FrameIndex MORG K 0 20
+	FrameIndex MORG L 0 22
+	FrameIndex MORG M 0 24
+	FrameIndex MORG N 0 26
+	FrameIndex MORG O 0 28
+	FrameIndex MORG P 0 30
+	FrameIndex MORG Q 0 32
+	FrameIndex MORG R 0 34
+	FrameIndex MORG S 0 36
+	FrameIndex MORG T 0 38
+	FrameIndex MORG U 0 40
+	FrameIndex MORG V 0 42
+	FrameIndex MORG W 0 44
+	FrameIndex MORG X 0 46
+	FrameIndex MORG Y 0 48
+	FrameIndex MORG Z 0 50
+	
+	FrameIndex MRG2 A 0 52
+	FrameIndex MRG2 B 0 54
+	FrameIndex MRG2 C 0 56
+	FrameIndex MRG2 D 0 58
+	FrameIndex MRG2 E 0 60
+	FrameIndex MRG2 F 0 62
+	FrameIndex MRG2 G 0 64
+	FrameIndex MRG2 H 0 66
+	FrameIndex MRG2 I 0 68
+	FrameIndex MRG2 J 0 70
+	FrameIndex MRG2 K 0 72
+	FrameIndex MRG2 L 0 74
+	FrameIndex MRG2 M 0 76
+	FrameIndex MRG2 N 0 78
+	FrameIndex MRG2 O 0 80
+	FrameIndex MRG2 P 0 82
+	FrameIndex MRG2 Q 0 84
+	FrameIndex MRG2 R 0 86
+	FrameIndex MRG2 S 0 88
+	FrameIndex MRG2 T 0 90
+}

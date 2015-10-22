@@ -20,6 +20,9 @@ $limit FlareThrow 0
 FlareBurn DSFLRBRN
 $limit FlareBurn 0
 
+ClusterExplode dsclustx
+$limit ClusterExplode 0
+
 weapons/shotgf			dsshotgn
 weapons/shotgr			dssgcock
 weapons/sshotf			dsdshtgn
@@ -68,7 +71,8 @@ pistol1 ds9mm1
 pistol2 ds9mm2
 pistol3 ds9mm3
 pistol4 ds9mm4
-$random weapons/pistol { pistol1 pistol2 pistol3 pistol4 }
+pistol5 ds9mm5
+$random weapons/pistol { pistol1 pistol2 pistol3 pistol4 pistol5 }
 SilencedPistol dspsilen
 SilencerToggle DSSILENC
 
@@ -90,14 +94,6 @@ disintegrate dsdisdth
 freezebolt dsbolfir
 freezehit dsbolhit
 kickswing dskicksw
-
-moritafire dsmorita
-moritashotgun dsmorits
-moritapump dsmspump
-moritabolt dsmsbolt
-moritaclipout dsmscout
-moritaclipin dsmsclin
-$limit moritafire 0
 
 p90fire dsp90
 $limit p90fire 0
@@ -729,6 +725,7 @@ weapons/bottle			dsbottle
 
 MagmaFly dsmagfir
 MagmaHit dsmaghit
+$limit MagmaHit 0
 
 // Stinger
 StingerFire dsstnfir

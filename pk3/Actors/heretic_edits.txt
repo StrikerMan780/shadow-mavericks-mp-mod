@@ -362,7 +362,7 @@ actor Fireborn 22121
 	Speed 10
 	PainChance 64
 	DamageFactor "Fire", 0.25
-	MinMissileChance 80
+	MinMissileChance 128
 	MeleeThreshold 128
 	MaxTargetRange 256
 	BloodType "FirebornBlood"
@@ -443,7 +443,6 @@ actor Fireborn 22121
 			CLNK IJ 6
 			CLNK K 5 A_Scream
 			CLNK L 0 A_PlaySound("world/barrelx", CHAN_AUTO)
-			CLNK L 0 A_Explode(24, 128)
 			CLNK LLLL 0 A_SpawnItemEx("FirebornFlames", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(1.0, 6.0), random(-180, 180), SXF_TRANSFERPOINTERS, 64)
 			CLNK LLLLLLLLLLLLL 0 A_SpawnItemEx("FirebornLava", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(2.0, 12.0), random(-180, 180), SXF_CLIENTSIDE, 64)
 			CLNK LLLLLLLLLLLLL 0 A_SpawnItemEx("FirebornChunk", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(24.0, 48.0), frandom(-10.0, 10.0), frandom(-10.0, 10.0), frandom(2.0, 16.0), random(-180, 180), SXF_CLIENTSIDE, 64)
@@ -460,10 +459,10 @@ actor Fireborn 22121
 actor Fireborn_PissedOff : Fireborn
 {
 	Health 75
-	Speed 14
+	Speed 12
 	DamageFactor "Fire", 0.0
 	PainChance 32
-	MinMissileChance 48
+	MinMissileChance 80
 	MaxTargetRange 512
 	Obituary "%o was immolated by a pissed-off Fireborn."
 	HitObituary "%o was sheared in two and cauterized by a Fireborn."
@@ -531,5 +530,127 @@ actor Fireborn_PissedOff : Fireborn
 			CLN2 H 2 A_Pain
 			CLN2 H 0 A_FastChase
 			Goto See
+	}
+}
+
+ACTOR SuperBeast : Beast replaces Beast
+{
+	Health 250
+	Radius 32
+	Height 74
+	Mass 400
+	Speed 14
+	Painchance 100
+	Monster
+	+FLOORCLIP
+	+DONTHARMCLASS
+	+DONTHARMSPECIES
+	SeeSound "beast/sight"
+	AttackSound "beast/attack"
+	PainSound "beast/pain"
+	DeathSound "beast/death"
+	ActiveSound "beast/active"
+	Obituary "%o was incinerated by a superbeast."
+	HitObituary "%o was clocked in the head by a superbeast."
+	DropItem "CellAmmo", 90
+	States
+	{
+	Spawn:
+		BEAS AB 10 A_Look
+		Loop
+	See:
+		BEAS A 0 A_PlaySound("beast/walk", CHAN_AUTO)
+		BEAS A 0 A_Quake(1, 4, 0, 320, "")
+		BEAS AB 3 A_Chase
+		BEAS C 0 A_PlaySound("beast/walk", CHAN_AUTO)
+		BEAS C 0 A_Quake(1, 4, 0, 320, "")
+		BEAS CDEF 3 A_Chase
+		Loop
+	Missile:
+		BEAS H 10 A_FaceTarget
+		BEAS I 0 A_FaceTarget
+		BEAS I 0 A_CustomMissile ("BeastBall2", 48, 0, frandom(-4.0, 4.0), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-2.0, 2.0))
+		BEAS I 5 A_CustomMissile ("BeastBall2", 48, 0, frandom(-4.0, 4.0), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-2.0, 2.0))
+		BEAS I 0 A_FaceTarget
+		BEAS I 0 A_CustomMissile ("BeastBall2", 48, 0, frandom(-4.0, 4.0), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-2.0, 2.0))
+		BEAS I 5 A_CustomMissile ("BeastBall2", 48, 0, frandom(-4.0, 4.0), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-2.0, 2.0))
+		Goto See
+	Pain:
+		BEAS G 3
+		BEAS G 3 A_Pain
+		Goto See
+	Death:
+		BEAS R 5
+		BEAS S 5 A_Scream
+		BEAS TUV 5
+		BEAS W 0 A_Quake(2, 8, 0, 512, "")
+		BEAS W 0 A_PlaySound("beast/crash", CHAN_AUTO)
+		BEAS W 4 A_NoBlocking
+		BEAS XY 4
+		BEAS Z -1
+		Stop
+	XDeath:
+		BEAS J 5
+		BEAS K 6 A_Scream
+		BEAS L 5
+		BEAS M 6
+		BEAS N 5
+		BEAS O 6 A_NoBlocking
+		BEAS P 5
+		BEAS Q -1
+		Stop
+	}
+}	
+
+ACTOR BeastBall2 : BeastBall replaces BeastBall
+{
+	Speed 15
+	FastSpeed 20
+	Damage (5)
+	Projectile
+	DamageType "Fire"
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
+	-NOBLOCKMAP
+	-SPAWNSOUNDSOURCE
+	+WINDTHRUST
+	+DONTHARMSPECIES
+	RenderStyle Add
+	SeeSound "beast/attack"
+	DeathSound "MagmaHit"
+	States
+	{
+	Spawn:
+		FRB1 A 0 BRIGHT A_SpawnItemEx("BasicFlame", 0, 0, 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, 1.0), 0, SXF_CLIENTSIDE, 75)
+		FRB1 ABC 1 BRIGHT A_SpawnItemEx("BeastBallPuff", 0, 0, 0, frandom(-1.0,1.0),frandom(-1.0,1.0),frandom(-1.0,1.0),0,SXF_ABSOLUTEPOSITION, 32)
+		Loop
+	Death:
+		FRB1 DDDDDDDDDDD 0 A_SpawnItemEx("BeastBallPuff", 0, 0, 0, frandom(-3.0,3.0),frandom(-3.0,3.0),frandom(-3.0,3.0),0,SXF_ABSOLUTEPOSITION, 0)
+		FRB1 DDDDD 0 A_SpawnItemEx("BasicFlame", 0, 0, 0, frandom(-2.0, 2.0), frandom(-2.0, 2.0), frandom(-2.0, 2.0), 0, SXF_CLIENTSIDE, 0)
+		FRB1 D 0 A_Quake(2, 8, 0, 150, "")
+		FRB1 D 0 A_Explode(16, 64, 0, false, 32) 
+		FRB1 DE 4 BRIGHT A_SpawnItemEx("BasicFlame", 0, 0, 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, 1.0), 0, SXF_CLIENTSIDE, 0)
+		FRB1 FGH 4
+		Stop
+	}
+}
+
+ACTOR BeastBallPuff : Puffy replaces Puffy
+{
+	Radius 6
+	Height 8
+	Speed 10
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	+NOTELEPORT
+	+DONTSPLASH
+	RenderStyle Add
+	States
+	{
+	Spawn:
+		FRB1 DE 2 BRIGHT
+		FRB1 FGH 2
+		Stop
 	}
 }

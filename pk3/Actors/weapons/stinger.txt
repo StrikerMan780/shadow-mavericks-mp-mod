@@ -1,5 +1,10 @@
 ACTOR Stinger : Weapon 21122
 {
+	Tag "D-12 ''Stinger'' Laser"
+	Weapon.BobSpeed 1.0
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
 	decal Bulletchip
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "Stinger!"

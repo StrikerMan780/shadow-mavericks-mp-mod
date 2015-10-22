@@ -1,3 +1,31 @@
+gameinfo
+{
+	dimcolor = "00 AA FF"
+    dimamount = 0.2
+	telefogheight = 0
+	pickupcolor = "00 00 FF" 
+	menufontcolor_title = "ElecViolet"
+	menufontcolor_highlight = "Yellow" 
+	menufontcolor_selection = "Green"
+	menufontcolor_header = "Cyan"
+	swapmenu = false
+	quitmessages = 	"\cfQuitting? \cgWell fuck you too.",
+					"\cdHeavy Sez: \cfYou are tiny baby coward.",
+					"\cfLeaving? We'll miss you. \cg(Maybe)",
+					"\cfWhat, am I too sexy for you cupcake?",
+					"\cdSoldier Sez: \cfSurrender now and you \cgWILL \cfbe harmed!",
+					"\cfWhat the fuck? Seriously?! \cgI thought we were friends!",
+					"\cfDon't leave yet, there's a cacoshooper around the corner!",
+					"\cfWell, that was a load of shit.",
+					"\cfGo and download \cgEvolveHQ \cfonce you're out of here. You won't regret it.",
+					"\cfPlease go, I'm done with your shit.",
+					"\cfGiving up? I bet you've barely scratched the surface of this mod.",
+					"\cgYes \cfto cower and hide, \cdNo \cfto show us your Manface!",
+					"\cfSo, you're heading off to try dick?",
+					"\cfWhat, gonna write about how much I offended you on your Tumblr?",
+					"\cfYou are quitting. Big surprise not."
+}
+
 clearskills
 
 skill baby
@@ -5,6 +33,7 @@ skill baby
 	AutoUseHealth
 	AmmoFactor = 2
 	DamageFactor = 0.5
+	EasyKey 
 	EasyBossBrain
 	SpawnFilter = Baby
 	Name = "Tiny Baby Man"
@@ -13,6 +42,7 @@ skill baby
 
 skill easy
 {
+	EasyKey 
 	EasyBossBrain
 	SpawnFilter = Easy
 	Name = "Hunter"
@@ -21,13 +51,15 @@ skill easy
 
 skill normal
 {
+	EasyKey 
 	SpawnFilter = Normal
 	Name = "Maverick"
-	Key = "h"
+	Key = "m"
 }
 
 skill hard
 {
+	EasyKey 
 	SpawnFilter = Hard
 	Name = "Shadow Maverick"
 	Key = "s"
@@ -37,10 +69,10 @@ skill nightmare
 {
 	AmmoFactor = 2
 	FastMonsters
-	DisableCheats
 	RespawnTime = 12
+	RespawnLimit = 4
 	SpawnFilter = Nightmare
 	Name = "Fallen One"
-	MustConfirm
+	MustConfirm = "Are you sure? This difficulty level will break you."
 	Key = "f"
 }
