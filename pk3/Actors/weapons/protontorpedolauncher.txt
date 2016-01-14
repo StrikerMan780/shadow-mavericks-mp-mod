@@ -41,6 +41,7 @@ actor ProtonTL : Weapon
 	weapon.ammogive 0
 	+WEAPON.NOAUTOFIRE
 	+WEAPON.EXPLOSIVE
+	+WEAPON.NOAUTOAIM
 	States
 	{
 	Ready:
@@ -148,6 +149,7 @@ actor IceRod : Weapon
 	weapon.ammogive 0
 	+WEAPON.NOAUTOFIRE
 	+WEAPON.EXPLOSIVE
+	+WEAPON.NOAUTOAIM
 	States
 	{
 		Ready:
@@ -339,6 +341,7 @@ actor DukeRPG : Weapon
 	weapon.upsound "DukeWeaponSelect"
 	+WEAPON.NOAUTOFIRE
 	+WEAPON.EXPLOSIVE
+	+WEAPON.NOAUTOAIM
 	States
 	{
 		Ready:
