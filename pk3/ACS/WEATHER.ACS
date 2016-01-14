@@ -1,0 +1,115 @@
+#include "zcommon.acs"
+#library "WEATHER"
+
+#define NumRainActors 2
+str RainActors[NumRainActors] = {
+"Rain",
+"BloodRain"
+};
+
+int RainSound = 0;
+
+function void SpawnRain(int Radius, int zoffset, int zrandom)
+{	
+	int Type = GetCVar("smmp_weathertype");
+	
+	if(Type > 0 && Type <= NumRainActors)
+	{
+		int Density = GetCVar("smmp_weatherdensity");
+		
+		if(Density > 100)
+		{
+			Density = 100;
+			SetCVar("smmp_weatherdensity", Density);
+		}
+		
+		if(CheckInventory("NoLightningSound") == 1)
+		{
+			if(RainSound > 0)
+			{
+				RainSound = 0;
+				StopSound(0, 5);
+			}
+			
+			return;
+		}
+			
+		if(GetCVar("smmp_weathersound") == true)
+		{
+			if(CheckActorCeilingTexture(0, "F_SKY1"))
+			{
+				if(RainSound != 1)
+				{
+					PlaySound(0, "misc/rain", 5, 1.0, true, ATTN_NORM);
+					RainSound = 1;
+				}
+			}
+			else
+			{
+				if(RainSound != 2)
+				{
+					PlaySound(0, "misc/rain_inside", 5, 1.0, true, ATTN_NORM);
+					RainSound = 2;
+				}
+			}
+			
+			SoundVolume(0, 5, FixedDiv(Density << 16, 100.0));
+		}
+		else
+		{
+			if(RainSound > 0)
+			{
+				RainSound = 0;
+				StopSound(0, 5);
+			}
+		}
+		
+		for(int i = 0; i < Density; i++)
+		{
+			SpawnForced(RainActors[Type-1], GetActorX(0)+random(Radius*-1,Radius), GetActorY(0)+random(Radius*-1,Radius), (GetActorZ(0)+zoffset)+random(zrandom*-1,zrandom));
+		}
+	}
+	else if(RainSound > 0)
+	{
+		RainSound = 0;
+		StopSound(0, 5);
+	}
+}
+
+script "WEATHER_DISCONNECT" (int client) DISCONNECT
+{
+	StopSound(0, 5);
+}
+
+script "WEATHER_OPEN" OPEN
+{
+	SetCVar("smmp_weathertype", 0);
+	SetCVar("smmp_weatherdensity", 32);
+	SetCVar("smmp_weathersound", 1);
+}
+
+script "WEATHER_ENTER" ENTER CLIENTSIDE
+{
+	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
+	{
+		Terminate;
+	}
+	
+	while(1)
+	{
+		SpawnRain(1024.0, 1024.0, 32.0);
+		delay(3);
+	}
+}
+
+script "CHECKSKY" (void) CLIENTSIDE
+{
+	if(CheckActorCeilingTexture(0, "F_SKY1") == true)
+	{
+		SetResultValue(true);
+	}
+	else
+	{
+		SetResultValue(false);
+	}
+}

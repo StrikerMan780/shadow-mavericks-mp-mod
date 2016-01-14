@@ -1,0 +1,115 @@
+#include "zcommon.acs"
+#library "DAMAGE"
+
+function int pow (int x, int n)
+{
+	int y = 1;
+	while (n-- > 0) y *= x;
+	return y;
+}
+
+function int GetDigit(int Num, int Digit)
+{
+	return (Num / pow(10, Digit)) % 10 ;
+}
+
+int colors[9] = { 4, 16, 112, 160, 176, 196, 216, 231, 251 };
+function void PrintDamage(int damage)
+{
+	int Digit1 = GetDigit(damage, 0);
+	int Digit2 = GetDigit(damage, 1);
+	int Digit3 = GetDigit(damage, 2);
+	int Digit4 = GetDigit(damage, 3);
+	
+	int x = GetActorX(0) + Random(-10.0, 10.0);
+	int y = GetActorY(0) + Random(-10.0, 10.0);
+	int z = GetActorZ(0) + Random(56.0, 62.0);
+	
+	int SelectedColor = Random(0, 8);
+	int TranslationNumber = Random(6000, 6500);
+	CreateTranslation (TranslationNumber, 160:160=colors[SelectedColor]:colors[SelectedColor]);
+	
+	int NumberID = Random(6000, 6500);
+	
+	if(Digit1 == 0) { Spawn("Digit1Num0", x, y, z, NumberID, 0); }
+	else if(Digit1 == 1) { Spawn("Digit1Num1", x, y, z, NumberID, 0); }
+	else if(Digit1 == 2) { Spawn("Digit1Num2", x, y, z, NumberID, 0); }
+	else if(Digit1 == 3) { Spawn("Digit1Num3", x, y, z, NumberID, 0); }
+	else if(Digit1 == 4) { Spawn("Digit1Num4", x, y, z, NumberID, 0); }
+	else if(Digit1 == 5) { Spawn("Digit1Num5", x, y, z, NumberID, 0); }
+	else if(Digit1 == 6) { Spawn("Digit1Num6", x, y, z, NumberID, 0); }
+	else if(Digit1 == 7) { Spawn("Digit1Num7", x, y, z, NumberID, 0); }
+	else if(Digit1 == 8) { Spawn("Digit1Num8", x, y, z, NumberID, 0); }
+	else if(Digit1 == 9) { Spawn("Digit1Num9", x, y, z, NumberID, 0); }
+	
+	if(damage >= 10)
+	{
+		if(Digit2 == 0) { Spawn("Digit2Num0", x, y, z, NumberID, 0); }
+		else if(Digit2 == 1) { Spawn("Digit2Num1", x, y, z, NumberID, 0); }
+		else if(Digit2 == 2) { Spawn("Digit2Num2", x, y, z, NumberID, 0); }
+		else if(Digit2 == 3) { Spawn("Digit2Num3", x, y, z, NumberID, 0); }
+		else if(Digit2 == 4) { Spawn("Digit2Num4", x, y, z, NumberID, 0); }
+		else if(Digit2 == 5) { Spawn("Digit2Num5", x, y, z, NumberID, 0); }
+		else if(Digit2 == 6) { Spawn("Digit2Num6", x, y, z, NumberID, 0); }
+		else if(Digit2 == 7) { Spawn("Digit2Num7", x, y, z, NumberID, 0); }
+		else if(Digit2 == 8) { Spawn("Digit2Num8", x, y, z, NumberID, 0); }
+		else if(Digit2 == 9) { Spawn("Digit2Num9", x, y, z, NumberID, 0); }
+	}
+	
+	if(damage >= 100)
+	{
+		if(Digit3 == 0) { Spawn("Digit3Num0", x, y, z, NumberID, 0); }
+		else if(Digit3 == 1) { Spawn("Digit3Num1", x, y, z, NumberID, 0); }
+		else if(Digit3 == 2) { Spawn("Digit3Num2", x, y, z, NumberID, 0); }
+		else if(Digit3 == 3) { Spawn("Digit3Num3", x, y, z, NumberID, 0); }
+		else if(Digit3 == 4) { Spawn("Digit3Num4", x, y, z, NumberID, 0); }
+		else if(Digit3 == 5) { Spawn("Digit3Num5", x, y, z, NumberID, 0); }
+		else if(Digit3 == 6) { Spawn("Digit3Num6", x, y, z, NumberID, 0); }
+		else if(Digit3 == 7) { Spawn("Digit3Num7", x, y, z, NumberID, 0); }
+		else if(Digit3 == 8) { Spawn("Digit3Num8", x, y, z, NumberID, 0); }
+		else if(Digit3 == 9) { Spawn("Digit3Num9", x, y, z, NumberID, 0); }
+	}
+	
+	if(damage >= 1000)
+	{
+		if(Digit4 == 0) { Spawn("Digit4Num0", x, y, z, NumberID, 0); }
+		else if(Digit4 == 1) { Spawn("Digit4Num1", x, y, z, NumberID, 0); }
+		else if(Digit4 == 2) { Spawn("Digit4Num2", x, y, z, NumberID, 0); }
+		else if(Digit4 == 3) { Spawn("Digit4Num3", x, y, z, NumberID, 0); }
+		else if(Digit4 == 4) { Spawn("Digit4Num4", x, y, z, NumberID, 0); }
+		else if(Digit4 == 5) { Spawn("Digit4Num5", x, y, z, NumberID, 0); }
+		else if(Digit4 == 6) { Spawn("Digit4Num6", x, y, z, NumberID, 0); }
+		else if(Digit4 == 7) { Spawn("Digit4Num7", x, y, z, NumberID, 0); }
+		else if(Digit4 == 8) { Spawn("Digit4Num8", x, y, z, NumberID, 0); }
+		else if(Digit4 == 9) { Spawn("Digit4Num9", x, y, z, NumberID, 0); }
+	}
+	
+	Thing_SetTranslation(NumberID, TranslationNumber);
+	SetActorVelocity(NumberID, 0, 0, 0.25, 0, 0);
+}
+
+script "DAMAGE" ENTER
+{	
+	int oldhealth;
+	bool hasticked;
+	
+	if(OldHealth > CheckInventory("Health") && !hasticked)
+	{
+		HasTicked = true;
+	}
+	
+	if(hasticked)
+	{
+		delay(1);
+		PrintDamage(OldHealth - CheckInventory("Health"));
+		OldHealth = CheckInventory("Health");
+		hasticked = false;
+	}
+	else
+	{
+		OldHealth = CheckInventory("Health");
+		delay(1);
+	}
+	
+	restart;
+}

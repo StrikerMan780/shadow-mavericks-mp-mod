@@ -1,0 +1,269 @@
+#library "TAUNTSYS"
+#include "zcommon.acs"
+
+#define Taunts 100
+str NewTaunt[Taunts][2] = {
+{ "HeyGuys",				"Hey guys!" },
+{ "HelloChildren",			"Hello there, children!" },
+{ "SweetMercifulCrap",		"Sweet merciful crap!" },
+{ "Sweet",					"Sweeeet!" },
+{ "TablesTurned",			"The tables have turned!" },
+{ "ComeAgain", 				"Please come again!" },
+{ "CantTouchThis",			"Can't Touch This" },
+{ "ChewThat",				"Chew that, You Pile o' Crap!" },
+{ "DamnImGood",				"Damn I'm good." },
+{ "FartOnYourGrave",		"I fart on your grave!" },
+{ "ShitStorm",				"Here comes the shitstorm!" },
+{ "YouWillBeShotAt",		"You will be shot at." },
+{ "GimmeSomeSugar",			"Gimme some sugar baby." },
+{ "Yeah",					"Yeeaaah!" },
+{ "CharlieMurphy",			"Charlie Murphaaayyy!" },
+{ "EvilHomer",				"I am evil Homer!" },
+{ "AReminder",				"Let this be a reminder to you all..." },
+{ "Excellent",				"Excellent." },
+{ "OhYeahBaby",				"Oh yeah, baby!" },
+{ "Mmbitch",				"Mmm mmm... Bitch!" },
+{ "IamInvincible",			"I am invincible, INVINCIBLE!" },
+{ "ImRichBitch",			"I'm rich, bitch!" },
+{ "IkeepItReal",			"I keep it real!" },
+{ "DestroyStuff",			"I like to destroy stuff." },
+{ "HoldMyDrinkBitch",		"Hold my drink, bitch." },
+{ "TakeThat",				"Take that, peckerhead!" },
+{ "CometoPapa",				"Come to papa!" },
+{ "Oops",					"Oops." },
+{ "OutofMyWay",				"Out of my way, dum-dum!" },
+{ "Headshot",				"Headshot!" },
+{ "HaHa",					"Ha-ha!" },
+{ "GotYouGood",				"Got you good you fucker!" },
+{ "GoHomeAndCry",			"Go home and cry to your daddy..." },		
+{ "GetAFirearm",			"First thing, get a firearm!" },
+{ "DoIMakeYouHorny",		"Do I make you horny?" },
+{ "DudeThatKickedAss",		"Dude, that kicked ass!" },
+{ "DumbBastard",			"Hahaha... You dumb bastard." },
+{ "BeCareful",				"Be careful what you wish for..." },
+{ "SuckmyMFDick",			"Suck my motherfuckin' dick." },
+{ "AlrightyThen",			"Aaaalrighty Then!" },
+{ "Chicken",				"(Chicken noise)" },
+{ "BeavisLol",				"(Beavis and Butthead Laugh)" },
+{ "BullShitting",			"I was just bullshittin'!" },
+{ "MagnificentBastard",		"You magnificent bastard!" },
+{ "Angry",					"You have made me very angry..." },
+{ "ShutUp",					"Ah, shut up!" },
+{ "BlowHeadOff",			"Hey, I'll blow your head off!" },
+{ "AwwCrap",				"AWWWW CRAP!" },
+{ "CockSucker",				"COOOOCKSUCKER!" },
+{ "WhatTheFuckIs",			"What the fuck is this?!" },
+{ "HelpMe",					"Help! Somebody save me!" },
+{ "YouAreABitch",			"You are a bitch!" },
+{ "YouDieMotherFucker",		"You die motherfucker!" },
+{ "BePolite",				"Hey why don't you be polite..." },
+{ "SweetFlyingFuck",		"Hoooly sweet flying fuck!" },
+{ "FuckingChump",			"Don't be such a fucking chump!" },
+{ "DontMakeMeKickYourAss",	"Don't make me kick your ass, M'kay?" },
+{ "EnglishMotherFucker",	"ENGLISH MOTHERFUCKER, DO YOU SPEAK IT?!" },
+{ "FuckingDick",			"You fuckin' dick!" },
+{ "GoToHell",				"Go to hell!" },
+{ "UrMyBitch",				"Alright, that's it..." },
+{ "KissmyAss",				"Why don't you kiss my ass." },
+{ "HappyNow",				"Happy now, asswipe?" },
+{ "OhNo",					"Oh no!" },
+{ "Kamikaze",				"Kamikaze!!!" },
+{ "IdontCare",				"I don't care who you are, you're going out." },
+{ "IknowYouHack",			"OMG I know you hack..." },
+{ "JesusTapDancingChrist",	"Jesus tapdancing christ will this end?!" },
+{ "WhotheFuck",				"Who the FUCK do you think you're talking to?" },
+{ "TakeDignity",			"That was funny, you taking away my dignity..." },
+{ "PaytheFiddler",			"Time to pay the fiddler, whore!" },
+{ "TriedtoStopHim",			"I tried to stop him, but I couldn't..." },
+{ "OhShit",					"Oh shit." },
+{ "DontDoThat",				"Don't do that." },
+{ "VictoryShallYetBeMine",	"Victory shall yet be mine." },
+{ "BRB",					"Hey hang on you guys, I'll BRB." },
+{ "OklieDoklie",			"Oklie Doklie Doo!" },
+{ "BoogieMan",				"WAAAH! BOOGEYMAN!!!" },
+{ "GetInMahBelleh",			"Get in mah belleh!" },
+{ "LuckyWeeMan",			"You're lucky, wee man! Argh." },
+{ "PressedWrongButton",		"I pressed the wrong button again!" },
+{ "AccidentiallyShot",		"You're gonna get accidentally shot." },
+{ "FuckingLag",				"Fucking Goddamn Lag!" },
+{ "PorkySOB",				"Son of a ... (Porky Pig)" },
+{ "ColonelSanders",			"Whassa matter Col. Sanders? Chicken?!" },
+{ "GetARiseOuttaYou",		"I'm just tryin' to get a rise outta you..." },
+{ "InspectThat",			"You want inspection, well inspect that!" },
+{ "PompousStuckUpEtc",		"You pompous, stuck up, snot-nosed..." },
+{ "BadboysSong",			"(Cops Theme)" },
+{ "SuckySucky",				"Sucky sucky, five dollah!" },
+{ "SuckedAss",				"Excuse me, but I do believe that sucked ass." },
+{ "TeamSucked",				"That team sure did suck..." },
+{ "ThatsGood",				"That's good!" },
+{ "ThatsBad",				"That's bad." },
+{ "Bzztwrong",				"BZZZT, Wrong!" },
+{ "AttentionPlease",		"May I have your attention please?" },
+{ "Silence",				"Silence! I will not tolerate your insolence." },
+{ "Boing",					"Boooiiiinnggggg! hehehehe..." },
+{ "Beer",					"Mmmm... Beer." },
+{ "YoYoYo",					"Yoyoyoyo! What it is, Motherfuckers!" }
+};
+int NewTauntselection[64];
+int NumTaunts = Taunts;
+
+script "TAUNT_SELECT" (int direction) NET
+{
+	
+	if(direction == 1) // Next
+	{
+		NewTauntselection[playernumber()] = NewTauntselection[playernumber()] + 1;
+		if(NewTauntselection[playernumber()] >= NumTaunts)
+		{
+			NewTauntselection[playernumber()] = 0;
+		}
+	}
+	if(direction == 0) // Previous
+	{
+		NewTauntselection[playernumber()] = NewTauntselection[playernumber()] - 1;
+		if(NewTauntselection[playernumber()] <= -1)
+		{
+			NewTauntselection[playernumber()] = NumTaunts-1;
+		}
+	}
+	
+	if(direction == 2) // Skip Ahead by 5
+	{
+	    If(NewTauntselection[playernumber()] != 0)
+	    {
+			NewTauntselection[playernumber()] = NewTauntselection[playernumber()] + 5;
+	    }
+		else If(NewTauntselection[playernumber()] == 0) // If at 0, skip by 4 to go to 5.
+	    {
+			NewTauntselection[playernumber()] = NewTauntselection[playernumber()] + 4;
+		}
+		
+		if(NewTauntselection[playernumber()] >= NumTaunts)
+		{
+			NewTauntselection[playernumber()] = 0;
+		}
+	}
+	if(direction == 3) // Skip Back by 5
+	{
+		NewTauntselection[playernumber()] = NewTauntselection[playernumber()] - 5;
+		if(NewTauntselection[playernumber()] <= -1)
+		{
+			NewTauntselection[playernumber()] = NumTaunts-1;
+		}
+	}
+	
+	SetHudSize(640, 400, 1); 
+	
+	// Taunt Name Displays
+	if(NewTauntselection[playernumber()] == 0)
+	{
+		hudmessage(
+		s:"  ",
+		s:"\n ",
+		s:"\n ",
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+1][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+3, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+4, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+3][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+	else if(NewTauntselection[playernumber()] == 1)
+	{
+		hudmessage(
+		s:"  ",
+		s:"\n ",
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()], s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-1][1],
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+1][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+3, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+4, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+3][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+	else if(NewTauntselection[playernumber()] == 2)
+	{
+		hudmessage(
+		s:"  ",
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]-1, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()], s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-1][1],
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+1][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+3, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+4, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+3][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+	else if(NewTauntselection[playernumber()] == NumTaunts-1)
+	{
+		hudmessage(
+		s:"\ccTaunt ", d:NewTauntselection[playernumber()]-2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-3][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]-1, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()], s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-1][1],
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+	else if(NewTauntselection[playernumber()] == NumTaunts-2)
+	{
+		hudmessage(
+		s:"\ccTaunt ", d:NewTauntselection[playernumber()]-2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-3][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]-1, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()], s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-1][1],
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+1][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+	else if(NewTauntselection[playernumber()] == NumTaunts-3)
+	{
+		hudmessage(
+		s:"\ccTaunt ", d:NewTauntselection[playernumber()]-2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-3][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]-1, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()], s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-1][1],
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+1][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+3, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+2][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+	else
+	{
+		hudmessage(
+		s:"\ccTaunt ", d:NewTauntselection[playernumber()]-2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-3][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]-1, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()], s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]-1][1],
+		s:"\n\cdTaunt ", d:NewTauntselection[playernumber()]+1, s:": \cg", s:NewTaunt[NewTauntselection[playernumber()]][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+2, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+1][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+3, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+2][1],
+		s:"\n\ccTaunt ", d:NewTauntselection[playernumber()]+4, s:": \cf", s:NewTaunt[NewTauntselection[playernumber()]+3][1];
+		HUDMSG_FADEOUT, 4, CR_UNTRANSLATED, 32.1, 176.1, 2.0, 0.1);
+	}
+}
+
+script "TAUNT_PLAY" (int tauntnumber) NET
+{
+	if(CheckInventory("TauntSpamProtection") > 0)
+	{
+		// Do Nothing.
+	}
+	else
+	{
+		if(tauntnumber != 0)
+		{
+			NewTauntselection[playernumber()] = tauntnumber-1;
+			GiveInventory("TauntSpamProtection", 1);
+			ActivatorSound(NewTaunt[NewTauntselection[playernumber()]][0], 255 );
+			hudmessagebold(n:0, s:"\cc Sends Taunt #", d:NewTauntselection[playernumber()]+1;
+			HUDMSG_TYPEON, 3, CR_GOLD, -0.02, 0.3, 1.0, 0.001, 1.0);
+			Delay(35 * 3);
+			TakeInventory("TauntSpamProtection", 1);
+			terminate;
+		}
+ 
+		if(tauntnumber == 0)
+		{
+			GiveInventory("TauntSpamProtection", 1);
+			ActivatorSound(NewTaunt[NewTauntselection[playernumber()]][0], 255 );
+			hudmessagebold(n:0, s:"\cc Sends Taunt #", d:NewTauntselection[playernumber()]+1;
+			HUDMSG_TYPEON, 3, CR_GOLD, -0.02, 0.3, 1.0, 0.001, 1.0);
+			Delay(35 * 3);
+			TakeInventory("TauntSpamProtection", 1);
+			terminate;
+		}
+	}
+}

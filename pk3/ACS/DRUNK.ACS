@@ -1,0 +1,209 @@
+// DRUNK MODE
+#include "zcommon.acs"
+#library "DRUNK"
+
+#define DrunkTID 8830
+#define DrunkHUDID 79
+
+int DrunkPlayers[64];
+str CameraTextures[64] = {
+"DRUNKM01",
+"DRUNKM02",
+"DRUNKM03",
+"DRUNKM04",
+"DRUNKM05",
+"DRUNKM06",
+"DRUNKM07",
+"DRUNKM08",
+"DRUNKM09",
+"DRUNKM10",
+"DRUNKM11",
+"DRUNKM12",
+"DRUNKM13",
+"DRUNKM14",
+"DRUNKM15",
+"DRUNKM16",
+"DRUNKM17",
+"DRUNKM18",
+"DRUNKM19",
+"DRUNKM20",
+"DRUNKM21",
+"DRUNKM22",
+"DRUNKM23",
+"DRUNKM24",
+"DRUNKM25",
+"DRUNKM26",
+"DRUNKM27",
+"DRUNKM28",
+"DRUNKM29",
+"DRUNKM30",
+"DRUNKM31",
+"DRUNKM32",
+"DRUNKM33",
+"DRUNKM34",
+"DRUNKM35",
+"DRUNKM36",
+"DRUNKM37",
+"DRUNKM38",
+"DRUNKM39",
+"DRUNKM40",
+"DRUNKM41",
+"DRUNKM42",
+"DRUNKM43",
+"DRUNKM44",
+"DRUNKM45",
+"DRUNKM46",
+"DRUNKM47",
+"DRUNKM48",
+"DRUNKM49",
+"DRUNKM50",
+"DRUNKM51",
+"DRUNKM52",
+"DRUNKM53",
+"DRUNKM54",
+"DRUNKM55",
+"DRUNKM56",
+"DRUNKM57",
+"DRUNKM58",
+"DRUNKM59",
+"DRUNKM60",
+"DRUNKM61",
+"DRUNKM62",
+"DRUNKM63",
+"DRUNKM64"
+};
+
+function void makedrunk(void)
+{
+	GiveInventory("DrunkMode", 1);
+	GiveInventory("DrunkenBastard", 1);
+	SetWeapon("DrunkenBastard");
+    ACS_NamedExecuteAlways("DRUNKSWAY", 0, 0);
+}
+
+function void soberup(void)
+{
+	TakeInventory("DrunkMode", 1);
+	TakeInventory("DrunkenBastard", 1);
+	DrunkPlayers[PlayerNumber()] = false;
+}
+
+function void checkpermadrunk(void)
+{
+	if(GetCvar("SMMP_Scrumpy"))
+	{
+		makedrunk();
+	}
+	else
+	{
+		soberup();
+	}
+}
+
+
+script "DRUNK_MODE" (void)
+{
+    makedrunk();
+    Delay(35*30);
+    soberup();
+}
+
+script "DRUNKSWAY" (int permanent) CLIENTSIDE
+{
+	if(ConsolePlayerNumber() != PlayerNumber())
+	{
+		Terminate;
+	}
+	
+    int DrunkPlayer = DrunkTID+PlayerNumber();
+    int fov;
+    
+    Thing_ChangeTID(0, DrunkPlayer);
+    
+    SetHudSize(640, 480, 0);
+    SetFont(CameraTextures[PlayerNumber()]);
+    HudMessage(s:"a";
+    HUDMSG_PLAIN, DrunkHUDID, CR_UNTRANSLATED, 320.0, 240.0, 0);
+    
+    DrunkPlayers[PlayerNumber()] = true;
+    
+    while(CheckInventory("DrunkMode") && DrunkPlayers[PlayerNumber()] == true)
+    {
+        int anglex = random(0.0005, 0.0035);
+        int angley = random(0.0, 0.0025);
+        int directionx = random(0, 1);
+        int directiony = random(0, 1);
+        for (fov = 90; fov >= 60; fov--)
+        {
+            SetCameraToTexture(DrunkPlayer, CameraTextures[PlayerNumber()], fov);
+            
+            if(directionx == 0)
+            {
+                SetActorAngle(DrunkPlayer, GetActorAngle(DrunkPlayer)-anglex);
+            }
+            else
+            {
+                SetActorAngle(DrunkPlayer, GetActorAngle(DrunkPlayer)+anglex);
+            }
+            
+            if(directiony == 0)
+            {
+                SetActorPitch(DrunkPlayer, GetActorPitch(DrunkPlayer)-angley);
+            }
+            else
+            {
+                SetActorPitch(DrunkPlayer, GetActorPitch(DrunkPlayer)+angley);
+            }
+            
+            delay(1);
+        }
+        for (fov = 60; fov <= 90; fov++)
+        {
+            SetCameraToTexture(DrunkPlayer, CameraTextures[PlayerNumber()], fov);
+            
+            if(directionx == 0)
+            {
+                SetActorAngle(DrunkPlayer, GetActorAngle(DrunkPlayer)+anglex);
+            }
+            else
+            {
+                SetActorAngle(DrunkPlayer, GetActorAngle(DrunkPlayer)-anglex);
+            }
+            
+            if(directiony == 0)
+            {
+                SetActorPitch(DrunkPlayer, GetActorPitch(DrunkPlayer)+angley);
+            }
+            else
+            {
+                SetActorPitch(DrunkPlayer, GetActorPitch(DrunkPlayer)-angley);
+            }
+            
+            delay(1);
+        }
+        
+        delay(1);
+    }
+    
+    DrunkPlayers[PlayerNumber()] = false;
+    
+    Thing_ChangeTID(DrunkPlayer, 0);
+    
+    HudMessage(s:"a";
+    HUDMSG_FADEOUT, DrunkHUDID, CR_UNTRANSLATED, 320.0, 240.0, 0.5, 1.0);
+}
+
+script "DRUNK_DEATH" DEATH CLIENTSIDE
+{
+    DrunkPlayers[PlayerNumber()] = false;
+}
+
+script "DRUNK_RESPAWN" RESPAWN
+{
+	checkpermadrunk();
+}
+
+script "DRUNK_ENTER" ENTER
+{
+	checkpermadrunk();
+}

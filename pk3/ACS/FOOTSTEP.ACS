@@ -1,0 +1,349 @@
+#include "zcommon.acs"
+#library "FOOTSTEP"
+
+#define MaxStepSounds 230
+#define DefStepSound "step/generic"
+
+bool PlayingFootsteps[64];
+
+str StepSound[MaxStepSounds][2] =
+{
+	// Water
+	{ "FWATER1", "step/water" },
+	{ "FWATER2", "step/water" },
+	{ "FWATER3", "step/water" },
+	{ "FWATER4", "step/water" },
+	{ "WFWATER1", "step/water" },
+	{ "HYWATER", "step/water" },
+	{ "WFWATER1", "step/water" },
+	{ "RWATER1", "step/water" },
+	{ "RWATER2", "step/water" },
+	{ "RWATER3", "step/water" },
+	{ "RWATER4", "step/water" },
+	{ "RWATER5", "step/water" },
+	{ "RWATER6", "step/water" },
+	{ "RWATER7", "step/water" },
+	{ "RWATER8", "step/water" },
+	{ "RWATER9", "step/water" },
+	{ "WATER0", "step/water" },
+	
+	// Lava
+	{ "GLAVA1", "step/lava" },
+	{ "LAVA1", "step/lava" },
+	{ "LAVA2", "step/lava" },
+	{ "LAVA3", "step/lava" },
+	{ "LAVA4", "step/lava" },
+	
+	// Nukage
+	{ "NUKAGE1", "step/nukage" },
+	{ "NUKAGE2", "step/nukage" },
+	{ "NUKAGE3", "step/nukage" },
+	
+	// Blood
+	{ "BLOOD1", "step/blood" },
+	{ "BLOOD2", "step/blood" },
+	{ "BLOOD3", "step/blood" },
+	
+	// Slime
+	{ "SLIME01", "step/slime" },
+	{ "SLIME02", "step/slime" },
+	{ "SLIME03", "step/slime" },
+	{ "SLIME04", "step/slime" },
+	{ "SLIME05", "step/slime" },
+	{ "SLIME06", "step/slime" },
+	{ "SLIME07", "step/slime" },
+	{ "SLIME08", "step/slime" },
+	
+	// Metal
+	{ "METAL", "step/metal" },
+	{ "METAL1", "step/metal" },
+	{ "METAL2", "step/metal" },
+	{ "METAL3", "step/metal" },
+	{ "METAL4", "step/metal" },
+	{ "METAL5", "step/metal" },
+	{ "METAL6", "step/metal" },
+	{ "METAL7", "step/metal" },
+	{ "SUPPORT2", "step/metal" },
+	{ "SUPPORT3", "step/metal" },
+	{ "METTILE1", "step/metal" },
+	{ "METTILE2", "step/metal" },
+	{ "METTILE3", "step/metal" },
+	{ "METTILE4", "step/metal" },
+	{ "DGMTLF01", "step/metal" },
+	{ "NFMTSQ03", "step/metal" },
+	{ "NFMTSQ04", "step/metal" },
+	{ "NFMTSQ05", "step/metal" },
+	{ "CUSTOMBS", "step/metal" },
+	{ "CUSTOMBH", "step/metal" },
+	{ "FTILE1B4", "step/metal" },
+	{ "FTILE7C1", "step/metal" },
+	{ "FTILE688", "step/metal" },
+	{ "FTILE864", "step/metal" },
+	{ "FTILEB56", "step/metal" },
+	{ "FTILE48F", "step/metal" },
+	{ "NFSTGY12", "step/metal" },
+	{ "FLAT4", "step/metal" },
+	{ "FNEW3", "step/metal" },
+	{ "FLR1_3_", "step/metal" },
+	{ "HALOFLR2", "step/metal" },
+	{ "NWALL053", "step/metal" },
+	{ "NFSTTN12", "step/metal" },
+	{ "PSOFLR07", "step/metal" },
+	{ "PSOWAL13", "step/metal" },
+	{ "PSOWAL24", "step/metal" },
+	{ "PSOWAL40", "step/metal" },
+	{ "MTL", "step/metal" },
+	{ "OMETL5", "step/metal" },
+	{ "METLFLR1", "step/metal" },
+	{ "RMETL101", "step/metal" },
+	{ "FMETAL1", "step/metal" },
+	{ "FMETAL2", "step/metal" },
+	{ "FMETAL3", "step/metal" },
+	{ "FMETAL4", "step/metal" },
+	{ "FMETAL5", "step/metal" },
+	{ "FMETAL6", "step/metal" },
+	{ "FMETAL7", "step/metal" },
+	{ "FMETAL8", "step/metal" },
+	{ "FMETAL9", "step/metal" },
+	{ "FMETAL10", "step/metal" },
+	{ "FMETAL11", "step/metal" },
+	{ "FMETAL12", "step/metal" },
+		
+	// Carpet
+	{ "FLOOR1_1", "step/carpet" },
+	{ "FLOOR1_6", "step/carpet" },
+	{ "FLAT14", "step/carpet" },
+	{ "FLAT14-Y", "step/carpet" },
+	{ "FLAT14-G", "step/carpet" },
+	{ "FLAT14-M", "step/carpet" },
+	{ "FLAT14-B", "step/carpet" },
+	{ "FLAT15", "step/carpet" },
+	{ "CEIL4_2", "step/carpet" },
+	
+	// Dirt
+	{ "ASHWALL4", "step/dirt" },
+	{ "ASHWALL3", "step/dirt" },
+	{ "ASHWALL2", "step/dirt" },
+	{ "MFLR8_2", "step/dirt" },
+	{ "RROCK03", "step/dirt" },
+	{ "RRCOK16", "step/dirt" },
+	{ "ZIMMER4", "step/dirt" },
+	{ "ZIMMER3", "step/dirt" },
+	{ "GRASS1_3", "step/dirt" },
+	{ "FLAT10", "step/dirt" },
+	{ "RROCK20", "step/dirt" },
+	
+	//Grass
+	{ "GRASS1", "step/grass" },
+	{ "GRASS2", "step/grass" },
+	{ "ASHWALL6", "step/grass" },
+	{ "GRASS1", "step/grass" },
+	{ "GRASS1_2", "step/grass" },
+	{ "ROCK19", "step/grass" },
+	
+	//Brick
+	{ "BIGBRIK1", "step/hard" },
+	{ "BIGBRIK2", "step/hard" },
+	{ "BIGBRIK3", "step/hard" },
+	{ "BRICK1", "step/hard" },
+	{ "BRICK2", "step/hard" },
+	{ "BRICK3", "step/hard" },
+	{ "BRICK4", "step/hard" },
+	{ "BRICK6", "step/hard" },
+	{ "BRICK7", "step/hard" },
+	{ "BRICK8", "step/hard" },
+	{ "BRICK9", "step/hard" },
+	{ "BRICK10", "step/hard" },
+	{ "FLAT8", "step/hard" },
+	{ "FLOOR5_4", "step/hard" },
+	{ "RROCK10", "step/hard" },
+	{ "MFLR8_1", "step/hard" },
+	{ "RROCK14", "step/hard" },
+	{ "STONE2", "step/hard" },
+	{ "STONE3", "step/hard" },
+	{ "FLAT5", "step/hard" },
+	{ "NFBRIK31", "step/hard" },
+	{ "NFBRIK37", "step/hard" },
+	{ "PWGRAY1", "step/hard" },
+	{ "RFLAT62", "step/hard" },
+	{ "RFLAT76", "step/hard" },
+	{ "FTILE8B8", "step/hard" },
+	{ "ABRICK1", "step/hard" },
+	{ "BGCLIFF", "step/hard" },
+	{ "ROCK19_1", "step/hard" },
+	{ "PSOFLR03", "step/metal" },
+	{ "PSOFLR29", "step/hard" },
+	{ "DGBRKF01", "step/hard" },
+	
+	//Wood
+	{ "CEIL1_1", "step/wood" },
+	{ "CEIL1_3", "step/wood" },
+	{ "FLAT5_1", "step/wood" },
+	{ "FLAT5_2", "step/wood" },
+	{ "BIGDOOR5", "step/wood" },
+	{ "WOOD1", "step/wood" },
+	{ "WOOD10", "step/wood" },
+	{ "WOOD12", "step/wood" },
+	{ "WOOD3", "step/wood" },
+	{ "WOOD4", "step/wood" },
+	{ "WOOD5", "step/wood" },
+	{ "WOOD6", "step/wood" },
+	{ "WOOD7", "step/wood" },
+	{ "WOOD8", "step/wood" },
+	{ "WOOD9", "step/wood" },
+	{ "WOODVERT", "step/wood" },
+	{ "DARKWOOD", "step/wood" },
+	{ "RFLAT108", "step/wood" },
+	{ "CUSTOMGK", "step/wood" },
+	{ "MYWOOD", "step/wood" },
+	{ "CUSTOM29", "step/wood" },
+	
+	//Gravel
+	{ "ASHWALL", "step/gravel" },
+	{ "FLOOR6_2", "step/gravel" },
+	{ "FLAT5_7", "step/gravel" },
+	{ "FLAT5_8", "step/gravel" },
+	{ "FLOOR6_1", "step/gravel" },
+	{ "MFLR8_4", "step/gravel" },
+	{ "REDROCK1", "step/gravel" },
+	{ "REDROCK2", "step/gravel" },
+	{ "REDROCK3", "step/gravel" },
+	{ "REDROCK03", "step/gravel" },
+	{ "RROCK18", "step/gravel" },
+	{ "RROCK17", "step/gravel" },
+	
+	//Marble
+	{ "MARBBLU1", "step/marble" },
+	{ "MARBBLU2", "step/marble" },
+	{ "MARBBLU3", "step/marble" },
+	{ "MARBLE1", "step/marble" },
+	{ "MARBLE2", "step/marble" },
+	{ "MARBLE3", "step/marble" },
+	{ "MARBLE4", "step/marble" },
+	{ "SP_HOT1", "step/marble" },
+	{ "GSTONE1", "step/marble" },
+	{ "GSTONE2", "step/marble" },
+	{ "NFMBGY01", "step/marble" },
+	{ "DEM3_6", "step/marble" },
+	{ "DEM4_6", "step/marble" },
+	{ "BLODFLR1", "step/marble" },
+	{ "DNCITY11", "step/marble" },
+	{ "DNCITY12", "step/marble" },
+	
+	//Flesh
+	{ "FLAT5_6", "step/flesh" },
+	{ "SFLR6_1", "step/flesh" },
+	{ "SFLR6_4", "step/flesh" },
+	{ "SFLR7_1", "step/flesh" },
+	{ "SFLR7_4", "step/flesh" },
+	{ "SKIN2", "step/flesh" },
+	{ "SKINBOARD", "step/flesh" },
+	{ "SKINEDGE", "step/flesh" },
+	{ "SKINFACE", "step/flesh" },
+	{ "SKSNAKE1", "step/flesh" },
+	{ "SKSNAKE2", "step/flesh" },
+	{ "SKSPINE2", "step/flesh" },
+	{ "SLOPPY", "step/flesh" },
+	{ "SLOPPY2", "step/flesh" },
+	{ "SP_FACE2", "step/flesh" },
+	{ "PSOFLR25", "step/flesh" },
+	{ "ROTMEAT1", "step/flesh" },
+	{ "WSKSNAK2", "step/flesh" },
+	
+	//Snow
+	{ "ICEF1", "step/snow" },
+	
+	// Bone
+	{ "FLAT5_6", "step/bone" },
+	
+	// Skybox
+	{ "URBAN", "step/fart" },
+	
+	// Computer
+	{ "CONS1_1", "step/computer" },
+	{ "CONS1_5", "step/computer" },
+	{ "CONS1_7", "step/computer" },
+	
+	// Wet Stone
+	{ "WETBRIK", "step/wetstone" },
+	
+	// Wet Grass
+	{ "WETGRASS", "step/wetgrass" },
+	{ "BLDGRAS", "step/wetgrass" },
+	
+	// Sand
+	{ "SAND", "step/sand" },
+	{ "QUIKSAND", "step/sand" },
+	
+	// Glass
+	{ "STAINGLS", "step/glass" },
+	{ "NSHNRST1", "step/glass" },
+	{ "FWINDOW", "step/glass" },
+	{ "PWWINDOW", "step/glass" },
+	{ "PWINDOW2", "step/glass" }
+};
+
+// Functions
+Function int GetVelocity(void)
+{
+	int vel;
+	int x = GetActorVelX(0);
+	int y = GetActorVelY(0);
+	int angle = VectorAngle(x, y);
+	
+	if(((angle + 0.125) % 0.5) > 0.25)
+	{
+		vel = FixedDiv(y, Sin(angle));
+	}
+	else
+	{
+		vel = FixedDiv(x, Cos(angle));
+	}
+	return vel >> 16;
+}
+
+// Scripts
+Script "FOOTSTEPS" (void) CLIENTSIDE
+{
+	int DelayTime, StepVolume, i, SoundPlayed;
+	PlayingFootsteps[PlayerNumber()] = true;
+	While(1)
+	{
+		Delay(1);
+		DelayTime = 16 - GetVelocity() / 2;
+		StepVolume = 7 * GetVelocity();
+		
+		if(GetActorZ(0) - GetActorFloorZ(0) == 0)
+		{
+			for(i=0; i<MaxStepSounds; i++)
+			{
+				if(CheckActorFloorTexture(0, StepSound[i][0]))
+				{
+					ActivatorSound(StepSound[i][1], StepVolume);
+					SoundPlayed = 1;
+					i = MaxStepSounds;
+				}	
+			}
+			if(SoundPlayed == 0)
+			{
+				ActivatorSound(DefStepSound, StepVolume);
+			}	
+		}
+		
+		SoundPlayed = 0;
+		Delay(DelayTime);
+	}	
+}
+
+Script "INIT_FOOTSTEPS" RESPAWN CLIENTSIDE
+{
+	if(!PlayingFootsteps[PlayerNumber()])
+	{
+		ACS_NamedExecuteAlways("FOOTSTEPS", 0);
+	}
+}
+
+script "FOOTSTEP_DISCONNECT" (int who) DISCONNECT CLIENTSIDE
+{
+	PlayingFootsteps[who] = false;
+}

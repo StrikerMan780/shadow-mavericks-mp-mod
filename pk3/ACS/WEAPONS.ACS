@@ -1,0 +1,353 @@
+#library "WEAPONS"
+#include "zcommon.acs"
+
+#define NumWeapons 9
+#define NumClasses 4
+
+#define SLOT_ACTOR 0
+#define SLOT_NAME 1
+#define SLOT_AMMO 2
+#define SLOT_CLIP 3
+
+str class_weapons[NumWeapons][NumClasses][4] = 
+{
+	{ // Shotgun - 0
+		{ "NewShotgun",			"Remington 870 Magnum",				"SpreadAmmo", "None" },
+		{ "PIPS",				"Plasma Injection Pulse Shotgun", 	"SpreadAmmo", "PIPSClip" },
+		{ "NewShotgun",			"Placeholder Shotgun", 				"SpreadAmmo", "None" },
+		{ "DukeShotgun",		"Custom Winchester 1300 Defender",	"SpreadAmmo", "None" },
+	},
+	{ // SSG - 1
+		{ "SM_SuperShotgun",	"Super Shotgun",					"SpreadAmmo", "None" },
+		{ "Keyring",			"Keyring", 							"SpreadAmmo", "None" },
+		{ "DinsFire",			"Din's Fire", 						"SpreadAmmo", "None" },
+		{ "SPAS-12",			"SPAS-12",							"SpreadAmmo", "None" },
+	},
+	{ // Chaingun - 2
+		{ "SM_Chaingun",		"T23-A Explosive Minigun",			"MechAmmo", "None" },
+		{ "BCF-2Repeaters",		"BCF-2 Repeaters", 					"MechAmmo", "None" },
+		{ "SM_Chaingun",		"Placeholder Chaingun", 			"MechAmmo", "None" },
+		{ "RipperChaingun",		"EDF ''Ripper'' Chaingun",			"MechAmmo", "None" },
+	},
+	{ // MP40 - 3
+		{ "MP40",				"Maschinenpistole 40",				"MechAmmo", "MP40Clip" },
+		{ "MP40",				"Maschinenpistole 40", 				"MechAmmo", "MP40Clip" },
+		{ "MP40",				"Placeholder MP40", 				"MechAmmo", "MP40Clip" },
+		{ "M1911",				"Colt M1911",						"MechAmmo", "Duke64Clip" },
+	},
+	{ // Grenade Launcher - 4
+		{ "ProtonGL",			"FG-32 ''Vortex'' Launcher",		"ProtonAmmo", "None" },
+		{ "StickyBombs",		"Sticky Bombs", 					"ProtonAmmo", "None" },
+		{ "ProtonGL",			"Placeholder Grenade Launcher", 	"ProtonAmmo", "None" },
+		{ "DukeGL",				"M32 Grenade Launcher",				"ProtonAmmo", "None" },
+	},
+	{ // Torpedo Launcher - 5
+		{ "ProtonTL",			"A55-H013 ''Inferno'' Launcher",	"ProtonAmmo", "None" },
+		{ "ProtonTL",			"Placeholder Torpedo Launcher", 	"ProtonAmmo", "None" },
+		{ "IceRod",				"Ice Rod", 							"ProtonAmmo", "None" },
+		{ "DukeRPG",			"RPG",								"ProtonAmmo", "None" },
+	},
+	{ // Plasma Rifle - 6
+		{ "PlasmaCannon",		"PL-8 ''Sunfire'' Rifle",			"CellAmmo", "None" },
+		{ "HaloPlasmaRifle",	"Type-25 Directed Energy Rifle", 	"CellAmmo", "None" },
+		{ "FireRod",			"Fire Rod", 						"CellAmmo", "None" },
+		{ "Freezethrower",		"Freezethrower",					"CellAmmo", "None" },
+	},
+	{ // Stinger - 7
+		{ "Stinger",			"Stinger Laser Cannon",				"CellAmmo", "None" },
+		{ "Cyclone",			"SNC-06 ''Cyclone'' Beam Pistol", 	"CellAmmo", "None" },
+		{ "Stinger",			"Placeholder Stinger", 				"CellAmmo", "None" },
+		{ "Expander",			"Microwave Expander",				"CellAmmo", "None" },
+	},
+	{ // BFG9000 - 8
+		{ "BFG_SMMP",			"BFG 9000",							"CellAmmo", "None" },
+		{ "Supra",				"Supra", 							"CellAmmo", "None" },
+		{ "BFG_SMMP",			"Placeholder BFG9000", 				"CellAmmo", "None" },
+		{ "EnergyCannon",		"Energy Cannon",					"CellAmmo", "None" },
+	}
+};
+
+function bool GrantWeapon(int type, int ammocount, int dropped, bool notpickup)
+{
+	int class = PlayerClass(PlayerNumber());
+	int currentammo = CheckInventory(class_weapons[type][class][SLOT_AMMO]);
+	int capacity = GetAmmoCapacity(class_weapons[type][class][SLOT_AMMO]);
+	
+	bool stay = false;
+	bool givegun = false;
+	bool weaponstay = GetCvar("sv_weaponstay");
+	bool hasweapon = (CheckInventory(class_weapons[type][class][SLOT_ACTOR]) > 0);
+	
+	if(StrIcmp(class_weapons[type][class][SLOT_ACTOR], "None") == 0)
+	{
+		stay = true;
+	}
+	else if( (weaponstay == true) && (dropped <= 0) )
+	{
+		stay = true;
+		
+		if(!hasweapon)
+		{
+			givegun = true;
+		}
+	}
+	else
+	{
+		if(currentammo >= capacity)
+		{
+			givegun = false;
+			stay = true;
+		}
+		else
+		{
+			givegun = true;
+			stay = false;
+		}
+	}
+	
+	if(givegun)
+	{
+		if( (ammocount > 0) && (StrIcmp(class_weapons[type][class][SLOT_AMMO], "None") != 0) )
+		{
+			GiveInventory(class_weapons[type][class][SLOT_AMMO], ammocount);
+		}
+		
+		GiveInventory(class_weapons[type][class][SLOT_ACTOR], 1);
+		
+		if(!hasweapon)
+		{
+			if(StrIcmp(class_weapons[type][class][SLOT_CLIP], "None") != 0)
+			{
+				GiveInventory(class_weapons[type][class][SLOT_CLIP], 999);
+			}
+		}
+		
+		if(!notpickup)
+		{
+			SetHudSize(640, 400, 1);
+			SetFont("BIGFONT");
+			
+			ActivatorSound("misc/w_pkup", 127);	
+			FadeRange (0, 255, 0, 0.25, 0, 255, 0, 0.0, 0.5);
+		
+			if(!hasweapon)
+			{
+				HudMessage(s:"New Weapon!";
+				HUDMSG_FADEOUT, 0, CR_CYAN, 320.0, 56.0, 2.5, 0.5);
+				
+				LocalAmbientSound("NewWeapon", 100);
+			}
+			
+			HudMessage(s:class_weapons[type][class][SLOT_NAME];
+			HUDMSG_FADEOUT, 100, CR_GREEN, 320.0, 72.0, 3.0, 0.5);
+		}
+	}
+	
+	return stay;
+}
+
+script "GIVEWEAPON" (int type, int ammocount, int dropped)
+{
+	SetResultValue(GrantWeapon(type, ammocount, dropped, false));
+}
+
+#define NumInventoryItems 4
+str inventory[NumInventoryItems] = { "MolotovCocktail", "HealingSerum", "ForceJump", "ForcePull" };
+
+#define NumRunes 11
+str runes[NumRunes] = { "SpreadRune", "RageRune", "HighJumpRune", "DrainRune",
+"HasteRune", "StrengthRune", "ProsperityRune", "RegenerationRune",
+"ResistanceRune", "Kamikaze", "Kamikaze" };
+
+script "MYSTERY_ITEM" (void)
+{
+	if(CheckInventory("MysteryPowerupInUse"))
+	{
+		terminate;
+	}
+	
+	int class = PlayerClass(PlayerNumber());
+	int weapon_picked = random(0, NumWeapons-1);	
+	
+	int inventory_picked = random(0, NumInventoryItems-1);
+	int inventory_picked_2 = random(0, NumInventoryItems-1);
+	
+	int rune_picked = random(0, NumRunes-1);
+	
+	int inventory_amount = random(1, 3);
+	int inventory_amount_2 = random(1, 3);
+	
+	bool weapon_none = false;
+	bool inventory_none = false;
+	bool inventory_none_2 = false;
+	bool rune_none = false;
+	bool backpack_none = false;
+	
+	GiveInventory("MysteryPowerupInUse", 1);
+	
+	LocalAmbientSound("MysteryItem", 100);
+	SetHudSize(640, 400, 1);
+	SetFont("BigFont");
+	
+	HudMessage(s:"Mystery Item!";
+		HUDMSG_FADEINOUT, 0, CR_PURPLE, 320.4, 150.0, 8.0, 0.5, 0.25);
+	HudMessage(s:".....................";
+		HUDMSG_TYPEON, 0, CR_BLUE, 320.4, 160.0, 6.0, 0.1, 0.25);
+	
+	if(random(1, 100) <= 50)
+	{
+		while(StrIcmp(class_weapons[weapon_picked][class][SLOT_ACTOR], "None") == 0)
+		{
+			weapon_picked = random(0, NumWeapons-1);	
+		}
+		
+		GrantWeapon(weapon_picked, random(0, 40), 0, true);
+	}
+	else
+	{
+		weapon_none = true;
+	}
+	
+	if(random(1, 100) <= 75)
+	{
+		GiveInventory(inventory[inventory_picked], inventory_amount);
+		
+		if(random(1, 100) <= 35)
+		{
+			GiveInventory(inventory[inventory_picked_2], inventory_amount_2);
+		}
+		else
+		{
+			inventory_none_2 = true;
+		}
+		
+	}
+	else
+	{
+		inventory_none = true;
+		inventory_none_2 = true;
+	}
+	
+	if(random(1, 100) <= 25) { GiveInventory(runes[rune_picked], 1); }
+	else { rune_none = true; }
+	
+	if(weapon_none == false || inventory_none == false || rune_none == false)
+	{
+		if(random(1, 100) <= 50) { GiveInventory("Backpack", 1); }
+		else { backpack_none = true; }
+	}
+	
+	delay(96);
+	SetFont("SmallFont");
+	
+	if(GetActorProperty(0, APROP_HEALTH) <= 0)
+	{
+		LocalAmbientSound("DeadNotBigSurprise", 127);
+		HudMessage(s:"You are dead. Not Big Surprise.";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 175.0, 5.0, 0.5, 0.25);
+		terminate;
+	}
+	
+	if(weapon_none == true)
+	{
+		LocalAmbientSound("Fart", 100);
+		HudMessage(s:"No Weapon!";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 175.0, 5.0, 0.5, 0.25);
+	}
+	else
+	{
+		LocalAmbientSound("WinMysteryItem", 100);
+		HudMessage(s:"Weapon: \cv", s:class_weapons[weapon_picked][class][SLOT_NAME];
+		HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 175.0, 5.0, 0.5, 0.25);
+	}
+	
+	delay(35);
+	SetFont("SmallFont");
+	
+	if(GetActorProperty(0, APROP_HEALTH) <= 0)
+	{
+		LocalAmbientSound("DeadNotBigSurprise", 127);
+		HudMessage(s:"You won a shot to the face, congrats!";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 185.0, 5.0, 0.5, 0.25);
+		terminate;
+	}
+	
+	if(inventory_none == true && inventory_none_2 == true)
+	{
+		LocalAmbientSound("Fart", 100);
+		HudMessage(s:"No Inventory Item!";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 185.0, 5.0, 0.5, 0.25);
+	}
+	else
+	{
+		if(inventory_none_2 == true)
+		{
+			LocalAmbientSound("WinMysteryItem", 100);
+			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked],s:"(s)";
+			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
+		}
+		else if(inventory_picked == inventory_picked_2)
+		{
+			LocalAmbientSound("WinMysteryItem", 100);
+			HudMessage(s:"Inventory Item: \cv", d:inventory_amount+inventory_amount_2, s:" ", s:inventory[inventory_picked],s:"(s)";
+			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
+		}
+		else if(inventory_picked != inventory_picked_2)
+		{
+			LocalAmbientSound("WinMysteryItem", 100);
+			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked], s:"(s) & ", d:inventory_amount_2, s:" ", s:inventory[inventory_picked_2], s:"(s)";
+			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
+		}
+	}
+	
+	delay(35);
+	SetFont("SmallFont");
+	
+	if(GetActorProperty(0, APROP_HEALTH) <= 0)
+	{
+		LocalAmbientSound("DeadNotBigSurprise", 127);
+		HudMessage(s:"Never Mind...";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 195.0, 5.0, 0.5, 0.25);
+		terminate;
+	}
+	
+	if(rune_none == true)
+	{
+		LocalAmbientSound("Fart", 100);
+		HudMessage(s:"No Rune!";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 195.0, 5.0, 0.5, 0.25);
+	}
+	else
+	{
+		LocalAmbientSound("WinMysteryItem", 100);
+		HudMessage(s:"Rune: \cv", s:runes[rune_picked];
+		HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 195.0, 5.0, 0.5, 0.25);
+	}
+	
+	delay(35);
+	SetFont("SmallFont");
+	
+	if(GetActorProperty(0, APROP_HEALTH) <= 0)
+	{
+		LocalAmbientSound("DeadNotBigSurprise", 127);
+		HudMessage(s:"Aaaand you're dead...";
+		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 215.0, 5.0, 0.5, 0.25);
+		terminate;
+	}
+	
+	if(weapon_none == true && inventory_none == true && rune_none == true)
+	{
+		LocalAmbientSound("Fail", 127);
+	}
+	else if(weapon_none == false || inventory_none == false || rune_none == false)
+	{
+		if(backpack_none == false)
+		{
+			LocalAmbientSound("WinMysteryItemBonus", 100);
+			HudMessage(s:"Backpack Bonus!";
+			HUDMSG_FADEINOUT, 0, CR_LIGHTBLUE, 320.4, 215.0, 5.0, 0.5, 0.25);
+		}
+	}
+	
+	TakeInventory("MysteryPowerupInUse", 1);
+}
