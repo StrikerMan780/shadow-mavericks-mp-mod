@@ -154,9 +154,9 @@ actor HaloPlasmaRifle : Weapon
 		Fire:
 			HLOP B 0 BRIGHT A_PlaySound("HaloPlasmaRifle", CHAN_WEAPON)
 			HLOP B 0 BRIGHT A_FireCustomMissile("BluePlasmaFlashSpawner", 0, 0, 10, (random(-400,0)/100.0))
-			HLOP B 0 BRIGHT A_FireCustomMissile("BluePlasma", (Random(-200,200)/100.0), 1, 8, 0)
+			HLOP B 0 BRIGHT A_FireCustomMissile("BluePlasma", frandom(-2.0,2.0), true, 8, 0)
 			HLOP B 0 BRIGHT A_SetPitch(pitch-1)
-			HLOP B 3 BRIGHT
+			HLOP B 2 BRIGHT
 			HLOP C 2 A_SetPitch(pitch+0.5)
 			HLOP D 1 A_SetPitch(pitch+0.5)
 			HLOP D 0 A_ReFire
@@ -254,8 +254,9 @@ actor BluePlasmaMist : BaseEffect
 	}
 }
 
-actor BluePlasma : PlasmaBall
+actor BluePlasma
 {
+	Projectile
 	Radius 8
 	Height 8
 	decal BluePlasmaScorch
