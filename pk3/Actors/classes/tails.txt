@@ -25,7 +25,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 	DamageFactor "Hellfire", 0.5
 	DamageFactor "Ethereal", 0.5
 	DamageFactor "Sniper", 0.66
-	RadiusDamageFactor 0.75
+	RadiusDamageFactor 1.0
 	
 	Player.ForwardMove 1
 	Player.SideMove 1
