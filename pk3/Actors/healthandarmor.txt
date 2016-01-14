@@ -28,6 +28,9 @@ actor Medikit2 : Medikit Replaces Medikit
 
 ACTOR Whopper : Health 20327
 {
+	//$Category SMMP Health and Armor
+	//$Title BK Whopper
+	//$Color 1
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
 	inventory.pickupsound "foodpickup"
@@ -45,6 +48,9 @@ ACTOR Whopper : Health 20327
 
 ACTOR Fries : Health 20328
 {
+	//$Category SMMP Health and Armor
+	//$Title French Fries
+	//$Color 1
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
 	inventory.pickupsound "foodpickup"
@@ -62,6 +68,9 @@ ACTOR Fries : Health 20328
 
 ACTOR Patty : Health 20329
 {
+	//$Category SMMP Health and Armor
+	//$Title Burger Patty
+	//$Color 1
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
 	inventory.pickupsound "foodpickup"
@@ -76,15 +85,16 @@ ACTOR Patty : Health 20329
 	}
 }
 
-actor Pepsi : Health 10050
+actor Pepsi : Health
 {
+  Radius 8
+  Height 16
   spawnid 250
-  inventory.pickupmessage "Sucked Down A Can of Pepsi... Ahhhh Refreshing!"
+  inventory.pickupmessage "Drank a can of Pepsi (+10 Health)"
   inventory.amount 10
   inventory.maxamount 200
   inventory.pickupsound "drinkpickup"
   +INVENTORY.ALWAYSPICKUP
-  Scale 0.05
   states
   {
   Spawn:
@@ -93,8 +103,37 @@ actor Pepsi : Health 10050
   }
 }
 
+actor Fanta : Pepsi
+{
+	inventory.pickupmessage "Drank a can of Fanta (+10 Health)"
+}
+
+actor CocaCola : Pepsi
+{
+	inventory.pickupmessage "Drank a can of Coca-Cola (+10 Health)"
+}
+
+actor MDHitler : Pepsi
+{
+	inventory.pickupmessage "It was mostly filled with gas... (+10 Health)"
+}
+
+actor RandomSodaSpawner : RandomSpawner 10050
+{
+	//$Category SMMP Health and Armor
+	//$Title Random Soda Can
+	//$Color 1
+	DropItem "Pepsi", 255 100
+	DropItem "Fanta", 255 100
+	DropItem "CocaCola", 255 100
+	DropItem "MDHitler", 255 100
+}
+
 ACTOR PopcornBag : Health 27261
 {
+	//$Category SMMP Health and Armor
+	//$Title Popcorn Bag
+	//$Color 1
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
 	inventory.pickupsound "foodpickup"
@@ -249,6 +288,9 @@ actor BlueArmor2 : BlueArmor replaces BlueArmor
 
 ACTOR RedArmor : BasicArmorPickup 5040
 {
+	//$Category SMMP Health and Armor
+	//$Title Fire Armor
+	//$Color 1
 	Game Doom
 	SpawnID 168
 	Radius 20
@@ -273,6 +315,9 @@ ACTOR RedArmor : BasicArmorPickup 5040
 
 actor Condom1 : MaxArmorBonus 18814
 {
+	//$Category SMMP Health and Armor
+	//$Title Durex Avandi BARE Condom
+	//$Color 1
 	Inventory.PickupMessage "Durex Avanti BARE Latex Condom (+1 Max Armor)"
 	Inventory.PickupSound "Condom"
 	Armor.SaveAmount 1
@@ -289,6 +334,9 @@ actor Condom1 : MaxArmorBonus 18814
 
 actor Condom2 : Condom1 18815
 {
+	//$Category SMMP Health and Armor
+	//$Title Durex Tropical Flavored Condom
+	//$Color 1
 	Inventory.PickupMessage "Durex Tropical Flavored Condom (+2 Max Armor)"
 	Armor.SaveAmount 2
 	Armor.MaxBonus 2

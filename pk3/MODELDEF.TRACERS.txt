@@ -179,3 +179,15 @@ model BowShotBounce
 		
 	FrameIndex FX03 A 0 0
 }
+
+model FlakTrail
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "ChaingunTracer.png"
+	Scale 12.0 8.0 8.0
+	Offset -80.0 0.0 0.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex FLRA A 0 0
+}

@@ -83,61 +83,6 @@ brightmap sprite ALLYA0
 	map "Brightmaps/ALLYA0.png"
 }
 
-brightmap texture WALLAVA1
-{
-	map "Brightmaps/WALLAVA1.png"
-}
-
-brightmap texture FLT510_1
-{
-	map "Brightmaps/FLT510_1.png"
-}
-
-brightmap texture FLT510_2
-{
-	map "Brightmaps/FLT510_2.png"
-}
-
-brightmap texture FLT510_3
-{
-	map "Brightmaps/FLT510_3.png"
-}
-
-brightmap texture FLT510_4
-{
-	map "Brightmaps/FLT510_4.png"
-}
-
-brightmap texture FLT510_5
-{
-	map "Brightmaps/FLT510_5.png"
-}
-
-brightmap texture FLT510_6
-{
-	map "Brightmaps/FLT510_6.png"
-}
-
-brightmap texture FLT510_7
-{
-	map "Brightmaps/FLT510_7.png"
-}
-
-brightmap texture FLT510_8
-{
-	map "Brightmaps/FLT510_8.png"
-}
-
-brightmap flat FLOOR09
-{
-	map "Brightmaps/FLOOR09.png"
-}
-
-brightmap texture FLOOR09
-{
-	map "Brightmaps/FLOOR09.png"
-}
-
 brightmap texture SUPRA
 {
 	map "Brightmaps/Supra.png"

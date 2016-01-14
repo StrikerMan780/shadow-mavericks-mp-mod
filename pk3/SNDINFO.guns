@@ -7,3 +7,45 @@ M203Open dsm203op
 M203Load dsm203ld
 M203Close dsm203cl
 $limit OICWFire 0
+
+ThanatosFire DSTHANAT
+ThanatosPump DSTHPUMP
+ThanatosBladeIdle DSTHBIDL
+ThanatosBladeOn DSTHBLD1
+ThanatosBladeOff DSTHBLD2
+ThanatosBladeFire DSTHBLDF
+ThanatosBladeExplode DSTHEXPL
+
+ThanatosBladeBounce1 DSTHBLB1
+ThanatosBladeBounce2 DSTHBLB2
+$volume ThanatosBladeBounce1 0.5
+$volume ThanatosBladeBounce2 0.5
+$random ThanatosBladeBounce { ThanatosBladeBounce1 ThanatosBladeBounce2 }
+
+CycloneFire DSCYCLON
+CycloneEnd DSCYCEND
+CycloneIdle DSCYCIDL
+CycloneClipIn DSCYCLIN
+CycloneClipOut DSCYCOUT
+
+mp40fire dsmp40
+$limit mp40fire 0
+MP40ClipOut dsmp40co
+MP40ClipIn dsmp40ci
+MP40BoltBack dsmp40bb
+MP40BoltSlap dsmp40bs
+$volume MP40BoltSlap 0.5
+
+weapons/shotgf			dsshotgn
+weapons/shotgr			dssgcock
+weapons/sshotf			dsdshtgn
+weapons/sshoto			dsdbopn
+weapons/sshotc			dsdbcls
+weapons/sshotl			dsdbload
+weapons/bfgf			dsbfg
+weapons/plasmaf			dsplasma
+weapons/plasmax			dsplshit
+weapons/rocklf			dsrlaunc
+$volume weapons/plasmax 0.8
+$limit weapons/plasmaf 0
+$limit weapons/rocklf 0

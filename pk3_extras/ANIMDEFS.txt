@@ -112,6 +112,16 @@ texture AFLAG01
 	pic	AFLAG06 tics 3
 	pic	AFLAG07 tics 3
 	pic	AFLAG08 tics 3
+	
+texture SANS0000
+	pic	SANS0000 tics 3
+	pic	SANS0001 tics 3
+	pic	SANS0002 tics 3
+	pic	SANS0003 tics 3
+	pic	SANS0004 tics 3
+	pic	SANS0005 tics 3
+	pic	SANS0006 tics 3
+	pic	SANS0007 tics 3
 
 texture ANIM_A01
 	pic	ANIM_A01 tics 2

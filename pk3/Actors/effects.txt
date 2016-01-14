@@ -50,17 +50,46 @@ actor BasicFlame : BaseEffect
 	Alpha 0.7
 	States
 	{
-	Spawn:
-		64P1 A 0
-		64P1 A 0 A_Jump(127, "Spawn2", "Spawn3")
-		64P1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-		stop
-	Spawn2:
-		64P2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-		stop
-	Spawn3:
-		64P3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-		stop
+		Spawn:
+			FIR1 A 0
+			FIR1 A 0 A_Jump(256, "Fire1", "Fire2", "Fire3", "Fire4", "Fire5", "Fire6", "Fire7", "Fire8", "Fire9", "Fire10")
+			goto Fire1
+		Fire1:
+			FIR1 ABCDEFGHIJKLMNOPQR 1 BRIGHT
+			stop
+		Fire2:
+			FIR2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			FI22 AB 1 BRIGHT
+			stop
+		Fire3:
+			FIR3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			stop
+		Fire4:
+			FIR4 ABCDEFGHIJKLMNOPQRST 1 BRIGHT
+			stop
+		Fire5:
+			FIR5 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			FI52 AB 1 BRIGHT
+			stop
+		Fire6:
+			FIR6 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			FI62 AB 1 BRIGHT
+			stop
+		Fire7:
+			FIR7 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			FI72 AB 1 BRIGHT
+			stop
+		Fire8:
+			FIR8 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			FI82 ABCD 1 BRIGHT
+			stop
+		Fire9:
+			FIR9 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
+			FI92 ABCD 1 BRIGHT
+			stop
+		Fire10:
+			FIR0 ABCDEFGHIJKLMNO 1 BRIGHT
+			stop
 	}
 }
 
@@ -500,7 +529,44 @@ actor DoorJet
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySound("FlameThrowerCool")
-			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("CoolingSmoke", 0, 0, 0, random(-1, 1), random(-1, 1), random(-1, 1), random(-180,180), 128, 0)
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("CoolingSmoke", 0, 0, 0, random(-1, 1), random(-1, 1), random(-1, 1), random(-180,180), SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor FountainDrip : BaseEffect
+{
+	RenderStyle Translucent
+	Alpha 0.25
+	Scale 0.25
+	+CLIENTSIDEONLY
+	+NOCLIP
+	+FORCEYBILLBOARD
+	-FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			DRIP ABCDEFGHI 1
+			stop
+	}
+}
+
+actor FountainParticleTrail : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.48
+	Scale 2.0
+	-NOGRAVITY
+	-NOINTERACTION
+	+CORPSE
+	Gravity 0.1
+	States
+	{
+		Spawn:
+			BLUE A 1 A_FadeOut(0.01)
+			loop
+		Crash:
+			TNT1 A 0
 			stop
 	}
 }
@@ -512,22 +578,24 @@ actor FountainParticle
 	Height 2
 	RenderStyle Add
 	Alpha 0.48
-	Gravity 0.3
+	Gravity 0.25
+	Scale 2.0
 	+CLIENTSIDEONLY
 	+ALLOWCLIENTSPAWN
 	+FORCEXYBILLBOARD
 	+DONTSPLASH
+	+CORPSE
 	-ACTIVATEIMPACT
 	-ACTIVATEPCROSS
 	-NOGRAVITY
 	States
 	{
-		Spawn:
-			BLUE A 1 A_CheckSight("Death")
-			loop
 		Death:
-			TNT1 A 1
-			TNT1 A 1
+		Spawn:
+			BLUE A 1 A_SpawnItemEx("FountainParticleTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			loop
+		Crash:
+			TNT1 A 1 A_SpawnItemEx("FountainDrip", 0, 0, 0, frandom(-0.25, 0.25), frandom(-0.25, 0.25), 0, 0, SXF_CLIENTSIDE, 0)
 			stop
 	}
 }
@@ -542,8 +610,7 @@ actor FountainParticleSpawner 17521
 	states
 	{
 		Spawn:
-			TNT1 A 0 A_SpawnItemEx("FountainParticle", 0, 0, random(0, 8), random(-1,1), random(-1,1), random(3,6), random(-180,180), 128, 0)
-			TNT1 A 1 A_SpawnItemEx("FountainParticle", 0, 0, random(0, 24), random(-1,1), random(-1,1), random(3,6), random(-180,180), 128, 0)
+			TNT1 A 2 A_SpawnItemEx("FountainParticle", 0, 0, 0, frandom(-1.0,1.0), frandom(-1.0,1.0), frandom(3.0,6.0), frandom(-180.0,180.0), SXF_CLIENTSIDE, 0)
 			loop
 	}
 }

@@ -678,3 +678,616 @@ Model SmartRifle
 	FrameIndex MRG2 S 0 88
 	FrameIndex MRG2 T 0 90
 }
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "Thanatos.md3"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+
+	FrameIndex THAN A 0 0
+	FrameIndex THAN B 0 1
+	FrameIndex THAN C 0 2
+	FrameIndex THAN D 0 3
+	FrameIndex THAN E 0 4
+	FrameIndex THAN F 0 5
+	FrameIndex THAN G 0 6
+	FrameIndex THAN H 0 7
+	FrameIndex THAN I 0 8
+	FrameIndex THAN J 0 9
+	FrameIndex THAN K 0 10
+	FrameIndex THAN L 0 11
+	FrameIndex THAN M 0 12
+	FrameIndex THAN N 0 13
+	FrameIndex THAN O 0 14
+	FrameIndex THAN P 0 15
+	FrameIndex THAN Q 0 16
+	FrameIndex THAN R 0 17
+	FrameIndex THAN S 0 18
+	FrameIndex THAN T 0 19
+	FrameIndex THAN U 0 20
+	FrameIndex THAN V 0 21
+	FrameIndex THAN W 0 22
+	FrameIndex THAN X 0 23
+	FrameIndex THAN Y 0 24
+	FrameIndex THAN Z 0 25
+	FrameIndex THA2 A 0 26
+	FrameIndex THA2 B 0 27
+	FrameIndex THA2 C 0 28
+	FrameIndex THA2 D 0 29
+	FrameIndex THA2 E 0 30
+	FrameIndex THA2 F 0 31
+	FrameIndex THA2 G 0 32
+	FrameIndex THA2 H 0 33
+	FrameIndex THA2 I 0 34
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "Thanatos_Idle.md3"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex THS1 A 0 0
+	FrameIndex THS1 B 0 1
+	FrameIndex THS1 C 0 2
+	FrameIndex THS1 D 0 3
+	FrameIndex THS1 E 0 4
+	FrameIndex THS1 F 0 5
+	FrameIndex THS1 G 0 6
+	FrameIndex THS1 H 0 7
+	FrameIndex THS1 I 0 8
+	FrameIndex THS1 J 0 9
+	FrameIndex THS1 K 0 10
+	FrameIndex THS1 L 0 11
+	FrameIndex THS1 M 0 12
+	FrameIndex THS1 N 0 13
+	FrameIndex THS1 O 0 14
+	FrameIndex THS1 P 0 15
+	FrameIndex THS1 Q 0 16
+	FrameIndex THS1 R 0 17
+	FrameIndex THS1 S 0 18
+	FrameIndex THS1 T 0 19
+	FrameIndex THS1 U 0 20
+	FrameIndex THS1 V 0 21
+	FrameIndex THS1 W 0 22
+	FrameIndex THS1 X 0 23
+	FrameIndex THS1 Y 0 24
+	FrameIndex THS1 Z 0 25
+	
+	FrameIndex THS2 A 0 26
+	FrameIndex THS2 B 0 27
+	FrameIndex THS2 C 0 28
+	FrameIndex THS2 D 0 29
+	FrameIndex THS2 E 0 30
+	FrameIndex THS2 F 0 31
+	FrameIndex THS2 G 0 32
+	FrameIndex THS2 H 0 33
+	FrameIndex THS2 I 0 34
+	FrameIndex THS2 J 0 35
+	FrameIndex THS2 K 0 36
+	FrameIndex THS2 L 0 37
+	FrameIndex THS2 M 0 38
+	FrameIndex THS2 N 0 39
+	FrameIndex THS2 O 0 40
+	FrameIndex THS2 P 0 41
+	FrameIndex THS2 Q 0 42
+	FrameIndex THS2 R 0 43
+	FrameIndex THS2 S 0 44
+	FrameIndex THS2 T 0 45
+	FrameIndex THS2 U 0 46
+	FrameIndex THS2 V 0 47
+	FrameIndex THS2 W 0 48
+	FrameIndex THS2 X 0 49
+	FrameIndex THS2 Y 0 50
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "Thanatos_ChangeA.md3"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex TCH1 A 0 0
+	FrameIndex TCH1 B 0 1
+	FrameIndex TCH1 C 0 2
+	FrameIndex TCH1 D 0 3
+	FrameIndex TCH1 E 0 4
+	FrameIndex TCH1 F 0 5
+	FrameIndex TCH1 G 0 6
+	FrameIndex TCH1 H 0 7
+	FrameIndex TCH1 I 0 8
+	FrameIndex TCH1 J 0 9
+	FrameIndex TCH1 K 0 10
+	FrameIndex TCH1 L 0 11
+	FrameIndex TCH1 M 0 12
+	FrameIndex TCH1 N 0 13
+	FrameIndex TCH1 O 0 14
+	FrameIndex TCH1 P 0 15
+	FrameIndex TCH1 Q 0 16
+	FrameIndex TCH1 R 0 17
+	FrameIndex TCH1 S 0 18
+	FrameIndex TCH1 T 0 19
+	FrameIndex TCH1 U 0 20
+	FrameIndex TCH1 V 0 21
+	FrameIndex TCH1 W 0 22
+	FrameIndex TCH1 X 0 23
+	FrameIndex TCH1 Y 0 24
+	FrameIndex TCH1 Z 0 25
+	
+	FrameIndex TCH2 A 0 26
+	FrameIndex TCH2 B 0 27
+	FrameIndex TCH2 C 0 28
+	FrameIndex TCH2 D 0 29
+	FrameIndex TCH2 E 0 30
+	FrameIndex TCH2 F 0 31
+	FrameIndex TCH2 G 0 32
+	FrameIndex TCH2 H 0 33
+	FrameIndex TCH2 I 0 34
+	FrameIndex TCH2 J 0 35
+	FrameIndex TCH2 K 0 36
+	FrameIndex TCH2 L 0 37
+	FrameIndex TCH2 M 0 38
+	FrameIndex TCH2 N 0 39
+	FrameIndex TCH2 O 0 40
+	FrameIndex TCH2 P 0 41
+	FrameIndex TCH2 Q 0 42
+	FrameIndex TCH2 R 0 43
+	FrameIndex TCH2 S 0 44
+	FrameIndex TCH2 T 0 45
+	FrameIndex TCH2 U 0 46
+	FrameIndex TCH2 V 0 47
+	FrameIndex TCH2 W 0 48
+	FrameIndex TCH2 X 0 49
+	FrameIndex TCH2 Y 0 50
+	FrameIndex TCH2 Z 0 51
+	
+	FrameIndex TCH3 A 0 52
+	FrameIndex TCH3 B 0 53
+	FrameIndex TCH3 C 0 54
+	FrameIndex TCH3 D 0 55
+	FrameIndex TCH3 E 0 56
+	FrameIndex TCH3 F 0 57
+	FrameIndex TCH3 G 0 58
+	FrameIndex TCH3 H 0 59
+	FrameIndex TCH3 I 0 60
+	FrameIndex TCH3 J 0 61
+	FrameIndex TCH3 K 0 62
+	FrameIndex TCH3 L 0 63
+	FrameIndex TCH3 M 0 64
+	FrameIndex TCH3 N 0 65
+	FrameIndex TCH3 O 0 66
+	FrameIndex TCH3 P 0 67
+	FrameIndex TCH3 Q 0 68
+	FrameIndex TCH3 R 0 69
+	FrameIndex TCH3 S 0 70
+	FrameIndex TCH3 T 0 71
+	FrameIndex TCH3 U 0 72
+	FrameIndex TCH3 V 0 73
+	FrameIndex TCH3 W 0 74
+	FrameIndex TCH3 X 0 75
+	FrameIndex TCH3 Y 0 76
+	FrameIndex TCH3 Z 0 77
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "Thanatos_BladeIdle.md3"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex THB1 A 0 0
+	FrameIndex THB1 B 0 1
+	FrameIndex THB1 C 0 2
+	FrameIndex THB1 D 0 3
+	FrameIndex THB1 E 0 4
+	FrameIndex THB1 F 0 5
+	FrameIndex THB1 G 0 6
+	FrameIndex THB1 H 0 7
+	FrameIndex THB1 I 0 8
+	FrameIndex THB1 J 0 9
+	FrameIndex THB1 K 0 10
+	FrameIndex THB1 L 0 11
+	FrameIndex THB1 M 0 12
+	FrameIndex THB1 N 0 13
+	FrameIndex THB1 O 0 14
+	FrameIndex THB1 P 0 15
+	FrameIndex THB1 Q 0 16
+	FrameIndex THB1 R 0 17
+	FrameIndex THB1 S 0 18
+	FrameIndex THB1 T 0 19
+	FrameIndex THB1 U 0 20
+	FrameIndex THB1 V 0 21
+	FrameIndex THB1 W 0 22
+	FrameIndex THB1 X 0 23
+	FrameIndex THB1 Y 0 24
+	FrameIndex THB1 Z 0 25
+	
+	FrameIndex THB2 A 0 26
+	FrameIndex THB2 B 0 27
+	FrameIndex THB2 C 0 28
+	FrameIndex THB2 D 0 29
+	FrameIndex THB2 E 0 30
+	FrameIndex THB2 F 0 31
+	FrameIndex THB2 G 0 32
+	FrameIndex THB2 H 0 33
+	FrameIndex THB2 I 0 34
+	FrameIndex THB2 J 0 35
+	FrameIndex THB2 K 0 36
+	FrameIndex THB2 L 0 37
+	FrameIndex THB2 M 0 38
+	FrameIndex THB2 N 0 39
+	FrameIndex THB2 O 0 40
+	FrameIndex THB2 P 0 41
+	FrameIndex THB2 Q 0 42
+	FrameIndex THB2 R 0 43
+	FrameIndex THB2 S 0 44
+	FrameIndex THB2 T 0 45
+	FrameIndex THB2 U 0 46
+	FrameIndex THB2 V 0 47
+	FrameIndex THB2 W 0 48
+	FrameIndex THB2 X 0 49
+	FrameIndex THB2 Y 0 50
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "Thanatos_ChangeB.md3"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex TCH4 A 0 0
+	FrameIndex TCH4 B 0 1
+	FrameIndex TCH4 C 0 2
+	FrameIndex TCH4 D 0 3
+	FrameIndex TCH4 E 0 4
+	FrameIndex TCH4 F 0 5
+	FrameIndex TCH4 G 0 6
+	FrameIndex TCH4 H 0 7
+	FrameIndex TCH4 I 0 8
+	FrameIndex TCH4 J 0 9
+	FrameIndex TCH4 K 0 10
+	FrameIndex TCH4 L 0 11
+	FrameIndex TCH4 M 0 12
+	FrameIndex TCH4 N 0 13
+	FrameIndex TCH4 O 0 14
+	FrameIndex TCH4 P 0 15
+	FrameIndex TCH4 Q 0 16
+	FrameIndex TCH4 R 0 17
+	FrameIndex TCH4 S 0 18
+	FrameIndex TCH4 T 0 19
+	FrameIndex TCH4 U 0 20
+	FrameIndex TCH4 V 0 21
+	FrameIndex TCH4 W 0 22
+	FrameIndex TCH4 X 0 23
+	FrameIndex TCH4 Y 0 24
+	FrameIndex TCH4 Z 0 25
+	
+	FrameIndex TCH5 A 0 26
+	FrameIndex TCH5 B 0 27
+	FrameIndex TCH5 C 0 28
+	FrameIndex TCH5 D 0 29
+	FrameIndex TCH5 E 0 30
+	FrameIndex TCH5 F 0 31
+	FrameIndex TCH5 G 0 32
+	FrameIndex TCH5 H 0 33
+	FrameIndex TCH5 I 0 34
+	FrameIndex TCH5 J 0 35
+	FrameIndex TCH5 K 0 36
+	FrameIndex TCH5 L 0 37
+	FrameIndex TCH5 M 0 38
+	FrameIndex TCH5 N 0 39
+	FrameIndex TCH5 O 0 40
+	FrameIndex TCH5 P 0 41
+	FrameIndex TCH5 Q 0 42
+	FrameIndex TCH5 R 0 43
+	FrameIndex TCH5 S 0 44
+	FrameIndex TCH5 T 0 45
+	FrameIndex TCH5 U 0 46
+	FrameIndex TCH5 V 0 47
+	FrameIndex TCH5 W 0 48
+	FrameIndex TCH5 X 0 49
+	FrameIndex TCH5 Y 0 50
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "Thanatos_BladeFire.md3"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex TBF1 A 0 0
+	FrameIndex TBF1 B 0 1
+	FrameIndex TBF1 C 0 2
+	FrameIndex TBF1 D 0 3
+	FrameIndex TBF1 E 0 4
+	FrameIndex TBF1 F 0 5
+	FrameIndex TBF1 G 0 6
+	FrameIndex TBF1 H 0 7
+	FrameIndex TBF1 I 0 8
+	FrameIndex TBF1 J 0 9
+	FrameIndex TBF1 K 0 10
+	FrameIndex TBF1 L 0 11
+	FrameIndex TBF1 M 0 12
+	FrameIndex TBF1 N 0 13
+	FrameIndex TBF1 O 0 14
+	FrameIndex TBF1 P 0 15
+	FrameIndex TBF1 Q 0 16
+	FrameIndex TBF1 R 0 17
+	FrameIndex TBF1 S 0 18
+	FrameIndex TBF1 T 0 19
+	FrameIndex TBF1 U 0 20
+	FrameIndex TBF1 V 0 21
+	FrameIndex TBF1 W 0 22
+	FrameIndex TBF1 X 0 23
+	FrameIndex TBF1 Y 0 24
+	FrameIndex TBF1 Z 0 25
+	
+	FrameIndex TBF2 A 0 26
+	FrameIndex TBF2 B 0 27
+	FrameIndex TBF2 C 0 28
+	FrameIndex TBF2 D 0 29
+	FrameIndex TBF2 E 0 30
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "ThanatosFlash.md3"
+	Skin 0 "ThanatosFlash1.png"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex TFL1 A 0 0
+	FrameIndex TFL1 B 0 1
+}
+
+Model Thanatos
+{
+	Path "Models\HUD\Thanatos"
+	Model 0 "ThanatosFlash.md3"
+	Skin 0 "ThanatosFlash2.png"
+	Scale 5.0 4.0 5.0
+	Offset -10 0 0
+	
+	FrameIndex TFL2 A 0 0
+	FrameIndex TFL2 B 0 1
+}
+
+Model Cyclone
+{
+	Path "Models\HUD\Cyclone"
+	Model 0 "Cyclone.md3"
+	Scale 5.0 3.5 5.0
+	Offset -10 0 0
+	
+	FrameIndex CYC1 A 0 0
+	FrameIndex CYC1 B 0 1
+	FrameIndex CYC1 C 0 2
+	FrameIndex CYC1 D 0 3
+	FrameIndex CYC1 E 0 4
+	FrameIndex CYC1 F 0 5
+	FrameIndex CYC1 G 0 6
+	FrameIndex CYC1 H 0 7
+	FrameIndex CYC1 I 0 8
+	FrameIndex CYC1 J 0 9
+	FrameIndex CYC1 K 0 10
+	FrameIndex CYC1 L 0 11
+	FrameIndex CYC1 M 0 12
+	FrameIndex CYC1 N 0 13
+	FrameIndex CYC1 O 0 14
+	FrameIndex CYC1 P 0 15
+	FrameIndex CYC1 Q 0 16
+	FrameIndex CYC1 R 0 17
+	FrameIndex CYC1 S 0 18
+	FrameIndex CYC1 T 0 19
+	FrameIndex CYC1 U 0 20
+	FrameIndex CYC1 V 0 21
+	FrameIndex CYC1 W 0 22
+	FrameIndex CYC1 X 0 23
+	FrameIndex CYC1 Y 0 24
+	FrameIndex CYC1 Z 0 25
+	
+	FrameIndex CYC2 A 0 26
+	FrameIndex CYC2 B 0 27
+	FrameIndex CYC2 C 0 28
+	FrameIndex CYC2 D 0 29
+	FrameIndex CYC2 E 0 30
+	FrameIndex CYC2 F 0 31
+	FrameIndex CYC2 G 0 32
+	FrameIndex CYC2 H 0 33
+	FrameIndex CYC2 I 0 34
+	FrameIndex CYC2 J 0 35
+	FrameIndex CYC2 K 0 36
+	FrameIndex CYC2 L 0 37
+	FrameIndex CYC2 M 0 38
+	FrameIndex CYC2 N 0 39
+	FrameIndex CYC2 O 0 40
+	FrameIndex CYC2 P 0 41
+	FrameIndex CYC2 Q 0 42
+	FrameIndex CYC2 R 0 43
+	FrameIndex CYC2 S 0 44
+	FrameIndex CYC2 T 0 45
+	FrameIndex CYC2 U 0 46
+	FrameIndex CYC2 V 0 47
+	FrameIndex CYC2 W 0 48
+	FrameIndex CYC2 X 0 49
+	FrameIndex CYC2 Y 0 50
+	FrameIndex CYC2 Z 0 51
+	
+	FrameIndex CYC3 A 0 52
+	FrameIndex CYC3 B 0 53
+	FrameIndex CYC3 C 0 54
+	FrameIndex CYC3 D 0 55
+	FrameIndex CYC3 E 0 56
+	FrameIndex CYC3 F 0 57
+	FrameIndex CYC3 G 0 58
+	FrameIndex CYC3 H 0 59
+	FrameIndex CYC3 I 0 60
+	FrameIndex CYC3 J 0 61
+	FrameIndex CYC3 K 0 62
+	FrameIndex CYC3 L 0 63
+	FrameIndex CYC3 M 0 64
+	FrameIndex CYC3 N 0 65
+	FrameIndex CYC3 O 0 66
+	FrameIndex CYC3 P 0 67
+	FrameIndex CYC3 Q 0 68
+	FrameIndex CYC3 R 0 69
+	FrameIndex CYC3 S 0 70
+	FrameIndex CYC3 T 0 71
+	FrameIndex CYC3 U 0 72
+	FrameIndex CYC3 V 0 73
+	FrameIndex CYC3 W 0 74
+}
+
+Model Cyclone
+{
+	Path "Models\HUD\Cyclone"
+	Model 0 "Cyclone_Fire.md3"
+	Scale 5.0 3.5 5.0
+	Offset 12 0 0
+	
+	FrameIndex CYCF A 0 0
+	FrameIndex CYCF B 0 1
+	FrameIndex CYCF C 0 2
+	FrameIndex CYCF D 0 3
+	FrameIndex CYCF E 0 4
+	FrameIndex CYCF F 0 5
+	FrameIndex CYCF G 0 6
+	FrameIndex CYCF H 0 7
+	FrameIndex CYCF I 0 8
+	FrameIndex CYCF J 0 9
+	FrameIndex CYCF K 0 10
+	FrameIndex CYCF L 0 11
+}
+
+Model Cyclone
+{
+	Path "Models\HUD\Cyclone"
+	Model 0 "Cyclone_Flash.md3"
+	Skin 0 "Cyclone_Flash.png"
+	Scale 5.0 3.5 5.0
+	Offset 12 0 0
+	
+	FrameIndex CYFL A 0 0
+	FrameIndex CYFL B 0 1
+	FrameIndex CYFL C 0 2
+	FrameIndex CYFL D 0 3
+	FrameIndex CYFL E 0 4
+	FrameIndex CYFL F 0 5
+	FrameIndex CYFL G 0 6
+	FrameIndex CYFL H 0 7
+	FrameIndex CYFL I 0 8
+	FrameIndex CYFL J 0 9
+	FrameIndex CYFL K 0 10
+	FrameIndex CYFL L 0 11
+}
+
+/*
+Model Cyclone
+{
+	Path "Models\HUD\Cyclone"
+	Model 0 "Cyclone_FireDone.md3"
+	Scale 5.0 3.5 5.0
+	Offset -10 0 0
+	
+	FrameIndex CYCD A 0 0
+	FrameIndex CYCD B 0 1
+	FrameIndex CYCD C 0 2
+	FrameIndex CYCD D 0 3
+	FrameIndex CYCD E 0 4
+	FrameIndex CYCD F 0 5
+	FrameIndex CYCD G 0 6
+	FrameIndex CYCD H 0 7
+	FrameIndex CYCD I 0 8
+	FrameIndex CYCD J 0 9
+	FrameIndex CYCD K 0 10
+	FrameIndex CYCD L 0 11
+	FrameIndex CYCD M 0 12
+	FrameIndex CYCD N 0 13
+	FrameIndex CYCD O 0 14
+	FrameIndex CYCD P 0 15
+}
+*/
+Model Cyclone
+{
+	Path "Models\HUD\Cyclone"
+	Model 0 "Cyclone_Reload.md3"
+	Scale 5.0 3.5 5.0
+	Offset -10 0 0
+	
+	FrameIndex CYR1 A 0 0
+	FrameIndex CYR1 B 0 1
+	FrameIndex CYR1 C 0 2
+	FrameIndex CYR1 D 0 3
+	FrameIndex CYR1 E 0 4
+	FrameIndex CYR1 F 0 5
+	FrameIndex CYR1 G 0 6
+	FrameIndex CYR1 H 0 7
+	FrameIndex CYR1 I 0 8
+	FrameIndex CYR1 J 0 9
+	FrameIndex CYR1 K 0 10
+	FrameIndex CYR1 L 0 11
+	FrameIndex CYR1 M 0 12
+	FrameIndex CYR1 N 0 13
+	FrameIndex CYR1 O 0 14
+	FrameIndex CYR1 P 0 15
+	FrameIndex CYR1 Q 0 16
+	FrameIndex CYR1 R 0 17
+	FrameIndex CYR1 S 0 18
+	FrameIndex CYR1 T 0 19
+	FrameIndex CYR1 U 0 20
+	FrameIndex CYR1 V 0 21
+	FrameIndex CYR1 W 0 22
+	FrameIndex CYR1 X 0 23
+	FrameIndex CYR1 Y 0 24
+	FrameIndex CYR1 Z 0 25
+	
+	FrameIndex CYR2 A 0 26
+	FrameIndex CYR2 B 0 27
+	FrameIndex CYR2 C 0 28
+	FrameIndex CYR2 D 0 29
+	FrameIndex CYR2 E 0 30
+	FrameIndex CYR2 F 0 31
+	FrameIndex CYR2 G 0 32
+	FrameIndex CYR2 H 0 33
+	FrameIndex CYR2 I 0 34
+	FrameIndex CYR2 J 0 35
+	FrameIndex CYR2 K 0 36
+	FrameIndex CYR2 L 0 37
+	FrameIndex CYR2 M 0 38
+	FrameIndex CYR2 N 0 39
+	FrameIndex CYR2 O 0 40
+	FrameIndex CYR2 P 0 41
+	FrameIndex CYR2 Q 0 42
+	FrameIndex CYR2 R 0 43
+	FrameIndex CYR2 S 0 44
+	FrameIndex CYR2 T 0 45
+	FrameIndex CYR2 U 0 46
+	FrameIndex CYR2 V 0 47
+	FrameIndex CYR2 W 0 48
+	FrameIndex CYR2 X 0 49
+	FrameIndex CYR2 Y 0 50
+	FrameIndex CYR2 Z 0 51
+	
+	FrameIndex CYR3 A 0 52
+	FrameIndex CYR3 B 0 53
+	FrameIndex CYR3 C 0 54
+	FrameIndex CYR3 D 0 55
+	FrameIndex CYR3 E 0 56
+	FrameIndex CYR3 F 0 57
+	FrameIndex CYR3 G 0 58
+	FrameIndex CYR3 H 0 59
+	FrameIndex CYR3 I 0 60
+	FrameIndex CYR3 J 0 61
+	FrameIndex CYR3 K 0 62
+	FrameIndex CYR3 L 0 63
+	FrameIndex CYR3 M 0 64
+	FrameIndex CYR3 N 0 65
+}

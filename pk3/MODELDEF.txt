@@ -2582,6 +2582,73 @@ Model FlakShard
 	FrameIndex METL E 0 0
 }
 
+// Frag
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot1.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL A 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot2.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL B 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot3.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL C 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot4.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL D 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShard.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL E 0 0
+}
+
 Model OICW_Grenade
 {
 	Path "Models\HUD\ProtonGL"
@@ -2807,6 +2874,90 @@ model 8trackStereo
 	FrameIndex FOUN N 0 13
 	FrameIndex FOUN O 0 14
 	FrameIndex FOUN P 0 15
+}
+
+model VendingMachine_Fanta
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "vendingmachine.md3"
+	Skin 0 "fantavm.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+}
+
+model VendingMachine_CocaCola
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "vendingmachine.md3"
+	Skin 0 "cocacolavm.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+}
+
+model VendingMachine_Pepsi
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "vendingmachine2.md3"
+	Skin 0 "pepsivm.png"
+	Scale 0.9 0.9 0.9
+
+	FrameIndex FOUN A 0 0
+}
+
+model VendingMachine_Hitler
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "vendingmachine.md3"
+	Skin 0 "mdhitlervm.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+}
+
+model Pepsi
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "SodaCan.md3"
+	Skin 0 "pepsi.png"
+	Scale 1.5 1.5 1.5
+	ZOffset 4.5
+
+	FrameIndex PEPS A 0 0
+}
+
+model Fanta
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "SodaCan.md3"
+	Skin 0 "fanta.png"
+	Scale 1.5 1.5 1.5
+	ZOffset 4.5
+
+	FrameIndex PEPS A 0 0
+}
+
+model CocaCola
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "SodaCan.md3"
+	Skin 0 "CocaCola.png"
+	Scale 1.5 1.5 1.5
+	ZOffset 4.5
+
+	FrameIndex PEPS A 0 0
+}
+
+model MDHitler
+{
+	Path "Models/Decoration/Soda"
+	Model 0 "SodaCan.md3"
+	Skin 0 "MDHitler.png"
+	Scale 1.5 1.5 1.5
+	ZOffset 4.5
+
+	FrameIndex PEPS A 0 0
 }
 
 model DrinkingFountain
@@ -3606,7 +3757,7 @@ Model BFG_SMMP
 	FrameIndex BFG2 B 0 27
 }
 
-Model Beamer
+Model Supra
 {
 	Path "Models\HUD\Supra"
 	Model 0 "supra.md3"
@@ -3623,7 +3774,7 @@ Model Beamer
 	FrameIndex PHAG F 0 5
 }
 
-Model Beamer
+Model Supra
 {
 	Path "Models\HUD\Supra"
 	Model 0 "supraflash.md3"
@@ -3634,7 +3785,7 @@ Model Beamer
 	FrameIndex PHAF A 0 0
 }
 
-Model Beamer
+Model Supra
 {
 	Path "Models\HUD\Supra"
 	Model 0 "supraflash.md3"
@@ -3645,7 +3796,7 @@ Model Beamer
 	FrameIndex PHAF B 0 0
 }
 
-Model Beamer
+Model Supra
 {
 	Path "Models\HUD\Supra"
 	Model 0 "supraflash.md3"
@@ -4068,4 +4219,86 @@ Model Barrel
 	Scale 1.0 1.0 0.78
 	
 	FrameIndex BARL A 0 0
+}
+
+model ThanatosShot
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "VioletBolt.png"
+	Scale 6.0 1.0 1.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 40
+	Rotation-Vector 1 0 0
+
+	FrameIndex BPFX A 0 0
+}
+
+model ThanatosShot_NoPower
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 20.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model ThanatosBlade
+{
+	Path "models/Projectiles"
+	Model 0 "ThanatosBlade.md3"
+	Skin 0 "ThanatosBlade.png"
+	Scale 4.0 4.0 4.8
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -20
+	Rotation-Vector 0 0 1
+
+	FrameIndex PUFF A 0 0
+}
+
+model FragGrenadeX
+{
+	Path "Models/projectiles"
+	Model 0 "fraggrenade.md3"
+	Skin 0 "fraggrenade.png"
+	Scale 2.0 2.0 2.4
+	PITCHFROMMOMENTUM
+	ZOffset 3.75
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 0 0 1
+	Rotation-Center 0.0 3.75 0.0
+
+	FrameIndex FRAG A 0 0
+	FrameIndex FRAG B 0 1
+}
+
+model FragGrenadeX
+{
+	Path "Models/projectiles"
+	Model 0 "fraggrenade.md3"
+	Skin 0 "fraggrenade.png"
+	Scale 2.0 2.0 2.0
+	PitchOffset 90
+	ZOffset 3.75
+
+	FrameIndex FRAG C 0 1
+}
+
+model FragShard_Fast
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 20.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
 }

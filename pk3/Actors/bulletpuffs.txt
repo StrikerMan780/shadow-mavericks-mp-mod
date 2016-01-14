@@ -1,3 +1,15 @@
+actor BasePuff
+{
+	Radius 4
+	Height 2
+	+FIXMAPTHINGPOS
+	+FORCEXYBILLBOARD
+	+PUFFGETSOWNER
+	+NOINTERACTION
+	+NOBLOCKMAP
+	+NOGRAVITY
+}
+
 Actor BulletBlast
 {
 	Radius 1
@@ -247,19 +259,12 @@ actor NewBulletPuffSpark
 	}
 }
 
-actor NewBulletPuff : BulletPuff Replaces BulletPuff
+actor NewBulletPuff : BasePuff Replaces BulletPuff
 {
-	Height 2
 	Decal Bulletchip
-	VSpeed 0
 	RenderStyle Add
 	Alpha 1.0
 	+PUFFONACTORS
-	+FORCEXYBILLBOARD
-	+PUFFGETSOWNER
-	+NOINTERACTION
-	-ALLOWPARTICLES
-	-RANDOMIZE
 	states
 	{
 	Spawn:
@@ -287,6 +292,16 @@ actor NewBulletPuff : BulletPuff Replaces BulletPuff
 	Melee:
 		PUFF CD 4
 		stop
+	}
+}
+
+actor NewBulletPuff_NoMarker : NewBulletPuff
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			goto Crash
 	}
 }
 
@@ -536,38 +551,6 @@ actor SPASPuff : NewBulletPuff
 	DamageType "HeadBurst"
 }
 
-
-ACTOR ExpanderPuff
-{
-    Radius 8
-    Height 8
-    Speed 0
-    Scale 0.75
-    Alpha 0.85
-    Projectile
-    Renderstyle Add
-    obituary "%o was deep-fried by %k."
-    +PUFFONACTORS
-    +PUFFGETSOWNER
-    DamageType Microwave
-    States
-    {
-    Spawn:
-      TNT1 A 0
-      TNT1 A 0 A_PlaySound("DeepFry")
-      TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-      goto Crash
-    Crash:
-      EXPP E 2 BRIGHT
-      EXPP A 4 BRIGHT
-      EXPP B 4 BRIGHT
-      EXPP C 4 BRIGHT
-      EXPP D 4 BRIGHT
-      EXPP E 2 BRIGHT
-      Stop
-    }
-}
-
 actor FreezeSparks : BaseEffect
 {
 	Scale 0.5
@@ -594,23 +577,15 @@ actor ElectricSnowflake : BaseEffect
 	}	
 }
 
-ACTOR FreezeShock
+ACTOR FreezeShock : BasePuff
 {
-	Radius 16
-	Height 8
 	Scale 0.75
 	Alpha 0.75
 	Renderstyle Add
 	obituary "%o suffered from cold shock due to %k's freezebolt!"
 	+PUFFONACTORS
-	+FIXMAPTHINGPOS
 	+BLOODLESSIMPACT
-	+PUFFGETSOWNER
 	+PIERCEARMOR
-	+FIXMAPTHINGPOS
-	+NOGRAVITY
-	+NOBLOCKMAP
-	+FORCEXYBILLBOARD
 	+ISMONSTER
 	-BLOODSPLATTER
 	DamageType "Ice"
@@ -634,7 +609,6 @@ ACTOR FreezeShock
 actor BlazeFlames : BasicFlame
 {
 	Scale 0.25
-	+MISSILE
 	+NOINTERACTION
 	States
 	{
@@ -644,18 +618,13 @@ actor BlazeFlames : BasicFlame
 	}
 }
 
-actor BlazePuff
+actor BlazePuff : BasePuff
 {
 	Decal BlazeChip
-	Radius 8
 	Height 4
 	Scale 0.3
 	DamageType "Fire"
 	+PUFFONACTORS
-	+PUFFGETSOWNER
-	+FORCEXYBILLBOARD
-	+NOGRAVITY
-	+NOBLOCKMAP
 	+ISMONSTER
 	States
 	{
@@ -673,21 +642,14 @@ actor BlazePuff
 	}
 }
 
-ACTOR BlitzShock
+ACTOR BlitzShock : BasePuff
 {
     Decal BlitzChip
-	Radius 16
-	Height 8
-	Speed 0
 	Scale 0.5
 	Alpha 0.9
 	Renderstyle Add
 	obituary "%o was zapped by %k's blitz ssg!"
 	+PUFFONACTORS
-	+PUFFGETSOWNER
-	+NOGRAVITY
-	+NOBLOCKMAP
-	+FORCEXYBILLBOARD
 	DamageType "Electric"
 	States
 	{
@@ -817,34 +779,6 @@ actor CricketFire
 	}
 }
 
-actor CricketBlast
-{
-  renderstyle add
-  +PUFFONACTORS
-  +FIXMAPTHINGPOS
-  +NOGRAVITY
-  +EXTREMEDEATH
-  +PUFFGETSOWNER
-//	+FORCERADIUSDMG
-  +FORCEXYBILLBOARD
-  obituary "%o was vaporized by %k's noisy cricket."
-  DamageType "Obliterate"
-  alpha 0.9
-  Scale 0.8
-  states
-  {
-  Spawn:
-	CKTE A 0
-	CKTE A 0 A_PlaySound("weapons/grenlx")
-	CKTE A 0 A_Explode(500, 200)
-	CKTE AAAAAAA 0 A_SpawnItemEX("CricketFire", 0, 0, 0, Random(-5, 5), Random(-5, 5), Random(-5, 5), Random(-360, 360), SXF_CLIENTSIDE, 0)
-	CKTE AAAAAAA 0 A_SpawnItemEX("SonicWaveMist", 0, 0, 0, Random(-12, 12), Random(-12, 12), Random(-12, 12), Random(-360, 360), SXF_CLIENTSIDE, 0)
-	CKTE ABCDEFGH 1 bright A_SpawnItemEX("CricketFire", 0, 0, 0, Random(-7, 7), Random(-7, 7), Random(-7, 7), Random(-360, 360), SXF_CLIENTSIDE, 0)
-	CKTE IJKLMNOP 1 bright
-	stop
-  }
-}
-
 actor WolfPuff : NewBulletPuff
 {
 	DamageType "Wolf"
@@ -887,50 +821,6 @@ actor MasterSwordHit
   HLPS DEFGH 2 BRIGHT
   stop
  }
-}
-
-Actor SuperChaingunHit
-{
-	Height 2
-	Scale 0.4
-	Alpha 0.9
-	RenderStyle Add
-	Mass 100
-	Decal BulletChip
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
-	+PUFFGETSOWNER
-	+FORCEXYBILLBOARD
-	+FORCERADIUSDMG
-	+ISMONSTER
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-		goto Crash
-	Crash:
-		HBEX A 0 A_SpawnItemEx("ChaingunTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
-		HBEX A 0 A_Explode(12, 24, 0)
-		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
-		stop
-	}
-}
-
-Actor EnemySuperChaingunHit : SuperChaingunHit
-{
-	States
-	{
-	Spawn:
-		HBEX A 0 A_SpawnItemEx("ChaingunTracerSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
-		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
-		stop
-	Crash:
-		HBEX A 0 A_SpawnItemEx("ChaingunTracerSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
-		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
-		stop
-	}
 }
 
 actor LeeroyBulletPuff : NewBulletPuff

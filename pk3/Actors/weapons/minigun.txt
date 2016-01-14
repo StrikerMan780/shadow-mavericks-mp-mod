@@ -1,0 +1,121 @@
+actor Minigun : ClericWeapon 5014
+{
+	Tag "The Shredder"
+	Weapon.BobSpeed 1.25
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
+	Weapon.AmmoType "MechAmmo"
+	Weapon.AmmoGive 100
+	Weapon.AmmoUse 1
+	Weapon.Selectionorder 700
+	Weapon.Kickback 100
+	Inventory.PickupMessage "You got the shredder!"
+	Obituary "%o was torn to meaty shreds by %k."
+	AttackSound "weapons/minigun"
+	SpawnID 214
+	Radius 20
+	Height 16
+	Decal BulletChip
+	Scale 0.78
+	States
+	{
+	Spawn:
+		MNGN A -1
+		Loop
+	Ready:
+		MNGG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		MNGG A 1 A_Lower
+		Loop
+	Select:
+		MNGG A 1 A_Raise
+		Loop
+	Fire:
+		MNGG A 0 A_PlaySoundEx("MinigunSpinUp", "auto", 0)
+		MNGG A 5 A_WeaponReady(WRF_NOFIRE)
+		MNGG B 5 A_WeaponReady(WRF_NOFIRE)
+		MNGG C 4 A_WeaponReady(WRF_NOFIRE)
+		MNGG D 4 Offset (1, 32) A_GunFlash
+		MNGG E 4 Offset (1, 30) A_GunFlash
+		MNGG F 2
+		MNGG G 2 Offset (2, 32) A_GunFlash
+		MNGG H 2 Offset (1, 31) A_GunFlash
+		MNGG I 1
+		MNGG J 1 Offset (2, 31) A_GunFlash
+		MNGG K 1 Offset (1, 32) A_GunFlash
+		MNGG L 1
+		MNGG M 1 Offset (3, 31) A_GunFlash
+		MNGG O 1 Offset (1, 33) A_GunFlash
+		MNGG P 1
+		MNGF A 0 A_Refire
+		goto Letgo
+	Hold:
+		MNGG A 1 Offset (1, 32) A_GunFlash
+		MNGG B 1 Offset (2, 31) A_GunFlash
+		MNGG C 1
+		MNGG D 1 Offset (1, 32) A_GunFlash
+		MNGG E 1 Offset (4, 34) A_GunFlash
+		MNGG F 1
+		MNGG G 1 Offset (3, 32) A_GunFlash
+		MNGG H 1 Offset (2, 30) A_GunFlash
+		MNGG I 1
+		MNGG J 1 Offset (1, 31) A_GunFlash
+		MNGG K 1 Offset (1, 30) A_GunFlash
+		MNGG L 1
+		MNGG M 1 Offset (2, 32) A_GunFlash
+		MNGG O 1 Offset (1, 33) A_GunFlash
+		MNGG P 1
+		MNGF A 0 A_Refire
+		goto Letgo
+	Letgo:
+		MNGG A 0 A_PlaySoundEx("MinigunSpinDown", "auto", 0)
+		MNGG A 1 A_WeaponReady(WRF_NOFIRE)
+		MNGG B 1 A_WeaponReady(WRF_NOFIRE)
+		MNGG C 1 A_WeaponReady(WRF_NOFIRE)
+		MNGG D 1 A_WeaponReady(WRF_NOFIRE)
+		MNGG E 1 A_WeaponReady(WRF_NOFIRE)
+		MNGG F 1 A_WeaponReady(WRF_NOFIRE)
+		MNGG G 2 A_WeaponReady(WRF_NOFIRE)
+		MNGG H 2 A_WeaponReady(WRF_NOFIRE)
+		MNGG I 2 A_WeaponReady(WRF_NOFIRE)
+		MNGG J 2 A_WeaponReady(WRF_NOFIRE)
+		MNGG K 3 A_WeaponReady(WRF_NOFIRE)
+		MNGG L 3 A_WeaponReady(WRF_NOFIRE)
+		MNGG M 3 A_WeaponReady(WRF_NOFIRE)
+		MNGG N 4 A_WeaponReady(WRF_NOFIRE)
+		MNGG O 4 A_WeaponReady(WRF_NOFIRE)
+		MNGG P 4 A_WeaponReady(WRF_NOFIRE)
+		goto Ready
+
+	Flash:
+		TNT1 A 0 A_JumpIfNoAmmo("NoFlash")
+		TNT1 A 0 radius_quake(2, 2, 0, 1, 0)
+		TNT1 A 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,12,3)
+		TNT1 A 0 A_FireBullets (7, 4, 1, 9, "MinigunPuff", FBF_USEAMMO | FBF_NORANDOM)
+		TNT1 A 0 A_SetPitch(pitch-0.5)
+		TNT1 A 0 A_SetAngle(angle+random(-1,1))
+		TNT1 A 0 A_Jump(256, "Flash1", "Flash2", "Flash3", "Flash4")
+		goto Flash1
+	Flash1:
+		MNGF A 1 BRIGHT A_Light1
+		MNGF A 0 BRIGHT A_Light0
+		stop
+	Flash2:
+		MNGF B 1 BRIGHT A_Light1
+		MNGF A 0 BRIGHT A_Light0
+		stop
+	Flash3:
+		MNGF C 1 BRIGHT A_Light1
+		MNGF A 0 BRIGHT A_Light0
+		stop
+	Flash4:
+		MNGF D 1 BRIGHT A_Light1
+		MNGF A 0 BRIGHT A_Light0
+		stop
+	NoFlash:
+		TNT1 A 0 A_Light0
+		stop
+	}
+}

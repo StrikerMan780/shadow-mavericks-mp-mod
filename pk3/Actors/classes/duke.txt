@@ -27,8 +27,8 @@ actor DukeNukem : Link
 	Player.WeaponSlot 3, "DukeShotgun", "SPAS-12", "ElementalSSG"
 	Player.WeaponSlot 4, "RipperChaingun", "M1911"
 	Player.WeaponSlot 5, "HellFireCannon", "DukeGL", "DukeRPG"
-	Player.WeaponSlot 6, "Freezethrower", "Beamer", "Stinger", "ShockRifle"
-	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
+	Player.WeaponSlot 6, "Freezethrower", "Expander", "ShockRifle"
+	Player.WeaponSlot 7, "EnergyCannon", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"
 	Player.WeaponSlot 9, "WeatherMaker", "EtherealCrossbow"
 	Player.WeaponSlot 0, "SoccerKick", "E_Peen_Joke", "IPodLauncher", "GasolineCan"
@@ -91,13 +91,6 @@ actor DukeNukem : Link
 		DUKS D 0 A_JumpIf(waterlevel <= 1, "See")
 		DUKS D 12
 		Goto SwimStand
-	Pain.BFG:
-		DUKE G 0 A_SpawnItemEx("SMMP_BFGExtra", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		Goto Pain
-	XDeath.BFG:
-	Death.BFG:
-		DUKE H 0 A_SpawnItemEx("SMMP_BFGExtra", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		Goto XDeath
 	Pain:
 		DUKE G 4
 		DUKE G 4 A_Pain
@@ -245,99 +238,6 @@ actor DukeNukem : Link
 		DUKE EEEEEE 0 A_SpawnItemEx("IceRodFog4", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8), 0, 128, 0)
 		DUKE E 0 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		DUKE E 1 A_IceGuyDie
-		stop
-	}
-}
-
-ACTOR DukeClip : Ammo
-{
-	Inventory.MaxAmount 12 // size of the clip
-	Ammo.BackpackAmount 0
-	Ammo.BackpackMaxAmount 12 //MUST be the same as Inventory.MaxAmmount
-	Inventory.Icon "MAGICON2"
-	+IGNORESKILL
-}
-
-actor DukePistol : FighterWeapon
-{
-	Tag "Hi-Point C9"
-	Weapon.BobSpeed 1.5
-	Weapon.BobStyle "Smooth"
-	Weapon.BobRangeX 1.25
-    Weapon.BobRangeY 1.25
-	obituary "%k busted a cap in %o's ass."
-	attacksound "DukePistol"
-	weapon.selectionorder 1900
-	weapon.kickback 100
-	weapon.upsound "DukeClipIn"
-	Weapon.AmmoType1 "DukeClip" //The guns magazine
-	Weapon.AmmoType2 "MechAmmo" //The real ammo
-	Weapon.AmmoGive 12
-	Weapon.AmmoGive2 24
-	Weapon.AmmoUse1 1
-	Weapon.AmmoUse2 0
-	+WEAPON.WIMPY_WEAPON
-	+WEAPON.CHEATNOTWEAPON
-	states
-	{
-	Ready:
-		DISG A 0 A_WeaponReady
-		goto Altfire
-		DISG A 1 A_WeaponReady
-		goto Ready+1
-	Deselect:
-		DISG A 1 A_Lower
-		loop
-	Select:
-		DISG A 1 A_Raise
-		loop
-	Fire:
-		DISG B 0 A_FireBullets (2, 1.5, 1, 6, "NewBulletPuff")
-		DISG B 1 BRIGHT A_Gunflash
-		DISG B 0 A_FireCustomMissile("BulletCasingSpawnerLeft",45+random(-8,8),0,-1,6)
-		DISG C 1 BRIGHT
-		DISG A 4
-		DISG A 0 A_JumpIfNoAmmo(2)
-		DISG A 1 A_ReFire
-		goto Ready+1
-		NULL A 0
-		goto AltFire
-	AltFire:
-		DISG A 0
-		Goto ReloadCheck
-
-	ReloadCheck:
-		DISG D 0 A_JumpIfInventory("DukeClip",12,2)
-		DISG D 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
-		DISG A 0
-		goto Ready+1
-
-	ReloadStart:
-		DISG D 5
-		DISG E 5 A_PlaySound("DukeClipOut")
-		DISG F 2
-		DISG E 5
-		DISG G 2
-		DISG H 2
-		goto ReloadAmmo
-
-	ReloadAmmo:
-		TNT1 A 0 A_TakeInventory("MechAmmo",1)
-		TNT1 A 0 A_GiveInventory("DukeClip",1)
-		TNT1 A 0 A_JumpIfInventory("DukeClip",12,"ReloadDone")
-		TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
-		goto ReloadDone
-
-	ReloadDone:
-		DISG I 2 A_PlaySound("DukeClipIn")
-		DISG J 2
-		DISG K 2
-		DISG E 2
-		DISG D 2
-		goto Ready+1
-	Flash:
-		TNT1 A 2 bright A_Light1
-		TNT1 A 0 bright A_Light0
 		stop
 	}
 }

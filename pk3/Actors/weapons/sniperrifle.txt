@@ -1,0 +1,68 @@
+actor SniperRifle : ClericWeapon 19983
+{
+	decal BulletChip
+	obituary "%k put a Bullet in %o's Skull."
+	Inventory.PickupSound "misc/w_pkup"
+	Inventory.PickupMessage "A Sniper Rifle! Pick them off."
+	attacksound "sniperfire"
+	weapon.selectionorder 200
+	weapon.kickback 150
+	Weapon.AmmoType1 "MechAmmo"
+	Weapon.AmmoGive 20
+	Weapon.AmmoUse1 10
+	+NOEXTREMEDEATH
+	states
+	{
+		Spawn:
+			SNPP A -1
+			loop
+		Ready:
+			SINS A 1 A_WeaponReady
+			loop
+		Deselect:
+			SINS A 0 A_ZoomFactor(1.0)
+			SINS A 0 A_TakeInventory("ZoomCheck", 1)
+			SINS A 1 A_Lower
+			goto Deselect+2
+		Select:
+			SINS A 1 A_Raise
+			loop
+		Fire:
+			SINS B 0 A_FireCustomMissile("SniperSmoke", random(-1, 1), 0, 1, 9)
+			SINS B 0 A_FireCustomMissile("BulletTracer", 0, 0, 8, 4)
+			SINS B 0 BRIGHT A_GunFlash
+			SINS B 0 BRIGHT A_FireBullets (0, 0, 3, 50, "SniperPuff", FBF_USEAMMO | FBF_NORANDOM | FBF_NORANDOMPUFFZ)
+			SINS B 2 BRIGHT A_SetPitch(pitch-1.5)
+			SINS C 0 A_SetPitch(pitch+0.25)
+			SINS C 2 A_FireCustomMissile("SniperSmokeSmall", frandom(-1.0, 1.0), 0, 1, 9)
+			SINS D 0 A_SetPitch(pitch+0.25)
+			SINS D 2 A_FireCustomMissile("SniperSmokeSmall", frandom(-1.0, 1.0), 0, 1, 9)
+			SINS EFGH 2 A_SetPitch(pitch+0.25)
+			SINS I 2 A_Playsound("sniperbolt")
+			SINS JK 2
+			SINS L 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,5,4)
+			SINS LMNOPQRSTU 2
+			SINS A 4
+			SINS A 0 A_ReFire
+			goto Ready
+		Altfire:
+			SINS A 0 A_JumpIfInventory("ZoomCheck", 1, "ZoomOut")
+			SINS A 0 A_ZoomFactor(3.0)
+			SINS A 8 A_GiveInventory("ZoomCheck", 1)
+			SINS A 0 A_Refire
+			goto Ready
+		ZoomOut:
+			SINS A 0 A_ZoomFactor(1.0)
+			SINS A 8 A_TakeInventory("ZoomCheck", 1)
+			SINS A 0 A_Refire
+			goto Ready
+		Hold:
+			SINS A 2
+			SINS A 0
+			SINS A 0 A_Refire
+			goto Ready
+		Flash:
+			SINF A 2 BRIGHT
+			stop
+	}
+}

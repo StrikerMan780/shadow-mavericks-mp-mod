@@ -822,32 +822,32 @@ object ProtonTorpedo
 {
     frame MISLA { light ROCKET    }
 
-    frame 64P1A { light ROCKET_EX1 }
-    frame 64P1B { light ROCKET_EX1 }
-    frame 64P1C { light ROCKET_EX1 }
-    frame 64P1D { light ROCKET_EX1 }
-    frame 64P1E { light ROCKET_EX1 }
-    frame 64P1F { light ROCKET_EX2 }
-    frame 64P1G { light ROCKET_EX2 }
-    frame 64P1H { light ROCKET_EX2 }
-    frame 64P1I { light ROCKET_EX2 }
-    frame 64P1J { light ROCKET_EX2 }
-    frame 64P1K { light ROCKET_EX3 }
-    frame 64P1L { light ROCKET_EX3 }
-    frame 64P1M { light ROCKET_EX3 }
-    frame 64P1N { light ROCKET_EX3 }
-    frame 64P1O { light ROCKET_EX3 }
-    frame 64P1P { light ROCKET_EX3 }
-    frame 64P1Q { light ROCKET_EX4 }
-    frame 64P1R { light ROCKET_EX4 }
-    frame 64P1S { light ROCKET_EX4 }
-    frame 64P1T { light ROCKET_EX4 }
-    frame 64P1U { light ROCKET_EX5 }
-    frame 64P1V { light ROCKET_EX5 }
-    frame 64P1W { light ROCKET_EX5 }
-    frame 64P1X { light ROCKET_EX5 }
-    frame 64P1Y { light ROCKET_EX5 }
-    frame 64P1Z { light ROCKET_EX5 }
+    frame FIR8A { light ROCKET_EX1 }
+    frame FIR8B { light ROCKET_EX1 }
+    frame FIR8C { light ROCKET_EX1 }
+    frame FIR8D { light ROCKET_EX1 }
+    frame FIR8E { light ROCKET_EX1 }
+    frame FIR8F { light ROCKET_EX2 }
+    frame FIR8G { light ROCKET_EX2 }
+    frame FIR8H { light ROCKET_EX2 }
+    frame FIR8I { light ROCKET_EX2 }
+    frame FIR8J { light ROCKET_EX2 }
+    frame FIR8K { light ROCKET_EX3 }
+    frame FIR8L { light ROCKET_EX3 }
+    frame FIR8M { light ROCKET_EX3 }
+    frame FIR8N { light ROCKET_EX3 }
+    frame FIR8O { light ROCKET_EX3 }
+    frame FIR8P { light ROCKET_EX3 }
+    frame FIR8Q { light ROCKET_EX4 }
+    frame FIR8R { light ROCKET_EX4 }
+    frame FIR8S { light ROCKET_EX4 }
+    frame FIR8T { light ROCKET_EX4 }
+    frame FIR8U { light ROCKET_EX5 }
+    frame FIR8V { light ROCKET_EX5 }
+    frame FIR8W { light ROCKET_EX5 }
+    frame FIR8X { light ROCKET_EX5 }
+    frame FIR8Y { light ROCKET_EX5 }
+    frame FIR8Z { light ROCKET_EX5 }
 }
 
 object NewPlasma

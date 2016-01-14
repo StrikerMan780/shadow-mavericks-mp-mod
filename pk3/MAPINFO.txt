@@ -69,8 +69,8 @@ skill nightmare
 {
 	AmmoFactor = 2
 	FastMonsters
-	RespawnTime = 12
-	RespawnLimit = 4
+	RespawnTime = 30
+	RespawnLimit = 2
 	SpawnFilter = Nightmare
 	Name = "Fallen One"
 	MustConfirm = "Are you sure? This difficulty level will break you."

@@ -19,7 +19,6 @@ actor Link : FighterPlayer Replaces FighterPlayer
 	DamageFactor "ChaosFire", 1.5
 	DamageFactor "Tourettes", 0.0
 	DamageFactor "BFG", 0.4375
-	DamageFactor "Flak", 0.5
 	DamageFactor "Hellfire", 0.5
 	DamageFactor "Ethereal", 0.5
 	DamageFactor "Sniper", 0.66
@@ -50,7 +49,7 @@ actor Link : FighterPlayer Replaces FighterPlayer
 	Player.WeaponSlot 3, "NewShotgun", "DinsFire", "ElementalSSG"
 	Player.WeaponSlot 4, "SM_Chaingun", "Mp40"
 	Player.WeaponSlot 5, "HellFireCannon", "ProtonGL", "IceRod"
-	Player.WeaponSlot 6, "FireRod", "Beamer", "Stinger", "ShockRifle"
+	Player.WeaponSlot 6, "FireRod", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"
 	Player.WeaponSlot 9, "WeatherMaker", "EtherealCrossbow", "FaroresWind"
@@ -88,13 +87,6 @@ actor Link : FighterPlayer Replaces FighterPlayer
 	Melee:
 		NWPS F 6 BRIGHT
 		Goto Missile
-	Pain.BFG:
-		NWPS G 0 A_SpawnItemEx("SMMP_BFGExtra", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		Goto Pain
-	XDeath.BFG:
-	Death.BFG:
-		NWPS H 0 A_SpawnItemEx("SMMP_BFGExtra", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		Goto XDeath
 	Pain:
 		NWPS G 4
 		NWPS G 4 A_Pain

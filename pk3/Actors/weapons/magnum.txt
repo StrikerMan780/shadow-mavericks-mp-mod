@@ -1,0 +1,152 @@
+ACTOR MagnumClip : Ammo
+{
+	Inventory.MaxAmount 6 // size of the clip
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 6 //MUST be the same as Inventory.MaxAmmount
+	Inventory.Icon "MAGICON2"
+	+IGNORESKILL
+}
+
+actor Magnum : ClericWeapon 10493
+{
+	Tag ".44 ''Raging Bull'' Revolver"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
+	decal BulletChip
+	obituary "I guess %o didn't feel so lucky, %k."
+	Inventory.PickupSound "misc/w_pkup"
+	Inventory.PickupMessage "\cjA .44 Magnum! \ci''Go Ahead, Make my Day!''"
+	attacksound "magnum"
+	weapon.selectionorder 500
+	weapon.kickback 125
+	Weapon.AmmoType1 "MagnumClip"
+	Weapon.AmmoType2 "MechAmmo"
+	Weapon.AmmoGive1 0
+	Weapon.AmmoGive2 18
+	Weapon.AmmoUse1 1
+	scale 0.78
+	+WEAPON.AMMO_OPTIONAL
+	+WEAPON.NOAUTOFIRE
+	states
+	{
+		Spawn:
+			REVP A -1
+			loop
+		Ready:
+			REVG AAAA 1 A_WeaponReady(WRF_ALLOWRELOAD)
+			REVG A 0 A_TakeInventory("PistolAccuracy", 1)
+			loop
+		Deselect:
+			REVG A 0 A_TakeInventory("PistolAccuracy", 50)
+			REVG A 1 A_Lower
+			goto Deselect+1
+		Select:
+			REVG A 1 A_Raise
+			loop
+		Fire:
+			REVG A 0 A_JumpIfNoAmmo("ReloadCheck")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 8, "FireAccuracy8")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 7, "FireAccuracy7")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 6, "FireAccuracy6")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 5, "FireAccuracy5")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 4, "FireAccuracy4")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 3, "FireAccuracy3")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 2, "FireAccuracy2")
+			REVG A 0 A_JumpIfInventory("PistolAccuracy", 1, "FireAccuracy1")
+			goto FireAccuracy0
+		
+		FireAccuracy0:
+			REVG A 0 A_FireBullets (1.5, 1.25, -1, 30, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+		
+		FireAccuracy1:
+			REVG A 0 A_FireBullets (2, 1.5, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+			
+		FireAccuracy2:
+			REVG A 0 A_FireBullets (2.5, 1.75, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+		
+		FireAccuracy3:
+			REVG A 0 A_FireBullets (2.75, 2, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+		
+		FireAccuracy4:
+			REVG A 0 A_FireBullets (3, 2.25, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+			
+		FireAccuracy5:
+			REVG A 0 A_FireBullets (3.25, 2.5, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+			
+		FireAccuracy6:
+			REVG A 0 A_FireBullets (3.5, 2.75, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+			
+		FireAccuracy7:
+			REVG A 0 A_FireBullets (4, 3.25, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+		
+		FireAccuracy8:
+			REVG A 0 A_FireBullets (5, 3.75, -1, 25, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireDone
+			
+		FireDone:
+			REVG A 0 A_GiveInventory("PistolAccuracy", 2)
+			REVG A 0 A_GunFlash
+			REVG A 0 Radius_Quake(3, 3, 0, 1, 0)
+			REVG A 1 BRIGHT A_SetPitch(pitch-2)
+			REVG BC 1 A_SetPitch(pitch+1)
+			REVG D 1 A_WeaponReady(WRF_NOBOB)
+			REVG E 1 A_WeaponReady(WRF_NOBOB)
+			REVG F 1 A_WeaponReady(WRF_NOBOB)
+			REVG G 0 A_TakeInventory("PistolAccuracy", 1)
+			REVG G 1 A_WeaponReady(WRF_NOBOB)
+			REVG H 0 A_TakeInventory("PistolAccuracy", 1)
+			REVG HIJKL 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
+			REVG A 3 A_ReFire
+			goto Ready
+		Flash:
+			REVF A 1 BRIGHT A_Light1
+			TNT1 A 1 A_Light0
+			stop
+		
+		Reload:
+			REVR A 0
+			goto ReloadCheck		
+		
+		ReloadCheck:
+			REVR A 0 A_JumpIfInventory("MagnumClip",6,2)
+			REVR A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
+			REVR A 0
+			goto Ready
+
+		ReloadStart:
+			REVR A 2 A_PlaySoundEx("MagnumOpen", "Auto", 0)
+			REVR B 2
+			REVR CDEFG 2
+			REVR H 2 A_PlaySoundEx("MagnumOut", "Auto", 0)
+			REVR IJKLMNOPQRST 2
+			REVR U 2 A_PlaySoundEx("MagnumIn", "Auto", 0)
+			REVR VW 2
+			goto ReloadAmmo
+
+		ReloadAmmo:
+			TNT1 A 0 A_TakeInventory("MechAmmo",1)
+			TNT1 A 0 A_GiveInventory("MagnumClip",1)
+			TNT1 A 0 A_JumpIfInventory("MagnumClip",6,"ReloadDone")
+			TNT1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+			goto ReloadDone
+
+		ReloadDone:
+			REVR XYZ 2
+			RVR2 AB 2
+			RVR2 C 2 A_PlaySoundEx("MagnumClose", "Auto", 0)
+			RVR2 DE 2 A_TakeInventory("PistolAccuracy", 1)
+			RVR2 F 2 A_PlaySoundEx("MagnumSpin", "Auto", 0)
+			RVR2 GHIJKLMNOPQ 2
+			goto Ready
+	}
+}

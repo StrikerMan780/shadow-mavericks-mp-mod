@@ -28,6 +28,19 @@ actor BaseClassCheck : Inventory
 	}
 }
 
+actor BFGSpraySpawner : CustomInventory
+{
+	inventory.maxamount 1
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	states
+	{
+		Use:
+			TNT1 A 1 A_SpawnItemEx("SMMP_BFGExtra", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
 actor IsDeathmatch : BaseCheck
 {
 }
@@ -74,7 +87,7 @@ actor NukeTrigger 17462
 	DamageFactor "Nuke", 999
 	-SOLID
 	+NOGRAVITY
-	+SHOOTABLE
+	+VULNERABLE
 	+NOBLOOD
 	states
 	{

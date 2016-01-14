@@ -57,7 +57,7 @@ actor SM_SuperShotgun : Weapon
 		Fire:
 			SHT2 A 0 radius_quake(4, 3, 0, 1, 0)
 			SHT2 A 0 A_PlayWeaponSound("weapons/sshotf")
-			SHT2 A 0 A_FireBullets (10, 6, 20, 5, "SSGPuff")
+			SHT2 A 0 A_FireBullets (10, 6, 20, 7, "SSGPuff", FBF_USEAMMO | FBF_NORANDOM)
 			SHT2 A 1 A_GunFlash
 			SHT2 B 0 A_SetPitch(pitch-4)
 			SHT2 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)
@@ -164,6 +164,81 @@ actor DinsFire : Weapon
 			DINW A 30
 			DINW A 0 A_Refire
 			goto Ready
+	}
+}
+
+actor DinFireball
+{
+	Projectile
+	Radius 3
+	Height 4
+	Scale 0.2
+	Damage (8)
+	Speed 75
+	RenderStyle Add
+	Alpha 0.9
+	obituary "%k burned %o with Din's Fire"
+	DamageType "Fire"
+	SeeSound "DinFly"
+	Deathsound "DinExplode"
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			DINF A 0
+			DINF A 0 ThrustThingZ(0, Random(0, 19), Random(0,1), 1)
+			DINF ABCDEFGHIJ 1 BRIGHT A_SpawnItemEx("DinFireballTrail", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, SXF_CLIENTSIDE, 0)
+			goto Spawn+2
+		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			goto Death
+		Death:
+			DINX ABCDEFGHI 1 BRIGHT A_SpawnItemEx("DinFireballExplosion", Random(-8,8), Random(-8,8), Random(-8,8), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor DinFireballTrail
+{
+	Projectile
+	Radius 2
+	Height 4
+	Scale 0.2
+	Speed 0
+	Damage 0
+	RenderStyle Add
+	Alpha 0.9
+	Gravity 0.8
+	+DONTSPLASH
+	+FORCEXYBILLBOARD
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+		TNT1 A 1
+		DINF ABCDEFGHIJ 1 BRIGHT A_FadeOut(0.08)
+		loop
+	}
+}
+
+actor DinFireballExplosion
+{
+	Radius 2
+	Height 4
+	Scale 0.3
+	RenderStyle Add
+	Alpha 0.9
+	+NOGRAVITY
+	+DONTSPLASH
+	+NOCLIP
+	+FORCEXYBILLBOARD
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+		DINX ABCDEFGHI 1 BRIGHT A_FadeOut(0.04)
+		loop
 	}
 }
 

@@ -1,0 +1,946 @@
+actor BFGGiver : ClassWeaponGiver Replaces BFG9000
+{	
+	states
+	{
+		Item:
+			BFUG A -1
+			loop
+		Pickup:
+			BFUG A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 8, 40, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			BFUG A 0 A_SpawnItemEx("BFGGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor BFGGiver_Dropped : BFGGiver
+{
+	States
+	{
+		Spawn:
+			BFUG A 63000
+			goto FadeAway
+		Pickup:
+			BFUG A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 8, 20, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+ACTOR BFG_SMMP : Weapon
+{
+	Tag "BFG 9000"
+	Weapon.BobSpeed 1.0
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 1.0
+	Weapon.AmmoUse 40
+	Weapon.AmmoGive 0
+	Weapon.SelectionOrder 2800
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.NOLMS
+	Weapon.Ammotype "CellAmmo"
+	States
+	{
+	Ready:
+		BFGG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		BFGG A 1 A_Lower
+		Loop
+	Select:
+		BFGG A 1 A_Raise
+		Loop
+	Hold:
+	Fire:
+		BFGG A 0 A_PlaySound("weapons/bfgf", CHAN_AUTO)
+		BFGG A 0 Radius_Quake(1, 8, 0, 1, 0)
+		BFGG A 2 Offset(1, 33)
+		BFGG A 2 Offset(2, 32)
+		BFGG A 2 Offset(0, 34)
+		BFGG A 2 Offset(-2, 33)
+		BFGG A 0 Radius_Quake(2, 8, 0, 1, 0)
+		BFGG A 1 Offset(1, 32)
+		BFGG A 1 Offset(-1, 33)
+		BFGG A 1 Offset(2, 32)
+		BFGG A 1 Offset(1, 34)
+		BFGG A 1 Offset(1, 32)
+		BFGG A 1 Offset(-1, 33)
+		BFGG A 1 Offset(2, 32)
+		BFGG A 1 Offset(1, 34)
+		BFGG A 0 Radius_Quake(3, 8, 0, 1, 0)
+		BFGG A 1 Offset(-1, 34)
+		BFGG A 1 Offset(1, 32)
+		BFGG A 1 Offset(-1, 33)
+		BFGG A 1 Offset(-4, 35)
+		BFGG A 1 Offset(-1, 34)
+		BFGG A 1 Offset(1, 32)
+		BFGG A 1 Offset(-1, 33)
+		BFGG A 1 Offset(-4, 35)
+		BFGG A 0 Radius_Quake(4, 4, 0, 1, 0)
+		BFGG A 1 Offset(-1, 31)
+		BFGG A 1 Offset(2, 33)
+		BFGG A 1 Offset(-1, 31)
+		BFGG A 1 Offset(2, 33)
+		BFGG A 0 Radius_Quake(5, 2, 0, 1, 0)
+		BFGG A 2 Offset(1, 32)
+		BFGG A 0 A_WeaponReady(WRF_NOBOB | WRF_NOFIRE)
+		BFGG A 0 A_GunFlash
+		BFGG A 0 Radius_Quake(8, 6, 0, 1, 0)
+		BFGG A 0 A_Recoil(3)
+		BFGG A 0 A_SetBlend("00FF00",0.75,14)
+		BFGG A 0 A_PlaySound("BFGFire", CHAN_WEAPON)
+		BFGG A 0 A_FireCustomMissile("SMMP_BFGBall", 0, FBF_USEAMMO, 8, 0)
+		BFGG A 0 A_SetPitch(pitch-10)
+		BFGG BCDEFGHIJKLMNOPQRSTU 1 A_SetPitch(pitch+0.5)
+		BFGG VWXYZ 1
+		BFG2 AB 1
+		BFGG A 10
+		BFGG A 0 A_ReFire
+		Goto Ready
+	Flash:
+		BFGF A 6 Bright A_Light1
+		BFGF B 6 Bright A_Light2
+		Goto LightDone
+	}
+}
+
+actor BFGTrail : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			BFS1 AABB 1 Bright A_FadeOut(0.1)
+			loop
+	}
+}
+
+actor BFGTrailSparkle
+{
+	Projectile
+	Radius 2
+	Height 2
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.18
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	+FORCEXYBILLBOARD
+	+HEXENBOUNCE
+	States
+	{
+		Spawn:
+			BFGS A 1 BRIGHT A_FadeOut(0.05)
+			loop
+		Death:
+			TNT1 A 1
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BFGShockwave : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	+NOCLIP
+	States
+	{
+	Spawn:
+		NULL ABC 1 BRIGHT
+		NULL DEFGH 1 BRIGHT A_FadeOut(0.18)
+		stop
+	}
+}
+
+actor BFGShockwave2 : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 1.5
+	+NOCLIP
+	States
+	{
+	Spawn:
+		SHOK ABCDEFGHIJKLM 1 BRIGHT
+		SHOK NOPQR 1 BRIGHT A_FadeOut(0.18)
+		stop
+	}
+}
+
+actor BFGShockwave3 : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	+NOCLIP
+	States
+	{
+	Spawn:
+		SHOK ABCDEFGHIJKLM 1 BRIGHT
+		SHOK NOPQR 1 BRIGHT A_FadeOut(0.18)
+		stop
+	}
+}
+
+actor BFGBlastFog : BFGTrail
+{
+	Projectile
+	Scale 1.0
+	-HEXENBOUNCE
+	States
+	{
+		Spawn:
+			GTKE A 1 BRIGHT
+			GTKE BCDEFGHIJKLMNOPQRS 2 BRIGHT
+			stop
+	}
+}
+
+actor BFGBlastFog2 : BFGBlastFog
+{
+	States
+	{
+	Spawn:
+			GTKE A 1 BRIGHT
+			GTKE BCDEFGHIJKLMNOPQRS 1 BRIGHT
+			stop
+	}
+}
+
+ACTOR SMMP_BFGExtra : BFGExtra replaces BFGExtra
+{
+	+EXTREMEDEATH
+	DamageType "BFG"
+	States
+	{
+	Spawn:
+		BFE2 A 0
+		BFE2 A 0 A_PlaySoundEx("BFGArc", "Auto")
+		BFE2 AAA 0 A_SpawnItemEx("BFGBlastFog", 0, 0, 0, (random(-200,200)/100.0),(random(-200,200)/100.0), (random(-200,200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+		BFE2 AA 0 A_SpawnItemEx("ElectricArc_Green", 0, 0, 0, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 0)
+		BFE2 AAAAAA 0 A_SpawnItemEx("BFGTrailSparkle", 0, 0, 0, random(-16,16), random(-16,16), random(-16,16), 0, SXF_CLIENTSIDE, 0)
+		BFE2 ABCDEF 5 Bright A_SpawnItemEx("BFGTrailSparkle", 0, 0, 0, random(-16,16), random(-16,16), random(-16,16), 0, SXF_CLIENTSIDE, 0)
+		Stop
+	}
+}
+
+ACTOR SMMP_BFGBall Replaces BFGBall
+{
+	Decal BFGLightning
+	Game Doom
+	SpawnID 128
+	Radius 13
+	Height 8
+	Speed 45
+	Damage (450)
+	Projectile
+	+RANDOMIZE
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	+NODAMAGETHRUST
+	DamageType "BFG"
+	RenderStyle Add
+	Alpha 0.85
+	SeeSound "BFGFire"
+	DeathSound "weapons/bfgx"
+	Obituary "$OB_MPBFG_BOOM"
+	States
+	{
+	Spawn:
+		BFS1 A 1 Bright A_SpawnItemEx("BFGTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		BFS1 AA 0 Bright A_SpawnItemEx("BFGTrailSparkle", Random(-24,24), Random(-24,24), Random(-24,24), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		BFS1 B 1 Bright A_SpawnItemEx("BFGTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		BFS1 BB 0 Bright A_SpawnItemEx("BFGTrailSparkle", Random(-24,24), Random(-24,24), Random(-24,24), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		Loop
+	XDeath:
+		TNT1 A 0
+		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+		goto Death
+	Death:
+		BFE1 A 0 A_SpawnItemEx("BFGShockwave", 0, 0, 1, 0, 0, 0, random(-180, 180), SXF_CLIENTSIDE, 0)
+		BFE1 A 0 A_SpawnItemEx("BFGShockwave2", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		BFE1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("BFGTrailSparkle", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), random(-180, 180), SXF_CLIENTSIDE, 0)
+		BFE1 AAAAAAAAAAA 0 A_SpawnItemEx("BFGBlastFog", 0, 0, 0, (random(-300, 300)/100.0),(random(-300, 300)/100.0), (random(-300, 300)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+		BFE1 A 0 A_RadiusGive("BFGSpraySpawner", 384, RGF_OBJECTS | RGF_PLAYERS | RGF_MONSTERS | RGF_VOODOO | RGF_CUBE, 1)
+		BFE1 A 0 A_Explode(512, 384, 1)
+		BFE1 A 0 Radius_Quake(9, 35, 0, 8, 0)
+		BFE1 ABCDEF 3 Bright A_SpawnItemEx("BFGBlastFog", 0, 0, 0, (random(-200, 200)/100.0),(random(-200, 200)/100.0), (random(-200, 200)/100.0), random(-180,180), SXF_CLIENTSIDE, 0)
+		TNT1 A 12
+		BFE1 A 0 A_RadiusGive("BFGSpraySpawner", 256, RGF_OBJECTS | RGF_PLAYERS | RGF_MONSTERS | RGF_VOODOO | RGF_CUBE, 1)
+		BFE1 A 0 A_Explode(150, 256, 1)
+		TNT1 AAAA 0 A_SpawnItemEx("BFGTrailSparkle", 0, 0, 0, Random(-4,4), Random(-4,4), Random(-4,4), random(-180, 180), SXF_CLIENTSIDE, 0)
+		TNT1 AAAAAA 0 A_SpawnItemEx("ElectricArc_Green", 0, 0, 0, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 0)
+		TNT1 AAAA 2 A_SpawnItemEx("BFGShockwave3", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		TNT1 AAA 0 A_SpawnItemEx("ElectricArc_Green", 0, 0, 0, 0, 0, 0, random(-180,180), SXF_CLIENTSIDE, 0)
+		Stop
+	}
+}
+
+
+
+ACTOR EnergyCannonCharge : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 100
+	-INVBAR
+}
+
+actor EnergyCannon : Weapon
+{
+	Tag "Energy Cannon"
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.25
+	Weapon.SelectionOrder 2800
+	Weapon.AmmoType1 "CellAmmo"
+	Weapon.AmmoUse1 1
+	weapon.upsound "DukeWeaponSelect"
+	+WEAPON.NOAUTOFIRE
+	+WEAPON.NOLMS
+	States
+	{
+	Select:
+		ENG1 A 1 A_Raise
+		loop
+	Deselect:
+		ENG1 A 0 A_StopSound(CHAN_WEAPON)
+		ENG1 A 1 A_Lower
+		loop
+	Ready:
+		ENG1 A 1 A_WeaponReady
+		loop
+	Fire:
+		ENG1 A 3 A_PlaySound("Duke64EnergyCharge", CHAN_WEAPON, 1.0, 1)
+		ENG1 A 0 A_Refire
+		ENG1 A 0 A_StopSound(CHAN_WEAPON)
+		ENG1 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		ENG1 A 0 A_FireCustomMissile("EnergyBallWeak", 0, 1, 12, 0)
+		ENG1 DEDA 1 A_WeaponReady
+		goto Ready
+	Hold:
+		ENG1 A 0 A_JumpIfInventory("EnergyCannonCharge", 100, "Hold6")
+		ENG1 A 0 A_JumpIfInventory("EnergyCannonCharge", 69, "Hold5")
+		ENG1 A 0 A_JumpIfInventory("EnergyCannonCharge", 42, "Hold4")
+		ENG1 A 0 A_JumpIfInventory("EnergyCannonCharge", 24, "Hold3")
+		ENG1 A 0 A_JumpIfInventory("EnergyCannonCharge", 9, "Hold2")
+		ENG1 A 0 A_PlaySound("Duke64EnergyCharge", CHAN_WEAPON, 1.0, 1)
+		ENG1 ABC 2 A_GiveInventory("EnergyCannonCharge", 1)
+		ENG1 A 0 A_Refire
+		ENG1 A 0 A_JumpIfInventory("CellAmmo", 2, "Release1")
+		goto Fire+3
+	Release1:
+		ENG1 A 0 A_StopSound(CHAN_WEAPON)
+		ENG1 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		ENG1 A 0 A_FireCustomMissile("EnergyBallMid", 0, 1, 12, 0)
+		ENG1 A 0 A_TakeInventory("CellAmmo", 1)
+		ENG1 DEDA 1 A_WeaponReady
+		ENG1 A 4
+		goto Ready
+	Hold2:
+		ENG2 ABC 2 A_GiveInventory("EnergyCannonCharge", 1)
+		ENG2 A 0 A_Refire
+		ENG2 A 0 A_JumpIfInventory("CellAmmo", 4, "Release2")
+		goto Hold+10
+	Release2:
+		ENG2 A 0 A_StopSound(CHAN_WEAPON)
+		ENG2 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		ENG2 A 0 A_FireCustomMissile("EnergyBallMid", 0, 1, 12, 0)
+		ENG2 A 0 A_FireCustomMissile("EnergyBallMid", 6, 1, 12, 0)
+		ENG2 A 0 A_FireCustomMissile("EnergyBallMid", -6, 1, 12, 0)
+		ENG2 A 0 A_TakeInventory("CellAmmo", 1)
+		ENG1 DEDA 1 A_WeaponReady
+		ENG1 A 4
+		goto Ready
+	Hold3:
+		ENG3 ABC 2 A_GiveInventory("EnergyCannonCharge", 1)
+		ENG3 A 0 A_Refire
+		ENG3 A 0 A_JumpIfInventory("CellAmmo", 6, "Release3")
+		goto Hold2+4
+	Release3:
+		ENG3 A 0 A_StopSound(CHAN_WEAPON)
+		ENG3 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		ENG3 A 0 A_FireCustomMissile("EnergyBallStrong", 0, 1, 12, 0)
+		ENG3 A 0 A_TakeInventory("CellAmmo", 5)
+		ENG1 DEFEDA 1
+		ENG1 A 4 A_WeaponReady
+		goto Ready
+	Hold4:
+		ENG4 A 0 Radius_Quake(1, 4, 0, 1, 0)
+		ENG4 ABC 2 A_GiveInventory("EnergyCannonCharge", 1)
+		ENG4 A 0 A_Refire
+		ENG4 A 0 A_JumpIfInventory("CellAmmo", 16, "Release4")
+		goto Hold3+4
+	Release4:
+		ENG4 A 0 A_StopSound(CHAN_WEAPON)
+		ENG4 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		ENG4 A 0 A_FireCustomMissile("EnergyBallStrong", 0, 1, 12, 0)
+		ENG4 A 0 A_FireCustomMissile("EnergyBallStrong", 10, 1, 12, 0)
+		ENG4 A 0 A_FireCustomMissile("EnergyBallStrong", -10, 1, 12, 0)
+		ENG4 A 0 A_TakeInventory("CellAmmo", 13)
+		ENG1 DEFGFEDA 1
+		ENG1 A 4
+		goto Ready
+	Hold5:
+		ENG5 A 0 Radius_Quake(2, 6, 0, 1, 0)
+		ENG5 ABC 2 A_GiveInventory("EnergyCannonCharge", 1)
+		ENG5 A 0 A_PlaySoundEx("Duke64EnergyChargeHold", "Weapon", 1)
+		ENG5 A 0 A_Refire
+		ENG5 A 0 A_JumpIfInventory("CellAmmo", 80, "Release5")
+		goto Hold4+5
+	Release5:
+		ENG5 A 0 Radius_Quake(8, 3, 0, 1, 0)
+		ENG5 A 0 A_SetBlend ("00 A0 FF", 0.5, 24)
+		ENG5 A 0 A_StopSound(CHAN_WEAPON)
+		ENG5 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		ENG5 A 0 A_FireCustomMissile("EnergyBallMega", 0, 1, 12, 0)
+		ENG5 A 0 A_TakeInventory("CellAmmo", 79)
+		ENG5 A 0 A_Recoil(12)
+		ENG1 DEFGFEDA 1
+		ENG1 A 4
+		goto Ready
+	Hold6:
+		ENG5 A 0 A_JumpIfInventory("CellAmmo", 80, "Suicide")
+		goto Hold4+5
+	Suicide:
+		ENG5 A 0 A_FireCustomMissile("EnergyBallSuicide", 0, 1, 12, 0)
+		ENG5 A 0 A_TakeInventory("CellAmmo", 79)
+		ENG5 A 0 A_TakeInventory("EnergyCannonCharge", 100)
+		goto Ready
+	}
+}
+
+actor EnergyBallExplosionRingWeak : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.8
+	Scale 1.2
+	+NOCLIP
+	States
+	{
+	Spawn:
+		NULL ABC 1 BRIGHT
+		NULL DEFGH 1 BRIGHT A_FadeOut(0.14)
+		stop
+	}
+}
+
+actor EnergyBallExplosionShellWeak
+{
+	Height 1
+	Radius 1
+	Speed 0
+	RenderStyle Add
+	Alpha 0.8
+	Scale 1.2
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOCLIP
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		NULL ABCDEFGH 1 BRIGHT
+		NULL IJKL 1 BRIGHT A_FadeOut(0.18)
+		stop
+	}
+}
+
+actor EnergyBallExplosionRingMid : EnergyBallExplosionRingWeak
+{
+	Scale 1.4
+}
+
+actor EnergyBallExplosionShellMid : EnergyBallExplosionShellWeak
+{
+	Scale 1.4
+}
+
+actor EnergyBallExplosionRingStrong : EnergyBallExplosionRingWeak
+{
+	Scale 2.2
+}
+
+actor EnergyBallExplosionShellStrong : EnergyBallExplosionShellWeak
+{
+	Scale 2.2
+}
+
+actor EnergyBallExplosionWeak
+{
+	Height 1
+	Radius 1
+	Speed 0
+	RenderStyle Add
+	Alpha 1.0
+	Scale 1.2
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOCLIP
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		ENGY EFGHIJ 2 BRIGHT
+		stop
+	}
+}
+
+actor EnergyBallExplosionMid : EnergyBallExplosionWeak
+{
+	Scale 1.4
+}
+
+actor EnergyBallExplosionStrong : EnergyBallExplosionWeak
+{
+	Scale 2.2
+}
+
+actor EnergyBallWeak
+{
+	Projectile
+	Radius 11
+	Height 8
+	Speed 22
+	Damage 20
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.88
+	SeeSound "Duke64EnergyBall"
+	Obituary "%o was vaporized by %k's energy cannon."
+	+FORCERADIUSDMG
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			ENGY AABBCCDD 1 BRIGHT
+			loop
+		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			goto Death
+		Death:
+			ENGY A 0 A_PlaySound("Duke64EnergyBallExplode")
+			ENGY A 0 BRIGHT A_Explode(24, 46)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionWeak", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionShellWeak", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionRingWeak", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor EnergyBallMid : EnergyBallWeak
+{
+	Scale 1
+	Speed 25
+	Damage (25)
+	SpawnId 245
+	States
+	{
+	Death:
+			ENGY A 0 A_PlaySound("Duke64EnergyBallExplode")
+			ENGY A 0 BRIGHT A_Explode(40, 46)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionMid", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionShellMid", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionRingMid", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor EnergyBallStrong
+{
+	Projectile
+	Radius 11
+	Height 8
+	Speed 32
+	Damage (64)
+	RenderStyle Add
+	Alpha 1.0
+	Scale 1.2
+	SeeSound "Duke64EnergyBall"
+	Obituary "%k scrambled %o's molecules."
+	+FORCERADIUSDMG
+	+FORCEXYBILLBOARD
+	+SEEKERMISSILE
+	States
+	{
+		Spawn:
+			ENGY AABBCCDD 1 BRIGHT	A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY A 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SeekerMissile(4, 4)
+			ENGY A 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SeekerMissile(4, 4)
+			ENGY B 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY B 0 A_SeekerMissile(4, 4)
+			ENGY B 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY B 0 A_SeekerMissile(4, 4)
+			ENGY C 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY C 0 A_SeekerMissile(4, 4)
+			ENGY C 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY C 0 A_SeekerMissile(4, 4)
+			ENGY D 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY D 0 A_SeekerMissile(4, 4)
+			ENGY D 1 BRIGHT A_SpawnItemEx("EnergyTrail", Random(-12, 12), Random(-12, 12), Random(-12, 12), 0, 0, 0, 0, 128, 0)
+			ENGY D 0 A_SeekerMissile(4, 4)
+			goto Spawn+8
+		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			goto Death
+		Death:
+			ENGY A 0 A_PlaySound("DukeExplosion")
+			ENGY A 0 BRIGHT A_Explode(90, 90)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionStrong", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionShellStrong", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionRingStrong", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY AAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("EnergyTrail", 0, 0, 0, Random(-6,6), Random(-6,6), Random(-6,6), 0, 128, 0)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor EnergyBallMega
+{
+	Projectile
+	Radius 11
+	Height 8
+	Speed 25
+	Damage (600)
+	RenderStyle Add
+	Alpha 1.0
+	Scale 1.7
+	SeeSound "Duke64EnergyBallHuge"
+	Obituary "%o was sent to Mu by %k."
+	+FORCERADIUSDMG
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			ENGY A 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY A 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY B 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY B 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY C 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY C 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY D 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			ENGY D 1 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("MegaEnergyTrail", Random(-18, 18), Random(-18, 18), Random(-18, 18), Random(-1,1), Random(-1,1), Random(-1,1), 0, 128, 0)
+			loop
+		Death:
+			ENGY A 0 A_PlaySoundEx("Duke64EnergyBallExplodeHuge", "Auto", 0, 1)
+			ENGY A 0 BRIGHT A_Explode(486, 486)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionMega", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionShellMega", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionRingMega", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MegaEnergyTrailBlast", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), 0, 128, 0)
+			ENGY AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEX("EnergyBallMegaMist", Random(-76,76), Random(-76, 76), Random(-76, 76), Random(-18,18), Random(-18,18), Random(-14,14), 0, 128, 0)
+			TNT1 A 1
+			stop
+	}
+}
+
+actor EnergyTrail
+{
+	Projectile
+	Height 2
+	Radius 2
+	Speed 0
+	Damage 0
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.3
+	+HEXENBOUNCE
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		ENGY A 1
+		ENGY ABCD 1 BRIGHT A_FadeOut(0.06)
+		goto Spawn+1
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor MegaEnergyTrail : EnergyTrail
+{
+	Scale 0.5
+}
+
+actor MegaEnergyTrailBlast : EnergyTrail
+{
+	Scale 0.5
+	States
+	{
+	Spawn:
+		ENGY A 1
+		ENGY ABCD 1 BRIGHT A_FadeOut(0.02)
+		goto Spawn+1
+	}
+}
+
+actor EnergyBallExplosionMega : EnergyBallExplosionWeak
+{
+	Scale 8.0
+}
+
+actor EnergyBallExplosionRingMega : EnergyBallExplosionRingWeak
+{
+	Scale 8.0
+}
+
+actor EnergyBallExplosionShellMega : EnergyBallExplosionShellWeak
+{
+	Scale 8.0
+	States
+	{
+	Spawn:
+		NULL A 0
+		NULL A 0 radius_quake(9, 96, 0, 14, 0)
+		NULL ABCDEFGH 2 BRIGHT
+		NULL IJKL 2 BRIGHT A_FadeOut(0.18)
+		stop
+	}
+}
+
+actor EnergyBallMegaMist
+{
+	Projectile
+	Radius 1
+	Height 1
+	Damage 0
+	Speed 10
+	Scale 0.6
+	RenderStyle Add
+	Alpha 1.0
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		BLSE ABC 2 BRIGHT
+		BLSE DE 1 BRIGHT
+		BLSE E 1 A_FadeOut(0.07)
+		goto Spawn+6
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor EnergyBallSuicide
+{
+	Projectile
+	Radius 11
+	Height 8
+	Speed 0
+	Damage 150
+	RenderStyle Add
+	Alpha 1.0
+	Scale 1.7
+	Obituary "%o was caught in %k wave of dumbassery."
+	+FORCERADIUSDMG
+	+FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			ENGY A 0
+			ENGY A 0 A_PlaySoundEx("Duke64EnergyBallExplodeHuge", "Auto", 0, 1)
+			ENGY A 0 BRIGHT A_Explode(486, 486)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionMega", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionShellMega", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY A 0 A_SpawnItemEx("EnergyBallExplosionRingMega", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			ENGY AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MegaEnergyTrailBlast", 0, 0, 0, Random(-16,16), Random(-16,16), Random(-16,16), 0, 128, 0)
+			ENGY AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEX("EnergyBallMegaMist", Random(-76,76), Random(-76, 76), Random(-76, 76), Random(-18,18), Random(-18,18), Random(-14,14), 0, 128, 0)
+			TNT1 AA 1
+			stop
+	}
+}
+
+ACTOR SupraCharge : Inventory
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 4
+	-INVBAR
+}
+
+actor Supra : Weapon
+{
+	Tag "Supra"
+	obituary "%o was 'sploded by %k's Supra"
+	Inventory.PickupSound "misc/w_pkup"
+	weapon.selectionorder 1000
+	weapon.kickback 100
+	Weapon.AmmoType1 "CellAmmo"
+	Weapon.AmmoGive 0
+	Weapon.AmmoUse1 1
+	+WEAPON.NOAUTOAIM
+	states
+	{
+	Ready:
+		PHAG A 1 A_WeaponReady
+		loop
+	Deselect:
+		PHAG A 1 A_Lower
+		loop
+	Select:
+		PHAG A 1 A_Raise
+		loop
+	Fire:
+		PHAG A 0 A_JumpIfInventory("SupraCharge", 4, "Fast")
+		PHAG A 0 A_JumpIfInventory("SupraCharge", 2, "Medium")
+		PHAG A 0 A_GiveInventory("SupraCharge", 1)
+		PHAG B 0 BRIGHT A_GunFlash
+		PHAG B 0 BRIGHT A_PlayWeaponSound("SupraFire")
+		PHAG BBB 0 BRIGHT A_FireCustomMissile("PowerBeam", frandom(-2.0,2.0), 1, 7, 0, 0, frandom(-1.0,1.0))
+		PHAG B 0 BRIGHT A_SetAngle(angle+frandom(-0.5, 0.5))
+		PHAG B 1 BRIGHT A_SetPitch(pitch-1.0)
+		PHAG EF 3 BRIGHT A_SetPitch(pitch+0.5)
+		PHAG A 0 A_Refire
+		PHAG A 0 A_TakeInventory("SupraCharge", 100)
+		goto Ready
+	Medium:
+		PHAG A 0 A_GiveInventory("SupraCharge", 1)
+		PHAG B 0 BRIGHT A_GunFlash
+		PHAG B 0 BRIGHT A_PlayWeaponSound("SupraFire")
+		PHAG BBB 0 BRIGHT A_FireCustomMissile("PowerBeam", frandom(-3.0,3.0), 1, 7, 0, 0, frandom(-3.0,3.0))
+		PHAG B 0 BRIGHT A_SetAngle(angle+frandom(-0.5, 0.5))
+		PHAG B 1 BRIGHT A_SetPitch(pitch-1.0)
+		PHAG EF 2 BRIGHT A_SetPitch(pitch+0.5)
+		PHAG A 0 A_Refire
+		PHAG A 0 A_TakeInventory("SupraCharge", 100)
+		goto Ready	
+	Fast:
+		PHAG B 0 BRIGHT A_GunFlash
+		PHAG B 0 BRIGHT A_PlayWeaponSound("SupraFire")
+		PHAG BBB 0 BRIGHT A_FireCustomMissile("PowerBeam", frandom(-4.0,4.0), 1, 7, 0, 0, frandom(-3.0,3.0))
+		PHAG B 0 BRIGHT A_SetAngle(angle+frandom(-0.5, 0.5))
+		PHAG B 1 BRIGHT A_SetPitch(pitch-1.0)
+		PHAG A 2 BRIGHT A_SetPitch(pitch+0.75)
+		PHAG B 0 A_Refire
+		PHAG A 0 A_TakeInventory("SupraCharge", 100)
+		PHAG B 1 BRIGHT
+		PHAG CDEF 2 BRIGHT
+		goto Ready
+	Flash:
+		TNT1 A 0 A_Jump(128, "Flash2", "Flash3")
+		PHAF A 2 bright A_Light1
+		TNT1 A 0 A_Light0
+		stop
+	Flash2:
+		PHAF B 2 bright A_Light1
+		TNT1 A 0 A_Light0
+		stop
+	Flash3:
+		PHAF C 2 bright A_Light1
+		TNT1 A 0 A_Light0
+		stop
+	}
+}
+
+actor PowerMist : BaseEffect
+{
+	RenderStyle Add
+	Scale 0.1
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		APBX ABCDE 1 BRIGHT
+		stop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PowerTrail : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.02
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		goto Projectile
+	Projectile:
+		APLS ABCD 1 A_Fadeout(0.1)
+		loop
+	Death:
+		TNT1 A 0
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PowerBeam
+{
+	Radius 4
+	Height 8
+	Projectile
+	RenderStyle Add
+	Alpha 1.0
+	obituary "%o was 'sploded by %k's Supra"
+	speed 64
+	damage (4)
+	scale 0.02
+	DamageType "Disintegrate"
+	Decal "TealPlasmaScorch"
+	+RIPPER
+	-BLOODSPLATTER
+	+BLOODLESSIMPACT
+	+NODAMAGETHRUST
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	States
+	{
+	Spawn:
+		APLS A 1 BRIGHT
+		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS B 1 BRIGHT
+		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS C 1 BRIGHT
+		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS D 1 BRIGHT
+		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		loop
+	Death:
+		APBX A 0 BRIGHT
+		APBX A 0 BRIGHT A_Explode(24, 32, 1)
+		APBX AAAA 0 A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-4.0,4.0), frandom(-4.0,4.0), frandom(-4.0,4.0), 0, SXF_CLIENTSIDE, 0)
+		APBX ABCDE 2 BRIGHT A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(-2.0,2.0), 0, SXF_CLIENTSIDE, 0)
+		stop
+	}
+}

@@ -6,6 +6,7 @@ actor BaseBottle
 	Radius 6
 	Height 16
 	Scale 0.8
+	+NOTAUTOAIMED
 	+SHOOTABLE
 	+SOLID
 	+NOBLOOD

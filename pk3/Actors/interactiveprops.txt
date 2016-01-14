@@ -1,5 +1,8 @@
 actor DrinkingFountain : SwitchableDecoration 16541
 {
+	//$Category SMMP Interactive Props
+	//$Title Drinking Fountain
+	//$Color 13
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	height 16
 	radius 12
@@ -25,6 +28,9 @@ actor DrinkingFountain : SwitchableDecoration 16541
 
 actor Stripper : SwitchableDecoration 30107
 {	
+	//$Category SMMP Interactive Props
+	//$Title Duke3D Stripper
+	//$Color 13
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	Radius 16
 	Height 56
@@ -56,6 +62,9 @@ actor Stripper : SwitchableDecoration 30107
 
 actor 8trackStereo : SwitchableDecoration 16542
 {
+	//$Category SMMP Interactive Props
+	//$Title 8-Track Stereo/Record Player (Abbey Road)
+	//$Color 13
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	height 24
 	radius 20
@@ -83,6 +92,83 @@ actor 8trackStereo : SwitchableDecoration 16542
 	}
 }
 
-ACTOR SmileyNunchuck 20526
+actor VendingMachine_Fanta : SwitchableDecoration 20526
 {
+	//$Category SMMP Interactive Props
+	//$Title Fanta Vending Machine
+	//$Color 13
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	height 72
+	radius 24
+	+SOLID
+	+USESPECIAL
+	states
+	{
+		Spawn:
+			FOUN A 0
+			FOUN A -1 A_SetSpecial(130, 0)
+			loop
+		Active:
+			FOUN A 0 A_JumpIfInTargetInventory("GBTWMoney", 2, "Dispense")
+			goto Spawn
+		Dispense:
+			FOUN A 0 A_ChangeFlag("USESPECIAL", 0)
+			FOUN A 0 A_TakeFromTarget("GBTWMoney", 2)
+			FOUN A 30 A_PlaySound("Vend", CHAN_AUTO)
+			FOUN A -1 A_Jump(256, "Pepsi", "Fanta", "CocaCola", "MDHitler")
+			stop
+			
+		Pepsi:
+			FOUN A 20 A_SpawnItemEx("Pepsi", 24, 0, 10, frandom(2.0, 4.0), 0, frandom(0.5,1.0), frandom(-2.0, 2.0), SXF_NOCHECKPOSITION, 0)
+			goto Reactivate
+			
+		Fanta:
+			FOUN A 20 A_SpawnItemEx("Fanta", 24, 0, 10, frandom(2.0, 4.0), 0, frandom(0.5,1.0), frandom(-2.0, .0), SXF_NOCHECKPOSITION, 0)
+			goto Reactivate
+			
+		CocaCola:
+			FOUN A 20 A_SpawnItemEx("CocaCola", 24, 0, 10, frandom(2.0, 4.0), 0, frandom(0.5,1.0), frandom(-2.0, .0), SXF_NOCHECKPOSITION, 0)
+			goto Reactivate
+			
+		MDHitler:
+			FOUN A 20 A_SpawnItemEx("MDHitler", 24, 0, 10, frandom(2.0, 4.0), 0, frandom(0.5,1.0), frandom(-2.0, .0), SXF_NOCHECKPOSITION, 0)
+			goto Reactivate
+			
+		Reactivate:
+			FOUN A 0 A_ChangeFlag("USESPECIAL", 1)
+			goto Spawn
+	}
+}
+
+actor VendingMachine_CocaCola : VendingMachine_Fanta 20527
+{
+	//$Category SMMP Interactive Props
+	//$Title Coca-Cola Vending Machine
+	//$Color 13
+}
+
+actor VendingMachine_Pepsi : VendingMachine_Fanta 20528
+{
+	//$Category SMMP Interactive Props
+	//$Title Pepsi Vending Machine
+	//$Color 13
+	States
+	{
+		Dispense:
+			FOUN A 0 A_ChangeFlag("USESPECIAL", 0)
+			FOUN A 0 A_TakeFromTarget("GBTWMoney", 2)
+			FOUN A 30 A_PlaySound("Vend", CHAN_AUTO)
+			goto Pepsi
+			
+		Pepsi:
+			FOUN A 20 A_SpawnItemEx("Pepsi", 24, 4, 10, frandom(2.0, 4.0), 0, frandom(0.5,1.0), frandom(-2.0, 2.0), SXF_NOCHECKPOSITION, 0)
+			goto Reactivate
+	}
+}
+
+actor VendingMachine_Hitler : VendingMachine_Fanta 20529
+{
+	//$Category SMMP Interactive Props
+	//$Title Mountain Dew HDNW Vending Machine
+	//$Color 13
 }

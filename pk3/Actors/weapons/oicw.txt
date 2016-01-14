@@ -243,8 +243,8 @@ actor Cluster
 		loop
 	Death:
 		TNT1 A 0 A_PlaySound("ClusterExplode", CHAN_AUTO)
-		TNT1 A 0 A_Explode(32, 64, true, false, 32)
-		TNT1 A 1 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		TNT1 A 0 A_Explode(32, 64, true, false, 48)
+		TNT1 A 1 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 		TNT1 A 2
 		stop
 	}

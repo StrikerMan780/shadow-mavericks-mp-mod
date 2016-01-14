@@ -1,0 +1,128 @@
+actor SM_Demon : Demon //Replaces Demon
+{
+	DropItem "ForceThrust", 2
+	States
+	{
+	Death:
+		SARG I 0 A_GiveToTarget("DemonicPower", 2)
+		SARG I 8
+		SARG J 8 A_Scream
+		SARG K 4 A_Fall
+		SARG LM 4
+		SARG N 10500
+		goto Fade
+
+	Disabled:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfHealthLower(1, "Remove")
+		TNT1 A 1 A_ChangeFlag("SOLID", 0)
+		TNT1 A 1 A_ChangeFlag("SHOOTABLE", 0)
+		TNT1 A 1 A_ChangeFlag("DORMANT", 1)
+		TNT1 A 1
+		TNT1 A -1
+		loop
+
+	Enabled:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfHealthLower(1, "Remove")
+		TNT1 A 0 A_ChangeFlag("SOLID", 1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE", 1)
+		TNT1 A 0 A_ChangeFlag("DORMANT", 0)
+		TNT1 A 1
+		goto Spawn
+	Remove:
+		TNT1 A 1
+		stop
+	Fade:
+		"####" "#" 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+actor SM_StealthDemon : SM_Demon Replaces StealthDemon
+{
+	+STEALTH
+	Alpha 0.0
+}
+
+actor SM_Spectre : SM_Demon
+{
+	spawnid 9
+	hitobituary "%o was eaten by a spectre."
+	renderstyle OptFuzzy
+	alpha 0.2
+	seesound "spectre/sight"
+	attacksound "spectre/melee"
+	painsound "spectre/pain"
+	deathsound "spectre/death"
+	activesound "spectre/active"
+	+SHADOW
+}
+
+actor BloodDemon : SM_Demon 5004
+{
+	SpawnID 156
+	Health 300
+	Obituary "$OB_BLOODDEMON_MELEE"
+	Translation "16:34=32:47", "35:37=1:2", "38:47=0:0", "229:229=89:89", "151:151=111:111", "48:63=80:95", "64:78=96:111", "79:79=0:0", "208:212=172:175", "214:223=176:181", "213:213=85:85", "160:167=80:95"
+	States
+	{
+		See:
+			SARG AABBCCDD 2 A_Chase
+			Loop
+		Melee:
+			SARG EF 8 A_FaceTarget
+			SARG G 8 A_SargAttack
+			Goto See
+	}
+}
+
+ACTOR NightmareDemon : SM_Demon
+{
+	Health 200
+	Speed 17
+	MONSTER
+	+FLOORCLIP
+	RenderStyle Add
+	ALPHA 1.0
+	Obituary "%o was mauled by a Nightmare Demon!"
+	States
+	{
+	Spawn:
+		SAR2 A 10 BRIGHT A_Look
+		Loop
+	See:
+		SAR2 A 2 BRIGHT A_Chase
+		SAR2 A 2 BRIGHT A_Chase
+		SAR2 B 2 BRIGHT A_Chase
+		SAR2 B 2 BRIGHT A_Chase
+		SAR2 C 2 BRIGHT A_Chase
+		SAR2 C 2 BRIGHT A_Chase
+		SAR2 D 2 BRIGHT A_Chase
+		SAR2 D 2 BRIGHT A_Chase
+		Loop
+	Melee:
+		SAR2 E 4 BRIGHT A_FaceTarget
+		SAR2 F 4 BRIGHT A_FaceTarget
+		SAR2 G 5 BRIGHT A_SargAttack
+		Goto See
+	Pain:
+		SAR2 H 4 BRIGHT A_Pain
+		SAR2 H 3 BRIGHT A_Pain
+		Goto See
+	Death:
+		SAR2 I 0 BRIGHT A_GiveToTarget("DemonicPower", 4)
+		SAR2 I 8 BRIGHT
+		SAR2 J 8 BRIGHT A_Scream
+		SAR2 K 4 BRIGHT A_Fall
+		SAR2 LM 4 BRIGHT
+		SAR2 N 10500 BRIGHT
+		goto Fade
+	Raise:
+		SAR2 NMLKJI 5 BRIGHT
+		Goto See
+	Fade:
+		"####" "#" 1 A_FadeOut(0.05)
+		loop
+	}
+}

@@ -1,0 +1,85 @@
+actor RandomRLSpawner : RandomSpawner replaces RocketLauncher
+{
+	DropItem "TorpedoLauncherGiver"
+	DropItem "GrenadeLauncherGiver"
+}
+
+actor RandomCGSpawner : RandomSpawner replaces Chaingun
+{
+	DropItem "ChaingunGiver"
+	DropItem "FlakCannon"
+	DropItem "SmartRifle"
+	DropItem "P90"
+	DropItem "454Casull"
+	DropItem "SniperRifle"
+	DropItem "Minigun"
+}
+
+actor RandomSSGSpawner : RandomSpawner replaces SuperShotgun
+{
+	DropItem "SuperShotgunGiver", 255 200
+	DropItem "ElementalSSG", 255 64
+	DropItem "QuadShotgun", 255 8
+}
+
+actor RandomSGSpawner : RandomSpawner replaces Shotgun
+{
+	DropItem "ShotgunGiver", 255 200
+}
+
+actor RandomCSawSpawner : RandomSpawner replaces Chainsaw
+{
+	DropItem "BloodyChainsaw"
+	DropItem "Lightsaber"
+}
+
+actor RandomPRSpawner : RandomSpawner replaces PlasmaRifle
+{
+	DropItem "PlasmaRifleGiver"
+	DropItem "Railgun"
+	DropItem "Freezebolt"
+	DropItem "Stinger"
+	DropItem "BioRifle"
+	DropItem "Needler"
+}
+
+actor RandomArmorBonus : RandomSpawner replaces ArmorBonus
+{
+	DropItem "ArmorBonus2"
+	DropItem "MaxArmorBonus2"
+}
+
+actor RandomHealthBonus : RandomSpawner replaces HealthBonus
+{
+	DropItem "HealthBonus2"
+	DropItem "MaxHealthBonus2"
+}
+
+actor BackpackReplacer : RandomSpawner replaces Backpack
+{
+	DropItem "MysteryPowerup"
+}
+
+actor RandomInvulReplacer : RandomSpawner replaces InvulnerabilitySphere
+{
+	DropItem "TurboSphere"
+	DropItem "DoomSphere"
+	DropItem "GuardSphere"
+}
+
+actor RandomInvisReplacer : RandomSpawner replaces BlurSphere
+{
+	DropItem "Kamikaze"
+}
+
+actor BigTreeFix : BigTree replaces BigTree
+{
+}
+
+actor TorchTreeFix : TorchTree replaces TorchTree
+{
+}
+
+actor StalagtiteFix : Stalagtite replaces Stalagtite
+{
+}

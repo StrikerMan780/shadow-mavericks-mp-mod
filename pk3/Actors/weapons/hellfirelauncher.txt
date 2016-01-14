@@ -1,0 +1,241 @@
+ACTOR HellFireCannon : FighterWeapon 21002
+{
+	Tag "Hellfire Missile Launcher"
+	Weapon.BobSpeed 1.25
+	Weapon.BobStyle "Alpha"
+	Weapon.BobRangeX 1.0
+    Weapon.BobRangeY 0.5
+	Inventory.PickUpSound "misc/w_pkup"
+	Inventory.PickupMessage "You got the Hellfire Missile Launcher!"
+	Weapon.AmmoType "HellFireAmmo"
+	Weapon.AmmoGive 8
+	Weapon.AmmoUse 1
+	Weapon.Kickback 200
+	+WEAPON.NOAUTOAIM
+	Scale 0.72
+	States
+	{
+	Spawn:
+		HLLP A 1
+		Loop
+	Ready:
+		HELG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
+		HELG A 1 A_WeaponReady
+		goto Ready+1
+	Deselect:
+		HELG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
+		HELG A 1 A_Lower
+		goto Deselect+1
+	Select:
+		HELG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
+		HELG A 1 A_Raise
+		goto Select+1
+	Fire:
+		HELG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
+		HELG A 0 A_Playsound("Hellfire", CHAN_WEAPON)
+		HELG A 0 Radius_Quake(1, 28, 0, 1, 0)
+		HELG BC 2 BRIGHT A_GunFlash
+		HELG D 2
+		HELG EF 2 BRIGHT A_GunFlash
+		HELG GH 2
+		HELG IJ 2 BRIGHT A_GunFlash
+		HELG K 2
+		HELG LM 2 BRIGHT A_GunFlash
+		HELG NOPQR 2
+		HELR A 0 A_CheckReload
+		HELR A 0 A_PlaySound("HellfireChambering", CHAN_AUTO)
+		HELR AB 2 A_WeaponReady(WRF_NOFIRE)
+		HELR C 0 A_PlaySound("HellfireChambering", CHAN_AUTO)
+		HELR CD 2 A_WeaponReady(WRF_NOFIRE)
+		HELR E 0 A_PlaySound("HellfireChambering", CHAN_AUTO)
+		HELR EF 2 A_WeaponReady(WRF_NOFIRE)
+		HELR G 0 A_PlaySound("HellfireChambering", CHAN_AUTO)
+		HELR GH 2 A_WeaponReady(WRF_NOFIRE)
+		HELR I 0 A_PlaySound("HellfireCycle", CHAN_AUTO)
+		HELR I 2 A_WeaponReady(WRF_NOFIRE)
+		HELR JKLMNOPQRSTU 2 A_WeaponReady(WRF_NOFIRE)
+		HELR U 0 A_WeaponReady(WRF_NOFIRE)
+		HELG A 0 A_WeaponReady(WRF_NOFIRE)
+		HELG A 0 A_Refire
+		Goto Ready
+	Flash:
+		TNT1 A 0 A_FireCustomMissile("HellFireRocketHi", (random(-200,200)/100.0), 1, 4, 0, 0, (random(-200,200)/100.0))
+		TNT1 A 0 A_SetAngle(angle+random(-1,1))
+		TNT1 A 1 A_SetPitch(pitch-1.0)
+		TNT1 AA 1 A_SetPitch(pitch+0.5)
+		stop
+	DukeSelect:
+		DEVS A 1 A_Raise
+		loop
+	DukeDeselect:
+		DEVS A 1 A_Lower
+		loop
+	DukeReady:
+		DEVS A 1 A_WeaponReady
+		loop
+	DukeFire:
+		DEVS B 0 A_JumpIfInventory("DevastatorCheck", 1, "DukeFire2")
+		DEVS B 0 Radius_Quake(2, 3, 0, 1, 0)
+		DEVS B 0 BRIGHT A_PlayWeaponSound("DevastatorRight")
+		DEVS B 1 BRIGHT A_FireCustomMissile("DukeDevastatorRocket", frandom(-4.0,4.0), true, 10, 0, false, frandom(-3.0,3.0))
+		DEVS C 2 BRIGHT A_FireCustomMissile("DukeDevastatorRocket", frandom(-4.0,4.0), true, 10, 0, false, frandom(-3.0,3.0))
+		DEVS A 5 A_GiveInventory("DevastatorCheck", 1)
+		DEVS A 0 A_ReFire
+		goto DukeReady
+	DukeFire2:
+		DEVS D 0 Radius_Quake(2, 3, 0, 1, 0)
+		DEVS D 0 BRIGHT A_PlayWeaponSound("DevastatorLeft")
+		DEVS D 1 BRIGHT A_FireCustomMissile("DukeDevastatorRocket", frandom(-4.0,4.0), true, -10, 0, false, frandom(-3.0,3.0))
+		DEVS E 2 BRIGHT A_FireCustomMissile("DukeDevastatorRocket", frandom(-4.0,4.0), true, -10, 0, false, frandom(-3.0,3.0))
+		DEVS A 5 A_TakeInventory("DevastatorCheck", 999)
+		DEVS A 0 A_ReFire
+		Goto DukeReady
+	}
+}
+
+actor HellfireRocketFire : BaseEffect
+{
+	RenderStyle Add
+	Scale 0.10
+	Alpha 1.0
+	-CLIENTSIDEONLY
+	States
+	{
+		Spawn:
+			XPLO ABCDEFGH 1 BRIGHT
+			stop
+	}
+}
+
+actor HellfireSmoke : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.32
+	Scale 0.08
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(Waterlevel == 3, "InWater")
+		TNT1 A 1
+		SMO2 ABCDEFGHIJKLMNOPQ 1
+		stop
+	InWater:
+		TNT1 AA 0 BRIGHT A_SpawnItemEX("Bubble", Random(-4,4), Random(-4,4), Random(-4,4), 0, 0, Random(1,2), 0, 128, 240)
+		TNT1 A 1
+		stop
+	}
+}
+
+actor HellfireSpark : BaseEffect
+{
+	Scale 0.04
+	RenderStyle Add
+	Alpha 1.0
+	States
+	{
+	Spawn:
+		TNT1 A 3
+		FRTB A 1 Bright
+		FRTB B 1 Bright A_Fadeout(0.25)
+		FRTB C 1 Bright A_Fadeout(0.25)
+		FRTB D 1 Bright A_Fadeout(0.25)
+		FRTB E 1 Bright A_Fadeout(0.20)
+		Stop
+	}
+}
+
+actor HellFireRocketHi
+{
+	projectile
+	radius 11
+	height 8
+	speed 25
+	damage (25)
+	Scale 0.32
+	seesound "hellfiremissileignition"
+	deathsound "TechPlasmaSuperBoom"
+	Obituary "%o couldn't hide from %k's hellfire missiles!"
+	DamageType "Hellfire"
+	Decal "SmallScorch"
+	+FORCEXYBILLBOARD
+	+FORCERADIUSDMG
+	+EXTREMEDEATH
+	+SEEKERMISSILE
+	+SCREENSEEKER
+	states
+	{
+	Spawn:
+		DEVM A 0
+		DEVM A 6 bright A_PlaySoundEx("HellFly", SoundSlot7, 1)
+		goto Flying
+	Flying:
+		DEVM A 0 bright A_SeekerMissile (2.8125, 5.625, SMF_LOOK | SMF_PRECISE, 64, 10) 
+		DEVM A 1 bright A_SpawnItemEx("HellfireSmoke", 0, 0, 0, MOMX-(MOMX*1.5), MOMY-(MOMY*1.5), MOMZ-(MOMZ*1.5), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		DEVM A 0 bright A_SpawnItemEx("HellfireSpark", 0, 0, 0, (MOMX/3)+(random(-50,50)/100.0), (MOMY/3)+(random(-50,50)/100.0), (MOMZ/3)+(random(-50,50)/100.0), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		DEVM A 0 bright A_Weave(random(1,3), random(1,3), random(1,2), random(1,2)) 
+		goto Flying
+	XDeath:
+		TNT1 A 0
+		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+		goto Death
+	Death:
+		MISL B 0 A_StopSoundEx("SoundSlot7")
+		MISL B 0 A_SetTranslucent(0.9, 1)
+		MISL BBBBBBBB 0 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(-6.0,6.0), random(-360,360), SXF_CLIENTSIDE, 0)
+		MISL B 1 bright A_Explode(16, 64, XF_HURTSOURCE, false, 24)
+		MISL CD 1 bright
+		stop
+	}
+}
+
+actor DevastatorCheck : Inventory
+{
+	inventory.amount 1
+	inventory.maxamount 1
+	-INVBAR
+	-INTERHUBSTRIP
+	+INVENTORY.UNDROPPABLE
+	+INVENTORY.HUBPOWER
+	states
+	{
+		Spawn:
+			TNT1 A 1
+			loop
+	}
+}
+
+actor DukeDevastatorRocket
+{
+	Projectile
+	Speed 30
+	Damage (0)
+	Radius 4
+	Height 8
+	obituary "%o was devastated by %k"
+	Decal "PlasmaScorchLower"
+	Scale 0.3
+	+EXTREMEDEATH
+	+BLOODSPLATTER
+	+FORCERADIUSDMG
+	States
+	{
+		Spawn:
+			RPGM A 1 BRIGHT A_SpawnItemEx("HellfireSmoke", 0, 0, 0, MOMX-(MOMX*1.5), MOMY-(MOMY*1.5), MOMZ-(MOMZ*1.5), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			loop
+		XDeath:
+			TNT1 A 0
+			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
+			goto Death
+		Death:
+			NULL A 0
+			NULL A 0 radius_quake(2, 8, 0, 1, 0)
+			NULL A 0 A_PlaySoundEx ("TechPlasmaSuperBoom", "Auto", 0, 0.4)
+			NULL A 0 A_Explode(32, 32)
+			NULL AAAA 0 A_SpawnItemEx("RPGSpark", 0, 0, 0, frandom(0.0,6.0), 0, frandom(1.0,6.0), random(-180,180), SXF_CLIENTSIDE, 128)
+			NULL A 1 A_SpawnItemEx("MiniDukeExplosion", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+			NULL A 4
+			NULL A 3
+			stop
+	}
+}

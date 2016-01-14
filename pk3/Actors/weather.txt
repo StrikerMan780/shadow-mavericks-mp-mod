@@ -1,6 +1,6 @@
 actor RainSpawner 16000
 {
-	//$Category Effect Spawners
+	//$Category SMMP Effect Spawners
 	//$Title Rain Spawner
 	//$Arg0 Spawn Radius
 	//$Arg1 Rain Type
@@ -32,7 +32,7 @@ actor RainSpawner 16000
 
 actor VolumetricFogSpawner 20001
 {
-	//$Category Effect Spawners
+	//$Category SMMP Effect Spawners
 	//$Title Volumetric Fog Spawner
 	//$Sprite FOG1A0
 	//$Color 11

@@ -1,5 +1,15 @@
 // SNDINFO for [SM] Multi-Purpose Mod.
 
+FragGrenadeUse dsgrnuse
+FragGrenadeBounce1 dsgrbnc1
+FragGrenadeBounce2 dsgrbnc2
+FragGrenadeBounce3 dsgrbnc3
+$random FragGrenadeBounce { FragGrenadeBounce1 FragGrenadeBounce2 FragGrenadeBounce3 }
+$limit FragGrenadeBounce 0
+$limit FragGrenadeBounce1 0
+$limit FragGrenadeBounce2 0
+$limit FragGrenadeBounce3 0
+
 misc/gibbed			dsslop
 hitsound dshitsnd
 $limit hitsound 0
@@ -7,6 +17,7 @@ $limit hitsound 0
 NewWeapon dsnewwep
 Condom dscondom
 
+Vend dsvend
 HereComesTheSun dsbeatle
 NYC dsnyc
 
@@ -22,20 +33,6 @@ $limit FlareBurn 0
 
 ClusterExplode dsclustx
 $limit ClusterExplode 0
-
-weapons/shotgf			dsshotgn
-weapons/shotgr			dssgcock
-weapons/sshotf			dsdshtgn
-weapons/sshoto			dsdbopn
-weapons/sshotc			dsdbcls
-weapons/sshotl			dsdbload
-weapons/bfgf			dsbfg
-weapons/plasmaf			dsplasma
-weapons/plasmax			dsplshit
-weapons/rocklf			dsrlaunc
-$volume weapons/plasmax 0.8
-$limit weapons/plasmaf 0
-$limit weapons/rocklf 0
 
 hellfire	dshellfi
 
@@ -58,14 +55,6 @@ $limit Hellfly 0
 $volume HellFly 0.32
 
 laserhit dslhit
-
-mp40fire dsmp40
-$limit mp40fire 0
-MP40ClipOut dsmp40co
-MP40ClipIn dsmp40ci
-MP40BoltBack dsmp40bb
-MP40BoltSlap dsmp40bs
-$volume MP40BoltSlap 0.5
 
 pistol1 ds9mm1
 pistol2 ds9mm2
