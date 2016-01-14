@@ -151,8 +151,14 @@ script "GIVEWEAPON" (int type, int ammocount, int dropped)
 	SetResultValue(GrantWeapon(type, ammocount, dropped, false));
 }
 
-#define NumInventoryItems 4
-str inventory[NumInventoryItems] = { "MolotovCocktail", "HealingSerum", "ForceJump", "ForcePull" };
+#define NumInventoryItems 5
+str inventory[NumInventoryItems][2] = {
+	{ "MolotovCocktail", "Molotov Cocktail" },
+	{ "HealingSerum", "Healing Serum" },
+	{ "ForceJump", "Force Jump" },
+	{ "ForcePull", "Force Pull" },
+	{ "FragGrenade", "Frag Grenade" }
+};
 
 #define NumRunes 11
 str runes[NumRunes] = { "SpreadRune", "RageRune", "HighJumpRune", "DrainRune",
@@ -210,11 +216,11 @@ script "MYSTERY_ITEM" (void)
 	
 	if(random(1, 100) <= 75)
 	{
-		GiveInventory(inventory[inventory_picked], inventory_amount);
+		GiveInventory(inventory[inventory_picked][SLOT_ACTOR], inventory_amount);
 		
 		if(random(1, 100) <= 35)
 		{
-			GiveInventory(inventory[inventory_picked_2], inventory_amount_2);
+			GiveInventory(inventory[inventory_picked_2][SLOT_ACTOR], inventory_amount_2);
 		}
 		else
 		{
@@ -283,19 +289,19 @@ script "MYSTERY_ITEM" (void)
 		if(inventory_none_2 == true)
 		{
 			LocalAmbientSound("WinMysteryItem", 100);
-			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked],s:"(s)";
+			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked][SLOT_NAME],s:"(s)";
 			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
 		}
 		else if(inventory_picked == inventory_picked_2)
 		{
 			LocalAmbientSound("WinMysteryItem", 100);
-			HudMessage(s:"Inventory Item: \cv", d:inventory_amount+inventory_amount_2, s:" ", s:inventory[inventory_picked],s:"(s)";
+			HudMessage(s:"Inventory Item: \cv", d:inventory_amount+inventory_amount_2, s:" ", s:inventory[inventory_picked][SLOT_NAME],s:"(s)";
 			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
 		}
 		else if(inventory_picked != inventory_picked_2)
 		{
 			LocalAmbientSound("WinMysteryItem", 100);
-			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked], s:"(s) & ", d:inventory_amount_2, s:" ", s:inventory[inventory_picked_2], s:"(s)";
+			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked][SLOT_NAME], s:"(s) & ", d:inventory_amount_2, s:" ", s:inventory[inventory_picked_2][SLOT_NAME], s:"(s)";
 			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
 		}
 	}
