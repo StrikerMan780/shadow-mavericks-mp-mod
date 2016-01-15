@@ -229,22 +229,22 @@ actor Cluster
 	SeeSound "Flakbounce"
 	var int user_timermax;
 	var int user_timer;
+	Args 56
 	States
 	{
 	Spawn:
 		METL A 0
 		METL A 0 A_SetGravity(frandom(0.9, 1.1)) 
-		METL A 0 A_SetUserVar("user_timermax", random(20, 56))
+		METL A 0 A_SetArg(0, random(20, 56))
 		goto Fly
 	Fly:
-		METL A 1 A_SetUserVar("user_timer", user_timer+1)
-		METL A 0 A_SpawnItemEX("FlakPuff", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		METL A 0 A_JumpIf(user_timer >= user_timermax, "Death")
+		METL A 1 A_SpawnItemEX("FlakPuff", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+		METL A 0 A_CountdownArg(0, "Death")
 		loop
 	Death:
 		TNT1 A 0 A_PlaySound("ClusterExplode", CHAN_AUTO)
 		TNT1 A 0 A_Explode(32, 64, true, false, 48)
-		TNT1 A 1 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+		TNT1 A 1 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 		TNT1 A 2
 		stop
 	}
