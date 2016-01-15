@@ -98,7 +98,6 @@ actor HellfireRocketFire : BaseEffect
 	RenderStyle Add
 	Scale 0.10
 	Alpha 1.0
-	-CLIENTSIDEONLY
 	States
 	{
 		Spawn:
