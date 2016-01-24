@@ -1,9 +1,7 @@
 #include "zcommon.acs"
 #library "FOOTSTEP"
 
-#define MaxStepSounds 230
-#define DefStepSound "step/generic"
-
+#define MaxStepSounds 231
 bool PlayingFootsteps[64];
 
 str StepSound[MaxStepSounds][2] =
@@ -140,6 +138,7 @@ str StepSound[MaxStepSounds][2] =
 	{ "GRASS1", "step/grass" },
 	{ "GRASS1_2", "step/grass" },
 	{ "ROCK19", "step/grass" },
+	{ "MC_112", "step/grass" },
 	
 	//Brick
 	{ "BIGBRIK1", "step/hard" },
@@ -326,7 +325,7 @@ Script "FOOTSTEPS" (void) CLIENTSIDE
 			}
 			if(SoundPlayed == 0)
 			{
-				ActivatorSound(DefStepSound, StepVolume);
+				ActivatorSound("step/generic", StepVolume);
 			}	
 		}
 		
