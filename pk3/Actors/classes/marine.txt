@@ -2,21 +2,9 @@ actor MarineClassCheck : BaseClassCheck
 {
 }
 
-actor Marine : DoomPlayer Replaces DoomPlayer
+actor Marine : BaseClass Replaces DoomPlayer
 {
-	Species "Player"
-	-CANNOTPUSH
-	+FORCERADIUSDMG
-	+NOSKIN
 	Player.ScoreIcon "MARNICON"
-	
-	DamageFactor "Demonic", 0.5
-	DamageFactor "Holy", 1.5
-	DamageFactor "Tourettes", 0.0
-	DamageFactor "BFG", 0.4375
-	DamageFactor "Hellfire", 0.5
-	DamageFactor "Ethereal", 0.5
-	DamageFactor "Sniper", 0.66
 	
 	player.startitem "NewPistol"
 	player.startitem "Melee"
@@ -30,7 +18,7 @@ actor Marine : DoomPlayer Replaces DoomPlayer
 	
 	Player.WeaponSlot 1, "Melee", "BloodyChainsaw", "Excalibat", "Lightsaber"
 	Player.WeaponSlot 2, "NewPistol", "Magnum", "454Casull"
-	Player.WeaponSlot 3, "NewShotgun", "SM_SuperShotgun", "QuadShotgun", "ElementalSSG"
+	Player.WeaponSlot 3, "NewShotgun", "SM_SuperShotgun", "QuadShotgun", "FireSSG"
 	Player.WeaponSlot 4, "SM_Chaingun", "Mp40", "P90", "Minigun", "SmartRifle"
 	Player.WeaponSlot 5, "HellFireCannon", "ProtonGL", "ProtonTL"
 	Player.WeaponSlot 6, "PlasmaCannon", "Railgun", "Stinger", "ShockRifle"

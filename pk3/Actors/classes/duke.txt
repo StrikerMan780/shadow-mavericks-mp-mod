@@ -2,11 +2,10 @@ actor DukeClassCheck : BaseClassCheck
 {
 }
 
-actor DukeNukem : Link
+actor DukeNukem : BaseClass
 {
-	Species "Player"
 	Scale 0.69
-	DamageFactor "Tourettes", 0.0
+
 	Player.DisplayName "Duke"
 	Player.SoundClass "DukeNukem"
 	Player.ScoreIcon "DUKEICON"
@@ -24,7 +23,7 @@ actor DukeNukem : Link
 	
 	Player.WeaponSlot 1, "Melee", "Excalibat"
 	Player.WeaponSlot 2, "DukePistol"
-	Player.WeaponSlot 3, "DukeShotgun", "SPAS-12", "ElementalSSG"
+	Player.WeaponSlot 3, "DukeShotgun", "SPAS-12", "AcidSprayer"
 	Player.WeaponSlot 4, "RipperChaingun", "M1911"
 	Player.WeaponSlot 5, "HellFireCannon", "DukeGL", "DukeRPG"
 	Player.WeaponSlot 6, "Freezethrower", "Expander", "ShockRifle"

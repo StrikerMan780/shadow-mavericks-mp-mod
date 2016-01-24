@@ -5,27 +5,10 @@ actor TailsClassCheck : BaseClassCheck
 {
 }
 
-actor Tails : MagePlayer Replaces MagePlayer
+actor Tails : BaseClass
 {
-	Species "Player"
-	Health 100
-	ReactionTime 0
-	PainChance 255
-	Radius 16
-	Height 56
-	Speed 1
 	Scale 0.82
 	Gravity 0.82
-	+NOSKIN
-	+FORCERADIUSDMG
-	DamageFactor "Demonic", 1.5
-	DamageFactor "ChaosFire", 0.5
-	DamageFactor "Tourettes", 0.0
-	DamageFactor "BFG", 0.4375
-	DamageFactor "Hellfire", 0.5
-	DamageFactor "Ethereal", 0.5
-	DamageFactor "Sniper", 0.66
-	RadiusDamageFactor 1.0
 	
 	Player.ForwardMove 1
 	Player.SideMove 1
@@ -33,14 +16,9 @@ actor Tails : MagePlayer Replaces MagePlayer
 	Player.AttackZOffset 3
 	Player.Viewheight 36
 	
-	Player.ColorRange 112, 127
-	Player.SpawnClass "Any"
 	Player.DisplayName "Tails"
 	Player.SoundClass "tails"
 	Player.ScoreIcon "TAILICON"
-	Player.InvulnerabilityMode "Reflective"
-	Player.HealRadiusType "Health"
-	Player.Hexenarmor 10, 10, 25, 5, 20
 	
 	Player.StartItem "Tails_TechPistol"
 	Player.StartItem "Melee"
@@ -55,7 +33,7 @@ actor Tails : MagePlayer Replaces MagePlayer
 
 	Player.WeaponSlot 1, "Melee", "Excalibat"
 	Player.WeaponSlot 2, "Tails_TechPistol"
-	Player.WeaponSlot 3, "PIPS", "Keyring", "ElementalSSG"
+	Player.WeaponSlot 3, "PIPS", "Keyring", "IceSSG"
 	Player.WeaponSlot 4, "BCF-2Repeaters", "Mp40"
 	Player.WeaponSlot 5, "StickyBombs", "ProtonTL"
 	Player.WeaponSlot 6, "HaloPlasmaRifle", "Cyclone", "ShockRifle"

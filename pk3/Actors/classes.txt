@@ -1,0 +1,20 @@
+actor BaseClass : DoomPlayer
+{
+	Species "Player"
+	
+	DamageFactor "Tourettes", 0.0
+	DamageFactor "BFG", 0.4375
+	DamageFactor "Hellfire", 0.5
+	DamageFactor "Ethereal", 0.5
+	DamageFactor "Keyring", 0.75
+	DamageFactor "Sniper", 0.66
+	
+	+FORCERADIUSDMG
+	+NOSKIN
+	-CANNOTPUSH
+}
+
+#include "actors/classes/marine.txt"
+#include "actors/classes/tails.txt"
+#include "actors/classes/link.txt"
+#include "actors/classes/duke.txt"
