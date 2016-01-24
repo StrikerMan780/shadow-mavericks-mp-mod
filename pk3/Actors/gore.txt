@@ -9,10 +9,10 @@ actor BetterBlood : Blood replaces Blood
  {
  Spawn:
   BLUD A 0
-  BLUD A 0 A_SpawnItemEX("bloodspray", 0, 0, 0, 0, 0, 0, 0, 129, 156)
-  BLUD A 0 A_SpawnItemEX("bloodmist", 0, 0, 0, 0, 0, 0, 0, 129, 232)
-  BLUD A 0 A_SpawnItemEx("Striker_FlyingBlood", 0, 0, 0, random(1, 4), random(1, 4), random(1, 12), Random(-180, 180), 129, 186)
-  BLUD A 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 0, random(1, 2), random(1, 2), random(1, 8), Random(-180, 180), 129, 224)
+  BLUD A 0 A_SpawnItemEX("bloodspray", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION, 156)
+  BLUD A 0 A_SpawnItemEX("bloodmist", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION, 232)
+  BLUD A 0 A_SpawnItemEx("Striker_FlyingBlood", 0, 0, 0, frandom(1.0, 4.0), frandom(1.0, 4.0), frandom(1.0, 12.0), Random(-180, 180), SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION, 186)
+  BLUD A 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 0, frandom(1.0, 2.0), frandom(1.0, 2.0), frandom(1.0, 8.0), Random(-180, 180), SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION, 224)
   BLUD A 0 A_PlaySound("FleshImpact")
   BLUD C 8
   BLUD B 8
@@ -45,10 +45,10 @@ actor Striker_FlyingBlood
  {
  Spawn:
   TNT1 A 0 A_CountDown
-  BLUD C 1 A_SpawnItemEX("Striker_FlyingBloodTrail", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 129, 0)
+  BLUD C 1 A_SpawnItemEX("Striker_FlyingBloodTrail", 0, 0, 0, frandom(-1.0,1.0), frandom(-1.0,1.0), frandom(-1.0,1.0), 0, SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION, 0)
   Loop
  Crash:
-  TNT1 A 1 A_SpawnItemEX("Striker_BloodSpot", 0, 0, 0, 0, 0, 0, 0, 129, 0)
+  TNT1 A 1 A_SpawnItemEX("Striker_BloodSpot", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_TRANSFERTRANSLATION, 0)
   TNT1 A 0
   Stop
  }
