@@ -93,23 +93,24 @@ script "DAMAGE" ENTER
 	int oldhealth;
 	bool hasticked;
 	
-	if(OldHealth > CheckInventory("Health") && !hasticked)
+	while(1)
 	{
-		HasTicked = true;
+		if(OldHealth > CheckInventory("Health") && !hasticked)
+		{
+			HasTicked = true;
+		}
+		
+		if(hasticked)
+		{
+			delay(1);
+			PrintDamage(OldHealth - CheckInventory("Health"));
+			OldHealth = CheckInventory("Health");
+			hasticked = false;
+		}
+		else
+		{
+			OldHealth = CheckInventory("Health");
+			delay(1);
+		}
 	}
-	
-	if(hasticked)
-	{
-		delay(1);
-		PrintDamage(OldHealth - CheckInventory("Health"));
-		OldHealth = CheckInventory("Health");
-		hasticked = false;
-	}
-	else
-	{
-		OldHealth = CheckInventory("Health");
-		delay(1);
-	}
-	
-	restart;
 }
