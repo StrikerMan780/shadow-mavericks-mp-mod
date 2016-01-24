@@ -141,6 +141,7 @@ actor FragGrenadeX
 	+BOUNCEONACTORS
 	+CANBOUNCEWATER
 	-NOGRAVITY
+	-NOTELEPORT
 	Args 105
 	States
 	{
