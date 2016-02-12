@@ -555,7 +555,7 @@ actor FountainParticleTrail : BaseEffect
 {
 	RenderStyle Add
 	Alpha 0.48
-	Scale 2.0
+	Scale 0.025
 	-NOGRAVITY
 	-NOINTERACTION
 	+CORPSE
@@ -579,7 +579,7 @@ actor FountainParticle
 	RenderStyle Add
 	Alpha 0.48
 	Gravity 0.25
-	Scale 2.0
+	Scale 0.025
 	+CLIENTSIDEONLY
 	+ALLOWCLIENTSPAWN
 	+FORCEXYBILLBOARD

@@ -1189,32 +1189,6 @@ Model Cyclone
 	FrameIndex CYFL L 0 11
 }
 
-/*
-Model Cyclone
-{
-	Path "Models\HUD\Cyclone"
-	Model 0 "Cyclone_FireDone.md3"
-	Scale 5.0 3.5 5.0
-	Offset -10 0 0
-	
-	FrameIndex CYCD A 0 0
-	FrameIndex CYCD B 0 1
-	FrameIndex CYCD C 0 2
-	FrameIndex CYCD D 0 3
-	FrameIndex CYCD E 0 4
-	FrameIndex CYCD F 0 5
-	FrameIndex CYCD G 0 6
-	FrameIndex CYCD H 0 7
-	FrameIndex CYCD I 0 8
-	FrameIndex CYCD J 0 9
-	FrameIndex CYCD K 0 10
-	FrameIndex CYCD L 0 11
-	FrameIndex CYCD M 0 12
-	FrameIndex CYCD N 0 13
-	FrameIndex CYCD O 0 14
-	FrameIndex CYCD P 0 15
-}
-*/
 Model Cyclone
 {
 	Path "Models\HUD\Cyclone"
@@ -1290,4 +1264,228 @@ Model Cyclone
 	FrameIndex CYR3 L 0 63
 	FrameIndex CYR3 M 0 64
 	FrameIndex CYR3 N 0 65
+}
+
+Model FireSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "FireSuperShotgun.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SHT4 A 0 0
+	FrameIndex SHT4 B 0 1
+	FrameIndex SHT4 C 0 4
+	FrameIndex SHT4 D 0 6
+	FrameIndex SHT4 E 0 8
+	FrameIndex SHT4 F 0 12
+	FrameIndex SHT4 G 0 14
+	FrameIndex SHT4 H 0 16
+	FrameIndex SHT4 I 0 18
+	FrameIndex SHT4 J 0 20
+	FrameIndex SHT4 K 0 22
+}
+
+Model FireSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "FireSuperShotgun_Reload.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH4R A 0 5
+	FrameIndex SH4R B 0 10
+	FrameIndex SH4R C 0 15
+	FrameIndex SH4R D 0 20
+	FrameIndex SH4R E 0 25
+	FrameIndex SH4R F 0 30
+	FrameIndex SH4R G 0 35
+	FrameIndex SH4R H 0 40
+	FrameIndex SH4R I 0 45
+	FrameIndex SH4R J 0 50
+	FrameIndex SH4R K 0 55
+	FrameIndex SH4R L 0 60
+	FrameIndex SH4R M 0 65
+	FrameIndex SH4R N 0 70
+	FrameIndex SH4R O 0 75
+	FrameIndex SH4R P 0 80
+	FrameIndex SH4R Q 0 85
+	FrameIndex SH4R R 0 90
+	FrameIndex SH4R S 0 95
+	FrameIndex SH4R T 0 100
+	FrameIndex SH4R U 0 105
+	FrameIndex SH4R V 0 110
+	FrameIndex SH4R W 0 115
+	FrameIndex SH4R X 0 120
+	FrameIndex SH4R Y 0 125
+	FrameIndex SH4R Z 0 130
+	FrameIndex SH42 A 0 135
+	FrameIndex SH42 B 0 140
+	FrameIndex SH42 C 0 145
+	FrameIndex SH42 D 0 150
+}
+
+Model FireSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "SuperShotgunFlash.md3"
+	Skin 0 "fireflash.png"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH4F A 0 0
+	FrameIndex SH4F B 0 1
+}
+
+Model IceSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "IceSuperShotgun.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SHT4 A 0 0
+	FrameIndex SHT4 B 0 1
+	FrameIndex SHT4 C 0 4
+	FrameIndex SHT4 D 0 6
+	FrameIndex SHT4 E 0 8
+	FrameIndex SHT4 F 0 12
+	FrameIndex SHT4 G 0 14
+	FrameIndex SHT4 H 0 16
+	FrameIndex SHT4 I 0 18
+	FrameIndex SHT4 J 0 20
+	FrameIndex SHT4 K 0 22
+}
+
+Model IceSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "IceSuperShotgun_Reload.md3"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH4R A 0 5
+	FrameIndex SH4R B 0 10
+	FrameIndex SH4R C 0 15
+	FrameIndex SH4R D 0 20
+	FrameIndex SH4R E 0 25
+	FrameIndex SH4R F 0 30
+	FrameIndex SH4R G 0 35
+	FrameIndex SH4R H 0 40
+	FrameIndex SH4R I 0 45
+	FrameIndex SH4R J 0 50
+	FrameIndex SH4R K 0 55
+	FrameIndex SH4R L 0 60
+	FrameIndex SH4R M 0 65
+	FrameIndex SH4R N 0 70
+	FrameIndex SH4R O 0 75
+	FrameIndex SH4R P 0 80
+	FrameIndex SH4R Q 0 85
+	FrameIndex SH4R R 0 90
+	FrameIndex SH4R S 0 95
+	FrameIndex SH4R T 0 100
+	FrameIndex SH4R U 0 105
+	FrameIndex SH4R V 0 110
+	FrameIndex SH4R W 0 115
+	FrameIndex SH4R X 0 120
+	FrameIndex SH4R Y 0 125
+	FrameIndex SH4R Z 0 130
+	FrameIndex SH42 A 0 135
+	FrameIndex SH42 B 0 140
+	FrameIndex SH42 C 0 145
+	FrameIndex SH42 D 0 150
+}
+
+Model IceSSG
+{
+	Path "Models\HUD\SSG"
+	Model 0 "SuperShotgunFlash.md3"
+	Skin 0 "iceflash.png"
+	Scale 5.0 4.0 5.0
+	ZOffset -2
+
+	FrameIndex SH4F A 0 0
+	FrameIndex SH4F B 0 1
+}
+
+Model Needler
+{
+	Path "Models\HUD\Needler"
+	Model 0 "Needler.md3"
+	Scale 5.0 4.0 5.0
+	
+	FrameIndex NDL1 A 0 0
+	FrameIndex NDL1 B 0 1
+	FrameIndex NDL1 C 0 2
+	FrameIndex NDL1 D 0 3
+	FrameIndex NDL1 E 0 4
+	FrameIndex NDL1 F 0 5
+	FrameIndex NDL1 G 0 6
+	FrameIndex NDL1 H 0 7
+	FrameIndex NDL1 I 0 8
+	FrameIndex NDL1 J 0 9
+	FrameIndex NDL1 K 0 10
+	FrameIndex NDL1 L 0 11
+	FrameIndex NDL1 M 0 12
+	FrameIndex NDL1 N 0 13
+	FrameIndex NDL1 O 0 14
+	FrameIndex NDL1 P 0 15
+	FrameIndex NDL1 Q 0 16
+	FrameIndex NDL1 R 0 17
+	FrameIndex NDL1 S 0 18
+	FrameIndex NDL1 T 0 19
+	FrameIndex NDL1 U 0 20
+	FrameIndex NDL1 V 0 21
+	FrameIndex NDL1 W 0 22
+	FrameIndex NDL1 X 0 23
+	FrameIndex NDL1 Y 0 24
+	FrameIndex NDL1 Z 0 25
+	
+	FrameIndex NDL2 A 0 26
+	FrameIndex NDL2 B 0 27
+	FrameIndex NDL2 C 0 28
+	FrameIndex NDL2 D 0 29
+	FrameIndex NDL2 E 0 30
+	FrameIndex NDL2 F 0 31
+	FrameIndex NDL2 G 0 32
+	FrameIndex NDL2 H 0 33
+	FrameIndex NDL2 I 0 34
+	FrameIndex NDL2 J 0 35
+	FrameIndex NDL2 K 0 36
+	FrameIndex NDL2 L 0 37
+	FrameIndex NDL2 M 0 38
+	FrameIndex NDL2 N 0 39
+	FrameIndex NDL2 O 0 40
+	FrameIndex NDL2 P 0 41
+	FrameIndex NDL2 Q 0 42
+	FrameIndex NDL2 R 0 43
+	FrameIndex NDL2 S 0 44
+	FrameIndex NDL2 T 0 45
+	FrameIndex NDL2 U 0 46
+	FrameIndex NDL2 V 0 47
+	FrameIndex NDL2 W 0 48
+	FrameIndex NDL2 X 0 49
+	FrameIndex NDL2 Y 0 50
+	FrameIndex NDL2 Z 0 51
+	
+	FrameIndex NDL3 A 0 52
+	FrameIndex NDL3 B 0 53
+	FrameIndex NDL3 C 0 54
+	FrameIndex NDL3 D 0 55
+	FrameIndex NDL3 E 0 56
+	FrameIndex NDL3 F 0 57
+	FrameIndex NDL3 G 0 58
+	FrameIndex NDL3 H 0 59
+	FrameIndex NDL3 I 0 60
+	FrameIndex NDL3 J 0 61
+}
+
+Model Needler
+{
+	Path "Models\HUD\Needler"
+	Model 0 "NeedlerFlash.md3"
+	Skin 0 "NeedlerFlash.png"
+	Scale 5.0 4.0 5.0
+
+	FrameIndex NDLF A 0 0
 }

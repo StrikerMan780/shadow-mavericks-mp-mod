@@ -16,7 +16,6 @@ StrikerMan780
 * Make use of SCARE1 Graphic on broken music players for Giygas Event
 * Finish Espio's Room
 * Finish Heretic's Room
-* Needs more stuff to do... must come up with some sort of idea.
 * Finish the Giygas Event
 * Add a kill switch to leeroy zombie event
 * Replace ruin's truck image
@@ -26,12 +25,11 @@ StrikerMan780
 * Get texture for the split door in center of HQ Entryway
 
 -=ACS/DECORATE CODE=-
-Make Tails Recover his Vile's Bane after 50 monster kills.
+Get rid of Vile's Bane mechanic
 Make fading inventory items for monster drops.
 Add fire death for tourettes zombies, and make them capable of throwing molotovs.
 Re-do ethereal energy deaths
 Use the SST TC's Bio Bow as the Biorifle for Duke
-Add BFG10k from Quake 3 Arena *LATER*
 * Replace old Nuke Launcher with a planted bomb
 * Give Tails the hand Fusion Bomb
 * Slow down revenant missiles

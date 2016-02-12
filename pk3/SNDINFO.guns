@@ -36,6 +36,8 @@ MP40BoltBack dsmp40bb
 MP40BoltSlap dsmp40bs
 $volume MP40BoltSlap 0.5
 
+AcidSprayer dsacidsp
+
 weapons/shotgf			dsshotgn
 weapons/shotgr			dssgcock
 weapons/sshotf			dsdshtgn

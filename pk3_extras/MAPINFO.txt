@@ -72,7 +72,7 @@ map MPDM01 "In The Bushes"
 	allowcrouch
 }
 
-map MPDM02 "Spaceship Cargo Platform - StrikerMan780"
+map MPDM02 "Spaceship Cargo Platform - Striker"
 {
 	next = MPDM03
 	music = D_FORTUN
@@ -82,7 +82,7 @@ map MPDM02 "Spaceship Cargo Platform - StrikerMan780"
 	forcenoskystretch
 }
 
-map MPDM03 "Altar Of Death - StrikerMan780"
+map MPDM03 "Altar Of Death - Striker"
 {
 	next = MPDM04
 	lightning
@@ -90,7 +90,7 @@ map MPDM03 "Altar Of Death - StrikerMan780"
 	sky1 = BKSKY1, 0.1
 }
 
-map MPDM04 "Forsaken Graveyard - Alucard"
+map MPDM04 "Forsaken Graveyard - Kunai"
 {
 	music = D_WDS
 	sky1 = SKY1, 0.0
@@ -99,7 +99,7 @@ map MPDM04 "Forsaken Graveyard - Alucard"
 	clipmidtextures
 }
 
-map MPDM05 "Digital Deathmatch - Ruin and Kunai"
+map MPDM05 "Digital Deathmatch - Ruin & Kunai"
 {
 	sky1 = DONNITE, 0.0
 	music = D_UNOWEN
@@ -108,7 +108,7 @@ map MPDM05 "Digital Deathmatch - Ruin and Kunai"
 	par = 300
 }
 
-map MPDM06 "Tainted Blood - Ruin and StrikerMan780"
+map MPDM06 "Tainted Blood - Ruin & Striker"
 {
 	sky1 = BKSKY1, 0.1
 	lightning
@@ -118,14 +118,14 @@ map MPDM06 "Tainted Blood - Ruin and StrikerMan780"
 	next = MPDM07
 }
 
-map MPDM07 "Ravage - StrikerMan780"
+map MPDM07 "Ravage - Striker"
 {
 	music = d_l24d
 	sky1 = DONNITE, 0
 	next = MPDM08
 }
 
-map MPDM08 "CityScape - StrikerMan780"
+map MPDM08 "CityScape - Striker & Kunai"
 {
 	sky1 = CITYSKY, 0.0
 	music = D_HISPEE
@@ -135,7 +135,7 @@ map MPDM08 "CityScape - StrikerMan780"
 	next = MPDM09
 }
 
-map MPDM09 "Cruelty Tech - StrikerMan780 And Kunai"
+map MPDM09 "Cruelty Tech - Striker & Kunai"
 {
 	sky1 = STSKY1, 0.0
 	music = D_ABANDN
@@ -144,11 +144,11 @@ map MPDM09 "Cruelty Tech - StrikerMan780 And Kunai"
 	par = 300
 }
 
-map MPDM10 "House Blueprint - StrikerMan780"
+map MPDM10 "House Blueprint - Striker"
 {
 	sky1 = DONNITE, 0.0
 	music = D_DRENAL
-	next = MPDM01
+	next = MPDM11
 	clipmidtextures
 	par = 300
 }
@@ -157,6 +157,15 @@ map MPDM11 "Castle of Darkness - Dark Pit"
 {
 	sky1 = DONNITE, 0.0
 	music = D_DRENAL
+	next = MPDM12
+	clipmidtextures
+	par = 300
+}
+
+map MPDM12 "Minecraft DM - Striker"
+{
+	sky1 = BSKY1, 0.0
+	music = D_SIDDUB
 	next = MPDM01
 	clipmidtextures
 	par = 300

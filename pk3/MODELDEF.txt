@@ -235,6 +235,7 @@ Model SpaceCraftInFlight
 	Model 0 "hellbender.md3"
 	Skin 0 "hellbender.png"
 	Scale 8.0 8.0 8.0
+	INHERITACTORPITCH
 	ZOffset 20
 
 	FrameIndex SHI2 A 0 0
@@ -2214,148 +2215,6 @@ model Flare
 	FrameIndex YEMB A 0 0
 }
 
-Model ElementalSSG
-{
-	Path "Models\HUD\SSG"
-	Model 0 "FireSuperShotgun.md3"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SHT4 A 0 0
-	FrameIndex SHT4 B 0 1
-	FrameIndex SHT4 C 0 4
-	FrameIndex SHT4 D 0 6
-	FrameIndex SHT4 E 0 8
-	FrameIndex SHT4 F 0 12
-	FrameIndex SHT4 G 0 14
-	FrameIndex SHT4 H 0 16
-	FrameIndex SHT4 I 0 18
-	FrameIndex SHT4 J 0 20
-	FrameIndex SHT4 K 0 22
-}
-
-Model ElementalSSG
-{
-	Path "Models\HUD\SSG"
-	Model 0 "FireSuperShotgun_Reload.md3"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SH4R A 0 5
-	FrameIndex SH4R B 0 10
-	FrameIndex SH4R C 0 15
-	FrameIndex SH4R D 0 20
-	FrameIndex SH4R E 0 25
-	FrameIndex SH4R F 0 30
-	FrameIndex SH4R G 0 35
-	FrameIndex SH4R H 0 40
-	FrameIndex SH4R I 0 45
-	FrameIndex SH4R J 0 50
-	FrameIndex SH4R K 0 55
-	FrameIndex SH4R L 0 60
-	FrameIndex SH4R M 0 65
-	FrameIndex SH4R N 0 70
-	FrameIndex SH4R O 0 75
-	FrameIndex SH4R P 0 80
-	FrameIndex SH4R Q 0 85
-	FrameIndex SH4R R 0 90
-	FrameIndex SH4R S 0 95
-	FrameIndex SH4R T 0 100
-	FrameIndex SH4R U 0 105
-	FrameIndex SH4R V 0 110
-	FrameIndex SH4R W 0 115
-	FrameIndex SH4R X 0 120
-	FrameIndex SH4R Y 0 125
-	FrameIndex SH4R Z 0 130
-	FrameIndex SH42 A 0 135
-	FrameIndex SH42 B 0 140
-	FrameIndex SH42 C 0 145
-	FrameIndex SH42 D 0 150
-}
-
-Model ElementalSSG
-{
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgunFlash.md3"
-	Skin 0 "fireflash.png"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SH4F A 0 0
-	FrameIndex SH4F B 0 1
-}
-
-Model ElementalSSG
-{
-	Path "Models\HUD\SSG"
-	Model 0 "IceSuperShotgun.md3"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SHT5 A 0 0
-	FrameIndex SHT5 B 0 1
-	FrameIndex SHT5 C 0 4
-	FrameIndex SHT5 D 0 6
-	FrameIndex SHT5 E 0 8
-	FrameIndex SHT5 F 0 12
-	FrameIndex SHT5 G 0 14
-	FrameIndex SHT5 H 0 16
-	FrameIndex SHT5 I 0 18
-	FrameIndex SHT5 J 0 20
-	FrameIndex SHT5 K 0 22
-}
-
-Model ElementalSSG
-{
-	Path "Models\HUD\SSG"
-	Model 0 "IceSuperShotgun_Reload.md3"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SH5R A 0 5
-	FrameIndex SH5R B 0 10
-	FrameIndex SH5R C 0 15
-	FrameIndex SH5R D 0 20
-	FrameIndex SH5R E 0 25
-	FrameIndex SH5R F 0 30
-	FrameIndex SH5R G 0 35
-	FrameIndex SH5R H 0 40
-	FrameIndex SH5R I 0 45
-	FrameIndex SH5R J 0 50
-	FrameIndex SH5R K 0 55
-	FrameIndex SH5R L 0 60
-	FrameIndex SH5R M 0 65
-	FrameIndex SH5R N 0 70
-	FrameIndex SH5R O 0 75
-	FrameIndex SH5R P 0 80
-	FrameIndex SH5R Q 0 85
-	FrameIndex SH5R R 0 90
-	FrameIndex SH5R S 0 95
-	FrameIndex SH5R T 0 100
-	FrameIndex SH5R U 0 105
-	FrameIndex SH5R V 0 110
-	FrameIndex SH5R W 0 115
-	FrameIndex SH5R X 0 120
-	FrameIndex SH5R Y 0 125
-	FrameIndex SH5R Z 0 130
-	FrameIndex SH52 A 0 135
-	FrameIndex SH52 B 0 140
-	FrameIndex SH52 C 0 145
-	FrameIndex SH52 D 0 150
-}
-
-Model ElementalSSG
-{
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgunFlash.md3"
-	Skin 0 "iceflash.png"
-	Scale 5.0 4.0 5.0
-	ZOffset -2
-
-	FrameIndex SH5F A 0 0
-	FrameIndex SH5F B 0 1
-}
-
 model Minigun
 {
 	Path "Models\HUD\minigun"
@@ -4301,4 +4160,19 @@ model FragShard_Fast
 	PITCHFROMMOMENTUM
 
 	FrameIndex PUFF A 0 0
+}
+
+model NeedlerCrystal
+{
+	Path "Models/projectiles"
+	Model 0 "CrystalProjectile.md3"
+	Skin 0 "NeedlerCrystal.png"
+	Scale 2.0 2.0 2.4
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 1 0 0
+
+	FrameIndex GLSS A 0 0
 }

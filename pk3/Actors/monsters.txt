@@ -1261,36 +1261,13 @@ actor TF2HeavyChaingunGuy : GBTWChaingunGuy
 
 actor SM_SpiderMasterMind : SpiderMasterMind Replaces SpiderMasterMind
 {
-	Dropitem "Minigun", 200
-	DropItem "MolotovCocktail_Dropped", 128
-	DropItem "Needler", 96
-	DropItem "FartBombs", 96
-	DropItem "ElementalSSG", 164
-	Dropitem "P90", 164
-	DropItem "SniperRifle", 96
-	DropItem "FreezeBolt", 76
-	DropItem "454Casull", 32
+	Dropitem "Minigun"
 }
 
 actor SM_CyberDemon : CyberDemon Replaces CyberDemon
 {
-	DropItem "FartBombs", 196
-	DropItem "MolotovCocktail_Dropped", 200
-	DropItem "ProtonTorpedoLauncher", 120
-	DropItem "ProtonGrenadeLauncher", 120
-	DropItem "Excalibat", 10
-	Dropitem "Noisy_Cricket", 26
-	Dropitem "FlameThrowerWeap", 46
-	DropItem "Lightsaber", 32
-	DropItem "IpodLauncher", 64
-	DropItem "GrapplerShot", 100
-	DropItem "WeatherMaker", 100
-	DropItem "GasPickup", 100
-	DropItem "Needler", 10
-	DropItem "ElementalSSG", 1
-	DropItem "CricketAmmo", 28 2
-	DropItem "454Casull", 32
-	Dropitem "Nukelauncher", 16
+	DropItem "TorpedoLauncherGiver_Dropped"
+	DropItem "GrenadeLauncherGiver_Dropped"
 	DamageFactor "Electric", 1.25
 	DamageFactor "Silver", 2.0
 	DamageFactor "Fire", 0.5

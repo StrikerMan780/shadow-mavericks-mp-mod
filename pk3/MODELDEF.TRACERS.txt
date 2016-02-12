@@ -191,3 +191,30 @@ model FlakTrail
 
 	FrameIndex FLRA A 0 0
 }
+
+model AcidTracer
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "AcidSpray.png"
+	Scale 8.0 16.0 16.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex PUFF A 0 0
+}
+
+model NeedlerTrail
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "NeedlerTrail.png"
+	Scale 10.0 8.0 8.0
+	Offset -80.0 0.0 0.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex BLUE A 0 0
+}
