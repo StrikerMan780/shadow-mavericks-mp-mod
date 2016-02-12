@@ -556,7 +556,7 @@ ACTOR DukeClip : Ammo
 	+IGNORESKILL
 }
 
-actor DukePistol
+actor DukePistol : Weapon
 {
 	Tag "Hi-Point C9"
 	Weapon.BobSpeed 1.5
