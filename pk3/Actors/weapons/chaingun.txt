@@ -6,7 +6,7 @@ actor ChaingunGiver : ClassWeaponGiver Replaces Chaingun
 			MGUN A -1
 			loop
 		Pickup:
-			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 32, 0) == TRUE, "Stay")
+			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 0) == TRUE, "Stay")
 			goto Remove
 		Dropped:
 			MGUN A 0 A_SpawnItemEx("ChaingunGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
@@ -22,7 +22,7 @@ actor ChaingunGiver_Dropped : ChaingunGiver
 			MGUN A 63000
 			goto FadeAway
 		Pickup:
-			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 16, 1) == TRUE, "Stay")
+			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 1) == TRUE, "Stay")
 			goto Remove
 	}
 }

@@ -101,6 +101,7 @@ ACTOR BioBurstDrop
 
 ACTOR BioBall
 {
+	Decal "BioRifle"
 	Radius 8
 	Height 1
 	Health 1
@@ -187,7 +188,7 @@ actor Enemy_BioBall : BioBall
 
 ACTOR GiantBioBall
 {
-	Decal BioRifle
+	Decal "BioRifle"
 	Radius 8
 	Height 1
 	Damage (50)

@@ -18,13 +18,14 @@ actor Silenced : BaseCheck
 {
 }
 
-actor NewPistol : ClericWeapon Replaces Pistol
+actor NewPistol : Weapon Replaces Pistol
 {
 	Tag "Walther P99"
 	Decal BulletChip
 	obituary "%o was pistol-raped by %k."
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "Picked up a P99!"
+	Inventory.RestrictedTo "Marine"
 	Weapon.AmmoType1 "PistolClip"
 	Weapon.AmmoType2 "MechAmmo"
 	Weapon.AmmoGive1 0
@@ -555,7 +556,7 @@ ACTOR DukeClip : Ammo
 	+IGNORESKILL
 }
 
-actor DukePistol : FighterWeapon
+actor DukePistol
 {
 	Tag "Hi-Point C9"
 	Weapon.BobSpeed 1.5

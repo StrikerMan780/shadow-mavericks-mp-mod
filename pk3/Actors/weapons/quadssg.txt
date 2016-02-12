@@ -1,4 +1,4 @@
-actor QuadShotgun : ClericWeapon 12843
+actor QuadShotgun : Weapon 12843
 {
 	Tag "Quad-Barreled Shotgun"
 	Weapon.BobSpeed 1.5
@@ -11,6 +11,7 @@ actor QuadShotgun : ClericWeapon 12843
 	height 16
 	attacksound "Quadshotgun"
 	inventory.pickupmessage "You got the quad-barreled shotgun!"
+	Inventory.RestrictedTo "Marine"
 	weapon.selectionorder 300
 	weapon.kickback 300
 	Weapon.AmmoType "SpreadAmmo"

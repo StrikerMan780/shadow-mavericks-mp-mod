@@ -1,4 +1,4 @@
-ACTOR Railgun : ClericWeapon 5012
+ACTOR Railgun : Weapon 5012
 {
 	Tag "Railgun"
 	Weapon.BobSpeed 1.25
@@ -16,6 +16,7 @@ ACTOR Railgun : ClericWeapon 5012
 	Weapon.AmmoType2 "CellAmmo"
 	Attacksound "NewRailgunFire"
 	Inventory.PickupMessage "You got the Railgun!"
+	Inventory.RestrictedTo "Marine"
 	Obituary "%o was surgically removed by %k's rail."
 	States
 	{

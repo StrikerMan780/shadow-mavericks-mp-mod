@@ -1,4 +1,4 @@
-ACTOR HellFireCannon : FighterWeapon 21002
+ACTOR HellFireCannon : Weapon 21002
 {
 	Tag "Hellfire Missile Launcher"
 	Weapon.BobSpeed 1.25
@@ -150,7 +150,7 @@ actor HellFireRocketHi
 	radius 11
 	height 8
 	speed 25
-	damage (25)
+	damage (20)
 	Scale 0.32
 	seesound "hellfiremissileignition"
 	deathsound "TechPlasmaSuperBoom"

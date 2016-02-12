@@ -1,6 +1,7 @@
-actor Thanatos : ClericWeapon 24304
+actor Thanatos : Weapon 24304
 {
 	Inventory.PickupMessage "Discovered the unholy GrimReaper XI!"
+	Inventory.RestrictedTo "Marine"
 	weapon.selectionorder 9999
 	weapon.kickback 100
 	Weapon.AmmoType1 "DemonicPower"

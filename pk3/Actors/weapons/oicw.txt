@@ -11,7 +11,7 @@ actor OICW_Grenade_Mode : BaseCheck
 {
 }
 
-actor SmartRifle : ClericWeapon 23501
+actor SmartRifle : Weapon 23501
 {
 	Tag "Objective Individual Combat Weapon"
 	Weapon.BobSpeed 1.5
@@ -22,6 +22,7 @@ actor SmartRifle : ClericWeapon 23501
 	obituary "%o was overpowered by %k's OICW."
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "Found an OICW!"
+	Inventory.RestrictedTo "Marine"
 	weapon.selectionorder 120
 	weapon.kickback 100
 	Weapon.AmmoType1 "OICWClip"

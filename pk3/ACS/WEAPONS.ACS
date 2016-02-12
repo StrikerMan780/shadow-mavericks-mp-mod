@@ -1,99 +1,203 @@
 #library "WEAPONS"
 #include "zcommon.acs"
 
-#define NumWeapons 9
-#define NumClasses 4
-
 #define SLOT_ACTOR 0
 #define SLOT_NAME 1
-#define SLOT_AMMO 2
-#define SLOT_CLIP 3
+#define SLOT_AMMO1 2
+#define SLOT_AMMO1COUNT 3
+#define SLOT_AMMO2 4
+#define SLOT_AMMO2COUNT 5
+#define SLOT_CLIP 6
 
-str class_weapons[NumWeapons][NumClasses][4] = 
+int client_class = 0;
+
+#define NumClasses 4
+str class_states[NumClasses] =
+{
+	"Marine",
+	"Tails",
+	"Link",
+	"Duke"
+};
+
+str ammo_types[8][2] = {
+{ "None",			"No Ammo" },		// 0
+{ "MechAmmo",		"Mech Ammo" }, 		// 1
+{ "SpreadAmmo",		"Spread Ammo" },	// 2
+{ "ProtonAmmo",		"Proton Ammo" },	// 3
+{ "CellAmmo",		"Cell Ammo" },		// 4
+{ "HellFireAmmo",	"Hellfire Ammo" },	// 5
+{ "GasolineAmmo",	"Gasoline" },		// 6
+{ "CricketAmmo",	"Fusion Ammo" }		// 7
+};
+
+#define NumWeapons 10
+str class_weapons[NumWeapons][NumClasses][7] = 
 {
 	{ // Shotgun - 0
-		{ "NewShotgun",			"Remington 870 Magnum",				"SpreadAmmo", "None" },
-		{ "PIPS",				"Plasma Injection Pulse Shotgun", 	"SpreadAmmo", "PIPSClip" },
-		{ "NewShotgun",			"Placeholder Shotgun", 				"SpreadAmmo", "None" },
-		{ "DukeShotgun",		"Custom Winchester 1300 Defender",	"SpreadAmmo", "None" },
+		{ "NewShotgun",			"Remington 870 Magnum",				"2", "8",	"0", "0",	"None" },
+		{ "PIPS",				"Plasma Injection Pulse Shotgun", 	"2", "8",	"0", "0",	"PIPSClip" },
+		{ "NewShotgun",			"Placeholder Shotgun", 				"2", "8",	"0", "0",	"None" },
+		{ "DukeShotgun",		"Custom Winchester 1300 Defender",	"2", "8",	"0", "0",	"None" },
 	},
 	{ // SSG - 1
-		{ "SM_SuperShotgun",	"Super Shotgun",					"SpreadAmmo", "None" },
-		{ "Keyring",			"Keyring", 							"SpreadAmmo", "None" },
-		{ "DinsFire",			"Din's Fire", 						"SpreadAmmo", "None" },
-		{ "SPAS-12",			"SPAS-12",							"SpreadAmmo", "None" },
+		{ "SM_SuperShotgun",	"Super Shotgun",					"2", "16",	"0", "0",	"None" },
+		{ "Keyring",			"Keyring", 							"2", "16",	"0", "0",	"None" },
+		{ "DinsFire",			"Din's Fire", 						"2", "16",	"0", "0",	"None" },
+		{ "SPAS-12",			"SPAS-12",							"2", "16",	"0", "0",	"None" },
 	},
 	{ // Chaingun - 2
-		{ "SM_Chaingun",		"T23-A Explosive Minigun",			"MechAmmo", "None" },
-		{ "BCF-2Repeaters",		"BCF-2 Repeaters", 					"MechAmmo", "None" },
-		{ "SM_Chaingun",		"Placeholder Chaingun", 			"MechAmmo", "None" },
-		{ "RipperChaingun",		"EDF ''Ripper'' Chaingun",			"MechAmmo", "None" },
+		{ "SM_Chaingun",		"T23-A Explosive Minigun",			"1", "32",	"0", "0",	"None" },
+		{ "BCF-2Repeaters",		"BCF-2 Repeaters", 					"1", "32",	"0", "0",	"None" },
+		{ "SM_Chaingun",		"Placeholder Chaingun", 			"1", "32",	"0", "0",	"None" },
+		{ "RipperChaingun",		"EDF ''Ripper'' Chaingun",			"1", "32",	"0", "0",	"None" },
 	},
 	{ // MP40 - 3
-		{ "MP40",				"Maschinenpistole 40",				"MechAmmo", "MP40Clip" },
-		{ "MP40",				"Maschinenpistole 40", 				"MechAmmo", "MP40Clip" },
-		{ "MP40",				"Placeholder MP40", 				"MechAmmo", "MP40Clip" },
-		{ "M1911",				"Colt M1911",						"MechAmmo", "Duke64Clip" },
+		{ "MP40",				"Maschinenpistole 40",				"1", "30",	"0", "0",	"MP40Clip" },
+		{ "MP40",				"Maschinenpistole 40", 				"1", "30",	"0", "0",	"MP40Clip" },
+		{ "MP40",				"Placeholder MP40", 				"1", "30",	"0", "0",	"MP40Clip" },
+		{ "M1911",				"Colt M1911",						"1", "30",	"0", "0",	"Duke64Clip" },
 	},
 	{ // Grenade Launcher - 4
-		{ "ProtonGL",			"FG-32 ''Vortex'' Launcher",		"ProtonAmmo", "None" },
-		{ "StickyBombs",		"Sticky Bombs", 					"ProtonAmmo", "None" },
-		{ "ProtonGL",			"Placeholder Grenade Launcher", 	"ProtonAmmo", "None" },
-		{ "DukeGL",				"M32 Grenade Launcher",				"ProtonAmmo", "None" },
+		{ "ProtonGL",			"FG-32 ''Vortex'' Launcher",		"3", "2",	"0", "0",	"None" },
+		{ "StickyBombs",		"Sticky Bombs", 					"3", "2",	"0", "0",	"None" },
+		{ "ProtonGL",			"Placeholder Grenade Launcher", 	"3", "2",	"0", "0",	"None" },
+		{ "DukeGL",				"M32 Grenade Launcher",				"3", "2",	"0", "0",	"None" },
 	},
 	{ // Torpedo Launcher - 5
-		{ "ProtonTL",			"A55-H013 ''Inferno'' Launcher",	"ProtonAmmo", "None" },
-		{ "ProtonTL",			"Placeholder Torpedo Launcher", 	"ProtonAmmo", "None" },
-		{ "IceRod",				"Ice Rod", 							"ProtonAmmo", "None" },
-		{ "DukeRPG",			"RPG",								"ProtonAmmo", "None" },
+		{ "ProtonTL",			"A55-H013 ''Inferno'' Launcher",	"3", "2",	"0", "0",	"None" },
+		{ "ProtonTL",			"Placeholder Torpedo Launcher", 	"3", "2",	"0", "0",	"None" },
+		{ "IceRod",				"Ice Rod", 							"3", "2",	"0", "0",	"None" },
+		{ "DukeRPG",			"RPG",								"3", "2",	"0", "0",	"None" },
 	},
 	{ // Plasma Rifle - 6
-		{ "PlasmaCannon",		"PL-8 ''Sunfire'' Rifle",			"CellAmmo", "None" },
-		{ "HaloPlasmaRifle",	"Type-25 Directed Energy Rifle", 	"CellAmmo", "None" },
-		{ "FireRod",			"Fire Rod", 						"CellAmmo", "None" },
-		{ "Freezethrower",		"Freezethrower",					"CellAmmo", "None" },
+		{ "PlasmaCannon",		"PL-8 ''Sunfire'' Rifle",			"4", "40",	"0", "0",	"None" },
+		{ "HaloPlasmaRifle",	"Type-25 Directed Energy Rifle", 	"4", "40",	"0", "0",	"None" },
+		{ "FireRod",			"Fire Rod", 						"4", "40",	"0", "0",	"None" },
+		{ "Freezethrower",		"Freezethrower",					"4", "40",	"0", "0",	"None" },
 	},
 	{ // Stinger - 7
-		{ "Stinger",			"Stinger Laser Cannon",				"CellAmmo", "None" },
-		{ "Cyclone",			"SNC-06 ''Cyclone'' Beam Pistol", 	"CellAmmo", "None" },
-		{ "Stinger",			"Placeholder Stinger", 				"CellAmmo", "None" },
-		{ "Expander",			"Microwave Expander",				"CellAmmo", "None" },
+		{ "Stinger",			"D-12 ''Stinger'' Laser",			"4", "20",	"0", "0",	"None" },
+		{ "Cyclone",			"SNC-06 ''Cyclone'' Beam Pistol", 	"4", "20",	"0", "0",	"CycloneClip" },
+		{ "Stinger",			"Placeholder Stinger", 				"4", "20",	"0", "0",	"None" },
+		{ "Expander",			"Microwave Expander",				"4", "20",	"0", "0",	"None" },
 	},
 	{ // BFG9000 - 8
-		{ "BFG_SMMP",			"BFG 9000",							"CellAmmo", "None" },
-		{ "Supra",				"Supra", 							"CellAmmo", "None" },
-		{ "BFG_SMMP",			"Placeholder BFG9000", 				"CellAmmo", "None" },
-		{ "EnergyCannon",		"Energy Cannon",					"CellAmmo", "None" },
+		{ "BFG_SMMP",			"BFG 9000",							"4", "40",	"0", "0",	"None" },
+		{ "Supra",				"Supra", 							"4", "40",	"0", "0",	"None" },
+		{ "BFG_SMMP",			"Placeholder BFG9000", 				"4", "40",	"0", "0",	"None" },
+		{ "EnergyCannon",		"Energy Cannon",					"4", "40",	"0", "0",	"None" },
+	},
+	{ // ElementalSSG - 9
+		{ "FireSSG",			"Elemental SSG (Fire)",				"2", "16",	"0", "0",	"None" },
+		{ "IceSSG",				"Elemental SSG (Ice)", 				"2", "16",	"0", "0",	"None" },
+		{ "LightningSSG",		"Elemental SSG (Lightning)", 		"2", "16",	"0", "0",	"None" },
+		{ "AcidSprayer",		"Acid Sprayer",						"2", "16",	"0", "0",	"None" },
 	}
 };
 
-function bool GrantWeapon(int type, int ammocount, int dropped, bool notpickup)
+function int pow (int x, int n)
+{
+	int y = 1;
+	while (n-- > 0) y *= x;
+	return y;
+}
+
+function int StrToInt (str s)
+{
+   str a = "";
+   int i, i2, n;
+   int l = StrLen(s);
+   for (i = 0; i < l; i++)
+   {
+      for (i2 = 0; i2 < 10; i2++)
+      {
+         a = StrParam(i:i2);
+         if (!StrCmp(StrParam(c:GetChar(s, i)), a))
+            n += i2 * pow(10, l - i - 1);
+      }
+   }
+   return n;
+}
+
+function bool GrantWeapon(int type, bool dropped, bool notpickup)
 {
 	int class = PlayerClass(PlayerNumber());
-	int currentammo = CheckInventory(class_weapons[type][class][SLOT_AMMO]);
-	int capacity = GetAmmoCapacity(class_weapons[type][class][SLOT_AMMO]);
 	
-	bool stay = false;
-	bool givegun = false;
 	bool weaponstay = GetCvar("sv_weaponstay");
 	bool hasweapon = (CheckInventory(class_weapons[type][class][SLOT_ACTOR]) > 0);
 	
-	if(StrIcmp(class_weapons[type][class][SLOT_ACTOR], "None") == 0)
+	bool stay = false;
+	bool givegun = false;
+	
+	bool weapondefined = (StrIcmp(class_weapons[type][class][SLOT_ACTOR], "None") != 0);
+	bool clipdefined = (StrIcmp(class_weapons[type][class][SLOT_CLIP], "None") != 0);
+	bool iscomponent = (StrIcmp(class_weapons[type][class][SLOT_CLIP], "Component") == 0);
+	
+	int ammo1type = StrToInt(class_weapons[type][class][SLOT_AMMO1]);
+	int ammo1count = StrToInt(class_weapons[type][class][SLOT_AMMO1COUNT]);
+	
+	int ammo2type = StrToInt(class_weapons[type][class][SLOT_AMMO2]);
+	int ammo2count = StrToInt(class_weapons[type][class][SLOT_AMMO2COUNT]);
+	
+	int ammofactor = 1;
+	
+	if(dropped) // Halve ammo if dropped.
 	{
-		stay = true;
+		ammo1count /= 2;
+		ammo2count /= 2;
 	}
-	else if( (weaponstay == true) && (dropped <= 0) )
+	
+	if((GameSkill() == 0) || (GameSkill() == 4) || GetCvar("sv_doubleammo"))
+	{
+		ammofactor = 2;
+	}
+	
+	if( (weaponstay) && (!dropped) ) // If weapon stay is on and isn't dropped.
 	{
 		stay = true;
 		
-		if(!hasweapon)
+		if(weapondefined && !hasweapon) // Check if the weapon is defined and not in player's possession.
 		{
 			givegun = true;
 		}
 	}
-	else
+	else // If the weapon is dropped or weapon stay is off
 	{
-		if(currentammo >= capacity)
+		bool ammo1full = false;
+		bool ammo2full = false;
+		
+		if(ammo1type > 0)
+		{
+			int currentammo1 = CheckInventory(ammo_types[ammo1type][SLOT_ACTOR]);
+			int capacity1 = GetAmmoCapacity(ammo_types[ammo1type][SLOT_ACTOR]);
+			
+			if(currentammo1 >= capacity1)
+			{
+				ammo1full = true;
+			}
+		}
+		else
+		{
+			ammo1full = true;
+		}
+		
+		if(ammo2type > 0)
+		{
+			int currentammo2 = CheckInventory(ammo_types[ammo2type][SLOT_ACTOR]);
+			int capacity2 = GetAmmoCapacity(ammo_types[ammo2type][SLOT_ACTOR]);
+			
+			if(currentammo2 >= capacity2)
+			{
+				ammo2full = true;
+			}
+		}
+		else
+		{
+			ammo2full = true;
+		}
+		
+		if(ammo1full && ammo2full)
 		{
 			givegun = false;
 			stay = true;
@@ -107,48 +211,104 @@ function bool GrantWeapon(int type, int ammocount, int dropped, bool notpickup)
 	
 	if(givegun)
 	{
-		if( (ammocount > 0) && (StrIcmp(class_weapons[type][class][SLOT_AMMO], "None") != 0) )
-		{
-			GiveInventory(class_weapons[type][class][SLOT_AMMO], ammocount);
-		}
+		SetHudSize(640, 400, 1);
 		
-		GiveInventory(class_weapons[type][class][SLOT_ACTOR], 1);
-		
-		if(!hasweapon)
+		if(weapondefined)
 		{
-			if(StrIcmp(class_weapons[type][class][SLOT_CLIP], "None") != 0)
-			{
-				GiveInventory(class_weapons[type][class][SLOT_CLIP], 999);
-			}
-		}
-		
-		if(!notpickup)
-		{
-			SetHudSize(640, 400, 1);
-			SetFont("BIGFONT");
-			
-			ActivatorSound("misc/w_pkup", 127);	
-			FadeRange (0, 255, 0, 0.25, 0, 255, 0, 0.0, 0.5);
+			GiveInventory(class_weapons[type][class][SLOT_ACTOR], 1);
 		
 			if(!hasweapon)
 			{
-				HudMessage(s:"New Weapon!";
-				HUDMSG_FADEOUT, 0, CR_CYAN, 320.0, 56.0, 2.5, 0.5);
-				
-				LocalAmbientSound("NewWeapon", 100);
+				if(StrIcmp(class_weapons[type][class][SLOT_CLIP], "None") != 0)
+				{
+					GiveInventory(class_weapons[type][class][SLOT_CLIP], 999);
+				}
 			}
 			
-			HudMessage(s:class_weapons[type][class][SLOT_NAME];
-			HUDMSG_FADEOUT, 100, CR_GREEN, 320.0, 72.0, 3.0, 0.5);
+			if(!notpickup)
+			{
+				SetFont("BIGFONT");
+			
+				ActivatorSound("misc/w_pkup", 127);	
+				FadeRange (0, 255, 0, 0.25, 0, 255, 0, 0.0, 0.5);
+		
+				if(!hasweapon && !iscomponent)
+				{
+					HudMessage(s:"New Weapon!";
+					HUDMSG_FADEOUT, 0, CR_CYAN, 320.0, 56.0, 2.5, 0.5);
+					
+					LocalAmbientSound("NewWeapon", 100);
+				}
+				else if(!hasweapon && iscomponent)
+				{
+					HudMessage(s:"New Component!";
+					HUDMSG_FADEOUT, 0, CR_CYAN, 320.0, 56.0, 2.5, 0.5);
+				}
+			
+				HudMessage(s:class_weapons[type][class][SLOT_NAME];
+				HUDMSG_FADEOUT, 100, CR_GREEN, 320.0, 72.0, 3.0, 0.5);
+			}
+		}
+		
+		SetFont("SMALLFONT");
+		if(ammo1type > 0)
+		{
+			GiveInventory(ammo_types[ammo1type][SLOT_ACTOR], ammo1count);
+			
+			if(ammo2type > 0)
+			{
+				HudMessage(s:"+", d:ammo1count*ammofactor, s:" ", s:ammo_types[ammo1type][SLOT_NAME], s:" & +", d:ammo2count*ammofactor, s:" ", s:ammo_types[ammo2type][SLOT_NAME];
+				HUDMSG_FADEOUT, 101, CR_GOLD, 320.0, 88.0, 3.0, 0.5);
+			}
+			else
+			{
+				HudMessage(s:"+", d:ammo1count*ammofactor, s:" ", s:ammo_types[ammo1type][SLOT_NAME];
+				HUDMSG_FADEOUT, 101, CR_GOLD, 320.0, 88.0, 3.0, 0.5);
+			}
+		}
+			
+		if(ammo2type > 0)
+		{
+			GiveInventory(ammo_types[ammo2type][SLOT_ACTOR], ammo2count);
 		}
 	}
 	
 	return stay;
 }
 
-script "GIVEWEAPON" (int type, int ammocount, int dropped)
+script "GIVEWEAPON" (int type, int dropped)
 {
-	SetResultValue(GrantWeapon(type, ammocount, dropped, false));
+	SetResultValue(GrantWeapon(type, dropped, false));
+}
+
+script "PICKUPSTATE" (void) CLIENTSIDE
+{
+	if(client_class > NumClasses)
+	{
+		terminate;
+	}
+	
+	SetActorState(0, class_states[client_class], false);
+	SetActorProperty(0, APROP_ScaleX, GetUserVariable(0, "user_scale")*0.01);
+	SetActorProperty(0, APROP_ScaleY, GetUserVariable(0, "user_scale")*0.01);
+}
+
+function void GetClass(void)
+{
+	if((ConsolePlayerNumber() == PlayerNumber()) && (ConsolePlayerNumber() != -1))
+	{
+		client_class = PlayerClass(PlayerNumber());
+	}
+}
+
+script "GETCLASS_ENTER" ENTER CLIENTSIDE
+{
+	GetClass();
+}
+
+script "GETCLASS_RESPAWN" RESPAWN CLIENTSIDE
+{
+	GetClass();
 }
 
 #define NumInventoryItems 5
@@ -207,7 +367,7 @@ script "MYSTERY_ITEM" (void)
 			weapon_picked = random(0, NumWeapons-1);	
 		}
 		
-		GrantWeapon(weapon_picked, random(0, 40), 0, true);
+		GrantWeapon(weapon_picked, 0, true);
 	}
 	else
 	{

@@ -1,10 +1,11 @@
-actor BloodyChainsaw : ClericWeapon Replaces Chainsaw
+actor BloodyChainsaw : Weapon Replaces Chainsaw
 {
 	spawnid 32
 	obituary "%o was torn to gory shreds by %k's chainsaw."
 	radius 20
 	height 16
 	inventory.pickupmessage "A chainsaw!	Find some meat!"
+	Inventory.RestrictedTo "Marine"
 	weapon.upsound "weapons/sawup"
 	weapon.selectionorder 2200
 	+WEAPON.MELEEWEAPON

@@ -1,4 +1,4 @@
-actor SniperRifle : ClericWeapon 19983
+actor SniperRifle : Weapon 19983
 {
 	decal BulletChip
 	obituary "%k put a Bullet in %o's Skull."
@@ -10,6 +10,7 @@ actor SniperRifle : ClericWeapon 19983
 	Weapon.AmmoType1 "MechAmmo"
 	Weapon.AmmoGive 20
 	Weapon.AmmoUse1 10
+	Inventory.RestrictedTo "Marine"
 	+NOEXTREMEDEATH
 	states
 	{

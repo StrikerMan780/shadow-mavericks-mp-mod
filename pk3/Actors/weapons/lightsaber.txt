@@ -1,6 +1,7 @@
-ACTOR LightSaber : ClericWeapon 25004
+ACTOR LightSaber : Weapon 25004
 {
-	Inventory.PickupMessage "You Found the weapon of the Jedi, the Lightsaber!."
+	Inventory.PickupMessage "You Found the weapon of the Jedi, the Lightsaber!"
+	Inventory.RestrictedTo "Marine"
 	Obituary "%k gave %o a little taste of the force."
 	weapon.upsound "saberup"
 	Weapon.AmmoUse 0

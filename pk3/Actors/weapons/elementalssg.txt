@@ -1,14 +1,53 @@
 //Ruin's first weapon attempt
 //coded by Ruin
 
-Actor ElementalSSG : Weapon 12346
+actor ElementalSSGGiver : ClassWeaponGiver 12346
+{	
+	states
+	{
+		Item:
+			SGN4 A 35
+			goto CheckStatus
+		Marine:
+			SGN4 A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Tails:
+			SGN5 A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Link:
+			SGN4 A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			ACDG A 35 A_SetUserVar("user_scale", 50)
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 9, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			"####" "#" 0 A_SpawnItemEx("ElementalSSGGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor ElementalSSGGiver_Dropped : ElementalSSGGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 9, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+Actor FireSSG : Weapon
 {
 	Tag "Elemental SSG (Fire)"
 	Weapon.BobSpeed 1.5
 	Weapon.BobStyle "InverseSmooth"
 	Weapon.BobRangeX 1.0
     Weapon.BobRangeY 2.0
-	spawnid 33
 	inventory.pickupmessage "You got the \cgElem\chent\cfal SSG! \ccWreak some Havok!"
 	obituary "%o was Torched by %k's Blaze SSG."
 	radius 20
@@ -17,29 +56,23 @@ Actor ElementalSSG : Weapon 12346
 	weapon.kickback 300
 	Weapon.AmmoType "SpreadAmmo"
 	weapon.ammouse 2
-	weapon.ammogive 8
+	weapon.ammogive 0
 	States
 	{
 		Ready:
-			SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEReady")
-			SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzReady")
 			SHT4 A 1 A_WeaponReady
 			LOOP
 		Deselect:
-			SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEDeselect")
-			SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzDeselect")
 			SHT4 A 1 A_lower
 			LOOP
 		Select:
-			SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICESelect")
-			SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzSelect")
 			SHT4 A 1 A_Raise
 			LOOP
 		Fire:
-			SHT4 A 0 A_JumpIfInventory("TailsClassCheck", 1, "ICEFire")
-			SHT4 A 0 A_JumpIfInventory("LinkClassCheck", 1, "BlitzFire")
-			SHT4 A 0 radius_quake(4, 3, 0, 1, 0)
 			SHT4 A 0 A_FireBullets(9, 5, 10, 14, "BlazePuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireAnim
+		FireAnim:
+			SHT4 A 0 A_Quake(4, 3, 0, 1, "")
 			SHT4 A 1 A_GunFlash
 			SHT4 B 0 A_SetPitch(pitch-4)
 			SHT4 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)
@@ -63,77 +96,95 @@ Actor ElementalSSG : Weapon 12346
 			SH4F B 1 bright A_Light2
 			SH4F B 0 bright A_Light0
 			stop
-		
-		ICEReady:
-			SHT5 A 1 A_WeaponReady
-			LOOP
-		ICESelect:
-			SHT5 A 1 A_Raise
-			LOOP
-		ICEDeselect:
-			SHT5 A 1 A_lower
-			LOOP
-		ICEFire:
-			SHT5 A 0 radius_quake(4, 3, 0, 1, 0)
-			SHT5 A 0 A_FireBullets(9, 5, 10, 14, "FrostPuff", FBF_USEAMMO | FBF_NORANDOM)
-			SHT5 A 1 A_GunFlash("IceFlash")
-			SHT5 B 0 A_SetPitch(pitch-4)
-			SHT5 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)
-			SHT5 A 1 A_CheckReload
-			SH5R AB 2
-			SH5R C 0 A_PlaySoundEx("weapons/shotopen", "auto", 0)
-			SH5R CDEF 2
-			//SH5R GG 0 A_FireCustomMissile("ElementalCasing", Random(-14,8),0,2,0)
-			SH5R GHI 2
-			SH5R JK 2
-			SH5R L 0 A_PlaySoundEx("weapons/shotload", "auto", 0)
-			SH5R LMNO 2
-			SH5R PQRSTUVWX 2
-			SH5R Y 0 A_PlaySoundEx("weapons/shotclose", "auto", 0)
-			SH5R YZ 2
-			SH52 ABCD 2
-			SHT5 A 0 A_ReFire
-			goto Ready
-		ICEFlash:
-			SH5F A 2 bright A_Light1
-			SH5F B 1 bright A_Light2
-			SH5F B 0 bright A_Light0
-			stop
-		
-		BlitzReady:
-			SHT6 A 1 A_WeaponReady
-			LOOP
-		BlitzDeselect:
-			SHT6 A 1 A_lower
-			LOOP
-		BlitzSelect:
-			SHT6 A 1 A_Raise
-			LOOP		
-		BlitzFire:
-			SHT6 A 3
-			SHT6 A 0 Radius_Quake(1, 2, 0, 1, 0)
-			SHT6 A 0 A_FireBullets(11, 6, 10, 14, "BlitzShock", FBF_USEAMMO | FBF_NORANDOM)
-			SHT6 A 7 A_GunFlash("BlitzFlash")
-			SHT6 B 3 A_Recoil(7)
-			SHT6 C 3 A_CheckReload
-			SHT6 D 3
-			TNT1 A 7 A_PlayWeaponSound ("weapons/shotopen")
-			TNT1 A 7
-			TNT1 A 7 A_PlayWeaponSound ("weapons/shotload")
-			TNT1 A 6
-			TNT1 A 0 A_PlayWeaponSound ("weapons/shotclose")
-			SHT6 DCB 3
-			SHT6 A 3
-			SHT6 A 3 A_ReFire
-			SHT6 A 5 A_ReFire
-			goto ready
-		BlitzFlash:
-			SHT6 E 0 bright A_Light1
-			SHT6 F 3 bright A_Light2
-			SHT6 F 0 bright A_Light0
-			stop
 		Spawn:
 			SGN4 A -1
+			stop
+	}
+}
+
+actor IceSSG : FireSSG
+{
+	Tag "Elemental SSG (Ice)"
+	States
+	{
+		Hold:
+		Fire:
+			SHT4 A 0 A_FireBullets(9, 5, 10, 14, "FrostPuff", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireAnim
+	}
+}
+
+actor LightningSSG : FireSSG
+{
+	Tag "Elemental SSG (Lightning)"
+	States
+	{
+		Hold:
+		Fire:
+			SHT4 A 0 A_FireBullets(9, 5, 10, 14, "BlitzShock", FBF_USEAMMO | FBF_NORANDOM)
+			goto FireAnim
+	}
+}
+
+actor AcidSprayer : Weapon
+{
+	Tag "Acid Sprayer"
+	Decal BulletChip
+	obituary "%o took a big gulp of %k's acidic fluid."
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Smooth"
+	Weapon.BobRangeX 1.25
+    Weapon.BobRangeY 1.25
+	weapon.selectionorder 1300
+	weapon.kickback 100
+	Weapon.AmmoType "SpreadAmmo"
+	weapon.ammouse 2
+	AttackSound "AcidSprayer"
+	Decal "BioRifle"
+	States
+	{
+	Ready:
+		SOAK A 1 A_WeaponReady
+		loop
+	Deselect:
+		SOAK A 1 A_Lower
+		loop
+	Select:
+		SOAK A 1 A_Raise
+		loop
+	Fire:
+		SOAK B 1 A_FireBullets(7, 4, 7, 7, "AcidSpray", FBF_USEAMMO | FBF_NORANDOM)
+		SOAK CDEFGH 1
+		SOAK A 4
+		SOAK IJKLMNO 1
+		SOAK P 1 // Pump sound here
+		SOAK QRSTUTSRQPONMLKJI 1
+		SOAK A 8
+		DHTG A 0 A_ReFire
+		goto Ready
+	Flash:
+		TNT1 A 1
+		stop
+	}
+}
+
+actor AcidSpray : BasePuff
+{
+	Scale 0.75
+	Decal "BioRifle"
+	RenderStyle Add
+	DamageType "Acid"
+	PoisonDamage 1, 7, 18
+	Alpha 1.0
+	+ADDITIVEPOISONDAMAGE
+	+PUFFONACTORS
+	+ISMONSTER
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("AcidTracerSpawner", 0, 0, 0, 0, 0, 0, 0,  SXF_SETMASTER | SXF_TRANSFERPOINTERS, 0)
+			SBS3 DEFGH 2
 			stop
 	}
 }

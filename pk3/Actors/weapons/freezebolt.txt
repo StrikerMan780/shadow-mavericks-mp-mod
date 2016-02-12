@@ -1,8 +1,9 @@
-ACTOR FreezeBolt : ClericWeapon 20993
+ACTOR FreezeBolt : Weapon 20993
 {
 	Weapon.SelectionOrder 250
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "Grabbed A Freezebolt!"
+	Inventory.RestrictedTo "Marine"
 	obituary "%o suffered from cold shock due to %k's freezebolt!"
 	Weapon.AmmoType1 "CellAmmo"
 	Weapon.AmmoGive1 20

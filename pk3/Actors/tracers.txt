@@ -118,6 +118,20 @@ actor RepeaterTracerSpawnerLeft : FireTracerSpawner
 	}
 }
 
+actor AcidTracerSpawner : FireTracerSpawner
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_RearrangePointers(AAPTR_MASTER, AAPTR_TRACER, AAPTR_TARGET, PTROP_NOSAFEGUARDS)
+			TNT1 A 0 A_Warp(AAPTR_TRACER, 0, 0, 32.0, 0, WARPF_NOCHECKPOSITION)
+			TNT1 A 0 A_CustomMissile("AcidTracer", 0, 10)
+			TNT1 A 1
+			stop
+	}
+}
+
 actor BulletTracer : FastProjectile
 {
 	Projectile
@@ -164,6 +178,17 @@ actor ChaingunTracer : BulletTracer
 
 actor RepeaterTracer : BulletTracer
 {
+}
+
+actor AcidTracer : BulletTracer
+{
+	Alpha 1.0
+	States
+	{
+		Spawn:
+			PUFF A 1
+			loop
+	}
 }
 
 actor BoltTracer : BulletTracer

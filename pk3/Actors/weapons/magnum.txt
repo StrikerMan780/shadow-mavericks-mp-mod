@@ -7,7 +7,7 @@ ACTOR MagnumClip : Ammo
 	+IGNORESKILL
 }
 
-actor Magnum : ClericWeapon 10493
+actor Magnum : Weapon 10493
 {
 	Tag ".44 ''Raging Bull'' Revolver"
 	Weapon.BobSpeed 1.5
@@ -18,6 +18,7 @@ actor Magnum : ClericWeapon 10493
 	obituary "I guess %o didn't feel so lucky, %k."
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "\cjA .44 Magnum! \ci''Go Ahead, Make my Day!''"
+	Inventory.RestrictedTo "Marine"
 	attacksound "magnum"
 	weapon.selectionorder 500
 	weapon.kickback 125

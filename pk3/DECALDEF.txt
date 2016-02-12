@@ -1869,6 +1869,5 @@ generator MiniMissile			Scorch
 generator Mauler			RailScorchLower
 
 // [SM780] - GBTW HQ Decals
-generator BioBall				BioRifle
 generator NeedlerCrystal		Needler
 
