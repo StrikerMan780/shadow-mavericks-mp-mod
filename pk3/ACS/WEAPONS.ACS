@@ -167,34 +167,37 @@ function bool GrantWeapon(int type, bool dropped, bool notpickup)
 		bool ammo1full = false;
 		bool ammo2full = false;
 		
-		if(ammo1type > 0)
+		if(hasweapon)
 		{
-			int currentammo1 = CheckInventory(ammo_types[ammo1type][SLOT_ACTOR]);
-			int capacity1 = GetAmmoCapacity(ammo_types[ammo1type][SLOT_ACTOR]);
-			
-			if(currentammo1 >= capacity1)
+			if(ammo1type > 0)
+			{
+				int currentammo1 = CheckInventory(ammo_types[ammo1type][SLOT_ACTOR]);
+				int capacity1 = GetAmmoCapacity(ammo_types[ammo1type][SLOT_ACTOR]);
+				
+				if(currentammo1 >= capacity1)
+				{
+					ammo1full = true;
+				}
+			}
+			else
 			{
 				ammo1full = true;
 			}
-		}
-		else
-		{
-			ammo1full = true;
-		}
-		
-		if(ammo2type > 0)
-		{
-			int currentammo2 = CheckInventory(ammo_types[ammo2type][SLOT_ACTOR]);
-			int capacity2 = GetAmmoCapacity(ammo_types[ammo2type][SLOT_ACTOR]);
 			
-			if(currentammo2 >= capacity2)
+			if(ammo2type > 0)
+			{
+				int currentammo2 = CheckInventory(ammo_types[ammo2type][SLOT_ACTOR]);
+				int capacity2 = GetAmmoCapacity(ammo_types[ammo2type][SLOT_ACTOR]);
+				
+				if(currentammo2 >= capacity2)
+				{
+					ammo2full = true;
+				}
+			}
+			else
 			{
 				ammo2full = true;
 			}
-		}
-		else
-		{
-			ammo2full = true;
 		}
 		
 		if(ammo1full && ammo2full)
