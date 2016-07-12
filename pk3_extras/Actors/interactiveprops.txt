@@ -1,6 +1,6 @@
 actor DrinkingFountain : SwitchableDecoration 16541
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title Drinking Fountain
 	//$Color 13
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
@@ -26,43 +26,9 @@ actor DrinkingFountain : SwitchableDecoration 16541
 	}
 }
 
-actor Stripper : SwitchableDecoration 30107
-{	
-	//$Category SMMP Interactive Props
-	//$Title Duke3D Stripper
-	//$Color 13
-	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
-	Radius 16
-	Height 56
-	Scale 0.62
-	+SOLID
-	+USESPECIAL
-	States
-	{
-		Spawn:
-			STRP A 0
-			STRP A 0 A_SetSpecial(130, 0)
-			goto Dance
-		Dance:
-			STRP ABCDEDCB 5
-			loop
-		Active:
-			STRP A 0 A_JumpIfInTargetInventory("GBTWMoney", 5, "Strip")
-			goto Dance
-		Strip:
-			STRP F 0 A_ChangeFlag("USESPECIAL", 0)
-			STRP F 0 A_TakeFromTarget("GBTWMoney", 5)
-			STRP F 10 A_Playsound("stripper")
-			STRP GHGHGHGHGHGHGHGHGH 3 A_GiveToTarget("Health", 1)
-			STRP F 7
-			STRP F 0 A_ChangeFlag("USESPECIAL", 1)
-			goto Dance
-	}
-}
-
 actor 8trackStereo : SwitchableDecoration 16542
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title 8-Track Stereo/Record Player (Abbey Road)
 	//$Color 13
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
@@ -92,9 +58,44 @@ actor 8trackStereo : SwitchableDecoration 16542
 	}
 }
 
+actor Shower : SwitchableDecoration 16543
+{
+	//$Category SMMP Interactive Stuff
+	//$Title Shower
+	//$Color 13
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	height 64
+	radius 8
+	+SOLID
+	+USESPECIAL
+	+NOGRAVITY
+	var int user_turnedon;
+	states
+	{
+		Spawn:
+			FOUN A 0
+			FOUN A -1 A_SetSpecial(130, 0)
+			loop
+		TurnOff:
+			FOUN D 0 A_SetUserVar("user_turnedon", 0)
+			FOUN D 0 A_StopSound(CHAN_BODY)
+			FOUN DCB 4
+			goto Spawn
+		Active:
+			FOUN B 0 A_JumpIf(user_turnedon == 1, "TurnOff")
+			FOUN B 0 A_SetUserVar("user_turnedon", 1)
+			FOUN BCD 4
+			FOUN E 0 A_PlaySound("Shower", CHAN_BODY, 1.0, true)
+			goto Playing
+		Playing:
+			FOUN E 1 A_SpawnItemEx("FountainParticle", 9, 0, 46.5, frandom(1.0,2.0), frandom(-1.0,1.0), 0, 0, SXF_CLIENTSIDE, 0)
+			loop
+	}
+}
+
 actor VendingMachine_Fanta : SwitchableDecoration 20526
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title Fanta Vending Machine
 	//$Color 13
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
@@ -109,11 +110,10 @@ actor VendingMachine_Fanta : SwitchableDecoration 20526
 			FOUN A -1 A_SetSpecial(130, 0)
 			loop
 		Active:
-			FOUN A 0 A_JumpIfInTargetInventory("GBTWMoney", 2, "Dispense")
+			FOUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("TAKEMONEY", 3, true) >= 1, "Dispense")
 			goto Spawn
 		Dispense:
 			FOUN A 0 A_ChangeFlag("USESPECIAL", 0)
-			FOUN A 0 A_TakeFromTarget("GBTWMoney", 2)
 			FOUN A 30 A_PlaySound("Vend", CHAN_AUTO)
 			FOUN A -1 A_Jump(256, "Pepsi", "Fanta", "CocaCola", "MDHitler")
 			stop
@@ -142,21 +142,20 @@ actor VendingMachine_Fanta : SwitchableDecoration 20526
 
 actor VendingMachine_CocaCola : VendingMachine_Fanta 20527
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title Coca-Cola Vending Machine
 	//$Color 13
 }
 
 actor VendingMachine_Pepsi : VendingMachine_Fanta 20528
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title Pepsi Vending Machine
 	//$Color 13
 	States
 	{
 		Dispense:
 			FOUN A 0 A_ChangeFlag("USESPECIAL", 0)
-			FOUN A 0 A_TakeFromTarget("GBTWMoney", 2)
 			FOUN A 30 A_PlaySound("Vend", CHAN_AUTO)
 			goto Pepsi
 			
@@ -168,14 +167,14 @@ actor VendingMachine_Pepsi : VendingMachine_Fanta 20528
 
 actor VendingMachine_Hitler : VendingMachine_Fanta 20529
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title Mountain Dew HDNW Vending Machine
 	//$Color 13
 }
 
 actor Macintosh 20523
 {
-	//$Category SMMP Interactive Props
+	//$Category SMMP Interactive Stuff
 	//$Title Macintosh IMac G3
 	//$Color 13
 	Health 100
@@ -202,5 +201,54 @@ actor Macintosh 20523
 			TNT1 A 0 A_SpawnItemEx("TeleportFog", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_NOCHECKPOSITION, 0)
 			TNT1 A 0 A_SpawnItemEx("Macintosh", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
 			stop
+	}
+}
+
+actor Macintosh_Striker : Macintosh 20530
+{
+	//$Category SMMP Interactive Stuff
+	//$Title Macintosh IMac G3 (Striker)
+	//$Color 13
+	States
+	{
+		Death:
+			MACI A 5 A_PlaySoundEx("FuckingWindows98", "Auto", 0)
+			TNT1 A 0 A_Explode
+			TNT1 A 0 A_NoBlocking
+			TNT1 AAAAAAAA 0 A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1050
+			TNT1 A 0 A_SpawnItemEx("TeleportFog", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE | SXF_NOCHECKPOSITION, 0)
+			TNT1 A 0 A_SpawnItemEx("Macintosh_Striker", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION, 0)
+			stop
+	}
+}
+
+actor Toilet : SwitchableDecoration 18822
+{
+	//$Category SMMP Interactive Stuff
+	//$Title Toilet
+	//$Color 13
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	height 10
+	radius 16
+	+SOLID
+	+USESPECIAL
+	+NOGRAVITY
+	states
+	{
+		Spawn:
+			FOUN A 0
+			FOUN A -1 A_SetSpecial(130, 0)
+			loop
+		Active:
+			FOUN B 0 A_ChangeFlag("USESPECIAL", 0)
+			FOUN B 0 A_PlaySound("Toilet", CHAN_AUTO)
+			FOUN BCDEFGHIJKL 8
+			FOUN L 35
+			FOUN L 16
+			FOUN KJIHGFEDCB 16
+			FOUN A 20
+			FOUN A 0 A_ChangeFlag("USESPECIAL", 1)
+			goto Spawn
 	}
 }
