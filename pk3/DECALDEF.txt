@@ -902,8 +902,10 @@ decalgroup BFGScorch
 
 decal BFGLightning1
 {
+	x-scale 0.25
+	y-scale 0.25
+	add 1.0
 	pic BFGLITE1
-	shade "80 ff 00"
 	fullbright
 	randomflipx
 	animator GoAway2
@@ -912,18 +914,50 @@ decal BFGLightning1
 
 decal BFGLightning2
 {
+	x-scale 0.25
+	y-scale 0.25
+	add 1.0
 	pic BFGLITE2
-	shade "80 ff 00"
 	fullbright
 	randomflipy
 	animator GoAway2
 	lowerdecal BFGScorch
 }
 
+decal BlueBFGLightning1
+{
+	x-scale 0.15
+	y-scale 0.15
+	add 1.0
+	pic BFGLITE3
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal Scorch
+}
+
+decal BlueBFGLightning2
+{
+	x-scale 0.15
+	y-scale 0.15
+	add 1.0
+	pic BFGLITE4
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal Scorch
+}
+
 decalgroup BFGLightning
 {
 	BFGLightning1	1
 	BFGLightning2	1
+}
+
+decalgroup BlueBFGLightning
+{
+	BlueBFGLightning1	1
+	BlueBFGLightning2	1
 }
 
 /***** Rail Gun Scorches - contributed by Nigel Rowand *********************/
@@ -1744,7 +1778,6 @@ generator Chaingun				BulletChip
 // [BC] New ones here for ST's new weapons.
 generator Minigun				BulletChip
 generator Railgun				RailScorch
-generator BFG10K				BFGLightning
 
 generator PlasmaBall			PlasmaScorch
 generator Rocket				Scorch

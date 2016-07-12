@@ -54,6 +54,7 @@ actor ClassWeaponGiver : CustomInventory
 #include "actors/weapons/thanatos.txt"
 #include "actors/weapons/elementalssg.txt"
 #include "actors/weapons/bfg9000.txt"
+#include "actors/weapons/bfg10k.txt"
 #include "actors/weapons/supershotgun.txt"
 #include "actors/weapons/quadssg.txt"
 #include "actors/weapons/lightsaber.txt"
@@ -70,4 +71,5 @@ actor ClassWeaponGiver : CustomInventory
 #include "actors/weapons/oicw.txt"
 #include "actors/weapons/railgun.txt"
 #include "actors/weapons/bowcaster.txt"
+#include "actors/weapons/excalibat.txt"
 #include "actors/weapons/jokeweapons.txt"

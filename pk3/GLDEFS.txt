@@ -2191,9 +2191,118 @@ flickerlight HellfireSparkLight
     chance 0.1
 }
 
+
 object HellfireSpark
 {
 	frame FRTB { light HellfireSparkLight }
+}
+
+Pointlight CybruiserDeath1
+{
+	Color 1.0 0.5 0.0
+	Size 35
+}
+
+Pointlight CybruiserDeath2
+{
+	Color 1.0 0.5 0.0
+	Size 40
+}
+
+Pointlight CybruiserDeath3
+{
+	Color 0.9 0.4 0.0
+	Size 45
+}
+
+Pointlight CybruiserDeath4
+{
+	Color 0.7 0.2 0.0
+	Size 35
+}
+
+Pointlight CybruiserDeath5
+{
+	Color 0.5 0.1 0.0
+	Size 30
+}
+
+Pointlight CybruiserDeath6
+{
+	Color 0.3 0.0 0.0
+	Size 25
+}
+
+Pointlight CybruiserDeath7
+{
+	Color 0.1 0.0 0.0
+	Size 20
+}
+
+Pointlight CybruiserDeath8
+{
+	Color 0.1 0.0 0.0
+	Size 15
+}
+
+Object Cybruiser
+{
+	Frame BRUSK { Light CybruiserDeath1 }
+	Frame BRUSL { Light CybruiserDeath2 }
+	Frame BRUSM { Light CybruiserDeath3 }
+	Frame BRUSN { Light CybruiserDeath4 }
+	Frame BRUSO { Light CybruiserDeath5 }
+	Frame BRUSP { Light CybruiserDeath6 }
+	Frame BRUSQ { Light CybruiserDeath7 }
+	Frame BRUSR { Light CybruiserDeath8 }
+}
+
+HardwareShader texture HEALTHRD
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture HEALTHYL
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture HEALTHPR
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDBLU
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDGRN
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDRED
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDRING
+{
+	Shader "shaders/scroll_right_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture PLASBLUE
+{
+	Shader "shaders/scroll_bfg10k.fp"
+	Speed 1.0
 }
 
 Glow
@@ -2209,9 +2318,7 @@ Glow
 		FLATHUH3
 		FLATHUH4
 		NLAVA1
-		WQLAVA
 		LAVA1
-		GLAVA1
 		NUKAGE1
 		NUKAGE2
 		NUKAGE3
@@ -2224,41 +2331,11 @@ Glow
 		NUKAGE10
 		NUKAGE11
 		NUKAGE12
-		PSOLAV01
-		PSOLAV02
-		PSOLAV03
-		PSOLAV04
-		PSOLAV05
-		PSOLAV06
-		PSOLAV07
-		PSOLAV08
-		PSOLAV09
-		PSOLAV10
-		PSOLAV11
-		PSOLAV12
-		PSOLAV13
-		PSOLAV14
-		PSOLAV15
-		PSOLAV16
-		PSOLAV17
-		PSOLAV18
-		PSOLAV19
-		PSOLAV20
-		PSOLAV21
-		PSOLAV22
-		PSOLAV23
-		PSOLAV24
-		PSOLAV25
-		PSOLAV26
-		PSOLAV27
-		PSOLAV28
-		PSOLAV29
 	}
 	Walls
 	{
 		ROCKRED1
 		ROCKRED2
 		ROCKRED3
-		SPECIALC
 	}
 }

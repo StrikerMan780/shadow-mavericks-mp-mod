@@ -61,6 +61,7 @@ Model SM_SuperShotgun
 {
 	Path "Models\HUD\SSG"
 	Model 0 "SuperShotgunFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
 	Skin 0 "muzzleflash2.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
@@ -103,7 +104,8 @@ Model Keyring
 {
 	Path "Models\HUD\SilverBulletGun"
 	Model 0 "keyringflash1.md3"
-	Skin 0 "keyringflash.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "shotgunflash.png"
 	Scale 5.0 3.5 5.0
 
 	FrameIndex SBGF A 0 0
@@ -113,7 +115,8 @@ Model Keyring
 {
 	Path "Models\HUD\SilverBulletGun"
 	Model 0 "keyringflash2.md3"
-	Skin 0 "keyringflash.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "shotgunflash.png"
 	Scale 5.0 3.5 5.0
 
 	FrameIndex SBGF B 0 0
@@ -440,7 +443,8 @@ Model SniperRifle
 {
 	Path "Models\HUD\SniperRifle"
 	Model 0 "SniperRifleFlash.md3"
-	Skin 0 "MuzzleFlash.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "MuzzleFlash2.png"
 	Scale 5.0 4.2 5
 	ZOffset -2
 
@@ -1040,7 +1044,8 @@ Model Thanatos
 {
 	Path "Models\HUD\Thanatos"
 	Model 0 "ThanatosFlash.md3"
-	Skin 0 "ThanatosFlash1.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "shotgunflash.png"
 	Scale 5.0 4.0 5.0
 	Offset -10 0 0
 	
@@ -1484,8 +1489,144 @@ Model Needler
 {
 	Path "Models\HUD\Needler"
 	Model 0 "NeedlerFlash.md3"
-	Skin 0 "NeedlerFlash.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "BlueFlash.png"
 	Scale 5.0 4.0 5.0
 
 	FrameIndex NDLF A 0 0
+}
+
+Model P90
+{
+	Path "Models\HUD\P90"
+	Model 0 "p90.md3"
+	Scale 5.0 3.5 5
+
+	FrameIndex P90G A 0 0
+	FrameIndex P90G B 0 4
+	FrameIndex P90G C 0 6
+}
+
+Model P90
+{
+	Path "Models\HUD\P90"
+	Model 0 "p90flash.md3"
+	Skin 0	"p90flash.png"
+	Scale 5.0 3.5 5
+
+	FrameIndex P90F A 0 0
+	FrameIndex P90F B 0 1
+}
+
+Model P90
+{
+	Path "Models\HUD\P90"
+	Model 0 "P90Reload.md3"
+	Scale 5.0 3.5 5
+
+	FrameIndex P9R1 A 0 1
+	FrameIndex P9R1 B 0 3
+	FrameIndex P9R1 C 0 5
+	FrameIndex P9R1 D 0 6
+	FrameIndex P9R1 E 0 8
+	FrameIndex P9R1 F 0 10
+	FrameIndex P9R1 G 0 12
+	FrameIndex P9R1 H 0 14
+	FrameIndex P9R1 I 0 16
+	FrameIndex P9R1 J 0 18
+	FrameIndex P9R1 K 0 20
+	FrameIndex P9R1 L 0 22
+	FrameIndex P9R1 M 0 24
+	FrameIndex P9R1 N 0 26
+	FrameIndex P9R1 O 0 28
+	FrameIndex P9R1 P 0 30
+	FrameIndex P9R1 Q 0 32
+	FrameIndex P9R1 R 0 34
+	FrameIndex P9R1 S 0 36
+	FrameIndex P9R1 T 0 38
+	FrameIndex P9R1 U 0 40
+	FrameIndex P9R1 V 0 42
+	FrameIndex P9R1 W 0 44
+	FrameIndex P9R1 X 0 46
+	FrameIndex P9R1 Y 0 48
+	FrameIndex P9R1 Z 0 50
+	
+	FrameIndex P9R2 A 0 52
+	FrameIndex P9R2 B 0 54
+	FrameIndex P9R2 C 0 56
+	
+	FrameIndex P9R3 A 0 58
+	FrameIndex P9R3 B 0 60
+	FrameIndex P9R3 C 0 62
+	FrameIndex P9R3 D 0 64
+	FrameIndex P9R3 E 0 66
+	FrameIndex P9R3 F 0 68
+	FrameIndex P9R3 G 0 70
+	FrameIndex P9R3 H 0 72
+	FrameIndex P9R3 I 0 74
+	FrameIndex P9R3 J 0 76
+	FrameIndex P9R3 K 0 78
+	FrameIndex P9R3 L 0 80
+	FrameIndex P9R3 M 0 82
+	FrameIndex P9R3 N 0 84
+	FrameIndex P9R3 O 0 86
+	FrameIndex P9R3 P 0 88
+	FrameIndex P9R3 Q 0 90
+	FrameIndex P9R3 R 0 92
+	FrameIndex P9R3 S 0 94
+	FrameIndex P9R3 T 0 96
+	FrameIndex P9R3 U 0 98
+}
+
+Model Excalibat
+{
+	Path "Models\HUD\Excalibat"
+	Model 0 "Excalibat.md3"
+	Scale -5.0 3.5 5.0
+
+	FrameIndex EXBA A 0 0
+	FrameIndex EXBA B 0 4
+	FrameIndex EXBA C 0 5
+	FrameIndex EXBA D 0 6
+	FrameIndex EXBA E 0 7
+	FrameIndex EXBA F 0 8
+	FrameIndex EXBA G 0 9
+	FrameIndex EXBA H 0 10
+	FrameIndex EXBA I 0 11
+	FrameIndex EXBA J 0 12
+	FrameIndex EXBA K 0 13
+	FrameIndex EXBA L 0 14
+	FrameIndex EXBA M 0 15
+	FrameIndex EXBA N 0 16
+	FrameIndex EXBA O 0 17
+	FrameIndex EXBA P 0 18
+	FrameIndex EXBA Q 0 19
+	FrameIndex EXBA R 0 20
+	FrameIndex EXBA S 0 21
+	FrameIndex EXBA T 0 22
+	FrameIndex EXBA U 0 23
+}
+
+Model BFG10K
+{
+	Path "Models\HUD\BFG10K"
+	Model 0 "BFG10K.md3"
+	Scale -5.0 3.5 5.0
+	ZOffset -6
+
+	FrameIndex BG2G A 0 0
+	FrameIndex BG2G B 0 1
+	FrameIndex BG2G C 0 2
+	FrameIndex BG2G D 0 3
+	FrameIndex BG2G E 0 4
+	FrameIndex BG2G F 0 5
+	FrameIndex BG2G G 0 6
+	FrameIndex BG2G H 0 7
+	FrameIndex BG2G I 0 8
+	FrameIndex BG2G J 0 9
+	FrameIndex BG2G K 0 10
+	FrameIndex BG2G L 0 11
+	FrameIndex BG2G M 0 12
+	FrameIndex BG2G N 0 13
+	FrameIndex BG2G O 0 14
 }
