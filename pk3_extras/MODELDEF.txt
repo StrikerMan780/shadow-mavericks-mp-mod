@@ -1,0 +1,279 @@
+Model AcousticGuitar
+{
+	Path "Models/Decoration"
+	Model 0 "acoust.md3"
+	Skin 0 "acoust.jpg"
+	Scale 4.0 4.0 4.0
+	Offset -26 0 0
+//	ZOffset 10
+
+	FrameIndex GUIT A 0 0
+}
+
+model Clock
+{
+	Path "Models/Decoration"
+	Model 0 "Clock.md3"
+	Skin 0 "Clock.png"
+	Scale 2.5 2.5 2.5
+
+	FrameIndex CLOK A 0 0
+}
+
+model XBox360
+{
+	Path "Models/Decoration"
+	Model 0 "XBox360.md3"
+	Skin 0 "XBox360.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+model Rose
+{
+	Path "Models/Decoration/Rose"
+	Model 0 "Rose.md3"
+	Scale 0.5 0.5 0.5
+	ZOffset 2
+
+	FrameIndex NULL A 0 0
+}
+
+model CompanionCube
+{
+	Path "Models/Decoration"
+	Model 0 "companion.md3"
+	Skin 0 "companion.png"
+	Scale 5.0 5.0 5.0
+	ZOffset 84
+
+	FrameIndex COMC A 0 0
+}
+
+model FirstAidKit
+{
+	Path "Models/Decoration"
+	Model 0 "package.md3"
+	Skin 0 "firstaid.png"
+	Scale 0.5 1.0 0.75
+
+	FrameIndex NULL A 0 0
+}
+
+model DrinkingFountain
+{
+	Path "Models/Decoration"
+	Model 0 "0563_drinkfount.md3"
+	Skin 0 "0563_drinkfount.png"
+	Scale 0.64 0.8 0.5
+
+	FrameIndex FOUN A 0 0
+}
+
+model DrinkingFountain
+{
+	Path "Models/Decoration"
+	Model 0 "0565_drinkfount.md3"
+	Skin 0 "0563_drinkfount.png"
+	Scale 0.64 0.8 0.5
+
+	FrameIndex FOUN B 0 0
+}
+
+model DrinkingFountain
+{
+	Path "Models/Decoration"
+	Model 0 "0566_drinkfount.md3"
+	Skin 0 "0563_drinkfount.png"
+	Scale 0.64 0.8 0.5
+
+	FrameIndex FOUN C 0 0
+	FrameIndex FOUN D 0 0
+}
+
+model 8trackStereo
+{
+	Path "Models/Decoration/8track"
+	Model 0 "8track.md3"
+	Scale 5.0 5.0 5.0
+	ZOffset 0.1
+
+	FrameIndex FOUN A 0 0
+	FrameIndex FOUN B 0 1
+	FrameIndex FOUN C 0 2
+	FrameIndex FOUN D 0 3
+	FrameIndex FOUN E 0 4
+	FrameIndex FOUN F 0 5
+	FrameIndex FOUN G 0 6
+	FrameIndex FOUN H 0 7
+	FrameIndex FOUN I 0 8
+	FrameIndex FOUN J 0 9
+	FrameIndex FOUN K 0 10
+	FrameIndex FOUN L 0 11
+	FrameIndex FOUN M 0 12
+	FrameIndex FOUN N 0 13
+	FrameIndex FOUN O 0 14
+	FrameIndex FOUN P 0 15
+}
+
+model Shower
+{
+	Path "Models/Decoration"
+	Model 0 "Shower.md3"
+	Skin 0 "Shower.png"
+	Scale 1.25 1.25 1.25
+	AngleOffset -90
+	Offset -8 0 8
+
+	FrameIndex FOUN A 0 0
+	FrameIndex FOUN B 0 1
+	FrameIndex FOUN C 0 2
+	FrameIndex FOUN D 0 3
+	FrameIndex FOUN E 0 4
+}
+
+model VendingMachine_Fanta
+{
+	Path "Models/Decoration/Vending"
+	Model 0 "vendingmachine.md3"
+	Skin 0 "fantavm.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+}
+
+model VendingMachine_CocaCola
+{
+	Path "Models/Decoration/Vending"
+	Model 0 "vendingmachine.md3"
+	Skin 0 "cocacolavm.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+}
+
+model VendingMachine_Pepsi
+{
+	Path "Models/Decoration/Vending"
+	Model 0 "vendingmachine2.md3"
+	Skin 0 "pepsivm.png"
+	Scale 0.9 0.9 0.9
+
+	FrameIndex FOUN A 0 0
+}
+
+model VendingMachine_Hitler
+{
+	Path "Models/Decoration/Vending"
+	Model 0 "vendingmachine.md3"
+	Skin 0 "mdhitlervm.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+}
+
+model Macintosh
+{
+	Path "Models/Decoration/Mac"
+	Model 0 "macintosh.md3"
+	Scale 4.25 4.25 4.25
+
+	FrameIndex MACI A 0 0
+}
+
+model Macintosh_Striker
+{
+	Path "Models/Decoration/Mac"
+	Model 0 "macintosh_striker.md3"
+	Scale 4.25 4.25 4.25
+
+	FrameIndex MACI A 0 0
+}
+
+model Flower
+{
+	Path "Models/Decoration/Flower"
+	Model 0 "Flower.md3"
+	Scale 2.75 2.75 2.75
+
+	FrameIndex FLOW A 0 0
+}
+
+model Flower
+{
+	Path "Models/Decoration/Flower"
+	Model 0 "Flower2.md3"
+	Scale 2.25 2.25 2.25
+
+	FrameIndex FLOW B 0 0
+}
+
+model Flower
+{
+	Path "Models/Decoration/Flower"
+	Model 0 "Flower3.md3"
+	Scale 3.0 3.0 3.0
+
+	FrameIndex FLOW C 0 0
+}
+
+Model Screwdriver
+{
+	Path "Models/Decoration"
+	Model 0 "Screwdriver.md3"
+	Skin 0 "Screwdriver.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex GDCR B 0 0
+}
+
+Model Napkins
+{
+	Path "Models/Decoration/NapkinHolder"
+	Model 0 "NapkinHolder.md3"
+	Scale 2.5 2.5 2.5
+
+	FrameIndex NAPK A 0 0
+}
+
+Model ToiletPaper
+{
+	Path "Models/Decoration"
+	Model 0 "TPAPER.MD2"
+	Skin 0 "Tpaper.png"
+	Scale 1.05 1.05 1.05
+
+	FrameIndex NULL A 0 0
+}
+
+model Toilet
+{
+	Path "Models/Decoration/Toilet"
+	Model 0 "Toilet.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset -90
+	Offset -15.6 0 6
+
+	FrameIndex FOUN A 0 0
+	FrameIndex FOUN B 0 1
+	FrameIndex FOUN C 0 2
+	FrameIndex FOUN D 0 3
+	FrameIndex FOUN E 0 4
+	FrameIndex FOUN F 0 5
+	FrameIndex FOUN G 0 6
+	FrameIndex FOUN H 0 7
+	FrameIndex FOUN I 0 8
+	FrameIndex FOUN J 0 9
+	FrameIndex FOUN K 0 10
+	FrameIndex FOUN L 0 11
+}
+
+model MoldyCrow
+{
+	Path "Models/Decoration/MoldyCrow"
+	Model 0 "MoldyCrow.md3"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}

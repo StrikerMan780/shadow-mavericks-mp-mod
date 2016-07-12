@@ -1,25 +1,3 @@
-model PIPS_Shot
-{
-	Path "models/Projectiles"
-	Model 0 "Tracer.md3"
-	Skin 0 "GreenTracer.png"
-	Scale 32.0 8.0 8.0
-	PITCHFROMMOMENTUM
-
-	FrameIndex PIPH A 0 0
-}
-
-model CricketBeam
-{
-	Path "models/Projectiles"
-	Model 0 "Tracer.md3"
-	Skin 0 "GreenTracer.png"
-	Scale 20.0 7.0 7.0
-	PITCHFROMMOMENTUM
-
-	FrameIndex SERV A 0 0
-}
-
 Model SoccerBall
 {
 	Path "models/soccer"
@@ -204,18 +182,6 @@ Model Camaro
 //	ZOffset 10
 
 	FrameIndex CAMA A 0 0
-}
-
-
-Model AcousticGuitar
-{
-	Path "Models/Guitar"
-	Model 0 "acoust.md3"
-	Skin 0 "acoust.jpg"
-	Scale 4.0 4.0 4.0
-//	ZOffset 10
-
-	FrameIndex GUIT A 0 0
 }
 
 Model HellbenderPickup
@@ -600,17 +566,6 @@ Model ShockRifle
 	FrameIndex LIGF B 0 1
 }
 
-model CompanionCube
-{
-	Path "Models/cube"
-	Model 0 "companion.md3"
-	Skin 0 "companion.png"
-	Scale 5.0 5.0 5.0
-	ZOffset 84
-
-	FrameIndex COMC A 0 0
-}
-
 model RFLShot
 {
 	Path "Models/projectiles"
@@ -689,97 +644,6 @@ model ValkrieTrail
 	FrameIndex VALK A 0 0
 }
 
-Model P90
-{
-	Path "Models\HUD\P90"
-	Model 0 "p90.md3"
-	Scale 5.0 3.5 5
-
-	FrameIndex P90G A 0 0
-	FrameIndex P90G B 0 4
-	FrameIndex P90G C 0 6
-}
-
-Model P90
-{
-	Path "Models\HUD\P90"
-	Model 0 "p90flash.md3"
-	Skin 0	"f_p90.png"
-	Scale 5.0 3.5 5
-
-	FrameIndex P90F A 0 0
-}
-
-Model P90
-{
-	Path "Models\HUD\P90"
-	Model 0 "p90flash.md3"
-	Skin 0	"f_p902.png"
-	Scale 5.0 3.5 5
-
-	FrameIndex P90F B 1 0
-}
-
-Model P90
-{
-	Path "Models\HUD\P90"
-	Model 0 "P90Reload.md3"
-	Scale 5.0 3.5 5
-
-	FrameIndex P9R1 A 0 1
-	FrameIndex P9R1 B 0 3
-	FrameIndex P9R1 C 0 5
-	FrameIndex P9R1 D 0 6
-	FrameIndex P9R1 E 0 8
-	FrameIndex P9R1 F 0 10
-	FrameIndex P9R1 G 0 12
-	FrameIndex P9R1 H 0 14
-	FrameIndex P9R1 I 0 16
-	FrameIndex P9R1 J 0 18
-	FrameIndex P9R1 K 0 20
-	FrameIndex P9R1 L 0 22
-	FrameIndex P9R1 M 0 24
-	FrameIndex P9R1 N 0 26
-	FrameIndex P9R1 O 0 28
-	FrameIndex P9R1 P 0 30
-	FrameIndex P9R1 Q 0 32
-	FrameIndex P9R1 R 0 34
-	FrameIndex P9R1 S 0 36
-	FrameIndex P9R1 T 0 38
-	FrameIndex P9R1 U 0 40
-	FrameIndex P9R1 V 0 42
-	FrameIndex P9R1 W 0 44
-	FrameIndex P9R1 X 0 46
-	FrameIndex P9R1 Y 0 48
-	FrameIndex P9R1 Z 0 50
-	
-	FrameIndex P9R2 A 0 52
-	FrameIndex P9R2 B 0 54
-	FrameIndex P9R2 C 0 56
-	
-	FrameIndex P9R3 A 0 58
-	FrameIndex P9R3 B 0 60
-	FrameIndex P9R3 C 0 62
-	FrameIndex P9R3 D 0 64
-	FrameIndex P9R3 E 0 66
-	FrameIndex P9R3 F 0 68
-	FrameIndex P9R3 G 0 70
-	FrameIndex P9R3 H 0 72
-	FrameIndex P9R3 I 0 74
-	FrameIndex P9R3 J 0 76
-	FrameIndex P9R3 K 0 78
-	FrameIndex P9R3 L 0 80
-	FrameIndex P9R3 M 0 82
-	FrameIndex P9R3 N 0 84
-	FrameIndex P9R3 O 0 86
-	FrameIndex P9R3 P 0 88
-	FrameIndex P9R3 Q 0 90
-	FrameIndex P9R3 R 0 92
-	FrameIndex P9R3 S 0 94
-	FrameIndex P9R3 T 0 96
-	FrameIndex P9R3 U 0 98
-}
-
 Model PlasmaCannon
 {
 	Path "Models\HUD\plasmarifle"
@@ -823,30 +687,6 @@ Model Stinger
 	FrameIndex STNG C 0 2
 	FrameIndex STNG D 0 3
 	FrameIndex STNG E 0 4
-}
-
-model StingerShot
-{
-	Path "Models\Projectiles"
-	Model 0 "laserbeam.md2"
-	Skin 0 "laserbeam.png"
-	Scale 2.5 3.0 3.0
-	PITCHFROMMOMENTUM
-
-	FrameIndex STPL A 0 0
-	FrameIndex STPL B 0 0
-}
-
-model StingerShot2
-{
-	Path "Models\Projectiles"
-	Model 0 "laserbeam.md2"
-	Skin 0 "laserbeam.png"
-	Scale 2.5 3.0 3.0
-	PITCHFROMMOMENTUM
-
-	FrameIndex STPL A 0 0
-	FrameIndex STPL B 0 0
 }
 
 model Stinger
@@ -1334,6 +1174,7 @@ Model Magnum
 {
 	Path "Models\HUD\Magnum"
 	Model 0 "MagnumFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
 	Skin 0 "muzzleflash2.png"
 	Scale 5.0 4.5 5
 	ZOffset -1
@@ -1380,7 +1221,8 @@ Model Noisy_Cricket
 {
 	Path "Models\HUD\Noisy_Cricket"
 	Model 0 "CricketFlash.md3"
-	Skin 0 "CricketFlash.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "greenflash.png"
 	Scale 5.0 4.2 5
 
 	FrameIndex CRKF A 0 0
@@ -1397,6 +1239,9 @@ Model Tails_TechPistol
 
 	FrameIndex TEKP A 0 0
 	FrameIndex TEKP A 1 0
+	
+	FrameIndex TEKP B 0 0
+	FrameIndex TEKP B 1 0
 	
 	FrameIndex TEKP C 0 1
 	FrameIndex TEKP C 1 1
@@ -1426,15 +1271,12 @@ Model Tails_TechPistol
 Model Tails_TechPistol
 {
 	Path "Models\HUD\TechPistol"
-	Model 0 "TechPistol.md3"
-	Model 1 "TechFlash.md3"
-	Skin 1 "TechFlash.png"
-	Model 2 "TechPistol_Tube.md3"
-	Path "Textures\Models\TechPistol"
-	Skin 2 "Tube_N01.png"
+	Model 0 "TechFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "GreenFlash.png"
 	Scale 5.0 5.0 5
 
-	FrameIndex TEKP B 0 0
+	FrameIndex TEKF A 0 0
 }
 
 Model Tails_TechPistol
@@ -1448,6 +1290,9 @@ Model Tails_TechPistol
 
 	FrameIndex TEKR A 0 0
 	FrameIndex TEKR A 1 0
+	
+	FrameIndex TEKR B 0 0
+	FrameIndex TEKR B 1 0
 	
 	FrameIndex TEKR C 0 1
 	FrameIndex TEKR C 1 1
@@ -1477,15 +1322,12 @@ Model Tails_TechPistol
 Model Tails_TechPistol
 {
 	Path "Models\HUD\TechPistol"
-	Model 0 "TechPistol_Rail.md3"
-	Model 1 "TechFlash.md3"
-	Skin 1 "TechFlash_Rail.png"
-	Model 2 "TechPistol_Tube.md3"
-	Path "Textures\Models\TechPistol"
-	Skin 2 "Tube_R01.png"
+	Model 0 "TechFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "BlueFlash.png"
 	Scale 5.0 5.0 5
 
-	FrameIndex TEKR B 0 0
+	FrameIndex TKRF A 0 0
 }
 
 Model Tails_TechPistol
@@ -1499,6 +1341,9 @@ Model Tails_TechPistol
 
 	FrameIndex TEKS A 0 0
 	FrameIndex TEKS A 1 0
+	
+	FrameIndex TEKS B 0 0
+	FrameIndex TEKS B 1 0
 	
 	FrameIndex TEKS C 0 1
 	FrameIndex TEKS C 1 1
@@ -1528,15 +1373,12 @@ Model Tails_TechPistol
 Model Tails_TechPistol
 {
 	Path "Models\HUD\TechPistol"
-	Model 0 "TechPistol_Super.md3"
-	Model 1 "TechFlash.md3"
-	Skin 1 "TechFlash_Super.png"
-	Model 2 "TechPistol_Tube.md3"
-	Path "Textures\Models\TechPistol"
-	Skin 2 "Tube_S01.png"
+	Model 0 "TechFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "OrangeFlash.png"
 	Scale 5.0 5.0 5
 
-	FrameIndex TEKS B 0 0
+	FrameIndex TKSF A 0 0
 }
 
 Model Melee
@@ -1613,8 +1455,6 @@ Model HealingSerum
 	ROTATING
 
 	FrameIndex PTN2 A 0 0
-	FrameIndex PTN2 B 0 0
-	FrameIndex PTN2 C 0 0
 }
 
 Model GasPickup
@@ -1638,17 +1478,6 @@ model Noisy_Cricket
 }
 
 model MolotovCocktail
-{
-	Path "Models\Molotov"
-	Model 0 "molotov.md3"
-	Scale 3.5 3.5 3.5
-	ZOffset 70
-	ROTATING
-
-	FrameIndex MOGP A 0 0
-}
-
-model MolotovCocktail_Dropped
 {
 	Path "Models\Molotov"
 	Model 0 "molotov.md3"
@@ -2376,138 +2205,6 @@ Model FlakCannon
 	FrameIndex FLAK Z 0 25
 }
 
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot1.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL A 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot2.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL B 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot3.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL C 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot4.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL D 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShard.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL E 0 0
-}
-
-// Frag
-
-Model FragShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot1.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL A 0 0
-}
-
-Model FragShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot2.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL B 0 0
-}
-
-Model FragShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot3.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL C 0 0
-}
-
-Model FragShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot4.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL D 0 0
-}
-
-Model FragShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShard.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL E 0 0
-}
-
 Model OICW_Grenade
 {
 	Path "Models\HUD\ProtonGL"
@@ -2641,40 +2338,7 @@ model BigPentagram
 	Scale 3.5 3.5 3.5
 	ROTATING
 
-	Frame NULL A 0 "skin"
-}
-
-Model Condom1
-{
-	Path "Models/FloorDecals"
-	Model 0 "FloorDecal.md2"
-	Skin 0 "Condom1.png"
-	Scale 0.1 0.1 0.1
-	ZOffset 0.2
-
-	Frame NULL A 0 "skin"
-}
-
-Model Condom2
-{
-	Path "Models/FloorDecals"
-	Model 0 "FloorDecal.md2"
-	Skin 0 "Condom2.png"
-	Scale 0.1 0.1 0.1
-	ZOffset 0.2
-
-	Frame NULL A 0 "skin"
-}
-
-Model Condom_BlueShell
-{
-	Path "Models/FloorDecals"
-	Model 0 "FloorDecal.md2"
-	Skin 0 "BlueShell.png"
-	Scale 0.1 0.1 0.1
-	ZOffset 0.2
-
-	Frame NULL A 0 "skin"
+	FrameIndex NULL A 0 0
 }
 
 Model AbbeyRoadCover
@@ -2685,19 +2349,8 @@ Model AbbeyRoadCover
 	Scale 1.0 1.0 1.0
 	ZOffset 0.2
 
-	Frame NULL A 0 "skin"
-}
-
-model XBox360
-{
-	Path "Models/Decoration"
-	Model 0 "XBox360.md3"
-	Skin 0 "XBox360.png"
-	Scale 1.5 1.5 1.5
-
 	FrameIndex NULL A 0 0
 }
-
 
 model BigCeilingLamp
 {
@@ -2708,71 +2361,6 @@ model BigCeilingLamp
 	ZOffset -8.25
 
 	FrameIndex GDCR K 0 0
-}
-
-model 8trackStereo
-{
-	Path "Models/Decoration/8track"
-	Model 0 "8track.md3"
-	Scale 5.0 5.0 5.0
-	ZOffset 0.1
-
-	FrameIndex FOUN A 0 0
-	FrameIndex FOUN B 0 1
-	FrameIndex FOUN C 0 2
-	FrameIndex FOUN D 0 3
-	FrameIndex FOUN E 0 4
-	FrameIndex FOUN F 0 5
-	FrameIndex FOUN G 0 6
-	FrameIndex FOUN H 0 7
-	FrameIndex FOUN I 0 8
-	FrameIndex FOUN J 0 9
-	FrameIndex FOUN K 0 10
-	FrameIndex FOUN L 0 11
-	FrameIndex FOUN M 0 12
-	FrameIndex FOUN N 0 13
-	FrameIndex FOUN O 0 14
-	FrameIndex FOUN P 0 15
-}
-
-model VendingMachine_Fanta
-{
-	Path "Models/Decoration/Soda"
-	Model 0 "vendingmachine.md3"
-	Skin 0 "fantavm.png"
-	Scale 1.0 1.0 1.0
-
-	FrameIndex FOUN A 0 0
-}
-
-model VendingMachine_CocaCola
-{
-	Path "Models/Decoration/Soda"
-	Model 0 "vendingmachine.md3"
-	Skin 0 "cocacolavm.png"
-	Scale 1.0 1.0 1.0
-
-	FrameIndex FOUN A 0 0
-}
-
-model VendingMachine_Pepsi
-{
-	Path "Models/Decoration/Soda"
-	Model 0 "vendingmachine2.md3"
-	Skin 0 "pepsivm.png"
-	Scale 0.9 0.9 0.9
-
-	FrameIndex FOUN A 0 0
-}
-
-model VendingMachine_Hitler
-{
-	Path "Models/Decoration/Soda"
-	Model 0 "vendingmachine.md3"
-	Skin 0 "mdhitlervm.png"
-	Scale 1.0 1.0 1.0
-
-	FrameIndex FOUN A 0 0
 }
 
 model Pepsi
@@ -2817,103 +2405,6 @@ model MDHitler
 	ZOffset 4.5
 
 	FrameIndex PEPS A 0 0
-}
-
-model DrinkingFountain
-{
-	Path "Models/Decoration"
-	Model 0 "0563_drinkfount.md3"
-	Skin 0 "0563_drinkfount.png"
-	Scale 0.64 0.8 0.5
-
-	FrameIndex FOUN A 0 0
-}
-
-model DrinkingFountain
-{
-	Path "Models/Decoration"
-	Model 0 "0565_drinkfount.md3"
-	Skin 0 "0563_drinkfount.png"
-	Scale 0.64 0.8 0.5
-
-	FrameIndex FOUN B 0 0
-}
-
-model DrinkingFountain
-{
-	Path "Models/Decoration"
-	Model 0 "0566_drinkfount.md3"
-	Skin 0 "0563_drinkfount.png"
-	Scale 0.64 0.8 0.5
-
-	FrameIndex FOUN C 0 0
-	FrameIndex FOUN D 0 0
-}
-
-model Rose
-{
-	Path "Models/Decoration/Rose"
-	Model 0 "Rose.md3"
-	Scale 0.5 0.5 0.5
-	ZOffset 2
-
-	FrameIndex NULL A 0 0
-}
-
-model Flower
-{
-	Path "Models/Decoration/Flower"
-	Model 0 "Flower.md3"
-	Scale 2.75 2.75 2.75
-
-	FrameIndex FLOW A 0 0
-}
-
-model Flower
-{
-	Path "Models/Decoration/Flower"
-	Model 0 "Flower2.md3"
-	Scale 2.25 2.25 2.25
-
-	FrameIndex FLOW B 0 0
-}
-
-model Flower
-{
-	Path "Models/Decoration/Flower"
-	Model 0 "Flower3.md3"
-	Scale 3.0 3.0 3.0
-
-	FrameIndex FLOW C 0 0
-}
-
-model Dildo
-{
-	Path "Models/Decoration"
-	Model 0 "Dildo.md3"
-	Skin 0 "Dildo.jpg"
-	Scale 1.25 1.25 1.25
-
-	FrameIndex GDCR A 0 0
-}
-
-model Clock
-{
-	Path "Models/Decoration"
-	Model 0 "Clock.md3"
-	Skin 0 "Clock.jpg"
-	Scale 2.5 2.5 2.5
-
-	FrameIndex CLOK A 0 0
-}
-
-model Macintosh
-{
-	Path "Models/Decoration/Mac"
-	Model 0 "macintosh.md3"
-	Scale 4.25 4.25 4.25
-
-	FrameIndex MACI A 0 0
 }
 
 Model Railgun
@@ -2961,6 +2452,7 @@ Model QuadShotgun
 {
 	Path "Models\HUD\quadshotgun"
 	Model 0 "quadshotgun_flash1.md3"
+	Path "Models\HUD\MuzzleFlashes"
 	Skin 0 "muzzleflash2.png"
 	Scale 5.0 4.0 5.0
 
@@ -2971,6 +2463,7 @@ Model QuadShotgun
 {
 	Path "Models\HUD\quadshotgun"
 	Model 0 "quadshotgun_flash2.md3"
+	Path "Models\HUD\MuzzleFlashes"
 	Skin 0 "muzzleflash2.png"
 	Scale 5.0 4.0 5.0
 
@@ -3184,6 +2677,7 @@ Model NewShotgun
 {
 	Path "Models\HUD\Shotgun"
 	Model 0 "shotgunflash.md3"
+	Path "Models\HUD\MuzzleFlashes"
 	Skin 0 "shotgunflash.png"
 	Scale 5.0 3.0 5.0
 
@@ -3304,7 +2798,8 @@ Model PIPS
 {
 	Path "Models\HUD\PIPS"
 	Model 0 "PlasmaShotgun_Flash.md3"
-	Skin 0 "PlasmaShotgun_Flash.png"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "greenflash.png"
 	Scale 5.0 3.5 5.0
 	
 	FrameIndex PIPF A 0 0
@@ -3666,42 +3161,6 @@ Model Supra
 	FrameIndex PHAF C 0 0
 }
 
-model PowerBeam
-{
-	Path "models/Projectiles"
-	Model 0 "Tracer.md3"
-	Skin 0 "TealTracer.png"
-	Scale 320.0 96.0 96.0
-	PITCHFROMMOMENTUM
-	
-	Rotating
-	Rotation-Speed 10
-	Rotation-Vector 1 0 0
-
-	FrameIndex APLS A 0 0
-	FrameIndex APLS B 0 0
-	FrameIndex APLS C 0 0
-	FrameIndex APLS D 0 0
-}
-
-model SM_ArachnotronPlasma
-{
-	Path "models/Projectiles"
-	Model 0 "Tracer.md3"
-	Skin 0 "TealTracer.png"
-	Scale 320.0 96.0 96.0
-	PITCHFROMMOMENTUM
-	
-	Rotating
-	Rotation-Speed 10
-	Rotation-Vector 1 0 0
-
-	FrameIndex APLS A 0 0
-	FrameIndex APLS B 0 0
-	FrameIndex APLS C 0 0
-	FrameIndex APLS D 0 0
-}
-
 Model BloodyChainsaw
 {
 	Path "Models\HUD\Chainsaw"
@@ -3996,41 +3455,22 @@ Model BloodyChainsaw
 	FrameIndex SWS2 W 0 44
 }
 
-model TechPlasma
-{
-	Path "models/Projectiles"
-	Model 0 "SpiralPlasma.md3"
-	Skin 0 "Bolt.png"
-	Scale 1.0 1.0 1.0
-	PITCHFROMMOMENTUM
-	
-	Rotating
-	Rotation-Speed 10
-	Rotation-Vector 1 0 0
-
-	FrameIndex TPLA A 0 0
-}
-
-model SuperTechPlasma
-{
-	Path "models/Projectiles"
-	Model 0 "SpiralPlasma.md3"
-	Skin 0 "SuperBolt.png"
-	Scale 1.25 1.25 1.25
-	PITCHFROMMOMENTUM
-	
-	Rotating
-	Rotation-Speed 10
-	Rotation-Vector 1 0 0
-
-	FrameIndex TPS2 A 0 0
-}
-
 model RPGSpark
 {
 	Path "models/Projectiles"
 	Model 0 "Tracer.md3"
 	Skin 0 "Tracer.png"
+	Scale 1.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model BFG10kSpark
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "BlueTracer.png"
 	Scale 1.0 1.25 1.25
 	PITCHFROMMOMENTUM
 
@@ -4121,58 +3561,33 @@ model ThanatosBlade
 	FrameIndex PUFF A 0 0
 }
 
-model FragGrenadeX
-{
-	Path "Models/projectiles"
-	Model 0 "fraggrenade.md3"
-	Skin 0 "fraggrenade.png"
-	Scale 2.0 2.0 2.4
-	PITCHFROMMOMENTUM
-	ZOffset 3.75
-	
-	Rotating
-	Rotation-Speed -10
-	Rotation-Vector 0 0 1
-	Rotation-Center 0.0 3.75 0.0
-
-	FrameIndex FRAG A 0 0
-	FrameIndex FRAG B 0 1
-}
-
-model FragGrenadeX
+model FragGrenade
 {
 	Path "Models/projectiles"
 	Model 0 "fraggrenade.md3"
 	Skin 0 "fraggrenade.png"
 	Scale 2.0 2.0 2.0
-	PitchOffset 90
-	ZOffset 3.75
+	ROTATING
+	ZOffset 16
 
-	FrameIndex FRAG C 0 1
+	FrameIndex FRAG A 0 0
 }
 
-model FragShard_Fast
+Model Whopper
 {
-	Path "models/Projectiles"
-	Model 0 "Tracer.md3"
-	Skin 0 "Tracer.png"
-	Scale 20.0 1.25 1.25
-	PITCHFROMMOMENTUM
+	Path "Models/Burger"
+	Model 0 "Burger.md3"
+	Scale 1.0 1.0 1.0
 
-	FrameIndex PUFF A 0 0
+	FrameIndex WHOP A 0 0
 }
 
-model NeedlerCrystal
+Model Patty
 {
-	Path "Models/projectiles"
-	Model 0 "CrystalProjectile.md3"
-	Skin 0 "NeedlerCrystal.png"
-	Scale 2.0 2.0 2.4
-	PITCHFROMMOMENTUM
-	
-	Rotating
-	Rotation-Speed -10
-	Rotation-Vector 1 0 0
+	Path "Models/Burger"
+	Model 0 "BurgerPatty.md3"
+	Skin 0 "BurgerPatty.png"
+	Scale 1.0 1.0 1.0
 
-	FrameIndex GLSS A 0 0
+	FrameIndex PATT A 0 0
 }

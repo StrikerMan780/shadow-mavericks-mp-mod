@@ -1,0 +1,129 @@
+model Dildo
+{
+	Path "Models/Decoration/XXX"
+	Model 0 "Dildo.md3"
+	Skin 0 "Dildo.jpg"
+	Scale 1.25 1.25 1.25
+
+	FrameIndex GDCR A 0 0
+}
+
+Model Condom1
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom1.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+Model Condom2
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom2.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+Model Condom3
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom3.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+Model Condom4
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom4.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+Model Condom5
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom5.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+Model BlueShellCondom
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "blueshell.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+model Fleshlight
+{
+	Path "Models/Decoration/XXX/Fleshlight"
+	Model 0 "Fleshlight.md3"
+	Scale 1.75 1.75 1.75
+
+	FrameIndex GDCR A 0 0
+}
+
+Model ThorDildo_Blue
+{
+	Path "Models/Decoration/XXX/Thor"
+	Model 0 "Thor.md3"
+	Skin 0 "thor_blue.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}
+
+Model ThorDildo_Red
+{
+	Path "Models/Decoration/XXX/Thor"
+	Model 0 "Thor.md3"
+	Skin 0 "thor_red.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}
+
+Model ThorDildo_Yellow
+{
+	Path "Models/Decoration/XXX/Thor"
+	Model 0 "Thor.md3"
+	Skin 0 "thor_yellow.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}
+
+model TenaSlipBag
+{
+	Path "Models/Decoration"
+	Model 0 "package.md3"
+	Path "Models/Decoration/XXX"
+	Skin 0 "tenabag.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+model TenaSlip
+{
+	Path "Models/Decoration/XXX"
+	Model 0 "tena.md3"
+	Skin 0 "tena.png"
+	Scale 0.64 0.64 0.64
+
+	FrameIndex NULL A 0 0
+}
