@@ -1,0 +1,18 @@
+model MysteryPowerup
+{
+	Path "Models\Pickups\Mystery"
+	Model 0 "MysteryPowerup_Inner.md3"
+	
+	Path "Textures"
+	Skin 0 "HEALTHPR.png"
+	
+	Path "Models\Pickups\Mystery"
+	Model 1 "MysteryPowerup_Outer.md3"
+	Skin 1 "Mystery_Glass.png"
+	scale 5.0 5.0 5.0
+	ROTATING
+	ZOffset 16
+
+	FrameIndex MYST A 0 0
+	FrameIndex MYST A 1 0
+}
