@@ -1,3 +1,14 @@
+model BigCeilingLamp
+{
+	Path "Models/Decoration"
+	Model 0 "0979_hanglight.md3"
+	Skin 0 "0979_hanglight.png"
+	Scale 4.25 4.25 4.25
+	ZOffset -8.25
+
+	FrameIndex GDCR K 0 0
+}
+
 Model AcousticGuitar
 {
 	Path "Models/Decoration"
