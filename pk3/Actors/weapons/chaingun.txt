@@ -141,16 +141,6 @@ Actor SuperChaingunHit : BasePuff
 	}
 }
 
-Actor EnemySuperChaingunHit : SuperChaingunHit
-{
-	States
-	{
-	Spawn:
-		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
-		stop
-	}
-}
-
 actor BCF-2Repeaters : Weapon
 {
 	Tag "BCF-2 Repeaters"

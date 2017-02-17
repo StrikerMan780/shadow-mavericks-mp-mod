@@ -1,0 +1,315 @@
+actor BurningFireFlame : BasicFlame
+{
+	Scale 0.4
+}
+
+actor BurningFire 20522
+{
+	//$Category SMMP Effect Spawners
+	//$Title Fire Spawner
+	//$Arg0 Spawn Radius
+	//$Arg1 Flame Height
+	//$Arg2 Sparsity
+	//$Arg2ToolTip "[0-256] Higher numbers mean fewer fire particles."
+	//$Arg3 Damage
+	//$Sprite FIR1L0
+	//$Color 11
+	Scale 0.3
+	Height 56
+	Radius 20
+	RenderStyle Add
+	DamageType "Fire"
+	-SOLID
+	+NOINTERACTION
+	+NOGRAVITY
+	+NODAMAGETHRUST
+	+DONTSPLASH
+	+BLOODLESSIMPACT
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_PlaySoundEx("BurningFire", "SoundSlot7", 1)
+			TNT1 A 0 A_Explode(args[3], args[0], true, false, args[0]/2)
+			TNT1 A 1 A_SpawnItemEx("BurningFireFlame", random(-args[0], args[0]), random(-args[0], args[0]), random(0, args[1]), 0, 0, frandom(1.0, 3.0), 0, SXF_CLIENTSIDE, args[2])
+			goto Spawn+2
+	}
+}
+
+actor VolumetricFogSpawner 20001
+{
+	//$Category SMMP Effect Spawners
+	//$Title Volumetric Fog Spawner
+	//$Sprite FOG1A0
+	//$Color 11
+	Radius 64
+	yscale 0.08
+	+ALLOWCLIENTSPAWN
+	+CLIENTSIDEONLY
+	+NOINTERACTION
+	+NOCLIP
+	+NOBLOCKMAP
+	states
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 AAAAAAAA 0 A_SpawnItemEx("VolumetricFogSprite", Random(-64, 64), Random(-64, 64), 0, 0, 0, 0, 0, 128, 48)
+		stop
+	}
+}
+
+actor VolumetricFogSprite
+{
+	yscale 0.08
+	renderstyle Add
+	alpha 0.6
+	+FORCEXYBILLBOARD
+	+NOINTERACTION
+	+ALLOWCLIENTSPAWN
+	+CLIENTSIDEONLY
+	+NOCLIP
+	+NOBLOCKMAP
+	states
+	{
+	Spawn:
+		FOG1 A -1
+		loop
+	}
+}
+
+actor RainSpawner 16000
+{
+	//$Category SMMP Effect Spawners
+	//$Title Rain Spawner
+	//$Arg0 Spawn Radius
+	//$Arg1 Rain Type
+	//$Arg2 Sparsity
+	//$Arg2ToolTip "[0-256] Higher numbers mean less rain."
+	//$Sprite RAINA0
+	//$Color 11
+	Radius 16
+	Height 1
+	Speed 0
+	Mass 9999999
+	Scale 0.08
+	+SPAWNCEILING
+	+NOGRAVITY
+	+CORPSE
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(args[1] == 1, "BloodRain")
+			goto Rain
+		Rain:
+			TNT1 A 4 A_SpawnItemEX("Rain2", Random(args[0]*-1,args[0]), Random(args[0]*-1,args[0]), -1, 0, 0, 0, 0, SXF_CLIENTSIDE, args[2])
+			Loop
+		BloodRain:
+			TNT1 A 4 A_SpawnItemEX("BloodRain2", Random(args[0]*-1,args[0]), Random(args[0]*-1,args[0]), -1, 0, 0, 0, 0, SXF_CLIENTSIDE, args[2])
+			Loop
+	}
+}
+
+actor FountainDrip : BaseEffect
+{
+	RenderStyle Translucent
+	Alpha 0.25
+	Scale 0.25
+	+CLIENTSIDEONLY
+	+NOCLIP
+	+FORCEYBILLBOARD
+	-FORCEXYBILLBOARD
+	States
+	{
+		Spawn:
+			DRIP ABCDEFGHI 1
+			stop
+	}
+}
+
+actor FountainParticleTrail : BaseEffect
+{
+	RenderStyle Add
+	Alpha 0.48
+	Scale 0.025
+	-NOGRAVITY
+	-NOINTERACTION
+	+CORPSE
+	Gravity 0.1
+	States
+	{
+		Spawn:
+			BLUE A 1 A_FadeOut(0.01)
+			loop
+		Crash:
+			TNT1 A 1
+			stop
+	}
+}
+
+actor FountainParticle
+{
+	Projectile
+	Radius 2
+	Height 2
+	RenderStyle Add
+	Alpha 0.48
+	Gravity 0.25
+	Scale 0.025
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+CORPSE
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
+	-NOGRAVITY
+	States
+	{
+		Death:
+		Spawn:
+			BLUE A 1 A_SpawnItemEx("FountainParticleTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			BLUE A 0 A_JumpIf(waterlevel >= 1, "Crash")
+			loop
+		Crash:
+			TNT1 A 1 A_SpawnItemEx("FountainDrip", 0, 0, 0, frandom(-0.25, 0.25), frandom(-0.25, 0.25), 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor FountainParticleSpawner 17521
+{
+	//$Category SMMP Effect Spawners
+	//$Title Water Fountain
+	//$Sprite ICONA0
+	//$Color 11
+	Radius 4
+	Height 8
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOINTERACTION
+	states
+	{
+		Spawn:
+			TNT1 A 2 A_SpawnItemEx("FountainParticle", 0, 0, 0, frandom(-1.0,1.0), frandom(-1.0,1.0), frandom(3.0,6.0), frandom(-180.0,180.0), SXF_CLIENTSIDE, 0)
+			loop
+	}
+}
+
+actor Bubble
+{
+	Projectile
+	Radius 2
+	Height 4
+	Speed 0
+	Damage 0
+	Scale 0.07
+	+FORCEXYBILLBOARD
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	States
+	{
+		Spawn:
+			BUBB A 1 A_JumpIf(WaterLevel <= 2, "Death")
+			loop
+		Death:
+			TNT1 A 1
+			stop
+	}
+}
+
+actor BubbleSpawner 20002
+{
+	//$Category SMMP Effect Spawners
+	//$Title Bubble Spawner
+	//$Sprite BUBBA0
+	//$Color 11
+	Radius 32
+	Height 2
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	+NOCLIP
+	+NOBLOCKMAP
+	states
+	{
+	Spawn:
+		TNT1 A 8 A_SpawnItemEx("Bubble", Random(-32, 32), Random(-32, 32), Random(0, 20), 0, 0, Random(1,2), 0, SXF_CLIENTSIDE, 48)
+		loop
+	}
+}
+
+actor SmokeParticle : BaseEffect
+{
+	RenderStyle Translucent
+	Alpha 0.0
+	States
+	{
+		Spawn:
+			SMO2 A 1 NoDelay A_SetTranslucent(alpha+0.0625) // Add scaling once floating point user variables are in.
+			SMO2 A 0 A_JumpIf(alpha >= 0.25, "RollSmoke")
+			loop
+		RollSmoke:
+			SMO2 AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQ 1 A_FadeOut(0.001)
+			stop
+	}
+}
+
+actor SmokeSpawner 17522
+{
+	//$Category SMMP Effect Spawners
+	//$Title Smoke Spawner
+	//$Sprite ICONB0
+	//$Color 11
+	//$Arg0 Spawn Radius
+	//$Arg1 Spawn Height
+	//$Arg2 Smoke Scale
+	//$Arg3 Smoke Forward Speed
+	//$Arg4 Smoke Upward Speed
+	//$Arg0Type 23
+	//$Arg1Type 24
+	Radius 4
+	Height 8
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOINTERACTION
+	states
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_SetScale(0.1 * args[2])
+			goto SpewSmoke
+		SpewSmoke:
+			TNT1 A 2 A_SpawnItemEx("SmokeParticle", Random(args[0]*-1,args[0]), Random(args[0]*-1,args[0]), Random(0, args[1]), (args[3]*frandom(0.9, 1.1))*0.5, 0, (args[4]*frandom(0.9, 1.1))*0.5, 0, SXF_CLIENTSIDE | SXF_TRANSFERSCALE, 0)
+			loop
+	}
+}
+
+actor PopCornSpawner 17771
+{
+	//$Category SMMP Effect Spawners
+	//$Title Popcorn Spawner
+	//$Sprite POPCA0
+	//$Color 11
+	Radius 16
+	Height 8
+	Speed 0
+	Mass 9999999
+	Scale 0.015
+	+SPAWNCEILING
+	+NOGRAVITY
+	+CORPSE
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1
+		loop
+	Popping:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("Popcorn")
+		TNT1 AAAAAAAAAA 4 A_SpawnItemEX("Popcorn", Random(-2,2), Random(-2,2), 0, Random(-2,2), Random(-2,2), Random(-2, 0), 0, 0, 0)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_SpawnItemEX("Popcorn", Random(-2,2), Random(-1,1), 0, Random(-2,2), Random(-2,2), Random(-2, 0), 0, 0, 0)
+		TNT1 A -1
+		Loop
+	}
+}

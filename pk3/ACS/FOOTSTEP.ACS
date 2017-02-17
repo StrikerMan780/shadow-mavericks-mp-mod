@@ -1,7 +1,7 @@
-#include "zcommon.acs"
 #library "FOOTSTEP"
+#include "zcommon.acs"
 
-#define MaxStepSounds 231
+#define MaxStepSounds 246
 bool PlayingFootsteps[64];
 
 str StepSound[MaxStepSounds][2] =
@@ -110,6 +110,7 @@ str StepSound[MaxStepSounds][2] =
 	// Carpet
 	{ "FLOOR1_1", "step/carpet" },
 	{ "FLOOR1_6", "step/carpet" },
+	{ "N5FL14RD", "step/carpet" },
 	{ "FLAT14", "step/carpet" },
 	{ "FLAT14-Y", "step/carpet" },
 	{ "FLAT14-G", "step/carpet" },
@@ -223,7 +224,21 @@ str StepSound[MaxStepSounds][2] =
 	{ "GSTONE1", "step/marble" },
 	{ "GSTONE2", "step/marble" },
 	{ "NFMBGY01", "step/marble" },
+	{ "DEM1_5", "step/marble" },
+	{ "DEM1_6", "step/marble" },
+	{ "DEM2_1", "step/marble" },
+	{ "DEM2_2", "step/marble" },
+	{ "DEM2_3", "step/marble" },
+	{ "DEM2_4", "step/marble" },
+	{ "DEM2_5", "step/marble" },
+	{ "DEM2_6", "step/marble" },
+	{ "DEM3_1", "step/marble" },
+	{ "DEM3_2", "step/marble" },
+	{ "DEM3_3", "step/marble" },
+	{ "DEM3_4", "step/marble" },
+	{ "DEM3_5", "step/marble" },
 	{ "DEM3_6", "step/marble" },
+	{ "DEM4_5", "step/marble" },
 	{ "DEM4_6", "step/marble" },
 	{ "BLODFLR1", "step/marble" },
 	{ "DNCITY11", "step/marble" },

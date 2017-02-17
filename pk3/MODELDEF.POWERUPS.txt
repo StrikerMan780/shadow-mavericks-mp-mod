@@ -16,3 +16,18 @@ model MysteryPowerup
 	FrameIndex MYST A 0 0
 	FrameIndex MYST A 1 0
 }
+
+model SphereShell
+{
+	Path "Models\Pickups\Itemsphere"
+	Model 0 "itemsphere.md3"
+	
+	Path "Textures"
+	Skin 0 "POWBUBBL.png"
+	
+	ZOffset 7.5
+	//ALIGNANGLE
+	scale 0.56 0.56 0.56
+
+	FrameIndex NULL A 0 0
+}

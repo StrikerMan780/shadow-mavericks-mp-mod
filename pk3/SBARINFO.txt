@@ -133,7 +133,7 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 			}
 
 			// Cooperative -
-			gamemode singleplayer
+			gamemode singleplayer, cooperative
 			{
 				drawnumber 3, SMALLFONT, red, kills, alignment(center), drawshadow(1,1), -53, 13;
 			}
@@ -142,7 +142,7 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 			InInventory Kamikaze, 1
 			{
 				DrawImage "KAMIKAZ0", 128, -23, center;
-				DrawImage runeicon, 166, -23, center;
+				DrawImage runeicon, 172, -23, center;
 			}
 			else
 			{
@@ -201,10 +201,17 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 			// Tails Ability Bars -
 			playerclass Tails
 			{
-				// Flight Time Bar
-				DrawBar "FLYBAR", "FLYBACK", PowerupTime TailsFlight, horizontal, 270, 11;
-				// Recovery Bar
-				DrawBar "RECVBAR", "RECVBACK", TailsFlightCheck, horizontal, 270, 18;
+				InInventory TailsFlightCheck, 1
+				{
+					DrawBar "FLIGHT", "FLIGHTBK", TailsFlightCheck, vertical, -29, 42;
+				}
+				else
+				{
+					InInventory NOT TailsFlightTrigger, 1
+					{
+						DrawBar "FLIGHT", "FLIGHTBK", PowerupTime TailsFlight, vertical, -29, 42;
+					}
+				}
 			}
 
 			// Marine Bars -

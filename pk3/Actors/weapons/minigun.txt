@@ -29,12 +29,13 @@ actor Minigun : Weapon 5014
 		Loop
 	Deselect:
 		MNGG A 1 A_Lower
+		MNGG A 0 A_StopSound(CHAN_7)
 		Loop
 	Select:
 		MNGG A 1 A_Raise
 		Loop
 	Fire:
-		MNGG A 0 A_PlaySoundEx("MinigunSpinUp", "auto", 0)
+		MNGG A 0 A_PlaySound("MinigunSpinUp", CHAN_7, 1.0, false)
 		MNGG A 5 A_WeaponReady(WRF_NOFIRE)
 		MNGG B 5 A_WeaponReady(WRF_NOFIRE)
 		MNGG C 4 A_WeaponReady(WRF_NOFIRE)
@@ -53,6 +54,7 @@ actor Minigun : Weapon 5014
 		MNGF A 0 A_Refire
 		goto Letgo
 	Hold:
+		MNGG A 0 A_PlaySound("MinigunMotor", CHAN_7, 1.0, true)
 		MNGG A 1 Offset (1, 32) A_GunFlash
 		MNGG B 1 Offset (2, 31) A_GunFlash
 		MNGG C 1
@@ -71,7 +73,7 @@ actor Minigun : Weapon 5014
 		MNGF A 0 A_Refire
 		goto Letgo
 	Letgo:
-		MNGG A 0 A_PlaySoundEx("MinigunSpinDown", "auto", 0)
+		MNGG A 0 A_PlaySound("MinigunSpinDown", CHAN_7, 1.0, false)
 		MNGG A 1 A_WeaponReady(WRF_NOFIRE)
 		MNGG B 1 A_WeaponReady(WRF_NOFIRE)
 		MNGG C 1 A_WeaponReady(WRF_NOFIRE)

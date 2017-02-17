@@ -16,7 +16,7 @@ actor Tails : BaseClass
 	Player.AttackZOffset 3
 	Player.Viewheight 36
 	
-	Player.DisplayName "Tails"
+	Player.DisplayName "Tails (WIP)"
 	Player.SoundClass "tails"
 	Player.ScoreIcon "TAILICON"
 	
@@ -319,5 +319,64 @@ actor TailsWeaponUpgrade : CustomInventory
 		RCOR A 1 ACS_NamedExecute("TPUPGRADE", 0, 0)
 		RCOR A 1 A_PlaySound("Upgrade")
 		stop
+	}
+}
+
+actor TailsFlightTrigger : CustomInventory
+{
+	inventory.icon "ARTIFLY"
+	inventory.amount 1
+	inventory.maxamount 1
+	+INVENTORY.QUIET
+	+INVENTORY.INVBAR
+	+INVENTORY.HUBPOWER
+	+INVENTORY.KEEPDEPLETED
+	+INVENTORY.ALWAYSPICKUP
+	-INVENTORY.AUTOACTIVATE
+	-INVENTORY.INTERHUBSTRIP
+	+INVENTORY.UNDROPPABLE
+	+COUNTITEM
+	states
+	{
+	Spawn:
+		LCHN A -1
+		stop
+	Use:
+		TNT1 A 0
+		TNT1 A 0 A_JumpifInventory("CannotUse", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("RedFlag", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("BlueFlag", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("WhiteFlag", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("RedSkullST", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("BlueSkullST", 1, "GoDie")
+		TNT1 A 0 A_JumpIfInventory("PowerPossessionArtifact", 1, "GoDie")
+		TNT1 A 0 A_Jumpifinventory("PowerFlight", 1, "GoDie")
+		TNT1 A 0
+		goto GoFly
+	GoFly:
+		TNT1 A 0 A_GiveInventory("TailsFlight", 1)
+		stop
+	GoDie:
+		TNT1 A 0
+		stop
+	}
+}
+
+actor TailsFlight : PowerupGiver
+{
+	inventory.amount 1
+	inventory.maxamount 1
+	powerup.duration 372
+	powerup.type "Flight"
+	+INVENTORY.QUIET
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.UNDROPPABLE
+	+COUNTITEM
+	states
+	{
+		Spawn:
+			TNT1 A 1
+			loop
 	}
 }

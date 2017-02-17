@@ -1,0 +1,381 @@
+actor AcousticGuitar 11832
+{
+	//$Category SMMP Static Props
+	//$Title Acoustic Guitar
+	//$Color 15
+	Height 56
+	Radius 10
+	Scale 0.3
+	+SOLID
+	States
+	{
+		Spawn:
+		GUIT A -1
+		loop
+	}
+}
+
+actor Clock 24542
+{
+	//$Category SMMP Static Props
+	//$Title Clock
+	//$Color 15
+	Scale 0.60
+	Radius 10
+	Height 16
+	-SOLID
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			CLOK A -1
+			loop
+	}
+}
+
+actor XBox360 24543
+{
+	//$Category SMMP Static Props
+	//$Title XBox 360
+	//$Color 15
+	Radius 16
+	Height 16
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor Rose 18817
+{
+	//$Category SMMP Static Props
+	//$Title Rose
+	//$Color 15
+	radius 4
+	height 4
+	-SOLID
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor ComputerChair 20524
+{
+	//$Category SMMP Static Props
+	//$Title Computer Chair
+	//$Color 15
+	Height 25
+	Radius 16
+	Scale 0.8
+	+SOLID
+	+FORCEYBILLBOARD
+	States
+	{
+		Spawn:
+			CHIR A -1
+			loop
+	}
+}
+
+actor AntecComputerCase 20520
+{
+	//$Category SMMP Static Props
+	//$Title Computer Case (Antec)
+	//$Color 15
+	Height 25
+	Radius 8
+	+SOLID
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor ComputerMonitor 20521
+{
+	//$Category SMMP Static Props
+	//$Title Computer Monitor
+	//$Color 15
+	Height 8
+	Radius 8
+	+SOLID
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor Keyboard 20666
+{
+	//$Category SMMP Static Props
+	//$Title Keyboard
+	//$Color 15
+	Height 4
+	Radius 14
+	-SOLID
+	+FORCEYBILLBOARD
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor ComputerMouse 20667
+{
+	//$Category SMMP Static Props
+	//$Title Computer Mouse
+	//$Color 15
+	Height 4
+	Radius 4
+	-SOLID
+	+FORCEYBILLBOARD
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor CompanionCube 16521
+{
+	//$Category SMMP Static Props
+	//$Title Companion Cube
+	//$Color 15
+	Radius 16
+	Height 32
+	Speed 0
+	Scale 0.2
+	+SOLID
+	+ALLOWCLIENTSPAWN
+	States
+	{
+		Spawn:
+			COMC A -1
+			loop
+	}
+}
+
+actor FirstAidKit 21320
+{
+	//$Category SMMP Static Props
+	//$Title First-Aid Kit
+	//$Color 15
+	Height 8
+	Radius 10
+	+SOLID
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor ToiletPaper 21322
+{
+	//$Category SMMP Static Props
+	//$Title Toilet Paper
+	//$Color 15
+	Height 6
+	Radius 4
+	+SOLID
+	+NOGRAVITY
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor MoldyCrow 21328
+{
+	//$Category SMMP Static Props
+	//$Title Moldy Crow Model
+	//$Color 15
+	Scale 0.50
+	Radius 6
+	Height 4
+	-SOLID
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
+actor Spanner 8023
+{
+	//$Category SMMP Static Props
+	//$Title Spanner
+	//$Color 15
+	radius 20
+	height 16
+	-SOLID
+	States
+	{
+		Spawn:
+			GDCR A -1
+			loop
+	}
+}
+
+actor Screwdriver : Spanner 8024
+{
+	//$Title Screwdriver
+	States
+	{
+		Spawn:
+			GDCR B -1
+			loop
+	}
+}
+
+actor Oiler : Spanner 8025
+{
+	//$Title Oiler
+	States
+	{
+		Spawn:
+			GDCR C -1
+			loop
+	}
+}
+
+actor Shovel : Spanner 8026
+{
+	//$Title Oiler
+	height 56
+	+SOLID
+	States
+	{
+		Spawn:
+			GDCR D -1
+			loop
+	}
+}
+
+actor ShopAirCompressor : Spanner 8029
+{
+	//$Title Air Compressor
+	radius 20
+	height 56
+	Scale 0.90
+	Mass 290
+	+SOLID
+	States
+	{
+		Spawn:
+			GDCR G -1
+			loop
+	}
+}
+
+actor SpareTires : Spanner 8034
+{
+	//$Title Spare Tires
+	radius 20
+	height 16
+	Scale 0.90
+	+SOLID
+	States
+	{
+		Spawn:
+			GDCR M -1
+			loop
+	}
+}
+
+actor OilDrum 8027
+{
+	//$Category SMMP Pushable Props
+	//$Title Oil Drum
+	//$Color 15
+	radius 20
+	height 46
+	Health 9999999999
+	Mass 290
+	+SOLID
+	+SHOOTABLE
+	+PUSHABLE
+	+NOBLOOD
+	+SLIDESONWALLS
+	+DROPOFF
+	+WINDTHRUST
+	+TELESTOMP
+	+NOBLOCKMONST
+	-DONTBLAST
+	+NOTARGET
+	+DONTMORPH
+	+DONTSQUASH
+	+CANPASS
+	+FIXMAPTHINGPOS
+	States
+	{
+		Spawn:
+			GDCR E -1
+			loop
+	}
+}
+
+actor OilDrum2 : OilDrum 8028
+{
+	//$Title Oil Drum 2
+	States
+	{
+		Spawn:
+			GDCR F -1
+			loop
+	}
+}
+
+actor CardboardBox : OilDrum 8031
+{
+	//$Title Cardboard Box
+	radius 10
+	height 28
+	Mass 60
+	States
+	{
+		Death:
+		Spawn:
+			GDCR J -1
+			loop
+	}
+}
+
+actor BigCeilingLamp 8032
+{
+	radius 20
+	height 34
+	+SPAWNCEILING
+	+NOGRAVITY
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			GDCR K -1
+			loop
+	}
+}	

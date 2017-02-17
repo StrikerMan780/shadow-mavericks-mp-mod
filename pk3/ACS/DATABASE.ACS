@@ -1,0 +1,188 @@
+#library "DATABASE"
+#include "zcommon.acs"
+
+global int 0:player_money[];
+bool stats_loaded[65];
+
+#define MAX_MONEY 1000000
+#define DEBUG_ID 666
+
+function void DebugDBExchange(str Message, str acctname, int pnum)
+{
+	if(GetCVar("smmp_debug_db"))
+	{
+		HudMessageBold (s:"[DATABASE] ", s:Message, s:" (Player #", d:pnum, s:", ", s:acctname, s:")";
+		HUDMSG_FADEOUT | HUDMSG_LOG, DEBUG_ID, CR_CYAN, 0.1, 0.2, 4.0, 0.5);
+	}
+}
+
+function void DebugValue(str Message, int value, int pnum)
+{
+	if(GetCVar("smmp_debug_db"))
+	{
+		HudMessageBold (s:"[DATABASE] ", s:Message, s:" Value: ", d:value, s:" (Player #", d:pnum, s:")";
+		HUDMSG_FADEOUT | HUDMSG_LOG, DEBUG_ID, CR_YELLOW, 0.1, 0.25, 4.0, 0.5);
+	}
+}
+
+function void GetStatsFromDB(int pnum)
+{	
+	str acctname = GetPlayerAccountName(pnum);
+	
+	if(!IsNetworkGame())
+	{
+		acctname = "singleplayer_acct";
+	}
+	
+	player_money[pnum] = GetDBEntry(acctname, "smmp_money");
+	
+	stats_loaded[pnum] = true;
+	DebugDBExchange("Retrieving player stats", acctname, pnum);
+}
+
+function void SaveStatsToDB(int pnum)
+{	
+	if(!stats_loaded[pnum])
+		return;
+	
+	str acctname = GetPlayerAccountName(pnum);
+	
+	if(!IsNetworkGame())
+	{
+		acctname = "singleplayer_acct";
+	}
+	
+	SetDBEntry(acctname, "smmp_money", player_money[pnum]);
+	
+	DebugDBExchange("Saving player stats", acctname, pnum);
+}
+
+function void ClearLocalStats(int pnum)
+{
+	player_money[pnum] = 0;
+	stats_loaded[pnum] = false;
+}
+
+script "GIVEMONEY" (int amount, int givetotarget)
+{
+	if(givetotarget)
+	{
+		SetActivatorToTarget(0);
+	}
+	
+	int pnum = PlayerNumber();
+	
+	if(player_money[pnum] >= MAX_MONEY)
+	{
+		SetResultValue(0);
+		terminate;
+	}
+	
+	DebugValue("Giving Money.", amount, pnum);
+	player_money[pnum] += amount;
+	
+	if(player_money[pnum] > MAX_MONEY)
+	{
+		player_money[pnum] = MAX_MONEY;
+	}
+	
+	SetResultValue(1);
+}
+
+script "TAKEMONEY" (int amount, int takefromtarget)
+{
+	if(takefromtarget)
+	{
+		SetActivatorToTarget(0);
+	}
+	
+	int pnum = PlayerNumber();
+	
+	if((player_money[pnum]-amount) < 0)
+	{
+		Print(s:"\cgYou don't have enough money for this!\n\ccYou need $", d:amount);
+		SetResultValue(0);
+		terminate;
+	}
+	
+	DebugValue("Taking Money.", amount, pnum);
+	player_money[pnum] -= amount;
+	
+	if(player_money[pnum] < 0)
+	{
+		player_money[pnum] = 0;
+	}
+	
+	SetResultValue(1);
+}
+
+script "DEBUGDB" (void) NET
+{
+	int pnum = PlayerNumber();
+	DebugValue("Cash", player_money[pnum], pnum);
+}
+
+script "LOGIN" ENTER
+{
+	int pnum = PlayerNumber();
+	
+	// Check if offline, and if so, skip everything below.
+	// This allows tracking money offline, without tracking players that are not logged in online.
+	if(!IsNetworkGame() && !stats_loaded[pnum] && !PlayerIsBot(pnum))
+	{
+		GetStatsFromDB(pnum);
+	}
+	else if(!PlayerIsLoggedIn(pnum) && (StrIcmp("localhost", GetCVarString("authhostname")) != 0)) // Online, but not logged in.
+	{
+		SetFont("DoomFont");
+		SetHudSize(640, 480, true);
+		hudmessage(s:"Welcome, ", n:0, s:"! \cc You are not logged in! \nPlease register @ \cg", s:GetCVarString("authhostname"), s:"\nOnce registered, login via ``login <username> <password>`` in the console! \n\n\cdThis will give you many benefits, such as tracking money/items, \n\cdand being able to use other new features!"; 
+		HUDMSG_TYPEON | HUDMSG_LOG, 4, CR_WHITE, 4.1, 300.1, 1.0, 0.02, 1.8);
+	}
+	else if(PlayerIsLoggedIn(pnum) && !stats_loaded[pnum] && !PlayerIsBot(pnum)) // Online, and logged in.
+	{
+		GetStatsFromDB(pnum);
+	}
+}
+
+script "HUBLOGIN" RETURN
+{
+	ACS_NamedExecuteAlways("LOGIN", 0);
+}
+
+script "RECHECKSTATS" RESPAWN
+{
+	int pnum = PlayerNumber();
+	
+	if(PlayerIsLoggedIn(pnum) && !stats_loaded[pnum] && !PlayerIsBot(pnum))
+	{
+		GetStatsFromDB(pnum);
+	}
+}
+
+script "LOGOFF" (int pnum) DISCONNECT
+{
+	SaveStatsToDB(pnum);
+	ClearLocalStats(pnum);
+}
+
+function void UpdateDatabase(void)
+{
+	BeginDBTransaction();
+	for(int i = 0; i < 64; i++)
+	{
+		if(PlayerInGame(i) && !PlayerIsBot(i))
+		{
+			SaveStatsToDB(i);
+		}
+		
+		ClearLocalStats(i);
+	}
+	EndDBTransaction();
+}
+
+script "UPDATEDB_UNLOADING" UNLOADING
+{
+	PrintBold(s:"\cvExecuting unloading script");
+	UpdateDatabase();
+}

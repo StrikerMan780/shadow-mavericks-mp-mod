@@ -1,0 +1,207 @@
+actor GBTWHellKnight : HellKnight Replaces HellKnight
+{
+	BloodColor "00 AE 00"
+	DropItem "ForcePull", 16
+	DropItem "ForceThrust", 10
+	States
+	{
+		Death:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 8)
+			BOS2 I	8
+			BOS2 J	8 A_Scream
+			BOS2 K	8
+			BOS2 L	8 A_NoBlocking
+			BOS2 MN 8
+			BOS2 O 10500
+			goto Fade
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+actor StealthGBTWHellknight : GBTWHellknight Replaces StealthHellknight
+{
+	+STEALTH
+	Alpha 0.0
+}
+
+actor GBTWBaronOfHell : BaronOfHell
+{
+	BloodColor "00 AE 00"
+	DropItem "EtherealCrossbow", 26
+	DropItem "ForcePull", 24
+	DropItem "ForceThrust", 12
+	States
+	{
+		Death:
+			TNT1 A 0 A_GiveToTarget("DemonicPower", 16)
+			BOSS I 8
+			BOSS J 8 A_Scream
+			BOSS K 8
+			BOSS L 8 A_NoBlocking
+			BOSS MN 8
+			BOSS O 10500 A_BossDeath
+			goto Fade
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
+	}
+}
+
+actor StealthGBTWBaron : GBTWBaronOfHell Replaces StealthBaron
+{
+	+STEALTH
+	Alpha 0.0
+}
+
+actor SM_BaronBall : BaronBall Replaces BaronBall
+{
+	DamageType "Ethereal"
+	+FORCEXYBILLBOARD
+}
+
+actor GBTWBelphegor : GBTWHellKnight 5008
+{
+	SpawnID 215
+	Health 1500
+	PainChance 25
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_BELPHEGOR"
+	HitObituary "$OB_BELPHEGOR_MELEE"
+	BloodColor "00 AD 00"
+	DropItem "ForcePull", 32
+	DropItem "EtherealCrossbow", 36
+	DropItem "ForceThrust", 24
+	States
+	{
+		Spawn:
+			BOS3 AB 10 A_Look
+			Loop
+		See:
+			BOS3 AABBCCDD 3 A_Chase
+			Loop
+		Pain:
+			BOS3 H 2 A_TakeInventory("Firing", 1)
+			BOS3 H 2 A_Pain
+			Goto See
+		Melee:
+		Missile:
+			BOS3 E 0 A_GiveInventory("Firing", 1)
+			BOS3 EF 6 A_FaceTarget
+			BOS3 G 6 A_BasicAttack (10, "baron/melee", "BelphegorBall", 32)
+			BOS3 EF 6 A_FaceTarget
+			BOS3 G 6 A_BasicAttack (10, "baron/melee", "BelphegorBall", 32)
+			BOS3 EF 6 A_FaceTarget
+			BOS3 G 6 A_BasicAttack (10, "baron/melee", "BelphegorBall", 32)
+			Goto See
+		Death:
+			BOS3 I 0 A_TakeInventory("Firing", 1)
+			BOS3 I 8 A_GiveToTarget("DemonicPower", 32)
+			BOS3 J 8 A_Scream
+			BOS3 K 8
+			BOS3 L 8 A_NoBlocking
+			BOS3 MN 8
+			BOS3 O 10500 A_BossDeath
+			goto Fade
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
+		Raise:
+			BOS3 ONMLKJI 8
+			Goto See
+	}
+}
+
+ACTOR BelphegorBall : SM_BaronBall
+{
+	SpawnID 222
+	Speed 20
+}
+
+Actor Cybruiser : BaronOfHell 30128
+{ 
+	Health 1500 
+	Radius 24 
+	Height 64 
+	Mass 1000 
+	Speed 8 
+	PainChance 20 
+	Monster
+	MeleeDamage 10
+	Obituary "%o was blown away by a Cybruiser."
+	HitObituary "%o was smashed by a Cybruiser."
+	+FloorClip
+	+MissileMore
+	+BossDeath
+	+DontHurtSpecies
+	SeeSound "monster/brusit" 
+	PainSound "baron/pain" 
+	DeathSound "monster/brudth"
+	MeleeSound "baron/melee"
+	DropItem "CellAmmo"
+	DropItem "MechAmmo"
+	DropItem "HealingSerum", 32
+	DropItem "FlakCannon", 100
+	DropItem "Railgun", 50
+	States 
+	{ 
+	Spawn: 
+		BRUS AB 10 A_Look 
+		Loop 
+	See:
+		BRUS A 1 A_Playsound("monster/bruwlk")
+		BRUS A 2 A_Chase
+		BRUS A 3 A_Chase
+		BRUS BB 3 A_Chase
+		BRUS C 1 A_Playsound("monster/bruwlk")
+		BRUS C 2 A_Chase
+		BRUS C 3 A_Chase 
+		BRUS DD 3 A_Chase
+		Loop 
+	Missile:
+		BRUS E 0 A_JumpIfCloser(512, "FlakAttack")
+		goto RailAttack
+	RailAttack:
+		BRUS E 0 A_FaceTarget
+		BRUS E 0 A_PlaySound("OICWBolt", CHAN_AUTO)
+		BRUS E 10 A_CustomRailgun(0, -8, "none", "FF0000", RGF_SILENT | RGF_FULLBRIGHT, 0, 0.0, "NullPuff", 0.0, 0.0, 8192, 10, 1.0, 0.0, "none", 10)
+		BRUS F 10 BRIGHT A_CustomRailgun(25, 15, "none", "FF0000", RGF_FULLBRIGHT, 0, 0.0, "RailgunPuff", 0.0, 0.0, 8192, 16, 3.0, 1.0, "RailTrailGenerator_Red", 0)
+		BRUS E 10 A_FaceTarget
+		goto See
+	FlakAttack:
+		BRUS E 0 A_Jump(64, "RailAttack")
+		BRUS E 8 A_FaceTarget
+		BRUS F 0 A_FaceTarget
+		BRUS FFFFFFF 0 A_CustomMissile("FlakShard_Cybruiser", 38, 15, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-1.5, 1.5))
+		BRUS F 12 Bright A_PlaySound("FlakCannon", CHAN_AUTO)
+		BRUS E 12 A_FaceTarget
+		BRUS F 0 A_FaceTarget
+		BRUS FFFFFFF 0 A_CustomMissile("FlakShard_Cybruiser", 38, 15, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-1.5, 1.5))
+		BRUS F 12 Bright A_PlaySound("FlakCannon", CHAN_AUTO)
+		BRUS E 12 A_FaceTarget
+		BRUS F 0 A_FaceTarget
+		BRUS FFFFFFF 0 A_CustomMissile("FlakShard_Cybruiser", 38, 15, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-1.5, 1.5))
+		BRUS F 12 Bright A_PlaySound("FlakCannon", CHAN_AUTO)
+		Goto See
+	Melee:
+		BRUS GH 8 A_FaceTarget
+		BRUS I 8 A_MeleeAttack
+		Goto See
+	Pain: 
+		BRUS J 2 
+		BRUS J 2 A_Pain 
+		Goto See 
+	Death: 
+		BRUS K 6 Bright A_Scream
+		BRUS LMN 6 Bright
+		BRUS O 6 Bright A_NoBlocking
+		BRUS QR 6 Bright
+		BRUS S 6
+		BRUS T -1 A_BossDeath
+		Stop
+	} 
+}

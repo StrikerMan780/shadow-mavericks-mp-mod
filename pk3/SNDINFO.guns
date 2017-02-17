@@ -8,6 +8,15 @@ M203Load dsm203ld
 M203Close dsm203cl
 $limit OICWFire 0
 
+ShockRifleFire dsshkrif
+ShockRifleBall dsshkbal
+ShockRifleExplosion dsshkbax
+ShockRifleRaise dsshkup
+ShockCombo dsshkcom
+$limit ShockRifleFire 0
+$limit ShockRifleBall 0
+$rolloff ShockCombo 512 2400
+
 ThanatosFire DSTHANAT
 ThanatosPump DSTHPUMP
 ThanatosBladeIdle DSTHBIDL
@@ -38,6 +47,8 @@ $volume MP40BoltSlap 0.5
 
 AcidSprayer dsacidsp
 
+MinigunMotor DSMINIMT
+
 weapons/shotgf			dsshotgn
 weapons/shotgr			dssgcock
 weapons/sshotf			dsdshtgn
@@ -45,9 +56,17 @@ weapons/sshoto			dsdbopn
 weapons/sshotc			dsdbcls
 weapons/sshotl			dsdbload
 weapons/bfgf			dsbfg
-weapons/plasmaf			dsplasma
+weapons/plasmaf1		dsplasma
+weapons/plasmaf2		dsplasm2
+weapons/plasmaf3		dsplasm3
+weapons/plasmaf4		dsplasm4
 weapons/plasmax			dsplshit
 weapons/rocklf			dsrlaunc
+$random weapons/plasmaf { weapons/plasmaf1 weapons/plasmaf2 weapons/plasmaf3 weapons/plasmaf4 }
 $volume weapons/plasmax 0.8
 $limit weapons/plasmaf 0
+$limit weapons/plasmaf1 0
+$limit weapons/plasmaf2 0
+$limit weapons/plasmaf3 0
+$limit weapons/plasmaf4 0
 $limit weapons/rocklf 0

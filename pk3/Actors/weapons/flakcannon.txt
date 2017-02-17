@@ -129,8 +129,10 @@ actor FlakShard
 	+FORCEXYBILLBOARD
 	+EXTREMEDEATH
 	+USEBOUNCESTATE
+	+CANPASS
+	+BOUNCEAUTOOFFFLOORONLY
 	-BLOODLESSIMPACT
-	obituary "%o was ripped to shreds by %k's Flak."
+	obituary "%o was ripped to shreds by %k's flak."
 	BounceType Hexen
 	BounceCount 3
 	ReactionTime 20
@@ -171,6 +173,14 @@ actor FlakShard
 		PUFF AB 2 BRIGHT
 		stop
 	}
+}
+
+Actor FlakShard_Cybruiser : FlakShard
+{
+	Damage (10)
+	Speed 40
+	DamageType "MonsterFlak"
+	Obituary "%o was ripped to shreds by a cybruiser's flak."
 }
 
 Actor FlakSmoke

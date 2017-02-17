@@ -46,6 +46,9 @@ ACTOR Stinger : Weapon
 	Weapon.SelectionOrder 1000
 	States
 	{
+	Spawn:
+		STNG A 0
+		stop
 	Ready:
 		STNG A 1 A_WeaponReady
 		loop
@@ -193,6 +196,20 @@ actor StingerShot
 actor StingerShot2 : StingerShot
 {
 	Speed 80
+	-SEEKERMISSILE
+	States
+	{
+		Spawn:
+			STPL AB 1 BRIGHT A_SpawnItemEX("StingTrail", 0, 0, 0, frandom(-1.0,1.0), frandom(-1.0,1.0), frandom(-1.0,1.0), 0, SXF_CLIENTSIDE, 64)
+			loop
+	}
+}
+
+actor MonsterStingerShot : StingerShot
+{
+	obituary "%o was disintegrated by a stinger zombie"
+	Damage (5)
+	Speed 60
 	-SEEKERMISSILE
 	States
 	{
@@ -365,7 +382,7 @@ actor Expander : Weapon
 
 ACTOR ExpanderPuff : BasePuff
 {
-    Scale 0.75
+    Scale 0.05
     Alpha 0.85
     Renderstyle Add
     obituary "%o was deep-fried by %k."
@@ -379,12 +396,16 @@ ACTOR ExpanderPuff : BasePuff
       TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
       goto Crash
     Crash:
-      EXPP E 2 BRIGHT
-      EXPP A 4 BRIGHT
-      EXPP B 4 BRIGHT
-      EXPP C 4 BRIGHT
-      EXPP D 4 BRIGHT
-      EXPP E 2 BRIGHT
-      Stop
+      EXPP AAAABBB 1 BRIGHT A_SetScale(ScaleX+0.1)
+      goto StopScale
+	StopScale:
+	  EXPP BCCCCDDDD 1 BRIGHT
+	  goto ScaleDown
+	ScaleDown:
+	  EXPP AAAABBBBCCCCDD 1 BRIGHT A_SetScale(ScaleX-0.05)
+	  goto Kill
+	Kill:
+		EXPP A 0
+		stop
     }
 }

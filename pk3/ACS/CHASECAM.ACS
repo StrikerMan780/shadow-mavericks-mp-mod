@@ -1,5 +1,7 @@
-#include "zcommon.acs"
 #library "CHASECAM"
+#include "zcommon.acs"
+
+// CHASECAM.ACS - Chasecam code.
 
 #define C_TID		5000	//Default camera tid
 #define ADJUST_R	8	//Amount to adjust the camera by

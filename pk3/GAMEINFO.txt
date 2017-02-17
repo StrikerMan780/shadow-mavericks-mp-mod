@@ -1,4 +1,4 @@
 STARTUPTITLE = "The Shadow Mavericks MP Mod"
 STARTUPCOLORS = "FFFFFF", "470CCC"
 STARTUPTYPE = "Heretic"
-LOAD = "Doom_Complete_v1.pk3"
+LOAD = "skulltag_data_fixed.pk3"

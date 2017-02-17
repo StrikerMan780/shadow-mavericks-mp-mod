@@ -9,6 +9,7 @@ gameinfo
 	menufontcolor_selection = "Green"
 	menufontcolor_header = "Cyan"
 	swapmenu = false
+	quitsound = "QuitGame" 
 	quitmessages = 	"\cfQuitting? \cgWell fuck you too.",
 					"\cdHeavy Sez: \cfYou are tiny baby coward.",
 					"\cfLeaving? We'll miss you. \cg(Maybe)",
@@ -23,7 +24,9 @@ gameinfo
 					"\cgYes \cfto cower and hide, \cdNo \cfto show us your Manface!",
 					"\cfSo, you're heading off to try dick?",
 					"\cfWhat, gonna write about how much I offended you on your Tumblr?",
-					"\cfYou are quitting. Big surprise not."
+					"\cfYou are quitting. Big surprise not.",
+					"\cfGo on, scram, you bloody wanker!",
+					"\cdNo \cfto kick demonic ass. \cgYes \cfto have a fireborn cleave your nuts off."
 }
 
 clearskills

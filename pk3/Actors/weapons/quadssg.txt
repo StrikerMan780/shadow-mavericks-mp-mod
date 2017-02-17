@@ -30,7 +30,7 @@ actor QuadShotgun : Weapon 12843
 			loop
 		Fire:
 			SHT3 A 0 A_Recoil(12)
-			SHT3 A 0 A_FireBullets (13.2, 7.1, 40, 7, "QuadPuff", FBF_USEAMMO | FBF_NORANDOM)
+			SHT3 A 0 A_FireBullets (13.2, 7.1, 40, 8, "QuadPuff", FBF_USEAMMO | FBF_NORANDOM)
 			SHT3 A 1 A_GunFlash
 			SHT3 A 0 A_SetPitch(pitch-12)
 			SHT3 B 0 radius_quake(6, 6, 0, 1, 0)

@@ -5,17 +5,18 @@ addkeysection "SMMP Misc Commands" SMMPMiscCommands
 addmenukey "All-In-One Fix" Fix
 alias Fix "snd_channels 64; gl_use_models 1; gl_interpolate_model_frames 1"
 
-alias censortoggle "echo This command has been replaced by the CVAR smmp_uncensored"
+alias censortoggle "pukename CENSORTOGGLE"
 alias interpolate "gl_interpolate_model_frames 1"
 defaultbind n "showpop 3"
 defaultbind r "+reload"
+defaultbind mouse3 "SpecialMove"
 
 alias TauntNext "pukename \"TAUNT_SELECT\" always 1"
 alias TauntPrevious "pukename \"TAUNT_SELECT\" always 0"
 alias TauntSkipNext "pukename \"TAUNT_SELECT\" always 2"
 alias TauntSkipBack "pukename \"TAUNT_SELECT\" always 3"
 alias TauntPlay "pukename \"TAUNT_PLAY\" always"
-alias SendTaunt "pukename \"TAUNT_SELECT\" always 1 %1"
+alias SendTaunt "pukename \"TAUNT_PLAY\" always %1"
 
 clearplayerclasses
 addplayerclass "Marine"

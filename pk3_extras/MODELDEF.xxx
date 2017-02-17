@@ -58,6 +58,26 @@ Model Condom5
 	FrameIndex NULL A 0 0
 }
 
+Model Condom6
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom6.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
+Model Condom7
+{
+	Path "Models/Decoration/XXX/Condoms"
+	Model 0 "Condom.md3"
+	Skin 0 "Condom7.png"
+	Scale 1.5 1.5 1.5
+
+	FrameIndex NULL A 0 0
+}
+
 Model BlueShellCondom
 {
 	Path "Models/Decoration/XXX/Condoms"

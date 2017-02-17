@@ -1,0 +1,90 @@
+actor GBTWMoney : Inventory // Base money class, do not use directly.
+{
+	inventory.amount 1
+	inventory.maxamount 1000000
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		stop
+	}
+}
+
+actor 20DollarBill : CustomInventory 20132
+{
+	//$Category SMMP Money Items
+	//$Title $20 Bill
+	//$Color 2
+	inventory.pickupmessage "$20 Bill"
+	inventory.pickupsound "Cashpickup"
+	inventory.maxamount 1
+	Inventory.RespawnTics 10500 // 5 Minutes
+	-INVENTORY.INVBAR
+	+INVENTORY.AUTOACTIVATE
+	Radius 10
+	Height 8
+	Scale 0.2
+	States
+	{
+		Spawn:
+			CASH A -1
+			stop
+		Pickup:
+			TNT1 A 1 A_JumpIf(ACS_NamedExecuteWithResult("GIVEMONEY", 20, false) == 0, "Failure")
+			TNT1 A 0 A_RailWait
+			stop
+		Use:
+			TNT1 A 1 A_RailWait
+			stop
+		Failure:
+			TNT1 A 1
+			fail
+	}
+}
+
+actor GreenRupee : 20DollarBill 20133
+{
+	//$Title Green Rupee
+	inventory.pickupmessage "Green Rupee ($1)"
+	inventory.pickupsound "Rupee"
+	RenderStyle "Translucent"
+	Alpha 0.75
+	Scale 1.0
+	States
+	{
+		Spawn:
+			NULL A -1
+			stop
+		Pickup:
+			TNT1 A 1 A_JumpIf(ACS_NamedExecuteWithResult("GIVEMONEY", 1, false) == 0, "Failure")
+			TNT1 A 0 A_RailWait
+			stop
+	}
+}
+
+actor BlueRupee : GreenRupee 20134
+{
+	//$Title Blue Rupee
+	inventory.pickupmessage "Blue Rupee ($5)"
+	States
+	{
+		Pickup:
+			TNT1 A 1 A_JumpIf(ACS_NamedExecuteWithResult("GIVEMONEY", 5, false) == 0, "Failure")
+			TNT1 A 0 A_RailWait
+			stop
+	}
+}
+
+actor RedRupee : GreenRupee 20135
+{
+	//$Title Red Rupee
+	inventory.pickupmessage "Red Rupee ($20)"
+	States
+	{
+		Pickup:
+			TNT1 A 1 A_JumpIf(ACS_NamedExecuteWithResult("GIVEMONEY", 20, false) == 0, "Failure")
+			TNT1 A 0 A_RailWait
+			stop
+	}
+}

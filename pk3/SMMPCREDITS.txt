@@ -12,9 +12,12 @@ Fireborn - Raven Software, StrikerMan780
 Fallen Crusader - Raven Software, StrikerMan780
 Lightsaber-Wielding DoomGuy - DoomJedi (Thanks, man!)
 Hellbender Explosions - Terminal Reality Inc.
+Cacobald Sprites - breadbagfly
+BirdImp Sprites - breadbagfly & ItsNatureToDie
 
 Sounds:
 KunaiKitsune - Footstep Sounds
+Perkristan - DSFLAME/DSFLAMST/DSTOILET
 
 Maps:
 All maps are by [SM] Clan members - StrikerMan780, Ruin, ChrisR91, KunaiKitsune.
@@ -22,9 +25,10 @@ All maps are by [SM] Clan members - StrikerMan780, Ruin, ChrisR91, KunaiKitsune.
 Models:
 Health Bonus Vials - Epic Games, StrikerMan780(Texture edits)
 Armor Items - Epic Games, StrikerMan780(Texture edits)
-Super Shotgun - Nexon, Valve, IAHGames
+Super Shotgun - Nexon, Valve, IAHGames, StrikerMan780(Elemental SSG textures)
 Quad-Barreled Shotgun - Nexon, Valve, IAHGames, Game Zombie(CSS Hand Rig)
 PSO Handgun/Techpistol - smoke_fumus(hi-def remodel), StrikerMan780(Texture)
+Toiler Paper Roll - Sitters
 
 Textures:
 Doom 2 Recolored Textures - DefconRazor32

@@ -61,6 +61,65 @@ model FirstAidKit
 	FrameIndex NULL A 0 0
 }
 
+model CardboardBox
+{
+	Path "Models/Decoration"
+	Model 0 "0951_box.md3"
+	Skin 0 "0951_box.png"
+	Scale 1.5 1.5 1.8
+	
+	FrameIndex GDCR J 0 0
+}
+
+model ComputerChair
+{
+	Path "Models/Decoration"
+	Model 0 "computerchair.md3"
+	Skin 0 "computerchair.png"
+	Scale 1.5 1.5 1.5
+	
+	FrameIndex CHIR A 0 0
+}
+
+model Keyboard
+{
+	Path "Models/Decoration/Keyboard"
+	Model 0 "Keyboard.md3"
+	Scale 0.20 0.20 0.20
+
+	FrameIndex NULL A 0 0
+}
+
+model ComputerMouse
+{
+	Path "Models/Decoration/Mouse"
+	Model 0 "Mouse.md3"
+	Scale 0.4 0.4 0.4
+
+	FrameIndex NULL A 0 0
+}
+
+model AntecComputerCase
+{
+	Path "Models/Decoration/Computer"
+	Model 0 "antec.md3"
+	Skin 0 "antec.png"
+	Scale 1.25 1.25 1.25
+
+	FrameIndex NULL A 0 0
+}
+
+model ComputerMonitor
+{
+	Model 0 "Models/Decoration/Computer/monitor.md3"
+	SurfaceSkin 0 0 "Models/Decoration/Computer/computer.png"
+	SurfaceSkin 0 1 "Models/Decoration/Computer/screen.png"
+	
+	Scale 1.0 1.0 1.0
+	
+	FrameIndex NULL A 0 0
+}
+
 model DrinkingFountain
 {
 	Path "Models/Decoration"
@@ -175,8 +234,11 @@ model VendingMachine_Hitler
 
 model Macintosh
 {
-	Path "Models/Decoration/Mac"
-	Model 0 "macintosh.md3"
+	Model 0 "Models/Decoration/Mac/macintosh.md3"
+	SurfaceSkin 0 0 "Models/Decoration/Mac/win98.png"
+	SurfaceSkin 0 1 "Models/Decoration/Mac/imac_green.png"
+	SurfaceSkin 0 2 "Models/Decoration/Mac/imac_grey.png"
+	SurfaceSkin 0 3 "Models/Decoration/Mac/imac_pinstripe.png"
 	Scale 4.25 4.25 4.25
 
 	FrameIndex MACI A 0 0
@@ -184,8 +246,11 @@ model Macintosh
 
 model Macintosh_Striker
 {
-	Path "Models/Decoration/Mac"
-	Model 0 "macintosh_striker.md3"
+	Model 0 "Models/Decoration/Mac/macintosh.md3"
+	SurfaceSkin 0 0 "Models/Decoration/Mac/ut2004.jpg"
+	SurfaceSkin 0 1 "Models/Decoration/Mac/imac_violet.png"
+	SurfaceSkin 0 2 "Models/Decoration/Mac/imac_grey.png"
+	SurfaceSkin 0 3 "Models/Decoration/Mac/imac_pinstripe.png"
 	Scale 4.25 4.25 4.25
 
 	FrameIndex MACI A 0 0

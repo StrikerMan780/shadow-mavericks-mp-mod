@@ -1,5 +1,23 @@
 // SNDINFO for [SM] Multi-Purpose Mod.
 
+Quit1 DSQUIT01
+Quit2 DSQUIT02
+Quit3 DSQUIT03
+Quit4 DSQUIT04
+Quit5 DSQUIT05
+Quit6 DSQUIT06
+Quit7 DSQUIT07
+Quit8 DSQUIT08
+Quit9 DSQUIT09
+Quit10 DSQUIT10
+Quit11 DSQUIT11
+Quit12 DSQUIT12
+Quit13 DSQUIT13
+Quit14 DSQUIT14
+Quit15 DSQUIT15
+Quit16 DSQUIT16
+$random QuitGame { Quit1 Quit2 Quit3 Quit4 Quit5 Quit6 Quit7 Quit8 Quit9 Quit10 Quit11 Quit12 Quit13 Quit14 Quit15 Quit16 }
+
 FragGrenadeUse dsgrnuse
 FragGrenadeBounce1 dsgrbnc1
 FragGrenadeBounce2 dsgrbnc2
@@ -15,14 +33,9 @@ hitsound dshitsnd
 $limit hitsound 0
 
 NewWeapon dsnewwep
-Condom dscondom
+Rupee dsrupee
 
-Vend dsvend
-HereComesTheSun dsbeatle
 NYC dsnyc
-
-FuckingWindows98 DSFWIN98
-$rolloff FuckingWindows98 400 2400
 
 WeaponEmpty DSWEMPTY
 Empty DSEMPTY
@@ -53,6 +66,11 @@ $volume HellfireCycle 0.32
 HellFly		dsmisfly
 $limit Hellfly 0
 $volume HellFly 0.32
+
+invisibilitypickup dsinvis
+ZaWarudo dszawaru
+ZaWarudoStop dszawast
+GottaGoFast dsgofast
 
 laserhit dslhit
 
@@ -264,16 +282,6 @@ rico8	dsrico8
 rico9	dsrico9
 rico10	dsrico10
 $random ricochet { rico1 rico2 rico3 rico4 rico5 rico6 rico7 rico8 rico9 rico10 }
-
-// Lightning gun
-ShockRifleFire dsshkrif
-ShockRifleBall dsshkbal
-ShockRifleExplosion dsshkbax
-ShockRifleRaise dsshkup
-ShockCombo dsshkcom
-$limit ShockRifleFire 0
-$limit ShockRifleBall 0
-$rolloff ShockCombo 512 2400
 
 // Needler
 Needler1 dsneed1
@@ -663,7 +671,6 @@ Fooby1 DSFOOB1
 Fooby2 DSFOOB2
 Fooby3 DSFOOB3
 PlaneGuy DSPLNGUY
-DrinkingFountain DSDRKFNT
 ScreenON DSSCREEN
 Fart DSFART
 
@@ -782,9 +789,6 @@ $random BigExplosion { BigExp1 BigExp2 BigExp3 }
 $rolloff BigExp1 400 2400 
 $rolloff BigExp2 400 2400 
 $rolloff BigExp3 400 2400 
-
-// Stripper
-stripper dsstrip1
 
 // shotgun
 shotguncock dsshotco

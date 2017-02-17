@@ -1,0 +1,87 @@
+actor HangingTurret 16093
+{
+	Monster
+	Decal Bulletchip
+	Height 33
+	Radius 12
+	Scale 0.8
+	Health 200
+	Speed 0
+	PainChance 0
+	FloatSpeed 0
+	MaxTargetRange 2048
+	Mass 0x7fffffff
+	AttackSound "TurretFire"
+	DeathSound "BigExplosion"
+	DamageFactor "ShockBeam", 1.25
+	+AMBUSH
+	+NOBLOOD
+	+SPAWNCEILING
+	+NOGRAVITY
+	+FLOAT
+	+NOICEDEATH
+	+LOOKALLAROUND
+	+DROPOFF
+	+NOINFIGHTING
+	+NOFEAR
+	+NOSPLASHALERT
+	+DONTBLAST
+	-CANBLAST
+	States
+	{
+	Spawn:
+		TURR A 12 A_LookEx(LOF_NOSOUNDCHECK, 0, 0, 0, 360, "See")
+		loop
+	See:
+		TURR A 4 A_FaceTarget
+		TURR A 0 A_Chase("Missile", "Missile", CHF_DONTMOVE)
+		loop
+	Missile:
+		TURR A 0 A_PlaySound("TurretReady")
+		TURR AAAAAAA 7 A_FaceTarget
+		goto FireLoop
+	FireLoop:
+		TURR A 0 BRIGHT A_FaceTarget
+		TURR A 0 BRIGHT A_PlaySound("TurretFire", CHAN_WEAPON)
+		TURR A 0 A_SpawnItemEx ("BulletCasing", 12, 0, 6, Random(5, 8), Random(0, 1), 0, -56+Random(-8, 8), SXF_CLIENTSIDE, 0)
+		TURR B 2 BRIGHT A_CustomMissile("WeakMonsterBullet", 6, 5, frandom(-2, 2), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-1.0, 1.0))
+		TURR A 0 BRIGHT A_FaceTarget
+		TURR A 0 BRIGHT A_PlaySound("TurretFire", CHAN_WEAPON)
+		TURR A 0 A_SpawnItemEx ("BulletCasing", 12, 0, 6, Random(5, 8), Random(0, 1), 0, -56+Random(-8, 8), SXF_CLIENTSIDE, 0)
+		TURR C 2 BRIGHT A_CustomMissile("WeakMonsterBullet", 6, -5, frandom(-2, 2), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-1.0, 1.0))
+		TURR C 0 A_CposRefire
+		goto FireLoop
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Explode
+		TNT1 A 0 A_NoGravity
+		TNT1 A 0 A_SetTranslucent(1.0, 1) 
+		EXPL ABCDEFGHIJKLMNOPQRST 2 BRIGHT A_SpawnItemEx("TurretExplosion", 0, 0, 0, random(-3,3), random(-3,3), random(-3,3), 0, SXF_CLIENTSIDE, 0)
+		TNT1 A 0 A_CheckFlag("FRIENDLY", "RespawnFriendly")
+		stop
+	RespawnFriendly:
+		TNT1 A 4200
+		TNT1 A 0 A_SpawnItemEx("FriendlyHangingTurret", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+		stop
+	}
+}
+
+actor FriendlyHangingTurret : HangingTurret
+{
+	+FRIENDLY
+}
+
+actor TurretExplosion : RocketFire
+{
+	Scale 1.0
+	Alpha 1.0
+	RenderStyle Add
+	States
+	{
+		Spawn:
+			EXPL ABCDEFGHIJKLMNOPQRST 1 BRIGHT
+			stop
+	}
+}

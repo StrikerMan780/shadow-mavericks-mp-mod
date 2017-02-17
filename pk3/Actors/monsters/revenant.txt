@@ -2,6 +2,7 @@ actor SM_Revenant : Revenant Replaces Revenant
 {
 	Species "Revenant"
 	DamageFactor "Fire", 1.2
+	DamageFactor "EnemyHellfire", 0.0
 	DropItem "HellFireCannon", 76
 	DropItem "HellfireAmmo", 196
 	DropItem "Lightsaber", 44
@@ -32,12 +33,14 @@ actor SM_Revenant : Revenant Replaces Revenant
 
 actor RevenantHellFire : HellfireRocketHi
 {
+	DamageType "EnemyHellfire"
+	Damage (10)
 	Health 5
 	Speed 14
 	obituary "%o couldn't evade a Revenant's Missile"
 	Seesound "skeleton/attack"
-	DamageFactor "Hellfire", 0.0
 	DamageFactor "Extreme", 0.0
+	DamageFactor "EnemyHellfire", 0.0
 	-NOBLOCKMAP
 	+THRUSPECIES
 	+NOBLOOD

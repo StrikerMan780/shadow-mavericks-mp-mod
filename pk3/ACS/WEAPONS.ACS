@@ -359,9 +359,9 @@ script "MYSTERY_ITEM" (void)
 	SetFont("BigFont");
 	
 	HudMessage(s:"Mystery Item!";
-		HUDMSG_FADEINOUT, 0, CR_PURPLE, 320.4, 150.0, 8.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_PURPLE, 16.1, 150.0, 8.0, 0.5, 0.25);
 	HudMessage(s:".....................";
-		HUDMSG_TYPEON, 0, CR_BLUE, 320.4, 160.0, 6.0, 0.1, 0.25);
+		HUDMSG_TYPEON, 0, CR_BLUE, 16.1, 160.0, 6.0, 0.1, 0.25);
 	
 	if(random(1, 100) <= 50)
 	{
@@ -413,7 +413,7 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("DeadNotBigSurprise", 127);
 		HudMessage(s:"You are dead. Not Big Surprise.";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 175.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 175.0, 5.0, 0.5, 0.25);
 		terminate;
 	}
 	
@@ -421,13 +421,13 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("Fart", 100);
 		HudMessage(s:"No Weapon!";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 175.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 175.0, 5.0, 0.5, 0.25);
 	}
 	else
 	{
 		LocalAmbientSound("WinMysteryItem", 100);
 		HudMessage(s:"Weapon: \cv", s:class_weapons[weapon_picked][class][SLOT_NAME];
-		HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 175.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_GREEN, 16.1, 175.0, 5.0, 0.5, 0.25);
 	}
 	
 	delay(35);
@@ -437,7 +437,7 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("DeadNotBigSurprise", 127);
 		HudMessage(s:"You won a shot to the face, congrats!";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 185.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 185.0, 5.0, 0.5, 0.25);
 		terminate;
 	}
 	
@@ -445,7 +445,7 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("Fart", 100);
 		HudMessage(s:"No Inventory Item!";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 185.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 185.0, 5.0, 0.5, 0.25);
 	}
 	else
 	{
@@ -453,19 +453,19 @@ script "MYSTERY_ITEM" (void)
 		{
 			LocalAmbientSound("WinMysteryItem", 100);
 			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked][SLOT_NAME],s:"(s)";
-			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
+			HUDMSG_FADEINOUT, 0, CR_GREEN, 16.1, 185.0, 5.0, 0.5, 0.25);
 		}
 		else if(inventory_picked == inventory_picked_2)
 		{
 			LocalAmbientSound("WinMysteryItem", 100);
 			HudMessage(s:"Inventory Item: \cv", d:inventory_amount+inventory_amount_2, s:" ", s:inventory[inventory_picked][SLOT_NAME],s:"(s)";
-			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
+			HUDMSG_FADEINOUT, 0, CR_GREEN, 16.1, 185.0, 5.0, 0.5, 0.25);
 		}
 		else if(inventory_picked != inventory_picked_2)
 		{
 			LocalAmbientSound("WinMysteryItem", 100);
 			HudMessage(s:"Inventory Item: \cv", d:inventory_amount, s:" ", s:inventory[inventory_picked][SLOT_NAME], s:"(s) & ", d:inventory_amount_2, s:" ", s:inventory[inventory_picked_2][SLOT_NAME], s:"(s)";
-			HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 185.0, 5.0, 0.5, 0.25);
+			HUDMSG_FADEINOUT, 0, CR_GREEN, 16.1, 185.0, 5.0, 0.5, 0.25);
 		}
 	}
 	
@@ -476,7 +476,7 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("DeadNotBigSurprise", 127);
 		HudMessage(s:"Never Mind...";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 195.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 195.0, 5.0, 0.5, 0.25);
 		terminate;
 	}
 	
@@ -484,13 +484,13 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("Fart", 100);
 		HudMessage(s:"No Rune!";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 195.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 195.0, 5.0, 0.5, 0.25);
 	}
 	else
 	{
 		LocalAmbientSound("WinMysteryItem", 100);
 		HudMessage(s:"Rune: \cv", s:runes[rune_picked];
-		HUDMSG_FADEINOUT, 0, CR_GREEN, 320.4, 195.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_GREEN, 16.1, 195.0, 5.0, 0.5, 0.25);
 	}
 	
 	delay(35);
@@ -500,7 +500,7 @@ script "MYSTERY_ITEM" (void)
 	{
 		LocalAmbientSound("DeadNotBigSurprise", 127);
 		HudMessage(s:"Aaaand you're dead...";
-		HUDMSG_FADEINOUT, 0, CR_RED, 320.4, 215.0, 5.0, 0.5, 0.25);
+		HUDMSG_FADEINOUT, 0, CR_RED, 16.1, 215.0, 5.0, 0.5, 0.25);
 		terminate;
 	}
 	
@@ -514,7 +514,7 @@ script "MYSTERY_ITEM" (void)
 		{
 			LocalAmbientSound("WinMysteryItemBonus", 100);
 			HudMessage(s:"Backpack Bonus!";
-			HUDMSG_FADEINOUT, 0, CR_LIGHTBLUE, 320.4, 215.0, 5.0, 0.5, 0.25);
+			HUDMSG_FADEINOUT, 0, CR_LIGHTBLUE, 16.1, 215.0, 5.0, 0.5, 0.25);
 		}
 	}
 	

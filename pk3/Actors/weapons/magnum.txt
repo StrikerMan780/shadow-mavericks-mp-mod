@@ -37,13 +37,18 @@ actor Magnum : Weapon 10493
 			loop
 		Ready:
 			REVG AAAA 1 A_WeaponReady(WRF_ALLOWRELOAD)
-			REVG A 0 A_TakeInventory("PistolAccuracy", 1)
+			REVG A 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
 			loop
 		Deselect:
 			REVG A 0 A_TakeInventory("PistolAccuracy", 50)
+			goto DeselectLoop
+		DeselectLoop:
 			REVG A 1 A_Lower
-			goto Deselect+1
+			loop
 		Select:
+			REVG A 0 A_SetCrosshair(90)
+			goto SelectLoop
+		SelectLoop:
 			REVG A 1 A_Raise
 			loop
 		Fire:
@@ -95,7 +100,7 @@ actor Magnum : Weapon 10493
 			goto FireDone
 			
 		FireDone:
-			REVG A 0 A_GiveInventory("PistolAccuracy", 2)
+			REVG A 0 A_GunFlash("GiveAccuracy", GFF_NOEXTCHANGE)
 			REVG A 0 A_GunFlash
 			REVG A 0 Radius_Quake(3, 3, 0, 1, 0)
 			REVG A 1 BRIGHT A_SetPitch(pitch-2)
@@ -103,9 +108,9 @@ actor Magnum : Weapon 10493
 			REVG D 1 A_WeaponReady(WRF_NOBOB)
 			REVG E 1 A_WeaponReady(WRF_NOBOB)
 			REVG F 1 A_WeaponReady(WRF_NOBOB)
-			REVG G 0 A_TakeInventory("PistolAccuracy", 1)
+			REVG G 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
 			REVG G 1 A_WeaponReady(WRF_NOBOB)
-			REVG H 0 A_TakeInventory("PistolAccuracy", 1)
+			REVG H 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
 			REVG HIJKL 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
 			REVG A 3 A_ReFire
 			goto Ready
@@ -145,9 +150,54 @@ actor Magnum : Weapon 10493
 			REVR XYZ 2
 			RVR2 AB 2
 			RVR2 C 2 A_PlaySoundEx("MagnumClose", "Auto", 0)
-			RVR2 DE 2 A_TakeInventory("PistolAccuracy", 1)
+			RVR2 DE 2 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
 			RVR2 F 2 A_PlaySoundEx("MagnumSpin", "Auto", 0)
 			RVR2 GHIJKLMNOPQ 2
 			goto Ready
+			
+		TakeAccuracy:
+			TNT1 A 0 bright A_TakeInventory("PistolAccuracy", 1)
+			goto CheckCrosshair
+		TakeAccuracy2:
+			TNT1 A 0 bright A_TakeInventory("PistolAccuracy", 2)
+			goto CheckCrosshair
+		GiveAccuracy:
+			TNT1 A 0 bright A_GiveInventory("PistolAccuracy", 2)
+			goto CheckCrosshair	
+		CheckCrosshair:
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 8, "SetCrosshair8")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 7, "SetCrosshair7")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 6, "SetCrosshair6")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 5, "SetCrosshair5")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 4, "SetCrosshair4")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 3, "SetCrosshair3")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 2, "SetCrosshair2")
+			TNT1 A 0 A_JumpIfInventory("PistolAccuracy", 1, "SetCrosshair1")
+			TNT1 A 0 A_SetCrosshair(90)
+			stop
+		SetCrosshair1:
+			TNT1 A 0 A_SetCrosshair(91)
+			stop
+		SetCrosshair2:
+			TNT1 A 0 A_SetCrosshair(92)
+			stop
+		SetCrosshair3:
+			TNT1 A 0 A_SetCrosshair(93)
+			stop
+		SetCrosshair4:
+			TNT1 A 0 A_SetCrosshair(94)
+			stop
+		SetCrosshair5:
+			TNT1 A 0 A_SetCrosshair(95)
+			stop
+		SetCrosshair6:
+			TNT1 A 0 A_SetCrosshair(96)
+			stop
+		SetCrosshair7:
+			TNT1 A 0 A_SetCrosshair(97)
+			stop
+		SetCrosshair8:
+			TNT1 A 0 A_SetCrosshair(98)
+			stop
 	}
 }

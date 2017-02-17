@@ -1,0 +1,125 @@
+actor Striker_Persona 16523
+{
+	//$Category SMMP Character Cut-outs
+	//$Title Striker (Persona)
+	//$Color 16
+	Radius 8
+	Height 56
+	Speed 0
+	YScale 0.038
+	XScale 0.042
+	Mass 99999999
+	+SOLID
+	+SHOOTABLE
+	+NODAMAGE
+	+NOBLOODDECALS
+	States
+	{
+		Spawn:
+			SFUR A -1
+			loop
+	}
+}
+
+actor Striker 16522
+{
+	//$Category SMMP Character Cut-outs
+	//$Title Striker (XBox Live Avatar)
+	//$Color 16
+	Radius 8
+	Height 56
+	Speed 0
+	XScale 0.26
+	YScale 0.22
+	Mass 99999999
+	+SOLID
+	+SHOOTABLE
+	+NODAMAGE
+	+NOBLOODDECALS
+	States
+	{
+		Spawn:
+			STRK A -1
+			loop
+	}
+}
+
+actor AmyRose 29000
+{
+	//$Category SMMP Character Cut-outs
+	//$Title Amy Rose
+	//$Color 16
+	Radius 16
+	Height 56
+	Scale 0.2
+	Mass 9999999
+	+SOLID
+	states
+	{
+		Spawn:
+			AMYR A -1
+			loop
+	}
+}
+
+actor TailsSalute 25012
+{
+	//$Category SMMP Character Cut-outs
+	//$Title Tails
+	//$Color 16
+	radius 20
+	height 46
+	+SOLID
+	+SHOOTABLE
+	+NODAMAGE
+	+NOBLOODDECALS
+	Mass 999999
+	Scale 0.84
+	States
+	{
+		Spawn:
+			TSAL AABCDEDCBAAAA 5
+			loop
+	}
+}
+
+actor TrollFace 15211
+{
+	//$Category SMMP Character Cut-outs
+	//$Title Trollface Shotgunner
+	//$Color 16
+	Radius 8
+	Height 56
+	Mass 99999999
+	+SOLID
+	+SHOOTABLE
+	+NODAMAGE
+	+NOBLOODDECALS
+	States
+	{
+		Spawn:
+			TROL A -1
+			loop
+	}
+}
+
+actor HoloDoomguy 21329
+{
+	//$Category SMMP Character Cut-outs
+	//$Title Holographic Doomguy
+	//$Color 16
+	Radius 8
+	Height 56
+	Mass 99999999
+	RenderStyle Add
+	Alpha 1.0
+	-SOLID
+	+NOINTERACTION
+	+NOGRAVITY
+	States
+	{
+		Spawn:
+			HOLO A -1
+			loop
+	}
+}

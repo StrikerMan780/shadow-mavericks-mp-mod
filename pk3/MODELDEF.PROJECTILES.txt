@@ -1,0 +1,523 @@
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot1.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL A 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot2.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL B 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot3.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL C 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot4.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL D 0 0
+}
+
+Model FragShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShard.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL E 0 0
+}
+
+Model FragShard_Monster
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot1.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL A 0 0
+}
+
+Model FragShard_Monster
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot2.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL B 0 0
+}
+
+Model FragShard_Monster
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot3.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL C 0 0
+}
+
+Model FragShard_Monster
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot4.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL D 0 0
+}
+
+Model FragShard_Monster
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShard.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL E 0 0
+}
+
+model FragShard_Fast
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 20.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model FragShard_Fast_Monster
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 20.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot1.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL A 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot2.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL B 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot3.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL C 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShardHot4.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL D 0 0
+}
+
+Model FlakShard
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "FlakShard.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL E 0 0
+}
+
+model NeedlerCrystal
+{
+	Path "Models/projectiles"
+	Model 0 "CrystalProjectile.md3"
+	Skin 0 "NeedlerCrystal.png"
+	Scale 2.0 2.0 2.4
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 1 0 0
+
+	FrameIndex GLSS A 0 0
+}
+
+model FragGrenadeX
+{
+	Path "Models/projectiles"
+	Model 0 "fraggrenade.md3"
+	Skin 0 "fraggrenade.png"
+	Scale 2.0 2.0 2.4
+	PITCHFROMMOMENTUM
+	ZOffset 3.75
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 0 0 1
+	Rotation-Center 0.0 3.75 0.0
+
+	FrameIndex FRAG A 0 0
+	FrameIndex FRAG B 0 1
+}
+
+model FragGrenadeX
+{
+	Path "Models/projectiles"
+	Model 0 "fraggrenade.md3"
+	Skin 0 "fraggrenade.png"
+	Scale 2.0 2.0 2.0
+	PitchOffset 90
+	ZOffset 3.75
+
+	FrameIndex FRAG C 0 1
+}
+
+model FragGrenadeX_Monster
+{
+	Path "Models/projectiles"
+	Model 0 "fraggrenade.md3"
+	Skin 0 "fraggrenade.png"
+	Scale 2.0 2.0 2.4
+	PITCHFROMMOMENTUM
+	ZOffset 3.75
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 0 0 1
+	Rotation-Center 0.0 3.75 0.0
+
+	FrameIndex FRAG A 0 0
+	FrameIndex FRAG B 0 1
+}
+
+model FragGrenadeX_Monster
+{
+	Path "Models/projectiles"
+	Model 0 "fraggrenade.md3"
+	Skin 0 "fraggrenade.png"
+	Scale 2.0 2.0 2.0
+	PitchOffset 90
+	ZOffset 3.75
+
+	FrameIndex FRAG C 0 1
+}
+
+model MonsterBullet
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 16.0 1.0 1.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model WeakMonsterBullet
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 8.0 0.75 0.75
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model StrongMonsterBullet
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "Tracer.png"
+	Scale 16.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model MonsterChaingunBullet
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "ChaingunTracer.png"
+	Scale 16.0 2.75 2.75
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
+model PIPS_Shot
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "GreenTracer.png"
+	Scale 32.0 8.0 8.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex PIPH A 0 0
+}
+
+model CricketBeam
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "GreenTracer.png"
+	Scale 20.0 7.0 7.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex SERV A 0 0
+}
+
+model PowerBeam
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "TealTracer.png"
+	Scale 320.0 96.0 96.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex APLS A 0 0
+	FrameIndex APLS B 0 0
+	FrameIndex APLS C 0 0
+	FrameIndex APLS D 0 0
+}
+
+model SM_ArachnotronPowerBeam
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "TealTracer.png"
+	Scale 320.0 96.0 96.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex APLS A 0 0
+	FrameIndex APLS B 0 0
+	FrameIndex APLS C 0 0
+	FrameIndex APLS D 0 0
+}
+
+model StingerShot
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam.png"
+	Scale 2.5 3.0 3.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex STPL A 0 0
+	FrameIndex STPL B 0 0
+}
+
+model StingerShot2
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam.png"
+	Scale 2.5 3.0 3.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex STPL A 0 0
+	FrameIndex STPL B 0 0
+}
+
+model MonsterStingerShot
+{
+	Path "Models\Projectiles"
+	Model 0 "laserbeam.md2"
+	Skin 0 "laserbeam.png"
+	Scale 2.5 3.0 3.0
+	PITCHFROMMOMENTUM
+
+	FrameIndex STPL A 0 0
+	FrameIndex STPL B 0 0
+}
+
+model TechPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "Bolt.png"
+	Scale 1.0 1.0 1.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex TPLA A 0 0
+}
+
+model SuperTechPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "SuperBolt.png"
+	Scale 1.25 1.25 1.25
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+
+	FrameIndex TPS2 A 0 0
+}
+
+model BFG10kShot
+{
+	Path "models/Projectiles"
+	Model 0 "SpiralPlasma.md3"
+	Skin 0 "BlueBolt.png"
+	Scale 0.75 1.75 1.75
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 30
+	Rotation-Vector 1 0 0
+
+	FrameIndex PUFF A 0 0
+}
+
+model BFG10kExplosionShell
+{
+	Path "models/Explosion"
+	Model 0 "ExplosionShell2.md3"
+	Skin 0 "ExplosionShellBFG10k.png"
+	Scale 1.0 1.0 1.0
+	
+	Rotating
+	Rotation-Speed 30
+
+	FrameIndex NULL A 0 0
+}
+
+model NewPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "PlasmaBall.md3"
+	Skin 0 "Plasma_Orange.png"
+	Scale 10.0 10.0 12.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 1 0 0
+
+	FrameIndex PLSS A 0 0
+	FrameIndex PLSS B 0 1
+	FrameIndex PLSS C 0 2
+	FrameIndex PLSS D 0 3
+}
+
+model SM_ArachnotronPlasma
+{
+	Path "models/Projectiles"
+	Model 0 "PlasmaBall.md3"
+	Skin 0 "Plasma_Orange.png"
+	Scale 10.0 10.0 12.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed -10
+	Rotation-Vector 1 0 0
+
+	FrameIndex PLSS A 0 0
+	FrameIndex PLSS B 0 1
+	FrameIndex PLSS C 0 2
+	FrameIndex PLSS D 0 3
+}

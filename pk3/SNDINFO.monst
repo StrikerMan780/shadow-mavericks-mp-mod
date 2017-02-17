@@ -199,3 +199,8 @@ shotguy/death1			dspodth1
 shotguy/death2			dspodth2
 shotguy/death3			dspodth3
 shotguy/attack			dsshotgn
+
+// Cybruiser
+monster/brusit dsbrusit
+monster/brudth dsbrudth
+monster/bruwlk dsbruwlk

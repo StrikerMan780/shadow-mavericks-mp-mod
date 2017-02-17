@@ -1,0 +1,32 @@
+model GreenRupee
+{
+	Path "Models\Pickups\Rupees"
+	Model 0 "Rupee.md3"
+	Skin 0 "GreenRupee.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex NULL A 0 0
+}
+
+model BlueRupee
+{
+	Path "Models\Pickups\Rupees"
+	Model 0 "Rupee.md3"
+	Skin 0 "BlueRupee.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex NULL A 0 0
+}
+
+model RedRupee
+{
+	Path "Models\Pickups\Rupees"
+	Model 0 "Rupee.md3"
+	Skin 0 "RedRupee.png"
+	Scale 1.0 1.0 1.0
+	ROTATING
+
+	FrameIndex NULL A 0 0
+}

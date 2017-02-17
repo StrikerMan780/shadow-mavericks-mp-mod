@@ -45,23 +45,31 @@ OptionValue "WeatherDensity"
 	100, "Very Heavy"
 }
 
+OptionValue "SaberColors"
+{
+	0, "Green"
+	1, "Blue"
+	2, "Red"
+}
+
 OptionMenu "SMMPOptions"
 {
 	Title "SMMP OPTIONS"
-	Option "Uncensored Mode (18+)", "smmp_uncensored", "OnOff"
-	Option "HQ Day/Night Cycle Time", "smmp_daycycle_minutes", "CycleMinutes"
+	SafeCommand "Toggle Uncensored Mode (18+)", "censortoggle"
+	Option "Lightsaber Color", "smmp_sabercolor", "SaberColors"
 	StaticText 	""
+	Option "HQ Day/Night Cycle Time", "smmp_daycycle_minutes", "CycleMinutes"
 	Option "Weather Type", "smmp_weathertype", "WeatherTypes"
 	Option "Weather Density", "smmp_weatherdensity", "WeatherDensity"
 	Option "Weather Sounds", "smmp_weathersound", "OnOff"
 	StaticText 	""
 	Option "Scrumpy Mode", "smmp_scrumpy", "OnOff"
 	Option "Crickagib Mode", "smmp_crickagib", "OnOff"
-	StaticText 	""
-	Option "Block Marine", "smmp_block_marine", "OnOff"
-	Option "Block Tails", "smmp_block_tails", "OnOff"
-	Option "Block Link", "smmp_block_link", "OnOff"
-	Option "Block Duke", "smmp_block_duke", "OnOff"
+	//StaticText 	""
+	//Option "Block Marine", "smmp_block_marine", "OnOff"
+	//Option "Block Tails", "smmp_block_tails", "OnOff"
+	//Option "Block Link", "smmp_block_link", "OnOff"
+	//Option "Block Duke", "smmp_block_duke", "OnOff"
 	StaticText 	""
 	StaticText "Key Bindings", 1
 	Control "Use Special Move", "SpecialMove"
@@ -87,7 +95,7 @@ ListMenu "PlayerclassMenu"
 	Position 48, 63
 	Selector "NODRAW", 0, 0
 	
-	PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+	PlayerDisplay 220, 63, "00 00 10", "64 00 FF"
 	MouseWindow 0, 220
 
 	// The rest of this menu will be set up based on the actual player definitions.

@@ -27,7 +27,7 @@
 #include "actors/damagedigits.txt"
 #include "actors/ammotypes.txt"
 #include "actors/effects.txt"
-#include "actors/interactiveprops.txt"
+#include "actors/effectspawners.txt"
 #include "actors/decorations.txt"
 #include "actors/weather.txt"
 #include "actors/keys.txt"
@@ -44,6 +44,8 @@
 #include "actors/inventorybar.txt"
 #include "actors/splashes.txt"
 #include "actors/monsters.txt"
+#include "actors/money.txt"
+#include "actors/horrormode.txt"
 
 #include "actors/heretic_compat.txt"
 #include "actors/heretic_edits.txt"
@@ -591,43 +593,6 @@ stop
 }
 }
 
-actor BurningFireFlame : BasicFlame
-{
-	Scale 0.4
-}
-
-actor BurningFire 20522
-{
-	//$Category SMMP Effect Spawners
-	//$Title Fire Spawner
-	//$Arg0 Spawn Radius
-	//$Arg1 Flame Height
-	//$Arg2 No Spawn Chance
-	//$Arg3 Damage
-	//$Sprite FIR1L0
-	//$Color 11
-	Scale 0.3
-	Height 56
-	Radius 20
-	RenderStyle Add
-	DamageType "Fire"
-	-SOLID
-	+NOINTERACTION
-	+NOGRAVITY
-	+NODAMAGETHRUST
-	+DONTSPLASH
-	+BLOODLESSIMPACT
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TNT1 A 0 A_PlaySoundEx("BurningFire", "SoundSlot7", 1)
-			TNT1 A 0 A_Explode(args[3], args[0], true, false, args[0]/2)
-			TNT1 A 1 A_SpawnItemEx("BurningFireFlame", random(-args[0], args[0]), random(-args[0], args[0]), random(0, args[1]), 0, 0, frandom(1.0, 3.0), 0, SXF_CLIENTSIDE, args[2])
-			goto Spawn+2
-	}
-}
-
 ACTOR HellbenderPickup : CustomInventory 20525
 {
 	Radius 16
@@ -1108,61 +1073,6 @@ actor WeatherMaker : Weapon 24306
 	}
 }
 
-ACTOR ExcalibatRepulsion : ArtiBlastRadius
-{
-	+AUTOACTIVATE
-}
-
-ACTOR Excalibat : Weapon 23502
-{
-	Weapon.SelectionOrder 200
-	Inventory.PickupSound "misc/w_pkup"
-	Inventory.PickupMessage "The Excalibat! Homerun!"
-	obituary "%k turned %o into a human baseball!"
-	Weapon.AmmoType1 "None"
-	Weapon.AmmoGive1 0
-	Weapon.AmmoUse1 0
-	+PUFFONACTORS
-	Weapon.Kickback 999999
-	Scale 0.80
-	+FLOATBOB
-	States
-	{
-	Spawn:
-		EXBP A -1 BRIGHT
-		LOOP
-	Ready:
-		EXBA A 1 A_WeaponReady
-		LOOP
-	Deselect:
-		EXBA A 1 A_Lower
-		LOOP
-	Select:
-		EXBA A 1 A_Raise
-		LOOP
-	Fire:
-		EXBA A 2
-		EXBA B 3
-		EXBA C 2
-		EXBA C 0 A_Refire
-		goto Swing
-	Hold:
-		EXBA C 1
-		EXBA C 0 A_Refire
-		goto Swing
-	Swing:
-		EXBA D 0 A_Playsound("BatSwing")
-		EXBA D 2 
-		EXBA E 2 A_CustomPunch(100, true, CPF_PULLIN, "NewBulletPuff", 70, 0)
-		EXBA E 0 A_GiveInventory("ExcalibatRepulsion",1)
-		EXBA F 2
-		EXBA G 2
-		TNT1 A 2
-		EXBA A 2
-		goto Ready
-	}
-}
-
 actor ReflectSphere : CustomInventory 10492
 {
 	inventory.pickupmessage "Reflection Sphere!"
@@ -1593,28 +1503,6 @@ Actor GasCloud1
 		PSNE ABCDEFG 4 A_Fadeout
 		loop
 	}
-}
-
-actor GBTWMoney : Inventory 20132
-{
-Radius 10
-Height 8
-Scale 0.2
-inventory.amount 20
-inventory.maxamount 4000
-inventory.pickupsound "Cashpickup"
-inventory.pickupmessage "Picked up a $20 bill."
-inventory.icon "CASHB0"
-+inventory.alwayspickup
--inventory.invbar
--inventory.interhubstrip
-+INVENTORY.HUBPOWER
-States
-{
-Spawn:
-	CASH A -1
-	loop
-}
 }
 
 actor ForcePullAttack : LoreShot
@@ -2407,20 +2295,6 @@ Death:
 }
 }
 
-actor AcousticGuitar 11832
-{
-	Height 56
-	Radius 10
-	Scale 0.3
-	+SOLID
-	States
-	{
-		Spawn:
-		GUIT A -1
-		loop
-	}
-}
-
 actor RoflBoom 12362
 {
 	Radius 20
@@ -2516,65 +2390,6 @@ actor ForceJump : CustomInventory 18635
 			TNT1 A 0 A_SpawnItem("ForceFX", 0, 24, 0, 0)
 			stop
 	}
-}
-
-actor TailsFlightTrigger : CustomInventory
-{
-	inventory.icon "ARTIFLY"
-	inventory.amount 1
-	inventory.maxamount 1
-	+INVENTORY.QUIET
-	+INVENTORY.INVBAR
-	+INVENTORY.HUBPOWER
-	+INVENTORY.KEEPDEPLETED
-	+INVENTORY.ALWAYSPICKUP
-	-INVENTORY.AUTOACTIVATE
-	-INVENTORY.INTERHUBSTRIP
-	+INVENTORY.UNDROPPABLE
-	+COUNTITEM
-	states
-	{
-	Spawn:
-		LCHN A -1
-		stop
-	Use:
-		TNT1 A 0
-		TNT1 A 0 A_JumpifInventory("CannotUse", 1, "GoDie")
-		TNT1 A 0 A_Jumpifinventory("RedFlag", 1, "GoDie")
-		TNT1 A 0 A_Jumpifinventory("BlueFlag", 1, "GoDie")
-		TNT1 A 0 A_Jumpifinventory("WhiteFlag", 1, "GoDie")
-		TNT1 A 0 A_Jumpifinventory("RedSkullST", 1, "GoDie")
-		TNT1 A 0 A_Jumpifinventory("BlueSkullST", 1, "GoDie")
-		TNT1 A 0 A_JumpIfInventory("PowerPossessionArtifact", 1, "GoDie")
-		TNT1 A 0 A_Jumpifinventory("PowerFlight", 1, "GoDie")
-		TNT1 A 0
-		goto GoFly
-	GoFly:
-		TNT1 A 0 A_GiveInventory("TailsFlight", 1)
-		stop
-	GoDie:
-		TNT1 A 0
-		stop
-	}
-}
-
-actor TailsFlight : PowerupGiver
-{
-inventory.amount 1
-inventory.maxamount 1
-powerup.duration 372
-powerup.type "Flight"
-+INVENTORY.QUIET
-+INVENTORY.ALWAYSPICKUP
-+INVENTORY.AUTOACTIVATE
-+INVENTORY.UNDROPPABLE
-+COUNTITEM
-states
-{
-Spawn:
-	TNT1 A 1
-	loop
-}
 }
 
 actor PlasmaMist
@@ -2736,102 +2551,102 @@ stop
 
 actor SniperSmoke
 {
-Radius 6
-Height 6
-Speed 5
-Scale 0.32
-RenderStyle Translucent
-Alpha 0.5
-Projectile
-+GHOST
-+HEXENBOUNCE
-+THRUGHOST
-+CORPSE
-+FORCEXYBILLBOARD
-+DONTSPLASH
-+CLIENTSIDEONLY
-States
-{
-Spawn:
-PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
-PUF3 ABC 1
-stop
-}
+	Radius 6
+	Height 6
+	Speed 5
+	Scale 0.32
+	RenderStyle Translucent
+	Alpha 0.5
+	Projectile
+	+GHOST
+	+HEXENBOUNCE
+	+THRUGHOST
+	+CORPSE
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	States
+	{
+		Spawn:
+			PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+			PUF3 ABC 1
+			stop
+	}
 }
 
 actor SniperSmokeSmall
 {
-Radius 6
-Height 6
-Speed 4
-Scale 0.20
-RenderStyle Translucent
-Alpha 0.3
-Projectile
-+GHOST
-+HEXENBOUNCE
-+THRUGHOST
-+CORPSE
-+FORCEXYBILLBOARD
-+DONTSPLASH
-+CLIENTSIDEONLY
-States
-{
-Spawn:
-PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
-PUF3 ABC 1
-stop
-}
+	Radius 6
+	Height 6
+	Speed 4
+	Scale 0.20
+	RenderStyle Translucent
+	Alpha 0.3
+	Projectile
+	+GHOST
+	+HEXENBOUNCE
+	+THRUGHOST
+	+CORPSE
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	States
+	{
+		Spawn:
+			PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+			PUF3 ABC 1
+			stop
+	}
 }
 
 actor SniperSmokeSmall2
 {
-Radius 6
-Height 6
-Speed 3
-Scale 0.18
-RenderStyle Translucent
-Alpha 0.3
-Projectile
-+GHOST
-+HEXENBOUNCE
-+THRUGHOST
-+CORPSE
-+FORCEXYBILLBOARD
-+DONTSPLASH
-+CLIENTSIDEONLY
-States
-{
-Spawn:
-PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
-PUF3 ABC 1
-stop
-}
+	Radius 6
+	Height 6
+	Speed 3
+	Scale 0.18
+	RenderStyle Translucent
+	Alpha 0.3
+	Projectile
+	+GHOST
+	+HEXENBOUNCE
+	+THRUGHOST
+	+CORPSE
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	States
+	{
+		Spawn:
+			PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+			PUF3 ABC 1
+			stop
+	}
 }
 
 actor ShotgunSmoke
 {
-Radius 6
-Height 6
-Speed 6
-Scale 0.6
-RenderStyle Translucent
-Alpha 0.3
-Projectile
-+GHOST
-+HEXENBOUNCE
-+THRUGHOST
-+CORPSE
-+FORCEXYBILLBOARD
-+DONTSPLASH
-+CLIENTSIDEONLY
-States
-{
-Spawn:
-PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
-PUF3 ABC 1
-stop
-}
+	Radius 6
+	Height 6
+	Speed 6
+	Scale 0.6
+	RenderStyle Translucent
+	Alpha 0.3
+	Projectile
+	+GHOST
+	+HEXENBOUNCE
+	+THRUGHOST
+	+CORPSE
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	States
+	{
+		Spawn:
+			PUF2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+			PUF3 ABC 1
+			stop
+	}
 }
 
 ACTOR RailClip : Ammo
@@ -2939,7 +2754,9 @@ actor SM_ExplosiveBarrel : ExplosiveBarrel Replaces ExplosiveBarrel
 	+NOICEDEATH
 	+CANNOTPUSH
 	+PUSHABLE
+	+SLIDESONWALLS
 	+EXTREMEDEATH
+	+FIXMAPTHINGPOS
 	states
 	{
 	Spawn:
@@ -3437,38 +3254,6 @@ actor FartGrenade
 	}
 }
 
-actor RPGSpark
-{
-	Projectile
-	Radius 2
-	Height 2
-	Damage 0
-	RenderStyle Add
-	Alpha 1.0
-	Scale 0.75
-	BounceFactor 0.8
-	Gravity 0.4
-	+CLIENTSIDEONLY
-	+ALLOWCLIENTSPAWN
-	+HEXENBOUNCE
-	+FORCEXYBILLBOARD
-	+DONTSPLASH
-	+CANBOUNCEWATER
-	-ACTIVATEIMPACT
-	-ACTIVATEPCROSS
-	-NOGRAVITY
-	States
-	{
-	Spawn:
-		PUFF A 0 A_JumpIf(WaterLevel >= 1, "Death")
-		PUFF A 1 BRIGHT A_FadeOut(0.032)
-		loop
-	Death:
-		TNT1 AA 1
-		stop
-	}
-}
-
 actor ChaosFlames : MageWeapon
 {
 	radius 20
@@ -3853,91 +3638,91 @@ actor EnemyShip 16771
 
 actor EnemyValkrieShot
 {
-Radius 8
-Height 8
-Projectile
-obituary "%o was shot down by an enemy spacecraft"
-Speed 50
-Scale 0.8
-SeeSound "ValkrieFire"
-Damage 6
-States
-{
-Spawn:
-VALK A 1 BRIGHT A_CustomMissile("ValkrieTrail", 0, 0, 0)
-loop
+	Radius 8
+	Height 8
+	Projectile
+	obituary "%o was shot down by an enemy spacecraft"
+	Speed 50
+	Scale 0.8
+	SeeSound "ValkrieFire"
+	Damage 6
+	States
+	{
+	Spawn:
+		VALK A 1 BRIGHT A_CustomMissile("ValkrieTrail", 0, 0, 0)
+		loop
 
-Death:
-TNT1 A 0
-TNT1 A 1 A_CustomMissile("ValkrieHit", 0, 0, 0)
-stop
-}
+	Death:
+		TNT1 A 0
+		TNT1 A 1 A_CustomMissile("ValkrieHit", 0, 0, 0)
+		stop
+	}
 }
 
 actor ShipBurnTrail
 {
-Height 1
-Radius 1
-Speed 0
-RenderStyle Add
-Alpha 0.8
-Scale 0.5
-Projectile
--MISSILE
-+FORCEXYBILLBOARD
-States
-{
-Spawn:
-	DEXP ABCDEFGHIJKLMNOPQRSTU 2 BRIGHT
-	stop
-}
+	Height 1
+	Radius 1
+	Speed 0
+	RenderStyle Add
+	Alpha 0.8
+	Scale 0.5
+	Projectile
+	-MISSILE
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		DEXP ABCDEFGHIJKLMNOPQRSTU 2 BRIGHT
+		stop
+	}
 }
 
 actor ShipBurnSmoke
 {
-Radius 6
-Height 6
-Speed 0
-Scale 0.5
-RenderStyle Translucent
-Alpha 0.5
-Projectile
-+GHOST
-+HEXENBOUNCE
-+THRUGHOST
-+CORPSE
-+FORCEXYBILLBOARD
-+DONTSPLASH
-States
-{
-Spawn:
-PUF2 FGHIJKLMNOPQRSTUVWXYZ 1
-PUF3 ABC 1
-stop
-}
+	Radius 6
+	Height 6
+	Speed 0
+	Scale 0.5
+	RenderStyle Translucent
+	Alpha 0.5
+	Projectile
+	+GHOST
+	+HEXENBOUNCE
+	+THRUGHOST
+	+CORPSE
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	States
+	{
+		Spawn:
+			PUF2 FGHIJKLMNOPQRSTUVWXYZ 1
+			PUF3 ABC 1
+			stop
+	}
 }
 
 ACTOR VilesBane : CustomInventory
 {
-inventory.pickupmessage "Vile's Bane"
-inventory.pickupsound "misc/i_pkup"
-inventory.icon ICONVILE
-inventory.amount 1
-inventory.maxamount 5
-+INVBAR
-+FLOATBOB
-+INVENTORY.HUBPOWER
--INVENTORY.INTERHUBSTRIP
-States
-{
-Spawn:
-	VBAN A -1
-	Loop
-Use:
-	TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
-	TNT1 A 10 A_FireCustomMissile("VilesBaneSyringe", 0, 0, 0, 1)
-	stop
-}
+	inventory.pickupmessage "Vile's Bane"
+	inventory.pickupsound "misc/i_pkup"
+	inventory.icon ICONVILE
+	inventory.amount 1
+	inventory.maxamount 5
+	+INVBAR
+	+FLOATBOB
+	+INVENTORY.HUBPOWER
+	-INVENTORY.INTERHUBSTRIP
+	States
+	{
+	Spawn:
+		VBAN A -1
+		Loop
+	Use:
+		TNT1 A 0 A_PlayWeaponSound("skeleton/swing")
+		TNT1 A 10 A_FireCustomMissile("VilesBaneSyringe", 0, 0, 0, 1)
+		stop
+	}
 }
 
 actor VilesBaneSyringe
@@ -3961,43 +3746,6 @@ actor VilesBaneSyringe
 		TNT1 A 1
 		TNT1 A 1
 		stop
-	}
-}
-
-actor Bubble
-{
-	Projectile
-	Radius 2
-	Height 4
-	Speed 0
-	Damage 0
-	Scale 0.07
-	+FORCEXYBILLBOARD
-	+CLIENTSIDEONLY
-	+ALLOWCLIENTSPAWN
-	States
-	{
-		Spawn:
-			BUBB A 1 A_JumpIf(WaterLevel <= 2, "Death")
-			loop
-		Death:
-			TNT1 A 1
-			stop
-	}
-}
-
-actor BubbleSpawner 20002
-{
-	Radius 32
-	+ALLOWCLIENTSPAWN
-	+NOINTERACTION
-	+NOCLIP
-	+NOBLOCKMAP
-	states
-	{
-	Spawn:
-		TNT1 A 8 A_SpawnItemEx("Bubble", Random(-32, 32), Random(-32, 32), Random(0, 20), 0, 0, Random(1,2), 0, 128, 48)
-		loop
 	}
 }
 
@@ -4037,32 +3785,6 @@ actor ScreamingKamikazeSoul
 		KAMA F 8 BRIGHT A_PlaySound("KamikazeExpel")
 		KAMA F 1 BRIGHT A_FadeOut(0.04)
 		goto Spawn+2
-	}
-}
-
-actor PopCornMachine 17771
-{
-	Radius 16
-	Height 8
-	Speed 0
-	Mass 9999999
-	+SPAWNCEILING
-	+NOGRAVITY
-	+CORPSE
-	+NOINTERACTION
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		TNT1 A -1
-		loop
-	Popping:
-		TNT1 A 0
-		TNT1 A 0 A_PlaySound("Popcorn")
-		TNT1 AAAAAAAAAA 4 A_SpawnItemEX("Popcorn", Random(-2,2), Random(-2,2), 0, Random(-2,2), Random(-2,2), Random(-2, 0), 0, 0, 0)
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_SpawnItemEX("Popcorn", Random(-2,2), Random(-1,1), 0, Random(-2,2), Random(-2,2), Random(-2, 0), 0, 0, 0)
-		TNT1 A -1
-		Loop
 	}
 }
 
@@ -4107,97 +3829,6 @@ actor HangingSpaceMarine : CommanderKeen Replaces CommanderKeen
 			KEEN K	4 A_KeenDie
 			KEEN L	 -1
 			Stop
-	}
-}
-
-actor BFG10kShot
-{
-	Game Doom
-	SpawnID 217
-	Radius 11
-	Height 8
-	Speed 20
-	Damage 160
-	DamageType BFG10k
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+ACTIVATEIMPACT
-	+ACTIVATEPCROSS
-	+NOTELEPORT
-	+PUFFONACTORS
-	+PUFFGETSOWNER
-	+FORCERADIUSDMG
-	+FORCEXYBILLBOARD
-	Renderstyle Add
-	Alpha 0.75
-	SeeSound "weapons/bfg10kx"
-	AttackSound "weapons/bfg10kx"
-	Obituary "%o was blasted by %k's BFG10K."
-	States
-	{
-	Spawn:
-		BFE1 A 0 bright
-		BFE1 AAAAAAAAAAA 0 A_SpawnItemEx("BFGBlastFog2", 0, 0, 0, random(-3, 3), random(-3, 3), random(-3, 3), 0, 128, 0)
-		BFE1 A 3 bright A_Detonate
-		BFE1 BCDEF 3 bright A_SpawnItemEx("BFGBlastFog2", 0, 0, 0, random(-3, 3), random(-3, 3), random(-3, 3), 0, 128, 0)
-		Stop
-	}
-}
-
-ACTOR BFG10K : Weapon 5013
-{
-	Game Doom
-	SpawnID 165
-	Radius 20
-	Height 20
-	Weapon.Selectionorder 2800
-	Weapon.AmmoUse 5
-	Weapon.AmmoGive 40
-	Weapon.Kickback 100
-	Weapon.Ammotype "CellAmmo"
-	AttackSound "BFG10kShot"
-	Inventory.Pickupmessage "You got the BFG10000!  Hell, yes!"
-	+WEAPON.NOAUTOFIRE
-	+WEAPON.NOLMS
-	States
-	{
-	Spawn:
-		BFG2 A -1
-		stop
-	Ready:
-		BG2G A 0 A_PlaySound ("weapons/bfg10kidle")
-		BG2G AAA 1 A_WeaponReady
-		BG2G BBB 1 A_WeaponReady
-		BG2G CCC 1 A_WeaponReady
-		BG2G DDD 1 A_WeaponReady
-		loop
-	Deselect:
-		BG2G E 1 A_Lower
-		loop
-	Select:
-		BG2G E 1 A_Raise
-		loop
-	Fire:
-		BG2G E 20 A_PlaySound ("weapons/bfg10kf")
-		BG2G F 4
-		BG2G G 1
-		BG2G H 1
-		BG2G I 1
-		BG2G J 1
-		goto Hold
-	Hold:
-		BG2G K 2 A_GunFlash
-		BG2G L 0 Radius_Quake(5,3,0,1,0)
-		BG2G L 2 A_FireBullets(0,0,1,0,"BFG10kShot")
-		BG2G M 2
-		BG2G N 0 A_ReFire
-		BG2G O 35 A_PlaySound ("weapons/bfg10kcool")
-		goto Ready
-	Flash:
-		TNT1 A 2 bright A_Light1
-		TNT1 A 3 bright
-		Goto LightDone
-		stop
 	}
 }
 
@@ -4261,13 +3892,10 @@ actor Flare : MapMarker
 			YEMB A 0 BRIGHT A_SpawnItemEx("FlareSpark2", 0, 0, 0, random(-2,2), random(-2,2), random(-2,2), 0, 128, 224)
 			YEMB AAA 0 BRIGHT A_SpawnItemEx("FlareSpark", 0, 0, 0, random(-2,2), random(-2,2), random(-2,2), 0, 128, 0)
 			YEMB A 1 BRIGHT
-			YEMB A 0 BRIGHT A_JumpIfInTargetInventory("FlareCheck", 90, "FizzleOut")
-			YEMB A 0 BRIGHT A_Jump(64, "Damage")
-			loop
-		Damage:
-			YEMB A 0 A_Explode(4,32)
+			YEMB A 0 BRIGHT A_JumpIfInTargetInventory("FlareCheck", 95, "FizzleOut")
+			YEMB A 0 A_Explode(1, 32, 0, false, 32)
 			YEMB A 0
-			goto Burn
+			loop
 		FizzleOut:
 			TNT1 AAAAAAAAAA 0 BRIGHT A_SpawnItemEx("FlareSpark", 0, 0, 0, random(-2,2), random(-2,2), random(-2,2), 0, 128, 0)
 			TNT1 AAAAAA 0 BRIGHT A_SpawnItemEx("SilverEmber", random(-4,4), random(-4,4), random(-4,4), 0, 0, 1, 0, 128, 100)

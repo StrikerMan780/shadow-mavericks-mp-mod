@@ -10,6 +10,18 @@ actor BasePuff
 	+NOGRAVITY
 }
 
+actor NullPuff : BasePuff
+{
+	+BLOODLESSIMPACT
+	+PUFFONACTORS
+	states
+	{
+		Spawn:
+			TNT1 A 1
+			stop
+	}
+}
+
 Actor BulletBlast
 {
 	Radius 1
@@ -26,8 +38,6 @@ Actor BulletBlast
 	+NOGRAVITY
 	-ACTIVATEPCROSS
 	-ACTIVATEIMPACT
-	
-	var int user_scale;
 	
 	States
 	{
@@ -284,10 +294,10 @@ actor NewBulletPuff : BasePuff Replaces BulletPuff
 		goto Smoke
 	Smoke:
 		PUFF B 0 A_Jump(64, "Smoke2")
-		PUFF B 0 A_SpawnItemEX("BulletSmoke", 0, 0, 0, 0, 0, 1, 0, 128, 0)
+		PUFF B 0 A_SpawnItemEX("BulletSmoke", 0, 0, 0, 0, 0, 1, 0, SXF_CLIENTSIDE, 0)
 		stop
 	Smoke2:
-		PUFF A 0 A_SpawnItemEX("BulletSmoke2", 0, 0, 0, 0, 0, 1, 0, 128, 0)
+		PUFF A 0 A_SpawnItemEX("BulletSmoke2", 0, 0, 0, 0, 0, 1, 0, SXF_CLIENTSIDE, 0)
 		stop
 	Melee:
 		PUFF CD 4
@@ -344,11 +354,6 @@ actor SilverBulletPuff : NewBulletPuff
 actor SilverBulletPuff2 : SilverBulletPuff
 {
 	obituary "%o was torn apart by %k's .454 Casull Rounds"
-}
-
-actor KeyringPuff : SilverBulletPuff
-{
-	obituary "%o took a silver fragment from %k's Keyring!"
 }
 
 actor SniperPuff : NewBulletPuff
@@ -777,13 +782,6 @@ actor CricketFire
 		stop
 
 	}
-}
-
-actor WolfPuff : NewBulletPuff
-{
-	DamageType "Wolf"
-	+BLOODLESSIMPACT
-	-BLOODSPLATTER
 }
 
 actor LinkSwordSpark : RicochetSpark

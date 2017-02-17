@@ -86,7 +86,7 @@ Actor ShockRiflePuff
 	+FORCEXYBILLBOARD
 	+ALWAYSPUFF
 	+DONTBLAST
-	-NONETID
+	+NOINTERACTION
 	States
 	{
 	Spawn:

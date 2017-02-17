@@ -34,7 +34,7 @@ actor P90 : Weapon 24302
 			P90P A -1
 			loop
 		Ready:
-			P90G A 1 A_WeaponReady
+			P90G A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 			loop
 		Deselect:
 			P90G AAA 0 A_Lower
@@ -55,10 +55,11 @@ actor P90 : Weapon 24302
 			P90G B 0 A_ReFire
 			goto Ready
 		Flash:
-			P90F A 2 BRIGHT A_Light1
+			P90F A 1 BRIGHT A_Light1
 			P90F B 1 BRIGHT A_Light0
 			stop
-		AltFire:
+			
+		Reload:
 			P90G A 0
 			goto ReloadCheck
 			

@@ -69,7 +69,7 @@ Actor FireSSG : Weapon
 			SHT4 A 1 A_Raise
 			LOOP
 		Fire:
-			SHT4 A 0 A_FireBullets(9, 5, 10, 14, "BlazePuff", FBF_USEAMMO | FBF_NORANDOM)
+			SHT4 A 0 A_FireBullets(9, 5, 10, 16, "BlazePuff", FBF_USEAMMO | FBF_NORANDOM)
 			goto FireAnim
 		FireAnim:
 			SHT4 A 0 A_Quake(4, 3, 0, 1, "")
@@ -109,7 +109,7 @@ actor IceSSG : FireSSG
 	{
 		Hold:
 		Fire:
-			SHT4 A 0 A_FireBullets(9, 5, 10, 14, "FrostPuff", FBF_USEAMMO | FBF_NORANDOM)
+			SHT4 A 0 A_FireBullets(9, 5, 10, 16, "FrostPuff", FBF_USEAMMO | FBF_NORANDOM)
 			goto FireAnim
 	}
 }
@@ -121,7 +121,7 @@ actor LightningSSG : FireSSG
 	{
 		Hold:
 		Fire:
-			SHT4 A 0 A_FireBullets(9, 5, 10, 14, "BlitzShock", FBF_USEAMMO | FBF_NORANDOM)
+			SHT4 A 0 A_FireBullets(9, 5, 10, 16, "BlitzShock", FBF_USEAMMO | FBF_NORANDOM)
 			goto FireAnim
 	}
 }
@@ -153,7 +153,7 @@ actor AcidSprayer : Weapon
 		SOAK A 1 A_Raise
 		loop
 	Fire:
-		SOAK B 1 A_FireBullets(7, 4, 7, 7, "AcidSpray", FBF_USEAMMO | FBF_NORANDOM)
+		SOAK B 1 A_FireBullets(7, 4, 7, 8, "AcidSpray", FBF_USEAMMO | FBF_NORANDOM)
 		SOAK CDEFGH 1
 		SOAK A 4
 		SOAK IJKLMNO 1
@@ -174,7 +174,7 @@ actor AcidSpray : BasePuff
 	Decal "BioRifle"
 	RenderStyle Add
 	DamageType "Acid"
-	PoisonDamage 1, 7, 18
+	PoisonDamage 1, 8, 18
 	Alpha 1.0
 	+ADDITIVEPOISONDAMAGE
 	+PUFFONACTORS

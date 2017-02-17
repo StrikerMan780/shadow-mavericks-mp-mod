@@ -1,6 +1,8 @@
 #library "COREACS"
 #include "zcommon.acs"
 
+// COREACS.ACS - Core/Spawn functions
+
 int Instagib;
 int Buckshot;
 int Crickagib;
@@ -8,17 +10,6 @@ int ClassSelected;
 int ClassAllowed;
 int RailOnce = 0;
 int PlayerJumpCheck[64];
-
-// 907 to 911 for Weather System
-// 917 for Mystery Item
-// 918 for Footsteps
-// 928 for Enter
-// 929 for Respawn
-// 930 and 931 used by taunt system!
-// 932 for Footstep Disconnect Check
-// 933, 934, 935, 936, 937 for Drunk Mode
-// 961 for Init Footsteps
-// 963 for giveweapon
 
 #define CLASS_MARINE 0
 #define CLASS_TAILS 1
@@ -43,12 +34,6 @@ function void init_crickagib (void)
 	SetWeapon("Noisy_Cricket");
 }
 
-function void set_railcolor (void)
-{
-	int RailColor = GetCvar("RailColor");
-	NamedRequestScriptPuke("RAILCOLOR", RailColor, ActivatorTID());
-}
-
 function void Reset_Classes (int class)
 {
 	switch(class)
@@ -65,7 +50,6 @@ function void Reset_Classes (int class)
 		}
 		case CLASS_TAILS:
 		{
-			GiveInventory("VilesBane", 5);
 			GiveInventory("TailsClassCheck", 1);
 
 			TakeInventory("MarineClassCheck", 1);
@@ -114,6 +98,15 @@ function void Check_Class_Block (int class)
 	}
 }
 
+function void set_colors(void)
+{
+	TakeInventory("RailColor", 999);
+	TakeInventory("SaberColor", 999);
+	
+	GiveInventory("RailColor", GetUserCVar(PlayerNumber(), "railcolor"));
+	GiveInventory("SaberColor", GetUserCVar(PlayerNumber(), "smmp_sabercolor"));
+}
+
 function void smmp_spawn (int respawned)
 {
 	Instagib = GetCVar("Instagib");
@@ -124,7 +117,7 @@ function void smmp_spawn (int respawned)
 	Reset_Classes(ClassSelected);
 	Check_Class_Block(ClassSelected); 
 	
-	Thing_ChangeTID(0, UniqueTID(9900));
+	set_colors();
 	
 	if(respawned >= 1)
 	{
@@ -183,8 +176,6 @@ function void smmp_clientsidespawn (void)
 	int Interpolate = GetCVar("gl_interpolate_model_frames");
 	int ModelsUsed = GetCVar("gl_use_models");
 	int OpenGL = GetCVar("vid_renderer");
-	
-	set_railcolor();
 	
 	if(OpenGL <= 0)
 	{
@@ -285,7 +276,7 @@ script "KNOCKOUT" (void)
 {
 	printbold(s:"\n\n\ccBrutal Shit-Beating courtesy of ",n:"",s:"\cc!");
 	AmbientSound("KnockedTheFuckOut", 255);
-	GiveInventory("GBTWMoney", 10);
+	ACS_NamedExecuteAlways("GIVEMONEY", 0, 10);
 }
 
 script "DOWALLJUMP" (void)
@@ -362,7 +353,7 @@ script "TPUPGRADE" (int fail)
 
 script "SPINATTACK" (void)
 { 
-	if(CheckInventory("CannotSpin") == 0 && CheckInventory("CannotUse") == 0)
+	if((CheckInventory("CannotSpin") == 0) && (CheckInventory("CannotUse") == 0) && (CheckInventory("Health") > 0))
 	{
 		SetActorState(0, "Spin", 1);
 		GiveInventory("CannotSpin", 1);
@@ -389,15 +380,12 @@ script "HITCROSS" (void) CLIENTSIDE
 	HUDMSG_FADEOUT, 0, CR_UNTRANSLATED, 512.4, 384.0, 1, 0.5);
 }
 
-script "RAILCOLOR" (int RailColor, int tid) NET
+script "ZA_WARUDO" (void)
 {
-	SetActivator(tid);
-	TakeInventory("RailColor", 999);
-	
-	if(RailColor > 0)
-	{
-		GiveInventory("RailColor", RailColor);
-	}
-	
-	Thing_ChangeTID(tid, 0);
+	PlaySound(0, "ZaWarudo", CHAN_5 | CHAN_NOPAUSE, 1.0, false, ATTN_NONE);
+	delay(64);
+	GiveInventory("TimeFreezeGiver", 1);
+	FadeRange(255, 255, 255, 0.75, 255, 255, 255, 0.0, 1.0);
+	delay(35*12);
+	PlaySound(0, "ZaWarudoStop", CHAN_5 | CHAN_NOPAUSE, 1.0, false, ATTN_NONE);
 }

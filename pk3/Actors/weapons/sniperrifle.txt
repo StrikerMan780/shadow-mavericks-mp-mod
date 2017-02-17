@@ -1,5 +1,7 @@
 actor SniperRifle : Weapon 19983
 {
+	Radius 20
+	Height 16
 	decal BulletChip
 	obituary "%k put a Bullet in %o's Skull."
 	Inventory.PickupSound "misc/w_pkup"

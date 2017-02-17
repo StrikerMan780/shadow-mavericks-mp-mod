@@ -517,39 +517,55 @@ Model FloatingBobbingSkull
 	FrameIndex FSKU C 0 0
 }
 
-Model IceChunk
+Model NewIceChunk
+{
+	Path "Models\Decoration\Misc"
+	Model 0 "Ice.md3"
+	Skin 0 "Ice.png"
+	Scale 5.0 5.0 10.0
+	
+	Rotating
+	Rotation-Speed 10
+	Rotation-Vector 1 0 0
+	PitchFromMomentum
+
+	FrameIndex ICEC A 0 0
+}
+
+Model NewIceChunk
 {
 	Path "Models\Decoration\Misc"
 	Model 0 "Ice.md3"
 	Skin 0 "Ice.png"
 	Scale 5.0 5.0 10.0
 
-	FrameIndex ICEC A 0 0
+	FrameIndex ICEC B 0 0
 }
-Model IceChunk
+
+Model NewIceChunk
 {
 	Path "Models\Decoration\Misc"
 	Model 0 "Ice.md3"
 	Skin 0 "Ice.png"
 	Scale 5.0 5.0 7.0
 
-	FrameIndex ICEC B 0 0
+	FrameIndex ICEC C 0 0
 }
-Model IceChunk
+Model NewIceChunk
 {
 	Path "Models\Decoration\Misc"
 	Model 0 "Ice.md3"
 	Skin 0 "Ice.png"
 	Scale 5.0 5.0 4.0
 
-	FrameIndex ICEC C 0 0
+	FrameIndex ICEC D 0 0
 }
-Model IceChunk
+Model NewIceChunk
 {
 	Path "Models\Decoration\Misc"
 	Model 0 "Ice.md3"
 	Skin 0 "Ice.png"
 	Scale 5.0 5.0 1.0
 
-	FrameIndex ICEC D 0 0
+	FrameIndex ICEC E 0 0
 }

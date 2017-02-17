@@ -57,7 +57,7 @@ actor SM_SuperShotgun : Weapon
 		Fire:
 			SHT2 A 0 radius_quake(4, 3, 0, 1, 0)
 			SHT2 A 0 A_PlayWeaponSound("weapons/sshotf")
-			SHT2 A 0 A_FireBullets (10, 6, 20, 7, "SSGPuff", FBF_USEAMMO | FBF_NORANDOM)
+			SHT2 A 0 A_FireBullets (10, 6, 20, 8, "SSGPuff", FBF_USEAMMO | FBF_NORANDOM)
 			SHT2 A 1 A_GunFlash
 			SHT2 B 0 A_SetPitch(pitch-4)
 			SHT2 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)

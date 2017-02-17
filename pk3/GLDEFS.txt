@@ -2305,6 +2305,12 @@ HardwareShader texture PLASBLUE
 	Speed 1.0
 }
 
+HardwareShader texture POWBUBBL
+{
+	Shader "shaders/scroll_up.fp"
+	Speed 1.0
+}
+
 Glow
 {
 	Flats

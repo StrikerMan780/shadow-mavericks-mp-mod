@@ -1,6 +1,7 @@
 *.dbs
 *.backup*
 *.bak
+*.qc
 builds/SMMP_MapsAndExtras_*.pk7
 builds/SMMP_Core_*.pk7
 builds/SMMP_MapsAndExtras_*.pk3

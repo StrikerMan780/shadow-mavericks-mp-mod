@@ -1,7 +1,8 @@
 Model SM_SuperShotgun
 {
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgun.md3"
+	Model 0 "Models\HUD\SSG\SuperShotgun.md3"
+	SurfaceSkin 0 0 "Models\HUD\SSG\dbarrel.png"
+	SurfaceSkin 0 1 "Models\HUD\MarineHand.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
 
@@ -20,8 +21,9 @@ Model SM_SuperShotgun
 
 Model SM_SuperShotgun
 {
-	Path "Models\HUD\SSG"
-	Model 0 "SuperShotgun_Reload.md3"
+	Model 0 "Models\HUD\SSG\SuperShotgun_Reload.md3"
+	SurfaceSkin 0 0 "Models\HUD\SSG\dbarrel.png"
+	SurfaceSkin 0 1 "Models\HUD\MarineHand.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
 
@@ -1273,8 +1275,9 @@ Model Cyclone
 
 Model FireSSG
 {
-	Path "Models\HUD\SSG"
-	Model 0 "FireSuperShotgun.md3"
+	Model 0 "Models\HUD\SSG\SuperShotgun.md3"
+	SurfaceSkin 0 0 "Textures\Models\SSG\firessg.png"
+	SurfaceSkin 0 1 "Models\HUD\MarineHand.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
 
@@ -1293,8 +1296,9 @@ Model FireSSG
 
 Model FireSSG
 {
-	Path "Models\HUD\SSG"
-	Model 0 "FireSuperShotgun_Reload.md3"
+	Model 0 "Models\HUD\SSG\SuperShotgun_Reload.md3"
+	SurfaceSkin 0 0 "Textures\Models\SSG\firessg.png"
+	SurfaceSkin 0 1 "Models\HUD\MarineHand.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
 
@@ -1344,8 +1348,9 @@ Model FireSSG
 
 Model IceSSG
 {
-	Path "Models\HUD\SSG"
-	Model 0 "IceSuperShotgun.md3"
+	Model 0 "Models\HUD\SSG\SuperShotgun.md3"
+	SurfaceSkin 0 0 "Textures\Models\SSG\icessg.png"
+	SurfaceSkin 0 1 "Models\HUD\TailsHands.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
 
@@ -1364,8 +1369,9 @@ Model IceSSG
 
 Model IceSSG
 {
-	Path "Models\HUD\SSG"
-	Model 0 "IceSuperShotgun_Reload.md3"
+	Model 0 "Models\HUD\SSG\SuperShotgun_Reload.md3"
+	SurfaceSkin 0 0 "Textures\Models\SSG\icessg.png"
+	SurfaceSkin 0 1 "Models\HUD\TailsHands.png"
 	Scale 5.0 4.0 5.0
 	ZOffset -2
 
@@ -1609,8 +1615,10 @@ Model Excalibat
 
 Model BFG10K
 {
-	Path "Models\HUD\BFG10K"
-	Model 0 "BFG10K.md3"
+	Model 0 "Models\HUD\BFG10K\BFG10K.md3"
+	SurfaceSkin 0 0 "Models\HUD\BFG10K\BFG10k.png"
+	SurfaceSkin 0 1 "Textures\PLASBLUE.png"
+	
 	Scale -5.0 3.5 5.0
 	ZOffset -6
 
@@ -1629,4 +1637,100 @@ Model BFG10K
 	FrameIndex BG2G M 0 12
 	FrameIndex BG2G N 0 13
 	FrameIndex BG2G O 0 14
+}
+
+Model Tails_TechPistol
+{
+	Model 0 "Models\HUD\TechPistol\TechPistol.md3"
+	SurfaceSkin 0 0 "Models\HUD\TechPistol\TechPistol_Barrel.png"
+	SurfaceSkin 0 1 "Textures\Models\TechPistol\Tube_N01.png"
+	SurfaceSkin 0 2 "Models\HUD\TechPistol\TechPistol_Main.png"
+	SurfaceSkin 0 3 "Models\HUD\TailsHands.png"
+	Scale 5.0 5.0 5
+
+	FrameIndex TEKP A 0 0
+	FrameIndex TEKP B 0 0
+	FrameIndex TEKP C 0 1
+	FrameIndex TEKP D 0 2
+	FrameIndex TEKP E 0 3
+	FrameIndex TEKP F 0 4
+	FrameIndex TEKP G 0 5
+	FrameIndex TEKP H 0 6
+	FrameIndex TEKP I 0 7
+	FrameIndex TEKP J 0 8
+}
+
+Model Tails_TechPistol
+{
+	Path "Models\HUD\TechPistol"
+	Model 0 "TechFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "GreenFlash.png"
+	Scale 5.0 5.0 5
+
+	FrameIndex TEKF A 0 0
+}
+
+Model Tails_TechPistol
+{
+	Model 0 "Models\HUD\TechPistol\TechPistol.md3"
+	SurfaceSkin 0 0 "Models\HUD\TechPistol\TechPistol_Barrel.png"
+	SurfaceSkin 0 1 "Textures\Models\TechPistol\Tube_R01.png"
+	SurfaceSkin 0 2 "Models\HUD\TechPistol\TechPistol_Rail.png"
+	SurfaceSkin 0 3 "Models\HUD\TailsHands.png"
+	Scale 5.0 5.0 5
+
+	FrameIndex TEKR A 0 0
+	FrameIndex TEKR B 0 0
+	FrameIndex TEKR C 0 1
+	FrameIndex TEKR D 0 2
+	FrameIndex TEKR E 0 3
+	FrameIndex TEKR F 0 4
+	FrameIndex TEKR G 0 5
+	FrameIndex TEKR H 0 6
+	FrameIndex TEKR I 0 7
+	FrameIndex TEKR J 0 8
+}
+
+Model Tails_TechPistol
+{
+	Path "Models\HUD\TechPistol"
+	Model 0 "TechFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "BlueFlash.png"
+	Scale 5.0 5.0 5
+
+	FrameIndex TKRF A 0 0
+}
+
+Model Tails_TechPistol
+{
+	Model 0 "Models\HUD\TechPistol\TechPistol.md3"
+	SurfaceSkin 0 0 "Models\HUD\TechPistol\TechPistol_Barrel.png"
+	SurfaceSkin 0 1 "Textures\Models\TechPistol\Tube_R01.png"
+	SurfaceSkin 0 2 "Models\HUD\TechPistol\TechPistol_Super.png"
+	SurfaceSkin 0 3 "Models\HUD\TailsHands.png"
+	Scale 5.0 5.0 5
+
+	FrameIndex TEKS A 0 0
+	FrameIndex TEKS B 0 0
+	FrameIndex TEKS C 0 1
+	FrameIndex TEKS D 0 2
+	FrameIndex TEKS E 0 3
+	FrameIndex TEKS F 0 4
+	FrameIndex TEKS G 0 5
+	FrameIndex TEKS H 0 6
+	FrameIndex TEKS I 0 7
+	FrameIndex TEKS J 0 8
+}
+
+Model Tails_TechPistol
+{
+	Path "Models\HUD\TechPistol"
+	Model 0 "TechFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "OrangeFlash.png"
+	Scale 5.0 5.0 5
+
+	FrameIndex TKSF A 0 0
 }

@@ -105,6 +105,7 @@ actor NewPlasma Replaces PlasmaBall
 	Height 8
 	Damage (15)
 	decal PlasmaScorch
+	DeathSound "weapons/plasmax"
 	Speed 40
 	RenderStyle Add
 	Alpha 1.0

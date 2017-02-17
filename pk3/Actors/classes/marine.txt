@@ -34,8 +34,8 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLAY A 6
 		Loop
 	SaberSpawn:
-		PSAG A 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "SaberSpawn_Blue")
-		PSAG A 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "SaberSpawn_Red")
+		PSAG A 0 BRIGHT A_JumpIfInventory("SaberColor", 2, "SaberSpawn_Red")
+		PSAG A 0 BRIGHT A_JumpIfInventory("SaberColor", 1, "SaberSpawn_Blue")
 		PSAG AA 1 BRIGHT A_JumpIf(momx > 2 || momy > 2 || momx < -2 || momy < -2, "SaberSee")
 		goto Spawn
 	SaberSpawn_Blue:
@@ -70,8 +70,8 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLAY F 3 BRIGHT
 		Goto Missile
 	Guarding:
-		PSAG E 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "Guarding_Blue")
-		PSAG E 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "Guarding_Red")
+		PSAG E 0 BRIGHT A_JumpIfInventory("SaberColor", 2, "Guarding_Red")
+		PSAG E 0 BRIGHT A_JumpIfInventory("SaberColor", 1, "Guarding_Blue")
 		PSAG E 8 BRIGHT
 		goto Spawn
 	Guarding_Blue:
@@ -81,8 +81,8 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PSAR E 8 BRIGHT
 		goto Spawn
 	SaberSwing:
-		PSAG F 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "SaberSwing_Blue")
-		PSAG F 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "SaberSwing_Red")
+		PSAG F 0 BRIGHT A_JumpIfInventory("SaberColor", 2, "SaberSwing_Red")
+		PSAG F 0 BRIGHT A_JumpIfInventory("SaberColor", 1, "SaberSwing_Blue")
 		PSAG FGHIJ 3 BRIGHT
 		goto Spawn
 	SaberSwing_Blue:
@@ -97,8 +97,8 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLAY G 4 A_Pain
 		Goto Spawn
 	SaberPain:
-		PSAG K 0 BRIGHT A_JumpIfInventory("SaberBlue", 1, "SaberPain_Blue")
-		PSAG K 0 BRIGHT A_JumpIfInventory("SaberRed", 1, "SaberPain_Red")
+		PSAG K 0 BRIGHT A_JumpIfInventory("SaberColor", 2, "SaberPain_Red")
+		PSAG K 0 BRIGHT A_JumpIfInventory("SaberColor", 1, "SaberPain_Blue")
 		PSAG K 4 BRIGHT
 		PSAG K 4 BRIGHT A_Pain
 		goto Spawn
@@ -170,44 +170,10 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLAY G 5 A_PlayerScream
 		PLAY G 0 A_NoBlocking
 		PLAY G 0 A_SpawnItemEX("BlackFlameDeath", 0, 0, 0, 0, 0, 0, 0, 128, 0)
+	ChaosFireLoop:
 		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.9, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.85, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.8, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.75, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.7, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.65, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.6, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.55, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.5, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.45, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.4, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.35, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.3, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.25, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.2, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.15, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.1, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.05, 1)
-		PLAY GG 0 A_SpawnItemEX("Striker_FlyingBlood", Random(-16, 16), Random(-16, 16), Random(0, 56), 0, 0, 0, 0, 128, 0)
-		PLAY G 2 A_SetTranslucent(0.0, 1)
+		PLAY G 2 A_SetTranslucent(Alpha - 0.05, 1)
+		PLAY G 0 A_JumpIf(Alpha > 0, "ChaosFireLoop")
 		PLAY N -1
 		stop
 	Death.Microwave:

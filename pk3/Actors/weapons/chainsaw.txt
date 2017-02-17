@@ -35,28 +35,28 @@ actor BloodyChainsaw : Weapon Replaces Chainsaw
 		SAWS A 0 A_AlertMonsters
 		SAWS A 1 A_PlaySound("ChainsawRev", 7, 1.0, 0)
 		SAWS BC 1
-		SAWS DEF 1 A_GunFlash("DoAttack")
+		SAWS DEF 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWS G 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
 		SAWS GHIJK 1
 		SAWS L 0 A_PlaySound("weapons/sawfull", 7, 1.0, 1)
-		SAWS LMNOP 1 A_GunFlash("DoAttack")
+		SAWS LMNOP 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWS P 0 A_ReFire
 		goto AttackEnd
 	Hold:
 		SAWL A 0 A_PlaySound("weapons/sawfull", 7, 1.0, 1)
 		SAWL A 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL ABCD 1 A_GunFlash("DoAttack")
+		SAWL ABCD 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWL E 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL EFGH 1 A_GunFlash("DoAttack")
+		SAWL EFGH 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWL I 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL IJKL 1 A_GunFlash("DoAttack")
+		SAWL IJKL 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWL M 0 A_JumpIfInventory("ChainsawSlashReady", 1, "Slash")
-		SAWL MNOP 1 A_GunFlash("DoAttack")
+		SAWL MNOP 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWL A 0 A_ReFire
 		goto AttackEnd
 	AttackEnd:
 		SAWE A 0 A_PlaySound("ChainsawDown", 7, 1.0, 0)
-		SAWE ABCDEFG 1 A_GunFlash("DoAttack")
+		SAWE ABCDEFG 1 A_GunFlash("DoAttack", GFF_NOEXTCHANGE)
 		SAWE HIJKLMOPQRSTUVW 1
 		goto ReadyLoop
 	
@@ -69,13 +69,13 @@ actor BloodyChainsaw : Weapon Replaces Chainsaw
 		goto Slash1
 	Slash1:
 		SWS1 AB 2 
-		SWS1 CDEFGHIJKL 2 A_GunFlash("DoSlashAttack")
+		SWS1 CDEFGHIJKL 2 A_GunFlash("DoSlashAttack", GFF_NOEXTCHANGE)
 		SWS1 MNOPQRSTUVW 2
 		SWS1 W 0 A_Refire("Fire")
 		goto ReadyLoop
 	Slash2:
 		SWS2 AB 2 
-		SWS2 CDEFGHIJKL 2 A_GunFlash("DoSlashAttack")
+		SWS2 CDEFGHIJKL 2 A_GunFlash("DoSlashAttack", GFF_NOEXTCHANGE)
 		SWS2 MNOPQRSTUVW 2
 		SWS2 W 0 A_Refire("Fire")
 		goto ReadyLoop

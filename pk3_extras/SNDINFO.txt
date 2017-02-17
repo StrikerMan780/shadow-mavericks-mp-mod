@@ -29,6 +29,18 @@ SWAG DSSWAG
 UnclePhil DSUNPHIL
 CarelessWhisper DSBANLO
 
+// Props
+DrinkingFountain DSDRKFNT
+stripper dsstrip1
+Vend dsvend
+HereComesTheSun dsbeatle
+Shower DSSHOWER
+Toilet DSTOILET
+Condom dscondom
+
+FuckingWindows98 DSFWIN98
+$rolloff FuckingWindows98 400 2400
+
 $ambient 4 WaterFallRush POINT CONTINUOUS 1.0
 $ambient 5 jeanluc POINT CONTINUOUS 0.9
 $ambient 6 tvoutbeep POINT CONTINUOUS 0.08

@@ -71,7 +71,7 @@ actor NewShotgun : Weapon
 		SHTG B 0 A_GunFlash
 		SHTG B 0 Radius_Quake(2, 3, 0, 1, 0)
 		SHTG B 0 bright A_PlayWeaponSound("weapons/shotgf")
-		SHTG B 0 Bright A_FireBullets (6.6, 3.5, 10, 7, "ShotgunPuff", FBF_USEAMMO | FBF_NORANDOM)
+		SHTG B 0 Bright A_FireBullets (6.6, 3.5, 10, 8, "ShotgunPuff", FBF_USEAMMO | FBF_NORANDOM)
 		SHTG B 1 Bright A_SetPitch (pitch-2)
 		SHTG C 1 A_SetPitch(pitch+0.8)
 		SHTG D 2 A_SetPitch(pitch+0.6)
@@ -295,7 +295,7 @@ actor DukeShotgun : Weapon
 		goto Select+2
 	Fire:
 		DHTG E 0 bright A_PlayWeaponSound("DukeShotgunFire")
-		DHTG E 0 A_FireBullets (4, 2, 7, 10, "DukeShotgunBulletPuff", FBF_NORANDOM | FBF_USEAMMO)
+		DHTG E 0 A_FireBullets (4, 2, 7, 11, "DukeShotgunBulletPuff", FBF_NORANDOM | FBF_USEAMMO)
 		DHTG E 0 A_GunFlash
 		DHTG A 2 A_SetPitch(pitch-1.5)
 		DHTG EF 2 A_SetPitch(pitch+0.75)

@@ -243,27 +243,17 @@ script "TAUNT_PLAY" (int tauntnumber) NET
 	}
 	else
 	{
+		GiveInventory("TauntSpamProtection", 1);
+		
 		if(tauntnumber != 0)
 		{
 			NewTauntselection[playernumber()] = tauntnumber-1;
-			GiveInventory("TauntSpamProtection", 1);
-			ActivatorSound(NewTaunt[NewTauntselection[playernumber()]][0], 255 );
-			hudmessagebold(n:0, s:"\cc Sends Taunt #", d:NewTauntselection[playernumber()]+1;
-			HUDMSG_TYPEON, 3, CR_GOLD, -0.02, 0.3, 1.0, 0.001, 1.0);
-			Delay(35 * 3);
-			TakeInventory("TauntSpamProtection", 1);
-			terminate;
 		}
- 
-		if(tauntnumber == 0)
-		{
-			GiveInventory("TauntSpamProtection", 1);
-			ActivatorSound(NewTaunt[NewTauntselection[playernumber()]][0], 255 );
-			hudmessagebold(n:0, s:"\cc Sends Taunt #", d:NewTauntselection[playernumber()]+1;
-			HUDMSG_TYPEON, 3, CR_GOLD, -0.02, 0.3, 1.0, 0.001, 1.0);
-			Delay(35 * 3);
-			TakeInventory("TauntSpamProtection", 1);
-			terminate;
-		}
+		
+		AmbientSound(NewTaunt[NewTauntselection[playernumber()]][0], 127 );
+		hudmessagebold(n:0, s:"\cc Sends Taunt #", d:NewTauntselection[playernumber()]+1;
+		HUDMSG_TYPEON, 3, CR_GOLD, -0.02, 0.3, 1.0, 0.001, 1.0);
+		Delay(35 * 3);
+		TakeInventory("TauntSpamProtection", 1);
 	}
 }

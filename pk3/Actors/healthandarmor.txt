@@ -7,7 +7,7 @@ actor Stimpack2 : Stimpack Replaces Stimpack
 	States
 	{
 		Spawn:
-			STIM ABCDEFGHIJKLMNOP 1 BRIGHT
+			STIM A -1 BRIGHT
 			Loop
 	}
 }
@@ -21,7 +21,7 @@ actor Medikit2 : Medikit Replaces Medikit
 	States
 	{
 		Spawn:
-			MEDI ABCDEFGHIJKLMNOP 1 BRIGHT
+			MEDI A -1 BRIGHT
 			Loop
 	}
 }
@@ -236,7 +236,7 @@ ACTOR ArmorBonus2 : ArmorBonus Replaces ArmorBonus
 	States
 	{
 	Spawn:
-		BON2 ABCDEFGHIJKLMNOP 1 BRIGHT
+		BON2 A -1 BRIGHT
 		Loop
 	}
 }
@@ -253,7 +253,7 @@ ACTOR MaxArmorBonus2 : MaxArmorBonus Replaces MaxArmorBonus
 	States
 	{
 	Spawn:
-		BON4 ABCDEFGHIJKLMNOP 1 BRIGHT
+		BON4 A -1 BRIGHT
 		Loop
 	}
 }
@@ -267,7 +267,7 @@ actor GreenArmor2 : GreenArmor replaces GreenArmor
 	States
 	{
 		Spawn:
-			ARM1 ABCDEFGHIJKLMNOP 1 BRIGHT
+			ARM1 A -1 BRIGHT
 			Loop
 	}
 }
@@ -281,7 +281,7 @@ actor BlueArmor2 : BlueArmor replaces BlueArmor
 	States
 	{
 		Spawn:
-			ARM2 ABCDEFGHIJKLMNOP 1 BRIGHT
+			ARM2 A -1 BRIGHT
 			Loop
 	}
 }
@@ -308,42 +308,7 @@ ACTOR RedArmor : BasicArmorPickup 5040
 	States
 	{
 	Spawn:
-		ARM3 ABCDEFGHIJKLMNOP 1 BRIGHT
+		ARM3 A -1 BRIGHT
 		Loop
-	}
-}
-
-actor Condom1 : MaxArmorBonus 18814
-{
-	//$Category SMMP Health and Armor
-	//$Title Durex Avandi BARE Condom
-	//$Color 1
-	Inventory.PickupMessage "Durex Avanti BARE Latex Condom (+1 Max Armor)"
-	Inventory.PickupSound "Condom"
-	Armor.SaveAmount 1
-	Armor.MaxBonus 1
-	radius 4
-	height 4
-	States
-	{
-		Spawn:
-			NULL A -1
-			loop
-	}
-}
-
-actor Condom2 : Condom1 18815
-{
-	//$Category SMMP Health and Armor
-	//$Title Durex Tropical Flavored Condom
-	//$Color 1
-	Inventory.PickupMessage "Durex Tropical Flavored Condom (+2 Max Armor)"
-	Armor.SaveAmount 2
-	Armor.MaxBonus 2
-	States
-	{
-		Spawn:
-			NULL A -1
-			loop
 	}
 }

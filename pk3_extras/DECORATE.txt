@@ -1,0 +1,6 @@
+#include "actors/props.txt"
+#include "actors/stuff.xxx"
+#include "actors/interactiveprops.txt"
+#include "actors/vegetation.txt"
+#include "actors/characters.txt"
+#include "actors/pickups.txt"

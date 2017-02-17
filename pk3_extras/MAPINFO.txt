@@ -132,6 +132,8 @@ map MPDM08 "CityScape - Striker & Kunai"
 	forcenoskystretch
 	allowcrouch
 	clipmidtextures
+	evenlighting
+	lightmode = 0
 	next = MPDM09
 }
 
@@ -285,6 +287,7 @@ map MPCTF01 "Doom Gulch - StrikerMan780"
 	evenlighting
 	allowcrouch
 	clipmidtextures
+	UsePlayerStartZ
 	next = MPCTF02
 }
 
@@ -380,7 +383,7 @@ map MPLMS03 "Lost Caverns - Dark Pit"
 
 map COOP01 "Canyon Facility"
 {
-	Next = COOP02
+	Next = HQ
 	clipmidtextures
 	Sky1 = Sky1, 0.1
 	Music = "D_RAGE"
@@ -388,7 +391,7 @@ map COOP01 "Canyon Facility"
 
 map COOP02 "SkyNet Satellite Base"
 {
-	Next = COOP03
+	Next = HQ
 	clipmidtextures
 	Sky1 = REDSKY1, 0.15
 	Music = "D_FURY3F"

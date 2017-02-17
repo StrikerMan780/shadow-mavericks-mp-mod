@@ -1,48 +1,80 @@
-ACTOR VulgarShot
+actor MonsterBullet : FastProjectile
 {
-   Radius 8
-   Height 11
-   Speed 14
-   Damage (8)
-   PoisonDamage 20
-   SeeSound "BioRifle"
-   RENDERSTYLE ADD
-   ALPHA 0.67
-   PROJECTILE
-   +THRUGHOST
-   +FORCEXYBILLBOARD
-   DeathSound "FleshySplat"
-   States
-   {
-   Spawn:
-	  FVUL AAABBB 1 Bright A_SpawnItemEx("BarbTrail",Random(-8,8),Random(-8,8),Random(-8,8),0,0,0,0,128,0)
-	  loop
-   Death:
-	  FVUL CDEF 4 Bright
-	  stop
-   }
+	Decal "BulletChip"
+	Projectile
+	Radius 1
+	Height 1
+	Speed 70
+	Damage (7)
+	RenderStyle Add
+	Alpha 1.0
+	+BLOODSPLATTER
+	States
+	{
+		Spawn:
+			PUFF A 1 bright
+			loop
+		XDeath:
+			TNT1 A 0
+			stop
+		Crash:
+			TNT1 A 0
+			goto Death
+		Death:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("NewBulletPuff_NoMarker", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1
+			stop
+	}
 }
 
-ACTOR Barbtrail
+actor WeakMonsterBullet : MonsterBullet
 {
-   Radius 0
-   Height 1
-   PROJECTILE
-   RENDERSTYLE ADD
-   ALPHA 0.75
-   +FORCEXYBILLBOARD
-   States
-   {
-   Spawn:
-	  NULL A 1 Bright
-	  SSFX ABCDEFG 2 Bright
-	  Stop
-   }
+	Damage (3)
 }
 
-actor HangerTrail : BarbTrail
+actor StrongMonsterBullet : MonsterBullet
+{
+	Damage (14)
+}
+
+actor MonsterChaingunBullet : MonsterBullet
+{
+	States
+	{
+		Death:
+			TNT1 A 0
+			TNT1 A 1 A_SpawnItemEx("EnemyChaingunHit", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1
+			stop
+	}
+}
+
+Actor EnemyChaingunHit : BaseEffect
+{
+	Scale 0.4
+	Alpha 0.9
+	RenderStyle Add
+	States
+	{
+	Spawn:
+		HBEX ABCDEFGHIJKLMNOP 1 BRIGHT
+		stop
+	}
+}
+
+actor HangerTrail : BaseEffect
 {
 	Translation "112:127=162:167"
+	RENDERSTYLE ADD
+	ALPHA 0.75
+	States
+	{
+		Spawn:
+			NULL A 1 Bright
+			SSFX ABCDEFG 2 Bright
+			Stop
+	}
 }
 
 actor HangerBall

@@ -66,7 +66,7 @@ ACTOR StrengthRune : RuneGiver 5100
 	+COUNTITEM
 	+NOGRAVITY
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon STRRA0
+	Inventory.Icon STRICON
 	Inventory.MaxAmount 0
 	Rune.Type DoubleDamage
 	Inventory.PickupMessage "$PICKUP_STRENGTH"
@@ -94,7 +94,7 @@ ACTOR RageRune : RuneGiver 5101
 	+COUNTITEM
 	+NOGRAVITY
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon RAGRA0
+	Inventory.Icon RGEICON
 	Inventory.MaxAmount 0
 	Rune.Type DoubleFiringSpeed
 	Inventory.PickupMessage "$PICKUP_RAGE"
@@ -123,7 +123,7 @@ ACTOR DrainRune : RuneGiver 5102
 	+COUNTITEM
 	+NOGRAVITY
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon DRARA0
+	Inventory.Icon DRNICON
 	Inventory.MaxAmount 0
 	Rune.Type Drain
 	Inventory.PickupMessage "$PICKUP_DRAIN"
@@ -152,7 +152,7 @@ ACTOR SpreadRune : RuneGiver 5103
 	+NOGRAVITY
 	+FLOATBOB
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon SPRRA0
+	Inventory.Icon SPRICON
 	Inventory.MaxAmount 0
 	Rune.Type Spread
 	Inventory.PickupMessage "$PICKUP_SPREAD"
@@ -180,7 +180,7 @@ ACTOR ResistanceRune : RuneGiver 5104
 	+COUNTITEM
 	+NOGRAVITY
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon RESRA0
+	Inventory.Icon RESICON
 	Inventory.MaxAmount 0
 	Rune.Type HalfDamage
 	Inventory.PickupMessage "$PICKUP_RESISTANCE"
@@ -209,7 +209,7 @@ ACTOR RegenerationRune : RuneGiver 5105
 	+NOGRAVITY
 	+FLOATBOB
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon REGRA0
+	Inventory.Icon RGNICON
 	Inventory.MaxAmount 0
 	Rune.Type Regeneration
 	Inventory.PickupMessage "$PICKUP_REGENERATION"
@@ -237,7 +237,7 @@ ACTOR ProsperityRune : RuneGiver 5106
 	+COUNTITEM
 	+NOGRAVITY
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon PRSRA0
+	Inventory.Icon PRSICON
 	Inventory.MaxAmount 0
 	Rune.Type Prosperity
 	Inventory.PickupMessage "$PICKUP_PROSPERITY"
@@ -266,7 +266,7 @@ ACTOR ReflectionRune : RuneGiver 5107
 	+NOGRAVITY
 	+FLOATBOB
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon REFRA0
+	Inventory.Icon RFLICON
 	Inventory.MaxAmount 0
 	Rune.Type Reflection
 	Inventory.PickupMessage "$PICKUP_REFLECTION"
@@ -294,7 +294,7 @@ ACTOR HighJumpRune : RuneGiver 5108
 	+COUNTITEM
 	+NOGRAVITY
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon HIJRA0
+	Inventory.Icon JMPICON
 	Inventory.MaxAmount 0
 	Rune.Type HighJump
 	Inventory.PickupMessage "$PICKUP_HIGHJUMP"
@@ -323,7 +323,7 @@ ACTOR HasteRune : RuneGiver 5109
 	+NOGRAVITY
 	+FLOATBOB
 	+INVENTORY.AUTOACTIVATE
-	Inventory.Icon HASRA0
+	Inventory.Icon HSTICON
 	Inventory.MaxAmount 0
 	Rune.Type Speed25
 	Inventory.PickupMessage "$PICKUP_HASTE"

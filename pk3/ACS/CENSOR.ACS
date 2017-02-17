@@ -1,0 +1,121 @@
+#library "CENSOR"
+#include "zcommon.acs"
+
+#define XXX_TID 80085
+
+int censor_lines[32];
+bool last_setting;
+bool run_once;
+bool using_censored_mode[65];
+
+function void SetUncensored(void)
+{
+	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
+	{
+		return;
+	}
+	
+    bool uncensored = GetUserCvar(ConsolePlayerNumber(), "smmp_uncensored");
+    int i;
+	
+	if(!run_once || (last_setting != uncensored))
+	{
+		if(Uncensored)
+        {
+            Log(s:"\cfUncensored Mode is \cdON");
+			SetActorProperty(XXX_TID, APROP_RenderStyle, STYLE_Normal);
+			SetActorProperty(XXX_TID, APROP_Alpha, 1.0);
+        }
+		else
+		{
+			Log(s:"\cfUncensored Mode is \cgOFF");
+			SetActorProperty(XXX_TID, APROP_RenderStyle, STYLE_Translucent);
+			SetActorProperty(XXX_TID, APROP_Alpha, 0.0);
+		}
+		
+		for(i = 0; i < 32; i++)
+		{
+			if(censor_lines[i] != 0)
+			{
+				SetCensorOnLine(i);
+			}
+		}
+	}
+        
+    last_setting = uncensored;
+	run_once = true;
+}
+
+function void SetCensorOnLine(int index)
+{
+	bool uncensored = GetUserCvar(ConsolePlayerNumber(), "smmp_uncensored");
+	int alpha;
+	
+	if(uncensored)
+	{
+		alpha = 255;
+	}
+	else
+	{
+		alpha = 0;
+	}
+	
+	//Log(s:"\cvSetting alpha to \cd", d:alpha, s:" \cvfor censored line id \cd#", d:censor_lines[index]);
+	TranslucentLine(censor_lines[index], alpha, 0);
+}
+
+script "CHECKUNCENSORED" (int target)
+{
+	if(target)
+	{
+		SetActivatorToTarget(0);
+	}
+	
+	SetResultValue(GetUserCvar(PlayerNumber(), "smmp_uncensored"));
+}
+
+script "ADDCENSORLINE" (int lineid) CLIENTSIDE
+{	
+	for(int i = 0; i < 32; i++)
+	{
+		if(censor_lines[i] <= 0)
+		{
+			censor_lines[i] = lineid;
+			SetCensorOnLine(i);
+			terminate;
+		}
+	}
+}
+
+script "CENSORENTER" ENTER CLIENTSIDE
+{
+    SetUncensored();
+}
+
+script "CENSORRESPAWN" RESPAWN CLIENTSIDE
+{
+    SetUncensored();
+}
+
+script "CENSORTOGGLE" (void) NET CLIENTSIDE
+{
+	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
+	{
+		terminate;
+	}
+	
+	bool uncensored = GetUserCvar(ConsolePlayerNumber(), "smmp_uncensored");
+	
+	if(uncensored)
+	{
+		SetUserCVar(PlayerNumber(), "smmp_uncensored", false);
+	}
+	else
+	{
+		SetUserCVar(PlayerNumber(), "smmp_uncensored", true);
+	}
+		
+	SetUncensored();
+	
+	Delay(35);
+}

@@ -108,7 +108,7 @@ ACTOR BFG_SMMP : Weapon
 actor BFGTrail : BaseEffect
 {
 	RenderStyle Add
-	Alpha 0.5
+	Alpha 0.75
 	States
 	{
 		Spawn:
@@ -242,7 +242,7 @@ ACTOR SMMP_BFGBall Replaces BFGBall
 	+NODAMAGETHRUST
 	DamageType "BFG"
 	RenderStyle Add
-	Alpha 0.85
+	Alpha 1.0
 	SeeSound "BFGFire"
 	DeathSound "weapons/bfgx"
 	Obituary "$OB_MPBFG_BOOM"

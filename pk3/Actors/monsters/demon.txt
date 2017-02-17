@@ -62,7 +62,7 @@ actor SM_Spectre : SM_Demon
 actor BloodDemon : SM_Demon 5004
 {
 	SpawnID 156
-	Health 300
+	Health 250
 	Obituary "$OB_BLOODDEMON_MELEE"
 	Translation "16:34=32:47", "35:37=1:2", "38:47=0:0", "229:229=89:89", "151:151=111:111", "48:63=80:95", "64:78=96:111", "79:79=0:0", "208:212=172:175", "214:223=176:181", "213:213=85:85", "160:167=80:95"
 	States
