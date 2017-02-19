@@ -3,6 +3,7 @@
 
 global int 0:player_money[];
 bool stats_loaded[65];
+str player_acctname[65];
 
 #define MAX_MONEY 1000000
 #define DEBUG_ID 666
@@ -27,17 +28,17 @@ function void DebugValue(str Message, int value, int pnum)
 
 function void GetStatsFromDB(int pnum)
 {	
-	str acctname = GetPlayerAccountName(pnum);
+	player_acctname[pnum] = GetPlayerAccountName(pnum);
 	
 	if(!IsNetworkGame())
 	{
-		acctname = "singleplayer_acct";
+		player_acctname[pnum] = "singleplayer_acct";
 	}
 	
-	player_money[pnum] = GetDBEntry(acctname, "smmp_money");
+	player_money[pnum] = GetDBEntry(player_acctname[pnum], "smmp_money");
 	
 	stats_loaded[pnum] = true;
-	DebugDBExchange("Retrieving player stats", acctname, pnum);
+	DebugDBExchange("Retrieving player stats", player_acctname[pnum], pnum);
 }
 
 function void SaveStatsToDB(int pnum)
@@ -45,22 +46,23 @@ function void SaveStatsToDB(int pnum)
 	if(!stats_loaded[pnum])
 		return;
 	
-	str acctname = GetPlayerAccountName(pnum);
+	player_acctname[pnum] = GetPlayerAccountName(pnum);
 	
 	if(!IsNetworkGame())
 	{
-		acctname = "singleplayer_acct";
+		player_acctname[pnum] = "singleplayer_acct";
 	}
 	
-	SetDBEntry(acctname, "smmp_money", player_money[pnum]);
+	SetDBEntry(player_acctname[pnum], "smmp_money", player_money[pnum]);
 	
-	DebugDBExchange("Saving player stats", acctname, pnum);
+	DebugDBExchange("Saving player stats", player_acctname[pnum], pnum);
 }
 
 function void ClearLocalStats(int pnum)
 {
 	player_money[pnum] = 0;
 	stats_loaded[pnum] = false;
+	player_acctname[pnum] = "";
 }
 
 script "GIVEMONEY" (int amount, int givetotarget)
