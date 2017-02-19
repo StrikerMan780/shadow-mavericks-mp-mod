@@ -4,7 +4,7 @@ actor GiygasSight : PowerupGiver
 	inventory.maxamount 0
 	Powerup.Duration 0x7FFFFFFD
 	//Powerup.Color RedMap
-	Powerup.Colormap 0.0, 0.0, 0.0, 1.0, 0.0, 0.0
+	Powerup.Colormap 0.0, 0.0, 0.0, 2.0, 0.0, 0.0
 	Powerup.Type Scanner
 	RenderStyle Add
 	Alpha 1.0

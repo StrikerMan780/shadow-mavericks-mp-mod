@@ -763,27 +763,6 @@ actor SonicWaveMist
 	}
 }
 
-actor CricketFire
-{
-	Projectile
-	Height 2
-	Radius 2
-	Speed 3
-	Scale 0.5
-	RenderStyle Add
-	Alpha 0.9
-	+NOGRAVITY
-	+FORCEXYBILLBOARD
-	+ALLOWCLIENTSPAWN
-	States
-	{
-	Spawn:
-		CKTE ABCDEFGHIJKLMNOP 1 BRIGHT A_FadeOut(0.05)
-		stop
-
-	}
-}
-
 actor LinkSwordSpark : RicochetSpark
 {
  +FORCEXYBILLBOARD

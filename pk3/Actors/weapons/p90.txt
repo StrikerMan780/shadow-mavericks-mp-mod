@@ -48,7 +48,7 @@ actor P90 : Weapon 24302
 			P90G B 0 A_JumpIfNoAmmo("ReloadCheck")
 			P90G B 0 BRIGHT radius_quake(1, 2, 0, 1, 0)
 			P90G B 0 BRIGHT A_GunFlash
-			P90G B 0 BRIGHT A_FireBullets (4, 3, -1, 8, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
+			P90G B 0 BRIGHT A_FireBullets (4, 3, -1, 8, "P90Puff", FBF_USEAMMO | FBF_NORANDOM)
 			P90G B 1 BRIGHT A_SetPitch(pitch-0.5)
 			P90G C 1 BRIGHT A_SetPitch(pitch+0.25)
 			P90G A 1 A_SetPitch(pitch+0.25)
@@ -96,4 +96,9 @@ actor P90 : Weapon 24302
 			P9R3 LMNOPQRSTU 1
 			goto Ready
 	}
+}
+
+actor P90Puff : NewBulletPuff
+{
+	DamageType "P90"
 }

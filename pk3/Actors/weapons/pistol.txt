@@ -481,6 +481,10 @@ actor Tails_TechPistol : MageWeapon
 	}
 }
 
+actor RailGunCore : BaseCheck
+{
+}
+
 actor TechPlasmaTrail
 {
 	Radius 2

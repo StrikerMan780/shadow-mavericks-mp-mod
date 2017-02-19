@@ -131,7 +131,7 @@ actor ThrownBottle
 	Radius 8
 	Height 8
 	Speed 32
-	Damage (30)
+	Damage (32)
 	obituary "%o was clocked over the head with %k's bottles"
 	Seesound "skeleton/swing"
 	+FORCEXYBILLBOARD
@@ -201,7 +201,7 @@ actor Puke1
 	projectile
 	Radius 1
 	Height 1
-	Damage (4)
+	Damage (5)
 	Speed 25
 	Scale 0.5
 	RenderStyle Translucent

@@ -232,6 +232,7 @@ ACTOR ArmorBonus2 : ArmorBonus Replaces ArmorBonus
 	Armor.SaveAmount 2
 	RenderStyle Add
 	Alpha 1.0
+	DamageFactor "P90", 1.2
 	+FLOATBOB
 	States
 	{
@@ -249,6 +250,7 @@ ACTOR MaxArmorBonus2 : MaxArmorBonus Replaces MaxArmorBonus
 	Armor.MaxBonus 2
 	RenderStyle Add
 	Alpha 1.0
+	DamageFactor "P90", 1.2
 	+FLOATBOB
 	States
 	{
@@ -263,6 +265,7 @@ actor GreenArmor2 : GreenArmor replaces GreenArmor
 	Inventory.Pickupmessage "Armor!"
 	RenderStyle Add
 	Alpha 1.0
+	DamageFactor "P90", 1.2
 	+FLOATBOB
 	States
 	{
@@ -277,6 +280,7 @@ actor BlueArmor2 : BlueArmor replaces BlueArmor
 	Inventory.Pickupmessage "Mega Armor!"
 	RenderStyle Add
 	Alpha 1.0
+	DamageFactor "P90", 1.5
 	+FLOATBOB
 	States
 	{
@@ -301,6 +305,7 @@ ACTOR RedArmor : BasicArmorPickup 5040
 	Armor.Saveamount 200
 	Inventory.Icon "ARM3A0"
 	Inventory.Pickupmessage "Fire Armor!"
+	DamageFactor "P90", 1.75
 	DamageFactor "Fire", 0.125
 	DamageFactor "Rocket", 0.5
 	DamageFactor "Grenade", 0.5

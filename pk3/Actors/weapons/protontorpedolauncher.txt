@@ -97,8 +97,9 @@ actor ProtonTorpedo replaces Rocket
 	+EXTREMEDEATH
 	+FORCEXYBILLBOARD
 	+EXPLODEONDEATH
+	+FORCERADIUSDMG
 	Speed 35
-	Damage (80)
+	Damage (24)
 	RenderStyle Add
 	Alpha 0.9
 	SeeSound "weapons/rocklf"

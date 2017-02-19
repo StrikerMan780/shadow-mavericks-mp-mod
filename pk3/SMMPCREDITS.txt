@@ -17,7 +17,7 @@ BirdImp Sprites - breadbagfly & ItsNatureToDie
 
 Sounds:
 KunaiKitsune - Footstep Sounds
-Perkristan - DSFLAME/DSFLAMST/DSTOILET
+Perkristian - DSFLAME/DSFLAMST/DSTOILET
 
 Maps:
 All maps are by [SM] Clan members - StrikerMan780, Ruin, ChrisR91, KunaiKitsune.

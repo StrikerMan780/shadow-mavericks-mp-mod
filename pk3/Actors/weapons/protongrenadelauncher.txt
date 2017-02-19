@@ -109,9 +109,9 @@ actor GBTWGrenade Replaces Grenade
 	BounceFactor 0.75
 	BounceCount 5
 	obituary "%o ate %k's Pineapple."
-	Speed 40
+	Speed 35
 	bouncesound "weapons/grbnce"
-	Damage (32)
+	Damage (22)
 	Gravity 1.0
 	States
 	{
@@ -147,7 +147,7 @@ actor GBTWGrenade_Impact : GBTWGrenade
 {
 	Decal Scorch
 	obituary "%o sucked on %k's noob tube."
-	Speed 50
+	Speed 40
 	Damage (24)
 	BounceType None
 }
