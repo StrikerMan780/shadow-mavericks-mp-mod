@@ -16,7 +16,7 @@ actor Tails : BaseClass
 	Player.AttackZOffset 3
 	Player.Viewheight 36
 	
-	Player.DisplayName "Tails (WIP)"
+	Player.DisplayName "Tails"
 	Player.SoundClass "tails"
 	Player.ScoreIcon "TAILICON"
 	
