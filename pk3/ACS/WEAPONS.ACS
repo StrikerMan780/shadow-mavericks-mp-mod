@@ -31,7 +31,7 @@ str ammo_types[8][2] = {
 { "CricketAmmo",	"Fusion Ammo" }		// 7
 };
 
-#define NumWeapons 10
+#define NumWeapons 11
 str class_weapons[NumWeapons][NumClasses][7] = 
 {
 	{ // Shotgun - 0
@@ -93,6 +93,12 @@ str class_weapons[NumWeapons][NumClasses][7] =
 		{ "IceSSG",				"Elemental SSG (Ice)", 				"2", "16",	"0", "0",	"None" },
 		{ "LightningSSG",		"Elemental SSG (Lightning)", 		"2", "16",	"0", "0",	"None" },
 		{ "AcidSprayer",		"Acid Sprayer",						"2", "16",	"0", "0",	"None" },
+	},
+	{ // Railgun - 10
+		{ "Railgun",			"Railgun",							"4", "40",	"0", "0",	"RailClip" },
+		{ "RailGunCore",		"Railgun Core", 					"4", "20",	"0", "0",	"Component" },
+		{ "FireRod",			"Fire Rod", 						"4", "40",	"0", "0",	"None" },
+		{ "Freezethrower",		"Freezethrower",					"4", "40",	"0", "0",	"None" },
 	}
 };
 
@@ -222,7 +228,7 @@ function bool GrantWeapon(int type, bool dropped, bool notpickup)
 		
 			if(!hasweapon)
 			{
-				if(StrIcmp(class_weapons[type][class][SLOT_CLIP], "None") != 0)
+				if((StrIcmp(class_weapons[type][class][SLOT_CLIP], "None") != 0) && !iscomponent)
 				{
 					GiveInventory(class_weapons[type][class][SLOT_CLIP], 999);
 				}
