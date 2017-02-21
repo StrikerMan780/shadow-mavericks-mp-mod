@@ -486,6 +486,20 @@ model BFG10kExplosionShell
 	FrameIndex NULL A 0 0
 }
 
+model BFG9kExplosionShell
+{
+	Path "models/Explosion"
+	Model 0 "ExplosionShell2.md3"
+	Skin 0 "ExplosionShellGreen.png"
+	Scale 1.0 1.0 1.0
+	
+	Rotating
+	Rotation-Speed 30
+
+	FrameIndex NULL A 0 0
+}
+
+
 model NewPlasma
 {
 	Path "models/Projectiles"
