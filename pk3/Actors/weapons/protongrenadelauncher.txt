@@ -330,7 +330,7 @@ actor StickyBombExplosion
 	Height 1
 	RenderStyle Add
 	Alpha 1.0
-	Scale 0.8
+	Scale 0.25
 	+NOBLOCKMAP
 	+DONTSPLASH
 	+NOTELEPORT
@@ -339,7 +339,7 @@ actor StickyBombExplosion
 	States
 	{
 	Spawn:
-		STKE ABCDEFGHIJKLMNOP 1 BRIGHT
+		XPLO ABCDEFGH 2 BRIGHT
 		stop
 	}
 }
