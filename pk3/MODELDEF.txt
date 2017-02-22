@@ -3313,6 +3313,17 @@ model BFG10kSpark
 	FrameIndex PUFF A 0 0
 }
 
+model CricketSpark
+{
+	Path "models/Projectiles"
+	Model 0 "Tracer.md3"
+	Skin 0 "GreenTracer.png"
+	Scale 1.0 1.25 1.25
+	PITCHFROMMOMENTUM
+
+	FrameIndex PUFF A 0 0
+}
+
 model ProtonTorpedo
 {
 	Path "models/Projectiles"

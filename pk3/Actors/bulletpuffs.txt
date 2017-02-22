@@ -713,7 +713,6 @@ actor SonicWaveBlast
 	CEXP A 0 A_PlaySound("weapons/grenlx")
 	CEXP A 0 A_Explode(500, 200)
 	CEXP AAAAAAA 0 A_SpawnItemEX("SonicWaveFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-5, 5), Random(-5, 5), Random(-5, 5), Random(-360, 360), 128, 0)
-	CEXP AAAAAAA 0 A_SpawnItemEX("SonicWaveMist", 0, 0, 0, Random(-12, 12), Random(-12, 12), Random(-12, 12), Random(-360, 360), 128, 0)
 	CEXP ABC 3 bright A_SpawnItemEX("SonicWaveFire", Random(-8, 8), Random(-8, 8), Random(-8, 8), Random(-7, 7), Random(-7, 7), Random(-7, 7), Random(-360, 360), 128, 0)
 	stop
   }
@@ -734,33 +733,6 @@ actor SonicWaveFire
  CEXP AABBCC 2 BRIGHT A_FadeOut
  stop
  }
-}
-
-actor SonicWaveMist
-{
-	Projectile
-	Radius 1
-	Height 1
-	Damage 0
-	Speed 10
-	Scale 0.4
-	RenderStyle Add
-	Alpha 1.0
-	+FORCEXYBILLBOARD
-	+DONTSPLASH
-	-BLOODSPLATTER
-	+BLOODLESSIMPACT
-	States
-	{
-	Spawn:
-		TNT1 A 0
-		BLSE ABCDE 1 BRIGHT
-		stop
-	Death:
-		TNT1 A 0
-		TNT1 A 1
-		stop
-	}
 }
 
 actor LinkSwordSpark : RicochetSpark
