@@ -288,7 +288,7 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLYS A 0 A_PlayerScream
 		PLYS A 3 A_NoBlocking
 		PLYS B 3
-		PLYS B 0 A_SpawnItemEx("MarineLegs", 0, 0, 0, MOMX, MOMY, MOMZ, 0, SXF_TRANSFERTRANSLATION | SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		PLYS B 0 A_SpawnItemEx("MarineLegs", 0, 0, 0, MOMX, MOMY, 0, 0, SXF_TRANSFERTRANSLATION | SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		PLYS B 0 ThrustThingZ(0, random(40, 64), 0, 1)
 		goto Split2
 	Split:
@@ -299,7 +299,7 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLYS A 0 A_PlaySoundEx("HorrificScream", "Auto")
 		PLYS A 3 A_NoBlocking
 		PLYS B 3
-		PLYS B 0 A_SpawnItemEx("MarineLegs", 0, 0, 0, MOMX, MOMY, MOMZ, 0, SXF_TRANSFERTRANSLATION | SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+		PLYS B 0 A_SpawnItemEx("MarineLegs", 0, 0, 0, MOMX, MOMY, 0, 0, SXF_TRANSFERTRANSLATION | SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 		PLYS B 0 ThrustThingZ(0, random(40, 64), 0, 1)
 		goto Split2
 	Split2:
