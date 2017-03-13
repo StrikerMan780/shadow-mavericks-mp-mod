@@ -2311,6 +2311,18 @@ HardwareShader texture POWBUBBL
 	Speed 1.0
 }
 
+HardwareShader texture FBALLOUT
+{
+	Shader "shaders/scroll_right_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture FBALLIN
+{
+	Shader "shaders/scroll_up_fullbright.fp"
+	Speed 5.0
+}
+
 Glow
 {
 	Flats

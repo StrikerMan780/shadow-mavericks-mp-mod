@@ -535,3 +535,28 @@ model SM_ArachnotronPlasma
 	FrameIndex PLSS C 0 2
 	FrameIndex PLSS D 0 3
 }
+
+Model SM_DoomImpBall
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/FBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/FBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+	FrameIndex BAL1 B 0 0
+}
+
+model DoomImpBallExplosionShell
+{
+	Path "models/Explosion"
+	Model 0 "ExplosionShell2.md3"
+	Skin 0 "ExplosionShellYellow.png"
+	Scale 0.32 0.32 0.32
+	
+	Rotating
+	Rotation-Speed 30
+
+	FrameIndex NULL A 0 0
+}
