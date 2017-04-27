@@ -456,11 +456,36 @@ actor ChaseCam2
 {
 	height 0
 	radius 0
+	+NOTIMEFREEZE
+	+NOTRIGGER
+	+NODAMAGE
 	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOINTERACTION
 	states
 	{
 		Spawn:
 			TNT1 A -1
 			stop
+	}
+}
+
+ACTOR ChaseCamWaypoint : ChaseCam2
+{
+	Decal "NullDecal"
+	+PUFFONACTORS
+	+BLOODLESSIMPACT
+	+ALWAYSPUFF
+	+PUFFGETSOWNER
+	+NODECAL
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay ACS_NamedExecuteWithResult("MOVECAMERA", 0) // ExecuteWithResult executes on the same tic, preventing cam jitter.
+		Goto Spawn2
+	Spawn2:
+		TNT1 A -1
+		Stop
 	}
 }
