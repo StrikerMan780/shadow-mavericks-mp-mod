@@ -1,0 +1,19 @@
+function int round_zan(int fixedNumber)
+{
+	return (fixedNumber + 0.5) >> 16;
+}
+
+function int get_widescreen_xoffset(int width, int height, int xoffset, bool negative)
+{
+	int scr_width = GetScreenWidth() << 16;
+	int scr_height = GetScreenHeight() << 16;
+	
+	int x_difference = (FixedDiv(scr_width, scr_height) * height)-(width << 16);
+	
+	if(negative)
+	{
+		return round_zan((xoffset << 16)-FixedDiv(x_difference, 2.0)) << 16;
+	}
+	
+	return round_zan((xoffset << 16)+FixedDiv(x_difference, 2.0)) << 16;
+}
