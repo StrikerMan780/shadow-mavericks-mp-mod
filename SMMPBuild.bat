@@ -1,6 +1,7 @@
 @echo off
 SET PATH=%PATH%;%~dp0\Tools
 set WorkingCopyPath=%~dp0
+set REVISIONNUMBER=Unknown
 cls
 
 :GITRefresh
