@@ -69,6 +69,13 @@ actor Rose 18817
 	}
 }
 
+actor BlackRose : Rose 18812
+{
+	//$Category SMMP Static Props
+	//$Title Black Rose
+	//$Color 15
+}
+
 actor ComputerChair 20524
 {
 	//$Category SMMP Static Props
@@ -223,6 +230,26 @@ actor MoldyCrow 21328
 			loop
 	}
 }
+
+actor KrystalTrophy 21330
+{
+	//$Category SMMP Static Props
+	//$Title Krystal Trophy
+	//$Color 15
+	Scale 0.50
+	Radius 6
+	Height 4
+	-SOLID
+	+ALLOWCLIENTSPAWN
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
 
 actor Spanner 8023
 {

@@ -1,0 +1,11 @@
+HardwareShader texture TWATER
+{
+	Shader "shaders/glsl/func_warp2.fp"
+	Speed 1.0
+}
+
+HardwareShader texture sky-0052
+{
+	Shader "shaders/flamewall.fp"
+	Speed 1.0
+}

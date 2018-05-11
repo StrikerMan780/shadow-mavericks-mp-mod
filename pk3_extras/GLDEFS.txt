@@ -52,12 +52,12 @@ Glow
 		PSOLAV28
 		PSOLAV29
 		GLAVA1
-		WQLAVA
 		LIGHTGRE
 	}
 	Walls
 	{
 		SPECIALC
 		LIGHTGRE
+		WQLAVA
 	}
 }

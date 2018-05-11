@@ -92,7 +92,7 @@ model Fleshlight
 {
 	Path "Models/Decoration/XXX/Fleshlight"
 	Model 0 "Fleshlight.md3"
-	Scale 1.75 1.75 1.75
+	Scale 1.5 1.5 1.5
 
 	FrameIndex GDCR A 0 0
 }

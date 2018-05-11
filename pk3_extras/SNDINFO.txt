@@ -41,6 +41,12 @@ Condom dscondom
 FuckingWindows98 DSFWIN98
 $rolloff FuckingWindows98 400 2400
 
+awesome1 awesome1
+awesome2 awesome2
+awesome3 awesome3
+awesome4 awesome4
+$random awesome { awesome1 awesome2 awesome3 awesome4 }
+
 $ambient 4 WaterFallRush POINT CONTINUOUS 1.0
 $ambient 5 jeanluc POINT CONTINUOUS 0.9
 $ambient 6 tvoutbeep POINT CONTINUOUS 0.08

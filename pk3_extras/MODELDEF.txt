@@ -325,8 +325,8 @@ Model ToiletPaper
 
 model Toilet
 {
-	Path "Models/Decoration/Toilet"
-	Model 0 "Toilet.md3"
+	Model 0 "Models/Decoration/Toilet/Toilet.md3"
+	SurfaceSkin 0 1 "Textures/TWATER.png"
 	Scale 1.0 1.0 1.0
 	AngleOffset -90
 	Offset -15.6 0 6
@@ -350,6 +350,40 @@ model MoldyCrow
 	Path "Models/Decoration/MoldyCrow"
 	Model 0 "MoldyCrow.md3"
 	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}
+
+model KrystalTrophy
+{
+	Path "Models/Decoration/KrystalTrophy"
+	Model 0 "KrystalTrophy.md3"
+	Skin 0 "KrystalTrophy.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}
+
+model AwesomeButton
+{
+	Path "Models/Buttons"
+	Model 0 "button.md3"
+	Skin 0 "button.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex FOUN A 0 0
+	FrameIndex FOUN B 0 1
+	FrameIndex FOUN C 0 2
+	FrameIndex FOUN D 0 3
+}
+
+model BlackRose
+{
+	Path "Models/Decoration/Rose"
+	Model 0 "Rose.md3"
+	SurfaceSkin 0 0 "black_rose.png"
+	Scale 0.5 0.5 0.5
+	ZOffset 2
 
 	FrameIndex NULL A 0 0
 }
