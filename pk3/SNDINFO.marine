@@ -1,0 +1,225 @@
+// ** Marine **
+
+MarineTaunt1 DSTAUNT
+MarineTaunt2 DSTAUNT1
+$random MarineTaunts { MarineTaunt1 MarineTaunt2 }
+
+$playersound	player	male	*falling		dsfall
+$playersound	player	male	*fist			dspunch
+$playeralias 	player	male	*taunt		MarineTaunts
+
+MarineBurn1 DSMARNB1
+MarineBurn2 DSMARNB2
+MarineBurn3 DSMARNB3
+MarineBurn4 DSMARNB4
+MarineBurn5 DSMARNB5
+MarineBurn6 DSMARNB6
+$random MarineBurn { MarineBurn1 MarineBurn2 MarineBurn3 MarineBurn4 MarineBurn5 MarineBurn6 }
+
+MarineKill_01 MKILL_01
+MarineKill_02 MKILL_02
+MarineKill_03 MKILL_03
+MarineKill_04 MKILL_04
+MarineKill_05 MKILL_05
+MarineKill_06 MKILL_06
+MarineKill_07 MKILL_07
+MarineKill_08 MKILL_08
+MarineKill_09 MKILL_09
+MarineKill_10 MKILL_10
+MarineKill_11 MKILL_11
+MarineKill_12 MKILL_12
+MarineKill_13 MKILL_13
+MarineKill_14 MKILL_14
+MarineKill_15 MKILL_15
+MarineKill_16 MKILL_16
+MarineKill_17 MKILL_17
+MarineKill_18 MKILL_18
+MarineKill_19 MKILL_19
+MarineKill_20 MKILL_20
+MarineKill_21 MKILL_21
+MarineKill_22 MKILL_22
+MarineKill_23 MKILL_23
+MarineKill_24 MKILL_24
+MarineKill_25 MKILL_25
+MarineKill_26 MKILL_26
+MarineKill_27 MKILL_27
+MarineKill_28 MKILL_28
+MarineKill_29 MKILL_29
+MarineKill_30 MKILL_30
+MarineKill_31 MKILL_31
+MarineKill_32 MKILL_32
+MarineKill_33 MKILL_33
+MarineKill_34 MKILL_34
+MarineKill_35 MKILL_35
+MarineKill_36 MKILL_36
+MarineKill_37 MKILL_37
+MarineKill_38 MKILL_38
+MarineKill_39 MKILL_39
+MarineKill_40 MKILL_40
+MarineKill_41 MKILL_41
+MarineKill_42 MKILL_42
+MarineKill_43 MKILL_43
+MarineKill_44 MKILL_44
+MarineKill_45 MKILL_45
+MarineKill_46 MKILL_46
+MarineKill_47 MKILL_47
+MarineKill_48 MKILL_48
+MarineKill_49 MKILL_49
+MarineKill_50 MKILL_50
+MarineKill_51 MKILL_51
+MarineKill_52 MKILL_52
+MarineKill_53 MKILL_53
+MarineKill_54 MKILL_54
+MarineKill_55 MKILL_55
+MarineKill_56 MKILL_56
+MarineKill_57 MKILL_57
+MarineKill_58 MKILL_58
+MarineKill_59 MKILL_59
+MarineKill_60 MKILL_60
+MarineKill_61 MKILL_61
+MarineKill_62 MKILL_62
+MarineKill_63 MKILL_63
+MarineKill_64 MKILL_64
+MarineKill_65 MKILL_65
+MarineKill_66 MKILL_66
+MarineKill_67 MKILL_67
+MarineKill_68 MKILL_68
+MarineKill_69 MKILL_69
+MarineKill_70 MKILL_70
+MarineKill_71 MKILL_71
+MarineKill_72 MKILL_72
+MarineKill_73 MKILL_73
+MarineKill_74 MKILL_74
+MarineKill_75 MKILL_75
+MarineKill_76 MKILL_76
+MarineKill_77 MKILL_77
+MarineKill_78 MKILL_78
+MarineKill_79 MKILL_79
+MarineKill_80 MKILL_80
+MarineKill_81 MKILL_81
+MarineKill_82 MKILL_82
+MarineKill_83 MKILL_83
+MarineKill_84 MKILL_84
+MarineKill_85 MKILL_85
+MarineKill_86 MKILL_86
+MarineKill_87 MKILL_87
+MarineKill_88 MKILL_88
+MarineKill_89 MKILL_89
+MarineKill_90 MKILL_90
+MarineKill_91 MKILL_91
+MarineKill_92 MKILL_92
+MarineKill_93 MKILL_93
+MarineKill_94 MKILL_94
+MarineKill_95 MKILL_95
+MarineKill_96 MKILL_96
+MarineKill_97 MKILL_97
+MarineKill_98 MKILL_98
+MarineKill_99 MKILL_99
+MarineKill_100 MKILL_100
+MarineKill_101 MKILL_101
+MarineKill_102 MKILL_102
+
+$random MarineKill {
+MarineKill_01
+MarineKill_02
+MarineKill_03
+MarineKill_04
+MarineKill_05
+MarineKill_06
+MarineKill_07
+MarineKill_08
+MarineKill_09
+MarineKill_10
+MarineKill_11
+MarineKill_12
+MarineKill_13
+MarineKill_14
+MarineKill_15
+MarineKill_16
+MarineKill_17
+MarineKill_18
+MarineKill_19
+MarineKill_20
+MarineKill_21
+MarineKill_22
+MarineKill_23
+MarineKill_24
+MarineKill_25
+MarineKill_26
+MarineKill_27
+MarineKill_28
+MarineKill_29
+MarineKill_30
+MarineKill_31
+MarineKill_32
+MarineKill_33
+MarineKill_34
+MarineKill_35
+MarineKill_36
+MarineKill_37
+MarineKill_38
+MarineKill_39
+MarineKill_40
+MarineKill_41
+MarineKill_42
+MarineKill_43
+MarineKill_44
+MarineKill_45
+MarineKill_46
+MarineKill_47
+MarineKill_48
+MarineKill_49
+MarineKill_50
+MarineKill_51
+MarineKill_52
+MarineKill_53
+MarineKill_54
+MarineKill_55
+MarineKill_56
+MarineKill_57
+MarineKill_58
+MarineKill_59
+MarineKill_60
+MarineKill_61
+MarineKill_62
+MarineKill_63
+MarineKill_64
+MarineKill_65
+MarineKill_66
+MarineKill_67
+MarineKill_68
+MarineKill_69
+MarineKill_70
+MarineKill_71
+MarineKill_72
+MarineKill_73
+MarineKill_74
+MarineKill_75
+MarineKill_76
+MarineKill_77
+MarineKill_78
+MarineKill_79
+MarineKill_80
+MarineKill_81
+MarineKill_82
+MarineKill_83
+MarineKill_84
+MarineKill_85
+MarineKill_86
+MarineKill_87
+MarineKill_88
+MarineKill_89
+MarineKill_90
+MarineKill_91
+MarineKill_92
+MarineKill_93
+MarineKill_94
+MarineKill_95
+MarineKill_96
+MarineKill_97
+MarineKill_98
+MarineKill_99
+MarineKill_100
+MarineKill_101
+MarineKill_102
+}

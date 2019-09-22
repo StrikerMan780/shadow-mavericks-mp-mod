@@ -22,7 +22,7 @@ actor NewPistol : Weapon Replaces Pistol
 {
 	Tag "Walther P99"
 	Decal BulletChip
-	obituary "%o was pistol-raped by %k."
+	obituary "%k bust a cap in %o's ass."
 	Inventory.PickupSound "misc/w_pkup"
 	Inventory.PickupMessage "Picked up a P99!"
 	Inventory.RestrictedTo "Marine"
@@ -105,15 +105,14 @@ actor NewPistol : Weapon Replaces Pistol
 			PISG B 1 BRIGHT A_FireBullets (3, 3.5, -1, 10, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
 			goto FireDone
 		FireDone:
-			PISG C 0 A_GunFlash("GiveAccuracy", GFF_NOEXTCHANGE)
 			PISG C 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,4,7)
 			PISG C 1 BRIGHT
-			PISG D 1
+			PISG D 1 A_GunFlash("GiveAccuracy", GFF_NOEXTCHANGE)
 			PISG E 1 A_WeaponReady(WRF_NOBOB)
 			PISG FG 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
-			PISG F 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
+			PISG H 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
 			PISG HI 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
-			PISG G 0 A_GunFlash("TakeAccuracy2", GFF_NOEXTCHANGE)
+			PISG J 0 A_GunFlash("TakeAccuracy2", GFF_NOEXTCHANGE)
 			PISG JK 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
 			PISG A 0 A_Refire
 			goto Ready
@@ -128,22 +127,25 @@ actor NewPistol : Weapon Replaces Pistol
 			PISR D 0
 			goto Ready
 		ReloadStart:
-			PISR D 0 A_PlaySoundEx("9mmClipOut", "Auto", 0)
-			PISR DEFGHIJK 3
-			PISR L 3 A_PlayWeaponSound("9mmClipIn")
-			PISR M 3 A_GunFlash("TakeAccuracy2", GFF_NOEXTCHANGE)
+			PISR A 0 A_PlaySound("9mmClipOut", CHAN_AUTO)
+			PISR ABCDEFGHIJKL 2
+			PISR MNOP 1
+			PISR Q 0 A_PlaySound("9mmClipIn", CHAN_AUTO)
+			PISR QRS 1
+			PISR T 0 A_GunFlash("TakeAccuracy2", GFF_NOEXTCHANGE)
 			goto ReloadAmmo
 		ReloadAmmo:
-			NULL A 0 A_TakeInventory("MechAmmo",1)
-			NULL A 0 A_GiveInventory("PistolClip",1)
-			NULL A 0 A_JumpIfInventory("PistolClip",14,"ReloadDone")
-			NULL A 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
+			PISR T 0 A_TakeInventory("MechAmmo",1)
+			PISR T 0 A_GiveInventory("PistolClip",1)
+			PISR T 0 A_JumpIfInventory("PistolClip",14,"ReloadDone")
+			PISR T 0 A_JumpIfInventory("MechAmmo",1,"ReloadAmmo")
 			goto ReloadDone
 		ReloadDone:
-			PISR NO 3
-			PISR P 3 A_PlayWeaponSound("9mmSlide")
-			PISR QR 3
-			PISR STUV 2
+			PISR TUVWXYZ 1
+			PIR2 ABCDEF 1
+			PIR2 G 1 A_PlaySound("9mmSlide", CHAN_AUTO)
+			PIR2 HIJK 2
+			PIR2 K 0
 			goto Ready
 		AltFire:
 			PISW A 0 A_JumpIfInventory("Silenced", 1, "RemoveSilencer")
@@ -217,15 +219,14 @@ actor NewPistol : Weapon Replaces Pistol
 			PISS B 1 BRIGHT A_FireBullets (2.8, 2.8, -1, 9, "NewBulletPuff", FBF_USEAMMO | FBF_NORANDOM)
 			goto SilFireDone
 		SilFireDone:
-			PISS C 0 A_GunFlash("GiveAccuracy", GFF_NOEXTCHANGE)
 			PISS C 0 A_FireCustomMissile("BulletCasingSpawnerRight",-45+random(-8,8),0,4,7)
 			PISS C 1 BRIGHT
-			PISS D 1
+			PISS D 1 A_GunFlash("GiveAccuracy", GFF_NOEXTCHANGE)
 			PISS E 1 A_WeaponReady(WRF_NOBOB)
 			PISS FG 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
-			PISS F 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
+			PISS H 0 A_GunFlash("TakeAccuracy", GFF_NOEXTCHANGE)
 			PISS HI 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
-			PISS G 0 A_GunFlash("TakeAccuracy2", GFF_NOEXTCHANGE)
+			PISS J 0 A_GunFlash("TakeAccuracy2", GFF_NOEXTCHANGE)
 			PISS JK 1 A_WeaponReady(WRF_NOBOB | WRF_ALLOWRELOAD)
 			PISS A 0 A_Refire
 			goto SilReady	
@@ -254,7 +255,6 @@ actor NewPistol : Weapon Replaces Pistol
 			goto SilReady
 
 		Flash:
-			PISF A 0 bright
 			PISF AAAA 0 A_FireCustomMissile("PistolSmoke", Random(-3,3), false, 3, 7)
 			PISF A 0 A_FireCustomMissile("GunSparkSpawner", 0, false, 3, 6)
 			PISF A 1 bright A_Light1

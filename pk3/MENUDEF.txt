@@ -13,6 +13,7 @@ ListMenu "MainMenu"
 	TextItem "SMMP Options", "m", "SMMPOptions"
 	TextItem "Load Game", "l", "LoadGameMenu"
 	TextItem "Save Game", "s", "SaveGameMenu"
+	TextItem "Credits", "c", "Credits"
 	TextItem "Quit", "q", "QuitMenu"
 }
 
@@ -55,7 +56,7 @@ OptionValue "SaberColors"
 OptionMenu "SMMPOptions"
 {
 	Title "SMMP OPTIONS"
-	SafeCommand "Toggle Uncensored Mode (18+)", "censortoggle"
+	SafeCommand "Toggle Uncensored Mode (18+)", "censortoggle" //, "You sure? This will reveal pornographic content.\n(If a map contains it, that is.)\n\nDo not complain to, or harass the members of [SM] if you don't like what you see." // (Commented out due to Zandronum lacking yet another fucking feature.)
 	Option "Lightsaber Color", "smmp_sabercolor", "SaberColors"
 	StaticText 	""
 	Option "HQ Day/Night Cycle Time", "smmp_daycycle_minutes", "CycleMinutes"
@@ -68,7 +69,6 @@ OptionMenu "SMMPOptions"
 	//StaticText 	""
 	//Option "Block Marine", "smmp_block_marine", "OnOff"
 	//Option "Block Tails", "smmp_block_tails", "OnOff"
-	//Option "Block Link", "smmp_block_link", "OnOff"
 	//Option "Block Duke", "smmp_block_duke", "OnOff"
 	StaticText 	""
 	StaticText "Key Bindings", 1
@@ -126,4 +126,93 @@ ListMenu "SkillMenu"
 	Selector "NODRAW", 0, 0
 	
 	// Will be filled in by difficulties
+}
+
+OptionMenu "Credits"
+{
+	Title "SMMP Credits"
+	Submenu "Sprites", "CreditSprites"
+	Submenu "Models", "CreditModels"
+	StaticText ""
+	StaticText "If I'm missing anyone in these", 1
+	StaticText "sub-menus, I sincerely apologize", 1
+	StaticText "and wish to resolve it.", 1
+	StaticText ""
+	StaticText "Please e-mail missing credits", 1
+	StaticText "to ShadowMavrks@gmail.com.", 1
+}
+
+OptionMenu "CreditSprites"
+{
+	Title "SMMP Credits - Sprites"
+	
+	StaticText "Zombieman Alt-Deaths", 1
+	StaticText "ItsNatureToDie, Minigunner"
+	StaticText ""
+	StaticText "Shotgun Guy Alt-Deaths", 1
+	StaticText "Kinsie, Phi108, Minigunner"
+	StaticText ""
+	StaticText "Fireborn", 1
+	StaticText "Raven Software, Striker"
+	StaticText ""
+	StaticText "Fallen Crusader", 1
+	StaticText "Raven Software, Striker"
+	StaticText ""
+	StaticText "Lightsaber-Wielding DoomGuy", 1
+	StaticText "DoomJedi (Thanks, man!)"
+	StaticText ""
+	StaticText "Hellbender Explosions", 1
+	StaticText "Terminal Reality Inc."
+	StaticText ""
+	StaticText "Cacobald", 1
+	StaticText "breadbagfly"
+	StaticText ""
+	StaticText "BirdImp", 1
+	StaticText "breadbagfly & ItsNatureToDie"
+	StaticText ""
+	StaticText "Chaos Emerald (For Chaos Dash)", 1
+	StaticText "Midday-Mew"
+	StaticText ""
+	StaticText "Smooth Fire", 1
+	StaticText "Valve Software, Striker(Color Edits)"
+	StaticText ""
+	StaticText "Sunfire Plasma Ball/Explosion", 1
+	StaticText "Wirehead Studios"
+	StaticText ""
+	StaticText "Tails", 1
+	StaticText "Sonic Team Jr., Striker(Death/Gib/Firing Frames)"
+	StaticText ""
+}
+
+OptionMenu "CreditModels"
+{
+	Title "SMMP Credits - Models"
+	
+	StaticText "Health Bonus Vials", 1
+	StaticText "Epic Games, Striker(Texture edits)"
+	StaticText ""
+	StaticText "Armor Items", 1
+	StaticText "Epic Games, Striker(Texture edits)"
+	StaticText ""
+	StaticText "Super Shotgun", 1
+	StaticText "Nexon, Valve, IAHGames, Striker(Elemental SSG)"
+	StaticText ""
+	StaticText "Quad-Barreled Shotgun", 1
+	StaticText "Nexon, Valve, IAHGames, Game Zombie(CSS Hand Rig)"
+	StaticText ""
+	StaticText "PSO Handgun/Techpistol", 1
+	StaticText "smoke_fumus(Model), Striker(Texture)"
+	StaticText ""
+	StaticText "Short Fire Stick", 1
+	StaticText "TheMisterCat"
+	StaticText ""
+	StaticText "Toilet Paper Roll", 1
+	StaticText "Sitters"
+	StaticText ""
+	StaticText "Toilet", 1
+	StaticText "Gearbox Software, Striker(Animation)"
+	StaticText ""
+	StaticText "Shower", 1
+	StaticText "Gearbox Software, Striker(Animation)"
+	StaticText ""
 }

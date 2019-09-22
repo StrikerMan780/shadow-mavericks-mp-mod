@@ -1,0 +1,54 @@
+{
+	name = "SMMP AI Announcer - Striker"
+
+//	Medals
+	accuracy = smmpancr/accuracy
+	precision = smmpancr/precision
+	domination = smmpancr/domination
+	totaldomination = smmpancr/totaldomination
+	impressive = smmpancr/impressive
+	mostimpressive = smmpancr/mostimpressive
+	excellent = smmpancr/excellent
+	incredible = smmpancr/incredible
+	fisting = smmpancr/beatdown
+	assist = smmpancr/assist
+	capture = smmpancr/capture
+	defense = smmpancr/defense
+	firstfrag = smmpancr/firstblood
+	llama = smmpancr/llama
+	perfect = smmpancr/perfect
+	spam = smmpancr/spam
+	tag = smmpancr/tag
+	victory = smmpancr/victory
+	youfailit = smmpancr/youfailit
+	yourskillisnotenough = smmpancr/ysine
+
+//	Time Warnings
+	oneminutewarning = smmpancr/oneminutewarning
+	fiveminutewarning = smmpancr/fiveminutewarning
+
+//	Player Notifications
+	nextroundin = smmpancr/nextroundin
+	three = smmpancr/three
+	two = smmpancr/two
+	one = smmpancr/one
+	fight = smmpancr/engage
+	threefragsleft = smmpancr/threefragsremain
+	twofragsleft = smmpancr/twofragsremain
+	onefragleft = smmpancr/onefragremains
+	preparetofight = smmpancr/preparetofight
+	teamsaretied = smmpancr/teamsaretied
+	youaretiedforthelead = smmpancr/tiedforlead
+	youvelostthelead = smmpancr/lostlead
+	youvetakenthelead = smmpancr/takenlead
+	youwin = smmpancr/youwin
+
+//	Vote Sounds
+	votenow = smmpancr/votenow
+	votefailed = smmpancr/votefailed
+	votepassed = smmpancr//votepassed
+	
+// Possession
+	possessionartifactdropped = smmpancr/hellstonedropped
+	possessionartifactpickedup = smmpancr/hellstonetaken
+}

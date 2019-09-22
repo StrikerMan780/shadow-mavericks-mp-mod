@@ -4,7 +4,6 @@ actor SM_Demon : Demon //Replaces Demon
 	States
 	{
 	Death:
-		SARG I 0 A_GiveToTarget("DemonicPower", 2)
 		SARG I 8
 		SARG J 8 A_Scream
 		SARG K 4 A_Fall
@@ -111,7 +110,6 @@ ACTOR NightmareDemon : SM_Demon
 		SAR2 H 3 BRIGHT A_Pain
 		Goto See
 	Death:
-		SAR2 I 0 BRIGHT A_GiveToTarget("DemonicPower", 4)
 		SAR2 I 8 BRIGHT
 		SAR2 J 8 BRIGHT A_Scream
 		SAR2 K 4 BRIGHT A_Fall

@@ -35,8 +35,10 @@ $limit hitsound 0
 NewWeapon dsnewwep
 Rupee dsrupee
 
-NYC dsnyc
+DPFull dsdpfull
 
+NYC dsnyc
+GiygasStatic dsgstat
 WeaponEmpty DSWEMPTY
 Empty DSEMPTY
 FlareThrow DSFLARE
@@ -304,7 +306,7 @@ FartGrenade2 dsfartg2
 FartGrenade3 dsfartg3
 FartGrenade4 dsfartg4
 
-// Ethereal Crossbow
+// Wookie Bowcaster
 weapons/bowshoot		dscrsbow
 weapons/bowshootalt		dscrsalt
 weapons/bowcharge		dscrschg
@@ -348,6 +350,8 @@ $limit GrenadeBounce2 0
 $limit GrenadeBounce3 0
 
 // Chaos Flames
+ChaosDash CHAOSDSH
+ChaosFlameLoop CHAOSFLM
 ChaosReady DSCHSRDY
 ChaosFire DSCHSFIR
 ChaosDone DSCHSDON
@@ -355,6 +359,7 @@ ChaosBanish DSCHSBAN
 
 // WrathoftheWickedSpirits
 WrathSpawn DSWRATH
+WrathStart WRATH
 SpiritActive            spirt7
 SpiritAttack            spirt5
 SpiritDie               spirts1
@@ -374,11 +379,11 @@ FleshImpact3 dsflesh3
 FleshImpact4 dsflesh4
 $random FleshImpact { FleshImpact1 FleshImpact2 FleshImpact3 FleshImpact4 }
 $limit FleshImpact 0
-$volume FleshImpact 0.35
-$volume FleshImpact1 0.35
-$volume FleshImpact2 0.35
-$volume FleshImpact3 0.35
-$volume FleshImpact4 0.35
+$volume FleshImpact 0.25
+$volume FleshImpact1 0.25
+$volume FleshImpact2 0.25
+$volume FleshImpact3 0.25
+$volume FleshImpact4 0.25
 
 PlayerShipEngine DSSHPENG
 $limit PlayerShipEngine 0
@@ -394,8 +399,6 @@ $limit MassiveExplosion 0
 $limit MassiveExplosion1 0
 $limit MassiveExplosion2 0
 $limit MassiveExplosion3 0
-
-BlitzHit DSBLITZ
 
 // Tails Repeater
 TailsRepeater DSTRPEAT
@@ -817,24 +820,6 @@ HorrificScream3 DSPLSPL3
 HorrificScream4 DSPDIEHI
 $random HorrificScream { HorrificScream1 HorrificScream2 HorrificScream3 HorrificScream4 }
 
-// ** Marine **
-
-MarineTaunt1 DSTAUNT
-MarineTaunt2 DSTAUNT1
-$random MarineTaunts { MarineTaunt1 MarineTaunt2 }
-
-$playersound	player	male	*falling		dsfall
-$playersound	player	male	*fist			dspunch
-$playeralias 	player	male	*taunt		MarineTaunts
-
-MarineBurn1 DSMARNB1
-MarineBurn2 DSMARNB2
-MarineBurn3 DSMARNB3
-MarineBurn4 DSMARNB4
-MarineBurn5 DSMARNB5
-MarineBurn6 DSMARNB6
-$random MarineBurn { MarineBurn1 MarineBurn2 MarineBurn3 MarineBurn4 MarineBurn5 MarineBurn6 }
-
 // ** TAILS **
 
 //dsplpain = DSTLSPAI
@@ -872,78 +857,7 @@ $playeralias 	tails	male	*taunt		tailstaunts
 tailsflying dstlsfly
 spindash dsspndsh
 
-SonicPain50-1 DSSONPAI
-SonicPain50-2 DSSONPA3
-$random SonicPain50 { SonicPain50-1 SonicPain50-2 }
-
-$playersound	sonic	male	*death		dssondth
-$playersound	sonic	male	*xdeath		dssondth
-$playersound	sonic	male	*pain100	dssonpa1
-$playersound	sonic	male	*pain75		dssonpa2
-$playeralias	sonic	male	*pain50		SonicPain50
-$playersound	sonic	male	*pain25		dssonpa4
-$playersound	sonic	male	*jump		dssonjmp
-$playersound	sonic	male	*taunt		dssontau
-$playersound	sonic	male	*falling	dssonfal
-$playersound	sonic	male	*grunt		dssonoof
-$playersound	sonic	male	*land		dsduklnd
-$playersound	sonic	male	*usefail	dssonoof
-$playersound	sonic	male	*dive		dssonwat
-$playersound	sonic	male	*surface	dssonwat
-$playersound	sonic	male	*gasp		dssongsp
-
-LinkTaunt1 dslinkb1
-LinkTaunt2 dslinkb2
-LinkTaunt3 dslinka3
-$random LinkTaunts { LinkTaunt1 LinkTaunt2 LinkTaunt3 }
-
-LinkJump1 DSLINKJU
-LinkJump2 DSLINKJ2
-$random LinkJump { LinkJump1 LinkJump2 }
-
-linkpain3 dslinkp3
-linkpain5 dslinkp5
-$random linkpain75 { linkpain3 linkpain5 }
-
-$playersound	Link	male	*death		dslinkdi
-$playersound	Link	male	*xdeath		dslinkdh
-$playersound	Link	male	*gibbed		dsslop
-$playersound	Link	male	*pain100	dslinkp4
-$playeralias	Link	male	*pain75		linkpain75
-$playersound	Link	male	*pain50		dslinkp1
-$playersound	Link	male	*pain25		dslinkp2
-$playersound	Link	male	*grunt		dslinkoo
-$playersound	Link	male	*land		dslinkoo
-$playeralias	Link	male	*jump		LinkJump
-$playersound	Link	male	*fist		dssword
-$playersound	Link	male	*falling	dslinkfl
-$playersound	Link	male	*usefail	dslinkju
-$playersound	Link	male	*gasp	    dslinkgs
-
-$playeralias 	Link	male	*taunt		linktaunts
-
-walljump DSWALJMP
-wallland DSWALLAN
-
 LinkSwordHit DSSWORD
-LinkSwordWall DSSWDWAL
-LinkSwordUp DSSWDUP
-
-LinkAttack1 DSLINKAT
-LinkAttack2 DSLINKA2
-LinkAttack3 DSLINKA3
-LinkAttackNull DSNULL
-
-$random LinkAttack { LinkAttack1 LinkAttack2 LinkAttack3 LinkAttackNull LinkAttackNull LinkAttackNull LinkAttackNull LinkAttackNull LinkAttackNull }
-
-LinkSwordSwing1 DSSWDSW1
-LinkSwordSwing2 DSSWDSW2
-LinkSwordSwing3 DSSWDSW3
-
-$random LinkSwordSwing { LinkSwordSwing1 LinkSwordSwing2 LinkSwordSwing3 }
-
-FaroresWind DSFWIND
-FaroreCharge DSFARORE
 
 // -=**** TOURETTES GUY ******=-
 tourettes/pain1 dstgpai1

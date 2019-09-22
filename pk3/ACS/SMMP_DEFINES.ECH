@@ -1,0 +1,4 @@
+#define NumClasses 3
+#define CLASS_MARINE 0
+#define CLASS_TAILS 1
+#define CLASS_DUKE 2

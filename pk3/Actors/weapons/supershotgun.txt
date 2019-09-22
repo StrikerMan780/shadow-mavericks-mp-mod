@@ -61,7 +61,8 @@ actor SM_SuperShotgun : Weapon
 			SHT2 A 1 A_GunFlash
 			SHT2 B 0 A_SetPitch(pitch-4)
 			SHT2 BCDEFGHIJK 1 A_SetPitch(pitch+0.4)
-			SHT2 A 1 A_CheckReload
+			SHT2 L 1 A_CheckReload
+			SHT2 L 0
 			SH2R AB 2
 			SH2R C 0 A_PlaySoundEx("weapons/sshoto", "auto", 0)
 			SH2R CDEF 2
@@ -137,115 +138,6 @@ actor KeyringPuff : SilverBulletPuff
 {
 	DamageType "Keyring"
 	obituary "%o took a silver fragment from %k's Keyring!"
-}
-
-actor DinsFire : Weapon
-{
-	Tag "Din's Fire"
-	Decal BulletChip
-	obituary "%k unleashed the wrath of Din's Fire on %o."
-	weapon.selectionorder 400
-	weapon.kickback 100
-	Weapon.AmmoType "SpreadAmmo"
-	weapon.ammouse 2
-	weapon.ammogive 0
-	States
-	{
-		Ready:
-			DINW A 1 A_WeaponReady
-			loop
-		Select:
-			DINW A 1 A_Raise
-			loop
-		Deselect:
-			DINW A 1 A_Lower
-			loop
-		Fire:
-			DINW B 2 BRIGHT A_PlayWeaponSound("DinFire")
-			DINW C 2 BRIGHT
-			DINW D 2 BRIGHT
-			DINW E 2 BRIGHT
-			DINW FFFFFFFFFFFFF 0 BRIGHT A_FireCustomMissile("DinFireball",Random(-10,10),0,-7,0)
-			DINW F 2 BRIGHT A_FireCustomMissile("DinFireball",Random(-10,10),1,-7,0)
-			DINW A 30
-			DINW A 0 A_Refire
-			goto Ready
-	}
-}
-
-actor DinFireball
-{
-	Projectile
-	Radius 3
-	Height 4
-	Scale 0.2
-	Damage (8)
-	Speed 75
-	RenderStyle Add
-	Alpha 0.9
-	obituary "%k burned %o with Din's Fire"
-	DamageType "Fire"
-	SeeSound "DinFly"
-	Deathsound "DinExplode"
-	+FORCEXYBILLBOARD
-	States
-	{
-		Spawn:
-			DINF A 0
-			DINF A 0 ThrustThingZ(0, Random(0, 19), Random(0,1), 1)
-			DINF ABCDEFGHIJ 1 BRIGHT A_SpawnItemEx("DinFireballTrail", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, SXF_CLIENTSIDE, 0)
-			goto Spawn+2
-		XDeath:
-			TNT1 A 0
-			TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-			goto Death
-		Death:
-			DINX ABCDEFGHI 1 BRIGHT A_SpawnItemEx("DinFireballExplosion", Random(-8,8), Random(-8,8), Random(-8,8), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			stop
-	}
-}
-
-actor DinFireballTrail
-{
-	Projectile
-	Radius 2
-	Height 4
-	Scale 0.2
-	Speed 0
-	Damage 0
-	RenderStyle Add
-	Alpha 0.9
-	Gravity 0.8
-	+DONTSPLASH
-	+FORCEXYBILLBOARD
-	+NOINTERACTION
-	States
-	{
-		Spawn:
-		TNT1 A 1
-		DINF ABCDEFGHIJ 1 BRIGHT A_FadeOut(0.08)
-		loop
-	}
-}
-
-actor DinFireballExplosion
-{
-	Radius 2
-	Height 4
-	Scale 0.3
-	RenderStyle Add
-	Alpha 0.9
-	+NOGRAVITY
-	+DONTSPLASH
-	+NOCLIP
-	+FORCEXYBILLBOARD
-	+NOINTERACTION
-	States
-	{
-		Spawn:
-		DINX ABCDEFGHI 1 BRIGHT A_FadeOut(0.04)
-		loop
-	}
 }
 
 actor SPAS-12 : Weapon

@@ -4,7 +4,7 @@ actor MonsterBullet : FastProjectile
 	Projectile
 	Radius 1
 	Height 1
-	Speed 70
+	Speed 60
 	Damage (7)
 	RenderStyle Add
 	Alpha 1.0
@@ -12,6 +12,9 @@ actor MonsterBullet : FastProjectile
 	States
 	{
 		Spawn:
+			PUFF A 0 NoDelay A_ScaleVelocity(frandom(0.90, 1.10))
+			goto Fly
+		Fly:
 			PUFF A 1 bright
 			loop
 		XDeath:

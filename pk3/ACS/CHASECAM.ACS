@@ -3,9 +3,9 @@
 
 // CHASECAM.ACS - Chasecam code.
 
-#define C_TID		5000	//Default camera tid
-#define W_TID		5001	//Waypoint tid
-#define VIEW_HEIGHT	48.0	//The approximate hight of the player's view
+#define CAMERA_TID		5000	//Default camera tid
+#define WAYPOINT_TID	5001	//Waypoint tid
+#define VIEW_HEIGHT		48.0	//The approximate hight of the player's view
 
 bool camera_mode;		//Variable for turning the camera on or off.
 int playerheight;
@@ -34,14 +34,14 @@ Script "CHASECAM" (void) CLIENTSIDE
 		int a = GetActorAngle(0);
 		int p = GetActorPitch(0);
 		
-		if (!ThingCountName ("ChaseCam2", C_TID))
+		if (!ThingCountName ("ChaseCam2", CAMERA_TID))
 		{
-			SpawnForced("ChaseCam2", GetActorX(0), GetActorY(0), GetActorZ(0), C_TID, 0);
-			if (ThingCountName ("ChaseCam2", C_TID))
+			SpawnForced("ChaseCam2", GetActorX(0), GetActorY(0), GetActorZ(0), CAMERA_TID, 0);
+			if (ThingCountName ("ChaseCam2", CAMERA_TID))
 			{
 				LineAttack(0, a + 0.5, -p, 0, "ChaseCamWaypoint", "", GetCVar("chase_dist"), FHF_NORANDOMPUFFZ);
-				SetActorPitch (C_TID, p);
-				ChangeCamera (C_TID, 0, 0);
+				SetActorPitch (CAMERA_TID, p);
+				ChangeCamera (CAMERA_TID, 0, 0);
 			}
 			else
 			{
@@ -52,8 +52,8 @@ Script "CHASECAM" (void) CLIENTSIDE
 		else
 		{
 			LineAttack(0, a + 0.5, -p, 0, "ChaseCamWaypoint", "", GetCVar("chase_dist"), FHF_NORANDOMPUFFZ);
-			//SetActorAngle (C_TID + p_num, a);
-			SetActorPitch (C_TID, p);
+			//SetActorAngle (CAMERA_TID + p_num, a);
+			SetActorPitch (CAMERA_TID, p);
 		}
 		
 		delay(1);
@@ -62,18 +62,23 @@ Script "CHASECAM" (void) CLIENTSIDE
 
 Script "MOVECAMERA" (void) CLIENTSIDE
 {
-	Thing_ChangeTID(0, W_TID);
-	SetActorPosition(W_TID, GetActorX(W_TID), GetActorY(W_TID), GetActorZ(W_TID)+playerheight+GetCVar("chase_height"), false);
-	Warp(C_TID, 0, 0, 0, 0, WARPF_MOVEPTR | WARPF_INTERPOLATE, "", false, 0, 0, 0);
-	Thing_Remove(W_TID);
+	Thing_ChangeTID(0, WAYPOINT_TID);
+	SetActorPosition(WAYPOINT_TID, GetActorX(WAYPOINT_TID), GetActorY(WAYPOINT_TID), GetActorZ(WAYPOINT_TID)+playerheight+GetCVar("chase_height"), false);
+	Warp(CAMERA_TID, 0, 0, 0, 0, WARPF_MOVEPTR | WARPF_INTERPOLATE, "", false, 0, 0, 0);
+	Thing_Remove(WAYPOINT_TID);
 }
 
 Script "STOPCAMERA" DEATH CLIENTSIDE
 {
+	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
+	{
+		Terminate;
+	}
+	
 	if(camera_mode == ON)
 	{
 		camera_mode = OFF;
-		Thing_Remove (C_TID);
+		Thing_Remove (CAMERA_TID);
 	}
 }
 
@@ -82,6 +87,6 @@ Script "STOPCAMERA_DISCONNECT" (int p_num) DISCONNECT CLIENTSIDE
 	if(camera_mode == ON)
 	{
 		camera_mode = OFF;
-		Thing_Remove (C_TID);
+		Thing_Remove (CAMERA_TID);
 	}
 }

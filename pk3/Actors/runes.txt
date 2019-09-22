@@ -4,9 +4,9 @@
 //
 //=================================================================================================
 
-ACTOR Rune : Powerup
-{
-}
+//ACTOR Rune : Powerup
+//{
+//}
 
 ACTOR RuneDoubleDamage : PowerDamage
 {

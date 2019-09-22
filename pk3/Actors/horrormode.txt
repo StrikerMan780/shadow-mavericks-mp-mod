@@ -17,3 +17,8 @@ actor GiygasSight : PowerupGiver
 			loop
 	}
 }
+
+actor GiygasPsychosis : SoundEnvironment
+{
+	Args 38, 2
+}

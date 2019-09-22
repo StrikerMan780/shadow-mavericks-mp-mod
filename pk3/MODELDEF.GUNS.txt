@@ -17,6 +17,7 @@ Model SM_SuperShotgun
 	FrameIndex SHT2 I 0 18
 	FrameIndex SHT2 J 0 20
 	FrameIndex SHT2 K 0 22
+	FrameIndex SHT2 L 0 32
 }
 
 Model SM_SuperShotgun
@@ -225,8 +226,8 @@ Model MP40
 
 Model MP40
 {
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_Tails.md3"
+	Model 0 "Models\HUD\mp40\mp40.md3"
+	SurfaceSkin 0 0 "Models\HUD\TailsHands.png"
 	Scale 5.0 3.5 5
 	ZOffset 2
 
@@ -239,8 +240,8 @@ Model MP40
 
 Model MP40
 {
-	Path "Models\HUD\mp40"
-	Model 0 "mp40_reload_tails.md3"
+	Model 0 "Models\HUD\mp40\mp40_reload.md3"
+	SurfaceSkin 0 0 "Models\HUD\TailsHands.png"
 	Scale 5.0 3.5 5
 	ZOffset 2
 
@@ -366,7 +367,7 @@ Model StickyBomb
 	FrameIndex STIK D 0 0
 }
 
-Model EtherealCrossbow
+Model WookieBowcaster
 {
 	Path "Models\HUD\Bowcaster"
 	Model 0 "Bowcaster.md3"
@@ -384,7 +385,7 @@ Model EtherealCrossbow
 	FrameIndex ECRO H 0 7
 }
 
-Model EtherealCrossbow
+Model WookieBowcaster
 {
 	Path "Models\HUD\Bowcaster"
 	Model 0 "Bowcasterflash.md3"
@@ -442,6 +443,48 @@ Model SniperRifle
 }
 
 Model SniperRifle
+{
+	Path "Models\HUD\SniperRifle"
+	Model 0 "SniperRifleFlash.md3"
+	Path "Models\HUD\MuzzleFlashes"
+	Skin 0 "MuzzleFlash2.png"
+	Scale 5.0 4.2 5
+	ZOffset -2
+
+	FrameIndex SINF A 0 0
+}
+
+Model TailsSniperRifle
+{
+	Model 0 "Models\HUD\SniperRifle\SniperRifle.md3"
+	SurfaceSkin 0 5 "Models\HUD\TailsHands.png"
+	Scale 5.0 4.2 5
+	ZOffset -2
+
+	FrameIndex SINS A 0 0
+	FrameIndex SINS B 0 2
+	FrameIndex SINS C 0 4
+	FrameIndex SINS D 0 6
+	FrameIndex SINS E 0 8
+	FrameIndex SINS F 0 10
+	FrameIndex SINS G 0 12
+	FrameIndex SINS H 0 14
+	FrameIndex SINS I 0 16
+	FrameIndex SINS J 0 18
+	FrameIndex SINS K 0 20
+	FrameIndex SINS L 0 22
+	FrameIndex SINS M 0 24
+	FrameIndex SINS N 0 26
+	FrameIndex SINS O 0 28
+	FrameIndex SINS P 0 30
+	FrameIndex SINS Q 0 32
+	FrameIndex SINS R 0 34
+	FrameIndex SINS S 0 36
+	FrameIndex SINS T 0 38
+	FrameIndex SINS U 0 40
+}
+
+Model TailsSniperRifle
 {
 	Path "Models\HUD\SniperRifle"
 	Model 0 "SniperRifleFlash.md3"
@@ -1292,6 +1335,7 @@ Model FireSSG
 	FrameIndex SHT4 I 0 18
 	FrameIndex SHT4 J 0 20
 	FrameIndex SHT4 K 0 22
+	FrameIndex SHT4 L 0 32
 }
 
 Model FireSSG
@@ -1365,6 +1409,7 @@ Model IceSSG
 	FrameIndex SHT4 I 0 18
 	FrameIndex SHT4 J 0 20
 	FrameIndex SHT4 K 0 22
+	FrameIndex SHT4 L 0 32
 }
 
 Model IceSSG

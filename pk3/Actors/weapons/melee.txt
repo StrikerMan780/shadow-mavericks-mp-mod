@@ -30,26 +30,28 @@ actor Melee : Weapon
 	{
 	Ready:
 		PUNG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsReady")
-		PUNG A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkReady")
 		PUNG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeReady")
+		goto MarineReady
+	MarineReady:
 		PUNG A 1 A_WeaponReady
-		goto Ready+3
+		loop
 	Deselect:
 		PUNG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsDeselect")
-		PUNG A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkDeselect")
 		PUNG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeDeselect")
+		goto MarineDeselect
+	MarineDeselect:
 		PUNG A 1 A_Lower
-		goto Deselect+3
+		loop
 	Select:
 		PUNG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsSelect")
-		PUNG A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkSelect")
 		PUNG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeSelect")
+		goto MarineSelect
+	MarineSelect:
 		PUNG A 1 A_Raise
-		goto Select+3
+		loop
 	Hold:
 	Fire:
 		PUNG A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsFire")
-		PUNG A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkFire")
 		PUNG A 0 A_JumpIfInventory("DukeClassCheck", 1, "DukeFire")
 		PUNG A 0 A_JumpIfInventory("PowerStrength", 1, "BerserkFire")
 		PUNG A 0 A_Jump(56, "Fire3")
@@ -140,86 +142,6 @@ actor Melee : Weapon
 		TNT1 A 9
 		PUNT A 3 A_ReFire
 		goto TailsReady
-
-	// **** Link ****
-
-	LinkReady:
-		MSWD A 1 BRIGHT A_WeaponReady
-		loop
-
-	LinkDeselect:
-		MSWD A 1 BRIGHT A_Lower
-		loop
-
-	LinkSelect:
-		MSWD A 1 BRIGHT A_Raise
-		loop
-
-	LinkFire:
-		MSW1 A 0 A_PlaySound("LinkAttack")
-		MSW1 A 0 A_PlayWeaponSound("LinkSwordSwing")
-		MSW1 A 0 A_Jump(136, "LinkFire2", "LinkFire3", "LinkFire4", "LinkFire5", "LinkFire6")
-		MSW1 A 0 A_Recoil(-4)
-		MSW1 AB 1 BRIGHT
-		MSW1 A 0 BRIGHT A_CustomPunch(11, 0, 0, "MasterSwordHit", 76)
-		MSW1 CDE 1 BRIGHT
-		TNT1 A 10 BRIGHT
-		MSWD A 2 BRIGHT
-		TNT1 A 0 A_Refire
-		goto LinkReady
-
-	LinkFire2:
-		MSW2 A 0 A_Recoil(-6)
-		MSW2 AB 1 BRIGHT
-		MSW2 A 0 BRIGHT A_CustomPunch(16, 0, 0, "MasterSwordHit", 86)
-		MSW2 CDE 1 BRIGHT
-		TNT1 A 10 BRIGHT
-		MSWD A 2 BRIGHT
-		TNT1 A 0 A_Refire
-		goto LinkReady
-
-	LinkFire3:
-		MSW3 A 0 A_Recoil(-3)
-		MSW3 AB 1 BRIGHT
-		MSW3 A 0 BRIGHT A_CustomPunch(14, 0, 0, "MasterSwordHit", 76)
-		MSW3 CDE 1 BRIGHT
-		TNT1 A 10 BRIGHT
-		MSWD A 2 BRIGHT
-		TNT1 A 0 A_Refire
-		goto LinkReady
-
-	LinkFire4:
-		MSW4 A 0 A_Recoil(-3)
-		MSW4 AB 1 BRIGHT
-		MSW4 A 0 BRIGHT A_CustomPunch(14, 0, 0, "MasterSwordHit", 76)
-		MSW4 CDE 1 BRIGHT
-		TNT1 A 10 BRIGHT
-		MSWD A 2 BRIGHT
-		TNT1 A 0 A_Refire
-		goto LinkReady
-
-	LinkFire5:
-		MSW5 A 0 A_Recoil(-6)
-		MSW5 AB 1 BRIGHT
-		MSW5 A 0 BRIGHT A_CustomPunch(16, 0, 0, "MasterSwordHit", 86)
-		MSW5 CDE 1 BRIGHT
-		TNT1 A 10 BRIGHT
-		MSWD A 2 BRIGHT
-		TNT1 A 0 A_Refire
-		goto LinkReady
-
-	LinkFire6:
-		MSW6 A 0 A_Recoil(-12)
-		MSW6 AB 1 BRIGHT
-		MSW6 C 1 BRIGHT
-		MSW6 D 1 BRIGHT A_CustomPunch(24, 0, 0, "MasterSwordHit", 100)
-		MSW6 E 10 BRIGHT
-		MSW6 D 2 BRIGHT A_CustomPunch(8, 0, 0, "MasterSwordHit", 76)
-		MSW6 CBA 2 BRIGHT
-		TNT1 A 5 BRIGHT
-		MSWD A 2 BRIGHT
-		TNT1 A 0 A_Refire
-		goto LinkReady
 
 	// **** Duke ****
 

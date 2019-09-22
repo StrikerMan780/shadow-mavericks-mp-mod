@@ -1,0 +1,31 @@
+#library "HORROR"
+#include "zcommon.acs"
+
+script "HECOMES" OPEN
+{
+	if(GetCVar("ithurts") > 0)
+	{
+		ChangeSky("GIYGSKY", "GIYGSKY");
+		SetMusic("D_GLAIR");
+		SpawnForced("GiygasPsychosis", 0, 0, 0);
+		for (int i = 0; i < 999; i++)
+		{
+			Sector_SetColor(i, 255, 0, 0, 255);
+		}
+	}
+}
+
+script "GIYGAS_STATIC" ENTER
+{
+	if(GetCVar("ithurts") > 0)
+	{
+		while(1)
+		{
+			delay(35*random(10, 60));
+			LocalAmbientSound("GiygasStatic", 127);
+			SetFont("GIYGST00");
+			SetHudSize(142, 223, true);
+			HudMessage(s:"a"; HUDMSG_FADEINOUT | HUDMSG_ALPHA, 0, CR_UNTRANSLATED, -57.1, 0.1, 1.0, 0.1, 1.0, 0.64);
+		}
+	}
+}

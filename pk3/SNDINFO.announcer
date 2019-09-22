@@ -1,0 +1,52 @@
+// Medals
+smmpancr/accuracy			sm_accur
+smmpancr/precision			sm_preci
+smmpancr/domination			sm_domin
+smmpancr/totaldomination	sm_tdomn
+smmpancr/impressive			sm_impre
+smmpancr/mostimpressive		sm_mimpr
+smmpancr/excellent			sm_excel
+smmpancr/incredible			sm_incrd
+smmpancr/beatdown 			sm_beatd
+smmpancr/assist				sm_assis
+smmpancr/capture 			sm_captu
+smmpancr/defense 			sm_defen
+smmpancr/firstblood 		sm_1stbl
+smmpancr/holyshit 			sm_hshit
+smmpancr/llama 				sm_llama
+smmpancr/perfect 			sm_perf
+smmpancr/spam 				sm_spam
+smmpancr/tag 				sm_tag
+smmpancr/victory			sm_victo
+smmpancr/youfailit			sm_yfail
+smmpancr/ysine				sm_ysine
+
+// Match status
+smmpancr/engage 			sm_engag
+smmpancr/fiveminutewarning 	sm_5minw
+smmpancr/oneminutewarning 	sm_1minw
+smmpancr/hellstonedropped 	sm_hstdr
+smmpancr/hellstonetaken 	sm_hsttk
+
+smmpancr/takenlead 			sm_tlead
+smmpancr/lostlead 			sm_llead
+smmpancr/tiedforlead		sm_tiedl
+
+smmpancr/three 				sm_three
+smmpancr/two				sm_two
+smmpancr/one 				sm_one
+smmpancr/nextroundin 		sm_nextr
+smmpancr/preparetofight 	sm_prep
+
+smmpancr/teamsaretied 		sm_ttied
+smmpancr/threefragsremain 	sm_3frag
+smmpancr/twofragsremain		sm_2frag
+smmpancr/onefragremains 	sm_1frag
+
+smmpancr/youlose			sm_ylose
+smmpancr/youwin				sm_ywin
+
+// Voting
+smmpancr/votefailed			sm_votef
+smmpancr/votenow			sm_voten
+smmpancr/votepassed			sm_votep

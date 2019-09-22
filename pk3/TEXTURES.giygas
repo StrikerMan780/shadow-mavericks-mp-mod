@@ -1,0 +1,159 @@
+Texture GSTATI00, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST00, 0, 0
+}
+
+Texture GSTATI01, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST01, 0, 0
+}
+
+Texture GSTATI02, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST02, 0, 0
+}
+
+Texture GSTATI03, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST03, 0, 0
+}
+
+Texture GSTATI04, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST04, 0, 0
+}
+
+Texture GSTATI05, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST05, 0, 0
+}
+
+Texture GSTATI06, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST06, 0, 0
+}
+
+Texture GSTATI07, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST07, 0, 0
+}
+
+Texture GSTATI08, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST08, 0, 0
+}
+
+Texture GSTATI09, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST09, 0, 0
+}
+
+Texture GSTATI10, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST10, 0, 0
+}
+
+Texture GSTATI11, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST11, 0, 0
+}
+
+Texture GSTATI12, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST12, 0, 0
+}
+
+Texture GSTATI13, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST13, 0, 0
+}
+
+Texture GSTATI14, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST14, 0, 0
+}
+
+Texture GSTATI15, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST15, 0, 0
+}
+
+Texture GSTATI16, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST16, 0, 0
+}
+
+Texture GSTATI17, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST17, 0, 0
+}
+
+Texture GSTATI18, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST18, 0, 0
+}
+
+Texture GSTATI19, 256, 223
+{
+	XScale 4.000
+	YScale 4.600
+	WorldPanning
+	Patch GIYGST19, 0, 0
+}

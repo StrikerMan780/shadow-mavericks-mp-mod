@@ -193,14 +193,6 @@ actor KnockoutTrigger : CustomInventory
 	}
 }
 
-actor DemonicChargerCheck : BaseCheck
-{
-}
-
-actor DemonicChargerCheck2 : BaseCheck
-{
-}
-
 actor DemonicChargeEffect : CustomInventory
 {
  inventory.maxamount 1
@@ -219,114 +211,6 @@ actor DemonicChargeEffect : CustomInventory
  		TNT1 A 1
  		stop
  }
-}
-
-actor SpeakOneLiner : CustomInventory
-{
- 	inventory.maxamount 1
- 	-INVENTORY.INVBAR
- 	+INVENTORY.AUTOACTIVATE
- 	+INVENTORY.ALWAYSPICKUP
- 	States
- 	{
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 0
- 		TNT1 A 1 A_JumpIfInventory("DukeClassCheck", 1, "IsDuke")
- 		TNT1 A 0 A_TakeInventory("SpeakOneLiner", 1)
- 		stop
- 	IsDuke:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfHealthLower(1, "Cancel")
- 		TNT1 A 1 A_Jump(88, "Speak")
- 		TNT1 A 0 A_TakeInventory("SpeakOneLiner", 1)
- 		stop
- 	Speak:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfHealthLower(1, "Cancel")
- 		TNT1 A 1 A_PlaySoundEx("DukeOneLiner", "SoundSlot5", 0, 0.3)
- 		TNT1 A 0 A_TakeInventory("SpeakOneLiner", 1)
- 		stop
- 	Cancel:
- 		TNT1 A 0
- 		TNT1 A 1 A_TakeInventory("SpeakOneLiner", 1)
- 		TNT1 A 0
- 		stop
- 	}
-}
-
-actor SpeakRespawn : CustomInventory
-{
- 	inventory.maxamount 1
- 	-INVENTORY.INVBAR
- 	+INVENTORY.AUTOACTIVATE
- 	+INVENTORY.ALWAYSPICKUP
- 	States
- 	{
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 0
- 		TNT1 A 1 A_JumpIfInventory("DukeClassCheck", 1, "IsDuke")
- 		TNT1 A 0 A_TakeInventory("SpeakRespawn", 1)
- 		stop
- 	IsDuke:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfHealthLower(1, "Cancel")
- 		TNT1 A 1 A_Jump(76, "Speak")
- 		TNT1 A 0 A_TakeInventory("SpeakRespawn", 1)
- 		stop
- 	Speak:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfHealthLower(1, "Cancel")
- 		TNT1 A 1 A_PlaySoundEx("DukeRespawn", "SoundSlot5", 0, 0.3)
- 		TNT1 A 0 A_TakeInventory("SpeakRespawn", 1)
- 		stop
- 	Cancel:
- 		TNT1 A 0
- 		TNT1 A 1 A_TakeInventory("SpeakRespawn", 1)
- 		TNT1 A 0
- 		stop
- 	}
-}
-
-actor SpeakEntry : CustomInventory
-{
- 	inventory.maxamount 1
- 	-INVENTORY.INVBAR
- 	+INVENTORY.AUTOACTIVATE
- 	+INVENTORY.ALWAYSPICKUP
- 	States
- 	{
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 0
- 		TNT1 A 1 A_JumpIfInventory("DukeClassCheck", 1, "IsDuke")
- 		TNT1 A 0 A_TakeInventory("SpeakEntry", 1)
- 		stop
- 	IsDuke:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfHealthLower(1, "Cancel")
- 		TNT1 A 1 A_Jump(200, "Speak")
- 		TNT1 A 0 A_TakeInventory("SpeakEntry", 1)
- 		stop
- 	Speak:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfHealthLower(1, "Cancel")
- 		TNT1 A 1 A_PlaySoundEx("DukeEntry", "SoundSlot5", 0, 0.3)
- 		TNT1 A 0 A_TakeInventory("SpeakEntry", 1)
- 		stop
- 	Cancel:
- 		TNT1 A 0
- 		TNT1 A 1 A_TakeInventory("SpeakEntry", 1)
- 		TNT1 A 0
- 		stop
- 	}
 }
 
 actor TailsFlightCheck : Inventory
@@ -376,79 +260,6 @@ actor CannotUse : Inventory
   Spawn:
 	TNT1 A 1
 	loop
-  }
-}
-
-actor CannotSpin : Inventory
-{
-  inventory.amount 1
-  inventory.maxamount 1
-  -INVBAR
-  -INTERHUBSTRIP
-  +INVENTORY.UNDROPPABLE
-  +INVENTORY.HUBPOWER
-  states
-  {
-  Spawn:
-	TNT1 A 1
-	loop
-  }
-}
-
-actor SpecialMove : CustomInventory
-{
-  inventory.pickupmessage "Special Move! \cc*\cgYou Shouldn't have been able to pick this up asshole!\cc*"
-  inventory.pickupsound "misc/p_pkup"
-  inventory.icon BLUDC0
-  inventory.amount 2
-  inventory.maxamount 2
-  +COUNTITEM
-  +INVENTORY.UNDROPPABLE
-  -INVBAR
-  states
-  {
-  Spawn:
-	TNT1 A -1
-	stop
-  Use:
-	TNT1 A 0
-	TNT1 A 0 A_JumpIfInventory("CannotUse", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("CannotSpin", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("PowerPossessionArtifact", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("ValkrieCannons", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("DeathbringerCannons", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("PowerFlight", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("RedFlag", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("BlueFlag", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("WhiteFlag", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("BlueSkullST", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("RedSkullST", 1, "DontUse")
-	TNT1 A 0 A_JumpIfInventory("MarineClassCheck", 1, "MarineCheck")
-	TNT1 A 0 A_JumpIfInventory("TailsClassCheck", 1, "TailsWorking")
-	TNT1 A 0 A_JumpIfInventory("LinkClassCheck", 1, "LinkWorking")
-	stop
-  MarineCheck:
-  	TNT1 A 0 A_JumpIfInventory("FlareCheck", 100, "MarineWorking")
-  	stop
-  MarineWorking:
-  	TNT1 A 0 A_TakeInventory("FlareCheck", 100)
-  	TNT1 A 0 ACS_NamedExecuteAlways("FLARECHECK",0)
-	
-  	TNT1 A 0 A_SpawnItemEx("Flare", cos(-pitch)*1, 0, 50+(sin(pitch)*1),cos(-pitch)*50,0,(sin(-pitch)*50)+3, 0, 0, 0)
-  	TNT1 A 0 A_GiveInventory("SpecialMove", 1)
-  	stop
-  LinkWorking:
-    TNT1 A 0 ACS_NamedExecuteAlways("DOWALLJUMP",0)
-    TNT1 A 0 A_GiveInventory("SpecialMove", 1)
-    stop
-  TailsWorking:
-	TNT1 A 0 A_PlayWeaponSound("SpinDash")
-	TNT1 A 0 ACS_NamedExecute("SPINATTACK",0,1)
-	TNT1 A 0 A_GiveInventory("SpecialMove", 1)
-	stop
-  DontUse:
-	TNT1 A 0
-	stop
   }
 }
 

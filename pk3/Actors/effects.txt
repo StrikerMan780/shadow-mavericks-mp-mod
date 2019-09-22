@@ -44,63 +44,6 @@ actor CrusaderAxeBurst : BaseEffect
 	}
 }
 
-actor BasicFlame : BaseEffect
-{
-	RenderStyle Add
-	Scale 0.3
-	Alpha 0.7
-	States
-	{
-		Spawn:
-			FIR1 A 0
-			FIR1 A 0 A_Jump(256, "Fire1", "Fire2", "Fire3", "Fire4", "Fire5", "Fire6", "Fire7", "Fire8", "Fire9", "Fire10")
-			goto Fire1
-		Fire1:
-			FIR1 ABCDEFGHIJKLMNOPQR 1 BRIGHT
-			stop
-		Fire2:
-			FIR2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			FI22 AB 1 BRIGHT
-			stop
-		Fire3:
-			FIR3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			stop
-		Fire4:
-			FIR4 ABCDEFGHIJKLMNOPQRST 1 BRIGHT
-			stop
-		Fire5:
-			FIR5 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			FI52 AB 1 BRIGHT
-			stop
-		Fire6:
-			FIR6 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			FI62 AB 1 BRIGHT
-			stop
-		Fire7:
-			FIR7 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			FI72 AB 1 BRIGHT
-			stop
-		Fire8:
-			FIR8 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			FI82 ABCD 1 BRIGHT
-			stop
-		Fire9:
-			FIR9 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT
-			FI92 ABCD 1 BRIGHT
-			stop
-		Fire10:
-			FIR0 ABCDEFGHIJKLMNO 1 BRIGHT
-			stop
-	}
-}
-
-actor RocketFire : BasicFlame
-{
-	Alpha 0.9
-	Scale 0.75
-	-NOINTERACTION
-}
-
 actor GhostFire : BaseEffect
 {
 	VSpeed 2
@@ -832,3 +775,5 @@ actor RPGSpark : BaseEffect
 		loop
 	}
 }
+
+#include "actors/effects/fire.txt"

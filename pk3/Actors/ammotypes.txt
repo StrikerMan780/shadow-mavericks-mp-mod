@@ -131,12 +131,12 @@ Actor HellFireAmmo : Ammo 21003
    Scale 0.7
    Radius 16
    Height 8
-   inventory.pickupmessage "Picked up a box of HellFire Mini-Rockets"
-   inventory.icon "DEVAA0"
-   inventory.amount 16
-   inventory.maxamount 99
-   ammo.backpackamount 16
-   ammo.backpackmaxamount 198
+   inventory.pickupmessage "Hellfire Ammo (Small)"
+   inventory.icon "HELLICON"
+   inventory.amount 10
+   inventory.maxamount 100
+   ammo.backpackamount 20
+   ammo.backpackmaxamount 200
    States
    {
    Spawn:
@@ -163,16 +163,17 @@ Actor GasolineAmmo : Ammo
    }
 }
 
-Actor CricketAmmo : Ammo 12311
+Actor FusionAmmo : Ammo 12311
 {
    Radius 16
    Height 8
-   inventory.pickupmessage "Picked up a Noisy Cricket Battery"
-   inventory.icon "BATTA0"
-   inventory.amount 1
-   inventory.maxamount 4
-   ammo.backpackamount 1
-   ammo.backpackmaxamount 8
+   inventory.pickupmessage "Fusion Ammo (Small)"
+   inventory.icon "FUSNICON"
+   inventory.amount 40
+   inventory.maxamount 200
+   ammo.backpackamount 40
+   ammo.backpackmaxamount 400
+   +FLOATBOB
    States
    {
    Spawn:
@@ -183,21 +184,21 @@ Actor CricketAmmo : Ammo 12311
 
 actor DemonicPower : Ammo 19652
 {
- Radius 16
- Height 8
- Inventory.Icon "DEMPICON"
- inventory.pickupmessage "Heart (Source of Demonic Power)"
- inventory.pickupsound "demonpowerpickup"
- inventory.amount 10
- Inventory.maxamount 100
- ammo.backpackamount 0
- ammo.backpackmaxamount 100
- +IGNORESKILL
- States
- {
- Spawn:
-   DEMB A 16
-   DEMB B 10
-   loop
- }
+	Radius 16
+	Height 8
+	Inventory.Icon "DEMPICON"
+	inventory.pickupmessage "Heart (Source of Demonic Power)"
+	inventory.pickupsound "demonpowerpickup"
+	inventory.amount 10
+	Inventory.maxamount 100
+	ammo.backpackamount 0
+	ammo.backpackmaxamount 100
+	+IGNORESKILL
+	States
+	{
+	Spawn:
+		DEMB A 16
+		DEMB B 10
+		loop
+	}
 }

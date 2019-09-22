@@ -1,5 +1,5 @@
-#include "zcommon.acs"
 #library "WEATHER"
+#include "zcommon.acs"
 
 #define NumRainActors 2
 str RainActors[NumRainActors] = {
@@ -28,7 +28,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 			if(RainSound > 0)
 			{
 				RainSound = 0;
-				StopSound(0, 5);
+				StopSound(0, CHAN_5);
 			}
 			
 			return;
@@ -40,7 +40,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 			{
 				if(RainSound != 1)
 				{
-					PlaySound(0, "misc/rain", 5, 1.0, true, ATTN_NORM);
+					PlaySound(0, "misc/rain", CHAN_5, 1.0, true, ATTN_NORM, true);
 					RainSound = 1;
 				}
 			}
@@ -48,7 +48,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 			{
 				if(RainSound != 2)
 				{
-					PlaySound(0, "misc/rain_inside", 5, 1.0, true, ATTN_NORM);
+					PlaySound(0, "misc/rain_inside", CHAN_5, 1.0, true, ATTN_NORM, true);
 					RainSound = 2;
 				}
 			}
@@ -60,7 +60,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 			if(RainSound > 0)
 			{
 				RainSound = 0;
-				StopSound(0, 5);
+				StopSound(0, CHAN_5);
 			}
 		}
 		
@@ -72,7 +72,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 	else if(RainSound > 0)
 	{
 		RainSound = 0;
-		StopSound(0, 5);
+		StopSound(0, CHAN_5);
 	}
 }
 

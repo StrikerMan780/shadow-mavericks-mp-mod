@@ -474,14 +474,8 @@ texture LUCLPB01
 	pic	LUCLPB10 tics 2
 
 texture LAVFALL1
-	pic	LAVFALL1 tics 4
-	pic	LAVFALL2 tics 4
-	pic	LAVFALL3 tics 4
-	pic	LAVFALL4 tics 4
-	pic	LAVFALL5 tics 4
-	pic	LAVFALL6 tics 4
-	pic	LAVFALL7 tics 4
-	pic	LAVFALL8 tics 4
+	pic	LAVAFALL tics 8
+	pic	LAVAFALL tics 8
 
 texture RWHOLE01
 	pic	RWHOLE01 tics 8
@@ -555,16 +549,16 @@ texture FIREBLU2
 	pic	FIREBL30 tics 2
 	pic	FIREBL31 tics 2
 	pic	FIREBL32 tics 2
+
+texture BFALL1
+	pic BLUDFALL tics 8
+	pic BLUDFALL tics 8
+	
+texture WFALL1
+	pic WATRFALL tics 8
+	pic WATRFALL tics 8
 	
 flat BLBLOOD1
-	pic BLBLOOD1 tics 8
-	pic BLBLOOD1 tics 8
-
-flat BLBLOOD2
-	pic BLBLOOD1 tics 8
-	pic BLBLOOD1 tics 8
-
-flat BLBLOOD3
 	pic BLBLOOD1 tics 8
 	pic BLBLOOD1 tics 8
 
@@ -751,16 +745,6 @@ texture fan1
 	pic fan3 tics 1
 	pic fan4 tics 1
 
-warp2 flat WNUKAGE1
-warp2 flat RWATER1
-warp2 flat RWATER2
-warp2 flat RWATER3
-warp2 flat RWATER4
-warp2 flat RWATER5
-warp2 flat RWATER6
-warp2 flat RWATER7
-warp2 flat RWATER8
-warp2 flat RWATER9
 warp2 flat water0
 warp2 flat water1
 warp2 flat water2
@@ -769,10 +753,7 @@ warp2 flat water4
 warp2 flat water5
 warp2 flat water6
 warp2 flat water7
-warp2 flat blblood1
 warp2 flat granuke1
-warp flat wblood1
-warp flat wfwater1
 warp flat quiksand
 warp flat glava1
 warp texture e1sky1

@@ -793,7 +793,7 @@ decal BluePlasmaScorch2
 
 decal TealPlasmaScorch1
 {
-	pic APLSA0
+	pic ARPLA0
 	add 1.0
 	x-scale 0.04
 	y-scale 0.04
@@ -804,7 +804,7 @@ decal TealPlasmaScorch1
 
 decal TealPlasmaScorch2
 {
-	pic APLSB0
+	pic ARPLB0
 	add 1.0
 	x-scale 0.04
 	y-scale 0.04
@@ -815,7 +815,7 @@ decal TealPlasmaScorch2
 
 decal TealPlasmaScorch3
 {
-	pic APLSC0
+	pic ARPLC0
 	add 1.0
 	x-scale 0.04
 	y-scale 0.04
@@ -826,7 +826,7 @@ decal TealPlasmaScorch3
 
 decal TealPlasmaScorch4
 {
-	pic APLSD0
+	pic ARPLD0
 	add 1.0
 	x-scale 0.04
 	y-scale 0.04
@@ -1617,36 +1617,6 @@ decal FlashLight
 	y-scale 1.8
 }
 
-// Blitz SSG
-decal BlitzLightning1
-{
-	pic BFGLITE1
-	shade "FF FF 00"
-	fullbright
-	x-Scale 0.2
-	y-Scale 0.2
-	randomflipx
-	animator GoAway2
-	lowerdecal BulletChip
-}
-
-decal BlitzLightning2
-{
-	pic BFGLITE2
-	shade "FF FF 00"
-	fullbright
-	x-Scale 0.2
-	y-Scale 0.2
-	randomflipy
-	animator GoAway2
-	lowerdecal BulletChip
-}
-
-decalgroup BlitzChip
-{
-	BlitzLightning1	1
-	BlitzLightning2	1
-}
 
 decal Needler
 {

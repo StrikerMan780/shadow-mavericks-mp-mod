@@ -1,6 +1,6 @@
 HardwareShader texture TWATER
 {
-	Shader "shaders/glsl/func_warp2.fp"
+	Shader "shaders/water.fp"
 	Speed 1.0
 }
 
@@ -8,4 +8,55 @@ HardwareShader texture sky-0052
 {
 	Shader "shaders/flamewall.fp"
 	Speed 1.0
+}
+
+HardwareShader texture VIOLGEM
+{
+	Shader "shaders/crystallize.fp"
+}
+
+HardwareShader texture GREENGEM
+{
+	Shader "shaders/crystallize.fp"
+}
+
+HardwareShader texture PINKGEM
+{
+	Shader "shaders/crystallize.fp"
+}
+
+HardwareShader texture BLUEGEM
+{
+	Shader "shaders/crystallize.fp"
+}
+
+HardwareShader texture LAVAFALL
+{
+	Shader "shaders/lavafall.fp"
+	Speed 1.0
+}
+
+HardwareShader texture WATRFALL
+{
+	Shader "shaders/waterfall.fp"
+	Speed 1.0
+}
+
+HardwareShader texture BLUDFALL
+{
+	Shader "shaders/waterfall.fp"
+	Speed 0.5
+}
+
+
+HardwareShader texture RWATER9
+{
+	Shader "shaders/water.fp"
+	Speed 1.0
+}
+
+HardwareShader texture BLBLOOD1
+{
+	Shader "shaders/water.fp"
+	Speed 0.5
 }

@@ -14,9 +14,6 @@ actor PlasmaRifleGiver : ClassWeaponGiver replaces PlasmaRifle
 		Tails:
 			PLAS A 35 A_SetUserVar("user_scale", 100)
 			goto CheckStatus
-		Link:
-			WEMB A 35 A_SetUserVar("user_scale", 100)
-			goto CheckStatus
 		Duke:
 			FRZT A 35 A_SetUserVar("user_scale", 50)
 			goto CheckStatus

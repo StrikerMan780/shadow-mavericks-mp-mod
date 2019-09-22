@@ -98,7 +98,6 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 		Death.HeadBurst:
 			TROA I 0
 			TROA I 0 A_Jump(150, "Death")
-			TROA I 0 A_GiveToTarget("DemonicPower", 1)
 			TROA I 0 A_Jump(64, "HeadPop")
 			goto HeadBurst
 		HeadBurst:
@@ -120,7 +119,6 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 			TROA M 10500
 			goto Fade
 		Death:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TNT1 A 0 A_Jump(128, "AltDeath", "AltDeath2")
 			TROO I 8
 			TROO J 8 A_Scream
@@ -143,12 +141,10 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 			TROD M 10500
 			goto Fade
 		Burn:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TNT1 A 0 A_NoBlocking
 			TNT1 A 1 A_SpawnItem("BurnDeath2", 2, 1)
 			stop
 		Disintegrate:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TROO A 0 A_PlaySound("MageLightningContinuous")
 			TROO G 3 BRIGHT A_SetTranslucent(0.5, 1)
 			TROO G 3 A_SetTranslucent(1.0, 0)
@@ -171,8 +167,6 @@ actor GBTWDoomImp : DoomImp //Replaces DoomImp
 			POL5 A 10500
 			goto Fade
 		XDeath:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
 			TROO N 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 			TROO O 5 A_XScream
 			TROO P 5
@@ -215,12 +209,10 @@ actor DarkImp : DoomImp 5003
 			DIMP H 2 A_Pain
 			goto See
 		Burn:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
 			TNT1 A 0 A_NoBlocking
 			TNT1 A 1 A_SpawnItem("BurnDeath2", 2, 1)
 			stop
 		Death:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
 			TNT1 A 0 A_Jump(128, "AltDeath")
 			DIMP I 8
 			DIMP J 8 A_Scream
@@ -236,8 +228,6 @@ actor DarkImp : DoomImp 5003
 			DRKI Z 10500
 			goto Fade
 		XDeath:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 2)
-			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
 			DIMP N 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 			DIMP O 5 A_XScream
 			DIMP P 5
@@ -317,7 +307,6 @@ actor Vulgar : DoomImp 30127
 			goto See
 		Death.HeadBurst:
 		Death:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
 			TNT1 A 0 A_Jump(128, "AltDeath", "AltDeath2")
 			VULG I 6
 			VULG J 6 A_Scream
@@ -341,8 +330,6 @@ actor Vulgar : DoomImp 30127
 			VULD I 10500
 			goto Fade
 		XDeath:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
 			VULG O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 			VULG P 5 A_XScream
 			VULG Q 5

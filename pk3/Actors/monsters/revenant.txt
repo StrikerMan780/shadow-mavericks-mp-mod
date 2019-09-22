@@ -2,7 +2,6 @@ actor SM_Revenant : Revenant Replaces Revenant
 {
 	Species "Revenant"
 	DamageFactor "Fire", 1.2
-	DamageFactor "EnemyHellfire", 0.0
 	DropItem "HellFireCannon", 76
 	DropItem "HellfireAmmo", 196
 	DropItem "Lightsaber", 44
@@ -11,7 +10,6 @@ actor SM_Revenant : Revenant Replaces Revenant
 	DropItem "GrapplerShot", 5
 	DropItem "IpodLauncher", 1
 	DropItem "WeatherMaker", 2
-	DropItem "DemonicPower", 196
 	States
 	{
 		Missile:
@@ -34,7 +32,7 @@ actor SM_Revenant : Revenant Replaces Revenant
 actor RevenantHellFire : HellfireRocketHi
 {
 	DamageType "EnemyHellfire"
-	Damage (10)
+	Damage (20)
 	Health 5
 	Speed 14
 	obituary "%o couldn't evade a Revenant's Missile"
@@ -57,10 +55,16 @@ actor RevenantHellFire : HellfireRocketHi
 		XDeath:
 			TNT1 A 0
 			goto Death
+		Death:
+			MISL B 0 A_StopSoundEx("SoundSlot7")
+			MISL B 0 A_SetTranslucent(0.9, 1)
+			MISL BBBBBBBB 0 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(-6.0,6.0), random(-360,360), SXF_CLIENTSIDE, 0)
+			MISL BCD 1 bright
+			stop
 	}
 }
 
-actor RevenantHellFire_PoorSeek : RevenantHellfire
+actor RevenantHellFire_PoorSeek : RevenantHellfire replaces RevenantTracer
 {
 	Speed 16
 	states

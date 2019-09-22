@@ -837,25 +837,44 @@ Model NewPistol
 	Scale 5.0 4.0 5
 	//ZOffset -1.2
 
-	FrameIndex PISR D 0 0
-	FrameIndex PISR E 0 7
-	FrameIndex PISR F 0 13
-	FrameIndex PISR G 0 15
-	FrameIndex PISR H 0 16
-	FrameIndex PISR I 0 25
-	FrameIndex PISR J 0 40
-	FrameIndex PISR K 0 44
-	FrameIndex PISR L 0 58
-	FrameIndex PISR M 0 62
-	FrameIndex PISR N 0 73
-	FrameIndex PISR O 0 76
-	FrameIndex PISR P 0 80
-	FrameIndex PISR Q 0 82
-	FrameIndex PISR R 0 84
-	FrameIndex PISR S 0 88
-	FrameIndex PISR T 0 90
-	FrameIndex PISR U 0 91
-	FrameIndex PISR V 0 92
+	FrameIndex PISR A 0 4
+	FrameIndex PISR B 0 6
+	FrameIndex PISR C 0 8
+	FrameIndex PISR D 0 10
+	FrameIndex PISR E 0 12
+	FrameIndex PISR F 0 14
+	FrameIndex PISR G 0 16
+	FrameIndex PISR H 0 18
+	FrameIndex PISR I 0 20
+	FrameIndex PISR J 0 22
+	FrameIndex PISR K 0 24
+	FrameIndex PISR L 0 26
+	FrameIndex PISR M 0 28
+	FrameIndex PISR N 0 30
+	FrameIndex PISR O 0 32
+	FrameIndex PISR P 0 34
+	FrameIndex PISR Q 0 36
+	FrameIndex PISR R 0 54
+	FrameIndex PISR S 0 56
+	FrameIndex PISR T 0 58
+	FrameIndex PISR U 0 60
+	FrameIndex PISR V 0 62
+	FrameIndex PISR W 0 64
+	FrameIndex PISR X 0 66
+	FrameIndex PISR Y 0 68
+	FrameIndex PISR Z 0 70
+	
+	FrameIndex PIR2 A 0 72
+	FrameIndex PIR2 B 0 74
+	FrameIndex PIR2 C 0 76
+	FrameIndex PIR2 D 0 78
+	FrameIndex PIR2 E 0 80
+	FrameIndex PIR2 F 0 82
+	FrameIndex PIR2 G 0 84
+	FrameIndex PIR2 H 0 86
+	FrameIndex PIR2 I 0 88
+	FrameIndex PIR2 J 0 90
+	FrameIndex PIR2 K 0 92
 }
 
 Model NewPistol
@@ -1622,17 +1641,6 @@ model RicochetSpark
 	FrameIndex ORAN A 0 0
 }
 
-model LinkSwordSpark
-{
-	Path "Models\Projectiles"
-	Model 0 "laserbeam.md2"
-	Skin 0 "spark.png"
-	Scale 1.0 0.3 0.3
-	PITCHFROMMOMENTUM
-
-	FrameIndex ORAN A 0 0
-}
-
 Model FlameThrowerWeap
 {
 	Path "Models\HUD\flamethrower"
@@ -2188,10 +2196,48 @@ model BigPentagram
 	FrameIndex NULL A 0 0
 }
 
+model WrathPentagram
+{
+	Path "Models/FloorDecals"
+	Model 0 "FloorDecal.md3"
+	Skin 0 "pentastic1.png"
+	Scale 4.5 4.5 4.5
+	ROTATING
+	ZOffset 0.2
+
+	FrameIndex NULL A 0 0
+}
+
+model PSOSymbol1
+{
+	Path "Models/FloorDecals"
+	Model 0 "FloorDecal.md3"
+	Skin 0 "psosymbol1.png"
+	Scale 4.5 4.5 4.5
+	ROTATING
+	Rotation-Speed 1
+	ZOffset 0.2
+
+	FrameIndex NULL A 0 0
+}
+
+model PSOSymbol2
+{
+	Path "Models/FloorDecals"
+	Model 0 "FloorDecal.md3"
+	Skin 0 "psosymbol2.png"
+	Scale 4.5 4.5 4.5
+	ROTATING
+	Rotation-Speed -1
+	ZOffset 0.2
+
+	FrameIndex NULL A 0 0
+}
+
 Model AbbeyRoadCover
 {
 	Path "Models/FloorDecals"
-	Model 0 "FloorDecal.md2"
+	Model 0 "FloorDecal.md3"
 	Skin 0 "abbeyroadcover.png"
 	Scale 1.0 1.0 1.0
 	ZOffset 0.2
@@ -3419,4 +3465,19 @@ Model Patty
 	Scale 1.0 1.0 1.0
 
 	FrameIndex PATT A 0 0
+}
+
+model ChaosDashFireball
+{
+	Model 0 "models/Projectiles/BallOfFire.md3"
+	Skin 0 "textures/TCHOBALL.png"
+	Scale 1.0 1.0 1.2
+	//DONTCULLBACKFACES
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 5
+	Rotation-Vector 1 0 0
+
+	FrameIndex NULL A 0 0
 }

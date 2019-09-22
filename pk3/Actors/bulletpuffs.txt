@@ -647,29 +647,6 @@ actor BlazePuff : BasePuff
 	}
 }
 
-ACTOR BlitzShock : BasePuff
-{
-    Decal BlitzChip
-	Scale 0.5
-	Alpha 0.9
-	Renderstyle Add
-	obituary "%o was zapped by %k's blitz ssg!"
-	+PUFFONACTORS
-	DamageType "Electric"
-	States
-	{
-	Spawn:
-  		TNT1 A 0
-  		TNT1 A 0 A_GiveToTarget("HitConfirmation", 1)
-  		goto Crash
-	Crash:
-		YBOL A 0
-		YBOL A 0 A_Playsound("Blitzhit")
-		YBOL ABCDEFGHIJKL 2 BRIGHT
-		Stop
-	}
-}
-
 actor FrostPuff : BlazePuff
 {
 	Decal BulletChip
@@ -732,43 +709,6 @@ actor SonicWaveFire
  Spawn:
  CEXP AABBCC 2 BRIGHT A_FadeOut
  stop
- }
-}
-
-actor LinkSwordSpark : RicochetSpark
-{
- +FORCEXYBILLBOARD
- States
- {
- Spawn:
-		TNT1 A 0
-		ORAN A 7
-		stop
- }
-}
-
-actor MasterSwordHit
-{
- Radius 8
- Height 8
- RenderStyle Add
- Alpha 0.8
- Scale 0.4
- DamageType "Holy"
- obituary "%o was slain by %k's master sword."
- +NOGRAVITY
- +PUFFONACTORS
- +FORCEXYBILLBOARD
- AttackSound LinkSwordWall
- SeeSound LinkSwordHit
- States
- {
-  Crash:
-  TNT1 A 0
-  TNT1 AAAAAAAAA 0 A_CustomMissile("LinkSwordSpark",5,0,Random(-360,360), 2, random(-360, 360))
-  Spawn:
-  HLPS DEFGH 2 BRIGHT
-  stop
  }
 }
 

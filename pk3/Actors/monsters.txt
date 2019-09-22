@@ -5,6 +5,7 @@
 #include "actors/monsters/zombiemen.txt"
 #include "actors/monsters/arachnotrons.txt"
 #include "actors/monsters/barons.txt"
+#include "actors/monsters/mancubi.txt"
 #include "actors/monsters/turret.txt"
 
 actor RandomZombieManSpawner : RandomSpawner Replaces Zombieman
@@ -75,62 +76,6 @@ actor RandomArachnotronSpawner : RandomSpawner Replaces Arachnotron
 	DropItem "SMPlasmaArachnotron", 255 100
 }
 
-ACTOR FreezerZombie : ZombieMan 20248
-{
-	Health 60
-	DropItem "CellAmmo"
-	Dropitem "FreezeBolt", 36
-	AttackSound "freezebolt"
-	bloodcolor "20 20 20"
-	Obituary "%o was Frozen Solid by a FreezeBolt Zombie"
-	Painchance 50
-	Translation "128:143=192:207"
-	States
-	{
-		Wander:
-			POSS A 0 A_JumpIfHealthLower(1, "Death")
-			POSS A 0 A_Look
-			POSS A 4 A_Wander
-			POSS B 0 A_Look
-			POSS B 4 A_Wander
-			POSS C 0 A_Look
-			POSS C 4 A_Wander
-			POSS D 0 A_Look
-			POSS D 4 A_Wander
-			loop
-		Missile:
-			POSS E 6 A_FaceTarget
-			POSS F 2 A_CustomBulletAttack(22.5, 0, 1, 3, "FreezeShock")
-			POSS E 2 A_FaceTarget
-			POSS F 2 A_CustomBulletAttack(22.5, 0, 1, 3, "FreezeShock")
-			POSS E 2 A_FaceTarget
-			POSS F 2 A_CustomBulletAttack(22.5, 0, 1, 3, "FreezeShock")
-			POSS E 2 A_FaceTarget
-			Goto See
-
-		Death:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-			POSS H 5
-			POSS I 5 A_Scream
-			POSS J 0 A_UnSetShootable
-			POSS J 5 A_UnSetSolid
-			POSS K 5
-			POSS L 30
-			TNT1 A 1 A_IceGuyDie
-			stop
-		Pain:
-			POSS GG 1
-			goto See
-		XDeath:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-			POSS M 1
-			POSS N 1 A_XScream
-			TNT1 AA 0
-			TNT1 A 1 A_IceGuyDie
-			stop
-	}
-}
-
 actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
 {
 	DropItem "MP40Giver_Dropped"
@@ -154,8 +99,6 @@ actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
 			SSWV F 1 A_CPosRefire
 			goto Missile+1
 		XDeath:
-			SSWV N 0 A_GiveToTarget("DemonicPower", 1)
-			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
 			SSWV N 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
 			SSWV O 5 A_XScream
 			SSWV P 5 A_NoBlocking
@@ -167,20 +110,6 @@ actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
 			"####" "#" 1 A_FadeOut(0.05)
 			loop
 	}
-}
-
-actor TF2HeavyChaingunGuy : GBTWChaingunGuy
-{
-	health 250
-	translation "32:47=176:191"
-	activesound "HeavyAct"
-	seesound	"HeavySee"
-	painsound	"HeavyPain"
-	deathsound	"HeavyDeath"
-	DropItem "ChaingunGiver_Dropped"
-	DropItem "Whopper"
-	DropItem "Drink"
-	DropItem "Fries"
 }
 
 actor SM_SpiderMasterMind : SpiderMasterMind Replaces SpiderMasterMind
@@ -216,7 +145,7 @@ actor SM_CyberDemon : CyberDemon Replaces CyberDemon
 			CYBR G 10 A_Pain
 			Goto See
 		Death:
-			CYBR H 10 A_GiveToTarget("DemonicPower", 100)
+			CYBR H 10
 			CYBR I 10 A_Scream
 			CYBR JKL 10
 			CYBR M 10 A_NoBlocking
@@ -239,79 +168,6 @@ actor SM_LostSoul : LostSoul Replaces LostSoul
 		See:
 			SKUL AB 3 Bright A_Chase
 			Loop
-	}
-}
-
-Actor NeedlerTroop : GBTWChaingunGuy 27800
-{
-	OBITUARY "%o was spiked by a Needler Troop."
-	Health 110
-	Radius 20
-	Height 56
-	Mass 135
-	Speed 12
-	Painchance 64
-	SEESOUND "Monsters/NBSight"
-	ACTIVESOUND "Monsters/NBAct"
-	PAINSOUND "Monsters/NBPain"
-	DEATHSOUND "Monsters/NBDeath"
-	Translation 1
-	DropItem "Needler", 164
-	DropItem "MolotovCocktail", 48
-	DropItem "MechAmmo"
-	MONSTER
-	+FLOORCLIP
-	+DONTHURTSPECIES
-	States
-	{
-		Spawn:
-			NLBG AB 10 A_Look
-			Loop
-		See:
-			NLBG AA 4 A_Chase
-			NLBG A 0 A_PlaySound("Monsters/NBWalk")
-			NLBG BBCC 4 A_Chase
-			NLBG CC 0 A_PlaySound("Monsters/NBWalk")
-			NLBG DD 4 A_Chase
-			Loop
-		Missile:
-			NLBG E 10 A_FaceTarget
-			NLBG F 0 A_CustomMissile("NeedlerFlare", 34, 7, 0, 0)
-			NLBG F 2 A_CustomMissile("EnemyNeedlerCrystal", 32, 0, Random(-5, 5), 4)
-			NLBG E 2 A_FaceTarget
-			NLBG F 0 A_CustomMissile("NeedlerFlare", 34, 7, 0, 0)
-			NLBG F 2 A_CustomMissile("EnemyNeedlerCrystal", 32, 0, Random(-5, 5), 4)
-			NLBG E 2
-			NLBG E 0 BRIGHT A_CposRefire
-			Goto Missile+1
-		Pain:
-			NLBG G 3
-			NLBG G 3 A_Pain
-			Goto See
-		Death:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-			NLBG H 5
-			NLBG I 5 A_Scream
-			NLBG J 5 A_NoBlocking
-			NLBG K 5
-			NLBG L 10500
-			goto Fade
-		XDeath:
-			TNT1 A 0 A_GiveToTarget("DemonicPower", 1)
-			TNT1 A 0 A_GiveToTarget("SpeakOneLiner", 1)
-			NLBG O 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
-			NLBG P 5 A_XScream
-			NLBG Q 5 A_NoBlocking
-			NLBG Q 0
-			NLBG RTUV 5
-			NLBG W 10500
-			goto Fade
-		Raise:
-			NLBG KJIH 5
-			Goto See
-		Fade:
-			"####" "#" 1 A_FadeOut(0.05)
-			loop
 	}
 }
 
@@ -352,6 +208,7 @@ actor Grell
 			GREL D 4 A_FaceTarget
 			GREL E 4 Bright A_FaceTarget
 			GREL FFF 2 Bright A_CustomMissile("VulgarShot", 24, 0, random(-6,6), 0, random(-4,4))
+			GREL A 2
 			Goto See
 		Pain:
 			GREL G 3
@@ -683,249 +540,17 @@ actor Fleshspawn_Spawner
 	}
 }
 
-actor LeeroyZombie : GBTWZombieMan 17291
-{
-	obituary "%o was Kamikaze'd by a Leeroy Zombie."
-	health 100
-	speed 12
-	painchance 40
-	SpawnId 240
-	DamageType "Leeroy"
-	DamageFactor "Leeroy", 0.0
-	seesound "LeeroySee"
-	Translation "128:151=112:127"
-	MONSTER
-	DropItem "MechAmmo", 128
-	DropItem "MolotovCocktail", 36
-	+FLOORCLIP
-	+DONTHURTSPECIES
-	+LOOKALLAROUND
-	+NORADIUSDMG
-	states
-	{
-	Spawn:
-		POSS AA 5 A_Look
-		loop
-	See:
-		POSS A 0 A_StopSoundEx("SoundSlot6")
-		POSS AABBCCDD 3 A_Chase
-		POSS D 0 A_JumpIf(waterlevel == 3, "Detonate")
-		loop
-	Missile:
-		POSS E 10 A_FaceTarget
-		POSR A 0 A_PlaySoundEx("LeeroyJenkins", "Auto", 0, 0.99)
-		POSR A 0 A_PlaySoundEx("LeeroyRun", "SoundSlot6", 1, -1)
-		POSR A 0 A_AlertMonsters
-		POSR A 0 A_JumpIfCloser(120, "Detonate")
-		POSR A 0 A_FaceTarget
-		POSR A 2 A_Recoil(-4)
-		POSR A 0 A_FaceTarget
-		POSR A 2 A_Recoil(-3)
-		POSR B 0 A_FaceTarget
-		POSR B 0 A_CustomBulletAttack(40, 20, 1, 5, "LeeroyBulletPuff", 2048, 1)
-		POSR B 0 A_JumpIfCloser(120, "Detonate")
-		POSR B 2 BRIGHT A_Recoil(-3)
-		POSR B 0 A_FaceTarget
-		POSR B 2 BRIGHT A_Recoil(-3)
-		POSR C 0 A_JumpIfCloser(120, "Detonate")
-		POSR C 0 A_CPosRefire
-		POSR C 0 A_FaceTarget
-		POSR C 2 A_Recoil(-3)
-		POSR C 0 A_FaceTarget
-		POSR C 2 A_Recoil(-3)
-		POSR D 0 A_JumpIfCloser(120, "Detonate")
-		POSR D 0 A_FaceTarget
-		POSR D 0 A_CustomBulletAttack(40, 20, 1, 5, "LeeroyBulletPuff", 2048, 1)
-		POSR D 2 BRIGHT A_Recoil(-3)
-		POSR D 0 A_FaceTarget
-		POSR D 2 BRIGHT A_Recoil(-3)
-		POSR D 0 A_JumpIf(momx+momy+momz == 0, "See")
-		POSR D 0 A_JumpIfInTargetInventory("ValkrieCannons", 1, "JumpCheck1")
-		POSR A 0 A_CPosRefire
-		goto Missile+3
-	JumpCheck1:
-		POSR D 0 A_JumpIfCloser(640, "JumpCheck2")
-		goto Missile+3
-	JumpCheck2:
-		POSR D 0 A_CheckFloor("JumpAtShip")
-		goto Missile+3
-	JumpAtShip:
-		POSR D 0 ThrustThingZ(0, 76, 0, 0)
-		goto Missile+3
-	Pain:
-		POSS G 3 A_StopSoundEx("SoundSlot6")
-		POSS G 3 A_Pain
-		goto See
-	Burn:
-	Disintegrate:
-	Ethereal:
-	XDeath:
-	Detonate:
-		POSS M 1 A_Die
-		goto Death
-	Death:
-		POSS M 4 A_StopSoundEx("SoundSlot6")
-		POSS M 0 bright A_PlaySound("MassiveExplosion")
-		POSS M 0 bright A_Explode(136, 136, 1)
-		POSS M 0 bright A_SpawnItemEx("SledgeHammerExplosionLarge", 0, 0, 0, 0, 0, 0, 0, 128, 0)
-		POSS MMMMMM 0 bright A_SpawnItemEx("SledgeHammerExplosionSmall", Random(-48, 48), Random(-48, 48), Random(-48, 48), 0, 0, 0, 0, 128, 0)
-		POSS M 1 A_StopSoundEx("SoundSlot6")
-		POSS NNNNNN 0 bright A_SpawnItemEx("SledgeHammerExplosionSmall", Random(-48, 48), Random(-48, 48), Random(-48, 48), 0, 0, 0, 0, 128, 0)
-		POSS N 5 A_XScream
-		POSS OOOO 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 25, Random(5, 10), Random(5,10), Random(2, 20), Random(-255, 255), 128, 0)
-		POSS OOOOOO 0 A_SpawnItemEx("Fleshy_Splatter", 0, 0, 32, random(-2, 2), random(-2, 2), random(1, 14), Random(-180, 180), 128, 0)
-		POSS O 5 A_NoBlocking
-		POSS PQRST 5
-		POSS U 10500
-		goto Fade
-	Raise:
-		POSS UTSRQPONM 4
-		POSS M 0 A_StopSoundEx("SoundSlot6")
-		goto See
-
-	Cinematic:
-		POSS E 4 
-		POSR A 0 A_PlaySoundEx("LeeroyJenkins", "Auto", 0, 0.99)
-		POSR A 0 A_PlaySoundEx("LeeroyRun", "SoundSlot6", 1, -1)
-		POSR A 0 A_AlertMonsters
-		POSR A 2 A_Recoil(-3.5)
-		POSR A 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR A 2 A_Recoil(-3)
-		POSR B 0 A_CustomBulletAttack(20, 20, 1, 0, "LeeroyBulletPuff", 2048, 1)
-		POSR B 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR B 2 BRIGHT A_Recoil(-3)
-		POSR B 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR B 2 BRIGHT A_Recoil(-3)
-		POSR C 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR C 2 A_Recoil(-3)
-		POSR C 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR C 2 A_Recoil(-3)
-		POSR D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR D 0 A_CustomBulletAttack(20, 20, 1, 0, "LeeroyBulletPuff", 2048, 1)
-		POSR D 2 BRIGHT A_Recoil(-3)
-		POSR D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSR D 2 BRIGHT A_Recoil(-3)
-		POSR D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		goto Cinematic+3
-	Cinematic2:
-		POSS A 2 A_Recoil(-3)
-		POSS A 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS A 2 A_Recoil(-3)
-		POSS A 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS B 2 A_Recoil(-3)
-		POSS B 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS B 2 A_Recoil(-3)
-		POSS B 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS C 2 A_Recoil(-3)
-		POSS C 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS C 2 A_Recoil(-3)
-		POSS C 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS D 2 A_Recoil(-3)
-		POSS D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		POSS D 2 A_Recoil(-3)
-		POSS D 0 A_JumpIf(momx+momy+momz == 0, "Detonate")
-		loop
-	}
-}
-
 actor SM_Archvile : Archvile Replaces Archvile
 {
 	Dropitem "ElementalSSG", 100
 	DropItem "ForceThrust", 80
 	DropItem "WeatherMaker", 76
 	DropItem "GasPickup", 36
-	DropItem "DemonicPower", 200, 64
 	DamageFactor "Ice", 1.2
 	DamageFactor "Fire", 0.5
 	DamageFactor "Holy", 5.0
 	DamageFactor "Silver", 1.25
 	DamageFactor "VilesBane", 1000
-}
-
-actor SM_Fatso : Fatso Replaces Fatso
-{
-  dropitem "FlameThrowerWeap", 40
-  DropItem "GasPickup", 40
-  DropItem "FartBombs", 20
-  DropItem "FartBombs", 1
-  DropItem "IpodLauncher", 1
-  DropItem "WeatherMaker", 2
-}
-
-ACTOR Hectebus : SM_Fatso 5007
-{
-   SpawnID 158
-   Health 1200
-   PainChance 20
-   Obituary "$OB_HECTEBUS"
-   States
-   {
-		Spawn:
-			HECT AB 15 A_Look
-			Loop
-		See:
-			HECT AABBCCDDEEFF 4 A_Chase
-			Loop
-		Pain:
-			HECT J 3 A_TakeInventory("Firing", 1)
-			HECT J 3 A_Pain
-			Goto See
-		Missile:
-			//These Next 2 states replace A_FatRaise and A_HectRaise
-			HECT G 0 A_PlaySound("fatso/raiseguns")
-			HECT G 20 A_FaceTarget
-			HECT H 0 A_GiveInventory("Firing", 1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,5.625,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,11.25,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,16.875,1)
-			HECT H 10 BRIGHT
-			HECT IG 5 A_FaceTarget
-			HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,-5.625,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,-11.25,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,-16.875,1)
-			HECT H 10 BRIGHT
-			HECT IG 5 A_FaceTarget
-			HECT H 0 A_CustomMissile("HectShot",28,0,-11.25,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,-5.625,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,0,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,5.625,1)
-			HECT H 0 A_CustomMissile("HectShot",28,0,11.25,1)
-			HECT H 10 BRIGHT A_TakeInventory("Firing", 1)
-			HECT IG 5 A_FaceTarget
-			Goto See
-		Death:
-			HECT K 6
-			HECT L 6 A_Scream
-			HECT M 6 A_NoBlocking
-			HECT NOPQRS 6
-			HECT T 10500
-			goto Fade
-		Raise:
-			HECT RQPONMLK 5
-			Goto See
-		Fade:
-			"####" "#" 1 A_FadeOut(0.05)
-			loop
-	}
-}
-
-ACTOR HectShot : FatShot
-{
-   Speed 22
-   Damage 12
-   States
-   {
-   Spawn:
-	  HECF AB 4 BRIGHT
-	  Loop
-   Death:
-	  HECF C 8 BRIGHT
-	  HECF D 6 BRIGHT
-	  HECF E 4 BRIGHT
-	  Stop
-   }
 }
 
 actor Trite 17121
@@ -1085,29 +710,6 @@ actor Hangman 32123
 	HANG C 256 A_SpawnItemEx("BloodRain2", random(-8,8), random(-8,8), random(24, 32), 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 	loop
   }
-}
-
-actor Gordie_The_Friendly_Mancubus : Fatso 19633
-{
-	Radius 42
-	Species "Player"
-	BloodColor Blue
-	Translation "64:79=152:159", "48:63=152:152", "236:239=123:126", "2:2=127:127", "1:1=126:126", "13:15=123:125", "32:47=240:247", "16:31=192:207", "208:223=192:201", "160:167=80:95", "112:127=160:167", "168:191=192:207"
-	+FRIENDLY
-	+AVOIDMELEE
-	+QUICKTORETALIATE
-	+NORADIUSDMG
-	+NOICEDEATH
-	+DONTHARMSPECIES
-	+NOTARGET
-	+MISSILEMORE
-	+ALWAYSRESPAWN
-	+SLIDESONWALLS
-	+PUSHABLE
-	+NOFEAR
-	+NOTIMEFREEZE
-	+NEVERFAST
-	-COUNTKILL
 }
 
 ACTOR Danny_Tourettes_Guard 19632

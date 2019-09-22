@@ -881,7 +881,7 @@ actor PowerMist : BaseEffect
 	{
 	Spawn:
 		TNT1 A 0
-		APBX ABCDE 1 BRIGHT
+		ARPX ABCDE 1 BRIGHT
 		stop
 	Death:
 		TNT1 A 0
@@ -901,7 +901,7 @@ actor PowerTrail : BaseEffect
 		TNT1 A 2
 		goto Projectile
 	Projectile:
-		APLS ABCD 1 A_Fadeout(0.1)
+		ARPL ABCD 1 A_Fadeout(0.1)
 		loop
 	Death:
 		TNT1 A 0
@@ -932,28 +932,28 @@ actor PowerBeam
 	States
 	{
 	Spawn:
-		APLS A 1 BRIGHT
-		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS B 1 BRIGHT
-		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS C 1 BRIGHT
-		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS D 1 BRIGHT
-		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
-		APLS D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL A 1 BRIGHT
+		ARPL A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL A 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL B 1 BRIGHT
+		ARPL B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL B 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL C 1 BRIGHT
+		ARPL C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL C 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL D 1 BRIGHT
+		ARPL D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/1.5)+frandom(-0.5,0.5), (MOMY/1.5)+frandom(-0.5,0.5), (MOMZ/1.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.0)+frandom(-0.5,0.5), (MOMY/2.0)+frandom(-0.5,0.5), (MOMZ/2.0)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
+		ARPL D 0 A_SpawnItemEx("PowerTrail", 0, 0, 0, (MOMX/2.5)+frandom(-0.5,0.5), (MOMY/2.5)+frandom(-0.5,0.5), (MOMZ/2.5)+frandom(-0.5,0.5), 0, SXF_ABSOLUTEMOMENTUM | SXF_CLIENTSIDE, 240)
 		loop
 	Death:
-		APBX A 0 BRIGHT
-		APBX A 0 BRIGHT A_Explode(24, 32, 1)
-		APBX AAAA 0 A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-4.0,4.0), frandom(-4.0,4.0), frandom(-4.0,4.0), 0, SXF_CLIENTSIDE, 0)
-		APBX ABCDE 2 BRIGHT A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(-2.0,2.0), 0, SXF_CLIENTSIDE, 0)
+		ARPX A 0 BRIGHT
+		ARPX A 0 BRIGHT A_Explode(24, 32, 1)
+		ARPX AAAA 0 A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-4.0,4.0), frandom(-4.0,4.0), frandom(-4.0,4.0), 0, SXF_CLIENTSIDE, 0)
+		ARPX ABCDE 2 BRIGHT A_SpawnItemEx("PowerMist", 0, 0, 0, frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(-2.0,2.0), 0, SXF_CLIENTSIDE, 0)
 		stop
 	}
 }

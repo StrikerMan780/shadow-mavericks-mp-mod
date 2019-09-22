@@ -9,190 +9,48 @@ texture KAMIKAZ0
 	pic	KAMIKAZ1 tics 5
 
 flat FWATER1
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
 
 flat FWATER2
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
-
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
+	
 flat FWATER3
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
-
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
+	
 flat FWATER4
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
 	
 flat NUKAGE1
-	pic	NUKAGE1 tics 2
-	pic	NUKAGE2 tics 2
-	pic	NUKAGE3 tics 2
-	pic	NUKAGE4 tics 2
-	pic	NUKAGE5 tics 2
-	pic	NUKAGE6 tics 2
-	pic	NUKAGE7 tics 2
-	pic	NUKAGE8 tics 2
-	pic	NUKAGE9 tics 2
-	pic	NUKAGE10 tics 2
-	pic	NUKAGE11 tics 2
-	pic	NUKAGE12 tics 2
+	pic NNUKE1 tics 8
+	pic NNUKE1 tics 8
 
 flat NUKAGE2
-	pic	NUKAGE1 tics 2
-	pic	NUKAGE2 tics 2
-	pic	NUKAGE3 tics 2
-	pic	NUKAGE4 tics 2
-	pic	NUKAGE5 tics 2
-	pic	NUKAGE6 tics 2
-	pic	NUKAGE7 tics 2
-	pic	NUKAGE8 tics 2
-	pic	NUKAGE9 tics 2
-	pic	NUKAGE10 tics 2
-	pic	NUKAGE11 tics 2
-	pic	NUKAGE12 tics 2
+	pic NNUKE1 tics 8
+	pic NNUKE1 tics 8
 
 flat NUKAGE3
-	pic	NUKAGE1 tics 2
-	pic	NUKAGE2 tics 2
-	pic	NUKAGE3 tics 2
-	pic	NUKAGE4 tics 2
-	pic	NUKAGE5 tics 2
-	pic	NUKAGE6 tics 2
-	pic	NUKAGE7 tics 2
-	pic	NUKAGE8 tics 2
-	pic	NUKAGE9 tics 2
-	pic	NUKAGE10 tics 2
-	pic	NUKAGE11 tics 2
-	pic	NUKAGE12 tics 2
+	pic NNUKE1 tics 8
+	pic NNUKE1 tics 8
 	
 flat SLIME01
-	pic	NSLIME1 tics 2
-	pic	NSLIME2 tics 2
-	pic	NSLIME3 tics 2
-	pic	NSLIME4 tics 2
-	pic	NSLIME5 tics 2
-	pic	NSLIME6 tics 2
-	pic	NSLIME7 tics 2
-	pic	NSLIME8 tics 2
-	pic	NSLIME9 tics 2
-	pic	NSLIME10 tics 2
-	pic	NSLIME11 tics 2
-	pic	NSLIME12 tics 2
-	pic	NSLIME13 tics 2
-	pic	NSLIME14 tics 2
-	pic	NSLIME15 tics 2
-	pic	NSLIME16 tics 2
+	pic	NSLIME1 tics 8
+	pic	NSLIME1 tics 8
 	
 flat SLIME02
-	pic	NSLIME1 tics 2
-	pic	NSLIME2 tics 2
-	pic	NSLIME3 tics 2
-	pic	NSLIME4 tics 2
-	pic	NSLIME5 tics 2
-	pic	NSLIME6 tics 2
-	pic	NSLIME7 tics 2
-	pic	NSLIME8 tics 2
-	pic	NSLIME9 tics 2
-	pic	NSLIME10 tics 2
-	pic	NSLIME11 tics 2
-	pic	NSLIME12 tics 2
-	pic	NSLIME13 tics 2
-	pic	NSLIME14 tics 2
-	pic	NSLIME15 tics 2
-	pic	NSLIME16 tics 2
+	pic	NSLIME1 tics 8
+	pic	NSLIME1 tics 8
 	
 flat SLIME03
-	pic	NSLIME1 tics 2
-	pic	NSLIME2 tics 2
-	pic	NSLIME3 tics 2
-	pic	NSLIME4 tics 2
-	pic	NSLIME5 tics 2
-	pic	NSLIME6 tics 2
-	pic	NSLIME7 tics 2
-	pic	NSLIME8 tics 2
-	pic	NSLIME9 tics 2
-	pic	NSLIME10 tics 2
-	pic	NSLIME11 tics 2
-	pic	NSLIME12 tics 2
-	pic	NSLIME13 tics 2
-	pic	NSLIME14 tics 2
-	pic	NSLIME15 tics 2
-	pic	NSLIME16 tics 2
+	pic	NSLIME1 tics 8
+	pic	NSLIME1 tics 8
 	
 flat SLIME04
-	pic	NSLIME1 tics 2
-	pic	NSLIME2 tics 2
-	pic	NSLIME3 tics 2
-	pic	NSLIME4 tics 2
-	pic	NSLIME5 tics 2
-	pic	NSLIME6 tics 2
-	pic	NSLIME7 tics 2
-	pic	NSLIME8 tics 2
-	pic	NSLIME9 tics 2
-	pic	NSLIME10 tics 2
-	pic	NSLIME11 tics 2
-	pic	NSLIME12 tics 2
-	pic	NSLIME13 tics 2
-	pic	NSLIME14 tics 2
-	pic	NSLIME15 tics 2
-	pic	NSLIME16 tics 2
+	pic	NSLIME1 tics 8
+	pic	NSLIME1 tics 8
 	
 flat SLIME05
 	pic	SLIME05 tics 8
@@ -238,12 +96,54 @@ flat BLOOD3
 	pic BLOOD1 tics 8
 	pic BLOOD1 tics 8
 	
+texture GIYGST00
+	pic	GIYGST00 tics 1
+	pic	GIYGST01 tics 1
+	pic	GIYGST02 tics 1
+	pic	GIYGST03 tics 1
+	pic	GIYGST04 tics 1
+	pic	GIYGST05 tics 1
+	pic	GIYGST06 tics 1
+	pic	GIYGST07 tics 1
+	pic	GIYGST08 tics 1
+	pic	GIYGST09 tics 1
+	pic	GIYGST10 tics 1
+	pic	GIYGST11 tics 1
+	pic	GIYGST12 tics 1
+	pic	GIYGST13 tics 1
+	pic	GIYGST14 tics 1
+	pic	GIYGST15 tics 1
+	pic	GIYGST16 tics 1
+	pic	GIYGST17 tics 1
+	pic	GIYGST18 tics 1
+	pic	GIYGST19 tics 1
+	
+texture GSTATI00
+	pic	GSTATI00 tics 1
+	pic	GSTATI01 tics 1
+	pic	GSTATI02 tics 1
+	pic	GSTATI03 tics 1
+	pic	GSTATI04 tics 1
+	pic	GSTATI05 tics 1
+	pic	GSTATI06 tics 1
+	pic	GSTATI07 tics 1
+	pic	GSTATI08 tics 1
+	pic	GSTATI09 tics 1
+	pic	GSTATI10 tics 1
+	pic	GSTATI11 tics 1
+	pic	GSTATI12 tics 1
+	pic	GSTATI13 tics 1
+	pic	GSTATI14 tics 1
+	pic	GSTATI15 tics 1
+	pic	GSTATI16 tics 1
+	pic	GSTATI17 tics 1
+	pic	GSTATI18 tics 1
+	pic	GSTATI19 tics 1
+	
 cameratexture DRUNKM01	160	120 fit 853 480
 	
-warp2 flat blood1
 warp flat lava1
 warp flat lava2
 warp flat lava3
 warp flat lava4
-warp flat slime05
 warp2 texture NLAVA1

@@ -236,9 +236,9 @@ actor KrystalTrophy 21330
 	//$Category SMMP Static Props
 	//$Title Krystal Trophy
 	//$Color 15
-	Scale 0.50
-	Radius 6
-	Height 4
+	Scale 0.75
+	Radius 8
+	Height 16
 	-SOLID
 	+ALLOWCLIENTSPAWN
 	+NOINTERACTION
@@ -291,7 +291,7 @@ actor Oiler : Spanner 8025
 
 actor Shovel : Spanner 8026
 {
-	//$Title Oiler
+	//$Title Shovel
 	height 56
 	+SOLID
 	States

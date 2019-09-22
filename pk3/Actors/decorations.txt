@@ -15,16 +15,16 @@ actor CandleChandelier 18000
 	States
 	{
 	Spawn:
-		CHND A 0 A_SpawnItemEx("ChandelierFlames", 0, 26, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 16)
-		CHND A 0 A_SpawnItemEx("ChandelierFlames", 0, -26, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 16)
-		CHND A 0 A_SpawnItemEx("ChandelierFlames", 26, 0, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 16)
-		CHND A 0 A_SpawnItemEx("ChandelierFlames", -26, 0, 0, 0, 0, random(0,1), 0, SXF_CLIENTSIDE, 16)
-		CHND A 1
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", 0, 26, 0, 0, 0, frandom(0.25,0.75), 0, SXF_CLIENTSIDE, 16)
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", 0, -26, 0, 0, 0, frandom(0.25,0.75), 0, SXF_CLIENTSIDE, 16)
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", 26, 0, 0, 0, 0, frandom(0.25,0.75), 0, SXF_CLIENTSIDE, 16)
+		CHND A 0 A_SpawnItemEx("ChandelierFlames", -26, 0, 0, 0, 0, frandom(0.25,0.75), 0, SXF_CLIENTSIDE, 16)
+		CHND A 2
 		Loop
 	}
 }
 
-actor ChandelierFlames
+actor ChandelierFlames : BaseEffect
 {
 	Radius 4
 	Height 4
@@ -32,10 +32,8 @@ actor ChandelierFlames
 	Alpha 1.0
 	YScale 0.15
 	XScale 0.12
-	-SOLID
-	+NOGRAVITY
-	+CLIENTSIDEONLY
-	+ALLOWCLIENTSPAWN
+	-FORCEXYBILLBOARD
+	+FORCEYBILLBOARD
 	States
 	{
 		Spawn:

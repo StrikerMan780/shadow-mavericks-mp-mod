@@ -115,23 +115,3 @@ perception = 4
 chatfrequency = 42
 favoriteweapon = "Stinger"
 }
-
-{
-name = "\cdLink"
-script = HUMANBOT
-Chatlump = LINKCHAT
-gender = male
-color = "00 FF 00"
-railcolor = "green"
-skin = "Base"
-class = "Link"
-revealed = true
-accuracy = 3
-intelect = 4
-evade = 4
-anticipation = 4
-reactiontime = 4
-perception = 4
-chatfrequency = 10
-favoriteweapon = "IceRod"
-}

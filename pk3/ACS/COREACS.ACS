@@ -1,20 +1,18 @@
 #library "COREACS"
 #include "zcommon.acs"
+#include "SMMP_DEFINES.ECH"
 
 // COREACS.ACS - Core/Spawn functions
 
 int Instagib;
 int Buckshot;
 int Crickagib;
-int ClassSelected;
 int ClassAllowed;
 int RailOnce = 0;
 int PlayerJumpCheck[64];
+int PlayerAbilityCooldown[64];
 
-#define CLASS_MARINE 0
-#define CLASS_TAILS 1
-#define CLASS_LINK 2
-#define CLASS_DUKE 3
+str OldWeapon[64];
 
 function void init_buckshot (void)
 {
@@ -29,7 +27,7 @@ function void init_crickagib (void)
 {
 	ClearInventory();
 	GiveInventory("Backpack", 1);
-	GiveInventory("CricketAmmo", 50);
+	GiveInventory("FusionAmmo", 200);
 	GiveInventory("Noisy_Cricket", 1);
 	SetWeapon("Noisy_Cricket");
 }
@@ -44,7 +42,6 @@ function void Reset_Classes (int class)
 			GiveInventory("MarineClassCheck", 1);
 
 			TakeInventory("TailsClassCheck", 1);
-			TakeInventory("LinkClassCheck", 1);
 			TakeInventory("DukeClassCheck", 1);
 			break;
 		}
@@ -53,16 +50,6 @@ function void Reset_Classes (int class)
 			GiveInventory("TailsClassCheck", 1);
 
 			TakeInventory("MarineClassCheck", 1);
-			TakeInventory("LinkClassCheck", 1);
-			TakeInventory("DukeClassCheck", 1);
-			break;
-		}
-		case CLASS_LINK:
-		{
-			GiveInventory("LinkClassCheck", 1);
-
-			TakeInventory("MarineClassCheck", 1);
-			TakeInventory("TailsClassCheck", 1);
 			TakeInventory("DukeClassCheck", 1);
 			break;
 		}
@@ -72,7 +59,6 @@ function void Reset_Classes (int class)
 
 			TakeInventory("MarineClassCheck", 1);
 			TakeInventory("TailsClassCheck", 1);
-			TakeInventory("LinkClassCheck", 1);
 			break;
 		}
 	}
@@ -87,10 +73,6 @@ function void Check_Class_Block (int class)
 	else if( (class == CLASS_TAILS) && (GetCVar("smmp_block_tails")) )
 	{
 		KickFromGame(PlayerNumber(), "Tails class is blocked!");
-	}
-	else if( (class == CLASS_LINK) && (GetCVar("smmp_block_link")) )
-	{
-		KickFromGame(PlayerNumber(), "Link class is blocked!");
 	}
 	else if( (class == CLASS_DUKE) && (GetCVar("smmp_block_duke")) )
 	{
@@ -107,12 +89,63 @@ function void set_colors(void)
 	GiveInventory("SaberColor", GetUserCVar(PlayerNumber(), "smmp_sabercolor"));
 }
 
+// Auto-taunts
+#define TAUNT_KILL 0
+#define TAUNT_ENTRY 1
+#define TAUNT_RESPAWN 2
+function void MakeTaunt(int type)
+{
+	int ClassSelected = PlayerClass(PlayerNumber());
+	if(GetActorProperty(0, APROP_Health) <= 0)
+		return;
+		
+	if(type == TAUNT_KILL)
+	{
+		if(random(0, 100) <= 15)
+		{
+			switch(ClassSelected)
+			{
+				case CLASS_MARINE:
+					PlaySound(0, "MarineKill", CHAN_6, 1.0, false, 0.75, false);
+					break;
+				case CLASS_DUKE:
+					PlaySound(0, "DukeOneLiner", CHAN_6, 1.0, false, 0.75, false);
+					break;
+			}
+		}
+	}
+	else if(type == TAUNT_ENTRY)
+	{
+		if(random(0, 100) <= 75)
+		{
+			switch(ClassSelected)
+			{
+				case CLASS_DUKE:
+					PlaySound(0, "DukeEntry", CHAN_6, 1.0, false, 0.75, false);
+					break;
+			}
+		}
+	}
+	else if(type == TAUNT_ENTRY)
+	{
+		if(random(0, 100) <= 40)
+		{
+			switch(ClassSelected)
+			{
+				case CLASS_DUKE:
+					PlaySound(0, "DukeRespawn", CHAN_6, 1.0, false, 0.75, false);
+					break;
+			}
+		}
+	}
+}
+
 function void smmp_spawn (int respawned)
 {
 	Instagib = GetCVar("Instagib");
 	Buckshot = GetCVar("Buckshot");
 	Crickagib = GetCVar("smmp_crickagib");
-	ClassSelected = PlayerClass(PlayerNumber());
+	int ClassSelected = PlayerClass(PlayerNumber());
 
 	Reset_Classes(ClassSelected);
 	Check_Class_Block(ClassSelected); 
@@ -121,33 +154,18 @@ function void smmp_spawn (int respawned)
 	
 	if(respawned >= 1)
 	{
-		if(ClassSelected == CLASS_DUKE)
-		{
-			GiveInventory("SpeakRespawn", 1);
-		}
+		MakeTaunt(TAUNT_RESPAWN);
 	}
 	else
 	{
-		if(ClassSelected == CLASS_DUKE)
-		{
-			GiveInventory("SpeakEntry", 1);
-		}
+		MakeTaunt(TAUNT_ENTRY);
+		PlayerAbilityCooldown[PlayerNumber()] = false;
 	}
 	
 	if(CheckInventory("ValkrieCannons") >= 1 || CheckInventory("DeathbringerCannons") >= 1)
 	{
 		TakeInventory("ValkrieCannons", 999);
 		TakeInventory("DeathbringerCannons", 999);
-	}
-
-	if(ClassSelected == CLASS_LINK && Instagib == 1 && Crickagib == 0)
-	{
-		ClearInventory();
-		GiveInventory("FairyBow", 1);
-		TakeInventory("CellAmmo", 999);
-		GiveInventory("CellAmmo", 50);
-		GiveInventory("RailGunCoreInstagib", 1);
-		SetWeapon("FairyBow");
 	}
 
 	if(Crickagib == 1)
@@ -173,8 +191,6 @@ function void smmp_clientsidespawn (void)
 		return;
 	}
 	
-	int Interpolate = GetCVar("gl_interpolate_model_frames");
-	int ModelsUsed = GetCVar("gl_use_models");
 	int OpenGL = GetCVar("vid_renderer");
 	
 	if(OpenGL <= 0)
@@ -183,27 +199,77 @@ function void smmp_clientsidespawn (void)
 		hudmessage(s:"\cgERROR!\cf: \cc THIS MOD IS FOR \cgOPENGL ONLY!\n\ccPLEASE SWITCH TO OPENGL IN ORDER FOR THIS MOD TO WORK CORRECTLY!";
 		HUDMSG_FADEINOUT | HUDMSG_LOG, 0, CR_RED, 1.5, 0.5, 6.0, 2.0, 2.0);
 	}
-	else if(Interpolate <= 0 | ModelsUsed <= 0)
-	{
-		SetFont("DoomFont");
-		hudmessage(s: "Models/Model Interpolation off! Resolve this \ccBy Typing \cf''\ciFix\cf'' \ccin the console."; 
-		HUDMSG_FADEINOUT | HUDMSG_LOG, 0, CR_WHITE, 1.5, 0.1, 4.0, 2.0, 2.0);
-	}
 }
 
 // ****************
 // START OF SCRIPTS
 // ****************
 
+function void GiveDP(int amount)
+{
+	int current_dp = CheckInventory("DemonicPower");
+	if(current_dp >= 100 || PlayerAbilityCooldown[PlayerNumber()])
+		return;
+		
+	if(current_dp+amount > 100)
+		amount = 100-current_dp;
+		
+	SetFont("BIGFONT");
+	SetHudSize(800, 600, 1);
+	
+	HudMessage(s:"+", d:amount, s:" DP";
+	HUDMSG_FADEOUT, 766, CR_RED, 400.0, 598.2, 1.0, 0.25);
+	
+	if(amount + current_dp >= 100)
+	{
+		HudMessage(s:"DP Full!\n\cjPress \cd", k:"+use", s:"\n\cjand \cd", k:"SpecialMove", s:"\n\cjto use your ultimate ability!";
+		HUDMSG_FADEOUT | HUDMSG_LOG, 765, CR_ORANGE, 400.4, 480.2, 6.0, 1.0);
+		LocalAmbientSound("DPFull", 127);
+	}
+		
+	GiveInventory("DemonicPower", amount);
+}
+
+script "GIVEDP" (int amount)
+{
+	GiveDP(amount);
+}
+
+script "DEMONIC_POWER" KILL
+{
+	if(GetCvar("smmp_debug"))
+	{
+		str DamageType = GetActorProperty(0, APROP_DamageType);
+		printbold(s:"Kill Damage Type: ", s:DamageType);
+	}
+	
+	if (!(ClassifyActor(0) & ACTOR_MONSTER) || GetActorProperty(0, APROP_Friendly))
+		terminate;
+	
+	int monster_dp = GetActorProperty(0, APROP_SpawnHealth)/40;
+	if(monster_dp <= 0)
+		monster_dp = 1;
+	
+	SetActivator(0, AAPTR_TARGET);
+	GiveDP(monster_dp);
+	MakeTaunt(TAUNT_KILL);
+}
+
 script "DEATHINVENTORY" DEATH
 {
-	TakeInventory("DemonicChargerCheck", 1);
 	TakeInventory("DrunkMode", 1);
 	TakeInventory("DeathbringerCannons", 1);
 	TakeInventory("ValkrieCannons", 1);
 	
+	if(CheckInventory("Kamikaze") > 0)
+	{
+		SetActorState(0, "KamikazeDeath", 1);
+		TakeInventory("Kamikaze", 1);
+	}
+	
 	SetActivator(0, AAPTR_TARGET);
-	GiveInventory("DemonicPower", 10);
+	GiveDP(10);
+	MakeTaunt(TAUNT_KILL);
 }
 
 script "CHAINSAWHEALTHCHECK" (void) 
@@ -279,43 +345,6 @@ script "KNOCKOUT" (void)
 	ACS_NamedExecuteAlways("GIVEMONEY", 0, 10);
 }
 
-script "DOWALLJUMP" (void)
-{
-	if(PlayerJumpCheck[PlayerNumber()] == 1)
-	{
-		if((GetActorZ(0) - GetActorFloorZ(0))>=30.0)
-		{
-			PlayerJumpCheck[PlayerNumber()] = 0;
-			Thing_Stop(ActivatorTID());
-			SetPlayerProperty (0, 1, 0);
-			SetPlayerProperty (0, 1, 12);
-			LocalAmbientSound("wallland",127);
-			SetActorAngle(ActivatorTID(), GetActorAngle(ActivatorTID()) + 0.1);
-			Delay(1);
-			SetActorAngle(ActivatorTID(), GetActorAngle(ActivatorTID()) + 0.1);
-			Delay(1);
-			SetActorAngle(ActivatorTID(), GetActorAngle(ActivatorTID()) + 0.1);
-			Delay(1);
-			SetActorAngle(ActivatorTID(), GetActorAngle(ActivatorTID()) + 0.1);
-			Delay(1);
-			SetActorAngle(ActivatorTID(), GetActorAngle(ActivatorTID()) + 0.1);
-			Delay(3);
-			SetPlayerProperty (0, 0, 0);
-			SetPlayerProperty (0, 0, 12);
-			LocalAmbientSound("walljump",127);
-			ThrustThing(GetActorAngle (ActivatorTID()) >> 8, 10, 1, 0);
-			ThrustThingZ(ActivatorTID(), 29, 0, 1);
-		}
-	}
-}
-
-script "JUMPCHECK" (void) 
-{
-	PlayerJumpCheck[PlayerNumber()] = 1;
-	Delay(1);
-	PlayerJumpCheck[PlayerNumber()] = 0;
-}
-
 script "SERVER_SPAWN" ENTER
 {
 	smmp_spawn(0);
@@ -351,25 +380,6 @@ script "TPUPGRADE" (int fail)
 	}
 }
 
-script "SPINATTACK" (void)
-{ 
-	if((CheckInventory("CannotSpin") == 0) && (CheckInventory("CannotUse") == 0) && (CheckInventory("Health") > 0))
-	{
-		SetActorState(0, "Spin", 1);
-		GiveInventory("CannotSpin", 1);
-		SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
-	}
-}
-
-script "STOPSPIN" DEATH
-{ 
-	if(CheckInventory("CannotSpin") == 1)
-	{
-		SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
-		TakeInventory("CannotSpin", 1); 
-	}
-}
-
 script "HITCROSS" (void) CLIENTSIDE
 {
 	SetHudSize(1024, 768, 0);
@@ -388,4 +398,119 @@ script "ZA_WARUDO" (void)
 	FadeRange(255, 255, 255, 0.75, 255, 255, 255, 0.0, 1.0);
 	delay(35*12);
 	PlaySound(0, "ZaWarudoStop", CHAN_5 | CHAN_NOPAUSE, 1.0, false, ATTN_NONE);
+}
+
+#define NumForbiddenItems 10
+str forbidden_items[NumForbiddenItems] = {
+	"CannotUse",
+	"PowerPossessionArtifact",
+	"ValkrieCannons",
+	"DeathbringerCannons",
+	"PowerFlight",
+	"RedFlag",
+	"BlueFlag",
+	"WhiteFlag",
+	"BlueSkullST",
+	"RedSkullST"
+};
+
+script "SPECIALMOVE" (void) NET
+{
+	int ClassSelected = PlayerClass(PlayerNumber());
+	
+	for(int i = 0; i < NumForbiddenItems; i++)
+	{
+		if(CheckInventory(forbidden_items[i]) > 0)
+		{
+			Print(s:"You cannot use this right now.");
+			terminate;
+		}
+	}
+	
+	if(GetActorProperty(0, APROP_Health) <= 0)
+	{
+		Print(s:"You cannot use this while dead.");
+		terminate;
+	}
+	
+	if(GetPlayerInput(PlayerNumber(), INPUT_BUTTONS) & BT_USE)
+	{
+		if(CheckInventory("DemonicPower") < 100)
+		{
+			Print(s:"Not enough Demonic Power for ultimate attack.");
+		}
+		else
+		{
+			switch(ClassSelected)
+			{
+				case CLASS_MARINE:
+					TakeInventory("DemonicPower", 100);
+					SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+					GiveInventory("CannotUse", 1);
+					SetActorState(0, "WrathOfTheWickedSpirits", 0);
+					break;
+				case CLASS_TAILS:
+					TakeInventory("DemonicPower", 100);
+					OldWeapon[PlayerNumber()] = GetWeapon();
+					SetWeapon("BlankWeapon");
+					SetPlayerProperty(0, 1, PROP_FROZEN);
+					GiveInventory("CannotUse", 1);
+					SetActorState(0, "ChaosDash", 0);
+					break;
+				default:
+					Print(s:"This class does not have an ultimate attack... yet.");
+					break;
+			}
+			
+			PlayerAbilityCooldown[PlayerNumber()] = true;
+			Delay(35 * 10);
+			PlayerAbilityCooldown[PlayerNumber()] = false;
+		}
+	}
+	else
+	{
+		switch(ClassSelected)
+		{
+			case CLASS_MARINE:
+				if(CheckInventory("FlareCheck") >= 100)
+				{
+					TakeInventory("FlareCheck", 100);
+					GiveInventory("FlareThrow", 1);
+				}
+				break;
+			case CLASS_TAILS:
+				OldWeapon[PlayerNumber()] = GetWeapon();
+				GiveInventory("CannotUse", 1);
+				SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+				SetActorState(0, "Spin", 1);
+				break;
+			default:
+				Print(s:"This class does not have a special ability... yet.");
+				break;
+		}
+	}
+}
+
+script "STOPABILITY" DEATH
+{ 
+	int ClassSelected = PlayerClass(PlayerNumber());
+	
+	switch(ClassSelected)
+	{
+		case CLASS_TAILS:
+			SetWeapon(OldWeapon[PlayerNumber()]);
+			break;
+	}
+			
+	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+	SetPlayerProperty(0, 0, PROP_FROZEN);
+	TakeInventory("CannotUse", 1); 
+	
+}
+
+script "JUMPCHECK" (void) 
+{
+	PlayerJumpCheck[PlayerNumber()] = 1;
+	Delay(1);
+	PlayerJumpCheck[PlayerNumber()] = 0;
 }

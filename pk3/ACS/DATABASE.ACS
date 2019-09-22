@@ -46,13 +46,6 @@ function void SaveStatsToDB(int pnum)
 	if(!stats_loaded[pnum])
 		return;
 	
-	player_acctname[pnum] = GetPlayerAccountName(pnum);
-	
-	if(!IsNetworkGame())
-	{
-		player_acctname[pnum] = "singleplayer_acct";
-	}
-	
 	SetDBEntry(player_acctname[pnum], "smmp_money", player_money[pnum]);
 	
 	DebugDBExchange("Saving player stats", player_acctname[pnum], pnum);

@@ -154,65 +154,40 @@ Model FlakShard
 {
 	Path "Models\Projectiles"
 	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot1.png"
 	Scale 6.0 6.0 6.0
 	PITCHFROMMOMENTUM
 	ROTATING
 	Rotation-Speed 8.0
+
+	Skin 0 "FlakShardHot1.png"
+	FrameIndex METL A 0 0
+
+	Skin 0 "FlakShardHot2.png"
+	FrameIndex METL B 0 0
+
+	Skin 0 "FlakShardHot3.png"
+	FrameIndex METL C 0 0
+
+	Skin 0 "FlakShardHot4.png"
+	FrameIndex METL D 0 0
+
+	Skin 0 "FlakShard.png"
+	FrameIndex METL E 0 0
+}
+
+Model Cluster
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Skin 0 "ClusterPiece.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	
+	Rotating
+	Rotation-Speed 30
+	Rotation-Vector 1 0 0
 
 	FrameIndex METL A 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot2.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL B 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot3.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL C 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShardHot4.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL D 0 0
-}
-
-Model FlakShard
-{
-	Path "Models\Projectiles"
-	Model 0 "FlakShard.md3"
-	Skin 0 "FlakShard.png"
-	Scale 6.0 6.0 6.0
-	PITCHFROMMOMENTUM
-	ROTATING
-	Rotation-Speed 8.0
-
-	FrameIndex METL E 0 0
 }
 
 model NeedlerCrystal
@@ -368,10 +343,10 @@ model PowerBeam
 	Rotation-Speed 10
 	Rotation-Vector 1 0 0
 
-	FrameIndex APLS A 0 0
-	FrameIndex APLS B 0 0
-	FrameIndex APLS C 0 0
-	FrameIndex APLS D 0 0
+	FrameIndex ARPL A 0 0
+	FrameIndex ARPL B 0 0
+	FrameIndex ARPL C 0 0
+	FrameIndex ARPL D 0 0
 }
 
 model SM_ArachnotronPowerBeam
@@ -386,10 +361,10 @@ model SM_ArachnotronPowerBeam
 	Rotation-Speed 10
 	Rotation-Vector 1 0 0
 
-	FrameIndex APLS A 0 0
-	FrameIndex APLS B 0 0
-	FrameIndex APLS C 0 0
-	FrameIndex APLS D 0 0
+	FrameIndex ARPL A 0 0
+	FrameIndex ARPL B 0 0
+	FrameIndex ARPL C 0 0
+	FrameIndex ARPL D 0 0
 }
 
 model StingerShot

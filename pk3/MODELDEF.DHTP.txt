@@ -79,48 +79,29 @@ Model EvilEye
 	model 2 "Candlestick.md2"
 	model 3 "Candleflame.md3"
 	skin 0 "EvilEye.png"
+	Skin 2 "candlestik.png"
+	skin 3 "candleflame1.png"
+
+	scale -0.5 -0.5 0.5
+	ALIGNANGLE
+	
 	skin 1 "EvilEye_Circle.png"
-	Skin 2 "candlestik.png"
-	skin 3 "candleflame1.png"
+	FrameIndex CEYE A 0 0
+	FrameIndex CEYE A 1 10		
+	FrameIndex CEYE A 2 0		
+	FrameIndex CEYE A 3 0
 
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-
-	FrameIndex CEYE A 0 0		FrameIndex CEYE A 1 10		FrameIndex CEYE A 2 0		FrameIndex CEYE A 3 0
-}
-Model EvilEye
-{
-	Path "Models\Decoration\Lights\Flaming"
-	model 0 "EvilEye.md2"
-	model 1 "EvilEye_Circle.md2"
-	model 2 "Candlestick.md2"
-	model 3 "Candleflame.md3"
-	skin 0 "EvilEye.png"
 	skin 1 "EvilEye_Circle2.png"
-	Skin 2 "candlestik.png"
-	skin 3 "candleflame1.png"
-
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-
-	FrameIndex CEYE B 0 2		FrameIndex CEYE B 1 10		FrameIndex CEYE B 2 0		FrameIndex CEYE B 3 0
-}
-Model EvilEye
-{
-	Path "Models\Decoration\Lights\Flaming"
-	model 0 "EvilEye.md2"
-	model 1 "EvilEye_Circle.md2"
-	model 2 "Candlestick.md2"
-	model 3 "Candleflame.md3"
-	skin 0 "EvilEye.png"
+	FrameIndex CEYE B 0 2
+	FrameIndex CEYE B 1 10
+	FrameIndex CEYE B 2 0
+	FrameIndex CEYE B 3 0
+	
 	skin 1 "EvilEye_Circle3.png"
-	Skin 2 "candlestik.png"
-	skin 3 "candleflame1.png"
-
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-
-	FrameIndex CEYE C 0 4		FrameIndex CEYE C 1 10		FrameIndex CEYE C 2 0		FrameIndex CEYE C 3 0
+	FrameIndex CEYE C 0 4
+	FrameIndex CEYE C 1 10
+	FrameIndex CEYE C 2 0
+	FrameIndex CEYE C 3 0
 }
 
 Model Candlestick
@@ -194,42 +175,28 @@ Model RedEvilEye
 	model 2 "Candlestick.md2"
 	model 3 "Candleflame.md3"
 	skin 0 "EvilEye.png"
+	Skin 2 "candlestikr.png"
+	skin 3 "candleflame1r.png"
+	scale -0.5 -0.5 0.5
+	ALIGNANGLE
+	
 	skin 1 "EvilEye_Circler.png"
-	Skin 2 "candlestikr.png"
-	skin 3 "candleflame1r.png"
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-	FrameIndex CEYR A 0 0		FrameIndex CEYR A 1 10		FrameIndex CEYR A 2 0		FrameIndex CEYR A 3 0
-}
-Model RedEvilEye
-{
-	Path "Models/Decoration/Lights/Flaming"
-	model 0 "EvilEye.md2"
-	model 1 "EvilEye_Circle.md2"
-	model 2 "Candlestick.md2"
-	model 3 "Candleflame.md3"
-	skin 0 "EvilEye.png"
+	FrameIndex CEYR A 0 0
+	FrameIndex CEYR A 1 10
+	FrameIndex CEYR A 2 0
+	FrameIndex CEYR A 3 0
+
 	skin 1 "EvilEye_Circler2.png"
-	Skin 2 "candlestikr.png"
-	skin 3 "candleflame1r.png"
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-	FrameIndex CEYR b 0 0		FrameIndex CEYR B 1 10		FrameIndex CEYR B 2 0		FrameIndex CEYR B 3 0
-}
-Model RedEvilEye
-{
-	Path "Models/Decoration/Lights/Flaming"
-	model 0 "EvilEye.md2"
-	model 1 "EvilEye_Circle.md2"
-	model 2 "Candlestick.md2"
-	model 3 "Candleflame.md3"
-	skin 0 "EvilEye.png"
+	FrameIndex CEYR b 0 0		
+	FrameIndex CEYR B 1 10		
+	FrameIndex CEYR B 2 0		
+	FrameIndex CEYR B 3 0
+
 	skin 1 "EvilEye_Circler3.png"
-	Skin 2 "candlestikr.png"
-	skin 3 "candleflame1r.png"
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-	FrameIndex CEYR c 0 0		FrameIndex CEYR C 1 10		FrameIndex CEYR C 2 0		FrameIndex CEYR C 3 0
+	FrameIndex CEYR c 0 0		
+	FrameIndex CEYR C 1 10		
+	FrameIndex CEYR C 2 0		
+	FrameIndex CEYR C 3 0
 }
 
 Model BlueEvilEye
@@ -240,45 +207,28 @@ Model BlueEvilEye
 	model 2 "Candlestick.md2"
 	model 3 "Candleflame.md3"
 	skin 0 "EvilEye.png"
+	Skin 2 "candlestikb.png"
+	skin 3 "candleflame1b.png"
+	scale -0.5 -0.5 0.5
+	ALIGNANGLE
+
 	skin 1 "EvilEye_Circleb.png"
-	Skin 2 "candlestikb.png"
-	skin 3 "candleflame1b.png"
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-
-	FrameIndex CEYB A 0 0		FrameIndex CEYB A 1 10		FrameIndex CEYB A 2 0		FrameIndex CEYB A 3 0
-}
-Model BlueEvilEye
-{
-	Path "Models/Decoration/Lights/Flaming"
-	model 0 "EvilEye.md2"
-	model 1 "EvilEye_Circle.md2"
-	model 2 "Candlestick.md2"
-	model 3 "Candleflame.md3"
-	skin 0 "EvilEye.png"
+	FrameIndex CEYB A 0 0
+	FrameIndex CEYB A 1 10		
+	FrameIndex CEYB A 2 0		
+	FrameIndex CEYB A 3 0
+	
 	skin 1 "EvilEye_Circleb2.png"
-	Skin 2 "candlestikb.png"
-	skin 3 "candleflame1b.png"
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
+	FrameIndex CEYB b 0 0
+	FrameIndex CEYB B 1 10
+	FrameIndex CEYB B 2 0
+	FrameIndex CEYB B 3 0
 
-	FrameIndex CEYB b 0 0		FrameIndex CEYB B 1 10		FrameIndex CEYB B 2 0		FrameIndex CEYB B 3 0
-}
-Model BlueEvilEye
-{
-	Path "Models/Decoration/Lights/Flaming"
-	model 0 "EvilEye.md2"
-	model 1 "EvilEye_Circle.md2"
-	model 2 "Candlestick.md2"
-	model 3 "Candleflame.md3"
-	skin 0 "EvilEye.png"
 	skin 1 "EvilEye_Circleb3.png"
-	Skin 2 "candlestikb.png"
-	skin 3 "candleflame1b.png"
-	scale -0.5 -0.5 0.5
-	ALIGNANGLE
-
-	FrameIndex CEYB c 0 0		FrameIndex CEYB C 1 10		FrameIndex CEYB C 2 0		FrameIndex CEYB C 3 0
+	FrameIndex CEYB c 0 0
+	FrameIndex CEYB C 1 10
+	FrameIndex CEYB C 2 0
+	FrameIndex CEYB C 3 0
 }
 
 Model BlueCandlestick

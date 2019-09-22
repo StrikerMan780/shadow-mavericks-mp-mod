@@ -108,46 +108,6 @@ brightmap texture SKYSTAR4
 	map "Brightmaps/STARRY3.png"
 }
 
-brightmap texture LAVFALL1
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL2
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL3
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL4
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL5
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL6
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL7
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
-brightmap texture LAVFALL8
-{
-	map "Brightmaps/LAVFALL1.png"
-}
-
 // ************ HERETIC BRIGHTMAPS **************
 
 brightmap texture FLT510_1

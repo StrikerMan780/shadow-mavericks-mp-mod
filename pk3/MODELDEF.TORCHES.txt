@@ -1,0 +1,49 @@
+Model ImprovedShortRedTorch
+{
+	path "models/Decoration/Lights/skulltorch"
+	model 0 "skulltorch1.md3"
+	skin 0 "skulltorch1.png"
+	Scale 10.0 10.0 10.0
+	
+	FrameIndex SMRT A 0 0
+}
+
+Model ImprovedShortGreenTorch
+{
+	path "models/Decoration/Lights/skulltorch"
+	model 0 "skulltorch1.md3"
+	skin 0 "skulltorch1.png"
+	Scale 10.0 10.0 10.0
+	
+	FrameIndex SMRT A 0 0
+}
+
+Model ImprovedShortBlueTorch
+{
+	path "models/Decoration/Lights/skulltorch"
+	model 0 "skulltorch1.md3"
+	skin 0 "skulltorch1.png"
+	Scale 10.0 10.0 10.0
+	
+	FrameIndex SMRT A 0 0
+}
+
+Model ImprovedShortYellowTorch
+{
+	path "models/Decoration/Lights/skulltorch"
+	model 0 "skulltorch1.md3"
+	skin 0 "skulltorch1.png"
+	Scale 10.0 10.0 10.0
+	
+	FrameIndex SMRT A 0 0
+}
+
+Model ImprovedShortWhiteTorch
+{
+	path "models/Decoration/Lights/skulltorch"
+	model 0 "skulltorch1.md3"
+	skin 0 "skulltorch1.png"
+	Scale 10.0 10.0 10.0
+	
+	FrameIndex SMRT A 0 0
+}

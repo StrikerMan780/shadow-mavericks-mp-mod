@@ -1,9 +1,7 @@
-alias SpecialMove "use SpecialMove"
+alias SpecialMove "pukename \"SPECIALMOVE\" always 0"
+alias FootstepDebug "pukename \"FOOTSTEP_DEBUG\" always 0"
 alias UseMolotov "use MolotovCocktail"
-
-addkeysection "SMMP Misc Commands" SMMPMiscCommands
-addmenukey "All-In-One Fix" Fix
-alias Fix "snd_channels 64; gl_use_models 1; gl_interpolate_model_frames 1"
+alias Fix "snd_channels 256; gl_use_models 1; gl_interpolate_model_frames 1; showendoom 1"
 
 alias censortoggle "pukename CENSORTOGGLE"
 alias interpolate "gl_interpolate_model_frames 1"
@@ -21,5 +19,4 @@ alias SendTaunt "pukename \"TAUNT_PLAY\" always %1"
 clearplayerclasses
 addplayerclass "Marine"
 addplayerclass "Tails"
-addplayerclass "Link"
 addplayerclass "DukeNukem"

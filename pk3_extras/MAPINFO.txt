@@ -18,7 +18,7 @@ episode MPDUEL01
 
 cluster 8
 {
-	flat = WFWATER1
+	flat = FWATER1
 }
 
 map TITLEMAP "WTF IS THIS SHIT?!"

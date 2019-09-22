@@ -93,3 +93,15 @@ Model LargeSpreadAmmo
 
 	FrameIndex SBOX A 0 0
 }
+
+Model FusionAmmo
+{
+	Path "Models\Pickups"
+	Model 0 "MiniItem.md3"
+	Skin 0 "FusionAmmo.png"
+	Scale 0.9 0.9 0.9
+	ZOffset 12
+	ROTATING
+
+	FrameIndex BATT A 0 0
+}

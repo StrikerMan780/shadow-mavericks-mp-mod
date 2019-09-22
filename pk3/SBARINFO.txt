@@ -4,7 +4,7 @@
 height 0;
 CompleteBorder true;
 LowerHealthCap false;
-Resolution 320, 240;
+Resolution 320, 200;
 CreatePopup status, 32, 76, Fade, 0.25, 1.0;
 
 statusbar PopupStatus, forcescaled, FullScreenOffsets
@@ -17,7 +17,7 @@ statusbar PopupStatus, forcescaled, FullScreenOffsets
 	drawstring SMALLFONT, red, "SPRD", 0, 65, 0, alignment(left), drawshadow(1,1);
 	drawstring SMALLFONT, orange, "PROT", 0, 73, 0, alignment(left), drawshadow(1,1);
 	drawstring SMALLFONT, lightblue, "CELL", 0, 81, 0, alignment(left), drawshadow(1,1);
-	drawstring SMALLFONT, blue, "BATT", 0, 89, 0, alignment(left), drawshadow(1,1);
+	drawstring SMALLFONT, blue, "FUSN", 0, 89, 0, alignment(left), drawshadow(1,1);
 	drawstring SMALLFONT, darkgreen, "HELL", 0, 97, 0, alignment(left), drawshadow(1,1);
 	drawstring SMALLFONT, gold, "GASO", 0, 105, 0, alignment(left), drawshadow(1,1);
 
@@ -37,8 +37,8 @@ statusbar PopupStatus, forcescaled, FullScreenOffsets
 	drawnumber 3, SMALLFONT, yellow, ammocapacity ProtonAmmo, drawshadow(1,1), 103, 73;
 	drawnumber 3, SMALLFONT, yellow, ammo CellAmmo, drawshadow(1,1), 66, 81;
 	drawnumber 3, SMALLFONT, yellow, ammocapacity CellAmmo, drawshadow(1,1), 103, 81;
-	drawnumber 3, SMALLFONT, yellow, ammo CricketAmmo, drawshadow(1,1), 66, 89;
-	drawnumber 3, SMALLFONT, yellow, ammocapacity CricketAmmo, drawshadow(1,1), 103, 89;
+	drawnumber 3, SMALLFONT, yellow, ammo FusionAmmo, drawshadow(1,1), 66, 89;
+	drawnumber 3, SMALLFONT, yellow, ammocapacity FusionAmmo, drawshadow(1,1), 103, 89;
 	drawnumber 3, SMALLFONT, yellow, ammo HellfireAmmo, drawshadow(1,1), 66, 97;
 	drawnumber 3, SMALLFONT, yellow, ammocapacity HellfireAmmo, drawshadow(1,1), 103, 97;
 	drawnumber 3, SMALLFONT, yellow, ammo GasolineAmmo, drawshadow(1,1), 66, 105;
@@ -53,18 +53,24 @@ statusbar normal, forcescaled
 	drawstring SMALLFONT, red, "Press + to show HUD", 160, 220, 0, alignment(center);
 }
 
-statusbar fullscreen, forcescaled, FullScreenOffsets
+statusbar fullscreen, forcescaled //, FullScreenOffsets
 {
 	IsSelected FlameThrowerWeap
 	{
-		DrawBar "HEATLEFT", "HEATLBAK", FlameHeat, vertical, -16+center, -11+center;
-		DrawBar "HEATRGHT", "HEATRBAK", FlameHeat, vertical, 7+center, -11+center;
+		//DrawBar "HEATLEFT", "HEATLBAK", FlameHeat, vertical, -16+center, -11+center;
+		//DrawBar "HEATRGHT", "HEATRBAK", FlameHeat, vertical, 7+center, -11+center;
+		
+		DrawBar "HEATLEFT", "HEATLBAK", FlameHeat, vertical, 144, 89;
+		DrawBar "HEATRGHT", "HEATRBAK", FlameHeat, vertical, 167, 89;
 	}
 	
-	IsSelected EtherealCrossbow
+	IsSelected WookieBowcaster
 	{
-		DrawBar "HEATLEFT", "HEATLBAK", BowCharge, vertical, -16+center, -11+center;
-		DrawBar "HEATRGHT", "HEATRBAK", BowCharge, vertical, 7+center, -11+center;
+		//DrawBar "HEATLEFT", "HEATLBAK", BowCharge, vertical, -16+center, -11+center;
+		//DrawBar "HEATRGHT", "HEATRBAK", BowCharge, vertical, 7+center, -11+center;
+		
+		DrawBar "HEATLEFT", "HEATLBAK", BowCharge, vertical, 144, 89;
+		DrawBar "HEATRGHT", "HEATRBAK", BowCharge, vertical, 167, 89;
 	}
 
 	IsSelected ValkrieCannons, DeathbringerCannons
@@ -102,51 +108,73 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 	IsSelected not ValkrieCannons, DeathbringerCannons
 	{ // Start
 			// DP Area -
-			DrawBar "DPBAR", "DPBARBK", DemonicPower, vertical, -34, 2;
-			drawnumber 3, SMALLFONT, white, ammo DemonicPower, alignment(center), drawshadow(1,1), -19, 13;
+			//DrawBar "DPBAR", "DPBARBK", DemonicPower, vertical, -34, 2;
+			//drawnumber 3, SMALLFONT, white, ammo DemonicPower, alignment(center), drawshadow(1,1), -19, 13;
+			
+			DrawBar "DPBAR", "DPBARBK", DemonicPower, vertical, 286, 2;
+			drawnumber 3, SMALLFONT, white, ammo DemonicPower, alignment(center), drawshadow(1,1), 301, 13;
 
 			// Ammo Counters -
-			drawimage ammoicon1, -12, -14, center;
-			drawnumber 3, BIGFONT, red, ammo1, drawshadow(1,1), -25, -23;
-			drawimage ammoicon2, -12, -38, center;
-			drawnumber 3, BIGFONT, red, ammo2, drawshadow(1,1), -25, -47;
+			//drawimage ammoicon1, -12, -14, center;
+			//drawnumber 3, BIGFONT, red, ammo1, drawshadow(1,1), -25, -23;
+			//drawimage ammoicon2, -12, -38, center;
+			//drawnumber 3, BIGFONT, red, ammo2, drawshadow(1,1), -25, -47;
+			
+			drawimage ammoicon1, 308, 186, center;
+			drawnumber 3, BIGFONT, red, ammo1, drawshadow(1,1), 295, 177;
+			drawimage ammoicon2, 308, 162, center;
+			drawnumber 3, BIGFONT, red, ammo2, drawshadow(1,1), 295, 153;
 
 			IsSelected SmartRifle
 			{
-				drawimage "PRTNICON", -68, -14, center;
-				drawnumber 3, BIGFONT, red, ProtonAmmo, drawshadow(1,1), -81, -23;
+				//drawimage "PRTNICON", -68, -14, center;
+				//drawnumber 3, BIGFONT, red, ProtonAmmo, drawshadow(1,1), -81, -23;
+				
+				drawimage "PRTNICON", 252, 186, center;
+				drawnumber 3, BIGFONT, red, ProtonAmmo, drawshadow(1,1), 239, 177;
 			}
 
 			// Selected Item -
-			DrawSelectedInventory drawshadow(1,1), center, SMALLFONT, -18, -74, -38, -81, green, 0;
+			//DrawSelectedInventory drawshadow(1,1), center, SMALLFONT, -18, -74, -38, -81, green, 0;
+			
+			DrawSelectedInventory drawshadow(1,1), center, SMALLFONT, 302, 126, 282, 119, green, 0;
 
 			// Collected Flags -
 			DrawSwitchableImage BlueFlag, "nullimage","BLUFICON", 298, 42;
 			DrawSwitchableImage RedFlag, "nullimage","REDFICON", 298, 42;
 			DrawSwitchableImage WhiteFlag, "nullimage","WHTFICON", 298, 42;
 
-			drawimage "FRAGS", -52, 18, center;
+			//drawimage "FRAGS", -52, 18, center;
+			drawimage "FRAGS", 268, 18, center;
+			
 			// Deathmatch -
 			gamemode deathmatch, teamgame
 			{
-				drawnumber 3, SMALLFONT, red, frags, alignment(center), drawshadow(1,1), -53, 13;
+				//drawnumber 3, SMALLFONT, red, frags, alignment(center), drawshadow(1,1), -53, 13;
+				drawnumber 3, SMALLFONT, red, frags, alignment(center), drawshadow(1,1), 267, 13;
 			}
 
 			// Cooperative -
 			gamemode singleplayer, cooperative
 			{
-				drawnumber 3, SMALLFONT, red, kills, alignment(center), drawshadow(1,1), -53, 13;
+				//drawnumber 3, SMALLFONT, red, kills, alignment(center), drawshadow(1,1), -53, 13;
+				drawnumber 3, SMALLFONT, red, kills, alignment(center), drawshadow(1,1), 267, 13;
 			}
 
 			// Rune Display -
 			InInventory Kamikaze, 1
 			{
-				DrawImage "KAMIKAZ0", 128, -23, center;
-				DrawImage runeicon, 172, -23, center;
+				//DrawImage "KAMIKAZ0", 128, -23, center;
+				//DrawImage runeicon, 172, -23, center;
+				
+				DrawImage "KAMIKAZ0", 128, 177, center;
+				DrawImage runeicon, 172, 177, center;
 			}
 			else
 			{
-				DrawImage runeicon, 128, -23, center;
+				//DrawImage runeicon, 128, -23, center;
+				
+				DrawImage runeicon, 128, 177, center;
 			}
 
 			// Health and Armor Display -
@@ -159,23 +187,35 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 			//}
 			//else
 			//{
-				DrawBar "HPLEFT", "HPLEFTE", health, horizontal, interpolate(10), reverse, 3, -30;
-				DrawBar "HPRIGHT", "HPRIGHTE", health, horizontal, interpolate(10), 53, -30;
-				drawnumber 3, SMALLFONT, red, health, alignment(center), drawshadow(1,1), 53, -29;
+				//DrawBar "HPLEFT", "HPLEFTE", health, horizontal, interpolate(10), reverse, 3, -30;
+				//DrawBar "HPRIGHT", "HPRIGHTE", health, horizontal, interpolate(10), 53, -30;
+				//drawnumber 3, SMALLFONT, red, health, alignment(center), drawshadow(1,1), 53, -29;
+				
+				DrawBar "HPLEFT", "HPLEFTE", health, horizontal, interpolate(10), reverse, 3, 170;
+				DrawBar "HPRIGHT", "HPRIGHTE", health, horizontal, interpolate(10), 53, 170;
+				drawnumber 3, SMALLFONT, red, health, alignment(center), drawshadow(1,1), 53, 171;
 			//}
 			
 			// This needs to be changed to IfArmorType if it ever gets fucking implemented.
 			InInventory "BasicArmor", 101 
 			{
-				DrawBar "A2LEFT", "A2LEFTE", armor, horizontal, reverse, 3, -16;
-				DrawBar "A2RIGHT", "A2RIGHTE", armor, horizontal, 53, -16;
-				drawnumber 3, SMALLFONT, lightblue, armor, alignment(center), drawshadow(1,1), 53, -15;
+				//DrawBar "A2LEFT", "A2LEFTE", armor, horizontal, reverse, 3, -16;
+				//DrawBar "A2RIGHT", "A2RIGHTE", armor, horizontal, 53, -16;
+				//drawnumber 3, SMALLFONT, lightblue, armor, alignment(center), drawshadow(1,1), 53, -15;
+				
+				DrawBar "A2LEFT", "A2LEFTE", armor, horizontal, reverse, 3, 184;
+				DrawBar "A2RIGHT", "A2RIGHTE", armor, horizontal, 53, 184;
+				drawnumber 3, SMALLFONT, lightblue, armor, alignment(center), drawshadow(1,1), 53, 185;
 			}
 			else
 			{
-				DrawBar "A1LEFT", "A1LEFTE", armor, horizontal, reverse, 3, -16;
-				DrawBar "A1RIGHT", "A1RIGHTE", armor, horizontal, 53, -16;
-				drawnumber 3, SMALLFONT, green, armor, alignment(center), drawshadow(1,1), 53, -15;
+				//DrawBar "A1LEFT", "A1LEFTE", armor, horizontal, reverse, 3, -16;
+				//DrawBar "A1RIGHT", "A1RIGHTE", armor, horizontal, 53, -16;
+				//drawnumber 3, SMALLFONT, green, armor, alignment(center), drawshadow(1,1), 53, -15;
+				
+				DrawBar "A1LEFT", "A1LEFTE", armor, horizontal, reverse, 3, 184;
+				DrawBar "A1RIGHT", "A1RIGHTE", armor, horizontal, 53, 184;
+				drawnumber 3, SMALLFONT, green, armor, alignment(center), drawshadow(1,1), 53, 185;
 			}
 			
 			// ST Skulls -
@@ -183,33 +223,49 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 			DrawSwitchableImage RedSkullST, "nullimage","REDSTICO", 298, 49;
 
 			// Keys -
-			DrawSwitchableImage BlueCard, "nullimage","BKEYICON", 22, -48, center;
-			DrawSwitchableImage RedCard, "nullimage","RKEYICON", 34, -48, center;
-			DrawSwitchableImage YellowCard, "nullimage","YKEYICON", 46, -48, center;
-			DrawSwitchableImage BlueSkull, "nullimage","BSKUICON", 58, -48, center;
-			DrawSwitchableImage RedSkull, "nullimage","RSKUICON", 70, -48, center;
-			DrawSwitchableImage YellowSkull, "nullimage","YSKUICON", 82, -48, center;
+			//DrawSwitchableImage BlueCard, "nullimage","BKEYICON", 22, -48, center;
+			//DrawSwitchableImage RedCard, "nullimage","RKEYICON", 34, -48, center;
+			//DrawSwitchableImage YellowCard, "nullimage","YKEYICON", 46, -48, center;
+			//DrawSwitchableImage BlueSkull, "nullimage","BSKUICON", 58, -48, center;
+			//DrawSwitchableImage RedSkull, "nullimage","RSKUICON", 70, -48, center;
+			//DrawSwitchableImage YellowSkull, "nullimage","YSKUICON", 82, -48, center;
+			
+			DrawSwitchableImage BlueCard, "nullimage","BKEYICON", 22, 152, center;
+			DrawSwitchableImage RedCard, "nullimage","RKEYICON", 34, 152, center;
+			DrawSwitchableImage YellowCard, "nullimage","YKEYICON", 46, 152, center;
+			DrawSwitchableImage BlueSkull, "nullimage","BSKUICON", 58, 152, center;
+			DrawSwitchableImage RedSkull, "nullimage","RSKUICON", 70, 152, center;
+			DrawSwitchableImage YellowSkull, "nullimage","YSKUICON", 82, 152, center;
 
 			// HQ Keys -
-			DrawSwitchableImage KeyPiece1, "nullimage","KEYHUD1", 22, -38, center;
-			DrawSwitchableImage KeyPiece2, "nullimage","KEYHUD2", 34, -38, center;
-			DrawSwitchableImage KeyPiece3, "nullimage","KEYHUD3", 46, -38, center;
-			DrawSwitchableImage KeyPiece4, "nullimage","KEYHUD4", 58, -38, center;
-			DrawSwitchableImage KeyPiece5, "nullimage","KEYHUD5", 70, -38, center;
-			DrawSwitchableImage KeyPiece6, "nullimage","KEYHUD6", 82, -38, center;
+			//DrawSwitchableImage KeyPiece1, "nullimage","KEYHUD1", 22, -38, center;
+			//DrawSwitchableImage KeyPiece2, "nullimage","KEYHUD2", 34, -38, center;
+			//DrawSwitchableImage KeyPiece3, "nullimage","KEYHUD3", 46, -38, center;
+			//DrawSwitchableImage KeyPiece4, "nullimage","KEYHUD4", 58, -38, center;
+			//DrawSwitchableImage KeyPiece5, "nullimage","KEYHUD5", 70, -38, center;
+			//DrawSwitchableImage KeyPiece6, "nullimage","KEYHUD6", 82, -38, center;
+			
+			DrawSwitchableImage KeyPiece1, "nullimage","KEYHUD1", 22, 162, center;
+			DrawSwitchableImage KeyPiece2, "nullimage","KEYHUD2", 34, 162, center;
+			DrawSwitchableImage KeyPiece3, "nullimage","KEYHUD3", 46, 162, center;
+			DrawSwitchableImage KeyPiece4, "nullimage","KEYHUD4", 58, 162, center;
+			DrawSwitchableImage KeyPiece5, "nullimage","KEYHUD5", 70, 162, center;
+			DrawSwitchableImage KeyPiece6, "nullimage","KEYHUD6", 82, 162, center;
 
 			// Tails Ability Bars -
 			playerclass Tails
 			{
 				InInventory TailsFlightCheck, 1
 				{
-					DrawBar "FLIGHT", "FLIGHTBK", TailsFlightCheck, vertical, -29, 42;
+					//DrawBar "FLIGHT", "FLIGHTBK", TailsFlightCheck, vertical, -29, 42;
+					DrawBar "FLIGHT", "FLIGHTBK", TailsFlightCheck, vertical, 291, 42;
 				}
 				else
 				{
 					InInventory NOT TailsFlightTrigger, 1
 					{
-						DrawBar "FLIGHT", "FLIGHTBK", PowerupTime TailsFlight, vertical, -29, 42;
+						//DrawBar "FLIGHT", "FLIGHTBK", PowerupTime TailsFlight, vertical, -29, 42;
+						DrawBar "FLIGHT", "FLIGHTBK", PowerupTime TailsFlight, vertical, 291, 42;
 					}
 				}
 			}
@@ -219,7 +275,8 @@ statusbar fullscreen, forcescaled, FullScreenOffsets
 			{
 				InInventory NOT FlareCheck, 100
 				{
-					DrawBar "FLARE", "FLAREBK", FlareCheck, vertical, -29, 42;
+					//DrawBar "FLARE", "FLAREBK", FlareCheck, vertical, -29, 42;
+					DrawBar "FLARE", "FLAREBK", FlareCheck, vertical, 291, 42;
 				}
 			}
 	} //End

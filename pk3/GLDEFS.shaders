@@ -1,0 +1,107 @@
+HardwareShader texture HEALTHRD
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture HEALTHYL
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture HEALTHPR
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDBLU
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDGRN
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDRED
+{
+	Shader "shaders/scroll_down_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture SHLDRING
+{
+	Shader "shaders/scroll_right_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture PLASBLUE
+{
+	Shader "shaders/scroll_bfg10k.fp"
+	Speed 1.0
+}
+
+HardwareShader texture POWBUBBL
+{
+	Shader "shaders/scroll_up.fp"
+	Speed 1.0
+}
+
+HardwareShader texture FBALLOUT
+{
+	Shader "shaders/scroll_right_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture FBALLIN
+{
+	Shader "shaders/scroll_up_fullbright.fp"
+	Speed 5.0
+}
+
+HardwareShader texture TCHOBALL
+{
+	Shader "shaders/flamewall_black.fp"
+	Speed 4.0
+}
+
+HardwareShader sprite SHDFA0
+{
+	Shader "shaders/flame.fp"
+	Speed 1.0
+}
+
+HardwareShader texture NWATER1
+{
+	Shader "shaders/water.fp"
+	Speed 1.0
+}
+
+HardwareShader texture NSLIME1
+{
+	Shader "shaders/water.fp"
+	Speed 0.5
+}
+
+HardwareShader texture NNUKE1
+{
+	Shader "shaders/water_fullbright.fp"
+	Speed 0.5
+}
+
+HardwareShader texture SLIME05
+{
+	Shader "shaders/water.fp"
+	Speed 0.5
+}
+
+HardwareShader texture BLOOD1
+{
+	Shader "shaders/water.fp"
+	Speed 0.5
+}

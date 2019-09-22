@@ -47,76 +47,20 @@ flat FLATHUH4
 	pic	NLAVA1 tics 8
 	
 flat FLTWAWA1
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
 
 flat FLTWAWA2
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
 	
 flat FLTWAWA3
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
 	
 flat FLTWAWA4
-	pic	NWATER1 tics 2
-	pic	NWATER2 tics 2
-	pic	NWATER3 tics 2
-	pic	NWATER4 tics 2
-	pic	NWATER5 tics 2
-	pic	NWATER6 tics 2
-	pic	NWATER7 tics 2
-	pic	NWATER8 tics 2
-	pic	NWATER9 tics 2
-	pic	NWATER10 tics 2
-	pic	NWATER11 tics 2
-	pic	NWATER12 tics 2
-	pic	NWATER13 tics 2
-	pic	NWATER14 tics 2
-	pic	NWATER15 tics 2
-	pic	NWATER16 tics 2
+	pic	NWATER1 tics 8
+	pic	NWATER1 tics 8
 	
 flat FLAT510
 	pic	FLT510_1 tics 12

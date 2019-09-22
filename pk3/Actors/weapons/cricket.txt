@@ -8,13 +8,14 @@ actor Noisy_Cricket : Weapon 12345
 	radius 20
 	height 16
 	weapon.kickback 100
-	weapon.ammotype "CricketAmmo"
-	weapon.ammouse 1
-	weapon.ammogive 1
+	weapon.ammotype "FusionAmmo"
+	weapon.ammouse 40
+	weapon.ammogive 40
 	DamageType "Obliterate"
 	attacksound "CricketFire"
 	+WEAPON.BFG
 	+WEAPON.NOLMS
+	+INVENTORY.IGNORESKILL
 	states
 	{
 		Ready:

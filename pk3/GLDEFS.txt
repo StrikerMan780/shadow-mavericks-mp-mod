@@ -603,13 +603,13 @@ flickerlight ARACHPLAS_X4
 
 object PowerBeam
 {
-    frame APLS { light ARACHPLAS }
+    frame ARPL { light ARACHPLAS }
 
-    frame APBXA { light ARACHPLAS_X1 }
-    frame APBXB { light ARACHPLAS_X2 }
-    frame APBXC { light ARACHPLAS_X2 }
-    frame APBXD { light ARACHPLAS_X3 }
-    frame APBXE { light ARACHPLAS_X4 }
+    frame ARPXA { light ARACHPLAS_X1 }
+    frame ARPXB { light ARACHPLAS_X2 }
+    frame ARPXC { light ARACHPLAS_X2 }
+    frame ARPXD { light ARACHPLAS_X3 }
+    frame ARPXE { light ARACHPLAS_X4 }
 }
 
 pulselight ForceEffect
@@ -1679,6 +1679,25 @@ object LargeProtonAmmo
 	frame BROK { light LargeProtonAmmoLight }
 }
 
+pointlight FusionAmmoLight
+{
+	color 0.0 1.0 0.0
+	offset 0 22 0
+	Size 16
+}
+
+pointlight LargeFusionAmmoLight
+{
+	color 0.0 1.0 0.0
+	offset 0 22 0
+	Size 24
+}
+
+object FusionAmmo
+{
+	frame BATT { light FusionAmmoLight }
+}
+
 pointlight EnergyBallSmall
 {
 	color 0.0 0.7 1.0
@@ -2257,103 +2276,16 @@ Object Cybruiser
 	Frame BRUSR { Light CybruiserDeath8 }
 }
 
-HardwareShader texture HEALTHRD
+pointlight BLACKHOLE
 {
-	Shader "shaders/scroll_down_fullbright.fp"
-	Speed 4.0
+    color 0.25 0.25 0.25
+    size 48
+	subtractive 1
 }
 
-HardwareShader texture HEALTHYL
+pointlight BLACKHOLE2
 {
-	Shader "shaders/scroll_down_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture HEALTHPR
-{
-	Shader "shaders/scroll_down_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture SHLDBLU
-{
-	Shader "shaders/scroll_down_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture SHLDGRN
-{
-	Shader "shaders/scroll_down_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture SHLDRED
-{
-	Shader "shaders/scroll_down_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture SHLDRING
-{
-	Shader "shaders/scroll_right_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture PLASBLUE
-{
-	Shader "shaders/scroll_bfg10k.fp"
-	Speed 1.0
-}
-
-HardwareShader texture POWBUBBL
-{
-	Shader "shaders/scroll_up.fp"
-	Speed 1.0
-}
-
-HardwareShader texture FBALLOUT
-{
-	Shader "shaders/scroll_right_fullbright.fp"
-	Speed 4.0
-}
-
-HardwareShader texture FBALLIN
-{
-	Shader "shaders/scroll_up_fullbright.fp"
-	Speed 5.0
-}
-
-Glow
-{
-	Flats
-	{
-		FLTLAVA1
-		FLTLAVA2
-		FLTLAVA3
-		FLTLAVA4
-		FLATHUH1
-		FLATHUH2
-		FLATHUH3
-		FLATHUH4
-		NLAVA1
-		LAVA1
-		NUKAGE1
-		NUKAGE2
-		NUKAGE3
-		NUKAGE4
-		NUKAGE5
-		NUKAGE6
-		NUKAGE7
-		NUKAGE8
-		NUKAGE9
-		NUKAGE10
-		NUKAGE11
-		NUKAGE12
-	}
-	Walls
-	{
-		ROCKRED1
-		ROCKRED2
-		ROCKRED3
-	}
+    color 0.5 0.5 0.5
+    size 56
+	subtractive 1
 }
