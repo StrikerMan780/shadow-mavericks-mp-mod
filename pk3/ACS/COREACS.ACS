@@ -11,6 +11,7 @@ int ClassAllowed;
 int RailOnce = 0;
 int PlayerJumpCheck[64];
 int PlayerAbilityCooldown[64];
+int PlayerLastDemonicPower[64];
 
 str OldWeapon[64];
 
@@ -155,11 +156,17 @@ function void smmp_spawn (int respawned)
 	if(respawned >= 1)
 	{
 		MakeTaunt(TAUNT_RESPAWN);
+		if(GetCvar("smmp_keepdp"))
+		{
+			TakeInventory("DemonicPower", 999);
+			GiveInventory("DemonicPower", PlayerLastDemonicPower[PlayerNumber()]);
+		}
 	}
 	else
 	{
 		MakeTaunt(TAUNT_ENTRY);
 		PlayerAbilityCooldown[PlayerNumber()] = false;
+		PlayerLastDemonicPower[PlayerNumber()] = 0;
 	}
 	
 	if(CheckInventory("ValkrieCannons") >= 1 || CheckInventory("DeathbringerCannons") >= 1)
@@ -210,6 +217,14 @@ function void GiveDP(int amount)
 	int current_dp = CheckInventory("DemonicPower");
 	if(current_dp >= 100 || PlayerAbilityCooldown[PlayerNumber()])
 		return;
+	
+	if(GameType() == GAME_NET_DEATHMATCH)
+	{
+		if(PlayerFrags() < 0)
+		{
+			amount *= 2;
+		}
+	}
 		
 	if(current_dp+amount > 100)
 		amount = 100-current_dp;
@@ -260,6 +275,7 @@ script "DEATHINVENTORY" DEATH
 	TakeInventory("DrunkMode", 1);
 	TakeInventory("DeathbringerCannons", 1);
 	TakeInventory("ValkrieCannons", 1);
+	PlayerLastDemonicPower[PlayerNumber()] = CheckInventory("DemonicPower");
 	
 	if(CheckInventory("Kamikaze") > 0)
 	{

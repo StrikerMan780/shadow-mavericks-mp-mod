@@ -3,6 +3,7 @@ server noarchive int smmp_daycycle_minutes = 24;
 server noarchive int smmp_weathertype = 0;
 server noarchive int smmp_weatherdensity = 32;
 server noarchive bool smmp_weathersound = true;
+server noarchive bool smmp_keepdp = true;
 server noarchive bool smmp_scrumpy = false;
 server noarchive bool smmp_block_marine = false;
 server noarchive bool smmp_block_tails = false;
