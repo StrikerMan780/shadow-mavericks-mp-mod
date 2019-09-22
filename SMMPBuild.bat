@@ -1,14 +1,32 @@
 @echo off
+setlocal
+setlocal EnableDelayedExpansion
+
 SET PATH=%PATH%;%~dp0\Tools
+set GIT=None
 set WorkingCopyPath=%~dp0
 set REVISIONNUMBER=Unknown
-cls
 
-:GITRefresh
-echo ------------------------------
-echo Retrieving GIT Revision Number
-echo ------------------------------
-for /f "delims=" %%i in ('git rev-list HEAD --count') do set REVISIONNUMBER=%%i
+for /f "tokens=1-2*" %%A in ('reg query HKEY_LOCAL_MACHINE\Software\GitForWindows /v InstallPath ^| find "REG_SZ"') do (
+	set GIT=%%C
+	set "PATH=!GIT!\bin;%PATH%"
+)
+
+if exist "!GIT!\bin\git.exe" (
+	echo Found Git at !GIT!
+	goto GITFOUND
+) else (
+	echo GIT NOT FOUND^^!
+	goto MENU
+)
+
+:GITFOUND
+echo ---------------------------
+echo Retrieving GIT Commit Count
+echo ---------------------------
+for /f "delims=" %%i in ('git rev-list HEAD --count') do ( 
+	set "REVISIONNUMBER=%%i"
+)
 
 :MENU
 cd /d %~dp0
@@ -88,7 +106,7 @@ chgcolor 07
 echo.
 CHOICE /C 12345678 /N /M "Choose Option (Number Keys):"
 IF ERRORLEVEL 8 GOTO LEAVE
-IF ERRORLEVEL 7 GOTO GITREFRESH
+IF ERRORLEVEL 7 GOTO GITFOUND
 IF ERRORLEVEL 6 GOTO GITEXTRASQUICK
 IF ERRORLEVEL 5 GOTO GITCOREQUICK
 IF ERRORLEVEL 4 GOTO GITEXTRASFULL
@@ -103,7 +121,7 @@ del .\pk3\*.tmp /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_Core_DEV.pk3 .\
+7za a -y -tzip -mx=0 -mmt -xr^^!.GIT -xr^^!*.dbs -xr^^!*.tmp ..\builds\SMMP_Core_DEV.pk3 .\
 
 pause
 goto MENU
@@ -116,7 +134,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_MapsAndExtras_DEV.pk3 .\
+7za a -y -tzip -mx=0 -mmt -xr^^!.GIT -xr^^!*.dbs -xr^^!*.tmp ..\builds\SMMP_MapsAndExtras_DEV.pk3 .\
 
 pause
 goto MENU
@@ -127,7 +145,7 @@ del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -tzip -mx=9 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=9 -mmt -xr^^!.GIT -xr^^!*.dbs -xr^^!*.tmp ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
@@ -139,7 +157,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -tzip -mx=9 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=9 -mmt -xr^^!.GIT -xr^^!*.dbs -xr^^!*.tmp ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
@@ -150,7 +168,7 @@ del .\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 /q
 move /Y .\pk3\*.bak .\backups >nul 2>&1
 
 cd pk3
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=0 -mmt -xr^^!.GIT -xr^^!*.dbs -xr^^!*.tmp ..\builds\SMMP_Core_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
@@ -162,7 +180,7 @@ move /Y .\pk3_extras\Maps\*.backup* .\backups >nul 2>&1
 move /Y .\pk3_extras\Maps\*.bak .\backups >nul 2>&1
 
 cd pk3_extras
-7za a -y -tzip -mx=0 -mmt -xr!.GIT -xr!*.dbs -xr!*.tmp ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
+7za a -y -tzip -mx=0 -mmt -xr^^!.GIT -xr^^!*.dbs -xr^^!*.tmp ..\builds\SMMP_MapsAndExtras_r%REVISIONNUMBER%.pk3 .\
 
 pause
 goto MENU
