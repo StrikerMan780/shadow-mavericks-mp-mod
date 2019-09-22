@@ -33,6 +33,72 @@ actor MP40Giver_Dropped : MP40Giver
 	}
 }
 
+actor ShotgunGiver : ClassWeaponGiver Replaces Shotgun
+{	
+	states
+	{
+		Item:
+			SHOT A 35
+			goto CheckStatus
+		Marine:
+			SHOT A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Tails:
+			SHOT A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			DSHT A 35 A_SetUserVar("user_scale", 50)
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 0, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			"####" "#" 0 A_SpawnItemEx("ShotgunGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor ShotgunGiver_Dropped : ShotgunGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 0, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor SuperShotgunGiver : ClassWeaponGiver Replaces SuperShotgun
+{	
+	states
+	{
+		Item:
+			SGN2 A -1
+			loop
+		Pickup:
+			SGN2 A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 1, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			SGN2 A 0 A_SpawnItemEx("SuperShotgunGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor SuperShotgunGiver_Dropped : SuperShotgunGiver
+{
+	States
+	{
+		Spawn:
+			SGN2 A 63000
+			goto FadeAway
+		Pickup:
+			SGN2 A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 1, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
 
 actor ElementalSSGGiver : ClassWeaponGiver 12346
 {
@@ -250,6 +316,35 @@ actor RailgunGiver_Dropped : RailgunGiver
 			goto CheckStatus
 		Pickup:
 			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 10, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor StingerGiver : ClassWeaponGiver 21122
+{	
+	states
+	{
+		Item:
+			STNW A -1
+			loop
+		Pickup:
+			STNW A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 7, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			STNW A 0 A_SpawnItemEx("StingerGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor StingerGiver_Dropped : StingerGiver
+{
+	States
+	{
+		Spawn:
+			STNW A 63000
+			goto FadeAway
+		Pickup:
+			STNW A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 7, 1) == TRUE, "Stay")
 			goto Remove
 	}
 }
