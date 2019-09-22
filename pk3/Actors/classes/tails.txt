@@ -161,9 +161,7 @@ actor Tails : BaseClass
 		Wait
 		
 	ChaosDash:
-		TSPN A 0 A_ChangeFlag("INVULNERABLE", 1)
 		TSPN A 0 A_ChangeFlag("NOPAIN", 1)
-		TSPN A 0 A_ChangeFlag("NODAMAGE", 1)
 		TSPN A 0 A_Stop
 		TSPN A 0 A_Quake(1, 105, 0, 300, "world/quake")
 		TSPN A 0 ACS_NamedExecuteAlways("STARTCAMERA", 0) // Chasecam
@@ -198,11 +196,8 @@ actor Tails : BaseClass
 		TSPN A 0 A_PlaySound("ChaosDone", CHAN_AUTO, 1.0, false, 0.5)
 		TSPN AB 2
 		TSPN C 3
-		TAIL A 0 ACS_NamedExecuteAlways("STOPCAMERA", 0)
 		TNT1 A 0 ACS_NamedExecuteAlways("STOPABILITY", 0)
-		TNT1 A 0 A_ChangeFlag("INVULNERABLE", 0)
 		TNT1 A 0 A_ChangeFlag("NOPAIN", 0)
-		TSPN A 0 A_ChangeFlag("NODAMAGE", 0)
 		goto See
 	}
 }

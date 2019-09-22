@@ -9,6 +9,16 @@
 
 bool camera_mode;		//Variable for turning the camera on or off.
 int playerheight;
+
+function void OldCamera(int a, int p)
+{
+	int r = (GetCVar("chase_dist") >> 16);
+	int xyr = r * cos (p) >> 16;
+	int x = GetActorX (0) - cos(a)*xyr;
+	int y = GetActorY (0) - sin(a)*xyr;
+	int z = (GetActorZ (0) + playerheight) + sin(p)*r;
+	Spawn ("ChaseCamWaypoint", x, y, z, 0, a >> 8);
+}
 	
 Script "STARTCAMERA" (VOID) CLIENTSIDE
 {
@@ -39,8 +49,17 @@ Script "CHASECAM" (void) CLIENTSIDE
 			SpawnForced("ChaseCam2", GetActorX(0), GetActorY(0), GetActorZ(0), CAMERA_TID, 0);
 			if (ThingCountName ("ChaseCam2", CAMERA_TID))
 			{
-				LineAttack(0, a + 0.5, -p, 0, "ChaseCamWaypoint", "", GetCVar("chase_dist"), FHF_NORANDOMPUFFZ);
+				if(!IsNetworkGame())
+				{
+					LineAttack(0, a + 0.5, -p, 0, "ChaseCamWaypoint", "", GetCVar("chase_dist"), FHF_NORANDOMPUFFZ);
+				}
+				else // If Online, use old hacky chasecam. Remove if fixed.
+				{
+					OldCamera(a, p);
+				}
+				
 				SetActorPitch (CAMERA_TID, p);
+				SetActorAngle (CAMERA_TID, a);
 				ChangeCamera (CAMERA_TID, 0, 0);
 			}
 			else
@@ -51,9 +70,16 @@ Script "CHASECAM" (void) CLIENTSIDE
 		}
 		else
 		{
-			LineAttack(0, a + 0.5, -p, 0, "ChaseCamWaypoint", "", GetCVar("chase_dist"), FHF_NORANDOMPUFFZ);
-			//SetActorAngle (CAMERA_TID + p_num, a);
+			if(!IsNetworkGame())
+			{
+				LineAttack(0, a + 0.5, -p, 0, "ChaseCamWaypoint", "", GetCVar("chase_dist"), FHF_NORANDOMPUFFZ);
+			}
+			else // If Online, use old hacky chasecam. Remove if fixed.
+			{
+				OldCamera(a, p);
+			}
 			SetActorPitch (CAMERA_TID, p);
+			SetActorAngle (CAMERA_TID, a);
 		}
 		
 		delay(1);

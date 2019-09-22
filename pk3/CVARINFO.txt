@@ -14,3 +14,5 @@ server bool ithurts = false;
 user bool smmp_uncensored = false;
 user int smmp_sabercolor = 0;
 user string feedme = "";
+
+// server, user, and local are the var types.

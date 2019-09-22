@@ -258,9 +258,7 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PTOR F -1
 		stop
 	WrathOfTheWickedSpirits:
-		PLW1 A 0 A_ChangeFlag("NODAMAGE", 1)
 		PLW1 A 0 A_ChangeFlag("NOPAIN", 1)
-		PLW1 A 0 A_ChangeFlag("INVULNERABLE", 1)
 		PLW1 A 0 A_Stop
 		PLW1 A 0 A_Quake(1, 105, 0, 300, "world/quake")
 		PLW1 A 0 A_PlaySound("WrathStart", CHAN_AUTO, 1.0, false, 0.5)
@@ -303,12 +301,8 @@ actor Marine : BaseClass Replaces DoomPlayer
 		PLW2 EFGH 3
 		PLW2 ABCDEFGH 3
 		PLW2 ABCDEFGH 4
-		
-		PLW1 A 0 ACS_NamedExecuteAlways("STOPCAMERA", 0)
 		PLW1 A 0 ACS_NamedExecuteAlways("STOPABILITY", 0)
-		PLW1 A 0 A_ChangeFlag("NODAMAGE", 0)
 		PLW1 A 0 A_ChangeFlag("NOPAIN", 0)
-		PLW1 A 0 A_ChangeFlag("INVULNERABLE", 0)
 		goto Spawn
 	}
 }
