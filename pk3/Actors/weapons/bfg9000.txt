@@ -775,7 +775,7 @@ actor Supra : Weapon
 	Tag "Supra"
 	obituary "%o was 'sploded by %k's Supra"
 	Inventory.PickupSound "misc/w_pkup"
-	weapon.selectionorder 1000
+	Weapon.SelectionOrder 2800
 	weapon.kickback 100
 	Weapon.AmmoType1 "CellAmmo"
 	Weapon.AmmoGive 0
