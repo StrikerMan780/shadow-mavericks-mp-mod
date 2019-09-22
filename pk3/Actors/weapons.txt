@@ -74,6 +74,8 @@ actor ClassWeaponGiver : CustomInventory
 #include "actors/weapons/excalibat.txt"
 #include "actors/weapons/jokeweapons.txt"
 
+#include "actors/weapons/weapon_givers.txt" // DO NOT MOVE
+
 actor BlankWeapon : Weapon
 {
 	Weapon.AmmoUse 0

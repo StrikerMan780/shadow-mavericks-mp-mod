@@ -1,0 +1,316 @@
+actor MP40Giver : ClassWeaponGiver 23403
+{	
+	//$Category SMMP Weapons
+	//$Title Maschinenpistole 40
+	//$Color 17
+	Scale 0.5
+	states
+	{
+		Item:
+			MP4P A -1
+			loop
+		Pickup:
+			MP4P A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 3, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			MP4P A 0 A_SpawnItemEx("MP40Giver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor MP40Giver_Dropped : MP40Giver
+{
+	States
+	{
+		Spawn:
+			MP4P A 63000
+			goto FadeAway
+		Pickup:
+			MP4P A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 3, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+
+actor ElementalSSGGiver : ClassWeaponGiver 12346
+{
+	//$Category SMMP Weapons
+	//$Title Elemental SSG
+	//$Color 17
+	states
+	{
+		Item:
+			SGN4 A 35
+			goto CheckStatus
+		Marine:
+			SGN4 A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Tails:
+			SGN5 A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			ACDG A 35 A_SetUserVar("user_scale", 50)
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 9, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			"####" "#" 0 A_SpawnItemEx("ElementalSSGGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor ElementalSSGGiver_Dropped : ElementalSSGGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 9, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor ChaingunGiver : ClassWeaponGiver Replaces Chaingun
+{	
+	//$Category SMMP Weapons
+	//$Title Chaingun Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			MGUN A -1
+			loop
+		Pickup:
+			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			MGUN A 0 A_SpawnItemEx("ChaingunGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor ChaingunGiver_Dropped : ChaingunGiver
+{
+	States
+	{
+		Spawn:
+			MGUN A 63000
+			goto FadeAway
+		Pickup:
+			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor TorpedoLauncherGiver : ClassWeaponGiver replaces RocketLauncher
+{	
+	//$Category SMMP Weapons
+	//$Title Rocket Launcher Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			LAUN A -1
+			loop
+		Pickup:
+			LAUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 5, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			LAUN A 0 A_SpawnItemEx("TorpedoLauncherGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor TorpedoLauncherGiver_Dropped : TorpedoLauncherGiver
+{
+	States
+	{
+		Spawn:
+			LAUN A 63000
+			goto FadeAway
+		Pickup:
+			LAUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 5, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor GrenadeLauncherGiver : ClassWeaponGiver 5011
+{	
+	//$Category SMMP Weapons
+	//$Title Grenade Launcher Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			GLAU A -1
+			loop
+		Pickup:
+			GLAU A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 4, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			GLAU A 0 A_SpawnItemEx("GrenadeLauncherGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor GrenadeLauncherGiver_Dropped : GrenadeLauncherGiver
+{
+	States
+	{
+		Spawn:
+			GLAU A 63000
+			goto FadeAway
+		Pickup:
+			GLAU A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 4, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+
+actor PlasmaRifleGiver : ClassWeaponGiver replaces PlasmaRifle
+{	
+	//$Category SMMP Weapons
+	//$Title Plasma Rifle Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			PLAS A 35
+			goto CheckStatus
+		Marine:
+			PLAS A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Tails:
+			PLAS A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			FRZT A 35 A_SetUserVar("user_scale", 50)
+			goto CheckStatus
+		Pickup:
+			PLAS A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 6, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			PLAS A 0 A_SpawnItemEx("PlasmaRifleGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor PlasmaRifleGiver_Dropped : PlasmaRifleGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			PLAS A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 6, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor RailgunGiver : ClassWeaponGiver 5012
+{
+	//$Category SMMP Weapons
+	//$Title Railgun Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			RAIL A 35
+			goto CheckStatus
+		Marine:
+			RAIL A 0 A_ChangeFlag("FLOATBOB", 0)
+			RAIL A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Tails:
+			RCOR A 0 A_ChangeFlag("FLOATBOB", 1)
+			RCOR A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			FRZT A 0 A_ChangeFlag("FLOATBOB", 0)
+			FRZT A 35 A_SetUserVar("user_scale", 50)
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 10, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			"####" "#" 0 A_SpawnItemEx("RailgunGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor RailgunGiver_Dropped : RailgunGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 10, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor SniperRifleGiver : ClassWeaponGiver 19983
+{	
+	//$Category SMMP Weapons
+	//$Title Sniper Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			SNPP A 35
+			loop
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 11, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			"####" "#" 0 A_SpawnItemEx("SniperRifleGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor SniperRifleGiver_Dropped : SniperRifleGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			"####" "#" 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 11, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor BFGGiver : ClassWeaponGiver Replaces BFG9000
+{	
+	//$Category SMMP Weapons
+	//$Title BFG Category Weapon
+	//$Color 17
+	states
+	{
+		Item:
+			BFUG A -1
+			loop
+		Pickup:
+			BFUG A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 8, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			BFUG A 0 A_SpawnItemEx("BFGGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor BFGGiver_Dropped : BFGGiver
+{
+	States
+	{
+		Spawn:
+			BFUG A 63000
+			goto FadeAway
+		Pickup:
+			BFUG A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 8, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
