@@ -272,10 +272,11 @@ script "DEMONIC_POWER" KILL
 
 script "DEATHINVENTORY" DEATH
 {
+	int dying_player = PlayerNumber();
 	TakeInventory("DrunkMode", 1);
 	TakeInventory("DeathbringerCannons", 1);
 	TakeInventory("ValkrieCannons", 1);
-	PlayerLastDemonicPower[PlayerNumber()] = CheckInventory("DemonicPower");
+	PlayerLastDemonicPower[dying_player] = CheckInventory("DemonicPower");
 	
 	if(CheckInventory("Kamikaze") > 0)
 	{
@@ -284,8 +285,11 @@ script "DEATHINVENTORY" DEATH
 	}
 	
 	SetActivator(0, AAPTR_TARGET);
-	GiveDP(10);
-	MakeTaunt(TAUNT_KILL);
+	if(PlayerNumber() != dying_player) // Suiciding player should not get DP.
+	{
+		GiveDP(10);
+		MakeTaunt(TAUNT_KILL);
+	}
 }
 
 script "CHAINSAWHEALTHCHECK" (void) 
