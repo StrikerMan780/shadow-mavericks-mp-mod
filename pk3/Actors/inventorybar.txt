@@ -166,7 +166,7 @@ actor FragShard_Monster : FragShard
 	Obituary "%o was torn apart by a zombie's shrapnel."
 }
 
-actor FragShard_Fast : FastProjectile
+actor FragShard_Fast //: FastProjectile
 {
 	Decal "BulletChip"
 	Projectile
@@ -177,13 +177,22 @@ actor FragShard_Fast : FastProjectile
 	Damage (10)
 	RenderStyle Add
 	Alpha 1.0
+	BounceType Hexen
+	BounceCount 5
+	BounceFactor 1.0
+	+HEXENBOUNCE
 	+BLOODSPLATTER
 	+RIPPER
+	+USEBOUNCESTATE
+	+CANPASS
 	States
 	{
 		Spawn:
 			PUFF A 1 bright
 			loop
+		Bounce:
+			PUFF A 0 bright A_SpawnItemEx("NewBulletPuff_NoMarker", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			goto Spawn
 		Death:
 			TNT1 A 0
 			TNT1 A 1 A_SpawnItemEx("NewBulletPuff_NoMarker", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
