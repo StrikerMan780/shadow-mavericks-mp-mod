@@ -1,3 +1,5 @@
+// These are the weapon givers that give a weapon based on the player's class.
+
 actor MP40Giver : ClassWeaponGiver 23403
 {	
 	//$Category SMMP Weapons
