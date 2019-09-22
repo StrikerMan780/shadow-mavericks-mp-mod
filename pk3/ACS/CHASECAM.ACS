@@ -17,7 +17,7 @@ function void OldCamera(int a, int p)
 	int x = GetActorX (0) - cos(a)*xyr;
 	int y = GetActorY (0) - sin(a)*xyr;
 	int z = (GetActorZ (0) + playerheight) + sin(p)*r;
-	Spawn ("ChaseCamWaypoint", x, y, z, 0, a >> 8);
+	SpawnForced("ChaseCamWaypoint", x, y, z, 0, a >> 8);
 }
 	
 Script "STARTCAMERA" (VOID) CLIENTSIDE
