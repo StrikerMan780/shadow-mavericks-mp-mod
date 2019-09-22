@@ -307,7 +307,7 @@ actor SMMP_Pod : Pod replaces Pod
 		Death:
 			PPOD B 5 A_RemovePod
 			PPOD C 4 A_Scream
-			PPOD D 0 radius_quake(3, 16, 0, 3, 0)
+			PPOD D 0 A_Quake(3, 16, 0, 192, "")
 			PPOD D 4 A_Explode
 			PPOD E 0 A_Jump(64, "Death2")
 			PPOD EEE 0 A_SpawnItemEx ("Striker_FlyingBlood", 0, 0, 24, MOMX+Random(-10, 10), MOMY+Random(-10,10), MOMZ+Random(2, 20), 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
