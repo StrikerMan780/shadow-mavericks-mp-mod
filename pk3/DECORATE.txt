@@ -2613,8 +2613,11 @@ actor HolySpirit2 Replaces HolySpirit
 	Alpha 0.9
 	DamageType "Demonic"
 	DeathSound "SpiritDie"
+	BounceType Hexen
+	BounceFactor 1.0
 	obituary "%o was devoured by %k's wicked spirits"
 	-BLOODSPLATTER
+	+HEXENBOUNCE
 	+BLOODLESSIMPACT
 	+LOOKALLAROUND
 	+RIPPER
@@ -2624,6 +2627,7 @@ actor HolySpirit2 Replaces HolySpirit
 	+SKYEXPLODE
 	+NOEXPLODEFLOOR
 	+EXTREMEDEATH
+	+CANPASS
 	var int user_time;
 	States
 	{
