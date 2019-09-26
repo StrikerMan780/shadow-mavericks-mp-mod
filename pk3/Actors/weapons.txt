@@ -47,7 +47,7 @@ actor BlankWeapon : Weapon
 			TNT1 A 1 A_Raise
 			loop
 		Ready:
-			TNT1 A 1 A_WeaponReady(WRF_NOFIRE)
+			TNT1 A 1 A_WeaponReady(WRF_NOFIRE | WRF_DISABLESWITCH)
 			loop
 		Fire:
 			TNT1 A 0

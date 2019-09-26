@@ -460,18 +460,31 @@ script "SPECIALMOVE" (void) NET
 			{
 				case CLASS_MARINE:
 					TakeInventory("DemonicPower", 100);
+					GiveInventory("CannotUse", 1);
+					
+					// Properties
 					SetActorProperty(0, APROP_DamageFactor, 0.0);
 					SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
-					GiveInventory("CannotUse", 1);
+					
+					// State
 					SetActorState(0, "WrathOfTheWickedSpirits", 0);
 					break;
 				case CLASS_TAILS:
 					TakeInventory("DemonicPower", 100);
-					OldWeapon[PlayerNumber()] = GetWeapon();
-					SetWeapon("BlankWeapon");
-					SetActorProperty(0, APROP_DamageFactor, 0.0);
-					SetPlayerProperty(0, 1, PROP_FROZEN);
 					GiveInventory("CannotUse", 1);
+					
+					// Properties
+					SetPlayerProperty(0, 1, PROP_FROZEN);
+					SetActorProperty(0, APROP_DamageFactor, 0.0);
+					
+					// Memorize Weapon & Force BlankWeapon
+					SetPlayerProperty(0, 1, PROP_INSTANTWEAPONSWITCH);
+					OldWeapon[PlayerNumber()] = GetWeapon();
+					GiveInventory("BlankWeapon", 1);
+					SetWeapon("BlankWeapon");
+					SetPlayerProperty(0, 0, PROP_INSTANTWEAPONSWITCH);
+					
+					// State
 					SetActorState(0, "ChaosDash", 0);
 					break;
 				default:
@@ -515,6 +528,7 @@ script "STOPABILITY" DEATH
 	switch(ClassSelected)
 	{
 		case CLASS_TAILS:
+			TakeInventory("BlankWeapon", 1);
 			SetWeapon(OldWeapon[PlayerNumber()]);
 			break;
 	}
@@ -536,7 +550,7 @@ script "JUMPCHECK" (void)
 script "THROWABLETIMER" (void)
 {
 	int player_num = PlayerNumber();
-	if(PlayerThrowableCooldown[player_num])
+	if(PlayerThrowableCooldown[player_num] || (GetActorProperty(0, APROP_Health) <= 0))
 	{
 		SetResultValue(0);
 		terminate;
@@ -553,7 +567,7 @@ script "QUICKTHROW" (void) NET
 {
 	int player_num = PlayerNumber();
 	
-	if(PlayerThrowableCooldown[player_num])
+	if(PlayerThrowableCooldown[player_num] || (GetActorProperty(0, APROP_Health) <= 0))
 		terminate;
 	
 	if(CheckInventory("MolotovCocktail"))
