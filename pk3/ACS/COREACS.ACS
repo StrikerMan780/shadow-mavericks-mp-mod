@@ -12,6 +12,7 @@ int RailOnce = 0;
 int PlayerJumpCheck[64];
 int PlayerAbilityCooldown[64];
 int PlayerLastDemonicPower[64];
+int PlayerThrowableCooldown[64];
 
 str OldWeapon[64];
 
@@ -143,15 +144,19 @@ function void MakeTaunt(int type)
 
 function void smmp_spawn (int respawned)
 {
+	int player_num = PlayerNumber();
 	Instagib = GetCVar("Instagib");
 	Buckshot = GetCVar("Buckshot");
 	Crickagib = GetCVar("smmp_crickagib");
-	int ClassSelected = PlayerClass(PlayerNumber());
+	int ClassSelected = PlayerClass(player_num);
 
 	Reset_Classes(ClassSelected);
 	Check_Class_Block(ClassSelected); 
 	
 	set_colors();
+	
+	// Variable resets
+	PlayerThrowableCooldown[player_num] = false;
 	
 	if(respawned >= 1)
 	{
@@ -159,14 +164,14 @@ function void smmp_spawn (int respawned)
 		if(GetCvar("smmp_keepdp"))
 		{
 			TakeInventory("DemonicPower", 999);
-			GiveInventory("DemonicPower", PlayerLastDemonicPower[PlayerNumber()]);
+			GiveInventory("DemonicPower", PlayerLastDemonicPower[player_num]);
 		}
 	}
 	else
 	{
 		MakeTaunt(TAUNT_ENTRY);
-		PlayerAbilityCooldown[PlayerNumber()] = false;
-		PlayerLastDemonicPower[PlayerNumber()] = 0;
+		PlayerAbilityCooldown[player_num] = false;
+		PlayerLastDemonicPower[player_num] = 0;
 	}
 	
 	if(CheckInventory("ValkrieCannons") >= 1 || CheckInventory("DeathbringerCannons") >= 1)
@@ -208,10 +213,6 @@ function void smmp_clientsidespawn (void)
 	}
 }
 
-// ****************
-// START OF SCRIPTS
-// ****************
-
 function void GiveDP(int amount)
 {
 	int current_dp = CheckInventory("DemonicPower");
@@ -244,6 +245,10 @@ function void GiveDP(int amount)
 		
 	GiveInventory("DemonicPower", amount);
 }
+
+// ****************
+// START OF SCRIPTS
+// ****************
 
 script "GIVEDP" (int amount)
 {
@@ -310,11 +315,6 @@ script "CHAINSAWHEALTHCHECK" (void)
 	}
 }
 
-script "LIGHTNINGSOUND" (void) CLIENTSIDE
-{
-    LocalAmbientSound("world/localthunder", 96);
-}
-
 script "FLARECHECK" (void) // Marine Flare Check Giver
 {
 	while(CheckInventory("FlareCheck") < 99)
@@ -351,11 +351,6 @@ script "CLIENT_RESPAWN" RESPAWN CLIENTSIDE
 script "CLIENT_ENTER" ENTER CLIENTSIDE
 {
 	smmp_clientsidespawn();
-}
-
-script "GIVELIGHTNINGSOUND" LIGHTNING
-{
-    GiveActorInventory(0, "LightningSound", 1);
 }
 
 script "KNOCKOUT" (void)
@@ -536,4 +531,48 @@ script "JUMPCHECK" (void)
 	PlayerJumpCheck[PlayerNumber()] = 1;
 	Delay(1);
 	PlayerJumpCheck[PlayerNumber()] = 0;
+}
+
+script "THROWABLETIMER" (void)
+{
+	int player_num = PlayerNumber();
+	if(PlayerThrowableCooldown[player_num])
+	{
+		SetResultValue(0);
+		terminate;
+	}
+	
+	SetResultValue(1); // Do this before delaying
+	
+	PlayerThrowableCooldown[player_num] = true;
+	Delay(35);
+	PlayerThrowableCooldown[player_num] = false;
+}
+
+script "QUICKTHROW" (void) NET
+{
+	int player_num = PlayerNumber();
+	
+	if(PlayerThrowableCooldown[player_num])
+		terminate;
+	
+	if(CheckInventory("MolotovCocktail"))
+	{
+		GiveInventory("MolotovCocktail_QuickThrow", 1);
+		TakeInventory("MolotovCocktail", 1);
+	}
+	else if(CheckInventory("FragGrenade"))
+	{
+		GiveInventory("FragGrenade_QuickThrow", 1);
+		TakeInventory("FragGrenade", 1);
+	}
+	else if(CheckInventory("FartBombs"))
+	{
+		GiveInventory("FartBombs_QuickThrow", 1);
+		TakeInventory("FartBombs", 1);
+	}
+	else
+	{
+		Print(s:"You have no throwables!\n");
+	}
 }

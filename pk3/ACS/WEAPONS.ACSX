@@ -52,7 +52,7 @@ struct SMMPWeapon
 	str clip_actor;
 }
 
-#define NumWeapons 12
+#define NumWeapons 14
 SMMPWeapon class_weapons[NumWeapons][NumClasses] = 
 {
 	{ // Shotgun - 0
@@ -113,7 +113,17 @@ SMMPWeapon class_weapons[NumWeapons][NumClasses] =
 	{ // SniperRifle - 11
 		{ "SniperRifle",		"Sniper Rifle",						AMMO_MECH, 20, AMMO_NONE, 0,	"None" },
 		{ "TailsSniperRifle",	"Sniper Rifle", 					AMMO_MECH, 20, AMMO_NONE, 0,	"None" },
-		{ "M1911",				"Colt M1911",						AMMO_MECH, 20, AMMO_NONE, 0,	"None" },
+		{ "M1911",				"Colt M1911",						AMMO_MECH, 20, AMMO_NONE, 0,	"Duke64Clip" },
+	},
+	{ // P90 - 12
+		{ "P90",				"FN-P90",							AMMO_MECH, 50, AMMO_NONE, 0,	"P90Clip" },
+		{ "BCF-2Repeaters",		"BCF-2 Repeaters", 					AMMO_MECH, 50, AMMO_NONE, 0,	"None" },
+		{ "RipperChaingun",		"EDF ''Ripper'' Chaingun",			AMMO_MECH, 50, AMMO_NONE, 0,	"None" },
+	},
+	{ // Casull - 13
+		{ "454Casull",			"Hellsing Arms .454 Casull",		AMMO_MECH, 24, AMMO_NONE, 0,	"CasullClip" },
+		{ "BCF-2Repeaters",		"BCF-2 Repeaters", 					AMMO_MECH, 32, AMMO_NONE, 0,	"None" },
+		{ "M1911",				"Colt M1911",						AMMO_MECH, 24, AMMO_NONE, 0,	"Duke64Clip" },
 	}
 };
 
@@ -323,7 +333,8 @@ SMMPInventory inventory[NumInventoryItems] = {
 	{ "HealingSerum", "Healing Serum" },
 	{ "ForceJump", "Force Jump" },
 	{ "ForcePull", "Force Pull" },
-	{ "FragGrenade", "Frag Grenade" }
+	{ "FragGrenade", "Frag Grenade" },
+	{ "FartBombs", "Fart Grenade" }
 };
 
 #define NumRunes 11

@@ -615,7 +615,7 @@ ACTOR P90Troop
 	DeathSound "chainguy/death"
 	ActiveSound "chainguy/active"
 	Obituary "%o was riddled with a hail of bullets from a P90 Troop."
-	DropItem "P90"
+	DropItem "P90Giver_Dropped"
 	DropItem "MechAmmo", 128
 	DropItem "FragGrenade", 64
 	var int user_firecount;
@@ -826,7 +826,7 @@ ACTOR SuperShotgunGuy 5005
 actor MagnumZombie : GBTWZombieman
 {
 	Dropitem "Magnum"
-	Dropitem "454Casull", 1
+	Dropitem "CasullGiver_Dropped", 1
 	Dropitem "MechAmmo", 10
 	Speed 10
 	Health 40

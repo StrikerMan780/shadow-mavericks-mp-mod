@@ -73,7 +73,8 @@ OptionMenu "SMMPOptions"
 	StaticText 	""
 	StaticText "Key Bindings", 1
 	Control "Use Special Move", "SpecialMove"
-	Control "Quick-Throw Molotov", "UseMolotov"
+	Control "Quick-Throw Molotovs/Frags", "UseThrowables"
+	Control "Quick-Use Healing Serum", "UseHealingSerum"
 	Control "Show Ammo & Money", "showpop 3"
 	StaticText 	""
 	StaticText "Taunt System", 1

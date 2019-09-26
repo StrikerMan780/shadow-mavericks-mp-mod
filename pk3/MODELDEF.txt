@@ -700,7 +700,17 @@ model Stinger
 	FrameIndex STNW A 0 0
 }
 
-model P90
+model P90Giver
+{
+	Path "Models\HUD\P90"
+	Model 0 "P90pickup.md3"
+	scale 3.2 3.2 3.2
+	ROTATING
+
+	FrameIndex P90P A 0 0
+}
+
+model P90Giver_Dropped
 {
 	Path "Models\HUD\P90"
 	Model 0 "P90pickup.md3"
@@ -1105,7 +1115,17 @@ model SmallPalm
 	FrameIndex PTRE B 0 0
 }
 
-model 454Casull
+model CasullGiver
+{
+	Path "Models\HUD\Casull"
+	Model 0 "casullpickup.md3"
+	Scale 12.8 12.8 12.8
+	ROTATING
+
+	FrameIndex CASP A 0 0
+}
+
+model CasullGiver_Dropped
 {
 	Path "Models\HUD\Casull"
 	Model 0 "casullpickup.md3"

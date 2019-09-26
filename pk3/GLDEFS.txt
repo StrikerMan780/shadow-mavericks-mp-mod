@@ -945,14 +945,9 @@ pointlight BOWCASTERSHOT
 
 pointlight ChaosDark
 {
- Color 1.0 1.0 1.0
- size 45
- Subtractive 1
-}
-
-object ChaosFlameStream
-{
-    frame CFLM { light ChaosDark }
+	Color 1.0 1.0 1.0
+	size 45
+	Subtractive 1
 }
 
 pointlight TechPlasmaLight
@@ -1218,20 +1213,7 @@ flickerlight BlazePuff1
 
 object BlazePuff
 {
-Frame FIRE { light BlazePuff1 }
-}
-
-flickerlight DinFireball1
-{
-    color 1.0 0.7 0.0
-    size 24
-    secondarySize 28
-    chance 0.3
-}
-
-object DinFireBall
-{
-	Frame DINX { light DinFireball1 }
+	Frame FIRE { light BlazePuff1 }
 }
 
 Pointlight FlakLight1
@@ -1980,15 +1962,18 @@ object BlueCandleStick
     frame CANB { light BlueCandleStick }
 }
 
-pointlight ChandelierFlame
+flickerlight ChandelierFlame
 {
     color 1.0 0.5 0.0
-    size 18
+    size 48
+	secondarysize 52
+	chance 0.25
+	offset 0 -16 0
 }
 
-object ChandelierFlames
+object CandleChandelier
 {
-	frame FORA { light ChandelierFlame }
+	frame CHND { light ChandelierFlame }
 }
 
 pointlight WhiteLight

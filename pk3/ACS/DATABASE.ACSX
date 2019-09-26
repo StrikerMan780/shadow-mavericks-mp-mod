@@ -1,5 +1,8 @@
 #library "DATABASE"
 #include "zcommon.acs"
+#include "SMMP_DEFINES.ECH"
+#import "WEAPONS.ACSX" // Import weapons library so I can implement weapon tickets later
+// You need GDCC-ACC to compile this.
 
 global int 0:player_money[];
 bool stats_loaded[65];

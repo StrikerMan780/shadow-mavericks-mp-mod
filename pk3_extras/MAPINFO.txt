@@ -34,6 +34,7 @@ map HQ "[SM] HQ"
 {
 	sky1 = bsky2, 0.01
 	music = ""
+	//precachetextures = "SKYDAY", "SKYGREY", "SKYDAY2", "SKYDAY3", "SKYDAY4", "SKYSTAR1", "SKYSTAR2", "SKYSTAR3", "SKYSTAR4"
 	lightmode = 0
 	evenlighting
 	forcenoskystretch

@@ -1,6 +1,8 @@
 #library "WEATHER"
 #include "zcommon.acs"
 
+// Precipitation (Rain/Snow)
+
 #define NumRainActors 2
 str RainActors[NumRainActors] = {
 "Rain",
@@ -8,7 +10,6 @@ str RainActors[NumRainActors] = {
 };
 
 int RainSound = 0;
-
 function void SpawnRain(int Radius, int zoffset, int zrandom)
 {	
 	int Type = GetCVar("smmp_weathertype");
@@ -53,7 +54,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 				}
 			}
 			
-			SoundVolume(0, 5, FixedDiv(Density << 16, 100.0));
+			SoundVolume(0, CHAN_5, FixedDiv(Density << 16, 100.0));
 		}
 		else
 		{
@@ -112,4 +113,15 @@ script "CHECKSKY" (void) CLIENTSIDE
 	{
 		SetResultValue(false);
 	}
+}
+
+// Lightning Stuff
+script "GIVELIGHTNINGSOUND" LIGHTNING
+{
+    GiveActorInventory(0, "LightningSound", 1);
+}
+
+script "LIGHTNINGSOUND" (void) CLIENTSIDE
+{
+    LocalAmbientSound("world/localthunder", 96);
 }

@@ -1,5 +1,46 @@
 // These are the weapon givers that give a weapon based on the player's class.
 
+actor ClassWeaponGiver : CustomInventory
+{
+	Radius 20
+	Height 16
+	Speed 0
+	Inventory.PickupMessage ""
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.QUIET
+	Args 300
+	var int user_scale;
+	states
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_CheckFlag("DROPPED", "Dropped")
+			TNT1 A 0 A_SetUserVar("user_scale", 100)
+			TNT1 A 0 A_JumpIf(1==1, "Item")
+			wait
+		Stay:
+			"####" "#" 0 A_RailWait
+			fail
+		Remove:
+			"####" "#" 0 A_RailWait
+			stop
+			
+		CheckStatus:
+			"####" "#" 0 A_CheckFlag("DROPPED", "FadeTimer")
+			goto StateJump
+		FadeTimer:
+			"####" "#" 0 A_CountdownArg(0, "FadeAway")
+			goto StateJump
+		StateJump:
+			"####" "#" 35 ACS_NamedExecuteAlways("PICKUPSTATE", 0)
+			loop
+			
+		FadeAway:
+			"####" "#" 1 A_FadeOut(0.005)
+			loop
+	}
+}
+
 actor MP40Giver : ClassWeaponGiver 23403
 {	
 	//$Category SMMP Weapons
@@ -168,6 +209,88 @@ actor ChaingunGiver_Dropped : ChaingunGiver
 			goto FadeAway
 		Pickup:
 			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 2, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor P90Giver : ClassWeaponGiver 24302
+{	
+	//$Category SMMP Weapons
+	//$Title FN-P90
+	//$Color 17
+	scale 0.68
+	states
+	{
+		Item:
+			P90P A 35
+			goto CheckStatus
+		Marine:
+			P90P A 35 A_SetUserVar("user_scale", 68)
+			goto CheckStatus
+		Tails:
+			MGUN A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			MGUN A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Pickup:
+			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 12, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			P90P A 0 A_SpawnItemEx("P90Giver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor P90Giver_Dropped : P90Giver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			P90P A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 12, 1) == TRUE, "Stay")
+			goto Remove
+	}
+}
+
+actor CasullGiver : ClassWeaponGiver 18362
+{	
+	//$Category SMMP Weapons
+	//$Title Hellsing Arms .454 Casull
+	//$Color 17
+	scale 0.2
+	states
+	{
+		Item:
+			CASP A 35
+			goto CheckStatus
+		Marine:
+			CASP A 35 A_SetUserVar("user_scale", 20)
+			goto CheckStatus
+		Tails:
+			MGUN A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Duke:
+			MGUN A 35 A_SetUserVar("user_scale", 100)
+			goto CheckStatus
+		Pickup:
+			MGUN A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 13, 0) == TRUE, "Stay")
+			goto Remove
+		Dropped:
+			CASP A 0 A_SpawnItemEx("CasullGiver_Dropped", 0, 0, 0, velx, vely, velz, angle, SXF_ABSOLUTEVELOCITY | SXF_ABSOLUTEANGLE, 0)
+			stop
+	}
+}
+
+actor CasullGiver_Dropped : ClassWeaponGiver
+{
+	States
+	{
+		Spawn:
+			goto CheckStatus
+		Pickup:
+			CASP A 0 A_JumpIf(ACS_NamedExecuteWithResult("GIVEWEAPON", 13, 1) == TRUE, "Stay")
 			goto Remove
 	}
 }

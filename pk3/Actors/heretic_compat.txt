@@ -73,7 +73,7 @@ actor Heretic_RandomMachinegun : RandomSpawner Replaces Blaster
 {
 	DropItem "ChaingunGiver", 255 100
 	DropItem "Minigun", 255 48
-	DropItem "P90", 255 32
+	DropItem "P90Giver", 255 32
 	DropItem "MP40Giver", 255 2
 	DropItem "SmartRifle", 255 1
 }

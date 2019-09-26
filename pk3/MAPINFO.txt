@@ -19,7 +19,6 @@ gameinfo
 					"\cfWhat the fuck? Seriously?! \cgI thought we were friends!",
 					"\cfDon't leave yet, there's a cacoshooper around the corner!",
 					"\cfWell, that was a load of shit.",
-					"\cfGo and download \cgEvolveHQ \cfonce you're out of here. You won't regret it.",
 					"\cfPlease go, I'm done with your shit.",
 					"\cfGiving up? I bet you've barely scratched the surface of this mod.",
 					"\cgYes \cfto cower and hide, \cdNo \cfto show us your Manface!",

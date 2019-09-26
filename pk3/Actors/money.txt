@@ -1,16 +1,3 @@
-actor GBTWMoney : Inventory // Base money class, do not use directly.
-{
-	inventory.amount 1
-	inventory.maxamount 1000000
-	+INVENTORY.UNDROPPABLE
-	States
-	{
-	Spawn:
-		TNT1 A 1
-		stop
-	}
-}
-
 actor 20DollarBill : CustomInventory 20132
 {
 	//$Category SMMP Money Items
