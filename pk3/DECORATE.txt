@@ -2608,7 +2608,7 @@ actor HolySpirit2 Replaces HolySpirit
 	Speed 14
 	Radius 10
 	Height 6
-	Damage 3
+	Damage (3)
 	RenderStyle Add
 	Alpha 0.9
 	DamageType "Demonic"
@@ -2657,9 +2657,9 @@ actor HolySpirit2 Replaces HolySpirit
 			goto Fly
 		Death:
 			SPIR D 0 BRIGHT
-			SPIR D 3 BRIGHT A_Stop
-			SPIR E 3 BRIGHT A_Scream
-			SPIR FGHI 3 BRIGHT
+			SPIR D 2 BRIGHT A_Stop
+			SPIR E 2 BRIGHT A_Scream
+			SPIR FGHI 2 BRIGHT
 			Stop
 	}
 }

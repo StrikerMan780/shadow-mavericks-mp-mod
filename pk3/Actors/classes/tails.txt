@@ -92,7 +92,7 @@ actor Tails : BaseClass
 		TAIL F 6 BRIGHT
 		Goto Missile
 	Pain:
-		TAIL G 4 ACS_NamedExecuteAlways("STOPABILITY", 0)
+		TAIL G 4 
 		TAIL G 4 A_Pain
 		TAIL A 0 A_JumpIfInventory("PowerFlight", 1, "Fly")
 		Goto Spawn
@@ -241,7 +241,7 @@ actor ChaosDashDamager : DashDamager
 	{
 		Spawn:
 			TNT1 A 0
-			TNT1 A 0 A_RadiusThrust(-4000, 128, RTF_NOIMPACTDAMAGE, 128) 
+			TNT1 A 0 A_RadiusThrust(-4000, 160, RTF_NOIMPACTDAMAGE | RTF_THRUSTZ, 128) 
 			TNT1 A 0 A_SpawnItemEx("BlackFlame", frandom(-32.0, 32.0), frandom(-32.0, 32.0), frandom(0, 32.0), 0, 0, frandom(0.5, 1.0), 0, SXF_CLIENTSIDE, 0)
 			TNT1 A 1 A_Explode(50, 40, false, false, 32)
 			goto Fade

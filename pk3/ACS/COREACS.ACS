@@ -165,6 +165,10 @@ function void smmp_spawn (int respawned)
 		{
 			TakeInventory("DemonicPower", 999);
 			GiveInventory("DemonicPower", PlayerLastDemonicPower[player_num]);
+			if(CheckInventory("DemonicPower") < 100)
+			{
+				TakeInventory("DemonicPower", 5);
+			}
 		}
 	}
 	else
@@ -524,12 +528,17 @@ script "SPECIALMOVE" (void) NET
 script "STOPABILITY" DEATH
 { 
 	int ClassSelected = PlayerClass(PlayerNumber());
-	
+	int player_num = PlayerNumber();
+
 	switch(ClassSelected)
 	{
 		case CLASS_TAILS:
 			TakeInventory("BlankWeapon", 1);
-			SetWeapon(OldWeapon[PlayerNumber()]);
+			if(OldWeapon[player_num] != 0)
+			{
+				SetWeapon(OldWeapon[player_num]);
+				OldWeapon[player_num] = 0;
+			}
 			break;
 	}
 	
