@@ -218,7 +218,7 @@ actor FragShard_Fast //: FastProjectile
 	BounceType Hexen
 	BounceCount 5
 	BounceFactor 1.0
-	+HEXENBOUNCE
+	+BOUNCEAUTOOFFFLOORONLY
 	+BLOODSPLATTER
 	+RIPPER
 	+USEBOUNCESTATE
