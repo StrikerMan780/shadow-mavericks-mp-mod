@@ -225,7 +225,7 @@ actor BlueShellCondom : Condom1 18816
 
 // ********************* PUT DEFS ABOVE THIS LINE ***********************
 //$GZDB_SKIP
-actor PendingProp2 : SwitchableDecoration 21319
+actor PendingProp1 : SwitchableDecoration 21319
 {
 	//$Category SMMP X-Rated Stuff
 	//$Title Pending Prop 1
