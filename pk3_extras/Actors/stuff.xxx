@@ -225,10 +225,10 @@ actor BlueShellCondom : Condom1 18816
 
 // ********************* PUT DEFS ABOVE THIS LINE ***********************
 //$GZDB_SKIP
-actor TenaSlipBag : SwitchableDecoration 21319
+actor PendingProp2 : SwitchableDecoration 21319
 {
 	//$Category SMMP X-Rated Stuff
-	//$Title Tena Slip Bag
+	//$Title Pending Prop 1
 	//$Color 16
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	Height 18
@@ -253,10 +253,10 @@ actor TenaSlipBag : SwitchableDecoration 21319
 	}
 }
 
-actor TenaSlip : SwitchableDecoration 21324
+actor PendingProp2 : SwitchableDecoration 21324
 {
 	//$Category SMMP X-Rated Stuff
-	//$Title Tena Slip
+	//$Title Pending Prop 2
 	//$Color 16
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	Radius 8
