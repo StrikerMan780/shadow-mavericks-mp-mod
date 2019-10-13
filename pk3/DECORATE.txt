@@ -2628,6 +2628,7 @@ actor HolySpirit2 Replaces HolySpirit
 	+NOEXPLODEFLOOR
 	+EXTREMEDEATH
 	+CANPASS
+	+BOUNCEAUTOOFFFLOORONLY
 	var int user_time;
 	States
 	{
