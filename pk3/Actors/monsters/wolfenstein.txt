@@ -1,0 +1,35 @@
+actor SM_WolfensteinSS : WolfensteinSS replaces WolfensteinSS
+{
+	DropItem "MP40Giver_Dropped"
+	DropItem "HealingSerum", 16
+	states
+	{
+		Missile:
+			SSWN EF 10 A_FaceTarget
+			SSWN G 0 A_FaceTarget
+			SSWN G 0 A_PlaySound("mp40fire", CHAN_WEAPON)
+			SSWN G 1 BRIGHT A_CustomMissile("MonsterBullet", 32, 4, frandom(-5, 5), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-1.0, 1.0))
+			SSWN F 2 A_FaceTarget
+			SSWN G 0 A_FaceTarget
+			SSWN G 0 A_PlaySound("mp40fire", CHAN_WEAPON)
+			SSWN G 1 BRIGHT A_CustomMissile("MonsterBullet", 32, 4, frandom(-5, 5), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-1.0, 1.0))
+			SSWN F 2 A_FaceTarget
+			SSWN G 0 A_FaceTarget
+			SSWN G 0 A_PlaySound("mp40fire", CHAN_WEAPON)
+			SSWN G 1 BRIGHT A_CustomMissile("MonsterBullet", 32, 4, frandom(-5, 5), CMF_AIMOFFSET | CMF_OFFSETPITCH, frandom(-1.0, 1.0))
+			SSWN F 6
+			SSWN F 1 A_CPosRefire
+			goto Missile+1
+		XDeath:
+			SSWV N 5 A_SpawnItemEx("XDeathGibs", 0, 0, 6, MOMX, MOMY, MOMZ, 0, SXF_CLIENTSIDE | SXF_ABSOLUTEMOMENTUM, 0)
+			SSWV O 5 A_XScream
+			SSWV P 5 A_NoBlocking
+			SSWV QRSTU 5
+			SSWV V 10500
+			goto Fade
+
+		Fade:
+			"####" "#" 1 A_FadeOut(0.05)
+			loop
+	}
+}

@@ -126,23 +126,30 @@ ACTOR LargeCellAmmo : CellAmmo Replaces CellPack
 	}
 }
 
-Actor HellFireAmmo : Ammo 21003
+Actor HellfireAmmo : Ammo 21003
 {
-   Scale 0.7
    Radius 16
    Height 8
    inventory.pickupmessage "Hellfire Ammo (Small)"
    inventory.icon "HELLICON"
    inventory.amount 10
    inventory.maxamount 100
-   ammo.backpackamount 20
+   ammo.backpackamount 10
    ammo.backpackmaxamount 200
+   +FLOATBOB
    States
    {
    Spawn:
 	  MMIS A -1
 	  Stop
    }
+}
+
+Actor LargeHellfireAmmo : HellfireAmmo 21004
+{
+	inventory.pickupmessage "Hellfire Ammo (Large)"
+	inventory.amount 40
+	Inventory.PickupSound "LargeAmmo"
 }
 
 Actor GasolineAmmo : Ammo
@@ -180,6 +187,13 @@ Actor FusionAmmo : Ammo 12311
 	  BATT A -1
 	  Stop
    }
+}
+
+Actor LargeFusionAmmo : FusionAmmo 12312
+{
+	inventory.pickupmessage "Fusion Ammo (Large)"
+	inventory.amount 80
+	Inventory.PickupSound "LargeAmmo"
 }
 
 actor DemonicPower : Ammo 19652

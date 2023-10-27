@@ -105,3 +105,39 @@ Model FusionAmmo
 
 	FrameIndex BATT A 0 0
 }
+
+Model LargeFusionAmmo
+{
+	Path "Models\Pickups"
+	Model 0 "ItemContainer.md3"
+	Skin 0 "FusionAmmo.png"
+	Scale 3.5 3.5 3.5
+	ZOffset 12
+	ROTATING
+
+	FrameIndex BATT A 0 0
+}
+
+Model HellfireAmmo
+{
+	Path "Models\Pickups"
+	Model 0 "MiniItem.md3"
+	Skin 0 "HellfireAmmo.png"
+	Scale 0.9 0.9 0.9
+	ZOffset 12
+	ROTATING
+
+	FrameIndex MMIS A 0 0
+}
+
+Model LargeHellfireAmmo
+{
+	Path "Models\Pickups"
+	Model 0 "ItemContainer.md3"
+	Skin 0 "HellfireAmmo.png"
+	Scale 3.5 3.5 3.5
+	ZOffset 12
+	ROTATING
+
+	FrameIndex MMIS A 0 0
+}

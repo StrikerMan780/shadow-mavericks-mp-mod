@@ -132,49 +132,6 @@ actor GenericTimer : Inventory
 	}
 }
 
-actor MusicSwitchBack : CustomInventory
-{
- inventory.maxamount 1
- -INVENTORY.INVBAR
- +INVENTORY.AUTOACTIVATE
- +INVENTORY.ALWAYSPICKUP
- States
- {
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 1 ACS_ExecuteAlways(146, 0)
- 		stop
- }
-}
-
-actor NoLightningSound : BaseCheck
-{
-}
-
-actor LightningSound : CustomInventory
-{
- inventory.maxamount 0
- -INVENTORY.INVBAR
- +INVENTORY.AUTOACTIVATE
- +INVENTORY.ALWAYSPICKUP
- States
- {
- 	Spawn:
- 		TNT1 A -1
- 		stop
- 	Use:
- 		TNT1 A 0
- 		TNT1 A 0 A_JumpIfInventory("NoLightningSound", 1, "GoDie")
- 		TNT1 A 1 ACS_NamedExecuteAlways("LIGHTNINGSOUND", 0)
- 		stop
- 	GoDie:
- 		TNT1 A 1
- 		stop
- }
-}
-
 actor KnockoutTrigger : CustomInventory
 {
 	inventory.maxamount 1
@@ -304,7 +261,7 @@ ACTOR ChaseCamWaypoint : ChaseCam2
 		TNT1 A 0 NoDelay ACS_NamedExecuteWithResult("MOVECAMERA", 0) // ExecuteWithResult executes on the same tic, preventing cam jitter.
 		Goto Spawn2
 	Spawn2:
-		TNT1 A -1
+		TNT1 A 2
 		Stop
 	}
 }

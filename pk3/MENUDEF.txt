@@ -8,12 +8,13 @@ ListMenu "MainMenu"
 	Selector "NODRAW", 0, 0
 	
 	TextItem "New Game", "n", "PlayerclassMenu"
-	TextItem "Skirmish", "n", "ZA_SkirmishMenu"
+	TextItem "Skirmish", "k", "ZA_SkirmishMenu"
 	TextItem "Main Options", "o", "OptionsMenu"
 	TextItem "SMMP Options", "m", "SMMPOptions"
 	TextItem "Load Game", "l", "LoadGameMenu"
 	TextItem "Save Game", "s", "SaveGameMenu"
 	TextItem "Credits", "c", "Credits"
+	TextItem "Login", "g", "ZA_LoginMenu"
 	TextItem "Quit", "q", "QuitMenu"
 }
 
@@ -135,6 +136,9 @@ OptionMenu "Credits"
 	Submenu "Sprites", "CreditSprites"
 	Submenu "Models", "CreditModels"
 	StaticText ""
+	StaticText "Credits can be scrolled through", 1
+	StaticText "with the mouse wheel.", 1
+	StaticText ""
 	StaticText "If I'm missing anyone in these", 1
 	StaticText "sub-menus, I sincerely apologize", 1
 	StaticText "and wish to resolve it.", 1
@@ -152,6 +156,9 @@ OptionMenu "CreditSprites"
 	StaticText ""
 	StaticText "Shotgun Guy Alt-Deaths", 1
 	StaticText "Kinsie, Phi108, Minigunner"
+	StaticText ""
+	StaticText "Pantsless Shotgun Guys", 1
+	StaticText "Kirk Felton"
 	StaticText ""
 	StaticText "Fireborn", 1
 	StaticText "Raven Software, Striker"

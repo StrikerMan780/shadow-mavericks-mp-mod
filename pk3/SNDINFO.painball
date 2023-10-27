@@ -1,0 +1,9 @@
+PainballCrystalDeath pbcexpl
+$rolloff PainballCrystalDeath 400 2400
+
+PainballBounce dspainbb
+$volume PainballBounce 0.5
+
+PainballStrongThrow pbthrow
+PainballStrongImpact pbstrhit
+PainballNormalImpact pbnrmhit

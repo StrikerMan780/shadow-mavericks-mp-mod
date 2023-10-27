@@ -216,26 +216,27 @@ actor FragShard_Fast //: FastProjectile
 	RenderStyle Add
 	Alpha 1.0
 	BounceType Hexen
-	BounceCount 5
 	BounceFactor 1.0
 	+BOUNCEAUTOOFFFLOORONLY
 	+BLOODSPLATTER
 	+RIPPER
 	+USEBOUNCESTATE
 	+CANPASS
+	ReactionTime 5 // Have to do this because Zan/GZDoom's bounce code is fucking garbage and results in stuck actors on rare occasions.
 	States
 	{
 		Spawn:
 			PUFF A 1 bright
 			loop
 		Bounce:
+			PUFF A 0 A_Countdown
 			PUFF A 0 bright A_SpawnItemEx("NewBulletPuff_NoRicochet", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			PUFF A 0 bright A_PlaySound("Ricochet", CHAN_AUTO)
 			goto Spawn
 		Death:
-			TNT1 A 0
+			TNT1 A 0 A_ChangeFlag("USEBOUNCESTATE", 0)
 			TNT1 A 1 A_SpawnItemEx("NewBulletPuff_NoMarker", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-			TNT1 A 1
+			TNT1 A 0
 			stop
 	}
 }

@@ -10,7 +10,10 @@ CreatePopup status, 32, 76, Fade, 0.25, 1.0;
 statusbar PopupStatus, forcescaled, FullScreenOffsets
 {
 	// Money
-	drawnumber 7, SMALLFONT, green, GlobalArray 0, alignment(left), drawshadow(1,1), prefix("$", "$"), 0, 115;
+	//drawnumber 7, SMALLFONT, green, GlobalArray 0, alignment(left), drawshadow(1,1), prefix("$", "$"), 0, 115;
+	
+	// Hack for HUD because Zandronum is gay and doesn't synchronize global ACS variables, and it probably won't ever be fixed.
+	drawnumber 7, SMALLFONT, green, MoneyHack, alignment(left), drawshadow(1,1), prefix("$", "$"), 0, 115;
 
 	// Ammo Indicators
 	drawstring SMALLFONT, gray, "MECH", 0, 57, 0, alignment(left), drawshadow(1,1);
@@ -71,6 +74,24 @@ statusbar fullscreen, forcescaled //, FullScreenOffsets
 		
 		DrawBar "HEATLEFT", "HEATLBAK", BowCharge, vertical, 144, 89;
 		DrawBar "HEATRGHT", "HEATRBAK", BowCharge, vertical, 167, 89;
+	}
+	
+	IsSelected PainballThrower_Red
+	{
+		//DrawBar "HEATLEFT", "HEATLBAK", PainballCharge, vertical, -16+center, -11+center;
+		//DrawBar "HEATRGHT", "HEATRBAK", PainballCharge, vertical, 7+center, -11+center;
+		
+		DrawBar "HEATLEFT", "HEATLBAK", PainballCharge, vertical, 144, 89;
+		DrawBar "HEATRGHT", "HEATRBAK", PainballCharge, vertical, 167, 89;
+	}
+	
+	IsSelected PainballThrower_Blue
+	{
+		//DrawBar "BEATLEFT", "BEATLBAK", PainballCharge, vertical, -16+center, -11+center;
+		//DrawBar "BEATRGHT", "BEATRBAK", PainballCharge, vertical, 7+center, -11+center;
+		
+		DrawBar "BEATLEFT", "BEATLBAK", PainballCharge, vertical, 144, 89;
+		DrawBar "BEATRGHT", "BEATRBAK", PainballCharge, vertical, 167, 89;
 	}
 
 	IsSelected ValkrieCannons, DeathbringerCannons

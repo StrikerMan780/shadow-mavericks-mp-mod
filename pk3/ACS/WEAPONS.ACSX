@@ -36,9 +36,9 @@ SMMPAmmo ammo_types[AMMO_MAX] = {
 	{ "SpreadAmmo",		"Spread Ammo" },	// AMMO_SPREAD
 	{ "ProtonAmmo",		"Proton Ammo" },	// AMMO_PROTON
 	{ "CellAmmo",		"Cell Ammo" },		// AMMO_CELL
-	{ "HellFireAmmo",	"Hellfire Ammo" },	// AMMO_HELLFIRE
+	{ "HellfireAmmo",	"Hellfire Ammo" },	// AMMO_HELLFIRE
 	{ "GasolineAmmo",	"Gasoline" },		// AMMO_GASOLINE
-	{ "FusionAmmo",	"Fusion Ammo" }		// AMMO_FUSION
+	{ "FusionAmmo",		"Fusion Ammo" }		// AMMO_FUSION
 };
 
 struct SMMPWeapon
@@ -129,6 +129,12 @@ SMMPWeapon class_weapons[NumWeapons][NumClasses] =
 
 function bool GrantWeapon(int type, bool dropped, bool notpickup)
 {
+	//if(GetCvar("smmp_debug"))
+		//log(s:"consoleplayernumber: ", d:ConsolePlayerNumber());
+	
+	if(IsNetworkGame() && (ConsolePlayerNumber() != -1)) // Hack to prevent Zandronum from executing this on a client
+		return true;
+		
 	int class = PlayerClass(PlayerNumber());
 	
 	bool weaponstay = GetCvar("sv_weaponstay");
@@ -327,7 +333,7 @@ struct SMMPInventory
 	str name;
 }
 
-#define NumInventoryItems 5
+#define NumInventoryItems 6
 SMMPInventory inventory[NumInventoryItems] = {
 	{ "MolotovCocktail", "Molotov Cocktail" },
 	{ "HealingSerum", "Healing Serum" },

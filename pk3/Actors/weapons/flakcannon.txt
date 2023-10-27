@@ -135,13 +135,12 @@ actor FlakShard
 	obituary "%o was ripped to shreds by %k's flak."
 	BounceType Hexen
 	BounceCount 3
-	ReactionTime 20
+	ReactionTime 140
 	Speed 50
 	DamageType "Flak"
 	Damage (24)
 	Gravity 0.5
 	BounceSound "Flakbounce"
-	var int user_timer;
 	States
 	{
 	Spawn:
@@ -160,8 +159,7 @@ actor FlakShard
 		goto Cooled
 	Cooled:
 		METL E 1 A_SpawnItemEX("FlakPuff", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
-		METL E 0 A_SetUserVar("user_timer", user_timer+1)
-		METL E 0 A_JumpIf(user_timer >= 140, "Death")
+		METL E 0 A_CountDown
 		loop
 	XDeath:
 		TNT1 A 0

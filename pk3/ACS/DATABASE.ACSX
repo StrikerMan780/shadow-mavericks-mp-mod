@@ -10,6 +10,18 @@ str player_acctname[65];
 
 #define MAX_MONEY 1000000
 #define DEBUG_ID 666
+#define MONEYHACK_ID 667
+
+// Hack for HUD because Zandronum is gay and doesn't synchronize global ACS variables, and it probably won't ever be fixed.
+function void MoneyHUDFix(int pnum)
+{
+	if(IsNetworkGame() && ConsolePlayerNumber() != -1)
+		return;
+		
+	SetActivatorToPlayer(pnum);
+	TakeInventory("MoneyHack", MAX_MONEY);
+	GiveInventory("MoneyHack", player_money[pnum]);
+}
 
 function void DebugDBExchange(str Message, str acctname, int pnum)
 {
@@ -17,6 +29,10 @@ function void DebugDBExchange(str Message, str acctname, int pnum)
 	{
 		HudMessageBold (s:"[DATABASE] ", s:Message, s:" (Player #", d:pnum, s:", ", s:acctname, s:")";
 		HUDMSG_FADEOUT | HUDMSG_LOG, DEBUG_ID, CR_CYAN, 0.1, 0.2, 4.0, 0.5);
+	}
+	else if(ConsolePlayerNumber() == -1)
+	{
+		Log(s:"[DATABASE] ", s:Message, s:" (Player #", d:pnum, s:", ", s:acctname, s:")");
 	}
 }
 
@@ -39,6 +55,7 @@ function void GetStatsFromDB(int pnum)
 	}
 	
 	player_money[pnum] = GetDBEntry(player_acctname[pnum], "smmp_money");
+	MoneyHUDFix(pnum);
 	
 	stats_loaded[pnum] = true;
 	DebugDBExchange("Retrieving player stats", player_acctname[pnum], pnum);
@@ -63,6 +80,9 @@ function void ClearLocalStats(int pnum)
 
 script "GIVEMONEY" (int amount, int givetotarget)
 {
+	if(IsNetworkGame() && ConsolePlayerNumber() != -1)
+		return;
+		
 	if(givetotarget)
 	{
 		SetActivatorToTarget(0);
@@ -84,11 +104,15 @@ script "GIVEMONEY" (int amount, int givetotarget)
 		player_money[pnum] = MAX_MONEY;
 	}
 	
+	MoneyHUDFix(pnum);
 	SetResultValue(1);
 }
 
 script "TAKEMONEY" (int amount, int takefromtarget)
 {
+	if(IsNetworkGame() && ConsolePlayerNumber() != -1)
+		return;
+		
 	if(takefromtarget)
 	{
 		SetActivatorToTarget(0);
@@ -98,7 +122,7 @@ script "TAKEMONEY" (int amount, int takefromtarget)
 	
 	if((player_money[pnum]-amount) < 0)
 	{
-		Print(s:"\cgYou don't have enough money for this!\n\ccYou need $", d:amount);
+		Print(s:"\cgYou don't have enough money for this!\n\ccYou need $", d:amount, s:"\n\cc(You have $", d:player_money[pnum], s:")");
 		SetResultValue(0);
 		terminate;
 	}
@@ -109,6 +133,21 @@ script "TAKEMONEY" (int amount, int takefromtarget)
 	if(player_money[pnum] < 0)
 	{
 		player_money[pnum] = 0;
+	}
+	
+	MoneyHUDFix(pnum);
+	SetResultValue(1);
+}
+
+script "CHECKMONEY" (int amount)
+{
+	int pnum = PlayerNumber();
+	
+	if((player_money[pnum]-amount) < 0)
+	{
+		Print(s:"\cgYou don't have enough money for this!\n\ccYou need $", d:amount, s:"\n\cc(You have $", d:player_money[pnum], s:")");
+		SetResultValue(0);
+		terminate;
 	}
 	
 	SetResultValue(1);
@@ -156,6 +195,8 @@ script "RECHECKSTATS" RESPAWN
 	{
 		GetStatsFromDB(pnum);
 	}
+	
+	MoneyHUDFix(pnum);
 }
 
 script "LOGOFF" (int pnum) DISCONNECT

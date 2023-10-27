@@ -375,7 +375,7 @@ ACTOR VulgarShot
    Height 11
    Speed 14
    Damage (8)
-   PoisonDamage 20
+   PoisonDamage 10
    SeeSound "BioRifle"
    RENDERSTYLE ADD
    ALPHA 0.67

@@ -9,6 +9,7 @@ TitleHit DSTITLEH
 BillyMays DSBILLYM
 MarioBrick DSBRICK
 DetectUncensored DSDETECT
+PussyDestroyer PUSSYDES
 
 WaterFallRush  DSWTRFAL
 jeanluc DSPICARD
@@ -28,6 +29,8 @@ DOG DSDOG
 SWAG DSSWAG
 UnclePhil DSUNPHIL
 CarelessWhisper DSBANLO
+BBQPit BBQPIT
+SweetLittleLies SWEETLIE
 
 // Props
 DrinkingFountain DSDRKFNT
@@ -47,23 +50,25 @@ awesome3 awesome3
 awesome4 awesome4
 $random awesome { awesome1 awesome2 awesome3 awesome4 }
 
-$ambient 4 WaterFallRush POINT CONTINUOUS 1.0
-$ambient 5 jeanluc POINT CONTINUOUS 0.9
-$ambient 6 tvoutbeep POINT CONTINUOUS 0.08
-$ambient 7 shipinterior POINT CONTINUOUS 1.4
-$ambient 8 shipengine POINT CONTINUOUS 2.0
-$ambient 9 Raining POINT CONTINUOUS 0.6
-$ambient 10 terminal POINT CONTINUOUS 2.0
-$ambient 11 SOAD Point CONTINUOUS 1.0
-$ambient 12 CostaDelSol Point CONTINUOUS 0.5
+$ambient 4 WaterFallRush POINT 1.0 CONTINUOUS 1.0
+$ambient 5 jeanluc POINT 1.0 CONTINUOUS 0.9
+$ambient 6 tvoutbeep POINT 1.0 CONTINUOUS 0.08
+$ambient 7 shipinterior POINT 1.0 CONTINUOUS 1.4
+$ambient 8 shipengine POINT 1.0 CONTINUOUS 2.0
+$ambient 9 Raining POINT 1.0 CONTINUOUS 0.6
+$ambient 10 terminal POINT 1.0 CONTINUOUS 2.0
+$ambient 11 SOAD Point 1.0 CONTINUOUS 1.0
+$ambient 12 CostaDelSol Point 1.0 CONTINUOUS 0.5
 $ambient 13 OutDoors SURROUND CONTINUOUS 1.4
 $ambient 14 OutDoors Point 0.3 CONTINUOUS 1.5
 $ambient 15 Crickets Point 0.4 CONTINUOUS 1.0
-$ambient 16 NEDM Point CONTINUOUS 2.0
+$ambient 16 NEDM Point 1.0 CONTINUOUS 2.0
 $ambient 17 Raining Point 0.3 CONTINUOUS 0.5
-$ambient 18 lolinternet POINT CONTINUOUS 1.0
-$ambient 19 CatGroove POINT CONTINUOUS 1.0
-$ambient 20 DOG POINT CONTINUOUS 1.0
+$ambient 18 lolinternet POINT 1.0 CONTINUOUS 1.0
+$ambient 19 CatGroove POINT 1.0 CONTINUOUS 1.0
+$ambient 20 DOG POINT 1.0 CONTINUOUS 1.0
 $ambient 21 SWAG POINT 1.5 CONTINUOUS 1.0
 $ambient 22 UnclePhil POINT 1.0 CONTINUOUS 1.0
-$ambient 23 CarelessWhisper Point CONTINUOUS 0.5
+$ambient 23 CarelessWhisper Point 1.0 CONTINUOUS 0.5
+$ambient 24 BBQPit Point 1.5 CONTINUOUS 1.0
+$ambient 25 SweetLittleLies Point 4.0 CONTINUOUS 1.0

@@ -1,0 +1,93 @@
+Game Data Compiler Collection (GDCC)
+
+A collection of programs for compiling/processing source code for use by video
+games. This includes compiling to bytecode as well as preprocessing definition
+data. The programs are meant to be suitable for use in automated build systems.
+
+
+GDCC ACS Compiler (gdcc-acc)
+
+Compiles Hexen ACS source into IR data.
+
+
+GDCC Wad Archiver (gdcc-ar-wad)
+
+Packs and unpacks Doom WAD format archives.
+
+
+GDCC Assembler (gdcc-as)
+
+Compiles GDCC assembly into IR data for a low-level interface to the IR.
+
+
+GDCC C Compiler (gdcc-cc)
+
+Compiles C source into IR data.
+
+
+GDCC C Preprocessor (gdcc-cpp)
+
+Applies C preprocessing to input files.
+
+
+GDCC IR Dump (gdcc-irdump)
+
+IR inspection and disassembler. Primarily intended for debugging compilers.
+
+
+GDCC Linker (gdcc-ld)
+
+Linker program for converting intermediary representation files to bytecode.
+
+
+GDCC NTS Compiler (gdcc-ntsc)
+
+Processes plain text files into Doominati NTS format by tokenizing.
+
+
+GDCC MakeLib (gdcc-makelib)
+
+Compiles entire libraries into IR data.
+
+
+===============================================================================
+Usage Overview
+===============================================================================
+
+===========================================================
+Headers
+===========================================================
+
+By default, system headers are looked for under <system path>/lib, which must
+have the contents of the repository lib directory. <system path> under Windows
+is the executable directory, otherwise /usr/share/gdcc.
+
+If the lib directory is elsewhere, the --lib-path option must be used to locate
+it.
+
+
+===============================================================================
+Compilation
+===============================================================================
+
+===========================================================
+Dependencies
+===========================================================
+
+Currently, the only library dependency is GMP, the GNU Multiple Precision
+Arithmetic Library (https://gmplib.org/) and its C++ API.
+
+Additionally, cmake (https://cmake.org/) is required to build.
+
+===========================================================
+Linux
+===========================================================
+
+From the repository root, compilation can be done with the following commands:
+  mkdir build
+  cd build
+  cmake ..
+  make
+Executables and needed shared objects will be generated under their associated
+directories under build/src. (For example, gdcc-cc is under build/src/CC.)
+

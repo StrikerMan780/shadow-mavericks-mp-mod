@@ -25,12 +25,12 @@ actor DukeNukem : BaseClass
 	Player.WeaponSlot 2, "DukePistol"
 	Player.WeaponSlot 3, "DukeShotgun", "SPAS-12", "AcidSprayer"
 	Player.WeaponSlot 4, "RipperChaingun", "M1911"
-	Player.WeaponSlot 5, "HellFireCannon", "DukeGL", "DukeRPG"
+	Player.WeaponSlot 5, "HellfireCannon", "DukeGL", "DukeRPG"
 	Player.WeaponSlot 6, "Freezethrower", "Expander", "ShockRifle"
 	Player.WeaponSlot 7, "EnergyCannon", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler"
 	Player.WeaponSlot 9, "WeatherMaker", "WookieBowcaster"
-	Player.WeaponSlot 0, "SoccerKick", "E_Peen_Joke", "IPodLauncher", "GasolineCan"
+	Player.WeaponSlot 0, "E_Peen_Joke", "IPodLauncher", "GasolineCan", "FlameThrowerWeap"
 	
 	States
 	{

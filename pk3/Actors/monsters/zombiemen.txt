@@ -1,3 +1,31 @@
+actor RandomZombieManSpawner : RandomSpawner Replaces Zombieman
+{
+	DropItem "GBTWZombieman", 255 150
+	DropItem "MagnumZombie", 255 25
+	DropItem "TourettesZombie", 255 16
+	DropItem "AngryGermanZombie", 255 5
+}
+
+actor RandomTroopSpawner : RandomSpawner Replaces ChainGunGuy
+{
+	DropItem "GBTWChaingunGuy", 255 100
+	DropItem "P90Troop", 255 25
+	DropItem "MinigunGuy", 255 20
+	DropItem "NeedlerTroop", 255 10
+	DropItem "TF2HeavyChaingunGuy", 255 6
+	DropItem "BioZombie", 255 6
+}
+
+actor RandomSuperZombieSpawner : RandomSpawner Replaces ShotgunGuy
+{
+	DropItem "GBTWShotgunGuy", 255 150
+	DropItem "TourettesShotgunZombie", 255 32
+	DropItem "OICWZombie", 255 16
+	DropItem "SuperShotgunGuy", 255 6
+	DropItem "FreezerZombie", 255 5
+	DropItem "StingerZombie", 255 3
+}
+
 actor GBTWShotgunGuy : ShotgunGuy
 {
 	Dropitem "ShotgunGiver_Dropped"
@@ -770,7 +798,7 @@ ACTOR SuperShotgunGuy 5005
 	MONSTER
 	+FLOORCLIP
 	Obituary "%o was splattered by a super shotgun zombie."
-	Translation "112:127=16:47"
+	//Translation "112:127=16:47"
 	DropItem "SuperShotgunGiver_Dropped"
 	DropItem "Whopper", 25
 	DropItem "Fries", 25

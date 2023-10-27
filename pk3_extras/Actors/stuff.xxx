@@ -8,7 +8,6 @@ actor Dildo 18813
 	radius 8
 	height 4
 	-SOLID
-	+ALLOWCLIENTSPAWN
 	+NOINTERACTION
 	States
 	{
@@ -26,7 +25,6 @@ actor Fleshlight 21323
 	radius 8
 	height 4
 	-SOLID
-	+ALLOWCLIENTSPAWN
 	+NOINTERACTION
 	States
 	{
@@ -111,7 +109,7 @@ actor Condom1 : SwitchableDecoration 18814
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom1_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 0)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -126,7 +124,7 @@ actor Condom2 : Condom1 18815
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom2_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 1)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -141,7 +139,7 @@ actor Condom3 : Condom1 18821
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom3_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 2)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -156,7 +154,7 @@ actor Condom4 : Condom1 18820
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom4_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 3)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -171,7 +169,7 @@ actor Condom5 : Condom1 18819
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom5_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 4)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -186,7 +184,7 @@ actor Condom6 : Condom1 18100
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom6_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 5)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -201,7 +199,7 @@ actor Condom7 : Condom1 18101
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("Condom7_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 6)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -216,7 +214,7 @@ actor BlueShellCondom : Condom1 18816
 		Active:
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
 			TNT1 A 0 A_PlaySound("Condom")
-			TNT1 A 0 A_GiveToTarget("BlueShellCondom_Item", 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("USABLEITEM", 0, 7)
 			TNT1 A 1050
 			TNT1 A 0 A_ChangeFlag("USESPECIAL", 1)
 			goto Spawn
@@ -225,10 +223,10 @@ actor BlueShellCondom : Condom1 18816
 
 // ********************* PUT DEFS ABOVE THIS LINE ***********************
 //$GZDB_SKIP
-actor PendingProp1 : SwitchableDecoration 21319
+actor TenaSlipBag : SwitchableDecoration 21319
 {
 	//$Category SMMP X-Rated Stuff
-	//$Title Pending Prop 1
+	//$Title Tena Slip Bag
 	//$Color 16
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	Height 18
@@ -253,10 +251,10 @@ actor PendingProp1 : SwitchableDecoration 21319
 	}
 }
 
-actor PendingProp2 : SwitchableDecoration 21324
+actor TenaSlip : SwitchableDecoration 21324
 {
 	//$Category SMMP X-Rated Stuff
-	//$Title Pending Prop 2
+	//$Title Tena Slip
 	//$Color 16
 	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
 	Radius 8

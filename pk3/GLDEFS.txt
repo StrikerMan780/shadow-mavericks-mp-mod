@@ -1680,6 +1680,35 @@ object FusionAmmo
 	frame BATT { light FusionAmmoLight }
 }
 
+object LargeFusionAmmo
+{
+	frame BATT { light LargeFusionAmmoLight }
+}
+
+pointlight HellfireAmmoLight
+{
+	color 1.0 1.0 0.0
+	offset 0 22 0
+	Size 16
+}
+
+pointlight LargeHellfireAmmoLight
+{
+	color 1.0 1.0 0.0
+	offset 0 22 0
+	Size 24
+}
+
+object HellfireAmmo
+{
+	frame MMIS { light HellfireAmmoLight }
+}
+
+object LargeHellfireAmmo
+{
+	frame MMIS { light LargeHellfireAmmoLight }
+}
+
 pointlight EnergyBallSmall
 {
 	color 0.0 0.7 1.0

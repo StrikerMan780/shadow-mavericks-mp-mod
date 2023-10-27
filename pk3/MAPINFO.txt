@@ -1,7 +1,7 @@
 gameinfo
 {
 	dimcolor = "00 AA FF"
-    dimamount = 0.2
+	dimamount = 0.2
 	telefogheight = 0
 	pickupcolor = "00 00 FF" 
 	menufontcolor_title = "ElecViolet"

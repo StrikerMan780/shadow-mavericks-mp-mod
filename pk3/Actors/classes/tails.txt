@@ -19,6 +19,7 @@ actor Tails : BaseClass
 	Player.DisplayName "Tails"
 	Player.SoundClass "tails"
 	Player.ScoreIcon "TAILICON"
+	Player.CrouchSprite "TSPN"
 	
 	Player.StartItem "Tails_TechPistol"
 	Player.StartItem "Melee"
@@ -38,7 +39,7 @@ actor Tails : BaseClass
 	Player.WeaponSlot 7, "Supra", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler", "TailsSniperRifle"
 	Player.WeaponSlot 9, "WeatherMaker", "WookieBowcaster"
-	Player.WeaponSlot 0, "SoccerKick", "E_Peen_Joke", "IPodLauncher", "GasolineCan"
+	Player.WeaponSlot 0, "E_Peen_Joke", "IPodLauncher", "GasolineCan", "FlameThrowerWeap"
 	
 	States
 	{
@@ -84,10 +85,12 @@ actor Tails : BaseClass
 		NULL A -1
 		stop
 	Missile:
+		TAIL E 0 ACS_NamedExecuteAlways("STOPABILITY", 0)
 		TAIL E 0 A_JumpIfInventory("PowerFlight", 1, "FlyAttack")
 		TAIL E 12
 		Goto Spawn
 	Melee:
+		TAIL F 0 ACS_NamedExecuteAlways("STOPABILITY", 0)
 		TAIL F 0 A_JumpIfInventory("PowerFlight", 1, "FlyAttack")
 		TAIL F 6 BRIGHT
 		Goto Missile

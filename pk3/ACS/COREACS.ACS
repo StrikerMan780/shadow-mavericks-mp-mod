@@ -513,9 +513,17 @@ script "SPECIALMOVE" (void) NET
 				}
 				break;
 			case CLASS_TAILS:
-				OldWeapon[PlayerNumber()] = GetWeapon();
 				GiveInventory("CannotUse", 1);
 				SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+				
+				// Memorize Weapon & Force BlankWeapon
+				SetPlayerProperty(0, 1, PROP_INSTANTWEAPONSWITCH);
+				OldWeapon[PlayerNumber()] = GetWeapon();
+				GiveInventory("BlankWeapon", 1);
+				SetWeapon("BlankWeapon");
+				SetPlayerProperty(0, 0, PROP_INSTANTWEAPONSWITCH);
+				
+				// State
 				SetActorState(0, "Spin", 1);
 				break;
 			default:

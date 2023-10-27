@@ -387,3 +387,87 @@ model BlackRose
 
 	FrameIndex NULL A 0 0
 }
+
+model PainballCrystal_Red
+{
+	Path "Models"
+	Model 0 "PainballCrystal.md3"
+	Path "Textures"
+	Skin 0 "REDGEM.png"
+	Scale 2.0 2.0 2.0
+	ZOffset 8
+	ROTATING
+	
+	FrameIndex BAR1 A 0 0
+}
+
+model PainballCrystal_Blue
+{
+	Path "Models"
+	Model 0 "PainballCrystal.md3"
+	Path "Textures"
+	Skin 0 "BLUEGEM.png"
+	Scale 2.0 2.0 2.0
+	ZOffset 8
+	ROTATING
+	
+	FrameIndex BAR1 A 0 0
+}
+
+Model PainballCrystalShockwave_Red
+{
+	Path "Models\Explosion"
+	Model 0 "ExplosionRing.md3"
+	Skin 0 "redring.png"
+	Scale 8.0 8.0 8.0
+
+	FrameIndex NULL A 0 0
+}
+
+Model PainballCrystalShockwave_Blue
+{
+	Path "Models\Explosion"
+	Model 0 "ExplosionRing.md3"
+	Skin 0 "bluering.png"
+	Scale 8.0 8.0 8.0
+
+	FrameIndex NULL A 0 0
+}
+
+Model PainballCrystalShard_Red
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Path "Textures"
+	Skin 0 "REDGEM.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL A 0 0
+}
+
+Model PainballCrystalShard_Blue
+{
+	Path "Models\Projectiles"
+	Model 0 "FlakShard.md3"
+	Path "Textures"
+	Skin 0 "BLUEGEM.png"
+	Scale 6.0 6.0 6.0
+	PITCHFROMMOMENTUM
+	ROTATING
+	Rotation-Speed 8.0
+
+	FrameIndex METL A 0 0
+}
+
+Model SCP173
+{
+	Path "Models/Decoration/SCP"
+	Model 0 "scp173.md3"
+	Skin 0 "scp173.png"
+	Scale 1.0 1.0 1.0
+
+	FrameIndex NULL A 0 0
+}

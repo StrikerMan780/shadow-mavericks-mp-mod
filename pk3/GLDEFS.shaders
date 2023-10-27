@@ -64,6 +64,31 @@ HardwareShader texture FBALLIN
 	Speed 5.0
 }
 
+HardwareShader texture BBALLOUT
+{
+	Shader "shaders/scroll_right_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture BBALLIN
+{
+	Shader "shaders/scroll_up_fullbright.fp"
+	Speed 5.0
+}
+
+HardwareShader texture RBALLOUT
+{
+	Shader "shaders/scroll_right_fullbright.fp"
+	Speed 4.0
+}
+
+HardwareShader texture RBALLIN
+{
+	Shader "shaders/scroll_up_fullbright.fp"
+	Speed 5.0
+}
+
+
 HardwareShader texture TCHOBALL
 {
 	Shader "shaders/flamewall_black.fp"

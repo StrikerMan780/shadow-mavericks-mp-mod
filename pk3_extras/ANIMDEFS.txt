@@ -925,39 +925,57 @@ texture IMG00000
 	pic IMG00058 tics 2
 
 texture KILLA00
-pic 1 tics 4
-pic 2 tics 4
-pic 3 tics 4
-pic 4 tics 4
-pic 5 tics 4
-pic 6 tics 4
-pic 7 tics 4
-pic 8 tics 4
-pic 9 tics 4
-pic 10 tics 4
-pic 11 tics 4
-pic 12 tics 4
-pic 13 tics 4
-pic 14 tics 10
-pic 15 tics 20
-pic 16 tics 4
-pic 17 tics 4
-pic 18 tics 4
-pic 19 tics 28
-pic 20 tics 4
-pic 21 tics 4
-pic 22 tics 4
-pic 23 tics 4
-pic 24 tics 4
-pic 25 tics 4
-pic 26 tics 4
-pic 27 tics 4
-pic 28 tics 4
-pic 29 tics 30
-pic 30 tics 18
-pic 31 tics 6
-pic 32 tics 6
-pic 33 tics 6
-pic 34 tics 6
-pic 35 tics 6
-pic 36 tics 60
+	pic 1 tics 4
+	pic 2 tics 4
+	pic 3 tics 4
+	pic 4 tics 4
+	pic 5 tics 4
+	pic 6 tics 4
+	pic 7 tics 4
+	pic 8 tics 4
+	pic 9 tics 4
+	pic 10 tics 4
+	pic 11 tics 4
+	pic 12 tics 4
+	pic 13 tics 4
+	pic 14 tics 10
+	pic 15 tics 20
+	pic 16 tics 4
+	pic 17 tics 4
+	pic 18 tics 4
+	pic 19 tics 28
+	pic 20 tics 4
+	pic 21 tics 4
+	pic 22 tics 4
+	pic 23 tics 4
+	pic 24 tics 4
+	pic 25 tics 4
+	pic 26 tics 4
+	pic 27 tics 4
+	pic 28 tics 4
+	pic 29 tics 30
+	pic 30 tics 18
+	pic 31 tics 6
+	pic 32 tics 6
+	pic 33 tics 6
+	pic 34 tics 6
+	pic 35 tics 6
+	pic 36 tics 60
+	
+texture BBQ1
+	pic	BBQ1 tics 2
+	pic	BBQ2 tics 2
+	pic	BBQ3 tics 2
+	pic	BBQ4 tics 2
+	pic	BBQ5 tics 2
+	pic	BBQ6 tics 2
+	pic	BBQ7 tics 2
+	pic	BBQ8 tics 2
+	pic	BBQ9 tics 2
+	pic	BBQ10 tics 2
+	pic	BBQ11 tics 2
+	pic	BBQ12 tics 2
+	pic	BBQ13 tics 2
+	pic	BBQ14 tics 2
+	pic	BBQ15 tics 2
+	pic	BBQ16 tics 2

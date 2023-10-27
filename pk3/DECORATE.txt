@@ -584,7 +584,7 @@ ACTOR FlameHeat : Inventory
 	-INVBAR
 }
 
-ACTOR FlameThrowerWeap : ClericWeapon 20994
+ACTOR FlameThrowerWeap : Weapon 20994
 {
 	Weapon.SelectionOrder 300
 	Inventory.PickupSound "misc/w_pkup"
@@ -987,75 +987,6 @@ PTRE A 20
 PTRE B 10
 loop
 }
-}
-
-actor SoccerBall 14322
-{
-radius 16
-height 26
-Health 999999999999
-Mass 1
-Painchance 200
-RenderStyle Add
-Alpha 0.9
-SpawnId 246
-+SOLID
-+SHOOTABLE
-+PUSHABLE
-+NOBLOOD
-+SLIDESONWALLS
--NOTELEPORT
-+TELESTOMP
--NOBLOCKMONST
--DONTBLAST
-+DONTMORPH
-+DONTSQUASH
-+ACTIVATEMCROSS
-+CANPASS
-States
-{
-Death:
-Spawn:
-BALL A -1
-loop
-Pain:
-BALL A 0
-BALL A 0 ThrustThingZ(0, 35, 0, 0)
-goto Spawn
-}
-}
-
-actor SoccerKick : Weapon
-{
-	decal BulletChip
-	obituary "%k got a Red Card in Soccer."
-	Inventory.PickupSound "misc/w_pkup"
-	Inventory.PickupMessage "You're Not Supposed to Have This..."
-	weapon.selectionorder 1
-	weapon.kickback 200
-	+WEAPON.CHEATNOTWEAPON
-	+WEAPON.NOLMS
-	states
-	{
-	Ready:
-		PUNG A 1 A_WeaponReady
-		loop
-	Select:
-		PUNG A 1 A_Raise
-		loop
-	Deselect:
-		PUNG A 1 A_Lower
-		loop
-	Fire:
-		BOOT A 3 A_Playsound("KickSwing")
-		BOOT B 3
-		BOOT C 4 A_CustomPunch(7, 0, 0, "BootHit", 64)
-		BOOT B 4
-		BOOT A 4
-		PUNG A 2
-		PUNG A 0 A_Refire
-		goto Ready
-	}
 }
 
 ACTOR NukeLauncher : Weapon 25005
@@ -1479,9 +1410,11 @@ ACTOR BurnDeath1
 	{
 	Spawn:
 		BDT1 A 0
-		BDT1 A 0 A_Jump(32,7)
+		BDT1 A 0 A_Jump(32,"Skeleton")
 		BDT1 DDDDDD 1 Bright A_Look
 		Goto Death
+		
+	Skeleton:
 		BDT1 E 0 A_PlaySound("grunt/death")
 		BDT1 E 0 A_SpawnItem("BurnedSkeleton1",1,0,0)
 		BDT1 EFGHIJKLM 4 Bright A_Explode
@@ -1634,17 +1567,15 @@ actor Gasoline
 	Alpha 0.2
 	+FORCEXYBILLBOARD
 	+THRUSPECIES
-	+CORPSE
 	-NOGRAVITY
 	-NOBLOCKMAP
 	-SOLID
 	states
 	{
-	Death:
 	Spawn:
 		WSP2 ABCDEF 4
 		loop
-	Crash:
+	Death:
 		TNT1 A 1 A_SpawnItemEx("GasPuddle", frandom(-4.0, 4.0), frandom(-4.0, 4.0), 0, 0, 0, 0, 0, SXF_TRANSFERPOINTERS, 0)
 		stop
 	}
@@ -2534,6 +2465,7 @@ actor SM_ExplosiveBarrel : ExplosiveBarrel Replaces ExplosiveBarrel
 	+SLIDESONWALLS
 	+EXTREMEDEATH
 	+FIXMAPTHINGPOS
+	+NOBLOCKMONST
 	states
 	{
 	Spawn:
@@ -2630,6 +2562,7 @@ actor HolySpirit2 Replaces HolySpirit
 	+CANPASS
 	+BOUNCEAUTOOFFFLOORONLY
 	var int user_time;
+	//Args 30, 30
 	States
 	{
 		Spawn:
@@ -2650,7 +2583,7 @@ actor HolySpirit2 Replaces HolySpirit
 			TNT1 A 0 BRIGHT A_SeekerMissile (2.0, 4.0, SMF_LOOK | SMF_PRECISE, 256, 10)
 			TNT1 A 0 BRIGHT A_SpawnItemEx("SpiritTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			TNT1 A 0 BRIGHT A_SetUserVar("user_time", user_time-1)
-			TNT1 A 0 BRIGHT A_JumpIf(user_time <= 0, "Death")
+			TNT1 A 0 BRIGHT A_JumpIf(user_time <= 0, "Death") //A_CountdownArg(random(0,1), "Death")
 			TNT1 A 0 BRIGHT A_Jump(32, "SpiritScream" )
 			Loop
 		SpiritScream:

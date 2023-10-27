@@ -1,0 +1,104 @@
+actor BallGhost : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	-ALLOWCLIENTSPAWN
+	-CLIENTSIDEONLY
+	states
+	{
+		Spawn:
+			BALL A 1 BRIGHT
+			goto Fade
+		Fade:
+			BALL A 1 BRIGHT A_FadeOut
+			loop
+	}
+}
+
+actor SoccerBall : SwitchableDecoration 14322
+{
+	Activation THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+	radius 16
+	height 1
+	Health 99999
+	Speed 0
+	Mass 1
+	Painchance 200
+	RenderStyle Add
+	Alpha 1.0
+	
+	BounceFactor 0.5
+	BounceType Hexen
+	
+	+SOLID
+	+SHOOTABLE
+	+PUSHABLE
+	+NOBLOOD
+	+SLIDESONWALLS
+	+TELESTOMP
+	+DONTMORPH
+	+DONTSQUASH
+	+ACTIVATEMCROSS
+	+CANPASS
+	+BUMPSPECIAL
+	+USESPECIAL
+	+WINDTHRUST
+	+QUICKTORETALIATE
+	+FLOAT
+	
+	+USEBOUNCESTATE
+	+BOUNCEONACTORS
+	+MBFBOUNCER
+	-BOUNCEAUTOOFF
+	
+	-NOGRAVITY
+	-NOBLOCKMAP
+	-NOTELEPORT
+	-NOBLOCKMONST
+	-DONTBLAST
+	-NOINTERACTION
+	-ALLOWCLIENTSPAWN
+	
+	var int user_bounces;
+	States
+	{
+		Spawn:
+			BALL A 0 NoDelay A_SetSpecial(130, 0)
+			goto Ball
+		Ball:
+			TNT1 A 1 BRIGHT A_ChangeVelocity(0.0, 0.0, 0.0, CVF_RELATIVE)
+			TNT1 A 0 BRIGHT A_SpawnItemEx("BallGhost", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+			loop
+		Bounce:
+			BALL A 0 A_SetUserVar("user_bounces", user_bounces-1)
+			BALL A 0 A_JumpIf(user_bounces <= 0, "Rest")
+			goto Ball
+		Rest:
+			BALL A 0 A_ChangeFlag("MBFBOUNCER", 0)
+			goto Ball
+		Pain:
+		Active:
+			BALL A 0 A_ChangeFlag("MBFBOUNCER", 1)
+			BALL A 0 A_SetUserVar("user_bounces", 4)
+			BALL A 0 A_PlaySound("BootHit", CHAN_BODY)
+			BALL A 0 A_FaceTarget
+			BALL A 0 A_ChangeVelocity(-16.0, 0.0, 8.0, CVF_RELATIVE | CVF_REPLACE)
+			goto Ball
+			
+		Death:
+		Explode:
+			TNT1 A 0 A_SetSpecial(0, 0)
+			TNT1 A 0 A_ChangeFlag("USEBOUNCESTATE", 0)
+			TNT1 A 0 A_ChangeFlag("MBFBOUNCER", 0)
+			TNT1 A 0 A_ChangeFlag("BUMPSPECIAL", 0)
+			TNT1 A 0 A_ChangeFlag("USESPECIAL", 0)
+			TNT1 A 0 A_ChangeFlag("FLOAT", 0)
+			TNT1 A 0 A_ChangeFlag("MISSILE", 0)
+			TNT1 A 0 A_ChangeFlag("SOLID", 0)
+			TNT1 A 0 A_ChangeFlag("NOGRAVITY", 1)
+			TNT1 A 0 A_PlaySound("ClusterExplode", CHAN_AUTO)
+			TNT1 AAAAAAAAAAAAAAAAA 2 A_SpawnItemEx("HellfireRocketFire", 0, 0, 0, frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(-6.0,6.0), random(-360,360), SXF_CLIENTSIDE, 0)
+			BALL A 0
+			stop
+	}
+}

@@ -535,3 +535,125 @@ model DoomImpBallExplosionShell
 
 	FrameIndex NULL A 0 0
 }
+
+// ***** PAINBALL *****
+
+Model Painball_VeryStrong_Red
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/RBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/RBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+	FrameIndex BAL1 B 0 0
+}
+
+Model Painball_Strong_Red
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/RBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/RBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+	FrameIndex BAL1 B 0 0
+}
+
+Model Painball_Medium_Red
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/RBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/RBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+	FrameIndex BAL1 B 0 0
+}
+
+Model Painball_Weak_Red
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/RBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/RBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+	FrameIndex BAL1 B 0 0
+}
+
+Model Painball_VeryStrong_Blue
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/BBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/BBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+}
+
+Model Painball_Strong_Blue
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/BBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/BBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+}
+
+Model Painball_Medium_Blue
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/BBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/BBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+}
+
+Model Painball_Weak_Blue
+{
+	Model 0 "Models/Projectiles/Fireball.md3"
+	SurfaceSkin 0 0 "Textures/BBALLOUT.png"
+	SurfaceSkin 0 1 "Textures/BBALLIN.png"
+	Scale 0.32 0.32 0.32
+	PITCHFROMMOMENTUM
+
+	FrameIndex BAL1 A 0 0
+}
+
+model PainballExplosionShell_Red
+{
+	Path "models/Explosion"
+	Model 0 "ExplosionShell2.md3"
+	Skin 0 "ExplosionShellRed.png"
+	Scale 0.32 0.32 0.32
+	
+	Rotating
+	Rotation-Speed 30
+
+	FrameIndex NULL A 0 0
+}
+
+model PainballExplosionShell_Blue
+{
+	Path "models/Explosion"
+	Model 0 "ExplosionShell2.md3"
+	Skin 0 "ExplosionShellBlue.png"
+	Scale 0.32 0.32 0.32
+	
+	Rotating
+	Rotation-Speed 30
+
+	FrameIndex NULL A 0 0
+}
+
+// ***** END PAINBALL *****

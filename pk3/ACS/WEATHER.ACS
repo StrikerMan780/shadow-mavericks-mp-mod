@@ -1,12 +1,14 @@
 #library "WEATHER"
 #include "zcommon.acs"
 
+int in_no_lightning_zone;
+
 // Precipitation (Rain/Snow)
 
 #define NumRainActors 2
 str RainActors[NumRainActors] = {
-"Rain",
-"BloodRain"
+	"Rain",
+	"BloodRain"
 };
 
 int RainSound = 0;
@@ -24,7 +26,7 @@ function void SpawnRain(int Radius, int zoffset, int zrandom)
 			SetCVar("smmp_weatherdensity", Density);
 		}
 		
-		if(CheckInventory("NoLightningSound") == 1)
+		if(in_no_lightning_zone)
 		{
 			if(RainSound > 0)
 			{
@@ -92,12 +94,11 @@ script "WEATHER_OPEN" OPEN
 script "WEATHER_ENTER" ENTER CLIENTSIDE
 {
 	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
-	{
 		Terminate;
-	}
 	
 	while(1)
 	{
+		SetActivatorToPlayer(ConsolePlayerNumber()); // Safeguard
 		SpawnRain(1024.0, 1024.0, 32.0);
 		delay(3);
 	}
@@ -115,13 +116,33 @@ script "CHECKSKY" (void) CLIENTSIDE
 	}
 }
 
-// Lightning Stuff
-script "GIVELIGHTNINGSOUND" LIGHTNING
+// TO-DO: Add debug text
+script "NO_LIGHTNING_ZONE" (int state) CLIENTSIDE
 {
-    GiveActorInventory(0, "LightningSound", 1);
+	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
+		Terminate;
+
+	in_no_lightning_zone = state;
 }
 
-script "LIGHTNINGSOUND" (void) CLIENTSIDE
+script "RESET_LIGHTNING" RESPAWN CLIENTSIDE
 {
-    LocalAmbientSound("world/localthunder", 96);
+	if((ConsolePlayerNumber() != PlayerNumber()) || (ConsolePlayerNumber() == -1))
+		Terminate;
+
+	in_no_lightning_zone = false;
+}
+
+// Lightning Stuff
+script "LOCAL_LIGHTNING" (void) CLIENTSIDE
+{
+	SetActivatorToPlayer(ConsolePlayerNumber());
+
+	if(!in_no_lightning_zone)
+		LocalAmbientSound("world/localthunder", 96);
+}
+
+script "LIGHTNINGSOUND" LIGHTNING
+{
+	ACS_NamedExecuteAlways("LOCAL_LIGHTNING", 0, 0);
 }

@@ -33,6 +33,7 @@ actor Thanatos : Weapon 24304
 		goto Ready+1 
 	Deselect:
 		THS1 A 0 A_JumpIfInventory("Thanatos_Blade_Mode", 1, "BladeDeselect")
+		THS1 A 0 A_StopSound(7)
 		THS1 A 1 A_Lower
 		goto Deselect+1
 	Select:
@@ -86,6 +87,7 @@ actor Thanatos : Weapon 24304
 		TCH1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
 		TCH2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
 		TCH3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+		TCH3 Z 0
 		goto BladeReady
 		
 	SwitchToShotgun:
@@ -95,6 +97,7 @@ actor Thanatos : Weapon 24304
 		TCH4 A 0 A_PlaySound("ThanatosBladeOff", CHAN_AUTO)
 		TCH4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
 		TCH5 ABCDEFGHIJKLMNOPQRSTUVWXY 1
+		TCH5 Y 0
 		goto Ready
 	
 	BladeDeselect:
@@ -227,6 +230,7 @@ actor ThanatosBurn
 	Damage (0)
 	Speed 0
 	DamageType "Aura"
+	ReactionTime 60
 	+SEEKERMISSILE
 	+NOCLIP
 	+FORCERADIUSDMG
@@ -234,7 +238,6 @@ actor ThanatosBurn
 	+PAINLESS
 	+NODAMAGETHRUST
 	+PIERCEARMOR
-	var int user_timer;
 	States
 	{
  	Spawn:
@@ -245,8 +248,7 @@ actor ThanatosBurn
 		TNT1 A 1 Bright A_Warp(AAPTR_TRACER, 0, 0, 32, 0, WARPF_ABSOLUTEOFFSET)
 		TNT1 A 0 Bright A_Explode(1, 64, 0, false, 64)
 		TNT1 A 0 Bright A_SpawnItemEx("ThanatosAura", frandom(-32.0, 32.0), frandom(-32.0, 32.0), frandom(-32.0, 32.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 64)
-		TNT1 A 0 Bright A_SetUserVar("user_timer", user_timer+1)
-		TNT1 A 0 Bright A_JumpIf(user_timer >= 60, "Death")
+		TNT1 A 0 Bright A_CountDown
 		loop
 	Death:
 		TNT1 AA 1
@@ -265,8 +267,7 @@ actor ThanatosBurn2 : ThanatosBurn
 	Burn:
 		TNT1 A 1 Bright A_Explode(1, 64, 0, false, 64)
 		TNT1 A 0 Bright A_SpawnItemEx("ThanatosAura", frandom(-32.0, 32.0), frandom(-32.0, 32.0), frandom(-32.0, 32.0), 0, 0, frandom(1.0, 2.0), 0, SXF_CLIENTSIDE, 64)
-		TNT1 A 0 Bright A_SetUserVar("user_timer", user_timer+1)
-		TNT1 A 0 Bright A_JumpIf(user_timer >= 60, "Death")
+		TNT1 A 0 Bright A_CountDown
 		loop
 	}
 }
@@ -334,10 +335,10 @@ actor ThanatosBlade
 	BounceCount 4
 	BounceFactor 1.0
 	BounceSound "ThanatosBladeBounce"
+	ReactionTime 40
 	+SEEKERMISSILE
 	+FORCERADIUSDMG
 	+BLOODSPLATTER
-	var int user_timer;
 	States
 	{
 		Spawn:
@@ -352,8 +353,7 @@ actor ThanatosBlade
 			goto Latched
 		Latched:
 			PUFF A 1 A_Warp(AAPTR_TRACER, 0, 0, 32, 0, WARPF_ABSOLUTEOFFSET)
-			TNT1 A 0 Bright A_SetUserVar("user_timer", user_timer+1)
-			TNT1 A 0 Bright A_JumpIf(user_timer >= 40, "Death")
+			TNT1 A 0 Bright A_CountDown
 			loop
 		Death:
 			TNT1 A 0

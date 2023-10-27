@@ -343,7 +343,7 @@ actor RedFloatingFlameGenerator 15116
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-			TNT1 A 2 A_SpawnItemEx ("RedFlame", frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(8.0, 12.0), 0, 0, frandom(1.0, 2.5), 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 4 A_SpawnItemEx ("RedFlame", frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(12.0, 16.0), 0, 0, frandom(1.0, 1.5), 0, SXF_CLIENTSIDE, 0)
 			goto Spawn+2
 	}
 }
@@ -355,7 +355,7 @@ actor BlueFloatingFlameGenerator : RedFloatingFlameGenerator 15117
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-			TNT1 A 2 A_SpawnItemEx ("BlueFlame", frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(8.0, 12.0), 0, 0, frandom(1.0, 2.5), 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 4 A_SpawnItemEx ("BlueFlame", frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(12.0, 16.0), 0, 0, frandom(1.0, 1.5), 0, SXF_CLIENTSIDE, 0)
 			goto Spawn+2
 	}
 }
@@ -367,7 +367,7 @@ actor GreenFloatingFlameGenerator : RedFloatingFlameGenerator 15118
 		Spawn:
 			TNT1 A 0
 			TNT1 A 0 A_PlaySoundEx("SmallBurningFire", "SoundSlot7", 1, -1)
-			TNT1 A 2 A_SpawnItemEx ("GreenFlame", frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(8.0, 12.0), 0, 0, frandom(1.0, 2.5), 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 4 A_SpawnItemEx ("GreenFlame", frandom(-6.0,6.0), frandom(-6.0,6.0), frandom(12.0, 16.0), 0, 0, frandom(1.0, 1.5), 0, SXF_CLIENTSIDE, 0)
 			goto Spawn+2
 	}
 }

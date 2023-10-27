@@ -1,0 +1,52 @@
+#library "USABLES"
+#include "zcommon.acs"
+
+function void PickupMessage(str message)
+{
+	SetHudSize(640, 480, true);
+	SetFont("SMALLFONT");
+	HudMessage(s:message; HUDMSG_FADEOUT | HUDMSG_LOG, 3321, CR_UNTRANSLATED, 320.0, 400.0, 2.0, 1.0);
+}
+
+script "USABLEITEM" (int item)
+{
+	if(IsNetworkGame() && ConsolePlayerNumber() != -1)
+		terminate;
+		
+	SetActivatorToTarget(0);
+	switch(item)
+	{
+		case 0:
+			PickupMessage("\ccDurex Performa Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 1:
+			PickupMessage("\ccDurex Tropical Flavored Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 2:
+			PickupMessage("\ccDurex Lemon Flavored Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 3:
+			PickupMessage("\ccDurex Cherry Flavored Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 4:
+			PickupMessage("\ccDurex Raspberry Flavored Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 5:
+			PickupMessage("\ccLifeStyles SKYN Elite Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 6:
+			PickupMessage("\ccNetflix and Chill Condom \cd(+2 Max Armor)");
+			GiveInventory("MaxArmorBonus2", 1);
+			break;
+		case 7:
+			PickupMessage("\cg*BAM!* \ccBlue Shell Ultra-Cheap Condom \cd(+10 Max Armor)");
+			GiveInventory("BlueShellArmorBonus", 1);
+			break;
+	}
+}

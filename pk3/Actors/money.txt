@@ -1,3 +1,9 @@
+actor MoneyHack : Inventory // Hack for HUD because Zandronum is gay and doesn't synchronize global ACS variables, and it probably won't ever be fixed.
+{
+	inventory.maxamount 0x7fffffff
+	inventory.amount 1
+}
+
 actor 20DollarBill : CustomInventory 20132
 {
 	//$Category SMMP Money Items

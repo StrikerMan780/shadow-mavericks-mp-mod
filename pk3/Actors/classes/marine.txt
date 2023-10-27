@@ -18,12 +18,12 @@ actor Marine : BaseClass Replaces DoomPlayer
 	Player.WeaponSlot 2, "NewPistol", "Magnum", "454Casull"
 	Player.WeaponSlot 3, "NewShotgun", "SM_SuperShotgun", "QuadShotgun", "FireSSG"
 	Player.WeaponSlot 4, "SM_Chaingun", "Mp40", "P90", "Minigun", "SmartRifle"
-	Player.WeaponSlot 5, "HellFireCannon", "ProtonGL", "ProtonTL"
+	Player.WeaponSlot 5, "HellfireCannon", "ProtonGL", "ProtonTL"
 	Player.WeaponSlot 6, "PlasmaCannon", "Railgun", "Stinger", "ShockRifle"
 	Player.WeaponSlot 7, "BFG_SMMP", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "FreezeBolt", "BioRifle", "Needler", "SniperRifle", "FlakCannon"
 	Player.WeaponSlot 9, "Thanatos", "WeatherMaker", "WookieBowcaster"
-	Player.WeaponSlot 0, "SoccerKick", "E_Peen_Joke", "IPodLauncher", "GrapplerShot", "GasolineCan", "FlameThrowerWeap"
+	Player.WeaponSlot 0, "E_Peen_Joke", "IPodLauncher", "GrapplerShot", "GasolineCan", "FlameThrowerWeap"
 	
 	Player.ColorRange 113, 127
 	

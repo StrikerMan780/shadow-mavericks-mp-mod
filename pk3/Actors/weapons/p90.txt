@@ -64,7 +64,7 @@ actor P90 : Weapon
 			goto ReloadCheck
 			
 		ReloadCheck:
-			P9R1 A 0 A_JumpIfInventory("P90Clip",80,2)
+			P9R1 A 0 A_JumpIfInventory("P90Clip",50,2)
 			P9R1 A 0 A_JumpIfInventory("MechAmmo",1,"ReloadStart")
 			P9R1 A 0
 			goto Ready

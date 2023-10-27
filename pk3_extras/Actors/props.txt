@@ -76,6 +76,24 @@ actor BlackRose : Rose 18812
 	//$Color 15
 }
 
+actor SCP173 17173
+{
+	//$Category SMMP Static Props
+	//$Title SCP-173
+	//$Color 15
+	Height 56
+	Radius 16
+	Scale 1.0
+	+SOLID
+	+FORCEYBILLBOARD
+	States
+	{
+		Spawn:
+			NULL A -1
+			loop
+	}
+}
+
 actor ComputerChair 20524
 {
 	//$Category SMMP Static Props

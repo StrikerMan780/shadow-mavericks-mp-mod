@@ -1,0 +1,286 @@
+ACTOR PainballCharge : Inventory
+{
+	Inventory.MaxAmount 100
+	Inventory.Icon STTPRCNT
+	-INVBAR
+}
+
+actor PainballThrower_Red : Weapon
+{
+	+WEAPON.CHEATNOTWEAPON
+	Weapon.AmmoUse 0
+	States
+	{
+		Deselect:
+			TNT1 A 1 A_Lower
+			loop
+		Select:
+			TNT1 A 1 A_Raise
+			loop
+		Ready:
+			TNT1 A 1 A_WeaponReady(WRF_DISABLESWITCH)
+			loop
+		Hold:
+		Fire:
+			TNT1 A 2 A_GiveInventory("PainballCharge", 4)
+			TNT1 A 0 A_Refire("Fire")
+			TNT1 A 0 A_JumpIfInventory("PainballCharge", 75, "VeryStrongThrow")
+			TNT1 A 0 A_JumpIfInventory("PainballCharge", 50, "StrongThrow")
+			TNT1 A 0 A_JumpIfInventory("PainballCharge", 25, "MediumThrow")
+			goto WeakThrow
+		VeryStrongThrow:
+			TNT1 A 0 A_PlaySound("PainballStrongThrow", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_VeryStrong_Red", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+2)*64,0,sin(-pitch+2)*64, 0, 0, 0)
+			goto End
+		StrongThrow:
+			TNT1 A 0 A_PlaySound("skeleton/swing", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_Strong_Red", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+4)*48,0,sin(-pitch+4)*48, 0, 0, 0)
+			goto End
+		MediumThrow:
+			TNT1 A 0 A_PlaySound("skeleton/swing", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_Medium_Red", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+6)*32,0,sin(-pitch+6)*32, 0, 0, 0)
+			goto End	
+		WeakThrow:
+			TNT1 A 0 A_PlaySound("skeleton/swing", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_Weak_Red", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+8)*16,0,sin(-pitch+8)*16, 0, 0, 0)
+			goto End	
+		End:
+			TNT1 A 15 A_TakeInventory("PainballCharge", 100)
+			goto Ready
+			
+	}
+}
+
+actor PainballThrower_Blue : PainballThrower_Red
+{
+	States
+	{
+		Hold:
+		Fire:
+			TNT1 A 2 A_GiveInventory("PainballCharge", 4)
+			TNT1 A 0 A_Refire("Fire")
+			TNT1 A 0 A_JumpIfInventory("PainballCharge", 75, "VeryStrongThrow")
+			TNT1 A 0 A_JumpIfInventory("PainballCharge", 50, "StrongThrow")
+			TNT1 A 0 A_JumpIfInventory("PainballCharge", 25, "MediumThrow")
+			goto WeakThrow
+		VeryStrongThrow:
+			TNT1 A 0 A_PlaySound("PainballStrongThrow", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_VeryStrong_Blue", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+2)*64,0,sin(-pitch+2)*64, 0, 0, 0)
+			goto End
+		StrongThrow:
+			TNT1 A 0 A_PlaySound("skeleton/swing", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_Strong_Blue", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+4)*48,0,sin(-pitch+4)*48, 0, 0, 0)
+			goto End
+		MediumThrow:
+			TNT1 A 0 A_PlaySound("skeleton/swing", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_Medium_Blue", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+6)*32,0,sin(-pitch+6)*32, 0, 0, 0)
+			goto End	
+		WeakThrow:
+			TNT1 A 0 A_PlaySound("skeleton/swing", CHAN_WEAPON)
+			TNT1 A 0 A_SpawnItemEx("Painball_Weak_Blue", cos(-pitch)*1, 0, 32+(sin(pitch)*1),cos(-pitch+8)*16,0,sin(-pitch+8)*16, 0, 0, 0)
+			goto End
+	}
+}
+
+actor Painball_VeryStrong_Red
+{
+	Projectile
+	Speed 64
+	Damage (64)
+	Radius 4
+	Height 8
+	Gravity 0.5
+	RenderStyle Add
+	Alpha 1.0
+	SeeSound "skeleton/swing"
+	BounceSound "PainballBounce"
+	BounceType Hexen
+	BounceCount 4
+	BounceFactor 1.0
+	+BOUNCEAUTOOFFFLOORONLY
+	+EXTREMEDEATH
+	-ALLOWBOUNCEONACTORS
+	-BOUNCEONACTORS
+	-NOGRAVITY
+	States
+	{
+		Spawn:
+			BAL1 A 1 BRIGHT A_SpawnItemEx("PainballSpark_Red", 0, 0, 0, (velx/4.0)+frandom(-6.0,6.0), (vely/4.0)+frandom(-6.0,6.0), (velz/4.0)+frandom(-4.0,6.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
+			BAL1 A 0 BRIGHT A_SpawnItemEx("PainballExplosionShell_Red", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			loop
+		Death:
+			TNT1 A 0 A_PlaySound("PainballStrongImpact", CHAN_AUTO)
+			TNT1 A 0 A_SpawnItemEX("PainballFire_Red", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1 A_SpawnItemEx("PainballExplosionShell_Red", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor Painball_Strong_Red : Painball_VeryStrong_Red
+{
+	-EXTREMEDEATH
+	Speed 48
+	Damage (48)
+	States
+	{
+		Spawn:
+			BAL1 A 1 BRIGHT A_SpawnItemEx("PainballSpark_Red", 0, 0, 0, (velx/4.0)+frandom(-6.0,6.0), (vely/4.0)+frandom(-6.0,6.0), (velz/4.0)+frandom(-4.0,6.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
+			loop
+		Death:
+			TNT1 A 0 A_PlaySound("PainballNormalImpact", CHAN_AUTO)
+			TNT1 A 0 A_SpawnItemEX("PainballFire_Red", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1 A_SpawnItemEx("PainballExplosionShell_Red", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor Painball_Medium_Red : Painball_Strong_Red
+{
+	Speed 32
+	Damage (32)
+}
+
+actor Painball_Weak_Red : Painball_Strong_Red
+{
+	Speed 16
+	Damage (16)
+}
+
+actor Painball_VeryStrong_Blue : Painball_VeryStrong_Red
+{ 
+	Speed 64
+	Damage (64)
+	States
+	{
+		Spawn:
+			BAL1 A 1 BRIGHT A_SpawnItemEx("PainballSpark_Blue", 0, 0, 0, (velx/4.0)+frandom(-6.0,6.0), (vely/4.0)+frandom(-6.0,6.0), (velz/4.0)+frandom(-4.0,6.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
+			BAL1 A 0 BRIGHT A_SpawnItemEx("PainballExplosionShell_Blue", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			loop
+		Death:
+			TNT1 A 0 A_PlaySound("PainballStrongImpact", CHAN_AUTO)
+			TNT1 A 0 A_SpawnItemEX("PainballFire_Blue", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1 A_SpawnItemEx("PainballExplosionShell_Blue", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor Painball_Strong_Blue : Painball_VeryStrong_Blue
+{ 
+	-EXTREMEDEATH
+	Speed 48
+	Damage (48)
+	States
+	{
+		Spawn:
+			BAL1 A 1 BRIGHT A_SpawnItemEx("PainballSpark_Blue", 0, 0, 0, (velx/4.0)+frandom(-6.0,6.0), (vely/4.0)+frandom(-6.0,6.0), (velz/4.0)+frandom(-4.0,6.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
+			loop
+		Death:
+			TNT1 A 0 A_PlaySound("PainballNormalImpact", CHAN_AUTO)
+			TNT1 A 0 A_SpawnItemEX("PainballFire_Blue", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 1 A_SpawnItemEx("PainballExplosionShell_Blue", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor Painball_Medium_Blue : Painball_Strong_Blue
+{ 
+	Speed 32
+	Damage (32)
+	States
+	{
+		Spawn:
+			BAL1 A 1 BRIGHT A_SpawnItemEx("PainballSpark_Blue", 0, 0, 0, (velx/4.0)+frandom(-6.0,6.0), (vely/4.0)+frandom(-6.0,6.0), (velz/4.0)+frandom(-4.0,6.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
+			loop
+	}
+}
+
+actor Painball_Weak_Blue : Painball_Strong_Blue
+{
+	Speed 16
+	Damage (16)
+	States
+	{
+		Spawn:
+			BAL1 A 1 BRIGHT A_SpawnItemEx("PainballSpark_Blue", 0, 0, 0, (velx/4.0)+frandom(-6.0,6.0), (vely/4.0)+frandom(-6.0,6.0), (velz/4.0)+frandom(-4.0,6.0), angle, SXF_CLIENTSIDE | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY)
+			loop
+	}
+}
+
+actor PainballSpark_Red
+{
+	Projectile
+	Radius 2
+	Height 2
+	Damage 0
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.04
+	BounceFactor 0.9
+	Gravity 0.3
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	+HEXENBOUNCE
+	+FORCEXYBILLBOARD
+	+DONTSPLASH
+	+CANBOUNCEWATER
+	+BOUNCEAUTOOFFFLOORONLY
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
+	-NOGRAVITY
+	States
+	{
+		Spawn:
+			REMB A 0 BRIGHT
+			REMB A 0 A_JumpIf(WaterLevel >= 1, "Death")
+			REMB A 1 BRIGHT A_FadeOut(0.15)
+			loop
+		Death:
+			TNT1 A 1
+			TNT1 A 1
+			stop
+	}
+}
+
+actor PainballSpark_Blue : PainballSpark_Red
+{
+	States
+	{
+		Spawn:
+			BEMB A 0 BRIGHT
+			BEMB A 0 A_JumpIf(WaterLevel >= 1, "Death")
+			BEMB A 1 BRIGHT A_FadeOut(0.15)
+			loop
+	}
+}
+
+actor PainballExplosionShell_Red : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.01
+	States
+	{
+		Spawn:
+			NULL A 1 BRIGHT A_SetScale(scalex+0.3)
+			NULL A 0 BRIGHT A_FadeOut(0.075)
+			loop
+	}
+}
+
+actor PainballExplosionShell_Blue : PainballExplosionShell_Red
+{
+}
+
+actor PainballFire_Red : RedFlame
+{
+	Scale 0.8
+	Alpha 1.0
+	-NOINTERACTION
+}
+
+actor PainballFire_Blue : BlueFlame
+{
+	Scale 0.8
+	Alpha 1.0
+	-NOINTERACTION
+}

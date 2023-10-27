@@ -1,0 +1,101 @@
+actor PainballCrystal_Red 23443
+{
+	Radius 32
+	Height 56
+	Health 100
+	Mass 0x7fffffff
+	RenderStyle Add
+	Alpha 1.0
+	DamageFactor "PainballCrystal", 0.0
+	+NODAMAGETHRUST
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+FLOATBOB
+	States
+	{
+		Spawn:
+			BAR1 A -1 BRIGHT
+			loop
+		Death:
+			TNT1 A 0
+			TNT1 A 0 A_PlaySound("PainballCrystalDeath", CHAN_AUTO)
+			TNT1 A 0 A_SpawnItemEx("PainballCrystalShockwave_Red", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("PainballCrystalShard_Red", 0, 0, frandom(16.0,48.0), frandom(-50.0, 50.0), frandom(-50.0, 50.0), frandom(-50.0, 50.0), 0, SXF_TRANSFERPOINTERS, 0)
+			TNT1 AAAAAAAAAA 1 A_SpawnItemEX("PainballFire_Red", frandom(-8.0, 8), frandom(-8.0, 8.0), frandom(16.0,48.0), frandom(-5.0, 5.0), frandom(-5.0, 5.0), frandom(-5.0, 5.0), Random(-360, 360), SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor PainballCrystal_Blue : PainballCrystal_Red 23444
+{
+	States
+	{
+		Spawn:
+			BAR1 A -1 BRIGHT
+			loop
+		Death:
+			TNT1 A 0
+			TNT1 A 0 A_PlaySound("PainballCrystalDeath", CHAN_AUTO)
+			TNT1 A 0 A_SpawnItemEx("PainballCrystalShockwave_Blue", 0, 0, 32, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("PainballCrystalShard_Blue", 0, 0, frandom(16.0,48.0), frandom(-50.0, 50.0), frandom(-50.0, 50.0), frandom(-50.0, 50.0), 0, SXF_TRANSFERPOINTERS, 0)
+			TNT1 AAAAAAAAAA 1 A_SpawnItemEX("PainballFire_Blue", frandom(-8.0, 8), frandom(-8.0, 8.0), frandom(16.0,48.0), frandom(-5.0, 5.0), frandom(-5.0, 5.0), frandom(-5.0, 5.0), Random(-360, 360), SXF_CLIENTSIDE, 0)
+			stop
+	}
+}
+
+actor PainballCrystalShockwave_Red : BaseEffect
+{
+	RenderStyle Add
+	Alpha 1.0
+	Scale 0.0
+	+NOCLIP
+	States
+	{
+	Spawn:
+		NULL A 1 BRIGHT A_SetScale(scalex+0.75)
+		NULL A 0 BRIGHT A_FadeOut(0.05)
+		loop
+	}
+}
+
+actor PainballCrystalShockwave_Blue : PainballCrystalShockwave_Red
+{
+}
+
+actor PainballCrystalShard_Red
+{
+	Radius 2
+	Height 2
+	projectile
+	+SKYEXPLODE
+	+BLOODSPLATTER
+	+FORCEXYBILLBOARD
+	+CANPASS
+	+BOUNCEAUTOOFFFLOORONLY
+	-BLOODLESSIMPACT
+	-NOGRAVITY
+	obituary "%o is plucking out shards of painball crystal from his skin."
+	BounceType Hexen
+	BounceCount 5
+	Speed 50
+	DamageType "PainballCrystal"
+	Damage (24)
+	Gravity 0.5
+	RenderStyle Add
+	Alpha 1.0
+	States
+	{
+	Spawn:
+		METL A 1 BRIGHT
+		loop
+	Death:
+		TNT1 AAAAAA 0 A_SpawnItemEX("FlakPuff", 0, 0, 0, random(-1,1), random(-1,1), random(-1,1), random(-360,360), SXF_CLIENTSIDE, 0)
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PainballCrystalShard_Blue : PainballCrystalShard_Red
+{
+}

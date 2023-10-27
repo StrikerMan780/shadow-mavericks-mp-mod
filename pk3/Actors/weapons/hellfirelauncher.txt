@@ -1,4 +1,4 @@
-ACTOR HellFireCannon : Weapon 21002
+ACTOR HellfireCannon : Weapon 21002
 {
 	Tag "Hellfire Missile Launcher"
 	Weapon.BobSpeed 1.25
@@ -7,7 +7,7 @@ ACTOR HellFireCannon : Weapon 21002
     Weapon.BobRangeY 0.5
 	Inventory.PickUpSound "misc/w_pkup"
 	Inventory.PickupMessage "You got the Hellfire Missile Launcher!"
-	Weapon.AmmoType "HellFireAmmo"
+	Weapon.AmmoType "HellfireAmmo"
 	Weapon.AmmoGive 8
 	Weapon.AmmoUse 1
 	Weapon.Kickback 200
@@ -59,7 +59,7 @@ ACTOR HellFireCannon : Weapon 21002
 		HELG A 0 A_Refire
 		Goto Ready
 	Flash:
-		TNT1 A 0 A_FireCustomMissile("HellFireRocketHi", (random(-200,200)/100.0), 1, 4, 0, 0, (random(-200,200)/100.0))
+		TNT1 A 0 A_FireCustomMissile("HellfireRocketHi", (random(-200,200)/100.0), 1, 4, 0, 0, (random(-200,200)/100.0))
 		TNT1 A 0 A_SetAngle(angle+random(-1,1))
 		TNT1 A 1 A_SetPitch(pitch-1.0)
 		TNT1 AA 1 A_SetPitch(pitch+0.5)
@@ -144,7 +144,7 @@ actor HellfireSpark : BaseEffect
 	}
 }
 
-actor HellFireRocketHi
+actor HellfireRocketHi
 {
 	projectile
 	radius 11

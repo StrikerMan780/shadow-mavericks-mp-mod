@@ -32,6 +32,8 @@ Use the SST TC's Bio Bow as the Biorifle for Duke
 * Give Tails the hand Fusion Bomb
 * Slow down revenant missiles
 
+Enemy Turret Translation: "152:159=181:188", "9:12=44:47"
+
 (CANNOT DO YET) Prevent the Ultimate attacks from Stacking Demonic Points (CANNOT DO YET)
 
 -=Graphics=-

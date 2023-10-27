@@ -1752,7 +1752,7 @@ Model Tails_TechPistol
 {
 	Model 0 "Models\HUD\TechPistol\TechPistol.md3"
 	SurfaceSkin 0 0 "Models\HUD\TechPistol\TechPistol_Barrel.png"
-	SurfaceSkin 0 1 "Textures\Models\TechPistol\Tube_R01.png"
+	SurfaceSkin 0 1 "Textures\Models\TechPistol\Tube_S01.png"
 	SurfaceSkin 0 2 "Models\HUD\TechPistol\TechPistol_Super.png"
 	SurfaceSkin 0 3 "Models\HUD\TailsHands.png"
 	Scale 5.0 5.0 5

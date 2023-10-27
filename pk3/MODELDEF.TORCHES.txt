@@ -47,3 +47,53 @@ Model ImprovedShortWhiteTorch
 	
 	FrameIndex SMRT A 0 0
 }
+
+model ImprovedRedTorch
+{
+	path "models/Decoration/Lights"
+	model 0 "ZeldaTorch2.md3"
+	skin 0 "ZeldaTorch2.png"
+	Scale 3.75 3.75 3.75
+	
+	FrameIndex TRED A 0 0
+}
+
+model ImprovedGreenTorch
+{
+	path "models/Decoration/Lights"
+	model 0 "ZeldaTorch2.md3"
+	skin 0 "ZeldaTorch2.png"
+	Scale 3.75 3.75 3.75
+	
+	FrameIndex TRED A 0 0
+}
+
+model ImprovedBlueTorch
+{
+	path "models/Decoration/Lights"
+	model 0 "ZeldaTorch2.md3"
+	skin 0 "ZeldaTorch2.png"
+	Scale 3.75 3.75 3.75
+	
+	FrameIndex TRED A 0 0
+}
+
+model ImprovedYellowTorch
+{
+	path "models/Decoration/Lights"
+	model 0 "ZeldaTorch2.md3"
+	skin 0 "ZeldaTorch2.png"
+	Scale 3.75 3.75 3.75
+	
+	FrameIndex TRED A 0 0
+}
+
+model ImprovedWhiteTorch
+{
+	path "models/Decoration/Lights"
+	model 0 "ZeldaTorch2.md3"
+	skin 0 "ZeldaTorch2.png"
+	Scale 3.75 3.75 3.75
+	
+	FrameIndex TRED A 0 0
+}

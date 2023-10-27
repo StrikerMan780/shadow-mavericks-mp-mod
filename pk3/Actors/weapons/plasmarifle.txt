@@ -162,8 +162,8 @@ actor BluePlasmaFlashSpawner
 	{
 		Death:
 		Spawn:
-			BLSS A 0
-			BLSS A 0 A_SpawnItemEx("BluePlasmaFlash1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("BluePlasmaFlash1", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE, 0)
 			stop
 	}
 }

@@ -127,25 +127,23 @@ Model ThorDildo_Yellow
 	FrameIndex NULL A 0 0
 }
 
-/*
-model PendingProp1
+model TenaSlipBag
 {
 	Path "Models/Decoration"
-	Model 0 "something.md3"
+	Model 0 "package.md3"
 	Path "Models/Decoration/XXX"
-	Skin 0 "something.png"
+	Skin 0 "tenabag.png"
 	Scale 1.5 1.5 1.5
 
 	FrameIndex NULL A 0 0
 }
 
-model PendingProp2
+model TenaSlip
 {
 	Path "Models/Decoration/XXX"
-	Model 0 "something.md3"
-	Skin 0 "something.png"
+	Model 0 "tena.md3"
+	Skin 0 "tena.png"
 	Scale 0.64 0.64 0.64
 
 	FrameIndex NULL A 0 0
 }
-*/

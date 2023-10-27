@@ -1,0 +1,7 @@
+#include "zcommon.acs"
+
+script 1 OPEN
+{
+  Delay(1);
+  terminate;
+}

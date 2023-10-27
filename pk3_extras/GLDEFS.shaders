@@ -30,6 +30,11 @@ HardwareShader texture BLUEGEM
 	Shader "shaders/crystallize.fp"
 }
 
+HardwareShader texture REDGEM
+{
+	Shader "shaders/crystallize.fp"
+}
+
 HardwareShader texture LAVAFALL
 {
 	Shader "shaders/lavafall.fp"
