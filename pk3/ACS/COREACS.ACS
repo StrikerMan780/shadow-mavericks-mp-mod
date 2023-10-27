@@ -270,7 +270,7 @@ script "DEMONIC_POWER" KILL
 	if (!(ClassifyActor(0) & ACTOR_MONSTER) || GetActorProperty(0, APROP_Friendly))
 		terminate;
 	
-	int monster_dp = GetActorProperty(0, APROP_SpawnHealth)/40;
+	int monster_dp = GetActorProperty(0, APROP_SpawnHealth)/50;
 	if(monster_dp <= 0)
 		monster_dp = 1;
 	
