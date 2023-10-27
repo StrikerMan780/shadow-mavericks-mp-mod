@@ -34,7 +34,7 @@ actor Tails : BaseClass
 	Player.WeaponSlot 2, "Tails_TechPistol"
 	Player.WeaponSlot 3, "PIPS", "Keyring", "IceSSG"
 	Player.WeaponSlot 4, "BCF-2Repeaters", "Mp40"
-	Player.WeaponSlot 5, "StickyBombs", "ProtonTL"
+	Player.WeaponSlot 5, "StickyBombs", "ProtonTL", "HellfireCannon"
 	Player.WeaponSlot 6, "HaloPlasmaRifle", "Cyclone", "ShockRifle"
 	Player.WeaponSlot 7, "Supra", "BFG10k", "NukeLauncher", "Noisy_Cricket"
 	Player.WeaponSlot 8, "BioRifle", "Needler", "TailsSniperRifle"

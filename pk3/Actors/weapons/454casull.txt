@@ -30,61 +30,62 @@ actor 454Casull : Weapon
 	scale 0.2
 	states
 	{
-	Spawn:
-		CASP A 0
-		stop
-	Ready:
-		CASL A 0 A_WeaponReady
-		goto ReloadCheck
-		CASL A 1 A_WeaponReady
-		goto Ready+1
-	Deselect:
-		CASL A 1 A_Lower
-		loop
-	Select:
-		CASL A 1 A_Raise
-		loop
-	Fire:
-		CASL B 0 A_JumpIfNoAmmo("ReloadCheck")
-		CASL B 0 A_GunFlash
-		CASL B 0 A_Quake(6, 2, 0, 32, "")
-		CASL B 0 BRIGHT A_FireBullets (2, 1.5, 1, 60, "SilverBulletPuff2", FBF_USEAMMO | FBF_NORANDOM)
-		CASL B 0 BRIGHT A_FireCustomMissile("BulletCasing",-45+random(-8,8),0,1,9)
-		CASL B 2 BRIGHT A_SetPitch(pitch-4)
-		CASL CDEF 2 A_SetPitch(pitch+1)
-		CASL GHI 2
-		CASL J 0 A_ReFire
-		CASL JKL 2
-		goto Ready+1
-	ReloadCheck:
-		CASR A 0 A_JumpIfInventory("CasullClip",7,2)
-		CASR A 0 A_JumpIfInventory("MechAmmo",2,"ReloadStart")
-		CASR A 0
-		goto Ready+1
+		Spawn:
+			CASP A 0
+			stop
+		Ready:
+			CASL A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+			loop
+		Deselect:
+			CASL A 1 A_Lower
+			loop
+		Select:
+			CASL A 1 A_Raise
+			loop
+		Fire:
+			CASL B 0 A_JumpIfNoAmmo("ReloadCheck")
+			CASL B 0 A_GunFlash
+			CASL B 0 A_Quake(6, 2, 0, 32, "")
+			CASL B 0 BRIGHT A_FireBullets (2, 1.5, 1, 60, "SilverBulletPuff2", FBF_USEAMMO | FBF_NORANDOM)
+			CASL B 0 BRIGHT A_FireCustomMissile("BulletCasing",-45+random(-8,8),0,1,9)
+			CASL B 2 BRIGHT A_SetPitch(pitch-4)
+			CASL CDEF 2 A_SetPitch(pitch+1)
+			CASL GHI 2
+			CASL J 0 A_ReFire
+			CASL JKL 2
+			goto Ready
+			
+		Reload:
+			CASR A 0
+			goto ReloadCheck	
+			
+		ReloadCheck:
+			CASR A 0 A_JumpIfInventory("CasullClip",7,2)
+			CASR A 0 A_JumpIfInventory("MechAmmo",2,"ReloadStart")
+			CASR A 0
+			goto Ready
 
-	ReloadStart:
-		CASR A 0 A_PlaySoundEx("9mmClipOut", "Auto", 0)
-		CASR ABCDEFGHIJKLMNOP 2
-		CASR Q 2 A_PlaySoundEx("9mmClipIn", "Auto", 0)
-		goto ReloadAmmo
+		ReloadStart:
+			CASR A 0 A_PlaySoundEx("9mmClipOut", "Auto", 0)
+			CASR ABCDEFGHIJKLMNOP 2
+			CASR Q 2 A_PlaySoundEx("9mmClipIn", "Auto", 0)
+			goto ReloadAmmo
 
-	ReloadAmmo:
-		NULL A 0 A_TakeInventory("MechAmmo",2)
-		NULL A 0 A_GiveInventory("CasullClip",1)
-		NULL A 0 A_JumpIfInventory("CasullClip",7,"ReloadDone")
-		NULL A 0 A_JumpIfInventory("MechAmmo",2,"ReloadAmmo")
-		goto ReloadDone
+		ReloadAmmo:
+			NULL A 0 A_TakeInventory("MechAmmo",2)
+			NULL A 0 A_GiveInventory("CasullClip",1)
+			NULL A 0 A_JumpIfInventory("CasullClip",7,"ReloadDone")
+			NULL A 0 A_JumpIfInventory("MechAmmo",2,"ReloadAmmo")
+			goto ReloadDone
 
-	ReloadDone:
-		CASR RST 1
-		CASR UVWXYZ 2
-		goto Ready+1
-	AltFire:
-		CASL A 0
-		goto ReloadCheck
-	Flash:
-		TNT1 A 2 A_Light1
-		TNT1 A 1 A_Light0
-		stop
+		ReloadDone:
+			CASR RST 1
+			CASR UVWXYZ 2
+			goto Ready
+			
+		Flash:
+			TNT1 A 2 A_Light1
+			TNT1 A 1 A_Light0
+			stop
 	}
 }
