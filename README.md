@@ -1,5 +1,3 @@
-SMMP is now on Evolve! Find other SMMP players and track your playtime - See here: https://www.evolvehq.com/games/4271
-
 The Shadow Mavericks MP Mod ("SMMP" for short, MP standing for both Multiplayer & Multipurpose.) is an ever-evolving, wild and wacky collection of our clan's maps and ideas.
 
 As the name would suggest, it has more than one purpose; It's part weapons mod, part HD visual enhancement, part COOP/DM/DUEL/CTF/LMS map pack, part 'headquarters' mod, part class-based slugfest, part monster replacement, part joke mod, and part whatever-the-fuck-we-want. It's primary purpose though is to provide us with a base for limitless experimentation, and to allow us to make something very fun, interactive, full of humor, and addicting to play.
