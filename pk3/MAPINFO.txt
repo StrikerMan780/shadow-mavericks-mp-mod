@@ -23,7 +23,7 @@ gameinfo
 					"\cfGiving up? I bet you've barely scratched the surface of this mod.",
 					"\cgYes \cfto cower and hide, \cdNo \cfto show us your Manface!",
 					"\cfSo, you're heading off to try dick?",
-					"\cfWhat, gonna write about how much I offended you on your Tumblr?",
+					"\cfWhat, gonna write about how much I offended you on Twitter?",
 					"\cfYou are quitting. Big surprise not.",
 					"\cfGo on, scram, you bloody wanker!",
 					"\cdNo \cfto kick demonic ass. \cgYes \cfto have a fireborn cleave your nuts off."

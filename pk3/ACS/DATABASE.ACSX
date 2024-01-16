@@ -81,7 +81,7 @@ function void ClearLocalStats(int pnum)
 script "GIVEMONEY" (int amount, int givetotarget)
 {
 	if(IsNetworkGame() && ConsolePlayerNumber() != -1)
-		return;
+		terminate;
 		
 	if(givetotarget)
 	{
@@ -111,7 +111,7 @@ script "GIVEMONEY" (int amount, int givetotarget)
 script "TAKEMONEY" (int amount, int takefromtarget)
 {
 	if(IsNetworkGame() && ConsolePlayerNumber() != -1)
-		return;
+		terminate;
 		
 	if(takefromtarget)
 	{

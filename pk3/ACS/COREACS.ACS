@@ -157,6 +157,7 @@ function void smmp_spawn (int respawned)
 	
 	// Variable resets
 	PlayerThrowableCooldown[player_num] = false;
+	TakeInventory("CannotUse", 999);
 	
 	if(respawned >= 1)
 	{
